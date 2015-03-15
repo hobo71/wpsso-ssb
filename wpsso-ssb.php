@@ -21,11 +21,19 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 
 	class WpssoSsb {
 
+		public $p;				// class object variables
+
+		protected static $instance = null;
+
 		private $opt_version = 'ssb3';
 		private $min_version = '2.8.3';
 		private $has_min_ver = true;
 
-		public $p;				// class object variables
+		public static function &get_instance() {
+			if ( self::$instance === null )
+				self::$instance = new self;
+			return self::$instance;
+		}
 
 		public function __construct() {
 			// don't continue if the social sharing buttons are disabled
@@ -69,8 +77,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 
 		// this action is executed when WpssoOptions::__construct() is executed (class object is created)
 		public function init_options() {
-			global $wpsso;
-			$this->p =& $wpsso;
+			$this->p =& Wpsso::get_instance();
 			if ( $this->has_min_ver === false )
 				return;
 			$this->p->is_avail['ssb'] = true;
@@ -116,7 +123,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 	}
 
         global $wpssossb;
-	$wpssossb = new WpssoSsb();
+	$wpssoSsb = WpssoSsb::get_instance();
 }
 
 ?>

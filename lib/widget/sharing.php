@@ -15,10 +15,9 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 		protected $p;
 
 		public function __construct() {
-			global $wpsso;
-			if ( ! is_object( $wpsso ) )
+			$this->p =& Wpsso::get_instance();
+			if ( ! is_object( $this->p ) )
 				return;
-			$this->p =& $wpsso;
 			$lca = $this->p->cf['lca'];
 			$short = $this->p->cf['plugin'][$lca]['short'];
 			$widget_name = 'Sharing Buttons';
