@@ -123,6 +123,15 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * GitHub: https://github.com/SurniaUlula/wpsso
 * WordPress.org: https://wordpress.org/plugins/wpsso/developers/
 
+<h4>Version 1.2 (2015/04/02)</h4>
+
+* **Bugfixes**
+	* *None*
+* **Improvements**
+	* Further performance improvements for non-debug mode by centralizing debug mode checks.
+* **New Features**
+	* *None*
+
 <h4>Version 1.1.10</h4>
 
 * **Bugfixes**
@@ -142,6 +151,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 <h3>Upgrade Notice</h3>
+
+<h4>1.2</h4>
+
+Further performance improvements for non-debug mode by centralizing debug mode checks.
 
 <h4>1.1.10</h4>
 
