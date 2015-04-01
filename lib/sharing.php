@@ -14,7 +14,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 		protected $p;
 		protected $website = array();
-		protected $plugin_filepath;
+		protected $plugin_filepath = '';
 
 		public $sharing_css_file = '';
 		public $sharing_css_url = '';
@@ -133,12 +133,12 @@ jQuery("#wpsso-sidebar").click( function(){
 
 		public function __construct( &$plugin, $plugin_filepath = WPSSOSSB_FILEPATH ) {
 			$this->p =& $plugin;
+			if ( $this->p->debug_enabled )
+				$this->p->debug->mark( 'action / filter setup' );
 			$this->plugin_filepath = $plugin_filepath;
-
 			$sharing_css_name = 'sharing-styles-'.get_current_blog_id().'.min.css';
 			$this->sharing_css_file = WPSSO_CACHEDIR.$sharing_css_name;
 			$this->sharing_css_url = WPSSO_CACHEURL.$sharing_css_name;
-
 			$this->set_objects();
 
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_enqueue_styles' ) );
@@ -170,6 +170,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					'status_pro_features' => 3,	// include social file cache status
 				), 10, 'wpssossb' );			// hook into the extension name instead
 			}
+			if ( $this->p->debug_enabled )
+				$this->p->debug->mark( 'action / filter setup' );
 		}
 
 		private function set_objects() {
@@ -196,7 +198,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					else {
 						$css_data = fread( $fh, filesize( $css_file ) );
 						fclose( $fh );
-						$this->p->debug->log( 'read css from file '.$css_file );
+						if ( $this->p->debug_enabled )
+							$this->p->debug->log( 'read css from file '.$css_file );
 						foreach ( array( 'URLPATH' => $url_path ) as $macro => $value )
 							$css_data = preg_replace( '/{{'.$macro.'}}/', $value, $css_data );
 						$opts_def['buttons_css_'.$id] = $css_data;
@@ -317,38 +320,22 @@ jQuery("#wpsso-sidebar").click( function(){
 					$text = 'When showing <em>All Plugin Options</em>, the Sharing Styles settings page includes an editor for the various social sharing buttons.';
 					break;
 				case 'tooltip-side-sharing-buttons':
-					$text = 'Social sharing features include the '.$this->p->cf['menu'].' '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).
-					' and '.$this->p->util->get_admin_url( 'style', 'Styles' ).' settings pages, the Social Settings -&gt; Sharing Buttons tab on Post 
-					or Page editing pages, along with the social sharing shortcode and widget. All social sharing features can be disabled using one of 
-					the available PHP <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constants</a>.';
+					$text = 'Social sharing features include the '.$this->p->cf['menu'].' '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' and '.$this->p->util->get_admin_url( 'style', 'Styles' ).' settings pages, the Social Settings -&gt; Sharing Buttons tab on Post or Page editing pages, along with the social sharing shortcode and widget. All social sharing features can be disabled using one of the available PHP <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constants</a>.';
 					break;
 				case 'tooltip-side-sharing-shortcode':
-					$text = 'Support for shortcode(s) can be enabled / disabled on the '.
-					$this->p->util->get_admin_url( 'advanced', 'Advanced' ).' settings page. Shortcodes are disabled by default
-					to optimize WordPress performance and content processing.';
+					$text = 'Support for shortcode(s) can be enabled / disabled on the '.$this->p->util->get_admin_url( 'advanced', 'Advanced' ).' settings page. Shortcodes are disabled by default to optimize WordPress performance and content processing.';
 					break;
 				case 'tooltip-side-sharing-stylesheet':
-					$text = 'A stylesheet can be included on all webpages for the social sharing buttons. Enable or disable the
-					addition of the stylesheet from the '.$this->p->util->get_admin_url( 'style', 'Styles' ).' settings page.';
+					$text = 'A stylesheet can be included on all webpages for the social sharing buttons. Enable or disable the addition of the stylesheet from the '.$this->p->util->get_admin_url( 'style', 'Styles' ).' settings page.';
 					break;
 				case 'tooltip-side-sharing-widget':
-					$text = 'The social sharing widget feature adds a \'Sharing Buttons\' widget in the WordPress Appearance - Widgets page.
-					The widget can be used in any number of widget areas, to share the current webpage. The widget, along with all social
-					sharing featured, can be disabled using an available 
-					<a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constant</a>.';
+					$text = 'The social sharing widget feature adds a \'Sharing Buttons\' widget in the WordPress Appearance - Widgets page. The widget can be used in any number of widget areas, to share the current webpage. The widget, along with all social sharing featured, can be disabled using an available <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constant</a>.';
 					break;
 				case 'tooltip-side-social-file-cache':
-					$text = $short_pro.' can save social sharing images and JavaScript to a cache folder, 
-					and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\'
-					value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.
-					$this->p->options['plugin_file_cache_hrs'].' hours (the default value of 0 hours disables the 
-					file caching feature).';
+					$text = $short_pro.' can save social sharing images and JavaScript to a cache folder, and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\' value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.$this->p->options['plugin_file_cache_hrs'].' hours (the default value of 0 hours disables the file caching feature).';
 					break;
 				case 'tooltip-side-url-shortener':
-					$text = '<strong>When using the Twitter social sharing button provided by this plugin</strong>, 
-					the webpage URL (aka the <em>canonical</em> or <em>permalink</em> URL) within the Tweet, 
-					can be shortened by one of the available URL shortening services. 
-					Enable URL shortening for Twitter from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' settings page.';
+					$text = '<strong>When using the Twitter social sharing button provided by this plugin</strong>, the webpage URL (aka the <em>canonical</em> or <em>permalink</em> URL) within the Tweet, can be shortened by one of the available URL shortening services. Enable URL shortening for Twitter from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' settings page.';
 					break;
 			}
 			return $text;
@@ -360,34 +347,19 @@ jQuery("#wpsso-sidebar").click( function(){
 				 * 'API Keys' (URL Shortening) settings
 				 */
 				case 'tooltip-plugin_min_shorten':
-					$text = 'URLs shorter than this length will not be shortened (the default is '.
-					$this->p->opt->get_defaults( 'plugin_min_shorten' ).' characters).';
+					$text = 'URLs shorter than this length will not be shortened (the default is '.$this->p->opt->get_defaults( 'plugin_min_shorten' ).' characters).';
 					break;
 				case 'tooltip-plugin_bitly_login':
-					$text = 'The Bit.ly username for your API key. If you don\'t already have one, see 
-					<a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>.
-					After setting your username and API key, you may select the Bit.ly shortener in the '.
-					$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
+					$text = 'The Bit.ly username for your API key. If you don\'t already have one, see <a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>. After setting your username and API key, you may select the Bit.ly shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
 					break;
 				case 'tooltip-plugin_bitly_api_key':
-					$text = 'The Bit.ly API key for this website. If you don\'t already have one, see 
-					<a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>.
-					After setting your username and API key, you may select the Bit.ly shortener in the '.
-					$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
+					$text = 'The Bit.ly API key for this website. If you don\'t already have one, see <a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>. After setting your username and API key, you may select the Bit.ly shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
 					break;
 				case 'tooltip-plugin_google_api_key':
-					$text = 'The Google BrowserKey for this website / project. If you don\'t already have one, visit
-					<a href="https://cloud.google.com/console#/project" target="_blank">Google\'s Cloud Console</a>,
-					create a new project for your website, and under the API &amp; auth - Registered apps, 
-					register a new \'Web Application\' (name it \'WPSSOSSB\' for example), and enter it\'s BrowserKey here.';
+					$text = 'The Google BrowserKey for this website / project. If you don\'t already have one, visit <a href="https://cloud.google.com/console#/project" target="_blank">Google\'s Cloud Console</a>, create a new project for your website, and under the API &amp; auth - Registered apps, register a new \'Web Application\' (name it \'WPSSOSSB\' for example), and enter it\'s BrowserKey here.';
 					break;
 				case 'tooltip-plugin_google_shorten':
-					$text = 'In order to use Google\'s URL Shortener for URLs in Tweets, you must turn on the 
-					URL Shortener API from <a href="https://cloud.google.com/console#/project" 
-					target="_blank">Google\'s Cloud Console</a>, under the API &amp; auth - APIs 
-					menu options. Confirm that you have enabled Google\'s URL Shortener by checking 
-					the \'Yes\' option here. You can then select the Goo.gl shortener in the '.
-					$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
+					$text = 'In order to use Google\'s URL Shortener for URLs in Tweets, you must turn on the URL Shortener API from <a href="https://cloud.google.com/console#/project" target="_blank">Google\'s Cloud Console</a>, under the API &amp; auth - APIs menu options. Confirm that you have enabled Google\'s URL Shortener by checking the \'Yes\' option here. You can then select the Goo.gl shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
 					break;
 			}
 			return $text;
@@ -397,20 +369,16 @@ jQuery("#wpsso-sidebar").click( function(){
 			$ptn = empty( $atts['ptn'] ) ? 'Post' : $atts['ptn'];
 			switch ( $idx ) {
 				 case 'tooltip-postmeta-pin_desc':
-					$text = 'A custom caption text, used by the Pinterest social sharing button, 
-					for the custom Image ID, attached or featured image.';
+					$text = 'A custom caption text, used by the Pinterest social sharing button, for the custom Image ID, attached or featured image.';
 				 	break;
 				 case 'tooltip-postmeta-tumblr_img_desc':
-				 	$text = 'A custom caption, used by the Tumblr social sharing button, 
-					for the custom Image ID, attached or featured image.';
+				 	$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Image ID, attached or featured image.';
 				 	break;
 				 case 'tooltip-postmeta-tumblr_vid_desc':
-					$text = 'A custom caption, used by the Tumblr social sharing button, 
-					for the custom Video URL or embedded video.';
+					$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Video URL or embedded video.';
 				 	break;
 				 case 'tooltip-postmeta-twitter_desc':
-				 	$text = 'A custom Tweet text for the Twitter social sharing button. 
-					This text is in addition to any Twitter Card description.';
+				 	$text = 'A custom Tweet text for the Twitter social sharing button. This text is in addition to any Twitter Card description.';
 				 	break;
 				 case 'tooltip-postmeta-buttons_disabled':
 					$text = 'Disable all social sharing buttons (content, excerpt, widget, shortcode) for this '.$ptn.'.';
@@ -420,17 +388,20 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function wp_enqueue_styles() {
+
 			// only include sharing styles if option is checked
 			if ( ! empty( $this->p->options['buttons_use_social_css'] ) ) {
 
 				// create the css file if it does not exist
 				if ( ! file_exists( $this->sharing_css_file ) ) {
-					$this->p->debug->log( 'updating '.$this->sharing_css_file );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( 'updating '.$this->sharing_css_file );
 					$this->update_sharing_css( $this->p->options );
 				}
 
 				if ( ! empty( $this->p->options['buttons_enqueue_social_css'] ) ) {
-					$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_sharing_buttons' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_sharing_buttons' );
 					wp_register_style( 
 						$this->p->cf['lca'].'_sharing_buttons', 
 						$this->sharing_css_url, 
@@ -442,7 +413,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					if ( ! is_readable( $this->sharing_css_file ) ) {
 						if ( is_admin() )
 							$this->p->notice->err( $this->sharing_css_file.' is not readable.', true );
-						$this->p->debug->log( $this->sharing_css_file.' is not readable' );
+						if ( $this->p->debug_enabled )
+							$this->p->debug->log( $this->sharing_css_file.' is not readable' );
 					} else {
 						echo '<style type="text/css">';
 						if ( ( $fsize = @filesize( $this->sharing_css_file ) ) > 0 &&
@@ -453,7 +425,8 @@ jQuery("#wpsso-sidebar").click( function(){
 						echo '</style>',"\n";
 					}
 				}
-			} else $this->p->debug->log( 'social css option is disabled' );
+			} elseif ( $this->p->debug_enabled )
+				$this->p->debug->log( 'social css option is disabled' );
 		}
 
 		public function update_sharing_css( &$opts ) {
@@ -613,28 +586,34 @@ jQuery("#wpsso-sidebar").click( function(){
 			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
 				if ( strpos( $type, 'admin_' ) !== 0 ) {
-					$this->p->debug->log( $type.' filter skipped: '.$type.' ignored with is_admin()'  );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( $type.' filter skipped: '.$type.' ignored with is_admin()'  );
 					return $text;
 				}
 			} elseif ( is_feed() ) {
-				$this->p->debug->log( $type.' filter skipped: no buttons allowed in rss feeds'  );
+				if ( $this->p->debug_enabled )
+					$this->p->debug->log( $type.' filter skipped: no buttons allowed in rss feeds'  );
 				return $text;
 			} else {
 				if ( ! is_singular() && empty( $this->p->options['buttons_on_index'] ) ) {
-					$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
 					return $text;
 				} elseif ( is_front_page() && empty( $this->p->options['buttons_on_front'] ) ) {
-					$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
 					return $text;
 				}
 				if ( $this->is_post_buttons_disabled() ) {
-					$this->p->debug->log( $type.' filter skipped: sharing buttons disabled' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( $type.' filter skipped: sharing buttons disabled' );
 					return $text;
 				}
 			}
 
 			if ( ! $this->have_buttons( $type ) ) {
-				$this->p->debug->log( $type.' filter exiting early: no sharing buttons enabled' );
+				if ( $this->p->debug_enabled )
+					$this->p->debug->log( $type.' filter exiting early: no sharing buttons enabled' );
 				return $text;
 			}
 
@@ -651,12 +630,14 @@ jQuery("#wpsso-sidebar").click( function(){
 						( empty( $post_id ) ? '_url:'.$this->p->util->get_sharing_url( $use_post, true, $source_id ) : '' ), $type, $use_post ).')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
-				$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
+				if ( $this->p->debug_enabled )
+					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
 				$html = get_transient( $cache_id );
 			}
 
 			if ( $html !== false ) {
-				$this->p->debug->log( $cache_type.': '.$type.' html retrieved from transient '.$cache_id );
+				if ( $this->p->debug_enabled )
+					$this->p->debug->log( $cache_type.': '.$type.' html retrieved from transient '.$cache_id );
 			} else {
 				// sort enabled sharing buttons by their preferred order
 				$sorted_ids = array();
@@ -681,7 +662,8 @@ jQuery("#wpsso-sidebar").click( function(){
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
 						set_transient( $cache_id, $html, $this->p->cache->object_expire );
-						$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
+						if ( $this->p->debug_enabled )
+							$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
 							$cache_id.' ('.$this->p->cache->object_expire.' seconds)' );
 					}
 				}
@@ -703,7 +685,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					$text = $html.$text.$html; 
 					break;
 			}
-			return $text.$this->p->debug->get_html();
+			return $text.( $this->p->debug_enabled ? $this->p->debug->get_html() : '' );
 		}
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
@@ -724,22 +706,26 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( ! empty( $preset_id ) && ! empty( self::$cf['opt']['preset'] ) ) {
 				if ( array_key_exists( $preset_id, self::$cf['opt']['preset'] ) &&
 					is_array( self::$cf['opt']['preset'][$preset_id] ) ) {
-					$this->p->debug->log( 'applying preset_id '.$preset_id.' to options' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( 'applying preset_id '.$preset_id.' to options' );
 					$custom_opts = array_merge( $custom_opts, self::$cf['opt']['preset'][$preset_id] );
-				} else $this->p->debug->log( $preset_id.' preset_id missing or not array'  );
+				} elseif ( $this->p->debug_enabled )
+					$this->p->debug->log( $preset_id.' preset_id missing or not array'  );
 			} 
 
 			$filter_name = $this->p->cf['lca'].'_sharing_html_'.$filter_id.'_options';
 			if ( ! empty( $filter_id ) && has_filter( $filter_name ) ) {
-				$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
+				if ( $this->p->debug_enabled )
+					$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
 				$custom_opts = apply_filters( $filter_name, $custom_opts );
 			}
 
 			$html = '';
 			foreach ( $ids as $id ) {
 				$id = preg_replace( '/[^a-z]/', '', $id );	// sanitize the website object name
-				if ( method_exists( $this->website[$id], 'get_html' ) )
-					$html .= $this->website[$id]->get_html( $atts, $custom_opts );
+				if ( isset( $this->website[$id] ) &&
+					method_exists( $this->website[$id], 'get_html' ) )
+						$html .= $this->website[$id]->get_html( $atts, $custom_opts );
 			}
 			if ( ! empty( $html ) ) 
 				$html = '<div class="'.$this->p->cf['lca'].'-buttons">'."\n".$html.'</div>';
@@ -816,8 +802,9 @@ jQuery("#wpsso-sidebar").click( function(){
 				foreach ( $ids as $id ) {
 					$id = preg_replace( '/[^a-z]/', '', $id );
 					$opt_name = $this->p->cf['opt']['pre'][$id].'_js_loc';
-					if ( method_exists( $this->website[$id], 'get_js' ) && 
-						! empty( $this->p->options[$opt_name] ) && 
+					if ( isset( $this->website[$id] ) &&
+						method_exists( $this->website[$id], 'get_js' ) && 
+						isset( $this->p->options[$opt_name] ) && 
 						$this->p->options[$opt_name] == $js_loc )
 							$js .= $this->website[$id]->get_js( $pos );
 				}
@@ -871,10 +858,12 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( ! empty( $post ) ) {
 				$post_type = $post->post_type;
 				if ( $this->p->mods['util']['postmeta']->get_options( $post->ID, 'buttons_disabled' ) ) {
-					$this->p->debug->log( 'post '.$post->ID.': sharing buttons disabled by custom meta option' );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( 'post '.$post->ID.': sharing buttons disabled by custom meta option' );
 					$ret = true;
 				} elseif ( ! empty( $post_type ) && empty( $this->p->options['buttons_add_to_'.$post_type] ) ) {
-					$this->p->debug->log( 'post '.$post->ID.': sharing buttons not enabled for post type '.$post_type );
+					if ( $this->p->debug_enabled )
+						$this->p->debug->log( 'post '.$post->ID.': sharing buttons not enabled for post type '.$post_type );
 					$ret = true;
 				}
 			}
