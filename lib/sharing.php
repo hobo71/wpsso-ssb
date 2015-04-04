@@ -2,7 +2,7 @@
 /*
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2014 - Jean-Sebastien Morisset - http://surniaulula.com/
+Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
 */
 
 if ( ! defined( 'ABSPATH' ) ) 
@@ -133,7 +133,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 		public function __construct( &$plugin, $plugin_filepath = WPSSOSSB_FILEPATH ) {
 			$this->p =& $plugin;
-			if ( $this->p->debug_enabled )
+			if ( $this->p->debug->enabled )
 				$this->p->debug->mark( 'action / filter setup' );
 			$this->plugin_filepath = $plugin_filepath;
 			$sharing_css_name = 'sharing-styles-'.get_current_blog_id().'.min.css';
@@ -170,7 +170,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					'status_pro_features' => 3,	// include social file cache status
 				), 10, 'wpssossb' );			// hook into the extension name instead
 			}
-			if ( $this->p->debug_enabled )
+			if ( $this->p->debug->enabled )
 				$this->p->debug->mark( 'action / filter setup' );
 		}
 
@@ -198,7 +198,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					else {
 						$css_data = fread( $fh, filesize( $css_file ) );
 						fclose( $fh );
-						if ( $this->p->debug_enabled )
+						if ( $this->p->debug->enabled )
 							$this->p->debug->log( 'read css from file '.$css_file );
 						foreach ( array( 'URLPATH' => $url_path ) as $macro => $value )
 							$css_data = preg_replace( '/{{'.$macro.'}}/', $value, $css_data );
@@ -394,13 +394,13 @@ jQuery("#wpsso-sidebar").click( function(){
 
 				// create the css file if it does not exist
 				if ( ! file_exists( $this->sharing_css_file ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'updating '.$this->sharing_css_file );
 					$this->update_sharing_css( $this->p->options );
 				}
 
 				if ( ! empty( $this->p->options['buttons_enqueue_social_css'] ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_sharing_buttons' );
 					wp_register_style( 
 						$this->p->cf['lca'].'_sharing_buttons', 
@@ -413,7 +413,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					if ( ! is_readable( $this->sharing_css_file ) ) {
 						if ( is_admin() )
 							$this->p->notice->err( $this->sharing_css_file.' is not readable.', true );
-						if ( $this->p->debug_enabled )
+						if ( $this->p->debug->enabled )
 							$this->p->debug->log( $this->sharing_css_file.' is not readable' );
 					} else {
 						echo '<style type="text/css">';
@@ -425,7 +425,7 @@ jQuery("#wpsso-sidebar").click( function(){
 						echo '</style>',"\n";
 					}
 				}
-			} elseif ( $this->p->debug_enabled )
+			} elseif ( $this->p->debug->enabled )
 				$this->p->debug->log( 'social css option is disabled' );
 		}
 
@@ -586,33 +586,33 @@ jQuery("#wpsso-sidebar").click( function(){
 			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
 				if ( strpos( $type, 'admin_' ) !== 0 ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: '.$type.' ignored with is_admin()'  );
 					return $text;
 				}
 			} elseif ( is_feed() ) {
-				if ( $this->p->debug_enabled )
+				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $type.' filter skipped: no buttons allowed in rss feeds'  );
 				return $text;
 			} else {
 				if ( ! is_singular() && empty( $this->p->options['buttons_on_index'] ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
 					return $text;
 				} elseif ( is_front_page() && empty( $this->p->options['buttons_on_front'] ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
 					return $text;
 				}
 				if ( $this->is_post_buttons_disabled() ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: sharing buttons disabled' );
 					return $text;
 				}
 			}
 
 			if ( ! $this->have_buttons( $type ) ) {
-				if ( $this->p->debug_enabled )
+				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $type.' filter exiting early: no sharing buttons enabled' );
 				return $text;
 			}
@@ -630,13 +630,13 @@ jQuery("#wpsso-sidebar").click( function(){
 						( empty( $post_id ) ? '_url:'.$this->p->util->get_sharing_url( $use_post, true, $source_id ) : '' ), $type, $use_post ).')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
-				if ( $this->p->debug_enabled )
+				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
 				$html = get_transient( $cache_id );
 			}
 
 			if ( $html !== false ) {
-				if ( $this->p->debug_enabled )
+				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $cache_type.': '.$type.' html retrieved from transient '.$cache_id );
 			} else {
 				// sort enabled sharing buttons by their preferred order
@@ -662,7 +662,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
 						set_transient( $cache_id, $html, $this->p->cache->object_expire );
-						if ( $this->p->debug_enabled )
+						if ( $this->p->debug->enabled )
 							$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
 							$cache_id.' ('.$this->p->cache->object_expire.' seconds)' );
 					}
@@ -685,7 +685,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					$text = $html.$text.$html; 
 					break;
 			}
-			return $text.( $this->p->debug_enabled ? $this->p->debug->get_html() : '' );
+			return $text.( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
 		}
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
@@ -706,16 +706,16 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( ! empty( $preset_id ) && ! empty( self::$cf['opt']['preset'] ) ) {
 				if ( array_key_exists( $preset_id, self::$cf['opt']['preset'] ) &&
 					is_array( self::$cf['opt']['preset'][$preset_id] ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'applying preset_id '.$preset_id.' to options' );
 					$custom_opts = array_merge( $custom_opts, self::$cf['opt']['preset'][$preset_id] );
-				} elseif ( $this->p->debug_enabled )
+				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( $preset_id.' preset_id missing or not array'  );
 			} 
 
 			$filter_name = $this->p->cf['lca'].'_sharing_html_'.$filter_id.'_options';
 			if ( ! empty( $filter_id ) && has_filter( $filter_name ) ) {
-				if ( $this->p->debug_enabled )
+				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
 				$custom_opts = apply_filters( $filter_name, $custom_opts );
 			}
@@ -858,11 +858,11 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( ! empty( $post ) ) {
 				$post_type = $post->post_type;
 				if ( $this->p->mods['util']['postmeta']->get_options( $post->ID, 'buttons_disabled' ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'post '.$post->ID.': sharing buttons disabled by custom meta option' );
 					$ret = true;
 				} elseif ( ! empty( $post_type ) && empty( $this->p->options['buttons_add_to_'.$post_type] ) ) {
-					if ( $this->p->debug_enabled )
+					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'post '.$post->ID.': sharing buttons not enabled for post type '.$post_type );
 					$ret = true;
 				}
@@ -885,10 +885,10 @@ jQuery("#wpsso-sidebar").click( function(){
 			return false;
 		}
 
-		public function get_website_ids() {
+		public function get_website_names() {
 			$ids = array();
 			foreach ( array_keys( $this->website ) as $id )
-				$ids[$id] = $this->p->cf['plugin']['wpssossb']['lib']['website'][$id];
+				$ids[$id] = $this->p->cf['*']['lib']['website'][$id];
 			return $ids;
 		}
 

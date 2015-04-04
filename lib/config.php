@@ -2,7 +2,7 @@
 /*
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2014 - Jean-Sebastien Morisset - http://surniaulula.com/
+Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
 */
 
 if ( ! defined( 'ABSPATH' ) ) 
@@ -15,28 +15,30 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.2',	// plugin version
+					'version' => '1.3dev1',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, shortening, bbPress, BuddyPress, and WooCommerce.',
 					'slug' => 'wpsso-ssb',
 					'base' => 'wpsso-ssb/wpsso-ssb.php',
 					'img' => array(
-						'icon-small' => 'https://ps.w.org/wpsso-ssb/assets/icon-128x128.png?rev=',
-						'icon-medium' => 'https://ps.w.org/wpsso-ssb/assets/icon-256x256.png?rev=',
+						'icon-small' => 'images/icon-128x128.png',
+						'icon-medium' => 'images/icon-256x256.png',
 					),
 					'url' => array(
+						// wordpress
 						'download' => 'https://wordpress.org/plugins/wpsso-ssb/',
-						'update' => 'http://update.surniaulula.com/extend/plugins/wpsso-ssb/update/',
-						'purchase' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/',
 						'review' => 'https://wordpress.org/support/view/plugin-reviews/wpsso-ssb#postform',
 						'readme' => 'https://plugins.svn.wordpress.org/wpsso-ssb/trunk/readme.txt',
+						'wp_support' => 'https://wordpress.org/support/plugin/wpsso-ssb',
+						// surniaulula
+						'update' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/update/',
+						'purchase' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/',
 						'changelog' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/changelog/',
 						'codex' => 'http://surniaulula.com/codex/plugins/wpsso-ssb/',
 						'faq' => 'http://surniaulula.com/codex/plugins/wpsso-ssb/faq/',
 						'notes' => '',
 						'feed' => 'http://surniaulula.com/category/application/wordpress/wp-plugins/wpsso-ssb/feed/',
-						'wp_support' => 'https://wordpress.org/support/plugin/wpsso-ssb',
 						'pro_support' => 'http://support.wpsso-ssb.surniaulula.com/',
 						'pro_ticket' => 'http://ticket.wpsso-ssb.surniaulula.com/',
 					),
@@ -122,7 +124,12 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			/*
 			 * Allow some constants to be pre-defined in wp-config.php
 			 */
+			if ( ! defined( 'WPSSOSSB_SHARING_SHORTCODE' ) )
+				define( 'WPSSOSSB_SHARING_SHORTCODE', 'ssb' );
 
+			/*
+			 * WPSSO SSB hook priorities
+			 */
 			if ( ! defined( 'WPSSOSSB_HEAD_PRIORITY' ) )
 				define( 'WPSSOSSB_HEAD_PRIORITY', 10 );
 
@@ -131,17 +138,16 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			
 			if ( ! defined( 'WPSSOSSB_FOOTER_PRIORITY' ) )
 				define( 'WPSSOSSB_FOOTER_PRIORITY', 100 );
-
-			if ( ! defined( 'WPSSOSSB_SHARING_SHORTCODE' ) )
-				define( 'WPSSOSSB_SHARING_SHORTCODE', 'ssb' );
 		}
 
 		public static function require_libs( $plugin_filepath ) {
 			if ( ! is_admin() )
 				require_once( WPSSOSSB_PLUGINDIR.'lib/functions.php' );
+
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );
 		}
 
+		// gpl / pro library loader
 		public static function load_lib( $ret = false, $filespec = '', $classname = '' ) {
 			if ( $ret === false && ! empty( $filespec ) ) {
 				$filepath = WPSSOSSB_PLUGINDIR.'lib/'.$filespec.'.php';
