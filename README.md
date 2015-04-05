@@ -1,4 +1,4 @@
-<h1>WPSSO Social Sharing Buttons</h1><h3>Facebook G+ LinkedIn Pinterest Reddit Twitter + Many More</h3>
+=== WPSSO Social Sharing Buttons - Facebook G+ LinkedIn Pinterest Reddit Twitter + Many More ===
 <blockquote>
 <strong>Contributors</strong>: jsmoriss<br/>
 <strong>Donate Link</strong>: https://surniaulula.com/extend/plugins/wpsso-ssb/<br/>
@@ -10,7 +10,11 @@
 <strong>Stable Tag</strong>: 1.2<br/>
 </blockquote>
 
+<p>
+
 WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
+
+</p>
 
 <h3>Description</h3>
 
