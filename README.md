@@ -1,4 +1,5 @@
-=== WPSSO Social Sharing Buttons - Facebook G+ LinkedIn Pinterest Reddit Twitter + Many More ===
+<h1>WPSSO Social Sharing Buttons</h1><h3>Facebook G+ LinkedIn Pinterest Reddit Twitter + Many More</h3>
+
 <blockquote>
 <strong>Contributors</strong>: jsmoriss<br/>
 <strong>Donate Link</strong>: https://surniaulula.com/extend/plugins/wpsso-ssb/<br/>
