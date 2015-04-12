@@ -127,7 +127,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* When viewing plugin settings using the "Basic Options View", a new link is now available bellow each settings metabox to unhide / show all options.
 * **Improvements**
 	* Moved the minimum version checks to a new `WpssoSsb::min_version_warning()` method.
-	* Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" extension plugin.
+	* Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin.
 	* The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.
 	* Changed *default* image widths from 800px to 600px (lowest recommended value for Facebook).
 * **Bugfixes**
@@ -143,6 +143,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.3 =
+
+Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin, new "unhide / show all options" link in metaboxes.
 
 = 1.2 =
 
