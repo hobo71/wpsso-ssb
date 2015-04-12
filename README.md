@@ -129,31 +129,25 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * GitHub: https://github.com/SurniaUlula/wpsso
 * WordPress.org: https://wordpress.org/plugins/wpsso/developers/
 
+<h4>Version 1.3 (2015/04/12)</h4>
+
+* **New Features**
+	* When viewing plugin settings using the "Basic Options View", a new link is now available bellow each settings metabox to unhide / show all options.
+* **Improvements**
+	* Moved the minimum version checks to a new `WpssoSsb::min_version_warning()` method.
+	* Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" extension plugin.
+	* The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.
+	* Changed *default* image widths from 800px to 600px (lowest recommended value for Facebook).
+* **Bugfixes**
+	* *None*
+
 <h4>Version 1.2 (2015/04/02)</h4>
 
-* **Bugfixes**
+* **New Features**
 	* *None*
 * **Improvements**
 	* Further performance improvements for non-debug mode by centralizing debug mode checks.
-* **New Features**
-	* *None*
-
-<h4>Version 1.1.10</h4>
-
 * **Bugfixes**
-	* *None*
-* **Improvements**
-	* Refactored code for WPSSO v2.8.3's new WpssoUser::show_opts() method.
-* **New Features**
-	* *None*
-
-<h4>Version 1.1.9</h4>
-
-* **Bugfixes**
-	* Fixed validation of network-activated plugin dependencies by checking for the Wpsso class only.
-* **Improvements**
-	* *None*
-* **New Features**
 	* *None*
 
 <h3>Upgrade Notice</h3>
@@ -161,8 +155,4 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 <h4>1.2</h4>
 
 Further performance improvements for non-debug mode by centralizing debug mode checks.
-
-<h4>1.1.10</h4>
-
-Refactored code for WPSSO v2.8.3's new WpssoUser::show_opts() method.
 
