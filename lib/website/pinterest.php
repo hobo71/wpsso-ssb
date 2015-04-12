@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 
 	class WpssoSsbSubmenuSharingPinterest extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -31,10 +37,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-				$this->form->get_select( 'pin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->form->get_select( 'pin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Button Height', 'short' ).'<td>'.
 			$this->form->get_select( 'pin_button_height', array( 'small' => 'Small', 'large' => 'Large' ) );
@@ -60,13 +65,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'pin_img', false, true ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Image Caption Text', 'short' ).'<td>'.
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Image Caption Text', 'short' ).'<td>'.
 			$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Caption Length', 'short' ).'<td>'.
-				$this->form->get_input( 'pin_cap_len', 'short' ).' characters or less</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Caption Length', 'short' ).'<td>'.
+			$this->form->get_input( 'pin_cap_len', 'short' ).' characters or less</td>';
 
 			return $rows;
 		}
@@ -91,12 +96,12 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					'pin_button_color' => 'gray',
 					'pin_button_height' => 'small',
 					'pin_count_layout' => 'beside',
-					'pin_img_width' => 800,
-					'pin_img_height' => 800,
+					'pin_img_width' => 600,
+					'pin_img_height' => 600,
 					'pin_img_crop' => 0,
 					'pin_img_crop_x' => 'center',
 					'pin_img_crop_y' => 'center',
-					'pin_caption' => 'both',
+					'pin_caption' => 'excerpt',
 					'pin_cap_len' => 400,
 				),
 			),

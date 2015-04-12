@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 
 	class WpssoSsbSubmenuSharingTumblr extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -46,32 +52,32 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-				$this->form->get_select( 'tumblr_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->form->get_select( 'tumblr_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Button Style', 'short' ).
 				'<td class="btn_wizard">'.$buttons_html.'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Use Attached as Photo', 'short' ).'<td>'.
-				$this->form->get_checkbox( 'tumblr_photo' ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Use Attached as Photo', 'short' ).'<td>'.
+			$this->form->get_checkbox( 'tumblr_photo' ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'tumblr_img', false, true ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Media Caption', 'short' ).'<td>'.
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Media Caption', 'short' ).'<td>'.
 			$this->form->get_select( 'tumblr_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Caption Length', 'short' ).'<td>'.
-				$this->form->get_input( 'tumblr_cap_len', 'short' ).' characters or less</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Caption Length', 'short' ).'<td>'.
+			$this->form->get_input( 'tumblr_cap_len', 'short' ).' characters or less</td>';
 	
-				$rows[] = $this->p->util->th( 'Link Description', 'short' ).'<td>'.
-				$this->form->get_input( 'tumblr_desc_len', 'short' ).' characters or less</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Link Description', 'short' ).'<td>'.
+			$this->form->get_input( 'tumblr_desc_len', 'short' ).' characters or less</td>';
+
 			return $rows;
 		}
 	}
@@ -93,12 +99,12 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 					'tumblr_button_style' => 'share_1',
 					'tumblr_desc_len' => 300,
 					'tumblr_photo' => 1,
-					'tumblr_img_width' => 800,
-					'tumblr_img_height' => 800,
+					'tumblr_img_width' => 600,
+					'tumblr_img_height' => 600,
 					'tumblr_img_crop' => 0,
 					'tumblr_img_crop_x' => 'center',
 					'tumblr_img_crop_y' => 'center',
-					'tumblr_caption' => 'both',
+					'tumblr_caption' => 'excerpt',
 					'tumblr_cap_len' => 400,
 				),
 			),

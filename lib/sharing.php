@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -304,7 +304,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					'td_class' => $aop ? '' : 'blank',
 				);
 				$features['Sharing Styles Editor'] = array( 
-					'status' => WpssoUser::show_opts( 'all' ) ? ( $aop ? 'on' : 'rec' ) : 'off',
+					'status' => $aop ? 'on' : 'rec',
 					'td_class' => $aop ? '' : 'blank',
 				);
 			}

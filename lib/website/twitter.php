@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 
 	class WpssoSsbSubmenuSharingTwitter extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -27,10 +33,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 			$this->form->get_select( 'twitter_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-				$this->form->get_select( 'twitter_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->form->get_select( 'twitter_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Default Language', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
@@ -42,17 +47,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 			$rows[] = $this->p->util->th( 'Button Size', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
-				$this->form->get_input( 'twitter_cap_len', 'short' ).' characters or less</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
+			$this->form->get_input( 'twitter_cap_len', 'short' ).' characters or less</td>';
 
-				$rows[] = $this->p->util->th( 'Do Not Track', 'short', null,
-				'Disable tracking for Twitter\'s tailored suggestions and tailored ads.' ).
-				'<td>'.$this->form->get_checkbox( 'twitter_dnt' ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Do Not Track', 'short', null,
+			'Disable tracking for Twitter\'s tailored suggestions and tailored ads.' ).
+			'<td>'.$this->form->get_checkbox( 'twitter_dnt' ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Add via @username', 'short', null, 
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General settings page). The website\'s @username will be displayed and recommended after the Post / Page is shared.' ).

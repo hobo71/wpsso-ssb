@@ -9,10 +9,10 @@
  * Description: WPSSO extension to provide fast and accurate Social Sharing Buttons - with support for hashtags, shortening, bbPress, and BuddyPress.
  * Requires At Least: 3.0
  * Tested Up To: 4.1
- * Version: 1.3dev1
+ * Version: 1.3
  * 
  * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );

@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -27,7 +27,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			$short = $this->p->cf['plugin'][$lca]['short'];
 			$short_pro = $short.' Pro';
 			switch ( $idx ) {
+
 				case 'info-style-sharing':
+
 					$notes_url = $this->p->cf['plugin'][$lca]['url']['notes'];
 					$text = '<p>'.$short.' uses the \''.$lca.'-buttons\' class to wrap all its 
 					sharing buttons, and each button has it\'s own individual class name as well. 
@@ -37,6 +39,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-content':
+
 					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.
 					$this->p->util->get_admin_url( 'sharing', 'Buttons settings page' ).
 					', are assigned the \''.$lca.'-content-buttons\' class, which itself contains the 
@@ -156,28 +159,27 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 		}
 
 		public function show_metabox_style() {
-			echo '<table class="sucom-setting"><tr>';
-			echo $this->p->util->th( 'Use the Social Stylesheet', 'highlight', 'buttons_use_social_css' );
-			echo '<td>'.$this->form->get_checkbox( 'buttons_use_social_css' );
+			$metabox = 'style';
+
 			if ( file_exists( $this->p->sharing->sharing_css_file ) &&
 				( $fsize = filesize( $this->p->sharing->sharing_css_file ) ) !== false )
-					echo ' css is '.$fsize.' bytes minimized';
-			echo '</td>';
-			echo '</tr><tr>';
-			echo $this->p->util->th( 'Enqueue the Stylesheet', null, 'buttons_enqueue_social_css' );
-			echo '<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>';
-			echo '</tr></table>';
+					$css_min_msg = ' css is '.$fsize.' bytes minimized';
+			else $css_min_msg = '';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$metabox = 'style';
-				$tabs = apply_filters( $this->p->cf['lca'].'_'.$metabox.'_tabs', 
-					WpssoSsbSharing::$cf['sharing']['style'] );
-				$rows = array();
-				foreach ( $tabs as $key => $title )
-					$rows[$key] = array_merge( $this->get_rows( $metabox, $key ), 
-						apply_filters( $this->p->cf['lca'].'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
-				$this->p->util->do_tabs( $metabox, $tabs, $rows );
-			}
+			$this->p->util->do_table_rows( array( 
+				$this->p->util->th( 'Use the Social Stylesheet', 'highlight', 'buttons_use_social_css' ).
+				'<td>'.$this->form->get_checkbox( 'buttons_use_social_css' ).$css_min_msg.'</td>',
+
+				$this->p->util->th( 'Enqueue the Stylesheet', null, 'buttons_enqueue_social_css' ).
+				'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
+			) );
+
+			$tabs = apply_filters( $this->p->cf['lca'].'_'.$metabox.'_tabs', WpssoSsbSharing::$cf['sharing']['style'] );
+			$rows = array();
+			foreach ( $tabs as $key => $title )
+				$rows[$key] = array_merge( $this->get_rows( $metabox, $key ), 
+					apply_filters( $this->p->cf['lca'].'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
+			$this->p->util->do_tabs( $metabox, $tabs, $rows );
 		}
 
 		protected function get_rows( $metabox, $key ) {

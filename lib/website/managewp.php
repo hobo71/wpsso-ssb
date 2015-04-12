@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingManagewp' ) && class_exists( 'WpssoS
 
 	class WpssoSsbSubmenuSharingManagewp extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 

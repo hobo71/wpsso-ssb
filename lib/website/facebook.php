@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) )
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 
 	class WpssoSsbSubmenuSharingFacebook extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -33,7 +39,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 			switch ( $metabox.'-'.$key ) {
+
 				case 'fb-all':
+
 					$rows[] = $this->p->util->th( 'Show Button in', 'short' ).
 					'<td>'.( $this->show_on_checkboxes( 'fb' ) ).'</td>';
 
@@ -41,19 +49,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 					'<td>'.$this->form->get_select( 'fb_order', 
 						range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 	
-					if ( WpssoUser::show_opts( 'all' ) ) {
-						$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).
-						'<td>'. $this->form->get_select( 'fb_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-					}
+					$rows[] = '<tr class="hide_in_basic">'.
+					$this->p->util->th( 'JavaScript in', 'short' ).
+					'<td>'. $this->form->get_select( 'fb_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 	
 					$rows[] = $this->p->util->th( 'Default Language', 'short' ).
 					'<td>'.$this->form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 	
 					$rows[] = $this->p->util->th( 'Button Type', 'short' ).
 					'<td>'.$this->form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
+
 					break;
 
 				case 'fb-like':
+
 					$rows[] = $this->p->util->th( 'Markup Language', 'short' ).
 					'<td>'.$this->form->get_select( 'fb_markup', 
 						array( 
@@ -67,10 +76,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 					'<td>'.$this->form->get_checkbox( 'fb_send' ).'</td>';
 	
 					$rows[] = $this->p->util->th( 'Layout', 'short', null, 
-					'The Standard layout displays social text to the right of the button, and friends\' 
-					profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout 
-					displays the total number of likes to the right of the button, and the Box Count layout 
-					displays the total number of likes above the button.' ).
+					'The Standard layout displays social text to the right of the button, and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button.' ).
 					'<td>'.$this->form->get_select( 'fb_layout', 
 						array(
 							'standard' => 'Standard',
@@ -110,9 +116,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 							'recommend' => 'Recommend',
 						)
 					).'</td>';
+
 					break;
 	
 				case 'fb-share':
+
 					$rows[] = $this->p->util->th( 'Layout', 'short' ).'<td>'.
 					$this->form->get_select( 'fb_type', 
 						array(
@@ -123,8 +131,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 							'link' => 'Text Link',
 						) 
 					).'</td>';
-					break;
 
+					break;
 			}
 			return $rows;
 		}

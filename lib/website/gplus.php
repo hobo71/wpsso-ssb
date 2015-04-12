@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 
 	class WpssoSsbSubmenuSharingGplus extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -28,10 +34,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-				$this->form->get_select( 'gp_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->form->get_select( 'gp_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Default Language', 'short' ).'<td>'.
 			$this->form->get_select( 'gp_lang', SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
@@ -58,20 +63,19 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 				'vertical-bubble' => 'Vertical Bubble',
 			) ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Expand to', 'short' ).'<td>'.
-				$this->form->get_select( 'gp_expandto', array( 
-					'none' => '',
-					'top' => 'Top',
-					'bottom' => 'Bottom',
-					'left' => 'Left',
-					'right' => 'Right',
-					'top,left' => 'Top Left',
-					'top,right' => 'Top Right',
-					'bottom,left' => 'Bottom Left',
-					'bottom,right' => 'Bottom Right',
-				) ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Expand to', 'short' ).'<td>'.
+			$this->form->get_select( 'gp_expandto', array( 
+				'none' => '',
+				'top' => 'Top',
+				'bottom' => 'Bottom',
+				'left' => 'Left',
+				'right' => 'Right',
+				'top,left' => 'Top Left',
+				'top,right' => 'Top Right',
+				'bottom,left' => 'Bottom Left',
+				'bottom,right' => 'Bottom Right',
+			) ).'</td>';
 	
 			return $rows;
 		}

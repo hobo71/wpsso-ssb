@@ -84,17 +84,24 @@
 }
 
 #wpsso-sidebar .wpsso-buttons div.pinterest-button,
-#wpsso-sidebar .wpsso-preset-large_share_vertical .wpsso-buttons div.pinterest-button { height:40px; margin-top:42px; }
-#wpsso-sidebar .wpsso-preset-small_share_count .wpsso-buttons div.pinterest-button { height:20px; margin-top:10px; }
+#wpsso-sidebar .wpsso-preset-large_share_vertical
+	.wpsso-buttons div.pinterest-button { height:40px; margin-top:42px; }
+#wpsso-sidebar .wpsso-preset-small_share_count
+	.wpsso-buttons div.pinterest-button { height:20px; margin-top:10px; }
 
 #wpsso-sidebar .wpsso-buttons div.stumbleupon-button,
-#wpsso-sidebar .wpsso-preset-large_share_vertical .wpsso-buttons div.stumbleupon-button { height:60px; line-height:60px; }
-#wpsso-sidebar .wpsso-preset-small_share_count .wpsso-buttons div.stumbleupon-button { height:20px; line-height:20px; }
+#wpsso-sidebar .wpsso-preset-large_share_vertical
+	.wpsso-buttons div.stumbleupon-button { height:60px; line-height:60px; }
+#wpsso-sidebar .wpsso-preset-small_share_count
+	.wpsso-buttons div.stumbleupon-button { height:20px; line-height:20px; }
 
 #wpsso-sidebar .wpsso-buttons div.tumblr-button,
-#wpsso-sidebar .wpsso-preset-large_share_vertical .wpsso-buttons div.tumblr-button { height:20px; line-height:20px; }
+#wpsso-sidebar .wpsso-preset-large_share_vertical
+	.wpsso-buttons div.tumblr-button { height:20px; line-height:20px; }
 
 #wpsso-sidebar .wpsso-buttons div.reddit-button,
-#wpsso-sidebar .wpsso-preset-large_share_vertical .wpsso-buttons div.reddit-button { margin-bottom:15px; }
-#wpsso-sidebar .wpsso-preset-small_share_count .wpsso-buttons div.reddit-button { margin-bottom:10px; }
+#wpsso-sidebar .wpsso-preset-large_share_vertical
+	.wpsso-buttons div.reddit-button { margin-bottom:15px; }
+#wpsso-sidebar .wpsso-preset-small_share_count
+	.wpsso-buttons div.reddit-button { margin-bottom:10px; }
 

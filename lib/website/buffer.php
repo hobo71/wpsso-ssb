@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -12,8 +12,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 
 	class WpssoSsbSubmenuSharingBuffer extends WpssoSsbSubmenuSharing {
 
-		public function __construct( &$plugin ) {
+		public $id = '';
+		public $name = '';
+		public $form = '';
+
+		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
+			$this->id = $id;
+			$this->name = $name;
 			$this->p->debug->mark();
 		}
 
@@ -28,10 +34,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-				$this->form->get_select( 'buffer_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->form->get_select( 'buffer_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Count Position', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_count', array( 'none' => '', 
@@ -40,13 +45,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-				$rows[] = $this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
-				$this->form->get_input( 'buffer_cap_len', 'short' ).' characters or less</td>';
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
+			$this->form->get_input( 'buffer_cap_len', 'short' ).' characters or less</td>';
 
 			$rows[] = $this->p->util->th( 'Add via @username', 'short', null,
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General settings page).' ).
@@ -73,8 +78,8 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 					'buffer_order' => 6,
 					'buffer_js_loc' => 'footer',
 					'buffer_count' => 'horizontal',
-					'buffer_img_width' => 800,
-					'buffer_img_height' => 800,
+					'buffer_img_width' => 600,
+					'buffer_img_height' => 600,
 					'buffer_img_crop' => 1,
 					'buffer_img_crop_x' => 'center',
 					'buffer_img_crop_y' => 'center',

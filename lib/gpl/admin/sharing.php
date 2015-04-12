@@ -1,9 +1,9 @@
 <?php
 /*
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
-Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
-*/
+ * License: GPLv3
+ * License URI: http://www.gnu.org/licenses/gpl.txt
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ */
 
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
@@ -35,27 +35,29 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'<td class="blank">'.$form->get_select( 'plugin_file_cache_hrs:use', 
 					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>' );
 
-			if ( WpssoUser::show_opts( 'all' ) ) {
-
-				$rows[] = $this->p->util->th( 'Verify SSL Certificates', null, 'plugin_verify_certs' ).
-				'<td class="blank">'.$form->get_no_checkbox( 'plugin_verify_certs' ).'</td>'.
-				( $network === false ? '' : $this->p->util->th( 'Site Use', 'narrow' ).
-					'<td class="blank">'.$form->get_select( 'plugin_verify_certs:use', 
-						$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>' );
-			}
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Verify SSL Certificates', null, 'plugin_verify_certs' ).
+			'<td class="blank">'.$form->get_no_checkbox( 'plugin_verify_certs' ).'</td>'.
+			( $network === false ? '' : $this->p->util->th( 'Site Use', 'narrow' ).
+				'<td class="blank">'.$form->get_select( 'plugin_verify_certs:use', 
+					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>' );
 
 			return $rows;
 		}
 
 		public function filter_sharing_include_rows( $rows, $form ) {
 			$checkboxes = '';
+
 			foreach ( $this->p->util->get_post_types( 'frontend' ) as $post_type )
 				$checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).' '.
-					$post_type->label.' '.( empty( $post_type->description ) ? '' : '('.$post_type->description.')' ).'</p>';
+					$post_type->label.' '.( empty( $post_type->description ) ? '' :
+						'('.$post_type->description.')' ).'</p>';
 
-			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Include on Post Types', null, 'buttons_add_to' ).'<td class="blank">'.$checkboxes.'</td>';
+			$rows[] = $this->p->util->th( 'Include on Post Types', null, 'buttons_add_to' ).
+				'<td class="blank">'.$checkboxes.'</td>';
 
 			return $rows;
 		}
@@ -70,8 +72,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			foreach( $presets as $filter_id => $filter_name )
 				$rows[] = $this->p->util->th( $filter_name.' Preset', null, 'sharing_preset' ).
-				'<td class="blank">'.$form->get_hidden( 'buttons_preset_'.$filter_id ).
-					$this->p->options['buttons_preset_'.$filter_id].'</td>';
+				'<td class="blank">'.$this->p->options['buttons_preset_'.$filter_id].'</td>';
+
 			return $rows;
 		}
 
@@ -96,7 +98,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			if ( ! empty( $pid ) ) {
 				$img = $this->p->media->get_attachment_image_src( $pid, $this->p->cf['lca'].'-pinterest-button', false );
 				if ( empty( $img[0] ) )
-					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.$pid.' is too small for the Pinterest button Image Dimensions.</em></td>';
+					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.
+						$pid.' is too small for the Pinterest button Image Dimensions.</em></td>';
 				else $rows[] = $th.'<td class="blank">'.
 					$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
@@ -107,7 +110,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			} elseif ( ! empty( $pid ) ) {
 				$img = $this->p->media->get_attachment_image_src( $pid, $this->p->cf['lca'].'-tumblr-button', false );
 				if ( empty( $img[0] ) )
-					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.$pid.' is too small for the Tumblr button Image Dimensions.</em></td>';
+					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.
+						$pid.' is too small for the Tumblr button Image Dimensions.</em></td>';
 				else $rows[] = $th.'<td class="blank">'.
 					$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
