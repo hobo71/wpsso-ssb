@@ -239,9 +239,10 @@ jQuery("#wpsso-sidebar").click( function(){
 				case 'tumblr_vid_desc':
 				case 'twitter_desc':
 				case 'plugin_bitly_login':
-				case 'plugin_bitly_api_key':
-				case 'plugin_google_api_key':
 					return 'ok_blank';
+					break;
+				case ( preg_match( '/_api_key$/', $key ) ? true : false ):
+					return 'api_key';
 					break;
 				// options that cannot be blank
 				case 'fb_markup': 

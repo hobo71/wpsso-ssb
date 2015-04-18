@@ -126,7 +126,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
 				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true
 
-			$rows[] = $this->p->util->th( 'Disable Sharing Buttons', 'medium', 'postmeta-buttons_disabled', $post_info ).
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Disable Sharing Buttons', 'medium', 'postmeta-buttons_disabled', $post_info ).
 			'<td class="blank">&nbsp;</td>';
 
 			return $rows;
