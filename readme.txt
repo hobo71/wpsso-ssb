@@ -153,6 +153,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
+= 1.3.1 =
+
+Minor CSS improvements for settings pages and metaboxes.
+
 = 1.3 =
 
 Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin, new "unhide / show all options" link in metaboxes.
