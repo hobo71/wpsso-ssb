@@ -69,7 +69,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			if ( ! class_exists( 'Wpsso' ) ) {
 				require_once( ABSPATH.'wp-admin/includes/plugin.php' );
 				deactivate_plugins( WPSSOSSB_PLUGINBASE );
-				wp_die( '<p>'. sprintf( __( 'The WPSSO Social Sharing Buttons (WPSSO SSB) extension requires the WordPress Social Sharing Optimization (WPSSO) plugin &mdash; Please install and activate WPSSO before re-activating this extension.', WPSSOAM_TEXTDOM ) ).'</p>' );
+				wp_die( '<p>'. sprintf( __( 'The WPSSO Social Sharing Buttons (WPSSO SSB) extension requires the WordPress Social Sharing Optimization (WPSSO) plugin &mdash; Please install and activate WPSSO before re-activating this extension.', WPSSOSSB_TEXTDOM ) ).'</p>' );
 			}
 		}
 
