@@ -36,9 +36,13 @@ if ( ! class_exists( 'WpssoSsbGplAdminStyle' ) ) {
 						$this->p->options['buttons_preset_'.$idx] ).'</p>';
 			}
 
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg' ).'</td>';
+		
 			$rows[] = '<th class="textinfo">'.$text.'</th>'.
-			'<td class="blank"><textarea disabled="disabled" class="tall code">'.
+			'<td><textarea disabled="disabled" class="tall code">'.
 			$this->p->options['buttons_css_'.$idx].'</textarea></td>';
+
 			return $rows;
 		}
 
@@ -58,7 +62,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminStyle' ) ) {
 			$rows = array_merge( $rows, $this->filter_style_common_rows( $rows, $form, 'sidebar' ) );
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->th( 'Sidebar Javascript', null, 'buttons_js_sidebar' ).
-			'<td class="blank"><textarea disabled="disabled" class="average code">'.
+			'<td><textarea disabled="disabled" class="average code">'.
 			$this->p->options['buttons_js_sidebar'].'</textarea></td>';
 			return $rows;
 		}

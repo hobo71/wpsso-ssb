@@ -44,7 +44,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 			}
 			$buttons_html .= '</div>';
 
-			$rows[] = $this->p->util->th( 'Show Button in', 'short highlight', null, 'The Tumblr button shares a <em>custom image ID</em>, a <em>featured</em> image, or an <em>attached</em> image that is equal to (or larger) than the \'Image Dimensions\' you have chosen (when the <em>Use Attached Image</em> option is checked), embedded video, the content of <em>quote</em> custom Posts, or the webpage link.' ).'<td>'.
+			$rows[] = $this->p->util->th( 'Show Button in', 'short', null, 'The Tumblr button shares a <em>custom image ID</em>, a <em>featured</em> image, or an <em>attached</em> image that is equal to (or larger) than the \'Image Dimensions\' you have chosen (when the <em>Use Attached Image</em> option is checked), embedded video, the content of <em>quote</em> custom Posts, or the webpage link.' ).'<td>'.
 			( $this->show_on_checkboxes( 'tumblr' ) ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Preferred Order', 'short' ).'<td>'.

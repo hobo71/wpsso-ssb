@@ -553,7 +553,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				$css_data = call_user_func( array( $classname, 'process' ), $css_data );
 
 			echo '<style type="text/css">'.$css_data.'</style>', "\n";
-			echo '<table class="sucom-setting side"><tr><td>';
+			echo '<table class="sucom-setting '.$this->p->cf['lca'].' side"><tr><td>';
 			if ( get_post_status( $post->ID ) === 'publish' || 
 				get_post_type( $post->ID ) === 'attachment' ) {
 
