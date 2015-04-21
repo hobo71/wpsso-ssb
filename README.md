@@ -129,7 +129,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-<h4>Version 1.3.2</h4>
+<h4>Version 1.3.2 (2015/04/21)</h4>
 
 * **New Features**
 	* *None*
