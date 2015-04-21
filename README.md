@@ -134,7 +134,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **New Features**
 	* *None*
 * **Improvements**
-	* Replaced self-deactivation when WPSSO is not found by a warning notice instead.
+	* Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.
 * **Bugfixes**
 	* *None*
 
@@ -169,6 +169,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 <h3>Upgrade Notice</h3>
+
+<h4>1.3.2</h4>
+
+Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.
 
 <h4>1.3.1</h4>
 
