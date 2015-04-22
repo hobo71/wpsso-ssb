@@ -135,9 +135,11 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 		public function get_js( $pos = 'id' ) {
 			$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( $prot.'//platform.stumbleupon.com/1/widgets.js' );
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
+				$prot.'//platform.stumbleupon.com/1/widgets.js', $pos ) );
 
-			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.
+				$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
 		}
 	}
 }

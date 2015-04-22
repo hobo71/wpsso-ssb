@@ -196,9 +196,11 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 		public function get_js( $pos = 'id' ) {
 			$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( $prot.'//platform.twitter.com/widgets.js' );
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
+				$prot.'//platform.twitter.com/widgets.js', $pos ) );
 
-			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.$this->p->cf['lca'].'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.
+				$this->p->cf['lca'].'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
 		}
 	}
 }

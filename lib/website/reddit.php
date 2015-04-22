@@ -103,22 +103,23 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 				);
 
 			switch ( $opts['reddit_type'] ) {
-				case 'static-wide':
-					$script_src = $prot.'//www.reddit.com/static/button/button1.js';
-					break;
 				case 'static-tall-text':
-					$script_src = $prot.'//www.reddit.com/static/button/button2.js';
+					$js_url = $prot.'//www.reddit.com/static/button/button2.js';
 					break;
 				case 'static-tall-logo':
-					$script_src = $prot.'//www.reddit.com/static/button/button3.js';
+					$js_url = $prot.'//www.reddit.com/static/button/button3.js';
+					break;
+				case 'static-wide':
+				default:	// just in case
+					$js_url = $prot.'//www.reddit.com/static/button/button1.js';
 					break;
 			}
-			$script_src = $this->p->util->get_cache_url( $script_src );
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->';
 			$html .= '<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>';
 			$html .= '<div '.$this->p->sharing->get_css( 'reddit', $atts ).'>';
-			$html .= '<script type="text/javascript" src="'.$script_src.'"></script></div>';
+			$html .= '<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
 			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";

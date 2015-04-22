@@ -101,10 +101,11 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 					$source_id
 				);
 
-			$script_src = $this->p->util->get_cache_url( $prot.'//managewp.org/share.js' ).'#'.$prot.'//managewp.org/share';
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
+				$prot.'//managewp.org/share.js#'.$prot.'//managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button --><div '.$this->p->sharing->get_css( 'managewp', $atts ).'>';
-			$html .= '<script type="text/javascript" src="'.$script_src.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"';
+			$html .= '<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"';
 			$html .= empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"';
 			$html .= '></script></div>';
 

@@ -26,35 +26,35 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
-			$rows[] = $this->p->util->th( 'Show Button in', 'short', null,
-			'The Pinterest "Pin It" button will only appear on Posts and Pages with a <em>custom image ID</em>, 
-			a <em>featured</em> image, or an <em>attached</em> image that is equal to or larger than the 
-			\'Image Dimensions\' you have chosen.' ).'<td>'.
-			( $this->show_on_checkboxes( 'pin' ) ).'</td>';
+			$rows[] = $this->p->util->th( 'Show Button in', 'short', null ).
+			'<td>'.$this->show_on_checkboxes( 'pin' ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Preferred Order', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = $this->p->util->th( 'Preferred Order', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_order', range( 1, 
+				count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->p->util->th( 'JavaScript in', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Button Height', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_button_height', array( 'small' => 'Small', 'large' => 'Large' ) );
+			$rows[] = $this->p->util->th( 'Button Height', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_button_height', 
+				array( 'small' => 'Small', 'large' => 'Large' ) );
 
-			$rows[] = $this->p->util->th( 'Button Shape', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_button_shape', array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
+			$rows[] = $this->p->util->th( 'Button Shape', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_button_shape', 
+				array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
 
-			$rows[] = $this->p->util->th( 'Button Color', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_button_color', array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
+			$rows[] = $this->p->util->th( 'Button Color', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_button_color', 
+				array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
 
-			$rows[] = $this->p->util->th( 'Button Language', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_button_lang', array( 'en' => 'English', 'ja' => 'Japanese' ) );
+			$rows[] = $this->p->util->th( 'Button Language', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_button_lang', 
+				array( 'en' => 'English', 'ja' => 'Japanese' ) );
 
-			$rows[] = $this->p->util->th( 'Show Pin Count', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_count_layout', 
+			$rows[] = $this->p->util->th( 'Show Pin Count', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_count_layout', 
 				array( 
 					'none' => 'Not Shown',
 					'beside' => 'Beside the Button',
@@ -62,16 +62,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 				)
 			).'</td>';
 
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->th( 'Share Single Image', 'short', null, 'Check this option to have the Pinterest Pin It button appear only on Posts and Pages with a custom Image ID (in the Social Settings metabox), a featured image, or an attached image, that is equal to or larger than the \'Image Dimensions\' you have chosen. <strong>By leaving this option unchecked, the Pin It button will submit the current webpage URL without a specific image</strong>, allowing Pinterest to present any number of available images for pinning.' ).
+			'<td>'.$this->form->get_checkbox( 'pin_use_img' ).'</td>';
+
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'pin_img', false, true ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Image Caption Text', 'short' ).'<td>'.
-			$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
+			$this->p->util->th( 'Image Caption Text', 'short' ).
+			'<td>'.$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Caption Length', 'short' ).'<td>'.
-			$this->form->get_input( 'pin_cap_len', 'short' ).' characters or less</td>';
+			$this->p->util->th( 'Caption Length', 'short' ).
+			'<td>'.$this->form->get_input( 'pin_cap_len', 'short' ).' characters or less</td>';
 
 			return $rows;
 		}
@@ -96,6 +100,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					'pin_button_color' => 'gray',
 					'pin_button_height' => 'small',
 					'pin_count_layout' => 'beside',
+					'pin_use_img' => 1,
 					'pin_img_width' => 600,
 					'pin_img_height' => 600,
 					'pin_img_crop' => 0,
@@ -139,6 +144,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
 					$use_post, $atts['add_page'], $source_id );
+			$href_query = '?url='.urlencode( $atts['url'] );
 
 			$post_id = 0;
 			if ( is_singular() || $use_post !== false ) {
@@ -172,10 +178,10 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			}
 
 			// the pinterest button always shares an image - return now if there's no image
-			if ( empty( $atts['photo'] ) ) {
+			if ( empty( $atts['photo'] ) && ! empty( $this->p->options['pin_use_img'] ) ) {
 				$this->p->debug->log( 'exiting early: no photo defined for post_id '.$post_id );
 				return false;
-			}
+			} else $href_query .= '&amp;media='; //.urlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption(
@@ -189,12 +195,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					$source_id
 				);
 			}
-
-			$query = 'url='.urlencode( $atts['url'] );
-			$query .= '&amp;media='.urlencode( $atts['photo'] );
-
-			// use rawurlencode() for for mobile devices (encodes a space as '%20' instead of '+')
-			$query .= '&amp;description='.rawurlencode( $atts['caption'] );
+			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
+			$href_query .= '&amp;description='.rawurlencode( $atts['caption'] );
 
 			switch ( $opts['pin_button_shape'] ) {
 				case 'rect':
@@ -218,7 +220,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			$pin_img_url = $this->p->util->get_cache_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button --><div '.$this->p->sharing->get_css( 'pinterest', $atts ).'>'.
-			'<a href="'.$prot.'//pinterest.com/pin/create/button/?'.$query.'" '.
+			'<a href="'.$prot.'//pinterest.com/pin/create/button/'.$href_query.'" '.
 			'data-pin-do="buttonPin" '.
 			'data-pin-lang="'.$opts['pin_button_lang'].'" '.
 			'data-pin-shape="'.$opts['pin_button_shape'].'" '.
@@ -234,9 +236,11 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		public function get_js( $pos = 'id' ) {
 			$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( $prot.'//assets.pinterest.com/js/pinit.js' );
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
+				$prot.'//assets.pinterest.com/js/pinit.js', $pos ) );
 
-			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.$this->p->cf['lca'].'_insert_js( "pinterest-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.
+				$this->p->cf['lca'].'_insert_js( "pinterest-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
 		}
 	}
 }

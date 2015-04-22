@@ -140,9 +140,11 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 		public function get_js( $pos = 'id' ) {
 			$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( $prot.'//apis.google.com/js/plusone.js' );
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
+				$prot.'//apis.google.com/js/plusone.js', $pos ) );
 
-			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.
+				$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
 		}
 	}
 }

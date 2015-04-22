@@ -198,8 +198,11 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 		public function get_js( $pos = 'id' ) {
 			$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( $prot.'//d389zggrogs7qo.cloudfront.net/js/button.js' );
-			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.$this->p->cf['lca'].'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
+				$prot.'//d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
+
+			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.
+				$this->p->cf['lca'].'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
 		}
 	}
 }

@@ -4,7 +4,7 @@
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-/* align the buttons vertically in two 116px wide columns */
+/* align the buttons vertically in two 117px wide columns */
 .wpsso-admin_edit-buttons { 
 	text-align:left; 
 }
@@ -16,6 +16,6 @@
 	vertical-align:top;
 	padding:0;
 	margin:5px;
-	width:116px; 
+	width:117px; 
 	height:20px;
 }
