@@ -121,7 +121,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.4 =
+= Version 1.4 (2015/04/24) =
 
 * **New Features**
 	* Added a new "Share Single Image" option for the Pinterest button.
