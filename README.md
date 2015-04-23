@@ -180,6 +180,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 <h3>Upgrade Notice</h3>
 
+<h4>1.4</h4>
+
+Added new "Share Single Image" option for Pinterest button, added 'wpsso_js_url_{sitename}' filter hooks.
+
 <h4>1.3.2</h4>
 
 Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.
