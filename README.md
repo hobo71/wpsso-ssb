@@ -114,7 +114,24 @@
     </ul></li>
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li> 
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
-</ul><h3>Changelog</h3>
+</ul><h3>Screenshots</h3>
+
+<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-01.png"/><br/>
+An example showing all social sharing buttons enabled (using the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.</p>
+
+<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-02.png"/><br/>
+The 'Sharing Buttons' widget configuration.</p>
+
+<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-03.png"/><br/>
+The 'Sharing Buttons' tab added to the 'Social Settings' metabox on admin editing pages.</p>
+
+<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-04.png"/><br/>
+The 'Sharing Buttons' settings page.</p>
+
+<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-05.png"/><br/>
+The 'Sharing Styles' settings page.</p>
+
+<h3>Changelog</h3>
 
 <h4>Free / Basic Version Repository</h4>
 
