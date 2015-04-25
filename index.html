@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Wpsso-ssb by SurniaUlula</title>
+    <title>WPSSO SSB by SurniaUlula</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Wpsso-ssb</h1>
+        <h1>WPSSO SSB</h1>
         <p>WPSSO Social Sharing Buttons (WPSSO SSB)</p>
 
         <p class="view"><a href="https://github.com/SurniaUlula/wpsso-ssb">View the Project on GitHub <small>SurniaUlula/wpsso-ssb</small></a></p>
@@ -39,16 +39,20 @@
 <strong>License</strong>: GPLv3<br>
 <strong>License URI</strong>: http://www.gnu.org/licenses/gpl.txt<br>
 <strong>Requires At Least</strong>: 3.0<br>
-<strong>Tested Up To</strong>: 4.1.1<br>
-<strong>Stable Tag</strong>: 1.2<br>
+<strong>Tested Up To</strong>: 4.2<br>
+<strong>Stable Tag</strong>: 1.4<br>
 </blockquote>
 
-<p>WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</p>
+<p>
+
+WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
+
+</p>
 
 <h3>
 <a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h3>
 
-<p align="center"><img src="https://ps.w.org/wpsso-ssb/assets/icon-256x256.png?rev=" width="256" height="256"></p>
+<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256"></p>
 
 <p><strong>Add social sharing buttons to Posts / Pages, Custom Post Types, bbPress, BuddyPress, WooCommerce pages, and many more</strong>. The sharing buttons can be shown in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
 
@@ -179,12 +183,122 @@
 <a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h3>
 
 <h4>
-<a id="repositories" class="anchor" href="#repositories" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repositories</h4>
+<a id="free--basic-version-repository" class="anchor" href="#free--basic-version-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Free / Basic Version Repository</h4>
 
 <ul>
-<li>GitHub: <a href="https://github.com/SurniaUlula/wpsso">https://github.com/SurniaUlula/wpsso</a>
+<li><a href="https://github.com/SurniaUlula/wpsso-ssb">GitHub</a></li>
+<li><a href="https://wordpress.org/plugins/wpsso-ssb/developers/">WordPress.org</a></li>
+</ul>
+
+<h4>
+<a id="version-14-20150424" class="anchor" href="#version-14-20150424" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.4 (2015/04/24)</h4>
+
+<ul>
+<li>
+<strong>New Features</strong>
+
+<ul>
+<li>Added a new "Share Single Image" option for the Pinterest button.</li>
+<li>Added new 'wpsso_js_url_{sitename}' filter hooks for social website javascript URLs.</li>
+</ul>
 </li>
-<li>WordPress.org: <a href="https://wordpress.org/plugins/wpsso/developers/">https://wordpress.org/plugins/wpsso/developers/</a>
+<li>
+<strong>Improvements</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+<li>
+<strong>Bugfixes</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="version-132-20150421" class="anchor" href="#version-132-20150421" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.3.2 (2015/04/21)</h4>
+
+<ul>
+<li>
+<strong>New Features</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+<li>
+<strong>Improvements</strong>
+
+<ul>
+<li>Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.</li>
+</ul>
+</li>
+<li>
+<strong>Bugfixes</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="version-131-20150420" class="anchor" href="#version-131-20150420" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.3.1 (2015/04/20)</h4>
+
+<ul>
+<li>
+<strong>New Features</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+<li>
+<strong>Improvements</strong>
+
+<ul>
+<li>Minor CSS improvements for settings pages and metaboxes.</li>
+</ul>
+</li>
+<li>
+<strong>Bugfixes</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="version-13-20150412" class="anchor" href="#version-13-20150412" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.3 (2015/04/12)</h4>
+
+<ul>
+<li>
+<strong>New Features</strong>
+
+<ul>
+<li>When viewing plugin settings using the "Basic Options View", a new link is now available bellow each settings metabox to unhide / show all options.</li>
+</ul>
+</li>
+<li>
+<strong>Improvements</strong>
+
+<ul>
+<li>Moved the minimum version checks to a new <code>WpssoSsb::min_version_warning()</code> method.</li>
+<li>Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" <em>Free</em> extension plugin.</li>
+<li>The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.</li>
+<li>Changed <em>default</em> image widths from 800px to 600px (lowest recommended value for Facebook).</li>
+</ul>
+</li>
+<li>
+<strong>Bugfixes</strong>
+
+<ul>
+<li><em>None</em></li>
+</ul>
 </li>
 </ul>
 
@@ -193,7 +307,7 @@
 
 <ul>
 <li>
-<strong>Bugfixes</strong>
+<strong>New Features</strong>
 
 <ul>
 <li><em>None</em></li>
@@ -207,61 +321,7 @@
 </ul>
 </li>
 <li>
-<strong>New Features</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul>
-</li>
-</ul>
-
-<h4>
-<a id="version-1110" class="anchor" href="#version-1110" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.1.10</h4>
-
-<ul>
-<li>
 <strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul>
-</li>
-<li>
-<strong>Improvements</strong>
-
-<ul>
-<li>Refactored code for WPSSO v2.8.3's new WpssoUser::show_opts() method.</li>
-</ul>
-</li>
-<li>
-<strong>New Features</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul>
-</li>
-</ul>
-
-<h4>
-<a id="version-119" class="anchor" href="#version-119" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.1.9</h4>
-
-<ul>
-<li>
-<strong>Bugfixes</strong>
-
-<ul>
-<li>Fixed validation of network-activated plugin dependencies by checking for the Wpsso class only.</li>
-</ul>
-</li>
-<li>
-<strong>Improvements</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul>
-</li>
-<li>
-<strong>New Features</strong>
 
 <ul>
 <li><em>None</em></li>
@@ -273,14 +333,29 @@
 <a id="upgrade-notice" class="anchor" href="#upgrade-notice" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade Notice</h3>
 
 <h4>
+<a id="14" class="anchor" href="#14" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.4</h4>
+
+<p>Added new "Share Single Image" option for Pinterest button, added 'wpsso_js_url_{sitename}' filter hooks.</p>
+
+<h4>
+<a id="132" class="anchor" href="#132" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3.2</h4>
+
+<p>Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.</p>
+
+<h4>
+<a id="131" class="anchor" href="#131" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3.1</h4>
+
+<p>Minor CSS improvements for settings pages and metaboxes.</p>
+
+<h4>
+<a id="13" class="anchor" href="#13" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3</h4>
+
+<p>Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" <em>Free</em> extension plugin, new "unhide / show all options" link in metaboxes.</p>
+
+<h4>
 <a id="12" class="anchor" href="#12" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2</h4>
 
 <p>Further performance improvements for non-debug mode by centralizing debug mode checks.</p>
-
-<h4>
-<a id="1110" class="anchor" href="#1110" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1.10</h4>
-
-<p>Refactored code for WPSSO v2.8.3's new WpssoUser::show_opts() method.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/SurniaUlula">SurniaUlula</a></p>
