@@ -160,7 +160,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options' => 2,		// update the sharing css file
 					'option_type' => 2,		// identify option type for sanitation
-					'post_cache_transients' => 4,	// flush transients on post save
+					'post_cache_transients' => 4,	// clear transients on post save
 					'tooltip_side' => 2,		// tooltip messages for side boxes
 					'tooltip_plugin' => 2,		// tooltip messages for advanced settings
 					'tooltip_postmeta' => 3,	// tooltip messages for post social settings
