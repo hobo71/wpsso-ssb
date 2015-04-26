@@ -81,6 +81,8 @@
 <h4>Proven Performance</h4>
 
 <p>WPSSO and WPSSO SSB are <em>fast and coded for performance</em>, making full use of all available caching techniques (persistent / non-persistent object and disk caching).</p>
+
+
 <h3>Installation</p>
 
 <h4>Install and Uninstall</h4>
@@ -89,6 +91,8 @@
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/">Install the Plugin</a></li>
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/">Uninstall the Plugin</a></li>
 </ul>
+
+
 <h3>Frequently Asked Questions</h3>
 
 <h4>Frequently Asked Questions</h4>
@@ -102,6 +106,8 @@
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/">Why doesn’t the Pinterest button show?</a></li>
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/">Why doesn’t the Twitter count increase?</a></li>
 </ul>
+
+
 <h3>Other Notes</h3>
 
 <h3>Other Notes</h3>
@@ -114,149 +120,5 @@
     </ul></li>
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li> 
     <li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
-</ul><h3>Screenshots</h3>
-
-<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-01.png"/><br/>
-An example showing all social sharing buttons enabled (using the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.</p>
-
-<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-02.png"/><br/>
-The 'Sharing Buttons' widget configuration.</p>
-
-<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-03.png"/><br/>
-The 'Sharing Buttons' tab added to the 'Social Settings' metabox on admin editing pages.</p>
-
-<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-04.png"/><br/>
-The 'Sharing Buttons' settings page.</p>
-
-<p align="center"><img align="center" src="https://surniaulula.github.io/wpsso-ssb/assets/screenshot-05.png"/><br/>
-The 'Sharing Styles' settings page.</p>
-
-<h3>Changelog</h3>
-
-<h4>Free / Basic Version Repository</h4>
-
-<ul>
-<li><a href="https://github.com/SurniaUlula/wpsso-ssb">GitHub</a></li>
-<li><a href="https://wordpress.org/plugins/wpsso-ssb/developers/">WordPress.org</a></li>
 </ul>
-
-<h4>Version 1.4 (2015/04/24)</h4>
-
-<ul>
-<li><strong>New Features</strong>
-
-<ul>
-<li>Added a new "Share Single Image" option for the Pinterest button.</li>
-<li>Added new 'wpsso_js_url_{sitename}' filter hooks for social website javascript URLs.</li>
-</ul></li>
-<li><strong>Improvements</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-<li><strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-</ul>
-
-<h4>Version 1.3.2 (2015/04/21)</h4>
-
-<ul>
-<li><strong>New Features</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-<li><strong>Improvements</strong>
-
-<ul>
-<li>Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.</li>
-</ul></li>
-<li><strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-</ul>
-
-<h4>Version 1.3.1 (2015/04/20)</h4>
-
-<ul>
-<li><strong>New Features</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-<li><strong>Improvements</strong>
-
-<ul>
-<li>Minor CSS improvements for settings pages and metaboxes.</li>
-</ul></li>
-<li><strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-</ul>
-
-<h4>Version 1.3 (2015/04/12)</h4>
-
-<ul>
-<li><strong>New Features</strong>
-
-<ul>
-<li>When viewing plugin settings using the "Basic Options View", a new link is now available bellow each settings metabox to unhide / show all options.</li>
-</ul></li>
-<li><strong>Improvements</strong>
-
-<ul>
-<li>Moved the minimum version checks to a new <code>WpssoSsb::min_version_warning()</code> method.</li>
-<li>Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" <em>Free</em> extension plugin.</li>
-<li>The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.</li>
-<li>Changed <em>default</em> image widths from 800px to 600px (lowest recommended value for Facebook).</li>
-</ul></li>
-<li><strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-</ul>
-
-<h4>Version 1.2 (2015/04/02)</h4>
-
-<ul>
-<li><strong>New Features</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-<li><strong>Improvements</strong>
-
-<ul>
-<li>Further performance improvements for non-debug mode by centralizing debug mode checks.</li>
-</ul></li>
-<li><strong>Bugfixes</strong>
-
-<ul>
-<li><em>None</em></li>
-</ul></li>
-</ul>
-<h3>Upgrade Notice</h3>
-
-<h4>1.4</h4>
-<p>Added new &quot;Share Single Image&quot; option for Pinterest button, added &#039;wpsso_js_url_{sitename}&#039; filter hooks.</p>
-
-<h4>1.3.2</h4>
-<p>Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.</p>
-
-<h4>1.3.1</h4>
-<p>Minor CSS improvements for settings pages and metaboxes.</p>
-
-<h4>1.3</h4>
-<p>Refactored code for the new &quot;WPSSO Pro Update Manager (WPSSO UM)&quot; Free extension plugin, new &quot;unhide / show all options&quot; link in metaboxes.</p>
-
-<h4>1.2</h4>
-<p>Further performance improvements for non-debug mode by centralizing debug mode checks.</p>
 
