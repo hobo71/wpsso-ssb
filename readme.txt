@@ -8,7 +8,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.0
 Tested Up To: 4.2
-Stable Tag: 1.4
+Stable Tag: 1.5
 
 WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -123,7 +123,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5 =
+= Version 1.5 (2015/05/04) =
 
 * **New Features**
 	* *None*
@@ -182,6 +182,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5 =
+
+Added the Buffer, Pinterest, and Tumblr sharing button Image Dimensions to the Social Image Dimensions settings page.
 
 = 1.4 =
 
