@@ -21,6 +21,19 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			$this->id = $id;
 			$this->name = $name;
 			$this->p->debug->mark();
+			$this->p->util->add_plugin_filters( $this, array( 
+				'image-dimensions_general_rows' => 2,
+			) );
+		}
+
+		// add an option to the WordPress -> Settings -> Image Dimensions page
+		public function filter_image_dimensions_general_rows( $rows, $form ) {
+
+			$rows[] = $this->p->util->th( 'Pinterest <em>Sharing Button</em>', null, 'pin_img_dimensions',
+			'The image dimensions that the Pinterest Pin It button will share (defaults is '.$this->p->opt->get_defaults( 'pin_img_width' ).'x'.$this->p->opt->get_defaults( 'pin_img_height' ).' '.( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'un' : '' ).'cropped). Images in the Facebook / Open Graph meta tags are usually cropped square, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
+			'<td>'.$form->get_image_dimensions_input( 'pin_img' ).'</td>';
+
+			return $rows;
 		}
 
 		protected function get_rows( $metabox, $key ) {
@@ -63,7 +76,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Share Single Image', 'short', null, 'Check this option to have the Pinterest Pin It button appear only on Posts and Pages with a custom Image ID (in the Social Settings metabox), a featured image, or an attached image, that is equal to or larger than the \'Image Dimensions\' you have chosen. <strong>By leaving this option unchecked, the Pin It button will submit the current webpage URL without a specific image</strong>, allowing Pinterest to present any number of available images for pinning.' ).
+			$this->p->util->th( 'Share Single Image', 'short', null,
+			'Check this option to have the Pinterest Pin It button appear only on Posts and Pages with a custom Image ID (in the Social Settings metabox), a featured image, or an attached image, that is equal to or larger than the \'Image Dimensions\' you have chosen. <strong>By leaving this option unchecked, the Pin It button will submit the current webpage URL without a specific image</strong>, allowing Pinterest to present any number of available images for pinning.' ).
 			'<td>'.$this->form->get_checkbox( 'pin_use_img' ).'</td>';
 
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).

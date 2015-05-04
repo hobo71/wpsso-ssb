@@ -21,6 +21,19 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 			$this->id = $id;
 			$this->name = $name;
 			$this->p->debug->mark();
+			$this->p->util->add_plugin_filters( $this, array( 
+				'image-dimensions_general_rows' => 2,
+			) );
+		}
+
+		// add an option to the WordPress -> Settings -> Image Dimensions page
+		public function filter_image_dimensions_general_rows( $rows, $form ) {
+
+			$rows[] = $this->p->util->th( 'Buffer <em>Sharing Button</em>', null, 'buffer_img_dimensions',
+			'The image dimensions that the Buffer button will share (defaults is '.$this->p->opt->get_defaults( 'buffer_img_width' ).'x'.$this->p->opt->get_defaults( 'buffer_img_height' ).' '.( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'un' : '' ).'cropped). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
+			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';
+
+			return $rows;
 		}
 
 		protected function get_rows( $metabox, $key ) {

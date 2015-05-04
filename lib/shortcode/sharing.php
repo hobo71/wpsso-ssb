@@ -77,7 +77,8 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				if ( $this->p->is_avail['cache']['transient'] ) {
 					$keys = implode( '|', array_keys( $atts ) );
 					$vals = preg_replace( '/[, ]+/', '_', implode( '|', array_values( $atts ) ) );
-					$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_post:'.$post_id.'_atts_keys:'.$keys. '_atts_vals:'.$vals.')';
+					$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_post:'.$post_id.
+						'_atts_keys:'.$keys. '_atts_vals:'.$vals.')';
 					$cache_id = $this->p->cf['lca'].'_'.md5( $cache_salt );
 					$cache_type = 'object cache';
 					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
