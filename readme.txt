@@ -123,6 +123,15 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Added the Buffer, Pinterest, and Tumblr sharing button Image Dimensions to the Social Image Dimensions settings page.
+* **Bugfixes**
+	* *None*
+
 = Version 1.4 (2015/04/24) =
 
 * **New Features**
