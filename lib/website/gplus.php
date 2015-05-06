@@ -89,7 +89,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'gp_on_content' => 0,
+					'gp_on_content' => 1,
 					'gp_on_excerpt' => 0,
 					'gp_on_admin_edit' => 1,
 					'gp_on_sidebar' => 0,

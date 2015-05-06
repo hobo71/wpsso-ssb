@@ -92,7 +92,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'twitter_on_content' => 0,
+					'twitter_on_content' => 1,
 					'twitter_on_excerpt' => 0,
 					'twitter_on_admin_edit' => 1,
 					'twitter_on_sidebar' => 0,
