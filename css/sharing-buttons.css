@@ -40,6 +40,15 @@
 .wpsso-preset-small_share_count
 	.wpsso-buttons div.facebook-button { width:139px; }
 
+.wpsso-buttons div.fb-share-button,
+.wpsso-preset-small_share_count 
+	.wpsso-buttons div.fb-share-button { width:105px; }
+
+.wpsso-buttons div.fb-share-button span {
+	display:inline-block	!important;
+	vertical-align:middle	!important;
+}
+
 .wpsso-buttons div.gplus-button,
 .wpsso-preset-small_share_count 
 	.wpsso-buttons div.gplus-button { width:99px; }
@@ -79,12 +88,4 @@
 	.wpsso-buttons div.tumblr-button { width:85px; }
 .wpsso-preset-large_share_vertical 
 	.wpsso-buttons div.tumblr-button { height:20px; line-height:20px; }
-
-.wpsso-buttons div.fb-share-button,
-.wpsso-buttons div.fb-share-button span {
-	display:block !important;
-	vertical-align:middle !important;
-}
-.wpsso-preset-small_share_count 
-	.wpsso-buttons div.fb-share-button { width:105px; }
 
