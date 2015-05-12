@@ -123,6 +123,15 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.1 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Refactored the buttons enabled/disabled checks and loading of their filters.
+* **Bugfixes**
+	* *None*
+
 = Version 1.5 (2015/05/04) =
 
 * **New Features**
@@ -186,24 +195,4 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 = 1.5 =
 
 Added the Buffer, Pinterest, and Tumblr sharing button Image Dimensions to the Social Image Dimensions settings page.
-
-= 1.4 =
-
-Added new "Share Single Image" option for Pinterest button, added 'wpsso_js_url_{sitename}' filter hooks.
-
-= 1.3.2 =
-
-Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.
-
-= 1.3.1 =
-
-Minor CSS improvements for settings pages and metaboxes.
-
-= 1.3 =
-
-Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin, new "unhide / show all options" link in metaboxes.
-
-= 1.2 =
-
-Further performance improvements for non-debug mode by centralizing debug mode checks.
 
