@@ -870,7 +870,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			foreach ( array( 'css_class', 'css_id' ) as $key )
 				if ( empty( $atts[$key] ) )
-					$atts[$key] = 'buttons';
+					$atts[$key] = 'button';
 
 			$css_class = $css_name.'-'.$atts['css_class'];
 			$css_id = $css_name.'-'.$atts['css_id'];
