@@ -56,8 +56,8 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 				'defaults' => array(
 					'managewp_on_content' => 0,
 					'managewp_on_excerpt' => 0,
-					'managewp_on_admin_edit' => 1,
 					'managewp_on_sidebar' => 0,
+					'managewp_on_admin_edit' => 1,
 					'managewp_order' => 8,
 					'managewp_type' => 'small',
 				),

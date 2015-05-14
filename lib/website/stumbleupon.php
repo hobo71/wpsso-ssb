@@ -93,8 +93,8 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 				'defaults' => array(
 					'stumble_on_content' => 0,
 					'stumble_on_excerpt' => 0,
-					'stumble_on_admin_edit' => 1,
 					'stumble_on_sidebar' => 0,
+					'stumble_on_admin_edit' => 1,
 					'stumble_order' => 9,
 					'stumble_js_loc' => 'header',
 					'stumble_badge' => 1,

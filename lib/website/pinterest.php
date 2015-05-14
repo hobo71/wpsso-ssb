@@ -105,8 +105,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				'defaults' => array(
 					'pin_on_content' => 0,
 					'pin_on_excerpt' => 0,
-					'pin_on_admin_edit' => 1,
 					'pin_on_sidebar' => 0,
+					'pin_on_admin_edit' => 1,
 					'pin_order' => 4,
 					'pin_js_loc' => 'footer',
 					'pin_button_lang' => 'en',

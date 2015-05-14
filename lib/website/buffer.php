@@ -86,8 +86,8 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				'defaults' => array(
 					'buffer_on_content' => 0,
 					'buffer_on_excerpt' => 0,
-					'buffer_on_admin_edit' => 1,
 					'buffer_on_sidebar' => 0,
+					'buffer_on_admin_edit' => 1,
 					'buffer_order' => 6,
 					'buffer_js_loc' => 'footer',
 					'buffer_count' => 'horizontal',

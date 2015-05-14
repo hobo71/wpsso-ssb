@@ -69,8 +69,8 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 				'defaults' => array(
 					'linkedin_on_content' => 0,
 					'linkedin_on_excerpt' => 0,
-					'linkedin_on_admin_edit' => 1,
 					'linkedin_on_sidebar' => 0,
+					'linkedin_on_admin_edit' => 1,
 					'linkedin_order' => 5,
 					'linkedin_js_loc' => 'header',
 					'linkedin_counter' => 'right',

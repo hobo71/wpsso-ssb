@@ -38,7 +38,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 				case ( strpos( $idx, 'tooltip-buttons_' ) !== false ? true : false ):
 					switch ( $idx ) {
 						case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
-							$text = 'Individual social sharing button(s) must also be enabled below.';
+							$text = 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the "Show Button in" options).';
 							break;
 						case 'tooltip-buttons_on_index':
 							$text = 'Add the following social sharing buttons to each entry of an index webpage (<strong>non-static</strong> homepage, category, archive, etc.). By Default, social sharing buttons are <em>not</em> included on index webpages (default is unchecked). You must also enable the buttons you want to display by choosing to show the buttons on the content or excerpt.';
@@ -132,6 +132,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 
 					$rows[] = $this->p->util->th( 'Include on Static Homepage', null, 'buttons_on_front' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_front' ).'</td>';
+
 					break;
 
 				case 'sharing-position':
@@ -143,6 +144,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 					$rows[] = $this->p->util->th( 'Position in Excerpt Text', null, 'buttons_pos_excerpt' ).
 					'<td>'.$this->form->get_select( 'buttons_pos_excerpt', 
 						array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' ) ).'</td>';
+
 					break;
 			}
 			return $rows;

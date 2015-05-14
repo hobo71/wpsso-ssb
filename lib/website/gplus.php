@@ -91,8 +91,8 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 				'defaults' => array(
 					'gp_on_content' => 1,
 					'gp_on_excerpt' => 0,
-					'gp_on_admin_edit' => 1,
 					'gp_on_sidebar' => 0,
+					'gp_on_admin_edit' => 1,
 					'gp_order' => 2,
 					'gp_js_loc' => 'header',
 					'gp_lang' => 'en-US',

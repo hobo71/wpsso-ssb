@@ -15,6 +15,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		protected $p;
 		protected $website = array();
 		protected $plugin_filepath = '';
+		protected $buttons_for_type = array();		// cache for have_buttons_for_type()
+		protected $post_buttons_disabled = array();	// cache for is_post_buttons_disabled()
 
 		public $sharing_css_file = '';
 		public $sharing_css_url = '';
@@ -36,10 +38,10 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_pos_excerpt' => 'bottom',
 					'buttons_use_social_css' => 1,
 					'buttons_enqueue_social_css' => 0,
+					'buttons_css_sharing' => '',		// all buttons
+					'buttons_css_content' => '',		// post/page content
+					'buttons_css_excerpt' => '',		// post/page excerpt
 					'buttons_css_admin_edit' => '',
-					'buttons_css_sharing' => '',
-					'buttons_css_content' => '',
-					'buttons_css_excerpt' => '',
 					'buttons_css_sidebar' => '',
 					'buttons_css_shortcode' => '',
 					'buttons_css_widget' => '',
@@ -57,10 +59,10 @@ jQuery("#wpsso-sidebar").click( function(){
 	jQuery("#wpsso-sidebar-buttons").toggle(); } );',
 					'buttons_preset_content' => '',
 					'buttons_preset_excerpt' => '',
-					'buttons_preset_widget' => '',
-					'buttons_preset_sidebar' => 'large_share_vertical',
 					'buttons_preset_admin_edit' => 'small_share_count',
+					'buttons_preset_sidebar' => 'large_share_vertical',
 					'buttons_preset_shortcode' => '',
+					'buttons_preset_widget' => '',
 				),
 				'preset' => array(
 					'small_share_count' => array(
@@ -124,9 +126,9 @@ jQuery("#wpsso-sidebar").click( function(){
 					'content' => 'Content',
 					'excerpt' => 'Excerpt',
 					'sidebar' => 'CSS Sidebar',
+					'admin_edit' => 'Admin Edit',
 					'shortcode' => 'Shortcode',
 					'widget' => 'Widget',
-					'admin_edit' => 'Admin Edit',
 				),
 			),
 		);
@@ -145,9 +147,13 @@ jQuery("#wpsso-sidebar").click( function(){
 			add_action( 'wp_head', array( &$this, 'show_header' ), WPSSOSSB_HEAD_PRIORITY );
 			add_action( 'wp_footer', array( &$this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
 
-			$this->add_buttons_filter( 'get_the_excerpt' );
-			$this->add_buttons_filter( 'the_excerpt' );
-			$this->add_buttons_filter( 'the_content' );
+			if ( $this->have_buttons_for_type( 'content' ) )
+				$this->add_buttons_filter( 'the_content' );
+
+			if ( $this->have_buttons_for_type( 'excerpt' ) ) {
+				$this->add_buttons_filter( 'get_the_excerpt' );
+				$this->add_buttons_filter( 'the_excerpt' );
+			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,		// add sharing options and css file contents to defaults
@@ -156,7 +162,9 @@ jQuery("#wpsso-sidebar").click( function(){
 			) );
 
 			if ( is_admin() ) {
-				add_action( 'add_meta_boxes', array( &$this, 'add_post_metaboxes' ) );
+				if ( $this->have_buttons_for_type( 'admin_edit' ) )
+					add_action( 'add_meta_boxes', array( &$this, 'add_post_buttons_metabox' ) );
+
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options' => 2,		// update the sharing css file
 					'option_type' => 2,		// identify option type for sanitation
@@ -165,6 +173,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					'tooltip_plugin' => 2,		// tooltip messages for advanced settings
 					'tooltip_postmeta' => 3,	// tooltip messages for post social settings
 				) );
+
 				$this->p->util->add_plugin_filters( $this, array( 
 					'status_gpl_features' => 3,	// include sharing, shortcode, and widget status
 					'status_pro_features' => 3,	// include social file cache status
@@ -436,11 +445,13 @@ jQuery("#wpsso-sidebar").click( function(){
 					if ( ! is_writable( WPSSO_CACHEDIR ) ) {
 						if ( is_admin() )
 							$this->p->notice->err( WPSSO_CACHEDIR.' is not writable.', true );
-						$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
+						if ( $this->p->debug->enabled )
+							$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
 					}
 					if ( is_admin() )
 						$this->p->notice->err( 'Failed to open file '.$this->sharing_css_file.' for writing.', true );
-					$this->p->debug->log( 'failed opening '.$this->sharing_css_file.' for writing' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'failed opening '.$this->sharing_css_file.' for writing' );
 				} else {
 					$css_data = '';
 					$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
@@ -454,13 +465,16 @@ jQuery("#wpsso-sidebar").click( function(){
 					else {
 						if ( is_admin() )
 							$this->p->notice->err( 'Failed to load minify class SuextMinifyCssCompressor.', true );
-						$this->p->debug->log( 'failed to load minify class SuextMinifyCssCompressor' );
+						if ( $this->p->debug->enabled )
+							$this->p->debug->log( 'failed to load minify class SuextMinifyCssCompressor' );
 					}
 					if ( fwrite( $fh, $css_data ) === false ) {
 						if ( is_admin() )
 							$this->p->notice->err( 'Failed writing to file '.$this->sharing_css_file.'.', true );
-						$this->p->debug->log( 'failed writing to '.$this->sharing_css_file );
-					} else $this->p->debug->log( 'updated css file '.$this->sharing_css_file );
+						if ( $this->p->debug->enabled )
+							$this->p->debug->log( 'failed writing to '.$this->sharing_css_file );
+					} elseif ( $this->p->debug->enabled )
+						$this->p->debug->log( 'updated css file '.$this->sharing_css_file );
 					fclose( $fh );
 				}
 			} else $this->unlink_sharing_css();
@@ -473,16 +487,14 @@ jQuery("#wpsso-sidebar").click( function(){
 			}
 		}
 
-		public function add_post_metaboxes() {
+		public function add_post_buttons_metabox() {
 			if ( ! is_admin() )
-				return;
-
-			if ( ! $this->have_buttons( 'admin_edit' ) )
 				return;
 
 			// get the current object / post type
 			if ( ( $obj = $this->p->util->get_post_object() ) === false ) {
-				$this->p->debug->log( 'exiting early: invalid object type' );
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'exiting early: invalid object type' );
 				return;
 			}
 			$post_type = get_post_type_object( $obj->post_type );
@@ -502,35 +514,28 @@ jQuery("#wpsso-sidebar").click( function(){
 			return ( $this->remove_buttons_filter( $filter ) ? true : $ret );
 		}
 
-		public function add_buttons_filter( $type = 'the_content' ) {
-			$rc = add_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
-			$this->p->debug->log( 'buttons filter '.$type.' added ('.( $rc  ? 'true' : 'false' ).')' );
-			return $rc;
-		}
-
-		public function remove_buttons_filter( $type = 'the_content' ) {
-			$rc = remove_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
-			$this->p->debug->log( 'buttons filter '.$type.' removed ('.( $rc  ? 'true' : 'false' ).')' );
-			return $rc;
-		}
-
 		public function show_header() {
 			echo $this->get_js_loader();
 			echo $this->get_js( 'header' );
-			$this->p->debug->show_html( null, 'Debug Log' );
+
+			if ( $this->p->debug->enabled )
+				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_footer() {
-			echo $this->show_sidebar();
+
+			if ( $this->have_buttons_for_type( 'sidebar' ) )
+				echo $this->show_sidebar();
+			elseif ( $this->p->debug->enabled )
+				$this->p->debug->log( 'no buttons enabled for sidebar' );
+
 			echo $this->get_js( 'footer' );
-			$this->p->debug->show_html( null, 'Debug Log' );
+
+			if ( $this->p->debug->enabled )
+				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_sidebar() {
-			if ( ! $this->have_buttons( 'sidebar' ) ) {
-				$this->p->debug->log( 'exiting early: no buttons enabled for sidebar' );
-				return;
-			}
 			$js = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_sidebar'] ) );
 			$text = '';	// varabled passed by reference
 			$text = $this->get_buttons( $text, 'sidebar', false );	// use_post = false
@@ -541,7 +546,8 @@ jQuery("#wpsso-sidebar").click( function(){
 				echo '</div>', "\n";
 				echo '<script type="text/javascript">'.$js.'</script>', "\n";
 			}
-			$this->p->debug->show_html( null, 'Debug Log' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_admin_sharing( $post ) {
@@ -562,9 +568,33 @@ jQuery("#wpsso-sidebar").click( function(){
 				echo $this->get_js( 'header' );
 				echo $this->get_buttons( $content, 'admin_edit' );
 				echo $this->get_js( 'footer' );
-				$this->p->debug->show_html( null, 'Debug Log' );
+
+				if ( $this->p->debug->enabled )
+					$this->p->debug->show_html( null, 'Debug Log' );
+
 			} else echo '<p class="centered">The '.$post_type_name.' must be published<br/>before it can be shared.</p>';
 			echo '</td></tr></table>';
+		}
+
+		public function add_buttons_filter( $type = 'the_content' ) {
+			$rc = false;
+			if ( method_exists( $this, 'get_buttons_'.$type ) ) {
+				$rc = add_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'buttons filter '.$type.' added ('.( $rc  ? 'true' : 'false' ).')' );
+			} elseif ( $this->p->debug->enabled )
+				$this->p->debug->log( 'get_buttons_'.$type.' method is missing' );
+			return $rc;
+		}
+
+		public function remove_buttons_filter( $type = 'the_content' ) {
+			$rc = false;
+			if ( method_exists( $this, 'get_buttons_'.$type ) ) {
+				$rc = remove_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'buttons filter '.$type.' removed ('.( $rc  ? 'true' : 'false' ).')' );
+			}
+			return $rc;
 		}
 
 		public function get_buttons_the_excerpt( $text ) {
@@ -612,7 +642,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				}
 			}
 
-			if ( ! $this->have_buttons( $type ) ) {
+			if ( ! $this->have_buttons_for_type( $type ) ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $type.' filter exiting early: no sharing buttons enabled' );
 				return $text;
@@ -745,7 +775,8 @@ jQuery("#wpsso-sidebar").click( function(){
 							get_post_type( $obj->ID ) !== 'attachment' ) )
 								return;
 				} elseif ( is_singular() && $this->is_post_buttons_disabled() ) {
-					$this->p->debug->log( 'exiting early: buttons disabled' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'exiting early: buttons disabled' );
 					return;
 				}
 
@@ -784,7 +815,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					}
 				}
 				if ( empty( $ids ) ) {
-					$this->p->debug->log( 'exiting early: no buttons enabled' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'exiting early: no buttons enabled' );
 					return;
 				}
 			}
@@ -852,9 +884,24 @@ jQuery("#wpsso-sidebar").click( function(){
 			return 'class="'.$css_class.'" id="'.$css_id.'"';
 		}
 
+		public function have_buttons_for_type( $type ) {
+
+			if ( isset( $this->buttons_for_type[$type] ) )
+				return $this->buttons_for_type[$type];
+
+			foreach ( $this->p->cf['opt']['pre'] as $id => $pre )
+				if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) )	// check if button is enabled
+					return $this->buttons_for_type[$type] = true;
+
+			return $this->buttons_for_type[$type] = false;
+		}
+
 		public function is_post_buttons_disabled() {
 			global $post;
 			$ret = false;
+			
+			if ( isset( $this->post_buttons_disabled[$post->ID] ) )
+				return $this->post_buttons_disabled[$post->ID];
 
 			if ( ! empty( $post ) ) {
 				$post_type = $post->post_type;
@@ -868,7 +915,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					$ret = true;
 				}
 			}
-			return apply_filters( $this->p->cf['lca'].'_post_buttons_disabled', $ret );
+
+			return $this->post_buttons_disabled[$post->ID] = apply_filters( $this->p->cf['lca'].'_post_buttons_disabled', $ret, $post->ID );
 		}
 
 		public function remove_paragraph_tags( $match = array() ) {
@@ -877,13 +925,6 @@ jQuery("#wpsso-sidebar").click( function(){
 			$suff = empty( $match[2] ) ? '' : $match[2];
 			$ret = preg_replace( '/(<\/*[pP]>|\n)/', '', $text );
 			return $suff.$ret; 
-		}
-
-		public function have_buttons( $type ) {
-			foreach ( $this->p->cf['opt']['pre'] as $id => $pre )
-				if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) )
-					return true;
-			return false;
 		}
 
 		public function get_website_names() {

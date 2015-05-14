@@ -94,8 +94,8 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				'defaults' => array(
 					'twitter_on_content' => 1,
 					'twitter_on_excerpt' => 0,
-					'twitter_on_admin_edit' => 1,
 					'twitter_on_sidebar' => 0,
+					'twitter_on_admin_edit' => 1,
 					'twitter_order' => 3,
 					'twitter_js_loc' => 'header',
 					'twitter_lang' => 'en',
