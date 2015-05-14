@@ -8,7 +8,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.0
 Tested Up To: 4.2.2
-Stable Tag: 1.5.1
+Stable Tag: 1.5.2
 
 WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -179,15 +179,6 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin.
 	* The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.
 	* Changed *default* image widths from 800px to 600px (lowest recommended value for Facebook).
-* **Bugfixes**
-	* *None*
-
-= Version 1.2 (2015/04/02) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Further performance improvements for non-debug mode by centralizing debug mode checks.
 * **Bugfixes**
 	* *None*
 
