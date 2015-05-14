@@ -123,12 +123,12 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5.1 =
+= Version 1.5.1 (2015/05/14) =
 
 * **New Features**
 	* *None*
 * **Improvements**
-	* Refactored the buttons enabled/disabled checks and loading of their filters.
+	* Refactored checks using WpssoSsbSharing::is_post_buttons_disabled() and loading of filters using WpssoSsbSharing::have_buttons_for_type().
 * **Bugfixes**
 	* *None*
 
@@ -191,6 +191,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.1 =
+
+Refactored checks using is_post_buttons_disabled() and have_buttons_for_type() in the WpssoSsbSharing class.
 
 = 1.5 =
 
