@@ -123,12 +123,13 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5.1 (2015/05/14) =
+= Version 1.5.2 (2015/05/14) =
 
 * **New Features**
 	* *None*
 * **Improvements**
 	* Refactored checks using WpssoSsbSharing::is_post_buttons_disabled() and loading of filters using WpssoSsbSharing::have_buttons_for_type().
+	* Fixed possible non-unique CSS ids for sharing buttons.
 * **Bugfixes**
 	* *None*
 
@@ -192,11 +193,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
-= 1.5.1 =
+= 1.5.2 =
 
 Refactored checks using is_post_buttons_disabled() and have_buttons_for_type() in the WpssoSsbSharing class.
-
-= 1.5 =
-
-Added the Buffer, Pinterest, and Tumblr sharing button Image Dimensions to the Social Image Dimensions settings page.
 
