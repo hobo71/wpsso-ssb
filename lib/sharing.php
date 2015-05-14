@@ -867,16 +867,19 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function get_css( $css_name, &$atts = array(), $css_class_extra = '' ) {
-			global $post;
 
-			$css_class = $css_name.'-'.( empty( $atts['css_class'] ) ? 
-				'button' : $atts['css_class'] );
+			foreach ( array( 'css_class', 'css_id' ) as $key )
+				if ( empty( $atts[$key] ) )
+					$atts[$key] = 'buttons';
 
-			$css_id = $css_name.'-'.( empty( $atts['css_id'] ) ? 
-				'button' : $atts['css_id'] );
+			$css_class = $css_name.'-'.$atts['css_class'];
+			$css_id = $css_name.'-'.$atts['css_id'];
 
-			if ( is_singular() && ! empty( $post->ID ) ) 
-				$css_id .= '-post-'.$post->ID;
+			if ( is_singular() || in_the_loop() ) {
+				global $post;
+				if ( ! empty( $post->ID ) )
+					$css_id .= '-post-'.$post->ID;
+			}
 
 			if ( ! empty( $css_class_extra ) ) 
 				$css_class = $css_class_extra.' '.$css_class;
