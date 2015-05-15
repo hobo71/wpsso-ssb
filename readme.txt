@@ -129,7 +129,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 * **Improvements**
 	* Refactored checks using WpssoSsbSharing::is_post_buttons_disabled() and loading of filters using WpssoSsbSharing::have_buttons_for_type().
-	* Fixed possible non-unique CSS ids for sharing buttons.
+	* Refactored WpssoSsbSharing::get_css() and fixed non-unique CSS ids for sharing buttons in the loop.
 * **Bugfixes**
 	* *None*
 
@@ -186,5 +186,5 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = 1.5.2 =
 
-Refactored checks using is_post_buttons_disabled() and have_buttons_for_type() in the WpssoSsbSharing class.
+Refactored checks using is_post_buttons_disabled(), have_buttons_for_type(), and get_css() in the WpssoSsbSharing class.
 
