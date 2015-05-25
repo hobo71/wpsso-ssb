@@ -123,6 +123,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.3 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Code compatibility with WPSSO v3.3.
+* **Bugfixes**
+	* Fixed the logic determining if a specific image should be shared with the Pinterest sharing button.
+* **Developer Notes**
+	* *None*
+
 = Version 1.5.2 (2015/05/14) =
 
 * **New Features**
