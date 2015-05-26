@@ -2,7 +2,7 @@
 Plugin Name: WPSSO Social Sharing Buttons (WPSSO SSB)
 Plugin Slug: wpsso-ssb
 Contributors: jsmoriss
-Donate Link: https://surniaulula.com/extend/plugins/wpsso-ssb/
+Donate Link: https://wpsso.com/extend/plugins/wpsso-ssb/
 Tags: wpsso, like, send, share, facebook, google, google plus, g+, twitter, linkedin, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, bitly, shorten, woocommerce
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
@@ -18,7 +18,7 @@ WPSSO extension for fast and accurate Social Sharing Buttons with support for ha
 
 <p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options for social sharing buttons. WPSSO SSB is <em>fast</em>, <em>efficient</em>, and &mdash; using WPSSO as its framework &mdash; provides <em>accurate</em> information about your content to social websites.</p>
 
-<p>You can download the <a href="https://wordpress.org/plugins/wpsso-ssb/">Free version of WPSSO SSB on wordpress.org</a> and <a href="(http://surniaulula.com/extend/plugins/wpsso-ssb/">purchase Pro license(s) on surniaulula.com</a> (includes a <strong>No Risk 30 Day Refund Policy</strong>).</p>
+<p>You can download the <a href="https://wordpress.org/plugins/wpsso-ssb/">Free version of WPSSO SSB on WordPress.org</a> and <a href="(http://wpsso.com/extend/plugins/wpsso-ssb/">purchase Pro license(s) on WPSSO.com</a> (includes a <strong>No Risk 30 Day Refund Policy</strong>).</p>
 
 = Quick List of Features =
 
@@ -50,7 +50,7 @@ The Facebook, Google+ and Twitter sharing buttons also support *multiple default
 
 **Pro / Power-User Version**
 
-The [WPSSO SSB Pro version](http://surniaulula.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
+The [WPSSO SSB Pro version](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
 * <strong>No Risk 30 Day Refund Policy</strong>
 * File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
@@ -65,7 +65,7 @@ The [WPSSO SSB Pro version](http://surniaulula.com/extend/plugins/wpsso-ssb/) in
 	* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
 
 <blockquote>
-<p><a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization</a> (WPSSO) plugin (version 2.7 and up) is required to use the WPSSO SSB extension. You can use the <em>Free version</em> of WPSSO SSB with either WPSSO Free or Pro, but the <a href="http://surniaulula.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro version</a> requires the use of <a href="http://surniaulula.com/extend/plugins/wpsso/">WPSSO Pro</a> as well.</p>
+<p><a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization</a> (WPSSO) plugin (version 2.7 and up) is required to use the WPSSO SSB extension. You can use the <em>Free version</em> of WPSSO SSB with either WPSSO Free or Pro, but the <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro version</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well.</p>
 </blockquote>
 
 = Proven Performance =
@@ -77,8 +77,8 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 = Install and Uninstall =
 
 <ul>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/">Install the Plugin</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/">Uninstall the Plugin</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/">Install the Plugin</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/">Uninstall the Plugin</a></li>
 </ul>
 
 == Frequently Asked Questions ==
@@ -86,13 +86,13 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 = Frequently Asked Questions =
 
 <ul>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/">Can I share a single image on a webpage?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/">Can I use other social sharing buttons?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/">How do I turn on Social Sharing Buttons for a page?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/">Why are the buttons showing the wrong language?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/">Why does the Facebook “Like” button flyout get clipped?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/">Why doesn’t the Pinterest button show?</a></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/">Why doesn’t the Twitter count increase?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/">Can I share a single image on a webpage?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/">Can I use other social sharing buttons?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/">How do I turn on Social Sharing Buttons for a page?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/">Why are the buttons showing the wrong language?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/">Why does the Facebook “Like” button flyout get clipped?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/">Why doesn’t the Pinterest button show?</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/">Why doesn’t the Twitter count increase?</a></li>
 </ul>
 
 == Other Notes ==
@@ -100,12 +100,12 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 = Additional Documentation =
 
 <ul>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/developer/">Developer Resources</a>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/">Developer Resources</a>
 	<ul>
-		<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/">Sharing Buttons Function</a></li>
+		<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/">Sharing Buttons Function</a></li>
 	</ul></li>
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li> 
-	<li><a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li> 
+	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
 </ul>
 
 == Screenshots ==
