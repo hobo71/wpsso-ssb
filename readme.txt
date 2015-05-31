@@ -128,7 +128,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **New Features**
 	* *None*
 * **Improvements**
-	* Code compatibility with WPSSO v3.3.
+	* Renamed the 'postmeta' filter hooks to 'post' for compatibility with WPSSO v3.3.
 * **Bugfixes**
 	* Fixed the logic determining if a specific image should be shared with the Pinterest sharing button.
 * **Developer Notes**
@@ -194,6 +194,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.3 =
+
+Renamed the 'postmeta' filter hooks for compatibility with WPSSO v3.3, fixed logic determining if image should be shared with the Pinterest button.
 
 = 1.5.2 =
 
