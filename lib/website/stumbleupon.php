@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 		}
 
 		protected function get_rows( $metabox, $key ) {
@@ -114,7 +115,8 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
@@ -128,12 +130,14 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 			$html = '<!-- StumbleUpon Button --><div '.$this->p->sharing->get_css( 'stumbleupon', $atts, 'stumble-button' ).'>';
 			$html .= '<su:badge layout="'.$opts['stumble_badge'].'" location="'.$atts['url'].'"></su:badge></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 
 		public function get_js( $pos = 'id' ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
 				$prot.'//platform.stumbleupon.com/1/widgets.js', $pos ) );

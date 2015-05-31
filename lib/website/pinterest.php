@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$this->p->util->add_plugin_filters( $this, array( 
 				'image-dimensions_general_rows' => 2,
 			) );
@@ -137,7 +138,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		}
 
 		public function filter_plugin_image_sizes( $sizes ) {
-			$sizes['pin_img'] = array( 'name' => 'pinterest-button', 'label' => 'Pinterest Button Image Dimensions' );
+			$sizes['pin_img'] = array( 'name' => 'pinterest-button', 'label' => 'Pinterest Sharing Button' );
 			return $sizes;
 		}
 
@@ -146,7 +147,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
@@ -163,7 +165,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			$post_id = 0;
 			if ( is_singular() || $use_post !== false ) {
 				if ( ( $obj = $this->p->util->get_post_object( $use_post ) ) === false ) {
-					$this->p->debug->log( 'exiting early: invalid object type' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'exiting early: invalid object type' );
 					return false;
 				}
 				$post_id = empty( $obj->ID ) || empty( $obj->post_type ) ? 0 : $obj->ID;
@@ -175,8 +178,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			if ( empty( $atts['photo'] ) ) {
 				if ( empty( $atts['pid'] ) && $post_id > 0 ) {
 					// check for meta, featured, and attached images
-					$pid = $this->p->mods['util']['postmeta']->get_options( $post_id, 'og_img_id' );
-					$pre = $this->p->mods['util']['postmeta']->get_options( $post_id, 'og_img_id_pre' );
+					$pid = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id' );
+					$pre = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id_pre' );
 					if ( ! empty( $pid ) ) 
 						$atts['pid'] = $pre == 'ngg' ? 'ngg-'.$pid : $pid;
 					elseif ( ( is_attachment( $post_id ) || get_post_type( $post_id ) === 'attachment' ) &&
@@ -191,11 +194,14 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 						$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 			}
 
-			// the pinterest button always shares an image - return now if there's no image
-			if ( empty( $atts['photo'] ) && ! empty( $this->p->options['pin_use_img'] ) ) {
-				$this->p->debug->log( 'exiting early: no photo defined for post_id '.$post_id );
+			// let the pinterest crawler choose an image
+			if ( empty( $this->p->options['pin_use_img'] ) )
+				$href_query .= '&amp;media=';
+			elseif ( empty( $atts['photo'] ) ) {
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'exiting early: no photo defined for post_id '.$post_id );
 				return false;
-			} else $href_query .= '&amp;media='; //.urlencode( $atts['photo'] );
+			} else $href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption(
@@ -227,7 +233,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 						'red_'.$pin_img_height.'.png';
 					break;
 				default:
-					$this->p->debug->log( 'exiting early: unknown pinterest button shape' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'exiting early: unknown pinterest button shape' );
 					return $html;
 					break;
 			}
@@ -243,12 +250,14 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			'data-pin-config="'.$opts['pin_count_layout'].'">'.
 			'<img border="0" alt="Pin It" src="'.$pin_img_url.'" width="'.$pin_img_width.'" height="'.$pin_img_height.'" /></a></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 
 		public function get_js( $pos = 'id' ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
 				$prot.'//assets.pinterest.com/js/pinit.js', $pos ) );

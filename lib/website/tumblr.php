@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$this->p->util->add_plugin_filters( $this, array( 
 				'image-dimensions_general_rows' => 2,
 			) );
@@ -134,7 +135,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 		}
 
 		public function filter_plugin_image_sizes( $sizes ) {
-			$sizes['tumblr_img'] = array( 'name' => 'tumblr-button', 'label' => 'Tumblr Button Image Dimensions' );
+			$sizes['tumblr_img'] = array( 'name' => 'tumblr-button', 'label' => 'Tumblr Sharing Button' );
 			return $sizes;
 		}
 
@@ -143,7 +144,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
@@ -159,7 +161,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			$post_id = 0;
 			if ( is_singular() || $use_post !== false ) {
 				if ( ( $obj = $this->p->util->get_post_object( $use_post ) ) === false ) {
-					$this->p->debug->log( 'exiting early: invalid object type' );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'exiting early: invalid object type' );
 					return false;
 				}
 				$post_id = empty( $obj->ID ) || empty( $obj->post_type ) ? 0 : $obj->ID;
@@ -172,8 +175,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			if ( empty( $atts['photo'] ) && $opts['tumblr_photo'] ) {
 				if ( empty( $atts['pid'] ) && $post_id > 0 ) {
 					// check for meta, featured, and attached images
-					$pid = $this->p->mods['util']['postmeta']->get_options( $post_id, 'og_img_id' );
-					$pre = $this->p->mods['util']['postmeta']->get_options( $post_id, 'og_img_id_pre' );
+					$pid = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id' );
+					$pre = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id_pre' );
 					if ( ! empty( $pid ) )
 						$atts['pid'] = $pre == 'ngg' ? 'ngg-'.$pid : $pid;
 					elseif ( ( is_attachment( $post_id ) || get_post_type( $post_id ) === 'attachment' ) &&
@@ -190,7 +193,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 
 			// check for custom or embedded videos
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && $post_id > 0 ) {
-				$atts['embed'] = $this->p->mods['util']['postmeta']->get_options( $post_id, 'og_vid_url' );
+				$atts['embed'] = $this->p->mods['util']['post']->get_options( $post_id, 'og_vid_url' );
 				if ( empty( $atts['embed'] ) ) {
 					$videos = array();
 					$videos = $this->p->media->get_content_videos( 1, $post_id, false );
@@ -269,13 +272,15 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			$html .= '<img border="0" alt="Share on Tumblr" src="'.
 				$this->p->util->get_cache_url( $prot.'//platform.tumblr.com/v1/'.$opts['tumblr_button_style'].'.png' ).'" /></a></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 
 		// the tumblr host does not have a valid SSL cert, and it's javascript does not work in async mode
 		public function get_js( $pos = 'id' ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_tumblr',
 				$prot.'//platform.tumblr.com/v1/share.js', $pos ) );

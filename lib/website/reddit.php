@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingReddit' ) && class_exists( 'WpssoSsb
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 		}
 
 		protected function get_rows( $metabox, $key ) {
@@ -77,7 +78,8 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
@@ -121,7 +123,8 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 			$html .= '<div '.$this->p->sharing->get_css( 'reddit', $atts ).'>';
 			$html .= '<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 	}

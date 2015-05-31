@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingManagewp' ) && class_exists( 'WpssoS
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 		}
 
 		protected function get_rows( $metabox, $key ) {
@@ -76,7 +77,8 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
@@ -109,7 +111,8 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 			$html .= empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"';
 			$html .= '></script></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 	}

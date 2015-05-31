@@ -2,7 +2,7 @@
 /*
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl.txt
- * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ * Copyright 2014-2015 - Jean-Sebastien Morisset - http://wpsso.com/
  */
 
 if ( ! defined( 'ABSPATH' ) ) 
@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.5.2',	// plugin version
+					'version' => '1.5.3',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, shortening, bbPress, BuddyPress, and WooCommerce.',
@@ -33,15 +33,14 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'readme' => 'https://plugins.svn.wordpress.org/wpsso-ssb/trunk/readme.txt',
 						'wp_support' => 'https://wordpress.org/support/plugin/wpsso-ssb',
 						// surniaulula
-						'update' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/update/',
-						'purchase' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/',
-						'changelog' => 'http://surniaulula.com/extend/plugins/wpsso-ssb/changelog/',
-						'codex' => 'http://surniaulula.com/codex/plugins/wpsso-ssb/',
-						'faq' => 'http://surniaulula.com/codex/plugins/wpsso-ssb/faq/',
+						'update' => 'http://wpsso.com/extend/plugins/wpsso-ssb/update/',
+						'purchase' => 'http://wpsso.com/extend/plugins/wpsso-ssb/',
+						'changelog' => 'http://wpsso.com/extend/plugins/wpsso-ssb/changelog/',
+						'codex' => 'http://wpsso.com/codex/plugins/wpsso-ssb/',
+						'faq' => 'http://wpsso.com/codex/plugins/wpsso-ssb/faq/',
 						'notes' => '',
-						'feed' => 'http://surniaulula.com/category/application/wordpress/wp-plugins/wpsso-ssb/feed/',
-						'pro_support' => 'http://support.wpsso-ssb.surniaulula.com/',
-						'pro_ticket' => 'http://ticket.wpsso-ssb.surniaulula.com/',
+						'feed' => 'http://wpsso.com/category/application/wordpress/wp-plugins/wpsso-ssb/feed/',
+						'pro_support' => 'http://wpsso-ssb.support.wpsso.com/',
 					),
 					'lib' => array(
 						'submenu' => array (

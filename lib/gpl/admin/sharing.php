@@ -18,8 +18,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'plugin_cache_rows' => 3,	// advanced 'File and Object Cache' options
 				'sharing_include_rows' => 2,	// social sharing 'Include Buttons' options
 				'sharing_preset_rows' => 2,	// social sharing 'Preset Options' options
-				'meta_tabs' => 1,		// post meta 'Sharing Buttons' tab
-				'meta_sharing_rows' => 3,	// post meta 'Sharing Buttons' options
+				'post_tabs' => 1,		// post 'Sharing Buttons' tab
+				'post_sharing_rows' => 3,	// post 'Sharing Buttons' options
 			), 30 );
 		}
 
@@ -77,7 +77,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			return $rows;
 		}
 
-		public function filter_meta_tabs( $tabs ) {
+		public function filter_post_tabs( $tabs ) {
 			$new_tabs = array();
 			foreach ( $tabs as $key => $val ) {
 				$new_tabs[$key] = $val;
@@ -87,14 +87,14 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			return $new_tabs;
 		}
 
-		public function filter_meta_sharing_rows( $rows, $form, $post_info ) {
+		public function filter_post_sharing_rows( $rows, $form, $head_info ) {
 
-			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $post_info['id'] ) );
-			list( $pid, $video_url ) = $this->p->sharing->get_sharing_media( $post_info['id'] );
+			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['id'] ) );
+			list( $pid, $video_url ) = $this->p->sharing->get_sharing_media( $head_info['id'] );
 
 			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$th = $this->p->util->th( 'Pinterest Image Caption', 'medium', 'postmeta-pin_desc' );
+			$th = $this->p->util->th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
 			if ( ! empty( $pid ) ) {
 				$img = $this->p->media->get_attachment_image_src( $pid, $this->p->cf['lca'].'-pinterest-button', false );
 				if ( empty( $img[0] ) )
@@ -104,7 +104,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
 
-			$th = $this->p->util->th( 'Tumblr Image Caption', 'medium', 'postmeta-tumblr_img_desc' );
+			$th = $this->p->util->th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
 			if ( empty( $this->p->options['tumblr_photo'] ) ) {
 				$rows[] = $th.'<td class="blank"><em>\'Use Featured Image\' option is disabled.</em></td>';
 			} elseif ( ! empty( $pid ) ) {
@@ -116,18 +116,18 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
 
-			$th = $this->p->util->th( 'Tumblr Video Caption', 'medium', 'postmeta-tumblr_vid_desc' );
+			$th = $this->p->util->th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
 			if ( ! empty( $vid_url ) )
 				$rows[] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
 			else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Video URL or embedded video found.</em></td>';
 
-			$rows[] = $this->p->util->th( 'Tweet Text', 'medium', 'postmeta-twitter_desc' ). 
+			$rows[] = $this->p->util->th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
 				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Disable Sharing Buttons', 'medium', 'postmeta-buttons_disabled', $post_info ).
+			$this->p->util->th( 'Disable Sharing Buttons', 'medium', 'post-buttons_disabled', $head_info ).
 			'<td class="blank">&nbsp;</td>';
 
 			return $rows;

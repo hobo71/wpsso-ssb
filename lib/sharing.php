@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_pos_content' => 'bottom',
 					'buttons_pos_excerpt' => 'bottom',
 					'buttons_use_social_css' => 1,
-					'buttons_enqueue_social_css' => 0,
+					'buttons_enqueue_social_css' => 1,
 					'buttons_css_sharing' => '',		// all buttons
 					'buttons_css_content' => '',		// post/page content
 					'buttons_css_excerpt' => '',		// post/page excerpt
@@ -166,12 +166,12 @@ jQuery("#wpsso-sidebar").click( function(){
 					add_action( 'add_meta_boxes', array( &$this, 'add_post_buttons_metabox' ) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
-					'save_options' => 2,		// update the sharing css file
-					'option_type' => 2,		// identify option type for sanitation
+					'save_options' => 3,		// update the sharing css file
+					'option_type' => 4,		// identify option type for sanitation
 					'post_cache_transients' => 4,	// clear transients on post save
 					'tooltip_side' => 2,		// tooltip messages for side boxes
 					'tooltip_plugin' => 2,		// tooltip messages for advanced settings
-					'tooltip_postmeta' => 3,	// tooltip messages for post social settings
+					'tooltip_post' => 3,		// tooltip messages for post social settings
 				) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
@@ -218,15 +218,14 @@ jQuery("#wpsso-sidebar").click( function(){
 			return $opts_def;
 		}
 
-		public function filter_save_options( $opts, $options_name ) {
-			if ( $options_name === WPSSO_OPTIONS_NAME ) {
-				// update the combined and minimized social stylesheet
+		public function filter_save_options( $opts, $options_name, $network ) {
+			// update the combined and minimized social stylesheet
+			if ( $network === false )
 				$this->update_sharing_css( $opts );
-			}
 			return $opts;
 		}
 
-		public function filter_option_type( $type, $key ) {
+		public function filter_option_type( $type, $key, $network, $mod ) {
 			if ( ! empty( $type ) )
 				return $type;
 
@@ -375,22 +374,22 @@ jQuery("#wpsso-sidebar").click( function(){
 			return $text;
 		}
 
-		public function filter_tooltip_postmeta( $text, $idx, $atts ) {
+		public function filter_tooltip_post( $text, $idx, $atts ) {
 			$ptn = empty( $atts['ptn'] ) ? 'Post' : $atts['ptn'];
 			switch ( $idx ) {
-				 case 'tooltip-postmeta-pin_desc':
+				 case 'tooltip-post-pin_desc':
 					$text = 'A custom caption text, used by the Pinterest social sharing button, for the custom Image ID, attached or featured image.';
 				 	break;
-				 case 'tooltip-postmeta-tumblr_img_desc':
+				 case 'tooltip-post-tumblr_img_desc':
 				 	$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Image ID, attached or featured image.';
 				 	break;
-				 case 'tooltip-postmeta-tumblr_vid_desc':
+				 case 'tooltip-post-tumblr_vid_desc':
 					$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Video URL or embedded video.';
 				 	break;
-				 case 'tooltip-postmeta-twitter_desc':
+				 case 'tooltip-post-twitter_desc':
 				 	$text = 'A custom Tweet text for the Twitter social sharing button. This text is in addition to any Twitter Card description.';
 				 	break;
-				 case 'tooltip-postmeta-buttons_disabled':
+				 case 'tooltip-post-buttons_disabled':
 					$text = 'Disable all social sharing buttons (content, excerpt, widget, shortcode) for this '.$ptn.'.';
 				 	break;
 			}
@@ -908,7 +907,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			if ( ! empty( $post ) ) {
 				$post_type = $post->post_type;
-				if ( $this->p->mods['util']['postmeta']->get_options( $post->ID, 'buttons_disabled' ) ) {
+				if ( $this->p->mods['util']['post']->get_options( $post->ID, 'buttons_disabled' ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'post '.$post->ID.': sharing buttons disabled by custom meta option' );
 					$ret = true;
@@ -938,7 +937,7 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function get_sharing_media( $post_id ) {
-			$opts = $this->p->mods['util']['postmeta']->get_options( $post_id );
+			$opts = $this->p->mods['util']['post']->get_options( $post_id );
 			foreach ( array(
 				'og_img_id',
 				'og_img_id_pre',

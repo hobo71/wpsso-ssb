@@ -11,11 +11,19 @@
  * (excerpt, content, shortcode, widget). Any change made to this
  * class will affect all other button layouts.
  */
-.wpsso-buttons img { border:none; }
-.wpsso-buttons img:hover { border:none; }
+.wpsso-buttons img { 
+	margin:none;
+	border:none;
+}
 
-/* fix the Facebook "like" flyout on 2012 based themes */
-.wpsso-buttons iframe { max-width:none; }
+.wpsso-buttons img:hover {
+	border:none;
+}
+
+.wpsso-buttons iframe { 
+	margin:0;
+	max-width:none;
+}
 
 .wpsso-buttons > div,		/* default uses small buttons */
 .wpsso-preset-small_share_count .wpsso-buttons > div { 

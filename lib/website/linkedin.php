@@ -20,7 +20,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 			$this->p =& $plugin;
 			$this->id = $id;
 			$this->name = $name;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 		}
 
 		public function filter_get_defaults( $opts_def ) {
@@ -91,7 +92,8 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 		}
 
 		public function get_html( $atts = array(), &$opts = array() ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
@@ -107,12 +109,14 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 			$html .= empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"';
 			$html .= '></script></div>';
 
-			$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			if ( $this->p->debug->enabled )
+				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
 			return $html."\n";
 		}
 		
 		public function get_js( $pos = 'id' ) {
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_linkedin',
 				$prot.'//platform.linkedin.com/in.js', $pos ) );
