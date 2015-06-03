@@ -18,7 +18,9 @@ WPSSO extension for fast and accurate Social Sharing Buttons with support for ha
 
 <p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options for social sharing buttons. WPSSO SSB is <em>fast</em>, <em>efficient</em>, and &mdash; using WPSSO as its framework &mdash; provides <em>accurate</em> information about your content to social websites.</p>
 
-<p>You can download the <a href="https://wordpress.org/plugins/wpsso-ssb/">Free version of WPSSO SSB on WordPress.org</a> and <a href="(http://wpsso.com/extend/plugins/wpsso-ssb/">purchase Pro license(s) on WPSSO.com</a> (includes a <strong>No Risk 30 Day Refund Policy</strong>).</p>
+<blockquote>
+<p>You can download the <a href="https://wordpress.org/plugins/wpsso-ssb/">Free version of WPSSO SSB on WordPress.org</a> and <a href="(http://wpsso.com/extend/plugins/wpsso-ssb/">purchase the Pro version on WPSSO.com</a> (includes a No Risk 30 Day Refund Policy).</p>
+</blockquote>
 
 = Quick List of Features =
 
@@ -65,7 +67,7 @@ The [WPSSO SSB Pro version](http://wpsso.com/extend/plugins/wpsso-ssb/) includes
 	* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
 
 <blockquote>
-<p><a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization</a> (WPSSO) plugin (version 2.7 and up) is required to use the WPSSO SSB extension. You can use the <em>Free version</em> of WPSSO SSB with either WPSSO Free or Pro, but the <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro version</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well.</p>
+<p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with both the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well.</p>
 </blockquote>
 
 = Proven Performance =
