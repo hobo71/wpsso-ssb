@@ -66,7 +66,7 @@
 <li>URL shortening with Bitly or Google for URLs in Tweet texts.</li>
 <li>Ability to include / exclude sharing buttons by post type.</li>
 <li>Selection of <em>preset</em> button options by location (content, excerpt, shortcode, widget, etc.).</li>
-<li>Additional sharing button locations and stylesheets for:
+<li>Additional sharing button locations and CSS styles for:
 
 <ul>
 <li><a href="https://wordpress.org/plugins/bbpress/">bbPress</a></li>
