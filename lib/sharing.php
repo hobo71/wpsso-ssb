@@ -959,8 +959,8 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			if ( empty( $opts['og_vid_url'] ) ) {
 				$videos = $this->p->media->get_content_videos( 1, $post_id, false, $opts['og_vid_embed'] );
-				if ( ! empty( $videos[0]['og:video'] ) ) 
-					$opts['og_vid_url'] = $videos[0]['og:video'];
+				if ( ! empty( $videos[0]['og:video:url'] ) ) 
+					$opts['og_vid_url'] = $videos[0]['og:video:url'];
 			}
 
 			return array( $opts['og_img_id'], $opts['og_vid_url'] );

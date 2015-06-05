@@ -97,7 +97,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 					'stumble_on_sidebar' => 0,
 					'stumble_on_admin_edit' => 1,
 					'stumble_order' => 9,
-					'stumble_js_loc' => 'header',
+					'stumble_js_loc' => 'footer',	// header or footer
 					'stumble_badge' => 1,
 				),
 			),

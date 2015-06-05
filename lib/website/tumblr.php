@@ -197,8 +197,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 				if ( empty( $atts['embed'] ) ) {
 					$videos = array();
 					$videos = $this->p->media->get_content_videos( 1, $post_id, false );
-					if ( ! empty( $videos[0]['og:video'] ) ) 
-						$atts['embed'] = $videos[0]['og:video'];
+					if ( ! empty( $videos[0]['og:video:url'] ) ) 
+						$atts['embed'] = $videos[0]['og:video:url'];
 				}
 			}
 
