@@ -125,7 +125,18 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5.3 =
+= Version 1.5.4 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Moved the default StumbleUpon javascript location to the webpage footer.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* **Renamed the 'og:video' meta tag to 'og:video:url'** in the `WpssoSsbSharingTumblr::get_html()` method .
+
+= Version 1.5.3 (2015/04/31) =
 
 * **New Features**
 	* *None*
