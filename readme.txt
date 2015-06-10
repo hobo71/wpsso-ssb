@@ -134,7 +134,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* **Renamed the 'og:video' meta tag to 'og:video:url'** in the `WpssoSsbSharingTumblr::get_html()` method .
+	* **Renamed the 'og:video' meta tag to 'og:video:url'** in the `WpssoSsbSharingTumblr::get_html()` method.
 
 = Version 1.5.3 (2015/05/31) =
 
@@ -208,11 +208,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
-= 1.5.3 =
+= 1.5.4 =
 
-Renamed the 'postmeta' filter hooks for compatibility with WPSSO v3.3, fixed logic determining if image should be shared with the Pinterest button.
-
-= 1.5.2 =
-
-Refactored checks using is_post_buttons_disabled(), have_buttons_for_type(), and get_css() in the WpssoSsbSharing class.
+Renamed the 'og:video' meta tag to 'og:video:url' in the `WpssoSsbSharingTumblr::get_html()` method for WPSSO v3.3.2.
 
