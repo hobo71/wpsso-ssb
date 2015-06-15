@@ -125,6 +125,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.5 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Minor update for WPSSO v3.4 compatibility.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Renamed the `$head_info['id']` array key to `$head_info['post_id']`.
+
 = Version 1.5.4 (2015/06/05) =
 
 * **New Features**
