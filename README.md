@@ -3,7 +3,7 @@
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Social Sharing Buttons (WPSSO SSB)</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
-<tr><th align="right" valign="top" nowrap>Stable Version</th><td>1.5.4</td></tr>
+<tr><th align="right" valign="top" nowrap>Stable Version</th><td>1.5.5</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.0</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 4.2.2</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
