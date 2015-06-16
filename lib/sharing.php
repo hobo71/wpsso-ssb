@@ -657,7 +657,8 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( $this->p->is_avail['cache']['transient'] ) {
 				$cache_salt = __METHOD__.'('.apply_filters( $lca.'_buttons_cache_salt', 
 					'lang:'.SucomUtil::get_locale().'_type:'.$type.'_post:'.$post_id.
-						( empty( $post_id ) ? '_url:'.$this->p->util->get_sharing_url( $use_post, true, $source_id ) : '' ), $type, $use_post ).')';
+						( empty( $post_id ) ? '_url:'.$this->p->util->get_sharing_url( $use_post,
+							true, $source_id ) : '' ), $type, $use_post ).')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
 				if ( $this->p->debug->enabled )
