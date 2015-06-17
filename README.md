@@ -14,19 +14,15 @@
 
 <h2>Description</h2>
 
-<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p><strong>Add social sharing buttons to Posts / Pages, Custom Post Types, bbPress, BuddyPress, WooCommerce pages, and many more</strong>. The sharing buttons can be shown in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
+<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p><strong>Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, bbPress, BuddyPress, WooCommerce product pages, and many more</strong>. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
 
 <p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options for social sharing buttons. WPSSO SSB is <em>fast</em>, <em>efficient</em>, and &mdash; using WPSSO as its framework &mdash; provides <em>accurate</em> information about your content to social websites.</p>
-
-<blockquote>
-<p>You can download the <a href="https://wordpress.org/plugins/wpsso-ssb/">Free version of WPSSO SSB on WordPress.org</a> and <a href="(http://wpsso.com/extend/plugins/wpsso-ssb/">purchase the Pro version on WPSSO.com</a> (includes a No Risk 30 Day Refund Policy).</p>
-</blockquote>
 
 <h4>Quick List of Features</h4>
 
 <p><strong>Free / Basic Version</strong></p>
 
-<p>WPSSO SSB allows you to include a selection of social sharing buttons in multiple locations:</p>
+<p>WPSSO SSB allows you to include a selection of original social sharing buttons in multiple locations:</p>
 
 <ul>
 <li>Above and/or below your content and/or excerpt text.</li>
@@ -54,12 +50,15 @@
 
 <p>The Facebook, Google+ and Twitter sharing buttons also support <em>multiple default languages</em>, and WPSSO SSB can also include a number of <strong><em>hashtags</em></strong> &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.</p>
 
+<blockquote>
+<p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
+</blockquote>
+
 <p><strong>Pro / Power-User Version</strong></p>
 
-<p>The <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro version</a> includes a number of additional options and features:</p>
+<p>The <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Pro version of WPSSO SSB</a> includes a number of additional options and features:</p>
 
 <ul>
-<li><strong>No Risk 30 Day Refund Policy</strong></li>
 <li>File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.</li>
 <li>A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).</li>
 <li>Dynamic button language switching based on the current WordPress locale.</li>
@@ -76,7 +75,7 @@
 </ul>
 
 <blockquote>
-<p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with both the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well.</p>
+<p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with both the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well. <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Purchase the Pro version on WPSSO.com</a> (includes a No Risk 30 Day Refund Policy).</p>
 </blockquote>
 
 <h4>Proven Performance</h4>
