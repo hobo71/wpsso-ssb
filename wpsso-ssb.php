@@ -26,7 +26,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		protected static $instance = null;
 
 		private $opt_version_suffix = 'ssb4';
-		private $wpsso_min_version = '3.3.2';
+		private $wpsso_min_version = '3.4';
 		private $wpsso_has_min_ver = true;
 
 		public static function &get_instance() {
