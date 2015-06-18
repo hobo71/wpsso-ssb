@@ -125,6 +125,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.6 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Moved the Free and Pro 'Service Api Keys' Advanced options to the WPSSO core plugin.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* *None*
+
 = Version 1.5.5 =
 
 * **New Features**
