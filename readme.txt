@@ -10,13 +10,13 @@ Requires At Least: 3.0
 Tested Up To: 4.2.2
 Stable Tag: 1.5.5
 
-WPSSO extension for fast and accurate Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
+WPSSO extension for original Social Sharing Buttons, with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
 == Description ==
 
 <p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" /><strong>Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, bbPress, BuddyPress, WooCommerce product pages, and many more</strong>. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
 
-<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options for social sharing buttons. WPSSO SSB is <em>fast</em>, <em>efficient</em>, and &mdash; using WPSSO as its framework &mdash; provides <em>accurate</em> information about your content to social websites.</p>
+<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide original social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously, and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
 
 = Quick List of Features =
 
