@@ -130,11 +130,11 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **New Features**
 	* *None*
 * **Improvements**
-	* Moved the Free and Pro 'Service Api Keys' Advanced options into the WPSSO core plugin.
+	* *None*
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* *None*
+	* Moved the Free and Pro 'Service Api Keys' Advanced options tab into the WPSSO core plugin.
 
 = Version 1.5.5 =
 
@@ -229,6 +229,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.6 =
+
+Moved the Free and Pro 'Service Api Keys' Advanced options tab into the WPSSO core plugin.
 
 = 1.5.5 =
 
