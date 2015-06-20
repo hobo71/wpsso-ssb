@@ -15,10 +15,10 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.5.5',	// plugin version
+					'version' => '1.5.6',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
-					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, shortening, bbPress, BuddyPress, and WooCommerce.',
+					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
 					'slug' => 'wpsso-ssb',
 					'base' => 'wpsso-ssb/wpsso-ssb.php',
 					'update_auth' => 'tid',
@@ -72,7 +72,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'admin' => array(
 								'sharing' => 'Button Settings',
 								'style' => 'Style Settings',
-								'apikeys' => 'API Key Settings',
 							),
 							'ecom' => array(
 								'woocommerce' => 'WooCommerce',
@@ -88,7 +87,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'admin' => array(
 								'sharing' => 'Button Settings',
 								'style' => 'Style Settings',
-								'apikeys' => 'API Key Settings',
 							),
 							'ecom' => array(
 								'woocommerce' => 'WooCommerce',
@@ -99,15 +97,9 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'social' => array(
 								'buddypress' => 'BuddyPress',
 							),
-							'util' => array(
-								'shorten' => 'URL Shortener',
-							),
 						),
 					),
 				),
-			),
-			'form' => array(
-				'shorteners' => array( 'none' => '[none]', 'bitly' => 'Bit.ly', 'googl' => 'Goo.gl' ),
 			),
 		);
 

@@ -6,10 +6,10 @@
  * Author URI: http://surniaulula.com/
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl.txt
- * Description: WPSSO extension to provide fast and accurate Social Sharing Buttons - with support for hashtags, shortening, bbPress, and BuddyPress.
+ * Description: WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
  * Requires At Least: 3.0
  * Tested Up To: 4.2.2
- * Version: 1.5.5
+ * Version: 1.5.6
  * 
  * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
  */
@@ -26,7 +26,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		protected static $instance = null;
 
 		private $opt_version_suffix = 'ssb4';
-		private $wpsso_min_version = '3.4';
+		private $wpsso_min_version = '3.4.2';
 		private $wpsso_has_min_ver = true;
 
 		public static function &get_instance() {
@@ -88,7 +88,6 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			if ( $this->wpsso_has_min_ver === false )
 				return;
 			$this->p->is_avail['ssb'] = true;
-			$this->p->is_avail['admin']['apikeys'] = true;
 			$this->p->is_avail['admin']['sharing'] = true;
 			$this->p->is_avail['admin']['style'] = true;
 			$this->p->is_avail['util']['shorten'] = ( ! empty( $this->p->options['twitter_shortener'] ) && 

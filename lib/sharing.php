@@ -24,11 +24,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		public static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'plugin_min_shorten' => 22,
-					'plugin_bitly_login' => '',
-					'plugin_bitly_api_key' => '',
-					'plugin_google_api_key' => '',
-					'plugin_google_shorten' => 0,
 					'buttons_on_index' => 0,
 					'buttons_on_front' => 0,
 					'buttons_add_to_post' => 1,
@@ -170,7 +165,6 @@ jQuery("#wpsso-sidebar").click( function(){
 					'option_type' => 4,		// identify option type for sanitation
 					'post_cache_transients' => 4,	// clear transients on post save
 					'tooltip_side' => 2,		// tooltip messages for side boxes
-					'tooltip_plugin' => 2,		// tooltip messages for advanced settings
 					'tooltip_post' => 3,		// tooltip messages for post social settings
 				) );
 
@@ -236,7 +230,6 @@ jQuery("#wpsso-sidebar").click( function(){
 			switch ( $key ) {
 				// integer options that must be 1 or more (not zero)
 				case 'stumble_badge':
-				case 'plugin_min_shorten':
 				case ( preg_match( '/_order$/', $key ) ? true : false ):
 					return 'pos_num';
 					break;
@@ -246,11 +239,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				case 'tumblr_img_desc':
 				case 'tumblr_vid_desc':
 				case 'twitter_desc':
-				case 'plugin_bitly_login':
 					return 'ok_blank';
-					break;
-				case ( preg_match( '/_api_key$/', $key ) ? true : false ):
-					return 'api_key';
 					break;
 				// options that cannot be blank
 				case 'fb_markup': 
@@ -345,30 +334,6 @@ jQuery("#wpsso-sidebar").click( function(){
 					break;
 				case 'tooltip-side-url-shortener':
 					$text = '<strong>When using the Twitter social sharing button provided by this plugin</strong>, the webpage URL (aka the <em>canonical</em> or <em>permalink</em> URL) within the Tweet, can be shortened by one of the available URL shortening services. Enable URL shortening for Twitter from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' settings page.';
-					break;
-			}
-			return $text;
-		}
-
-		public function filter_tooltip_plugin( $text, $idx ) {
-			switch ( $idx ) {
-				/*
-				 * 'API Keys' (URL Shortening) settings
-				 */
-				case 'tooltip-plugin_min_shorten':
-					$text = 'URLs shorter than this length will not be shortened (the default is '.$this->p->opt->get_defaults( 'plugin_min_shorten' ).' characters).';
-					break;
-				case 'tooltip-plugin_bitly_login':
-					$text = 'The Bit.ly username for your API key. If you don\'t already have one, see <a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>. After setting your username and API key, you may select the Bit.ly shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
-					break;
-				case 'tooltip-plugin_bitly_api_key':
-					$text = 'The Bit.ly API key for this website. If you don\'t already have one, see <a href="https://bitly.com/a/your_api_key" target="_blank">Your Bit.ly API Key</a>. After setting your username and API key, you may select the Bit.ly shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
-					break;
-				case 'tooltip-plugin_google_api_key':
-					$text = 'The Google BrowserKey for this website / project. If you don\'t already have one, visit <a href="https://cloud.google.com/console#/project" target="_blank">Google\'s Cloud Console</a>, create a new project for your website, and under the API &amp; auth - Registered apps, register a new \'Web Application\' (name it \'WPSSOSSB\' for example), and enter it\'s BrowserKey here.';
-					break;
-				case 'tooltip-plugin_google_shorten':
-					$text = 'In order to use Google\'s URL Shortener for URLs in Tweets, you must turn on the URL Shortener API from <a href="https://cloud.google.com/console#/project" target="_blank">Google\'s Cloud Console</a>, under the API &amp; auth - APIs menu options. Confirm that you have enabled Google\'s URL Shortener by checking the \'Yes\' option here. You can then select the Goo.gl shortener in the '.$this->p->util->get_admin_url( 'sharing', 'Twitter settings' ).'.';
 					break;
 			}
 			return $text;
