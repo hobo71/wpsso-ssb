@@ -134,9 +134,20 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
+	* Added a 'wpsso_form_content_metaboxes_sharing' action hook to display the sharing buttons website metaboxes.
+
+= Version 1.5.6 (2015/06/20) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
 	* Moved the Free and Pro 'Service Api Keys' Advanced options tab into the WPSSO core plugin.
 
-= Version 1.5.5 =
+= Version 1.5.5 (2015/06/16) =
 
 * **New Features**
 	* *None*
