@@ -125,7 +125,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5.6 =
+= Version 1.5.7 (2015/06/23) =
 
 * **New Features**
 	* *None*
@@ -134,7 +134,8 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* Added a 'wpsso_form_content_metaboxes_sharing' action hook to display the sharing buttons website metaboxes.
+	* Added a 'wpsso_form_content_metaboxes_sharing' action hook for WPSSO v3.4.3 to display the sharing buttons website metaboxes.
+	* Updated the minimum required WPSSO version from 3.4.2 to 3.4.3.
 
 = Version 1.5.6 (2015/06/20) =
 
@@ -240,6 +241,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.7 =
+
+Added a 'wpsso_form_content_metaboxes_sharing' action hook for WPSSO v3.4.3 to display the sharing buttons website metaboxes.
 
 = 1.5.6 =
 
