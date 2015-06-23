@@ -541,24 +541,24 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function add_buttons_filter( $type = 'the_content' ) {
-			$rc = false;
+			$ret = false;
 			if ( method_exists( $this, 'get_buttons_'.$type ) ) {
-				$rc = add_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
+				$ret = add_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'buttons filter '.$type.' added ('.( $rc  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter '.$type.' added ('.( $ret  ? 'true' : 'false' ).')' );
 			} elseif ( $this->p->debug->enabled )
 				$this->p->debug->log( 'get_buttons_'.$type.' method is missing' );
-			return $rc;
+			return $ret;
 		}
 
 		public function remove_buttons_filter( $type = 'the_content' ) {
-			$rc = false;
+			$ret = false;
 			if ( method_exists( $this, 'get_buttons_'.$type ) ) {
-				$rc = remove_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
+				$ret = remove_filter( $type, array( &$this, 'get_buttons_'.$type ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'buttons filter '.$type.' removed ('.( $rc  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter '.$type.' removed ('.( $ret  ? 'true' : 'false' ).')' );
 			}
-			return $rc;
+			return $ret;
 		}
 
 		public function get_buttons_the_excerpt( $text ) {
@@ -576,7 +576,7 @@ jQuery("#wpsso-sidebar").click( function(){
 			return $this->get_buttons( $text, 'content' );
 		}
 
-		public function get_buttons( &$text, $type = 'content', $use_post = true, $buttons_pos = '' ) {
+		public function get_buttons( &$text, $type = 'content', $use_post = true, $pos = '' ) {
 
 			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
@@ -665,12 +665,12 @@ jQuery("#wpsso-sidebar").click( function(){
 				}
 			}
 
-			if ( empty( $buttons_pos ) ) {
-				$buttons_pos = empty( $this->p->options['buttons_pos_'.$type] ) ? 
+			if ( empty( $pos ) ) {
+				$pos = empty( $this->p->options['buttons_pos_'.$type] ) ? 
 					'bottom' : $this->p->options['buttons_pos_'.$type];
 			}
 
-			switch ( $buttons_pos ) {
+			switch ( $pos ) {
 				case 'top': 
 					$text = $html.$text; 
 					break;
@@ -681,6 +681,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					$text = $html.$text.$html; 
 					break;
 			}
+
 			return $text.( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
 		}
 
@@ -853,14 +854,11 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function have_buttons_for_type( $type ) {
-
 			if ( isset( $this->buttons_for_type[$type] ) )
 				return $this->buttons_for_type[$type];
-
 			foreach ( $this->p->cf['opt']['pre'] as $id => $pre )
 				if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) )	// check if button is enabled
 					return $this->buttons_for_type[$type] = true;
-
 			return $this->buttons_for_type[$type] = false;
 		}
 

@@ -19,7 +19,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			$this->menu_id = $id;
 			$this->menu_name = $name;
 			$this->set_objects();
-			$this->p->util->add_plugin_filters( $this, array( 'messages' => 2 ) );
+			$this->p->util->add_plugin_actions( $this, array(
+				'form_content_metaboxes_sharing' => 1,
+			) );
+			$this->p->util->add_plugin_filters( $this, array(
+				'messages' => 2,
+			) );
 		}
 
 		private function set_objects() {
@@ -27,6 +32,23 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsubmenusharing'.$id );
 				if ( $classname !== false && class_exists( $classname ) )
 					$this->website[$id] = new $classname( $this->p, $id, $name );
+			}
+		}
+
+		// display two-column metaboxes for sharing buttons
+		public function action_form_content_metaboxes_sharing( $pagehook ) {
+			if ( isset( $this->website ) ) {
+				foreach ( range( 1, ceil( count( $this->website ) / 2 ) ) as $row ) {
+					echo '<div class="website-row">', "\n";
+					foreach ( range( 1, 2 ) as $col ) {
+						$pos_id = 'website-row-'.$row.'-col-'.$col;
+						echo '<div class="website-col-', $col, '" id="', $pos_id, '" >';
+						do_meta_boxes( $pagehook, $pos_id, null ); 
+						echo '</div>', "\n";
+					}
+					echo '</div>', "\n";
+				}
+				echo '<div style="clear:both;"></div>';
 			}
 		}
 
