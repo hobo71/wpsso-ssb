@@ -67,7 +67,7 @@ The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) inclu
 
 <blockquote>
 
-<p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with <em>both</em> the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well. <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Purchase the WPSSO SSB Pro extension</a> (includes a No Risk 30 Day Refund Policy).</p>
+<p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with <em>both</em> the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well. <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Purchase the WPSSO SSB Pro extension</a> (includes a <em>No Risk 30 Day Refund Policy</em>).</p>
 </blockquote>
 
 = Proven Performance =
