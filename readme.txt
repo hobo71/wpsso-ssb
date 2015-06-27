@@ -125,6 +125,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.8 (2015/06/27) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Renamed the WpssoUtil `get_cache_url()` method to `get_cache_file_url()`.
+
 = Version 1.5.7 (2015/06/23) =
 
 * **New Features**
