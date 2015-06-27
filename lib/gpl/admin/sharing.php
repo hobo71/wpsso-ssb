@@ -25,22 +25,9 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function filter_plugin_cache_rows( $rows, $form, $network = false ) {
 
-			if ( $this->p->check->aop() )
-				$rows[] = '<td colspan="'.( $network === false ? 2 : 4 ).'" align="center">'.
-					$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-
-			$rows[] = $this->p->util->th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_hrs' ).
-			'<td nowrap class="blank">'.$form->get_no_input( 'plugin_file_cache_hrs', 'short' ).' hours</td>'.
-			( $network === false ? '' : $this->p->util->th( 'Site Use', 'narrow' ).
-				'<td class="blank">'.$form->get_select( 'plugin_file_cache_hrs:use', 
-					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>' );
-
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Verify SSL Certificates', null, 'plugin_verify_certs' ).
-			'<td class="blank">'.$form->get_no_checkbox( 'plugin_verify_certs' ).'</td>'.
-			( $network === false ? '' : $this->p->util->th( 'Site Use', 'narrow' ).
-				'<td class="blank">'.$form->get_select( 'plugin_verify_certs:use', 
-					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>' );
+			$rows[] = $this->p->util->th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_exp' ).
+			'<td nowrap class="blank">'.$this->p->cf['form']['file_cache_hrs'][$form->options['plugin_file_cache_exp']].' hours</td>'.
+			$this->get_site_use( $form, $network, 'plugin_file_cache_exp' );
 
 			return $rows;
 		}
@@ -68,7 +55,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$presets[$key] = ucwords( preg_replace( '/_/', ' ', $key ) );
 			asort( $presets );
 
-			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			foreach( $presets as $filter_id => $filter_name )
 				$rows[] = $this->p->util->th( $filter_name.' Preset', null, 'sharing_preset' ).
@@ -92,7 +80,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
 			list( $pid, $video_url ) = $this->p->sharing->get_sharing_media( $head_info['post_id'] );
 
-			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			$th = $this->p->util->th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
 			if ( ! empty( $pid ) ) {
@@ -131,6 +120,12 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			'<td class="blank">&nbsp;</td>';
 
 			return $rows;
+		}
+
+		protected function get_site_use( &$form, &$network, $opt ) {
+			return $network === false ? '' : $this->p->util->th( 'Site Use', 'site_use' ).
+				'<td class="site_use blank">'.$form->get_select( $opt.':use', 
+					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>';
 		}
 	}
 }

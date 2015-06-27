@@ -99,9 +99,9 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 					'<!-- '.$this->p->cf['lca'].' '.$atts['css_id'].' end -->';
 
 				if ( $this->p->is_avail['cache']['transient'] ) {
-					set_transient( $cache_id, $html, $this->p->cache->object_expire );
+					set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
 					$this->p->debug->log( $cache_type.': html saved to transient '.
-						$cache_id.' ('.$this->p->cache->object_expire.' seconds)');
+						$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)');
 				}
 			}
 			return $html.$this->p->debug->get_html();

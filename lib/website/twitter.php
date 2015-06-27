@@ -200,7 +200,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
+			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
 				$prot.'//platform.twitter.com/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.

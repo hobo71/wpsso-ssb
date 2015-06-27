@@ -103,7 +103,7 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 					$source_id
 				);
 
-			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
+			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				$prot.'//managewp.org/share.js#'.$prot.'//managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button --><div '.$this->p->sharing->get_css( 'managewp', $atts ).'>';

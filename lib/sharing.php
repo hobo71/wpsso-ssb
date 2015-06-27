@@ -298,7 +298,8 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( ! empty( $lca ) && ! empty( $info['lib']['submenu']['sharing'] ) ) {
 				$aop = $this->p->check->aop( $lca );
 				$features['Social File Cache'] = array( 
-					'status' => $this->p->is_avail['cache']['file'] ? ( $aop ? 'on' : 'rec' ) : 'off',
+					'status' => ( empty( $this->options['plugin_file_cache_exp'] ) ?
+						( $aop ? 'on' : 'rec' ) : 'off' ),
 					'td_class' => $aop ? '' : 'blank',
 				);
 				$features['Sharing Styles Editor'] = array( 
@@ -330,7 +331,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					$text = 'The social sharing widget feature adds a \'Sharing Buttons\' widget in the WordPress Appearance - Widgets page. The widget can be used in any number of widget areas, to share the current webpage. The widget, along with all social sharing featured, can be disabled using an available <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constant</a>.';
 					break;
 				case 'tooltip-side-social-file-cache':
-					$text = $short_pro.' can save social sharing images and JavaScript to a cache folder, and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\' value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.$this->p->options['plugin_file_cache_hrs'].' hours (the default value of 0 hours disables the file caching feature).';
+					$text = $short_pro.' can save social sharing images and JavaScript to a cache folder, and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\' value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.$this->p->options['plugin_file_cache_exp'].' seconds (the default value of 0 disables the social file caching feature).';
 					break;
 				case 'tooltip-side-url-shortener':
 					$text = '<strong>When using the Twitter social sharing button provided by this plugin</strong>, the webpage URL (aka the <em>canonical</em> or <em>permalink</em> URL) within the Tweet, can be shortened by one of the available URL shortening services. Enable URL shortening for Twitter from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' settings page.';
@@ -657,10 +658,10 @@ jQuery("#wpsso-sidebar").click( function(){
 						$buttons_html."</div>\n<!-- ".$lca.' '.$css_type." end -->\n";
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
-						set_transient( $cache_id, $html, $this->p->cache->object_expire );
+						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
-							$cache_id.' ('.$this->p->cache->object_expire.' seconds)' );
+							$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)' );
 					}
 				}
 			}
@@ -929,7 +930,6 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			return array( $opts['og_img_id'], $opts['og_vid_url'] );
 		}
-
 	}
 }
 

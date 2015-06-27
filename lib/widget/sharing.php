@@ -81,8 +81,9 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				'<!-- '.$this->p->cf['lca'].' '.$args['widget_id'].' end -->'."\n";
 
 			if ( $this->p->is_avail['cache']['transient'] ) {
-				set_transient( $cache_id, $html, $this->p->cache->object_expire );
-				$this->p->debug->log( $cache_type.': html saved to transient '.$cache_id.' ('.$this->p->cache->object_expire.' seconds)');
+				set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
+				$this->p->debug->log( $cache_type.': html saved to transient '.
+					$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)');
 			}
 			echo $html;
 			$this->p->debug->show_html();

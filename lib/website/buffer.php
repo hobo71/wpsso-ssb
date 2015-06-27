@@ -216,7 +216,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
+			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
 				$prot.'//d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
 			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.

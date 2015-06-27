@@ -238,7 +238,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					return $html;
 					break;
 			}
-			$pin_img_url = $this->p->util->get_cache_url( $pin_img_url );
+			$pin_img_url = $this->p->util->get_cache_file_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button --><div '.$this->p->sharing->get_css( 'pinterest', $atts ).'>'.
 			'<a href="'.$prot.'//pinterest.com/pin/create/button/'.$href_query.'" '.
@@ -259,7 +259,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
+			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
 				$prot.'//assets.pinterest.com/js/pinit.js', $pos ) );
 
 			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.

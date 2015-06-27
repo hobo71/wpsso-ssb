@@ -116,7 +116,7 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 					$js_url = $prot.'//www.reddit.com/static/button/button1.js';
 					break;
 			}
-			$js_url = $this->p->util->get_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
+			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->';
 			$html .= '<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>';

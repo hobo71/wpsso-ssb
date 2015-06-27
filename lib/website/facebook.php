@@ -240,7 +240,7 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 			$lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
 			$lang = apply_filters( $this->p->cf['lca'].'_lang', $lang, SucomUtil::get_pub_lang( 'facebook' ) );
 
-			// do not use get_cache_url() since the facebook javascript does not work when hosted locally
+			// do not use get_cache_file_url() since the facebook javascript does not work when hosted locally
 			$js_url = apply_filters( $this->p->cf['lca'].'_js_url_facebook', 
 				$prot.'//connect.facebook.net/'.$lang.'/sdk.js#xfbml=1&version=v2.3&appId='.$app_id, $pos );
 
