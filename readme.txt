@@ -134,7 +134,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* Renamed the WpssoUtil `get_cache_url()` method to `get_cache_file_url()`.
+	* Renamed the WpssoUtil `get_cache_url()` method to `get_cache_file_url()` for WPSSO v3.5.
 
 = Version 1.5.7 (2015/06/23) =
 
@@ -252,6 +252,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.8 =
+
+Renamed the WpssoUtil get_cache_url() method to get_cache_file_url() for WPSSO v3.5.
 
 = 1.5.7 =
 
