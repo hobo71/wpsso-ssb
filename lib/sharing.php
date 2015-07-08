@@ -203,8 +203,10 @@ jQuery("#wpsso-sidebar").click( function(){
 						fclose( $fh );
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( 'read css from file '.$css_file );
-						foreach ( array( 'URLPATH' => $url_path ) as $macro => $value )
-							$css_data = preg_replace( '/{{'.$macro.'}}/', $value, $css_data );
+						foreach ( array( 
+							'plugin_url_path' => $url_path,
+						) as $macro => $value )
+							$css_data = preg_replace( '/%%'.$macro.'%%/', $value, $css_data );
 						$opts_def['buttons_css_'.$id] = $css_data;
 					}
 				}
@@ -652,10 +654,14 @@ jQuery("#wpsso-sidebar").click( function(){
 
 				$buttons_html = $this->get_html( $sorted_ids, $atts, $this->p->options );
 				if ( ! empty( $buttons_html ) ) {
-					$html = "\n<!-- ".$lca.' '.$css_type." begin -->\n<div class=\"".
-						( $css_preset ? $css_preset.' ' : '' ).
-						( $use_post ? $lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).
-						$buttons_html."</div>\n<!-- ".$lca.' '.$css_type." end -->\n";
+					$html = '
+<!-- '.$lca.' '.$css_type.' begin -->
+<div class="'.( $css_preset ? $css_preset.' ' : '' ).
+	( $use_post ? $lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).'
+'.$buttons_html.'
+</div><!-- .'.$lca.'-'.$css_type.' -->
+<!-- '.$lca.' '.$css_type.' end -->
+';
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
 						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
