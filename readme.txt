@@ -125,7 +125,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.5.9 =
+= Version 1.5.9 (2015/07/13) =
 
 * **New Features**
 	* *None*
@@ -265,6 +265,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* *None*
 
 == Upgrade Notice ==
+
+= 1.5.9 =
+
+Refactored the Pinterest, Tumblr, and Buffer modules to use the new `get_the_media_urls()` method in WPSSO v3.5.3.
 
 = 1.5.8 =
 
