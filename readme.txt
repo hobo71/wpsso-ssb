@@ -125,6 +125,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.5.9 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Refactored the Pinterest, Tumblr, and Buffer modules code to use the new WpssoOpengraph `get_the_media_urls()` method.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Changed the WpssoSsbSharing $sharing_css_* public variables to public static variables.
+	* Refactored the Twitter module code to use the new 'plugin_shortener' option in WPSSO v3.5.3.
+	* Refactored and moved the WpssoSsbSharing `get_sharing_media()` method to WpssoOpengraph `get_the_media_urls()` (returns the first image and video URLs).
+
 = Version 1.5.8 (2015/06/27) =
 
 * **New Features**
