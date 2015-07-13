@@ -77,40 +77,33 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function filter_post_sharing_rows( $rows, $form, $head_info ) {
 
-			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
-			list( $pid, $video_url ) = $this->p->sharing->get_sharing_media( $head_info['post_id'] );
+			$lca = $this->p->cf['lca'];
+			$post_status = get_post_status( $head_info['post_id'] );
 
 			$rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
+			list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button', $head_info['post_id'], 'rp' );
 			$th = $this->p->util->th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
-			if ( ! empty( $pid ) ) {
-				$img = $this->p->media->get_attachment_image_src( $pid, $this->p->cf['lca'].'-pinterest-button', false );
-				if ( empty( $img[0] ) )
-					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.
-						$pid.' is too small for the Pinterest button Image Dimensions.</em></td>';
-				else $rows[] = $th.'<td class="blank">'.
-					$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>';
-			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
+			if ( ! empty( $img_url ) ) {
+				$rows[] = $th.'<td class="blank">'.
+				$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>';
+			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Pinterest button.</em></td>';
 
+			list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', $head_info['post_id'], 'og' );
 			$th = $this->p->util->th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
-			if ( empty( $this->p->options['tumblr_photo'] ) ) {
-				$rows[] = $th.'<td class="blank"><em>\'Use Featured Image\' option is disabled.</em></td>';
-			} elseif ( ! empty( $pid ) ) {
-				$img = $this->p->media->get_attachment_image_src( $pid, $this->p->cf['lca'].'-tumblr-button', false );
-				if ( empty( $img[0] ) )
-					$rows[] = $th.'<td class="blank"><em>Caption disabled - image ID '.
-						$pid.' is too small for the Tumblr button Image Dimensions.</em></td>';
-				else $rows[] = $th.'<td class="blank">'.
-					$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
-			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Image ID, featured or attached image found.</em></td>';
-
-			$th = $this->p->util->th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
-			if ( ! empty( $vid_url ) )
+			if ( ! empty( $img_url ) ) {
 				$rows[] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
-			else $rows[] = $th.'<td class="blank"><em>Caption disabled - no custom Video URL or embedded video found.</em></td>';
+			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Tumblr button.</em></td>';
 
+			$th = $this->p->util->th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
+			if ( ! empty( $vid_url ) ) {
+				$rows[] = $th.'<td class="blank">'.
+				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
+			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable video found for the Tumblr button.</em></td>';
+
+			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
 			$rows[] = $this->p->util->th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
 				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true

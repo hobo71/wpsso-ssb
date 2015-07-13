@@ -18,8 +18,9 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		protected $buttons_for_type = array();		// cache for have_buttons_for_type()
 		protected $post_buttons_disabled = array();	// cache for is_post_buttons_disabled()
 
-		public $sharing_css_file = '';
-		public $sharing_css_url = '';
+		public static $sharing_css_name = '';
+		public static $sharing_css_file = '';
+		public static $sharing_css_url = '';
 
 		public static $cf = array(
 			'opt' => array(				// options
@@ -133,9 +134,9 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark( 'action / filter setup' );
 			$this->plugin_filepath = $plugin_filepath;
-			$sharing_css_name = 'sharing-styles-'.get_current_blog_id().'.min.css';
-			$this->sharing_css_file = WPSSO_CACHEDIR.$sharing_css_name;
-			$this->sharing_css_url = WPSSO_CACHEURL.$sharing_css_name;
+			self::$sharing_css_name = 'sharing-styles-id-'.get_current_blog_id().'.min.css';
+			self::$sharing_css_file = WPSSO_CACHEDIR.self::$sharing_css_name;
+			self::$sharing_css_url = WPSSO_CACHEURL.self::$sharing_css_name;
 			$this->set_objects();
 
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_enqueue_styles' ) );
@@ -335,9 +336,6 @@ jQuery("#wpsso-sidebar").click( function(){
 				case 'tooltip-side-social-file-cache':
 					$text = $short_pro.' can save social sharing images and JavaScript to a cache folder, and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\' value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.$this->p->options['plugin_file_cache_exp'].' seconds (the default value of 0 disables the social file caching feature).';
 					break;
-				case 'tooltip-side-url-shortener':
-					$text = '<strong>When using the Twitter social sharing button provided by this plugin</strong>, the webpage URL (aka the <em>canonical</em> or <em>permalink</em> URL) within the Tweet, can be shortened by one of the available URL shortening services. Enable URL shortening for Twitter from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons' ).' settings page.';
-					break;
 			}
 			return $text;
 		}
@@ -365,37 +363,28 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function wp_enqueue_styles() {
-
-			// only include sharing styles if option is checked
 			if ( ! empty( $this->p->options['buttons_use_social_css'] ) ) {
-
-				// create the css file if it does not exist
-				if ( ! file_exists( $this->sharing_css_file ) ) {
+				if ( ! file_exists( self::$sharing_css_file ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'updating '.$this->sharing_css_file );
+						$this->p->debug->log( 'updating '.self::$sharing_css_file );
 					$this->update_sharing_css( $this->p->options );
 				}
-
 				if ( ! empty( $this->p->options['buttons_enqueue_social_css'] ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_sharing_buttons' );
-					wp_register_style( 
-						$this->p->cf['lca'].'_sharing_buttons', 
-						$this->sharing_css_url, 
-						false, 
-						$this->p->cf['plugin'][$this->p->cf['lca']]['version']
-					);
+					wp_register_style( $this->p->cf['lca'].'_sharing_buttons', self::$sharing_css_url, 
+						false, $this->p->cf['plugin'][$this->p->cf['lca']]['version'] );
 					wp_enqueue_style( $this->p->cf['lca'].'_sharing_buttons' );
 				} else {
-					if ( ! is_readable( $this->sharing_css_file ) ) {
+					if ( ! is_readable( self::$sharing_css_file ) ) {
 						if ( is_admin() )
-							$this->p->notice->err( $this->sharing_css_file.' is not readable.', true );
+							$this->p->notice->err( self::$sharing_css_file.' is not readable.', true );
 						if ( $this->p->debug->enabled )
-							$this->p->debug->log( $this->sharing_css_file.' is not readable' );
+							$this->p->debug->log( self::$sharing_css_file.' is not readable' );
 					} else {
 						echo '<style type="text/css">';
-						if ( ( $fsize = @filesize( $this->sharing_css_file ) ) > 0 &&
-							$fh = @fopen( $this->sharing_css_file, 'rb' ) ) {
+						if ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
+							$fh = @fopen( self::$sharing_css_file, 'rb' ) ) {
 							echo fread( $fh, $fsize );
 							fclose( $fh );
 						}
@@ -408,7 +397,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 		public function update_sharing_css( &$opts ) {
 			if ( ! empty( $opts['buttons_use_social_css'] ) ) {
-				if ( ! $fh = @fopen( $this->sharing_css_file, 'wb' ) ) {
+				if ( ! $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
 					if ( ! is_writable( WPSSO_CACHEDIR ) ) {
 						if ( is_admin() )
 							$this->p->notice->err( WPSSO_CACHEDIR.' is not writable.', true );
@@ -416,9 +405,9 @@ jQuery("#wpsso-sidebar").click( function(){
 							$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
 					}
 					if ( is_admin() )
-						$this->p->notice->err( 'Failed to open file '.$this->sharing_css_file.' for writing.', true );
+						$this->p->notice->err( 'Failed to open file '.self::$sharing_css_file.' for writing.', true );
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'failed opening '.$this->sharing_css_file.' for writing' );
+						$this->p->debug->log( 'failed opening '.self::$sharing_css_file.' for writing' );
 				} else {
 					$css_data = '';
 					$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
@@ -437,20 +426,23 @@ jQuery("#wpsso-sidebar").click( function(){
 					}
 					if ( fwrite( $fh, $css_data ) === false ) {
 						if ( is_admin() )
-							$this->p->notice->err( 'Failed writing to file '.$this->sharing_css_file.'.', true );
+							$this->p->notice->err( 'Failed writing to file '.self::$sharing_css_file.'.', true );
 						if ( $this->p->debug->enabled )
-							$this->p->debug->log( 'failed writing to '.$this->sharing_css_file );
+							$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
 					} elseif ( $this->p->debug->enabled )
-						$this->p->debug->log( 'updated css file '.$this->sharing_css_file );
+						$this->p->debug->log( 'updated css file '.self::$sharing_css_file );
 					fclose( $fh );
 				}
 			} else $this->unlink_sharing_css();
 		}
 
 		public function unlink_sharing_css() {
-			if ( file_exists( $this->sharing_css_file ) ) {
-				if ( ! @unlink( $this->sharing_css_file ) && is_admin() )
-					$this->p->notice->err( 'Error removing minimized stylesheet file. Does the web server have sufficient privileges?', true );
+			if ( file_exists( self::$sharing_css_file ) ) {
+				if ( ! @unlink( self::$sharing_css_file ) ) {
+					if ( is_admin() )
+						$this->p->notice->err( 'Error removing minimized stylesheet file'.
+							' &mdash; does the web server have sufficient privileges?', true );
+				}
 			}
 		}
 
@@ -503,12 +495,13 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function show_sidebar() {
+			$lca = $this->p->cf['lca'];
 			$js = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_sidebar'] ) );
-			$text = '';	// varabled passed by reference
+			$text = '';	// variable must be passed by reference
 			$text = $this->get_buttons( $text, 'sidebar', false );	// use_post = false
 			if ( ! empty( $text ) ) {
-				echo '<div id="'.$this->p->cf['lca'].'-sidebar">';
-				echo '<div id="'.$this->p->cf['lca'].'-sidebar-header"></div>';
+				echo '<div id="'.$lca.'-sidebar">';
+				echo '<div id="'.$lca.'-sidebar-header"></div>';
 				echo $text;
 				echo '</div>', "\n";
 				echo '<script type="text/javascript">'.$js.'</script>', "\n";
@@ -579,7 +572,7 @@ jQuery("#wpsso-sidebar").click( function(){
 			return $this->get_buttons( $text, 'content' );
 		}
 
-		public function get_buttons( &$text, $type = 'content', $use_post = true, $pos = '' ) {
+		public function get_buttons( &$text, $type = 'content', $use_post = true, $location = '' ) {
 
 			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
@@ -652,16 +645,14 @@ jQuery("#wpsso-sidebar").click( function(){
 					$css_preset = $lca.'-preset-'.$atts['preset_id'];
 				} else $css_preset = '';
 
-				$buttons_html = $this->get_html( $sorted_ids, $atts, $this->p->options );
+				$buttons_html = $this->get_html( $sorted_ids, $atts );
 				if ( ! empty( $buttons_html ) ) {
 					$html = '
 <!-- '.$lca.' '.$css_type.' begin -->
 <div class="'.( $css_preset ? $css_preset.' ' : '' ).
 	( $use_post ? $lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).'
-'.$buttons_html.'
-</div><!-- .'.$lca.'-'.$css_type.' -->
-<!-- '.$lca.' '.$css_type.' end -->
-';
+'.$buttons_html.'</div><!-- .'.$lca.'-'.$css_type.' -->
+<!-- '.$lca.' '.$css_type.' end -->'."\n\n";
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
 						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
@@ -672,12 +663,12 @@ jQuery("#wpsso-sidebar").click( function(){
 				}
 			}
 
-			if ( empty( $pos ) ) {
-				$pos = empty( $this->p->options['buttons_pos_'.$type] ) ? 
+			if ( empty( $location ) ) {
+				$location = empty( $this->p->options['buttons_pos_'.$type] ) ? 
 					'bottom' : $this->p->options['buttons_pos_'.$type];
 			}
 
-			switch ( $pos ) {
+			switch ( $location ) {
 				case 'top': 
 					$text = $html.$text; 
 					break;
@@ -695,13 +686,14 @@ jQuery("#wpsso-sidebar").click( function(){
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
 		public function get_html( &$ids = array(), &$atts = array() ) {
 
+			$lca = $this->p->cf['lca'];
 			$preset_id = empty( $atts['preset_id'] ) ? '' : 
 				preg_replace( '/[^a-z0-9\-_]/', '', $atts['preset_id'] );
 
 			$filter_id = empty( $atts['filter_id'] ) ? '' : 
 				preg_replace( '/[^a-z0-9\-_]/', '', $atts['filter_id'] );
 
-			// important: possibly dereference the opts variable to prevent passing on changes
+			// possibly dereference the opts variable to prevent passing on changes
 			if ( empty( $preset_id ) && empty( $filter_id ) )
 				$custom_opts =& $this->p->options;
 			else $custom_opts = $this->p->options;
@@ -717,11 +709,14 @@ jQuery("#wpsso-sidebar").click( function(){
 					$this->p->debug->log( $preset_id.' preset_id missing or not array'  );
 			} 
 
-			$filter_name = $this->p->cf['lca'].'_sharing_html_'.$filter_id.'_options';
-			if ( ! empty( $filter_id ) && has_filter( $filter_name ) ) {
-				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
-				$custom_opts = apply_filters( $filter_name, $custom_opts );
+			if ( ! empty( $filter_id ) ) {
+				$filter_name = $lca.'_sharing_html_'.$filter_id.'_options';
+				if ( has_filter( $filter_name ) ) {
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
+					$custom_opts = apply_filters( $filter_name, $custom_opts );
+				} elseif ( $this->p->debug->enabled )
+					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
 			}
 
 			$html = '';
@@ -729,10 +724,12 @@ jQuery("#wpsso-sidebar").click( function(){
 				$id = preg_replace( '/[^a-z]/', '', $id );	// sanitize the website object name
 				if ( isset( $this->website[$id] ) &&
 					method_exists( $this->website[$id], 'get_html' ) )
-						$html .= $this->website[$id]->get_html( $atts, $custom_opts );
+						$html .= $this->website[$id]->get_html( $atts, $custom_opts )."\n";
 			}
+
 			if ( ! empty( $html ) ) 
-				$html = '<div class="'.$this->p->cf['lca'].'-buttons">'."\n".$html.'</div>';
+				$html = "<div class=\"".$lca."-buttons\">\n".$html."</div><!-- .".$lca."-buttons -->\n";
+
 			return $html;
 		}
 
@@ -900,41 +897,11 @@ jQuery("#wpsso-sidebar").click( function(){
 			return $suff.$ret; 
 		}
 
-		public function get_website_names() {
+		public function get_defined_website_names() {
 			$ids = array();
 			foreach ( array_keys( $this->website ) as $id )
 				$ids[$id] = $this->p->cf['*']['lib']['website'][$id];
 			return $ids;
-		}
-
-		public function get_sharing_media( $post_id ) {
-			$opts = $this->p->mods['util']['post']->get_options( $post_id );
-			foreach ( array(
-				'og_img_id',
-				'og_img_id_pre',
-				'og_vid_url',
-				'og_vid_embed',
-			) as $key )
-				if ( ! isset( $opts[$key] ) )
-					$opts[$key] = '';
-
-			if ( empty( $opts['og_img_id'] ) ) {
-				if ( ( is_attachment( $post_id ) || get_post_type( $post_id ) === 'attachment' ) && 
-					wp_attachment_is_image( $post_id ) )
-						$opts['og_img_id'] = $post_id;
-				elseif ( $this->p->is_avail['postthumb'] == true && has_post_thumbnail( $post_id ) )
-					$opts['og_img_id'] = get_post_thumbnail_id( $post_id );
-				else $opts['og_img_id'] = $this->p->media->get_first_attached_image_id( $post_id );
-			} elseif ( $opts['og_img_id_pre'] === 'ngg' )
-				$opts['og_img_id'] = $opts['og_img_id_pre'].'-'.$opts['og_img_id'];
-
-			if ( empty( $opts['og_vid_url'] ) ) {
-				$videos = $this->p->media->get_content_videos( 1, $post_id, false, $opts['og_vid_embed'] );
-				if ( ! empty( $videos[0]['og:video:url'] ) ) 
-					$opts['og_vid_url'] = $videos[0]['og:video:url'];
-			}
-
-			return array( $opts['og_img_id'], $opts['og_vid_url'] );
 		}
 	}
 }

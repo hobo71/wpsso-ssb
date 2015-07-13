@@ -72,14 +72,15 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 				'<td>'.$this->form->get_checkbox( 'twitter_rel_author' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'twitter_rel_author' ).'</td>' );
 
-			if ( isset( $this->p->mods['admin']['apikeys'] ) ) {
-				$rows[] = $this->p->util->th( 'Shorten URLs with', 'short', null, 
-				'If you select a URL shortening service here, <strong>you must also enter its API credentials</strong> on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys', 'Advanced settings page' ).'.' ).
-				( $this->p->check->aop( 'wpssossb' ) ? 
-					'<td>'.$this->form->get_select( 'twitter_shortener', $this->p->cf['form']['shorteners'], 'medium' ).'&nbsp;' :
-					'<td class="blank">'.$this->form->get_hidden( 'twitter_shortener' ).$this->p->cf['form']['shorteners'][$this->p->options['twitter_shortener']].' &mdash; ' ).
-				' using these '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys', 'API Keys' ).'</td>';
-			}
+			$rows[] = $this->p->util->th( 'Shorten URLs with', 'short', null, 
+			'If you select a URL shortening service here, <strong>you must also enter its Service API Keys</strong> on the '.
+			$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys', 'Advanced settings page' ).'.' ).
+			( $this->p->check->aop( 'wpssossb' ) ? 
+				'<td>'.$this->form->get_select( 'plugin_shortener', $this->p->cf['form']['shorteners'], 'short' ).'&nbsp;' :
+				'<td class="blank">'.$this->form->get_hidden( 'plugin_shortener' ).
+					$this->p->cf['form']['shorteners'][$this->p->options['plugin_shortener']].' &mdash; ' ).
+			' <strong>using '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys', 
+				'Service API Keys' ).'</strong></td>';
 
 			return $rows;
 		}
@@ -107,7 +108,6 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 					'twitter_via' => 1,
 					'twitter_rel_author' => 1,
 					'twitter_dnt' => 1,
-					'twitter_shortener' => 'none',
 				),
 			),
 		);
@@ -138,7 +138,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $use_post, $atts['add_page'], $source_id );
 
-			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url', $long_url, $opts['twitter_shortener'] );
+			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url', $long_url, $opts['plugin_shortener'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) )
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];

@@ -175,23 +175,20 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			if ( empty( $atts['size'] ) ) 
 				$atts['size'] = $this->p->cf['lca'].'-pinterest-button';
 
-			if ( empty( $atts['photo'] ) ) {
-				if ( empty( $atts['pid'] ) && $post_id > 0 ) {
-					// check for meta, featured, and attached images
-					$pid = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id' );
-					$pre = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id_pre' );
-					if ( ! empty( $pid ) ) 
-						$atts['pid'] = $pre == 'ngg' ? 'ngg-'.$pid : $pid;
-					elseif ( ( is_attachment( $post_id ) || get_post_type( $post_id ) === 'attachment' ) &&
-						wp_attachment_is_image( $post_id ) )
-							$atts['pid'] = $post_id;
-					elseif ( $this->p->is_avail['postthumb'] == true && has_post_thumbnail( $post_id ) )
-						$atts['pid'] = get_post_thumbnail_id( $post_id );
-					else $atts['pid'] = $this->p->media->get_first_attached_image_id( $post_id );
-				}
-				if ( ! empty( $atts['pid'] ) )
-					list( $atts['photo'], $atts['width'], $atts['height'],
-						$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
+			if ( ! empty( $atts['pid'] ) )
+				list(
+					$atts['photo'],
+					$atts['width'],
+					$atts['height'],
+					$atts['cropped']
+				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
+
+			if ( ( empty( $atts['photo'] ) || empty( $atts['embed'] ) ) && $post_id > 0 ) {
+				list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $atts['size'], $post_id, 'rp' );
+				if ( empty( $atts['photo'] ) )
+					$atts['photo'] = $img_url;
+				if ( empty( $atts['embed'] ) )
+					$atts['embed'] = $vid_url;
 			}
 
 			// let the pinterest crawler choose an image

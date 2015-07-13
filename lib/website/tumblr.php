@@ -73,10 +73,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 			$rows[] = $this->p->util->th( 'Button Style', 'short' ).
 				'<td class="btn_wizard">'.$buttons_html.'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Use Attached as Photo', 'short' ).'<td>'.
-			$this->form->get_checkbox( 'tumblr_photo' ).'</td>';
-
 			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'tumblr_img', false, true ).'</td>';
 
@@ -112,7 +108,6 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 					'tumblr_js_loc' => 'footer',
 					'tumblr_button_style' => 'share_1',
 					'tumblr_desc_len' => 300,
-					'tumblr_photo' => 1,
 					'tumblr_img_width' => 600,
 					'tumblr_img_height' => 600,
 					'tumblr_img_crop' => 0,
@@ -148,6 +143,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
+			$lca = $this->p->cf['lca'];
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
 			$source_id = $this->p->util->get_source_id( 'tumblr', $atts );
@@ -155,7 +151,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
+				apply_filters( $lca.'_sharing_url', $atts['url'], 
 					$use_post, $atts['add_page'], $source_id );
 
 			$post_id = 0;
@@ -169,42 +165,27 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			}
 
 			if ( empty( $atts['size'] ) ) 
-				$atts['size'] = $this->p->cf['lca'].'-tumblr-button';
+				$atts['size'] = $lca.'-tumblr-button';
 
-			// only use an image if the 'tumblr_photo' option allows it
-			if ( empty( $atts['photo'] ) && $opts['tumblr_photo'] ) {
-				if ( empty( $atts['pid'] ) && $post_id > 0 ) {
-					// check for meta, featured, and attached images
-					$pid = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id' );
-					$pre = $this->p->mods['util']['post']->get_options( $post_id, 'og_img_id_pre' );
-					if ( ! empty( $pid ) )
-						$atts['pid'] = $pre == 'ngg' ? 'ngg-'.$pid : $pid;
-					elseif ( ( is_attachment( $post_id ) || get_post_type( $post_id ) === 'attachment' ) &&
-						wp_attachment_is_image( $post_id ) )
-							$atts['pid'] = $post_id;
-					elseif ( $this->p->is_avail['postthumb'] == true && has_post_thumbnail( $post_id ) )
-						$atts['pid'] = get_post_thumbnail_id( $post_id );
-					else $atts['pid'] = $this->p->media->get_first_attached_image_id( $post_id );
-				}
-				if ( ! empty( $atts['pid'] ) )
-					list( $atts['photo'], $atts['width'], $atts['height'],
-						$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
-			}
+			if ( ! empty( $atts['pid'] ) )
+				list(
+					$atts['photo'],
+					$atts['width'],
+					$atts['height'],
+					$atts['cropped']
+				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
-			// check for custom or embedded videos
-			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && $post_id > 0 ) {
-				$atts['embed'] = $this->p->mods['util']['post']->get_options( $post_id, 'og_vid_url' );
-				if ( empty( $atts['embed'] ) ) {
-					$videos = array();
-					$videos = $this->p->media->get_content_videos( 1, $post_id, false );
-					if ( ! empty( $videos[0]['og:video:url'] ) ) 
-						$atts['embed'] = $videos[0]['og:video:url'];
-				}
+			if ( ( empty( $atts['photo'] ) || empty( $atts['embed'] ) ) && $post_id > 0 ) {
+				list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $atts['size'], $post_id, 'og' );
+				if ( empty( $atts['photo'] ) )
+					$atts['photo'] = $img_url;
+				if ( empty( $atts['embed'] ) )
+					$atts['embed'] = $vid_url;
 			}
 
 			// if no image or video, then check for a 'quote'
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) && $post_id > 0 ) {
-				if ( get_post_format( $post_id ) == 'quote' ) 
+				if ( get_post_format( $post_id ) === 'quote' ) 
 					$atts['quote'] = $this->p->webpage->get_quote();
 			}
 

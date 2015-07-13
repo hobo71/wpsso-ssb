@@ -92,7 +92,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 		public function update( $new_instance, $old_instance ) {
 			$instance = $old_instance;
 			$instance['title'] = strip_tags( $new_instance['title'] );
-			foreach ( $this->p->sharing->get_website_names() as $id => $name )
+			foreach ( $this->p->sharing->get_defined_website_names() as $id => $name )
 				$instance[$id] = empty( $new_instance[$id] ) ? 0 : 1;
 			return $instance;
 		}
@@ -104,7 +104,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 					'" name="', $this->get_field_name( 'title' ), 
 					'" type="text" value="', $title, '" /></p>', "\n";
 	
-			foreach ( $this->p->sharing->get_website_names() as $id => $name ) {
+			foreach ( $this->p->sharing->get_defined_website_names() as $id => $name ) {
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
 				echo '<p><label for="'.$this->get_field_id( $id ).'">'.
 					'<input id="'.$this->get_field_id( $id ).
