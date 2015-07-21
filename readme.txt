@@ -125,6 +125,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.6 =
+
+* **New Features**
+	* Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Refactored the Buffer, Pinterest, Tumblr, and Twitter sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
+
 = Version 1.5.9 (2015/07/13) =
 
 * **New Features**
