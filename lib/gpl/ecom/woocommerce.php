@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$rows['buttons_pos_woo_short'] = $this->p->util->th( 'Position in Woo Short Text', null, 'buttons_pos_woo_short' ).
+			$rows['buttons_pos_woo_short'] = $this->p->util->get_th( 'Position in Woo Short Text', null, 'buttons_pos_woo_short' ).
 			'<td class="blank">'.$form->get_hidden( 'buttons_pos_woo_short' ).$pos[$this->p->options['buttons_pos_woo_short']].'</td>';
 
 			return $rows;

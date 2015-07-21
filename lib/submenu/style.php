@@ -167,10 +167,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			else $css_min_msg = '';
 
 			$this->p->util->do_table_rows( array( 
-				$this->p->util->th( 'Use the Social Stylesheet', 'highlight', 'buttons_use_social_css' ).
+				$this->p->util->get_th( 'Use the Social Stylesheet', 'highlight', 'buttons_use_social_css' ).
 				'<td>'.$this->form->get_checkbox( 'buttons_use_social_css' ).$css_min_msg.'</td>',
 
-				$this->p->util->th( 'Enqueue the Stylesheet', null, 'buttons_enqueue_social_css' ).
+				$this->p->util->get_th( 'Enqueue the Stylesheet', null, 'buttons_enqueue_social_css' ).
 				'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
 			) );
 

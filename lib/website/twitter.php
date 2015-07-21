@@ -27,52 +27,52 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 			
-			$rows[] = $this->p->util->th( 'Show Button in', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Show Button in', 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'twitter' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Preferred Order', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Default Language', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Default Language', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Count Position', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Count Position', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_count', array( 'none' => '', 
 			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Button Size', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Button Size', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
+			$this->p->util->get_th( 'Tweet Text Source', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
+			$this->p->util->get_th( 'Tweet Text Length', 'short' ).'<td>'.
 			$this->form->get_input( 'twitter_cap_len', 'short' ).' characters or less</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Do Not Track', 'short', null,
+			$this->p->util->get_th( 'Do Not Track', 'short', null,
 			'Disable tracking for Twitter\'s tailored suggestions and tailored ads.' ).
 			'<td>'.$this->form->get_checkbox( 'twitter_dnt' ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Add via @username', 'short', null, 
+			$rows[] = $this->p->util->get_th( 'Add via @username', 'short', null, 
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General settings page). The website\'s @username will be displayed and recommended after the Post / Page is shared.' ).
 			( $this->p->check->aop( 'wpssossb' ) ? '<td>'.$this->form->get_checkbox( 'twitter_via' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'twitter_via' ).'</td>' );
 
-			$rows[] = $this->p->util->th( 'Recommend Author', 'short', null, 
+			$rows[] = $this->p->util->get_th( 'Recommend Author', 'short', null, 
 			'Recommend following the Author\'s Twitter @username (from their profile) after sharing. If the \'<em>Add via @username</em>\' option (above) is also checked, the Website\'s @username is suggested first.' ).
 			( $this->p->check->aop( 'wpssossb' ) ? 
 				'<td>'.$this->form->get_checkbox( 'twitter_rel_author' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'twitter_rel_author' ).'</td>' );
 
-			$rows[] = $this->p->util->th( 'Shorten URLs with', 'short', null, 
+			$rows[] = $this->p->util->get_th( 'Shorten URLs with', 'short', null, 
 			'If you select a URL shortening service here, <strong>you must also enter its Service API Keys</strong> on the '.
 			$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys', 'Advanced settings page' ).'.' ).
 			( $this->p->check->aop( 'wpssossb' ) ? 

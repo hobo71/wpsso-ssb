@@ -25,7 +25,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function filter_plugin_cache_rows( $rows, $form, $network = false ) {
 
-			$rows[] = $this->p->util->th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_exp' ).
+			$rows[] = $this->p->util->get_th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_exp' ).
 			'<td nowrap class="blank">'.$this->p->cf['form']['file_cache_hrs'][$form->options['plugin_file_cache_exp']].' hours</td>'.
 			$this->get_site_use( $form, $network, 'plugin_file_cache_exp' );
 
@@ -43,7 +43,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Include on Post Types', null, 'buttons_add_to' ).
+			$rows[] = $this->p->util->get_th( 'Include on Post Types', null, 'buttons_add_to' ).
 				'<td class="blank">'.$checkboxes.'</td>';
 
 			return $rows;
@@ -59,7 +59,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			foreach( $presets as $filter_id => $filter_name )
-				$rows[] = $this->p->util->th( $filter_name.' Preset', null, 'sharing_preset' ).
+				$rows[] = $this->p->util->get_th( $filter_name.' Preset', null, 'sharing_preset' ).
 				'<td class="blank">'.$this->p->options['buttons_preset_'.$filter_id].'</td>';
 
 			return $rows;
@@ -79,44 +79,63 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$lca = $this->p->cf['lca'];
 			$post_status = get_post_status( $head_info['post_id'] );
+			$size_info = $this->p->media->get_size_info( 'thumbnail' );
 
 			$rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button', $head_info['post_id'], 'rp' );
-			$th = $this->p->util->th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
+			/*
+			 * Pinterest
+			 */
+			list( $img_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button', $head_info['post_id'], 'rp', array( 'image' ) );
+			$th = $this->p->util->get_th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
 			if ( ! empty( $img_url ) ) {
+				list( $thumb_url ) = $this->p->og->get_the_media_urls( 'thumbnail', $head_info['post_id'], 'rp', array( 'image' ) );
 				$rows[] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>';
+				$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>'.
+				'<td style="width:'.$size_info['width'].'px;"><img src="'.$thumb_url.'"
+					style="max-width:'.$size_info['width'].'px;"></td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Pinterest button.</em></td>';
 
-			list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', $head_info['post_id'], 'og' );
-			$th = $this->p->util->th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
+			/*
+			 * Tumblr
+			 */
+			list( $img_url, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
+				$head_info['post_id'], 'og', array( 'image', 'video', 'preview' ) );
+			$th = $this->p->util->get_th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
 			if ( ! empty( $img_url ) ) {
+				list( $thumb_url ) = $this->p->og->get_the_media_urls( 'thumbnail', $head_info['post_id'], 'og', array( 'image' ) );
 				$rows[] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
+				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
+				'<td style="width:'.$size_info['width'].'px;"><img src="'.$thumb_url.'"
+					style="max-width:'.$size_info['width'].'px;"></td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Tumblr button.</em></td>';
 
-			$th = $this->p->util->th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
+			$th = $this->p->util->get_th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
 			if ( ! empty( $vid_url ) ) {
 				$rows[] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>';
+				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
+				'<td style="width:'.$size_info['width'].'px;"><img src="'.$prev_url.'" 
+					style="max-width:'.$size_info['width'].'px;"></td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable video found for the Tumblr button.</em></td>';
 
+			/*
+			 * Twitter
+			 */
 			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
-			$rows[] = $this->p->util->th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
+			$rows[] = $this->p->util->get_th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
 				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Disable Sharing Buttons', 'medium', 'post-buttons_disabled', $head_info ).
+			$this->p->util->get_th( 'Disable Sharing Buttons', 'medium', 'post-buttons_disabled', $head_info ).
 			'<td class="blank">&nbsp;</td>';
 
 			return $rows;
 		}
 
 		protected function get_site_use( &$form, &$network, $opt ) {
-			return $network === false ? '' : $this->p->util->th( 'Site Use', 'site_use' ).
+			return $network === false ? '' : $this->p->util->get_th( 'Site Use', 'site_use' ).
 				'<td class="site_use blank">'.$form->get_select( $opt.':use', 
 					$this->p->cf['form']['site_option_use'], 'site_use', null, true, true ).'</td>';
 		}

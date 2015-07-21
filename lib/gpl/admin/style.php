@@ -61,7 +61,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminStyle' ) ) {
 		public function filter_style_sidebar_rows( $rows, $form ) {
 			$rows = array_merge( $rows, $this->filter_style_common_rows( $rows, $form, 'sidebar' ) );
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Sidebar Javascript', null, 'buttons_js_sidebar' ).
+			$this->p->util->get_th( 'Sidebar Javascript', null, 'buttons_js_sidebar' ).
 			'<td><textarea disabled="disabled" class="average code">'.
 			$this->p->options['buttons_js_sidebar'].'</textarea></td>';
 			return $rows;

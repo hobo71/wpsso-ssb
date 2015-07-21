@@ -149,21 +149,21 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 
 					$rows[] = '<tr><td colspan="2">'.$this->p->msgs->get( 'info-'.$metabox.'-'.$key ).'</td></tr>';
 
-					$rows[] = $this->p->util->th( 'Include on Index Webpages', null, 'buttons_on_index' ).
+					$rows[] = $this->p->util->get_th( 'Include on Index Webpages', null, 'buttons_on_index' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_index' ).'</td>';
 
-					$rows[] = $this->p->util->th( 'Include on Static Homepage', null, 'buttons_on_front' ).
+					$rows[] = $this->p->util->get_th( 'Include on Static Homepage', null, 'buttons_on_front' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_front' ).'</td>';
 
 					break;
 
 				case 'sharing-position':
 
-					$rows[] = $this->p->util->th( 'Position in Content Text', null, 'buttons_pos_content' ).
+					$rows[] = $this->p->util->get_th( 'Position in Content Text', null, 'buttons_pos_content' ).
 					'<td>'.$this->form->get_select( 'buttons_pos_content',
 						array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' ) ).'</td>';
 
-					$rows[] = $this->p->util->th( 'Position in Excerpt Text', null, 'buttons_pos_excerpt' ).
+					$rows[] = $this->p->util->get_th( 'Position in Excerpt Text', null, 'buttons_pos_excerpt' ).
 					'<td>'.$this->form->get_select( 'buttons_pos_excerpt', 
 						array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' ) ).'</td>';
 

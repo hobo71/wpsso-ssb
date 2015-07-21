@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 		// add an option to the WordPress -> Settings -> Image Dimensions page
 		public function filter_image_dimensions_general_rows( $rows, $form ) {
 
-			$rows[] = $this->p->util->th( 'Buffer <em>Sharing Button</em>', null, 'buffer_img_dimensions',
+			$rows[] = $this->p->util->get_th( 'Buffer <em>Sharing Button</em>', null, 'buffer_img_dimensions',
 			'The image dimensions that the Buffer button will share (defaults is '.$this->p->opt->get_defaults( 'buffer_img_width' ).'x'.$this->p->opt->get_defaults( 'buffer_img_height' ).' '.( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'un' : '' ).'cropped). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';
 
@@ -40,34 +40,34 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 			
-			$rows[] = $this->p->util->th( 'Show Button in', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Show Button in', 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'buffer' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Preferred Order', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'JavaScript in', 'short' ).'<td>'.
+			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Count Position', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( 'Count Position', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_count', array( 'none' => '', 
 			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
-			$rows[] = $this->p->util->th( 'Image Dimensions', 'short' ).
+			$rows[] = $this->p->util->get_th( 'Image Dimensions', 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Tweet Text Source', 'short' ).'<td>'.
+			$this->p->util->get_th( 'Tweet Text Source', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->th( 'Tweet Text Length', 'short' ).'<td>'.
+			$this->p->util->get_th( 'Tweet Text Length', 'short' ).'<td>'.
 			$this->form->get_input( 'buffer_cap_len', 'short' ).' characters or less</td>';
 
-			$rows[] = $this->p->util->th( 'Add via @username', 'short', null,
+			$rows[] = $this->p->util->get_th( 'Add via @username', 'short', null,
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General settings page).' ).
 			( $this->p->check->aop() == true ? 
 				'<td>'.$this->form->get_checkbox( 'buffer_via' ).'</td>' :
