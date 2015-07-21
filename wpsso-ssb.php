@@ -90,8 +90,8 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			$this->p->is_avail['ssb'] = true;
 			$this->p->is_avail['admin']['sharing'] = true;
 			$this->p->is_avail['admin']['style'] = true;
-			$this->p->is_avail['util']['shorten'] = ( ! empty( $this->p->options['twitter_shortener'] ) && 
-				$this->p->options['twitter_shortener'] !== 'none' ? true : false );
+			$this->p->is_avail['util']['shorten'] = ( ! empty( $this->p->options['plugin_shortener'] ) && 
+				$this->p->options['plugin_shortener'] !== 'none' ? true : false );
 		}
 
 		public function wpsso_init_objects() {
