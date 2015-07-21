@@ -134,7 +134,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* Refactored the Buffer, Pinterest, Tumblr, and Twitter sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
+	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 = Version 1.5.9 (2015/07/13) =
 
