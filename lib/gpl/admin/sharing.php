@@ -87,27 +87,38 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/*
 			 * Pinterest
 			 */
-			list( $img_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button', $head_info['post_id'], 'rp', array( 'image' ) );
+			list( $pid ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button',
+				$head_info['post_id'], 'rp', array( 'pid' ) );
 			$th = $this->p->util->get_th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
-			if ( ! empty( $img_url ) ) {
-				list( $thumb_url ) = $this->p->og->get_the_media_urls( 'thumbnail', $head_info['post_id'], 'rp', array( 'image' ) );
+			if ( ! empty( $pid ) ) {
+				list(
+					$img_url,
+					$img_width,
+					$img_height,
+					$img_cropped
+				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
 				$rows[] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>'.
-				'<td style="width:'.$size_info['width'].'px;"><img src="'.$thumb_url.'"
+				'<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
 					style="max-width:'.$size_info['width'].'px;"></td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Pinterest button.</em></td>';
 
 			/*
 			 * Tumblr
 			 */
-			list( $img_url, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
-				$head_info['post_id'], 'og', array( 'image', 'video', 'preview' ) );
+			list( $pid, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
+				$head_info['post_id'], 'og', array( 'pid', 'video', 'preview' ) );
 			$th = $this->p->util->get_th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
-			if ( ! empty( $img_url ) ) {
-				list( $thumb_url ) = $this->p->og->get_the_media_urls( 'thumbnail', $head_info['post_id'], 'og', array( 'image' ) );
+			if ( ! empty( $pid ) ) {
+				list(
+					$img_url,
+					$img_width,
+					$img_height,
+					$img_cropped
+				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
 				$rows[] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
-				'<td style="width:'.$size_info['width'].'px;"><img src="'.$thumb_url.'"
+				'<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
 					style="max-width:'.$size_info['width'].'px;"></td>';
 			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Tumblr button.</em></td>';
 
