@@ -130,15 +130,19 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				$opts =& $this->p->options;
 			global $post; 
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
+			$use_post = isset( $atts['use_post'] ) ?  $atts['use_post'] : true;
 			$source_id = $this->p->util->get_source_id( 'twitter', $atts );
-			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
+
+			if ( ! isset( $atts['add_page'] ) )
+				$atts['add_page'] = true;	// required by get_sharing_url()
 
 			$long_url = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $use_post, $atts['add_page'], $source_id );
+				apply_filters( $this->p->cf['lca'].'_sharing_url',
+					$atts['url'], $use_post, $atts['add_page'], $source_id );
 
-			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url', $long_url, $opts['plugin_shortener'] );
+			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url',
+				$long_url, $opts['plugin_shortener'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) )
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
@@ -149,10 +153,10 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
-					$cap_len = $this->p->util->get_tweet_max_len( $long_url );	// get_tweet_max_len() needs the long URL as input
+					$caption_len = $this->p->util->get_tweet_max_len( $long_url, 'twitter', $short_url );
 					$atts['caption'] = $this->p->webpage->get_caption( 
 						$opts['twitter_caption'],	// title, excerpt, both
-						$cap_len,			// max caption length 
+						$caption_len,			// max caption length 
 						$use_post,			// 
 						true,				// use_cache
 						true, 				// add_hashtags
@@ -172,7 +176,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 
 			if ( ! array_key_exists( 'related', $atts ) ) {
 				if ( ! empty( $opts['twitter_rel_author'] ) && 
-					! empty( $post ) && $use_post == true && $this->p->check->aop( 'wpssossb' ) )
+					! empty( $post ) && $use_post === true && $this->p->check->aop( 'wpssossb' ) )
 						$atts['related'] = preg_replace( '/^@/', '', 
 							get_the_author_meta( $opts['plugin_cm_twitter_name'], $post->author ) );
 				else $atts['related'] = '';

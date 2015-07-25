@@ -172,10 +172,10 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
-					$cap_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );	// get_tweet_max_len() needs the long URL as input
+					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
 					$atts['caption'] = $this->p->webpage->get_caption( 
 						$opts['buffer_caption'],	// title, excerpt, both
-						$cap_len,			// max caption length 
+						$caption_len,			// max caption length 
 						$use_post,			// 
 						true,				// use_cache
 						true, 				// add_hashtags
