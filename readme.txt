@@ -128,6 +128,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 = Version 1.6 =
 
 * **New Features**
+	* *None*
+* **Improvements**
+	* Thumbnails under the Sharing Buttons tab in the Social Settings metabox now support custom Image URLs as well.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* *None*
+
+= Version 1.6 =
+
+* **New Features**
 	* Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
 * **Improvements**
 	* *None*
@@ -136,172 +147,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
-= Version 1.5.9 (2015/07/13) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Refactored the Pinterest, Tumblr, and Buffer modules code to use the new WpssoOpengraph `get_the_media_urls()` method.
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* Changed the WpssoSsbSharing $sharing_css_* public variables to public static variables.
-	* Refactored the Twitter module code to use the new 'plugin_shortener' option in WPSSO v3.5.3.
-	* Refactored and moved the WpssoSsbSharing `get_sharing_media()` method to WpssoOpengraph `get_the_media_urls()` (returns the first image and video URLs).
-
-= Version 1.5.8 (2015/06/27) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* Renamed the WpssoUtil `get_cache_url()` method to `get_cache_file_url()` for WPSSO v3.5.
-
-= Version 1.5.7 (2015/06/23) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* Added a 'wpsso_form_content_metaboxes_sharing' action hook for WPSSO v3.4.3 to display the sharing buttons website metaboxes.
-	* Updated the minimum required WPSSO version from 3.4.2 to 3.4.3.
-
-= Version 1.5.6 (2015/06/20) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* Moved the Free and Pro 'Service Api Keys' Advanced options tab into the WPSSO core plugin.
-
-= Version 1.5.5 (2015/06/16) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Minor update for WPSSO v3.4 compatibility.
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* Renamed the `$head_info['id']` array key to `$head_info['post_id']`.
-
-= Version 1.5.4 (2015/06/05) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Moved the default StumbleUpon javascript location to the webpage footer.
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
-	* **Renamed the 'og:video' meta tag to 'og:video:url'** in the `WpssoSsbSharingTumblr::get_html()` method.
-
-= Version 1.5.3 (2015/05/31) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Renamed the 'postmeta' filter hooks to 'post' for compatibility with WPSSO v3.3.
-* **Bugfixes**
-	* Fixed the logic determining if a specific image should be shared with the Pinterest sharing button.
-* **Developer Notes**
-	* *None*
-
-= Version 1.5.2 (2015/05/14) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Refactored checks using WpssoSsbSharing::is_post_buttons_disabled() and loading of filters using WpssoSsbSharing::have_buttons_for_type().
-	* Refactored WpssoSsbSharing::get_css() and fixed non-unique CSS ids for sharing buttons in the loop.
-* **Bugfixes**
-	* *None*
-
-= Version 1.5 (2015/05/04) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Added the Buffer, Pinterest, and Tumblr sharing button Image Dimensions to the Social Image Dimensions settings page.
-* **Bugfixes**
-	* *None*
-
-= Version 1.4 (2015/04/24) =
-
-* **New Features**
-	* Added a new "Share Single Image" option for the Pinterest button.
-	* Added new 'wpsso_js_url_{sitename}' filter hooks for social website javascript URLs.
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-
-= Version 1.3.2 (2015/04/21) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Replaced self-deactivation by a warning notice if the WPSSO plugin is not found.
-* **Bugfixes**
-	* *None*
-
-= Version 1.3.1 (2015/04/20) =
-
-* **New Features**
-	* *None*
-* **Improvements**
-	* Minor CSS improvements for settings pages and metaboxes.
-* **Bugfixes**
-	* *None*
-
-= Version 1.3 (2015/04/12) =
-
-* **New Features**
-	* When viewing plugin settings using the "Basic Options View", a new link is now available bellow each settings metabox to unhide / show all options.
-* **Improvements**
-	* Moved the minimum version checks to a new `WpssoSsb::min_version_warning()` method.
-	* Refactored code for the new "WPSSO Pro Update Manager (WPSSO UM)" *Free* extension plugin.
-	* The Social Styles CSS is now displayed within a textarea box for easier viewing in the Free version.
-	* Changed *default* image widths from 800px to 600px (lowest recommended value for Facebook).
-* **Bugfixes**
-	* *None*
-
 == Upgrade Notice ==
 
 = 1.6 =
 
 Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
-
-= 1.5.9 =
-
-Refactored the Pinterest, Tumblr, and Buffer modules to use the new `get_the_media_urls()` method in WPSSO v3.5.3.
-
-= 1.5.8 =
-
-Renamed the WpssoUtil get_cache_url() method to get_cache_file_url() for WPSSO v3.5.
-
-= 1.5.7 =
-
-Added a 'wpsso_form_content_metaboxes_sharing' action hook for WPSSO v3.4.3 to display the sharing buttons website metaboxes.
-
-= 1.5.6 =
-
-Moved the Free and Pro 'Service Api Keys' Advanced options tab into the WPSSO core plugin.
-
-= 1.5.5 =
-
-Minor update for WPSSO v3.4 compatibility.
-
-= 1.5.4 =
-
-Renamed the 'og:video' meta tag to 'og:video:url' in the `WpssoSsbSharingTumblr::get_html()` method for WPSSO v3.3.2.
 
