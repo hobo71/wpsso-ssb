@@ -125,12 +125,13 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6 =
+= Version 1.6.1 =
 
 * **New Features**
 	* *None*
 * **Improvements**
 	* Thumbnails under the Sharing Buttons tab in the Social Settings metabox now support custom Image URLs as well.
+	* Added a fallback in the sharing buttons function to use the WordPress object cache if the transient cache is not available.
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
