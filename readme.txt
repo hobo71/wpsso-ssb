@@ -66,7 +66,6 @@ The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) inclu
 	* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
 
 <blockquote>
-
 <p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension. You can use the Free version of WPSSO SSB with <em>both</em> the Free and Pro versions of WPSSO, but <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">WPSSO SSB Pro</a> requires the use of <a href="http://wpsso.com/extend/plugins/wpsso/">WPSSO Pro</a> as well. <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Purchase the WPSSO SSB Pro extension</a> (includes a <em>No Risk 30 Day Refund Policy</em>).</p>
 </blockquote>
 
@@ -112,7 +111,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Screenshots ==
 
-01. An example showing all Social Sharing Buttons enabled (using the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.
+01. An example showing Social Sharing Buttons enabled (with the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.
 02. The 'Sharing Buttons' widget configuration.
 03. The 'Sharing Buttons' tab available in the 'Social Settings' metabox allows you to fine-tune the text used by some social sharing websites.
 04. The 'Sharing Buttons' settings page.
