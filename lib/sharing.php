@@ -153,6 +153,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,		// add sharing options and css file contents to defaults
+				'get_meta_defaults' => 2,	// add sharing options to post meta defaults
 				'pre_filter_remove' => 2,	// remove the buttons filter from content, excerpt, etc.
 				'post_filter_add' => 2,		// re-add the buttons filter to content, excerpt, etc.
 			) );
@@ -184,6 +185,16 @@ jQuery("#wpsso-sidebar").click( function(){
 				if ( $classname !== false && class_exists( $classname ) )
 					$this->website[$id] = new $classname( $this->p );
 			}
+		}
+
+		public function filter_get_meta_defaults( $opts_def, $mod ) {
+			$meta_def = array(
+				'twitter_desc' => '',
+				'tumblr_img_desc' => '',
+				'tumblr_vid_desc' => '',
+				'buttons_disabled' => 0,
+			);
+			return array_merge( $opts_def, $meta_def );
 		}
 
 		public function filter_get_defaults( $opts_def ) {
@@ -646,7 +657,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				} else $css_preset = '';
 
 				$buttons_html = $this->get_html( $sorted_ids, $atts );
-				if ( ! empty( $buttons_html ) ) {
+				if ( trim( $buttons_html ) !== '' ) {
 					$html = '
 <!-- '.$lca.' '.$css_type.' begin -->
 <div class="'.( $css_preset ? $css_preset.' ' : '' ).
@@ -727,7 +738,7 @@ jQuery("#wpsso-sidebar").click( function(){
 						$html .= $this->website[$id]->get_html( $atts, $custom_opts )."\n";
 			}
 
-			if ( ! empty( $html ) ) 
+			if ( trim( $html ) !== '' ) 
 				$html = "<div class=\"".$lca."-buttons\">\n".$html."</div><!-- .".$lca."-buttons -->\n";
 
 			return $html;

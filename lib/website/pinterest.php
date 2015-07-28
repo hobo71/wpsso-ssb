@@ -85,7 +85,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			'<td>'.$this->form->get_image_dimensions_input( 'pin_img', false, true ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'Image Caption Text', 'short' ).
+			$this->p->util->get_th( 'Caption Text', 'short' ).
 			'<td>'.$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.

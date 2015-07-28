@@ -25,7 +25,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function filter_plugin_cache_rows( $rows, $form, $network = false ) {
 
-			$rows[] = $this->p->util->get_th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_exp' ).
+			$rows['plugin_file_cache_exp'] = $this->p->util->get_th( 'Social File Cache Expiry', 'highlight', 'plugin_file_cache_exp' ).
 			'<td nowrap class="blank">'.$this->p->cf['form']['file_cache_hrs'][$form->options['plugin_file_cache_exp']].' hours</td>'.
 			$this->get_site_use( $form, $network, 'plugin_file_cache_exp' );
 
@@ -43,7 +43,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Include on Post Types', null, 'buttons_add_to' ).
+			$rows['buttons_add_to'] = $this->p->util->get_th( 'Include on Post Types', null, 'buttons_add_to' ).
 				'<td class="blank">'.$checkboxes.'</td>';
 
 			return $rows;
@@ -81,15 +81,16 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$post_status = get_post_status( $head_info['post_id'] );
 			$size_info = $this->p->media->get_size_info( 'thumbnail' );
 
-			$rows[] = '<td colspan="2" align="center">'.
+			$rows[] = '<td colspan="3" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			/*
 			 * Pinterest
 			 */
-			list( $pid ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button',
-				$head_info['post_id'], 'rp', array( 'pid' ) );
-			$th = $this->p->util->get_th( 'Pinterest Image Caption', 'medium', 'post-pin_desc' );
+			list( $pid, $img_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button',
+				$head_info['post_id'], 'rp', array( 'pid', 'image' ) );
+
+			$th = $this->p->util->get_th( 'Pinterest Caption Text', 'medium', 'post-pin_desc' );
 			if ( ! empty( $pid ) ) {
 				list(
 					$img_url,
@@ -97,17 +98,18 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$img_height,
 					$img_cropped
 				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
-				$rows[] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>'.
-				'<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
-					style="max-width:'.$size_info['width'].'px;"></td>';
-			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Pinterest button.</em></td>';
+			}
+			$rows['pin_caption'] = $th.'<td class="blank">'.
+			$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>'.
+			( empty( $img_url ) ? '' : '<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
+				style="max-width:'.$size_info['width'].'px;"></td>' );
 
 			/*
 			 * Tumblr
 			 */
-			list( $pid, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
-				$head_info['post_id'], 'og', array( 'pid', 'video', 'preview' ) );
+			list( $pid, $img_url, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
+				$head_info['post_id'], 'og', array( 'pid', 'image', 'video', 'preview' ) );
+
 			$th = $this->p->util->get_th( 'Tumblr Image Caption', 'medium', 'post-tumblr_img_desc' );
 			if ( ! empty( $pid ) ) {
 				list(
@@ -116,29 +118,31 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$img_height,
 					$img_cropped
 				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
-				$rows[] = $th.'<td class="blank">'.
+			}
+			if ( ! empty( $img_url ) ) {
+				$rows['tumblr_img_desc'] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
 				'<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
 					style="max-width:'.$size_info['width'].'px;"></td>';
-			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Tumblr button.</em></td>';
+			} else $rows['tumblr_img_desc'] = $th.'<td class="blank"><em>Caption disabled - no suitable image found for the Tumblr button.</em></td>';
 
 			$th = $this->p->util->get_th( 'Tumblr Video Caption', 'medium', 'post-tumblr_vid_desc' );
 			if ( ! empty( $vid_url ) ) {
-				$rows[] = $th.'<td class="blank">'.
+				$rows['tumblr_vid_desc'] = $th.'<td class="blank">'.
 				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
 				'<td style="width:'.$size_info['width'].'px;"><img src="'.$prev_url.'" 
 					style="max-width:'.$size_info['width'].'px;"></td>';
-			} else $rows[] = $th.'<td class="blank"><em>Caption disabled - no suitable video found for the Tumblr button.</em></td>';
+			} else $rows['tumblr_vid_desc'] = $th.'<td class="blank"><em>Caption disabled - no suitable video found for the Tumblr button.</em></td>';
 
 			/*
 			 * Twitter
 			 */
 			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
-			$rows[] = $this->p->util->get_th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
+			$rows['twitter_desc'] = $this->p->util->get_th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
 				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true
 
-			$rows[] = '<tr class="hide_in_basic">'.
+			$rows['buttons_disabled'] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'Disable Sharing Buttons', 'medium', 'post-buttons_disabled', $head_info ).
 			'<td class="blank">&nbsp;</td>';
 
