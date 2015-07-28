@@ -8,7 +8,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.0
 Tested Up To: 4.2.3
-Stable Tag: 1.6
+Stable Tag: 1.6.1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -149,6 +149,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.6.1 =
+
+Thumbnails in the Sharing Buttons tab in the Social Settings metabox now support custom Image URLs as well.
 
 = 1.6 =
 
