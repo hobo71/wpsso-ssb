@@ -14,7 +14,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 == Description ==
 
-<p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" />Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, bbPress, BuddyPress, WooCommerce product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
+<p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" />Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, <strong>bbPress</strong>, <strong>BuddyPress</strong>, <strong>WooCommerce</strong> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and admin editing pages.</p>
 
 <p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide original social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
 
@@ -114,7 +114,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 01. An example showing all Social Sharing Buttons enabled (using the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.
 02. The 'Sharing Buttons' widget configuration.
-03. The 'Sharing Buttons' tab added to the 'Social Settings' metabox on admin editing pages.
+03. The 'Sharing Buttons' tab available in the 'Social Settings' metabox allows you to fine-tune the text used by some social sharing websites.
 04. The 'Sharing Buttons' settings page.
 05. The 'Sharing Styles' settings page.
 
