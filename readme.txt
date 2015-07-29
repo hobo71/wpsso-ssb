@@ -14,15 +14,15 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 == Description ==
 
-<p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" />Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, <strong>bbPress</strong>, <strong>BuddyPress</strong>, <strong>WooCommerce</strong> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and on admin editing pages.</p>
+<p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" />Add traditional social sharing buttons from social websites to Posts / Pages, Custom Post Types, <strong>bbPress</strong>, <strong>BuddyPress</strong>, <strong>WooCommerce</strong> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and on admin editing pages.</p>
 
-<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide original social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
+<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide traditional social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
 
 = Quick List of Features =
 
 **Free / Basic Version**
 
-WPSSO SSB allows you to include a selection of original social sharing buttons in multiple locations:
+WPSSO SSB allows you to include a selection of traditional social sharing buttons in multiple locations:
 
 * Above and/or below your content and/or excerpt text.
 * On admin editing pages, including media, product pages, and custom post types.

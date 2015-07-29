@@ -14,15 +14,15 @@
 
 <h2>Description</h2>
 
-<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p>Add original social sharing buttons from social websites to Posts / Pages, Custom Post Types, <strong>bbPress</strong>, <strong>BuddyPress</strong>, <strong>WooCommerce</strong> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and on admin editing pages.</p>
+<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p>Add traditional social sharing buttons from social websites to Posts / Pages, Custom Post Types, <strong>bbPress</strong>, <strong>BuddyPress</strong>, <strong>WooCommerce</strong> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and on admin editing pages.</p>
 
-<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide original social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
+<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide traditional social sharing buttons. WPSSO SSB sources the JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information about your content to social websites.</p>
 
 <h4>Quick List of Features</h4>
 
 <p><strong>Free / Basic Version</strong></p>
 
-<p>WPSSO SSB allows you to include a selection of original social sharing buttons in multiple locations:</p>
+<p>WPSSO SSB allows you to include a selection of traditional social sharing buttons in multiple locations:</p>
 
 <ul>
 <li>Above and/or below your content and/or excerpt text.</li>
