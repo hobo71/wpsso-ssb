@@ -133,7 +133,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* Renamed the '*_js_loc' options to '*_script_loc' to avoid the location options being defined as containing javascript code.
+	* Renamed the '\*_js_loc' options to '\*_script_loc' to avoid the location options being defined as containing javascript code.
 	* Renamed the `get_js()` methods to `get_script()`.
 
 = Version 1.6.1 (2015/07/28) =
