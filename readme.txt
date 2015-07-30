@@ -124,7 +124,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.1 =
+= Version 1.6.1(2015/07/28)  =
 
 * **New Features**
 	* *None*
@@ -136,7 +136,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6 =
+= Version 1.6 (2015/07/21) =
 
 * **New Features**
 	* Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
