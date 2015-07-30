@@ -50,7 +50,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Count Position', 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_count', array( 'none' => '', 
@@ -90,7 +90,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 					'buffer_on_sidebar' => 0,
 					'buffer_on_admin_edit' => 1,
 					'buffer_order' => 6,
-					'buffer_js_loc' => 'footer',
+					'buffer_script_loc' => 'footer',
 					'buffer_count' => 'horizontal',
 					'buffer_img_width' => 600,
 					'buffer_img_height' => 600,
@@ -209,7 +209,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			return $html."\n";
 		}
 		
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

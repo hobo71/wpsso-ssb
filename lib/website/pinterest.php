@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).
-			'<td>'.$this->form->get_select( 'pin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			'<td>'.$this->form->get_select( 'pin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Button Height', 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_height', 
@@ -109,7 +109,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					'pin_on_sidebar' => 0,
 					'pin_on_admin_edit' => 1,
 					'pin_order' => 4,
-					'pin_js_loc' => 'footer',
+					'pin_script_loc' => 'footer',
 					'pin_button_lang' => 'en',
 					'pin_button_shape' => 'rect',
 					'pin_button_color' => 'gray',
@@ -252,7 +252,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			return $html."\n";
 		}
 
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

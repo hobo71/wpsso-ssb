@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'gp_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->form->get_select( 'gp_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Default Language', 'short' ).'<td>'.
 			$this->form->get_select( 'gp_lang', SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
@@ -95,7 +95,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 					'gp_on_sidebar' => 0,
 					'gp_on_admin_edit' => 1,
 					'gp_order' => 2,
-					'gp_js_loc' => 'header',
+					'gp_script_loc' => 'header',
 					'gp_lang' => 'en-US',
 					'gp_action' => 'plusone',
 					'gp_size' => 'medium',
@@ -140,7 +140,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 			return $html."\n";
 		}
 		
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

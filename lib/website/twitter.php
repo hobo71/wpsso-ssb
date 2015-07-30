@@ -36,7 +36,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'twitter_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->form->get_select( 'twitter_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Default Language', 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
@@ -99,7 +99,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 					'twitter_on_sidebar' => 0,
 					'twitter_on_admin_edit' => 1,
 					'twitter_order' => 3,
-					'twitter_js_loc' => 'header',
+					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
 					'twitter_count' => 'horizontal',
 					'twitter_caption' => 'title',
@@ -200,7 +200,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			return $html."\n";
 		}
 		
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

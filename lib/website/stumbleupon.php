@@ -76,7 +76,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'stumble_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->form->get_select( 'stumble_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Button Style', 'short' ).'<td>'.$badge_html.'</td>';
 
@@ -97,7 +97,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 					'stumble_on_sidebar' => 0,
 					'stumble_on_admin_edit' => 1,
 					'stumble_order' => 9,
-					'stumble_js_loc' => 'footer',	// header or footer
+					'stumble_script_loc' => 'footer',	// header or footer
 					'stumble_badge' => 1,
 				),
 			),
@@ -135,7 +135,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 			return $html."\n";
 		}
 
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

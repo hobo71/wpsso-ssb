@@ -41,7 +41,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
-			$this->form->get_select( 'linkedin_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+			$this->form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( 'Counter Mode', 'short' ).'<td>'.
 			$this->form->get_select( 'linkedin_counter', 
@@ -73,7 +73,7 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 					'linkedin_on_sidebar' => 0,
 					'linkedin_on_admin_edit' => 1,
 					'linkedin_order' => 5,
-					'linkedin_js_loc' => 'header',
+					'linkedin_script_loc' => 'header',
 					'linkedin_counter' => 'right',
 					'linkedin_showzero' => 1,
 				),
@@ -114,7 +114,7 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 			return $html."\n";
 		}
 		
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';

@@ -274,7 +274,7 @@ jQuery("#wpsso-sidebar").click( function(){
 				case 'tumblr_button_style':
 				case 'tumblr_caption':
 				case ( strpos( $key, 'buttons_pos_' ) === 0 ? true : false ):
-				case ( preg_match( '/^[a-z]+_js_loc$/', $key ) ? true : false ):
+				case ( preg_match( '/^[a-z]+_script_loc$/', $key ) ? true : false ):
 					return 'not_blank';
 					break;
 			}
@@ -485,8 +485,8 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function show_header() {
-			echo $this->get_js_loader();
-			echo $this->get_js( 'header' );
+			echo $this->get_script_loader();
+			echo $this->get_script( 'header' );
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->show_html( null, 'Debug Log' );
@@ -499,7 +499,7 @@ jQuery("#wpsso-sidebar").click( function(){
 			elseif ( $this->p->debug->enabled )
 				$this->p->debug->log( 'no buttons enabled for sidebar' );
 
-			echo $this->get_js( 'footer' );
+			echo $this->get_script( 'footer' );
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->show_html( null, 'Debug Log' );
@@ -535,10 +535,10 @@ jQuery("#wpsso-sidebar").click( function(){
 				get_post_type( $post->ID ) === 'attachment' ) {
 
 				$content = '';
-				echo $this->get_js_loader();
-				echo $this->get_js( 'header' );
+				echo $this->get_script_loader();
+				echo $this->get_script( 'header' );
 				echo $this->get_buttons( $content, 'admin_edit' );
-				echo $this->get_js( 'footer' );
+				echo $this->get_script( 'footer' );
 
 				if ( $this->p->debug->enabled )
 					$this->p->debug->show_html( null, 'Debug Log' );
@@ -745,7 +745,7 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
-		public function get_js( $pos = 'header', $ids = array() ) {
+		public function get_script( $pos = 'header', $ids = array() ) {
 
 			// determine which (if any) sharing buttons are enabled
 			// loop through the sharing button option prefixes (fb, gp, etc.)
@@ -807,27 +807,27 @@ jQuery("#wpsso-sidebar").click( function(){
 			$js = '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript begin -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
-				$js_loc = 'header';
+				$script_loc = 'header';
 			elseif ( strpos( $pos, '-footer' ) ) 
-				$js_loc = 'footer';
-			else $js_loc = $pos;
+				$script_loc = 'footer';
+			else $script_loc = $pos;
 
 			if ( ! empty( $ids ) ) {
 				foreach ( $ids as $id ) {
 					$id = preg_replace( '/[^a-z]/', '', $id );
-					$opt_name = $this->p->cf['opt']['pre'][$id].'_js_loc';
+					$opt_name = $this->p->cf['opt']['pre'][$id].'_script_loc';
 					if ( isset( $this->website[$id] ) &&
-						method_exists( $this->website[$id], 'get_js' ) && 
+						method_exists( $this->website[$id], 'get_script' ) && 
 						isset( $this->p->options[$opt_name] ) && 
-						$this->p->options[$opt_name] == $js_loc )
-							$js .= $this->website[$id]->get_js( $pos );
+						$this->p->options[$opt_name] == $script_loc )
+							$js .= $this->website[$id]->get_script( $pos );
 				}
 			}
 			$js .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
 			return $js;
 		}
 
-		public function get_js_loader( $pos = 'id' ) {
+		public function get_script_loader( $pos = 'id' ) {
 			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
 			$lang = apply_filters( $this->p->cf['lca'].'_lang', $lang, SucomUtil::get_pub_lang( 'gplus' ) );
 			return '<script type="text/javascript" id="wpssossb-header-script">

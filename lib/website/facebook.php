@@ -52,7 +52,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 	
 					$rows[] = '<tr class="hide_in_basic">'.
 					$this->p->util->get_th( 'JavaScript in', 'short' ).
-					'<td>'. $this->form->get_select( 'fb_js_loc', $this->p->cf['form']['js_locations'] ).'</td>';
+					'<td>'. $this->form->get_select( 'fb_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 	
 					$rows[] = $this->p->util->get_th( 'Default Language', 'short' ).
 					'<td>'.$this->form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
@@ -152,7 +152,7 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 					'fb_on_sidebar' => 0,
 					'fb_on_admin_edit' => 1,
 					'fb_order' => 1,
-					'fb_js_loc' => 'header',
+					'fb_script_loc' => 'header',
 					'fb_button' => 'like',
 					'fb_markup' => 'xfbml',
 					'fb_send' => 1,
@@ -231,7 +231,7 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 			return $html."\n";
 		}
 		
-		public function get_js( $pos = 'id' ) {
+		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
