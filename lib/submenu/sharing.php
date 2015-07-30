@@ -182,9 +182,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 				WpssoSsbSharing::$cf['sharing']['show_on'], $prefix );
 			foreach ( $show_on as $suffix => $desc ) {
 				$col++;
-				$class = array_key_exists( $prefix.'_on_'.$suffix.':is', $this->p->options ) &&
+				$class = isset( $this->p->options[$prefix.'_on_'.$suffix.':is'] ) &&
 					$this->p->options[$prefix.'_on_'.$suffix.':is'] === 'disabled' &&
-					! $this->p->check->aop() ? 'show_on blank' : 'show_on';
+					! $this->p->check->aop( 'wpssossb' ) ? 'show_on blank' : 'show_on';
 				if ( $col == 1 )
 					$html .= '<tr><td class="'.$class.'">';
 				else $html .= '<td class="'.$class.'">';
