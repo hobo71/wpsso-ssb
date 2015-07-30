@@ -124,7 +124,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.1(2015/07/28)  =
+= Version 1.6.2  =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Renamed the '*_js_loc' options to '*_script_loc' to avoid the location options being defined as containing javascript code.
+	* Renamed the `get_js()` methods to `get_script()`.
+
+= Version 1.6.1 (2015/07/28) =
 
 * **New Features**
 	* *None*
