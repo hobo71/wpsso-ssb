@@ -65,13 +65,10 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 	margin:10px auto;
 	text-align:center;
 }';
-			// the default 'Show Button in' for 'Woo Short' is unchecked
 			foreach ( $this->p->cf['opt']['pre'] as $name => $prefix )
 				$opts_def[$prefix.'_on_woo_short'] = 0;
-
 			$opts_def['buttons_pos_woo_short'] = 'bottom';
 			$opts_def['buttons_preset_woo_short'] = '';
-
 			return $opts_def;
 		}
 
@@ -98,21 +95,16 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
         .facebook-button { }</pre>
 			<p><strong>The social sharing button options for the '.$idx.' style are subject to preset values, selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons settings page' ).', to modify their action (share vs like), size, and counter orientation.</strong> The width and height values in your CSS should reflect these presets (if any).</p>'.
 			'<p><strong>Selected preset:</strong> '.
-			( empty( $this->p->options['buttons_preset_'.$idx] ) ? '[none]' :
-				$this->p->options['buttons_preset_'.$idx] ).'</p>
-			</td><td class="blank tall code">'.$form->get_hidden( 'buttons_css_woo_short' ).
-				$this->p->options['buttons_css_woo_short'].'</td>';
+			( empty( $this->p->options['buttons_preset_'.$idx] ) ? '[none]' : $this->p->options['buttons_preset_'.$idx] ).'</p>
+			</td><td class="blank tall code">'.$form->get_hidden( 'buttons_css_woo_short' ).$this->p->options['buttons_css_woo_short'].'</td>';
 			return $rows;
 		}
 
 		public function filter_sharing_position_rows( $rows, $form ) {
 			$pos = array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' );
-
 			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-
 			$rows['buttons_pos_woo_short'] = $this->p->util->get_th( 'Position in Woo Short Text', null, 'buttons_pos_woo_short' ).
 			'<td class="blank">'.$form->get_hidden( 'buttons_pos_woo_short' ).$pos[$this->p->options['buttons_pos_woo_short']].'</td>';
-
 			return $rows;
 		}
 	}

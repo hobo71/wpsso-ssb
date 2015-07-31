@@ -202,13 +202,16 @@ jQuery("#wpsso-sidebar").click( function(){
 			$opts_def = $this->p->util->push_add_to_options( $opts_def, array( 'buttons' => 'frontend' ) );
 			$plugin_dir = trailingslashit( plugin_dir_path( $this->plugin_filepath ) );
 			$url_path = parse_url( trailingslashit( plugins_url( '', $this->plugin_filepath ) ), PHP_URL_PATH );	// relative URL
+			$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
 
-			foreach ( self::$cf['sharing']['style'] as $id => $name ) {
+			foreach ( $style_tabs as $id => $name ) {
 				$css_file = $plugin_dir.'css/'.$id.'-buttons.css';
 
 				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
 				if ( empty( $opts_def['buttons_css_'.$id] ) ) {
-					if ( ! $fh = @fopen( $css_file, 'rb' ) )
+					if ( ! file_exists( $css_file ) )
+						continue;
+					elseif ( ! $fh = @fopen( $css_file, 'rb' ) )
 						$this->p->notice->err( 'Failed to open '.$css_file.' for reading.' );
 					else {
 						$css_data = fread( $fh, filesize( $css_file ) );
@@ -422,11 +425,14 @@ jQuery("#wpsso-sidebar").click( function(){
 				} else {
 					$css_data = '';
 					$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
+
 					foreach ( $style_tabs as $id => $name )
 						if ( array_key_exists( 'buttons_css_'.$id, $opts ) )
 							$css_data .= $opts['buttons_css_'.$id];
+
 					$classname = apply_filters( $this->p->cf['lca'].'_load_lib', 
 						false, 'ext/compressor', 'SuextMinifyCssCompressor' );
+
 					if ( $classname !== false && class_exists( $classname ) )
 						$css_data = call_user_func( array( $classname, 'process' ), $css_data );
 					else {
@@ -435,6 +441,7 @@ jQuery("#wpsso-sidebar").click( function(){
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( 'failed to load minify class SuextMinifyCssCompressor' );
 					}
+
 					if ( fwrite( $fh, $css_data ) === false ) {
 						if ( is_admin() )
 							$this->p->notice->err( 'Failed writing to file '.self::$sharing_css_file.'.', true );
@@ -442,6 +449,7 @@ jQuery("#wpsso-sidebar").click( function(){
 							$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
 					} elseif ( $this->p->debug->enabled )
 						$this->p->debug->log( 'updated css file '.self::$sharing_css_file );
+
 					fclose( $fh );
 				}
 			} else $this->unlink_sharing_css();

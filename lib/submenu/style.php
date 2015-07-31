@@ -174,7 +174,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 				'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
 			) );
 
-			$tabs = apply_filters( $this->p->cf['lca'].'_'.$metabox.'_tabs', WpssoSsbSharing::$cf['sharing']['style'] );
+			$tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', WpssoSsbSharing::$cf['sharing']['style'] );
 			$rows = array();
 			foreach ( $tabs as $key => $title )
 				$rows[$key] = array_merge( $this->get_rows( $metabox, $key ), 
