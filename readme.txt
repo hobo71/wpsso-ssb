@@ -124,7 +124,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.2  =
+= Version 1.6.2 (2015/07/31) =
 
 * **New Features**
 	* *None*
@@ -160,6 +160,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.6.2 =
+
+Renamed some javascript related options and class methods.
 
 = 1.6.1 =
 
