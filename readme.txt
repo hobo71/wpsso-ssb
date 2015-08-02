@@ -132,6 +132,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the WpssoSsbSharing `update_sharing_css()` method.
 * **Bugfixes**
 	* Fixed a problem writing minimized CSS file for paths containing symbolic links by getting the real file path.
+	* Fixed some bbPress and BuddyPress example CSS (Free version).
 * **Developer Notes**
 	* *None*
 
