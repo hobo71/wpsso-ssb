@@ -21,7 +21,7 @@
 <blockquote>
 <p><strong>Looking for more responsive social sharing buttons?</strong></p>
 
-<p>WPSSO SSB includes traditional social sharing buttons provided by each social website. If you're looking for a flat and more responsive design style, have a look at the <a href="https://wordpress.org/plugins/wpsso-rrssb/">WPSSO Ridiculously Responsive Social Sharing Buttons (WPSSO RRSSB)</a> plugin. The Scalable Vector Graphics (SVG) used by WPSSO RRSSB resize automatically to their container size, so they always look great from any device (phone, tablet, laptop, etc.), including high resolution retina displays.</p>
+<p>WPSSO SSB includes traditional social sharing buttons provided by each social website. If you're looking for a more responsive / flat design style, have a look at the <a href="https://wordpress.org/plugins/wpsso-rrssb/">WPSSO Ridiculously Responsive Social Sharing Buttons (WPSSO RRSSB)</a> plugin. The Scalable Vector Graphics (SVG) used by WPSSO RRSSB resize automatically to their container size, so they always look great from any device (phone, tablet, laptop, etc.), including high resolution retina displays.</p>
 </blockquote>
 
 <h4>Quick List of Features</h4>
