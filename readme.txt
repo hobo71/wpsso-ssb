@@ -173,6 +173,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
+= 1.6.3 =
+
+Refactored the update_sharing_css() method, fixed a problem writing minimized CSS file for paths containing symbolic links, fixed bbPress and BuddyPress example CSS (Free version).
+
 = 1.6.2 =
 
 Renamed some javascript related options and class methods.
