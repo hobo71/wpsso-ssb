@@ -17,17 +17,17 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypress' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			if ( is_admin() || bp_current_component() ) {
 				$this->p->util->add_plugin_filters( $this, array( 
 					'post_types' => 3,
 				) );
-				// load sharing buttons code if sharing features exist and are enabled
-				if ( array_key_exists( 'ssb', $this->p->is_avail ) &&
-					$this->p->is_avail['ssb'] === true ) {
+				if ( ! empty( $this->p->is_avail['ssb'] ) ) {
 					$classname = __CLASS__.'Sharing';
-					$this->sharing = new $classname( $this->p );
+					if ( class_exists( $classname ) )
+						$this->sharing = new $classname( $this->p );
 				}
 			}
 		}
@@ -62,7 +62,8 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
@@ -70,9 +71,9 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 			if ( is_admin() ) {
 				$this->p->util->add_plugin_filters( $this, array( 
+					'sharing_show_on' => 2,
 					'style_tabs' => 1,
 					'style_bp_activity_rows' => 2,
-					'sharing_show_on' => 2,
 				) );
 			}
 		}
@@ -85,7 +86,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-.wpssossb-bp_activity-buttons { 
+.wpsso-bp_activity-buttons { 
 	display:block;
 	margin:10px auto;
 	text-align:center;
@@ -109,22 +110,23 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 			}
 			return $show_on;
 		}
-		/* Purpose: Add a 'BuddyPress Activity' tab to the Style settings */
+		/* Purpose: Add a 'BP Activity' tab to the Style settings */
 		public function filter_style_tabs( $tabs ) {
-			$tabs['bp_activity'] = 'BuddyPress Activity';
+			$tabs['bp_activity'] = 'BP Activity';
+			$this->p->options['buttons_css_bp_activity:is'] = 'disabled';
 			return $tabs;
 		}
 
-		/* Purpose: Add css input textarea for the 'BuddyPress Activity' style tab */
+		/* Purpose: Add css input textarea for the 'BP Activity' style tab */
 		public function filter_style_bp_activity_rows( $rows, $form ) {
 			$rows[] = '<td class="textinfo">
 			<p>Social sharing buttons added to BuddyPress Activities are assigned the 
-			\'wpssossb-bp_activity-buttons\' class, which itself contains the 
-			\'wpssossb-buttons\' class -- a common class for all the sharing buttons 
+			\'wpsso-bp_activity-buttons\' class, which itself contains the 
+			\'wpsso-buttons\' class -- a common class for all the sharing buttons 
 			(see the All Buttons tab).</p> 
 			<p>Example:</p><pre>
-.wpssossb-bp_activity-buttons 
-    .wpssossb-buttons
+.wpsso-bp_activity-buttons 
+    .wpsso-buttons
         .facebook-button { }</pre></td>'.
 			'<td class="blank tall code">'.$form->get_hidden( 'buttons_css_bp_activity' ).
 				$this->p->options['buttons_css_bp_activity'].'</td>';

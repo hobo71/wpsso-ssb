@@ -17,12 +17,13 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerce' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
-			if ( isset( $this->p->is_avail['ssb'] ) &&
-				$this->p->is_avail['ssb'] === true ) {
+			if ( ! empty( $this->p->is_avail['ssb'] ) ) {
 				$classname = __CLASS__.'Sharing';
-				$this->sharing = new $classname( $this->p );
+				if ( class_exists( $classname ) )
+					$this->sharing = new $classname( $this->p );
 			}
 		}
 	}
@@ -36,7 +37,8 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->p->debug->mark();
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
@@ -60,7 +62,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-.wpssossb-woo_short-buttons { 
+.wpsso-woo_short-buttons { 
 	display:block;
 	margin:10px auto;
 	text-align:center;
@@ -82,6 +84,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 		/* Purpose: Add a 'Woo Short' tab to the Style settings */
 		public function filter_style_tabs( $tabs ) {
 			$tabs['woo_short'] = 'Woo Short';
+			$this->p->options['buttons_css_woo_short:is'] = 'disabled';
 			return $tabs;
 		}
 
