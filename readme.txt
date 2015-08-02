@@ -124,6 +124,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.6.3 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Refactored the WpssoSsbSharing `update_sharing_css()` method.
+* **Bugfixes**
+	* Fixed a problem writing minimized CSS file for paths containing symbolic links by getting the real file path.
+* **Developer Notes**
+	* *None*
+
 = Version 1.6.2 (2015/07/31) =
 
 * **New Features**
