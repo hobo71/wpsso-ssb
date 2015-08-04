@@ -7,7 +7,7 @@ Tags: wpsso, like button, share button, facebook, google, google plus, g+, twitt
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.0
-Tested Up To: 4.2.3
+Tested Up To: 4.2.4
 Stable Tag: 1.6.3
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
@@ -129,6 +129,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
+
+= Version 1.6.4 (2015/08/04) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Confirmed WordPress v4.2.4 compatibility.
+* **Bugfixes**
+	* Fixed a possible error on failed CSS file writes by applying PHP realpath() to the WPSSOSSB_PLUGINDIR constant value.
+* **Developer Notes**
+	* *None*
 
 = Version 1.6.3 (2015/08/02) =
 
