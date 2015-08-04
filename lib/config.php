@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.6.3',	// plugin version
+					'version' => '1.6.4',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
@@ -108,7 +108,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			$slug = self::$cf['plugin'][$lca]['slug'];
 
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
-			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( plugin_dir_path( $plugin_filepath ) ) );
+			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
 			define( 'WPSSOSSB_PLUGINBASE', plugin_basename( $plugin_filepath ) );
 			define( 'WPSSOSSB_TEXTDOM', $slug );
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
