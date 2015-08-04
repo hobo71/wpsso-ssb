@@ -190,6 +190,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
+= 1.6.4 =
+
+Confirmed WordPress v4.2.4 compatibility. Fixed a possible error on failed CSS file writes by applying PHP realpath() to the WPSSOSSB_PLUGINDIR constant value.
+
 = 1.6.3 =
 
 Refactored the update_sharing_css() method, fixed a problem writing minimized CSS file for paths containing symbolic links, fixed bbPress and BuddyPress example CSS (Free version).
