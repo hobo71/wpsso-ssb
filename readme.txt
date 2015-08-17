@@ -130,7 +130,16 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.4 (2015/08/04) =
+= Version 1.6.5 (2015/08/17) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* Fixed an incorrect / deprecated method name in the `wpssossb_get_sharing_buttons()` function.
+* **Developer Notes**
+	* *None*
 
 * **New Features**
 	* *None*
@@ -190,9 +199,13 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
+= 1.6.5 =
+
+Fixed an incorrect / deprecated method name in the `wpssossb_get_sharing_buttons()` function.
+
 = 1.6.4 =
 
-Confirmed WordPress v4.2.4 compatibility. Fixed a possible error on failed CSS file writes by applying PHP realpath() to the WPSSOSSB_PLUGINDIR constant value.
+Fixed a possible error on failed CSS file writes by applying PHP realpath() to the WPSSOSSB_PLUGINDIR constant value.
 
 = 1.6.3 =
 
