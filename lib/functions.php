@@ -2,7 +2,7 @@
 /*
  * License: GPLv3
  * License URI: http://www.gnu.org/licenses/gpl.txt
- * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
+ * Copyright 2012-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
  */
 
 if ( ! defined( 'ABSPATH' ) ) 
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) )
 
 if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 	function wpssossb_get_sharing_buttons( $ids = array(), $atts = array() ) {
-		global $wpsso;
+		$wpsso =& Wpsso::get_instance();
 		if ( $wpsso->is_avail['ssb'] ) {
 			$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().
 				'_url:'.$wpsso->util->get_sharing_url().
@@ -36,9 +36,9 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 			}
 
 			$html = '<!-- '.$wpsso->cf['lca'].' sharing buttons begin -->' .
-				$wpsso->sharing->get_js( 'sharing-buttons-header', $ids ) .
+				$wpsso->sharing->get_script( 'sharing-buttons-header', $ids ) .
 				$wpsso->sharing->get_html( $ids, $atts ) .
-				$wpsso->sharing->get_js( 'sharing-buttons-footer', $ids ) .
+				$wpsso->sharing->get_script( 'sharing-buttons-footer', $ids ) .
 				'<!-- '.$wpsso->cf['lca'].' sharing buttons end -->';
 	
 			if ( $wpsso->is_avail['cache']['transient'] ||
