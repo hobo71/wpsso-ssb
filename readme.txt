@@ -212,6 +212,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 == Upgrade Notice ==
 
+= 1.6.6 =
+
+Fixed an incorrectly named object expiration variable in the `wpssossb_get_sharing_buttons()` function.
+
 = 1.6.5 =
 
 Fixed an incorrect / deprecated method name in the `wpssossb_get_sharing_buttons()` function.
