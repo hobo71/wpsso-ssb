@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.6 =
+= Version 1.6.6 (2015/08/18) =
 
 * **New Features**
 	* *None*
@@ -214,7 +214,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = 1.6.6 =
 
-Fixed an incorrectly named object expiration variable in the `wpssossb_get_sharing_buttons()` function.
+Fixed an incorrectly named object expiration variable in the wpssossb_get_sharing_buttons() function.
 
 = 1.6.5 =
 
