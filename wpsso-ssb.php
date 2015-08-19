@@ -8,7 +8,7 @@
  * License URI: http://www.gnu.org/licenses/gpl.txt
  * Description: WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
  * Requires At Least: 3.0
- * Tested Up To: 4.2.4
+ * Tested Up To: 4.3
  * Version: 1.6.6
  * 
  * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
@@ -61,7 +61,8 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				$this->wpsso_has_min_ver = false;
 				return $cf;
 			}
-			$cf['opt']['version'] .= $this->opt_version_suffix;
+			$cf['opt']['version'] .= '-'.$this->opt_version_suffix.
+				( is_dir( trailingslashit( dirname( __FILE__ ) ).'lib/pro/' ) ? 'pro' : 'gpl' );
 			$cf = SucomUtil::array_merge_recursive_distinct( $cf, WpssoSsbConfig::$cf );
 			return $cf;
 		}
