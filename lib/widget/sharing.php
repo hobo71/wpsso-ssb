@@ -15,18 +15,22 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 		protected $p;
 
 		public function __construct() {
+
 			$this->p =& Wpsso::get_instance();
 			if ( ! is_object( $this->p ) )
 				return;
+
 			$lca = $this->p->cf['lca'];
 			$short = $this->p->cf['plugin'][$lca]['short'];
+
 			$widget_name = 'Sharing Buttons';
 			$widget_class = $this->p->cf['lca'].'-widget-buttons';
 			$widget_ops = array( 
 				'classname' => $widget_class,
 				'description' => 'The '.$short.' social sharing buttons widget.'
 			);
-			$this->WP_Widget( $widget_class, $widget_name, $widget_ops );
+
+			parent::__construct( $widget_class, $widget_name, $widget_ops );
 		}
 	
 		public function widget( $args, $instance ) {
@@ -80,8 +84,10 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 			$html = '<!-- '.$this->p->cf['lca'].' '.$args['widget_id'].' begin -->'.
-				$before_widget.( empty( $title ) ? '' : $before_title.$title.$after_title ).
-				$this->p->sharing->get_html( $sorted_ids, $atts ).$after_widget.
+				$before_widget.
+				( empty( $title ) ? '' : $before_title.$title.$after_title ).
+				$this->p->sharing->get_html( $sorted_ids, $atts ).
+				$after_widget.
 				'<!-- '.$this->p->cf['lca'].' '.$args['widget_id'].' end -->'."\n";
 
 			if ( $this->p->is_avail['cache']['transient'] ) {
