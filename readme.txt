@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.6.7 (2015/09/03) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Updated the tooltip and info message filter names for WPSSO v3.8.
+	* Removed the WPSSO SSB specific 'installed_version' and 'ua_plugin' filters.
+	* Improved the setting of constants with new `set_variable_constants()` and `get_variable_constants()` methods in the WpssoSsbConfig class.
+
 = Version 1.6.6 (2015/08/18) =
 
 * **New Features**
@@ -211,6 +224,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.6.7 =
+
+Updated the tooltip and info message filter names for WPSSO v3.8. Improved setting of constants with new methods in WpssoSsbConfig class.
 
 = 1.6.6 =
 
