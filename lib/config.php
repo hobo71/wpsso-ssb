@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.6.6',	// plugin version
+					'version' => '1.6.7',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'url' => array(
 						// wordpress
 						'download' => 'https://wordpress.org/plugins/wpsso-ssb/',
-						'review' => 'https://wordpress.org/support/view/plugin-reviews/wpsso-ssb#postform',
+						'review' => 'https://wordpress.org/support/view/plugin-reviews/wpsso-ssb?filter=5&rate=5#postform',
 						'readme' => 'https://plugins.svn.wordpress.org/wpsso-ssb/trunk/readme.txt',
 						'wp_support' => 'https://wordpress.org/support/plugin/wpsso-ssb',
 						// surniaulula
@@ -104,8 +104,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		);
 
 		public static function set_constants( $plugin_filepath ) { 
-			$lca = 'wpssossb';
-			$slug = self::$cf['plugin'][$lca]['slug'];
+			$slug = self::$cf['plugin']['wpssossb']['slug'];
 
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
@@ -113,23 +112,32 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			define( 'WPSSOSSB_TEXTDOM', $slug );
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
 
-			/*
-			 * Allow some constants to be pre-defined in wp-config.php
-			 */
-			if ( ! defined( 'WPSSOSSB_SHARING_SHORTCODE' ) )
-				define( 'WPSSOSSB_SHARING_SHORTCODE', 'ssb' );
+			self::set_variable_constants();
+		}
+
+		public static function set_variable_constants() { 
+			foreach ( self::get_variable_constants() as $name => $value )
+				if ( ! defined( $name ) )
+					define( $name, $value );
+		}
+
+		public static function get_variable_constants() { 
+			$var_const = array();
+
+			$var_const['WPSSOSSB_SHARING_SHORTCODE'] = 'ssb';
 
 			/*
 			 * WPSSO SSB hook priorities
 			 */
-			if ( ! defined( 'WPSSOSSB_HEAD_PRIORITY' ) )
-				define( 'WPSSOSSB_HEAD_PRIORITY', 10 );
+			$var_const['WPSSOSSB_HEAD_PRIORITY'] = 10;
+			$var_const['WPSSOSSB_SOCIAL_PRIORITY'] = 100;
+			$var_const['WPSSOSSB_FOOTER_PRIORITY'] = 100;
 
-			if ( ! defined( 'WPSSOSSB_SOCIAL_PRIORITY' ) )
-				define( 'WPSSOSSB_SOCIAL_PRIORITY', 100 );
-			
-			if ( ! defined( 'WPSSOSSB_FOOTER_PRIORITY' ) )
-				define( 'WPSSOSSB_FOOTER_PRIORITY', 100 );
+			foreach ( $var_const as $name => $value )
+				if ( defined( $name ) )
+					$var_const[$name] = constant( $name );	// inherit existing values
+
+			return $var_const;
 		}
 
 		public static function require_libs( $plugin_filepath ) {

@@ -17,15 +17,46 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			$this->menu_id = $id;
 			$this->menu_name = $name;
 			$this->p->util->add_plugin_filters( $this, array( 
+				'messages_tooltip' => 2,	// tooltip messages filter
 				'messages_info' => 2,		// info messages filter
-				'messages' => 2,		// default messages filter
 			) );
 		}
 
+		public function filter_messages_tooltip( $text, $idx ) {
+			if ( strpos( $idx, 'tooltip-buttons_' ) !== 0 )
+				return $text;
+
+			switch ( $idx ) {
+				case 'tooltip-buttons_use_social_css':
+					$text = 'Add the CSS from all style tabs to webpages (default is checked).
+					The CSS will be <strong>minimized</strong>, and saved to a single 
+					stylesheet with the URL of <a href="'.WpssoSsbSharing::$sharing_css_url.'">'.
+					WpssoSsbSharing::$sharing_css_url.'</a>. The minimized stylesheet can be 
+					enqueued by WordPress, or included directly in the webpage header.';
+					break;
+	
+				case 'tooltip-buttons_js_sidebar':
+					$text = 'JavaScript that is added to the webpage for the social sharing sidebar.';
+					break;
+
+				case 'tooltip-buttons_enqueue_social_css':
+					$text = 'Have WordPress enqueue the social stylesheet instead of including the 
+					CSS directly in the webpage header (default is unchecked). Enqueueing the stylesheet
+					may be desirable if you use a plugin to concatenate all enqueued styles
+					into a single stylesheet URL.';
+					break;
+			}
+			return $text;
+		}
+
 		public function filter_messages_info( $text, $idx ) {
+			if ( strpos( $idx, 'info-style-' ) !== 0 )
+				return $text;
+
 			$lca =  $this->p->cf['lca'];
 			$short = $this->p->cf['plugin'][$lca]['short'];
 			$short_pro = $short.' Pro';
+
 			switch ( $idx ) {
 
 				case 'info-style-sharing':
@@ -117,37 +148,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 .'.$lca.'-admin_edit-buttons 
     .'.$lca.'-buttons
         .facebook-button { }</pre>';
-					break;
-			}
-			return $text;
-		}
-
-		public function filter_messages( $text, $idx ) {
-			switch ( $idx ) {
-				/*
-				 * 'Social Style' settings
-				 */
-				case ( strpos( $idx, 'tooltip-buttons_' ) !== false ? true : false ):
-					switch ( $idx ) {
-						case 'tooltip-buttons_use_social_css':
-							$text = 'Add the CSS from all style tabs to webpages (default is checked).
-							The CSS will be <strong>minimized</strong>, and saved to a single 
-							stylesheet with the URL of <a href="'.WpssoSsbSharing::$sharing_css_url.'">'.
-							WpssoSsbSharing::$sharing_css_url.'</a>. The minimized stylesheet can be 
-							enqueued by WordPress, or included directly in the webpage header.';
-							break;
-		
-						case 'tooltip-buttons_js_sidebar':
-							$text = 'JavaScript that is added to the webpage for the social sharing sidebar.';
-							break;
-		
-						case 'tooltip-buttons_enqueue_social_css':
-							$text = 'Have WordPress enqueue the social stylesheet instead of including the 
-							CSS directly in the webpage header (default is unchecked). Enqueueing the stylesheet
-							may be desirable if you use a plugin to concatenate all enqueued styles
-							into a single stylesheet URL.';
-							break;
-					}
 					break;
 			}
 			return $text;
