@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.6.7',	// plugin version
+					'version' => '1.6.8',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
@@ -141,9 +141,8 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		}
 
 		public static function require_libs( $plugin_filepath ) {
-			if ( ! is_admin() )
-				require_once( WPSSOSSB_PLUGINDIR.'lib/functions.php' );
-
+			require_once( WPSSOSSB_PLUGINDIR.'lib/register.php' );
+			require_once( WPSSOSSB_PLUGINDIR.'lib/functions.php' );
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );
 		}
 

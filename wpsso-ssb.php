@@ -9,7 +9,7 @@
  * Description: WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
  * Requires At Least: 3.0
  * Tested Up To: 4.3
- * Version: 1.6.7
+ * Version: 1.6.8
  * 
  * Copyright 2014-2015 - Jean-Sebastien Morisset - http://surniaulula.com/
  */
@@ -21,7 +21,8 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 
 	class WpssoSsb {
 
-		public $p;				// class object variables
+		public $p;			// Wpsso
+		public $reg;			// WpssoSsbRegister
 
 		protected static $instance = null;
 
@@ -36,7 +37,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		}
 
 		public function __construct() {
-			// don't continue if the social sharing buttons are disabled
+
 			if ( defined( 'WPSSOSSB_SOCIAL_SHARING_DISABLE' ) &&
 				WPSSOSSB_SOCIAL_SHARING_DISABLE )
 					return;
@@ -44,27 +45,15 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			require_once ( dirname( __FILE__ ).'/lib/config.php' );
 			WpssoSsbConfig::set_constants( __FILE__ );
 			WpssoSsbConfig::require_libs( __FILE__ );
-
-			add_filter( 'wpsso_get_config', array( &$this, 'wpsso_get_config' ), 30, 1 );
+			$this->reg = new WpssoSsbRegister();		// activate, deactivate, uninstall hooks
 
 			if ( is_admin() )
 				add_action( 'admin_init', array( &$this, 'wp_check_for_wpsso' ) );
 
+			add_filter( 'wpsso_get_config', array( &$this, 'wpsso_get_config' ), 30, 1 );
 			add_action( 'wpsso_init_options', array( &$this, 'wpsso_init_options' ), 10 );
 			add_action( 'wpsso_init_objects', array( &$this, 'wpsso_init_objects' ), 10 );
 			add_action( 'wpsso_init_plugin', array( &$this, 'wpsso_init_plugin' ), 10 );
-		}
-
-		// this filter is executed at init priority -1
-		public function wpsso_get_config( $cf ) {
-			if ( version_compare( $cf['plugin']['wpsso']['version'], $this->wpsso_min_version, '<' ) ) {
-				$this->wpsso_has_min_ver = false;
-				return $cf;
-			}
-			$cf['opt']['version'] .= '-'.$this->opt_version_suffix.
-				( is_dir( trailingslashit( dirname( __FILE__ ) ).'lib/pro/' ) ? 'pro' : 'gpl' );
-			$cf = SucomUtil::array_merge_recursive_distinct( $cf, WpssoSsbConfig::$cf );
-			return $cf;
 		}
 
 		public function wp_check_for_wpsso() {
@@ -83,7 +72,17 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			echo '</p></div>';
 		}
 
-		// this action is executed when WpssoOptions::__construct() is executed (class object is created)
+		public function wpsso_get_config( $cf ) {
+			if ( version_compare( $cf['plugin']['wpsso']['version'], $this->wpsso_min_version, '<' ) ) {
+				$this->wpsso_has_min_ver = false;
+				return $cf;
+			}
+			$cf['opt']['version'] .= '-'.$this->opt_version_suffix.
+				( is_dir( trailingslashit( dirname( __FILE__ ) ).'lib/pro/' ) ? 'pro' : 'gpl' );
+			$cf = SucomUtil::array_merge_recursive_distinct( $cf, WpssoSsbConfig::$cf );
+			return $cf;
+		}
+
 		public function wpsso_init_options() {
 			$this->p =& Wpsso::get_instance();
 			if ( $this->wpsso_has_min_ver === false )
@@ -100,7 +99,6 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			$this->p->sharing = new WpssoSsbSharing( $this->p, __FILE__ );
 		}
 
-		// this action is executed once all class objects have been defined and modules have been loaded
 		public function wpsso_init_plugin() {
 			if ( $this->wpsso_has_min_ver === false )
 				return $this->warning_wpsso_version( WpssoSsbConfig::$cf['plugin']['wpssossb'] );
