@@ -130,6 +130,17 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.6.8 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Added a WpssoSsbRegister class with `WpssoUtil::save_time()` calls during activation to save install / activation / update timestamps.
+
 = Version 1.6.7 (2015/09/03) =
 
 * **New Features**
@@ -224,6 +235,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.6.8 =
+
+Added a WpssoSsbRegister class with method calls during activation to save install / activation / update timestamps.
 
 = 1.6.7 =
 
