@@ -24,9 +24,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 <p>WPSSO SSB uses traditional social sharing buttons provided by each social website. If you're looking for a responsive / flat design style, have a look at the <a href="https://wordpress.org/plugins/wpsso-rrssb/">WPSSO Ridiculously Responsive Social Sharing Buttons (WPSSO RRSSB)</a> plugin. The Scalable Vector Graphics (SVG) used by WPSSO RRSSB resize automatically to their container size, so they always look great from any device (phone, tablet, laptop, etc.), including high resolution retina displays.</p>
 </blockquote>
 
-= Quick List of Features =
+<h4>Quick List of Features</h4>
 
-**Free / Basic Version**
+<strong>Free / Basic Features</strong>
 
 WPSSO SSB allows you to include a selection of traditional social sharing buttons in multiple locations:
 
@@ -56,7 +56,7 @@ The Facebook, Google+ and Twitter sharing buttons also support *multiple default
 <p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
 </blockquote>
 
-**Pro / Power-User Version**
+<strong>Pro / Power-User Features</strong>
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
