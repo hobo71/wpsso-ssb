@@ -130,7 +130,18 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.8 =
+= Version 1.6.9 (2015/09/19) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
+
+= Version 1.6.8 (2015/09/09) =
 
 * **New Features**
 	* *None*
@@ -235,6 +246,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.6.9 =
+
+Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
 
 = 1.6.8 =
 
