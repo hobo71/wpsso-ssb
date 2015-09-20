@@ -104,14 +104,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		);
 
 		public static function set_constants( $plugin_filepath ) { 
-			$slug = self::$cf['plugin']['wpssossb']['slug'];
-
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
-			define( 'WPSSOSSB_PLUGINBASE', plugin_basename( $plugin_filepath ) );
-			define( 'WPSSOSSB_TEXTDOM', $slug );
+			define( 'WPSSOSSB_PLUGINBASE', self::$cf['plugin']['wpssossb']['base'] );	// wpsso-ssb/wpsso-ssb.php
+			define( 'WPSSOSSB_TEXTDOM', self::$cf['plugin']['wpssossb']['slug'] );		// wpsso-ssb
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
-
 			self::set_variable_constants();
 		}
 
