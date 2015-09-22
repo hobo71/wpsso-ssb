@@ -140,7 +140,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
 			$rows['twitter_desc'] = $this->p->util->get_th( 'Tweet Text', 'medium', 'post-twitter_desc' ). 
 			'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
-				true, true, true ).'</td>';	// use_post = true, use_cache = true, add_hashtags = true
+				true, true, true ).'</td>';	// $use_post = true, $use_cache = true, $add_hashtags = true
 
 			$rows['buttons_disabled'] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( 'Disable Sharing Buttons', 'medium', 'post-buttons_disabled', $head_info ).
