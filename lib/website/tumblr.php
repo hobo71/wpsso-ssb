@@ -146,13 +146,13 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			$lca = $this->p->cf['lca'];
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
-			$source_id = $this->p->util->get_source_id( 'tumblr', $atts );
+			$src_id = $this->p->util->get_source_id( 'tumblr', $atts );
 			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
+				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $lca.'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $source_id );
+					$use_post, $atts['add_page'], $src_id );
 
 			$post_id = 0;
 			if ( is_singular() || $use_post !== false ) {
@@ -200,8 +200,9 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 						true,				// use_cache
 						true,				// add_hashtags
 						false,				// encode is false for later url encoding)
-						( ! empty( $atts['photo'] ) ? 'tumblr_img_desc' : 'tumblr_vid_desc' ),	// custom post meta
-						$source_id
+						( ! empty( $atts['photo'] ) ? 
+							'tumblr_img_desc' : 'tumblr_vid_desc' ),
+						$src_id
 					);
 
 			} else {
@@ -213,8 +214,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 						true,				// use_cache
 						false,				// add_hashtags
 						false,				// encode (false for later url encoding)
-						null,				// custom post meta
-						$source_id
+						null,				// metadata key
+						$src_id
 					);
 				if ( empty( $atts['description'] ) ) 
 					$atts['description'] = $this->p->webpage->get_description(
@@ -224,8 +225,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 						true,				// use_cache
 						true,				// add_hashtags
 						false,				// encode (false for later url encoding)
-						null,				// custom post meta
-						$source_id
+						null,				// metadata key
+						$src_id
 					);
 			}
 

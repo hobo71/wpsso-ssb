@@ -84,13 +84,13 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
-			$source_id = $this->p->util->get_source_id( 'reddit', $atts );
+			$src_id = $this->p->util->get_source_id( 'reddit', $atts );
 			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
+				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $source_id );
+					$use_post, $atts['add_page'], $src_id );
 
 			if ( empty( $atts['title'] ) ) 
 				$atts['title'] = $this->p->webpage->get_title( 
@@ -100,8 +100,8 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 					true,				// use_cache
 					false,				// add_hashtags
 					true,				// encode
-					null,				// custom post meta
-					$source_id
+					null,				// metadata key
+					$src_id
 				);
 
 			switch ( $opts['reddit_type'] ) {

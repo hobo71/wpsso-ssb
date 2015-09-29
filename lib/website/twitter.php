@@ -131,15 +131,15 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			global $post; 
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$use_post = isset( $atts['use_post'] ) ?  $atts['use_post'] : true;
-			$source_id = $this->p->util->get_source_id( 'twitter', $atts );
+			$src_id = $this->p->util->get_source_id( 'twitter', $atts );
 
 			if ( ! isset( $atts['add_page'] ) )
 				$atts['add_page'] = true;	// required by get_sharing_url()
 
 			$long_url = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
+				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url',
-					$atts['url'], $use_post, $atts['add_page'], $source_id );
+					$atts['url'], $use_post, $atts['add_page'], $src_id );
 
 			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url',
 				$long_url, $opts['plugin_shortener'] );
@@ -161,8 +161,8 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 						true,				// use_cache
 						true, 				// add_hashtags
 						true, 				// encode
-						'twitter_desc',			// custom post meta
-						$source_id			// 
+						'twitter_desc',			// metadata key
+						$src_id				// 
 					);
 				}
 			}

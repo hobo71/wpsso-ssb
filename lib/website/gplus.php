@@ -122,12 +122,12 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
-			$source_id = $this->p->util->get_source_id( 'gplus', $atts );
+			$src_id = $this->p->util->get_source_id( 'gplus', $atts );
 			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
+				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'],
-					$use_post, $atts['add_page'], $source_id );
+					$use_post, $atts['add_page'], $src_id );
 			$gp_class = $opts['gp_action'] == 'share' ? 'class="g-plus" data-action="share"' : 'class="g-plusone"';
 
 			$html = '<!-- GooglePlus Button --><div '.$this->p->sharing->get_css( ( $opts['gp_action'] == 'share' ? 'gplus' : 'gplusone' ), $atts ).'><span '.$gp_class;

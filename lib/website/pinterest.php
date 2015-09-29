@@ -153,13 +153,13 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				$opts =& $this->p->options;
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
-			$source_id = $this->p->util->get_source_id( 'pinterest', $atts );
+			$src_id = $this->p->util->get_source_id( 'pinterest', $atts );
 			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $source_id ) : 
+				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $source_id );
+					$use_post, $atts['add_page'], $src_id );
 			$href_query = '?url='.urlencode( $atts['url'] );
 
 			$post_id = 0;
@@ -208,8 +208,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 					true,				// use_cache
 					true,				// add_hashtags
 					false,				// encode (false for later url encoding)
-					'pin_desc',			// custom post meta
-					$source_id
+					'pin_desc',			// metadata key
+					$src_id
 				);
 			}
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')

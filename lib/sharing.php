@@ -632,14 +632,14 @@ jQuery("#wpsso-sidebar").click( function(){
 			$obj = $this->p->util->get_post_object( $use_post );
 			$post_id = empty( $obj->ID ) || empty( $obj->post_type ) || 
 				( ! is_singular() && $use_post === false ) ? 0 : $obj->ID;
-			$source_id = $this->p->util->get_source_id( $type );
+			$src_id = $this->p->util->get_source_id( $type );
 			$html = false;
 
 			if ( $this->p->is_avail['cache']['transient'] ) {
 				$cache_salt = __METHOD__.'('.apply_filters( $lca.'_buttons_cache_salt', 
 					'lang:'.SucomUtil::get_locale().'_type:'.$type.'_post:'.$post_id.
 						( empty( $post_id ) ? '_url:'.$this->p->util->get_sharing_url( $use_post,
-							true, $source_id ) : '' ), $type, $use_post ).')';
+							true, $src_id ) : '' ), $type, $use_post ).')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
 				if ( $this->p->debug->enabled )
