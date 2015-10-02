@@ -132,7 +132,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.9 (2015/09/19) =
+= Version 1.6.10 =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* Updated the text domain in preparation for plugin import to translate.wordpress.org.
+	* Added the translation function to all option labels in the settings pages and metaboxes.
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Added a POT (Portable Object Template) file with translation strings in wpsso-ssb/languages/wpsso-ssb.pot.
+
+= Version 1.6.9 2015/09/19 =
 
 * **New Features**
 	* *None*
@@ -143,7 +155,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
 
-= Version 1.6.8 (2015/09/09) =
+= Version 1.6.8 2015/09/09 =
 
 * **New Features**
 	* *None*
@@ -154,7 +166,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Added a WpssoSsbRegister class with `WpssoUtil::save_time()` calls during activation to save install / activation / update timestamps.
 
-= Version 1.6.7 (2015/09/03) =
+= Version 1.6.7 2015/09/03 =
 
 * **New Features**
 	* *None*
@@ -167,7 +179,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Removed the WPSSO SSB specific 'installed_version' and 'ua_plugin' filters.
 	* Improved the setting of constants with new `set_variable_constants()` and `get_variable_constants()` methods in the WpssoSsbConfig class.
 
-= Version 1.6.6 (2015/08/18) =
+= Version 1.6.6 2015/08/18 =
 
 * **New Features**
 	* *None*
@@ -178,7 +190,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.5 (2015/08/17) =
+= Version 1.6.5 2015/08/17 =
 
 * **New Features**
 	* *None*
@@ -189,7 +201,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.4 (2015/08/04) =
+= Version 1.6.4 2015/08/04 =
 
 * **New Features**
 	* *None*
@@ -200,7 +212,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.3 (2015/08/02) =
+= Version 1.6.3 2015/08/02 =
 
 * **New Features**
 	* *None*
@@ -212,7 +224,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.2 (2015/07/31) =
+= Version 1.6.2 2015/07/31 =
 
 * **New Features**
 	* *None*
@@ -224,7 +236,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Renamed the '\*_js_loc' options to '\*_script_loc' to avoid the location options being defined as containing javascript code.
 	* Renamed the `get_js()` methods to `get_script()`.
 
-= Version 1.6.1 (2015/07/28) =
+= Version 1.6.1 2015/07/28 =
 
 * **New Features**
 	* *None*
@@ -236,7 +248,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6 (2015/07/21) =
+= Version 1.6 2015/07/21 =
 
 * **New Features**
 	* Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
@@ -251,41 +263,5 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = 1.6.9 =
 
-Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
-
-= 1.6.8 =
-
-Added a WpssoSsbRegister class with method calls during activation to save install / activation / update timestamps.
-
-= 1.6.7 =
-
-Updated the tooltip and info message filter names for WPSSO v3.8. Improved setting of constants with new methods in WpssoSsbConfig class.
-
-= 1.6.6 =
-
-Fixed an incorrectly named object expiration variable in the wpssossb_get_sharing_buttons() function.
-
-= 1.6.5 =
-
-Fixed an incorrect / deprecated method name in the `wpssossb_get_sharing_buttons()` function.
-
-= 1.6.4 =
-
-Fixed a possible error on failed CSS file writes by applying PHP realpath() to the WPSSOSSB_PLUGINDIR constant value.
-
-= 1.6.3 =
-
-Refactored the update_sharing_css() method, fixed a problem writing minimized CSS file for paths containing symbolic links, fixed bbPress and BuddyPress example CSS (Free version).
-
-= 1.6.2 =
-
-Renamed some javascript related options and class methods.
-
-= 1.6.1 =
-
-Thumbnails in the Sharing Buttons tab in the Social Settings metabox now support custom Image URLs as well.
-
-= 1.6 =
-
-Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
+2015/09/19 Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
 
