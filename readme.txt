@@ -137,12 +137,12 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **New Features**
 	* *None*
 * **Improvements**
+	* Added translation function calls to all option labels in the settings pages and metaboxes.
 	* Updated the text domain in preparation for plugin import to translate.wordpress.org.
-	* Added the translation function to all option labels in the settings pages and metaboxes.
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
-	* Added a POT (Portable Object Template) file with translation strings in wpsso-ssb/languages/wpsso-ssb.pot.
+	* Added a POT (Portable Object Template) file with translation strings in languages/wpsso-ssb.pot.
 
 = Version 1.6.9 2015/09/19 =
 
