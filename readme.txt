@@ -129,10 +129,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.6.10 =
+= Version 1.7.0 =
 
 * **New Features**
-	* *None*
+	* Added a French language (fr_FR) translation.
 * **Improvements**
 	* Added translation function calls to all option labels in the settings pages and metaboxes.
 	* Updated the text domain in preparation for plugin import to translate.wordpress.org.
