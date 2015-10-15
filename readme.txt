@@ -82,37 +82,29 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Install and Uninstall =
 
-<ul>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/">Install the Plugin</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/">Uninstall the Plugin</a></li>
-</ul>
+* [Install the Plugin](http://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/)
+* [Uninstall the Plugin](http://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
 
 == Frequently Asked Questions ==
 
 = Frequently Asked Questions =
 
-<ul>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/">Can I share a single image on a webpage?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/">Can I use other social sharing buttons?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/">How do I turn on Social Sharing Buttons for a page?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/">Why are the buttons showing the wrong language?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/">Why does the Facebook “Like” button flyout get clipped?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/">Why doesn’t the Pinterest button show?</a></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/">Why doesn’t the Twitter count increase?</a></li>
-</ul>
+* [Can I share a single image on a webpage?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/)
+* [Can I use other social sharing buttons?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/)
+* [How do I turn on Social Sharing Buttons for a page?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
+* [Why are the buttons showing the wrong language?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/)
+* [Why does the Facebook “Like” button flyout get clipped?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
+* [Why doesn’t the Pinterest button show?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
+* [Why doesn’t the Twitter count increase?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
 
 == Other Notes ==
 
 = Additional Documentation =
 
-<ul>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/">Developer Resources</a>
-	<ul>
-		<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/">Sharing Buttons Function</a></li>
-	</ul></li>
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li> 
-	<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
-</ul>
+* [Developer Resources](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/)
+	* [Sharing Buttons Function](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
+* [SSB Shortcode](http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
+* [Styling Social Buttons](http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/)
 
 == Screenshots ==
 
