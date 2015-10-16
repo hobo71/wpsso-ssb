@@ -121,7 +121,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.7.0 =
+= Version 1.7.0 2015/10/16 =
 
 * **New Features**
 	* Added a French language (fr_FR) translation.
@@ -249,6 +249,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Refactored the Buffer, Pinterest, and Tumblr sharing button code to use the new NgfbOpengraph get_the_media_urls() method.
 
 == Upgrade Notice ==
+
+= 1.7.0 =
+
+2015/10/16 Added a French language (fr_FR) translation. Added translation function calls to all option labels. Added a POT in languages/wpsso-ssb.pot.
 
 = 1.6.9 =
 
