@@ -139,9 +139,11 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark( 'action / filter setup' );
 			$this->plugin_filepath = $plugin_filepath;
+
 			self::$sharing_css_name = 'sharing-styles-id-'.get_current_blog_id().'.min.css';
 			self::$sharing_css_file = WPSSO_CACHEDIR.self::$sharing_css_name;
 			self::$sharing_css_url = WPSSO_CACHEURL.self::$sharing_css_name;
+
 			$this->set_objects();
 
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_enqueue_styles' ) );
