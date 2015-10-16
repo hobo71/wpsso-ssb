@@ -2,7 +2,7 @@
 // extract of translatable text strings from static config array(s)
 _x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' );
 _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' );
-_x( 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.', 'plugin description', 'wpsso-ssb' );
+_x( 'WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.', 'plugin description', 'wpsso-ssb' );
 _x( 'Admin Edit', 'metabox tab', 'wpsso-ssb' );
 _x( 'Admin Edit Page', 'option value', 'wpsso-ssb' );
 _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' );

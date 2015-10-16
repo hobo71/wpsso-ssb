@@ -18,7 +18,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'version' => '1.7.0',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
-					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
+					'desc' => 'WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
 					'slug' => 'wpsso-ssb',
 					'base' => 'wpsso-ssb/wpsso-ssb.php',
 					'update_auth' => 'tid',
