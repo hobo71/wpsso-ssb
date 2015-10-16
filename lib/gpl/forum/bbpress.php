@@ -106,26 +106,28 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 
 		/* Purpose: Add css input textarea for the 'bbPress Single' style tab */
 		public function filter_style_bbp_single_rows( $rows, $form ) {
-			$rows[] = '<td class="textinfo">
-			<p>Social sharing buttons added at the top of bbPress Single Templates are assigned the 
-			\'wpsso-bbp_single-buttons\' class, which itself contains the 
-			\'wpsso-buttons\' class -- a common class for all the sharing buttons 
-			(see the All Buttons tab).</p> 
+
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
+
+			$rows[] = '<th class="textinfo">
+			<p>Social sharing buttons added at the top of bbPress Single Templates are assigned the \'wpsso-bbp_single-buttons\' class, which itself contains the \'wpsso-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+
 			<p>Example:</p><pre>
 .wpsso-bbp_single-buttons 
     .wpsso-buttons
-        .facebook-button { }</pre></td>'.
-			'<td class="blank tall code">'.$form->get_hidden( 'buttons_css_bbp_single' ).
-				$this->p->options['buttons_css_bbp_single'].'</td>';
+        .facebook-button { }</pre></th><td><textarea disabled="disabled" class="tall code">'.
+				$this->p->options['buttons_css_bbp_single'].'</textarea></td>';
 			return $rows;
 		}
 
 		public function filter_sharing_position_rows( $rows, $form ) {
-			$pos = array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' );
 			$rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-			$rows['buttons_pos_bbp_single'] = $this->p->util->get_th( 'Position in bbPress Single', null, 'buttons_pos_bbp_single' ).
-			'<td class="blank">'.$form->get_hidden( 'buttons_pos_bbp_single' ).$pos[$this->p->options['buttons_pos_bbp_single']].'</td>';
+			$rows['buttons_pos_bbp_single'] = $this->p->util->get_th( _x( 'Position in bbPress Single',
+				'option label', 'wpsso-ssb' ), null, 'buttons_pos_bbp_single' ).
+			'<td class="blank">'.WpssoSsbSharing::$cf['sharing']['position'][$this->p->options['buttons_pos_bbp_single']].'</td>';
 			return $rows;
 		}
 	}

@@ -31,19 +31,23 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
-			$rows[] = $this->p->util->get_th( 'Show Button in', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'linkedin' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'linkedin_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
+			$this->p->util->get_th( _x( 'JavaScript in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Counter Mode', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Counter Mode',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'linkedin_counter', 
 				array( 
 					'none' => '',
@@ -53,7 +57,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 			).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'Zero in Counter', 'short' ).'<td>'.
+			$this->p->util->get_th( _x( 'Zero in Counter',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_checkbox( 'linkedin_showzero' ).'</td>';
 
 			return $rows;

@@ -30,7 +30,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 		// add an option to the WordPress -> Settings -> Image Dimensions page
 		public function filter_image_dimensions_general_rows( $rows, $form ) {
 
-			$rows[] = $this->p->util->get_th( 'Pinterest <em>Sharing Button</em>', null, 'pin_img_dimensions',
+			$rows[] = $this->p->util->get_th( _x( 'Pinterest <em>Sharing Button</em>',
+				'option label', 'wpsso-ssb' ), null, 'pin_img_dimensions',
 			'The image dimensions that the Pinterest Pin It button will share (defaults is '.$this->p->opt->get_defaults( 'pin_img_width' ).'x'.$this->p->opt->get_defaults( 'pin_img_height' ).' '.( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'un' : '' ).'cropped). Images in the Facebook / Open Graph meta tags are usually cropped square, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'pin_img' ).'</td>';
 
@@ -40,34 +41,42 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
-			$rows[] = $this->p->util->get_th( 'Show Button in', 'short', null ).
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$this->show_on_checkboxes( 'pin' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_order', range( 1, 
 				count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'JavaScript in', 'short' ).
+			$this->p->util->get_th( _x( 'JavaScript in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Button Height', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Button Height',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_height', 
 				array( 'small' => 'Small', 'large' => 'Large' ) );
 
-			$rows[] = $this->p->util->get_th( 'Button Shape', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Button Shape',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_shape', 
 				array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
 
-			$rows[] = $this->p->util->get_th( 'Button Color', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Button Color',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_color', 
 				array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
 
-			$rows[] = $this->p->util->get_th( 'Button Language', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Button Language',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_lang', 
 				array( 'en' => 'English', 'ja' => 'Japanese' ) );
 
-			$rows[] = $this->p->util->get_th( 'Show Pin Count', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Show Pin Count',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_count_layout', 
 				array( 
 					'none' => 'Not Shown',
@@ -77,20 +86,25 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'Share Single Image', 'short', null,
+			$this->p->util->get_th( _x( 'Share Single Image',
+				'option label (short)', 'wpsso-ssb' ), 'short', null,
 			'Check this option to have the Pinterest Pin It button appear only on Posts and Pages with a custom Image ID (in the Social Settings metabox), a featured image, or an attached image, that is equal to or larger than the \'Image Dimensions\' you have chosen. <strong>By leaving this option unchecked, the Pin It button will submit the current webpage URL without a specific image</strong>, allowing Pinterest to present any number of available images for pinning.' ).
 			'<td>'.$this->form->get_checkbox( 'pin_use_img' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Image Dimensions', 'short' ).
+			$rows[] = $this->p->util->get_th( _x( 'Image Dimensions',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'pin_img', false, true ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'Caption Text', 'short' ).
+			$this->p->util->get_th( _x( 'Caption Text',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'Caption Length', 'short' ).
-			'<td>'.$this->form->get_input( 'pin_cap_len', 'short' ).' characters or less</td>';
+			$this->p->util->get_th( _x( 'Caption Length',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_input( 'pin_cap_len', 'short' ).' '.
+				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			return $rows;
 		}
@@ -138,7 +152,11 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		}
 
 		public function filter_plugin_image_sizes( $sizes ) {
-			$sizes['pin_img'] = array( 'name' => 'pinterest-button', 'label' => 'Pinterest Sharing Button' );
+			$sizes['pin_img'] = array(
+				'name' => 'pinterest-button',
+				'label' => _x( 'Pinterest Sharing Button',
+					'image size label', 'wpsso-ssb' ),
+			);
 			return $sizes;
 		}
 

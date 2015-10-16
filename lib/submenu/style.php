@@ -28,11 +28,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 
 			switch ( $idx ) {
 				case 'tooltip-buttons_use_social_css':
-					$text = 'Add the CSS from all style tabs to webpages (default is checked).
-					The CSS will be <strong>minimized</strong>, and saved to a single 
-					stylesheet with the URL of <a href="'.WpssoSsbSharing::$sharing_css_url.'">'.
-					WpssoSsbSharing::$sharing_css_url.'</a>. The minimized stylesheet can be 
-					enqueued by WordPress, or included directly in the webpage header.';
+					$text = 'Add the CSS from all style tabs to webpages (default is checked).  The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with the URL of <a href="'.WpssoSsbSharing::$sharing_css_url.'">'.WpssoSsbSharing::$sharing_css_url.'</a>. The minimized stylesheet can be enqueued by WordPress, or included directly in the webpage header.';
 					break;
 	
 				case 'tooltip-buttons_js_sidebar':
@@ -40,10 +36,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'tooltip-buttons_enqueue_social_css':
-					$text = 'Have WordPress enqueue the social stylesheet instead of including the 
-					CSS directly in the webpage header (default is unchecked). Enqueueing the stylesheet
-					may be desirable if you use a plugin to concatenate all enqueued styles
-					into a single stylesheet URL.';
+					$text = 'Have WordPress enqueue the social stylesheet instead of including the CSS directly in the webpage header (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.';
 					break;
 			}
 			return $text;
@@ -62,20 +55,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 				case 'info-style-sharing':
 
 					$notes_url = $this->p->cf['plugin'][$lca]['url']['notes'];
-					$text = '<p>'.$short.' uses the \''.$lca.'-buttons\' class to wrap all its 
-					sharing buttons, and each button has it\'s own individual class name as well. 
-					Refer to the <a href="'.$notes_url.'" target="_blank">Notes</a> 
-					webpage for additional stylesheet information, including how to hide the sharing 
-					buttons for specific Posts, Pages, categories, tags, etc.</p>';
+					$text = '<p>'.$short.' uses the \''.$lca.'-buttons\' class to wrap all its sharing buttons, and each button has it\'s own individual class name as well. Refer to the <a href="'.$notes_url.'" target="_blank">Notes</a> webpage for additional stylesheet information, including how to hide the sharing buttons for specific Posts, Pages, categories, tags, etc.</p>';
 					break;
 
 				case 'info-style-content':
 
-					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.
-					$this->p->util->get_admin_url( 'sharing', 'Buttons settings page' ).
-					', are assigned the \''.$lca.'-content-buttons\' class, which itself contains the 
-					\''.$lca.'-buttons\' class -- a common class for all the sharing buttons 
-					(see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons settings page' ).', are assigned the \''.$lca.'-content-buttons\' class, which itself contains the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					
 					<p>Example:</p><pre>
 .'.$lca.'-content-buttons 
     .'.$lca.'-buttons
@@ -83,11 +69,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-excerpt':
-					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.
-					$this->p->util->get_admin_url( 'sharing', 'Buttons settings page' ).
-					', are assigned the \''.$lca.'-excerpt-buttons\' class, which itself contains the 
-					\''.$lca.'-buttons\' class -- a common class for all the sharing buttons 
-					(see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'sharing', 'Buttons settings page' ).', are assigned the \''.$lca.'-excerpt-buttons\' class, which itself contains the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+
 					<p>Example:</p><pre>
 .'.$lca.'-excerpt-buttons 
     .'.$lca.'-buttons
@@ -95,10 +78,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-sidebar':
-					$text = '<p>Social sharing buttons added to the sidebar are assigned the 
-					\'#'.$lca.'-sidebar\' CSS id, which itself contains \'#'.$lca.'-sidebar-header\',
-					\'#'.$lca.'-sidebar-buttons\', and the \''.$lca.'-buttons\' class -- 
-					a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons added to the sidebar are assigned the \'#'.$lca.'-sidebar\' CSS id, which itself contains \'#'.$lca.'-sidebar-header\', \'#'.$lca.'-sidebar-buttons\', and the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p>
 					<p>Example:</p><pre>
 #'.$lca.'-sidebar
     #'.$lca.'-sidebar-header { }
@@ -110,10 +90,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-shortcode':
-					$text = '<p>Social sharing buttons added from a shortcode are assigned the 
-					\''.$lca.'-shortcode-buttons\' class, which itself contains the 
-					\''.$lca.'-buttons\' class -- a common class for all the sharing buttons 
-					(see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons added from a shortcode are assigned the \''.$lca.'-shortcode-buttons\' class, which itself contains the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					
 					<p>Example:</p><pre>
 .'.$lca.'-shortcode-buttons 
     .'.$lca.'-buttons
@@ -121,18 +99,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-widget':
-					$text = '<p>Social sharing buttons within the '.$this->p->cf['menu'].
-					' Sharing Buttons widget are assigned the 
-					\''.$lca.'-widget-buttons\' class, which itself contains the 
-					\''.$lca.'-buttons\' class -- a common class for all the sharing buttons 
-					(see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons within the '.$this->p->cf['menu'].' Sharing Buttons widget are assigned the \''.$lca.'-widget-buttons\' class, which itself contains the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					
 					<p>Example:</p><pre>
 .'.$lca.'-widget-buttons 
     .'.$lca.'-buttons
         .facebook-button { }</pre>
-					<p>The '.$this->p->cf['menu'].' Sharing Buttons widget also has an id of 
-					\''.$lca.'-widget-buttons-<em>#</em>\', and the buttons have an id of 
-					\'<em>name</em>-'.$lca.'-widget-buttons-<em>#</em>\'.</p>
+					<p>The '.$this->p->cf['menu'].' Sharing Buttons widget also has an id of \''.$lca.'-widget-buttons-<em>#</em>\', and the buttons have an id of \'<em>name</em>-'.$lca.'-widget-buttons-<em>#</em>\'.</p>
+
 					<p>Example:</p><pre>
 #'.$lca.'-widget-buttons-2
     .'.$lca.'-buttons
@@ -140,10 +114,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-admin_edit':
-					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox
-					are assigned the \''.$lca.'-admin_edit-buttons\' class, which itself contains the 
-					\''.$lca.'-buttons\' class -- a common class for all the sharing buttons 
-					(see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox are assigned the \''.$lca.'-admin_edit-buttons\' class, which itself contains the \''.$lca.'-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+
 					<p>Example:</p><pre>
 .'.$lca.'-admin_edit-buttons 
     .'.$lca.'-buttons
@@ -155,7 +127,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 
 		protected function add_meta_boxes() {
 			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
-			add_meta_box( $this->pagehook.'_style', 'Social Sharing Styles', array( &$this, 'show_metabox_style' ), $this->pagehook, 'normal' );
+			add_meta_box( $this->pagehook.'_style',
+				_x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' ),
+					array( &$this, 'show_metabox_style' ), $this->pagehook, 'normal' );
 		}
 
 		public function show_metabox_style() {
@@ -167,18 +141,23 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			else $css_min_msg = '';
 
 			$this->p->util->do_table_rows( array( 
-				$this->p->util->get_th( 'Use the Social Stylesheet', 'highlight', 'buttons_use_social_css' ).
+				$this->p->util->get_th( _x( 'Use the Social Stylesheet',
+					'option label', 'wpsso-ssb' ), 'highlight', 'buttons_use_social_css' ).
 				'<td>'.$this->form->get_checkbox( 'buttons_use_social_css' ).$css_min_msg.'</td>',
 
-				$this->p->util->get_th( 'Enqueue the Stylesheet', null, 'buttons_enqueue_social_css' ).
+				$this->p->util->get_th( _x( 'Enqueue the Stylesheet',
+					'option label', 'wpsso-ssb' ), null, 'buttons_enqueue_social_css' ).
 				'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
 			) );
 
-			$tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', WpssoSsbSharing::$cf['sharing']['style'] );
+			$tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', 
+				WpssoSsbSharing::$cf['sharing']['style'] );
 			$rows = array();
-			foreach ( $tabs as $key => $title )
+			foreach ( $tabs as $key => $title ) {
+				$tabs[$key] = _x( $title, 'metabox tab', 'wpsso-ssb' );	// translate the tab title
 				$rows[$key] = array_merge( $this->get_rows( $metabox, $key ), 
 					apply_filters( $this->p->cf['lca'].'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
+			}
 			$this->p->util->do_tabs( $metabox, $tabs, $rows );
 		}
 

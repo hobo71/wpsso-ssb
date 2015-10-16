@@ -90,24 +90,36 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 		/* Purpose: Add css input textarea for the 'Woo Short' style tab */
 		public function filter_style_woo_short_rows( $rows, $form ) {
-			$rows['buttons_css_woo_short'] = '<td class="textinfo">
+
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
+
+			$rows['buttons_css_woo_short'] = '<th class="textinfo">
 			<p>Social sharing buttons added to the <strong>WooCommerce Short Description</strong> are assigned the \'wpsso-woo_short-buttons\' class, which itself contains the \'wpsso-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+
 			<p>Example:</p><pre>
 .wpsso-woo_short-buttons 
     .wpsso-buttons
         .facebook-button { }</pre>
-			<p><strong>The social sharing button options for the '.$idx.' style are subject to preset values, selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons settings page' ).', to modify their action (share vs like), size, and counter orientation.</strong> The width and height values in your CSS should reflect these presets (if any).</p>'.
-			'<p><strong>Selected preset:</strong> '.
-			( empty( $this->p->options['buttons_preset_'.$idx] ) ? '[none]' : $this->p->options['buttons_preset_'.$idx] ).'</p>
-			</td><td class="blank tall code">'.$form->get_hidden( 'buttons_css_woo_short' ).$this->p->options['buttons_css_woo_short'].'</td>';
+
+			<p><strong>The social sharing button options for the '.$idx.' style are subject to preset values, selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons settings page' ).', to modify their action (share vs like), size, and counter orientation.</strong> The width and height values in your CSS should reflect these presets (if any).</p>
+			
+			<p><strong>Selected preset:</strong> '.
+			( empty( $this->p->options['buttons_preset_'.$idx] ) ?
+				'[none]' : $this->p->options['buttons_preset_'.$idx] ).
+			'</p></th><td><textarea disabled="disabled" class="tall code">'.
+				$this->p->options['buttons_css_woo_short'].'</textarea></td>';
+
 			return $rows;
 		}
 
 		public function filter_sharing_position_rows( $rows, $form ) {
-			$pos = array( 'top' => 'Top', 'bottom' => 'Bottom', 'both' => 'Both Top and Bottom' );
-			$rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-			$rows['buttons_pos_woo_short'] = $this->p->util->get_th( 'Position in Woo Short Text', null, 'buttons_pos_woo_short' ).
-			'<td class="blank">'.$form->get_hidden( 'buttons_pos_woo_short' ).$pos[$this->p->options['buttons_pos_woo_short']].'</td>';
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$rows['buttons_pos_woo_short'] = $this->p->util->get_th( _x( 'Position in Woo Short Text',
+				'option label', 'wpsso-ssb' ), null, 'buttons_pos_woo_short' ).
+			'<td class="blank">'.WpssoSsbSharing::$cf['sharing']['position'][$this->p->options['buttons_pos_woo_short']].'</td>';
 			return $rows;
 		}
 	}

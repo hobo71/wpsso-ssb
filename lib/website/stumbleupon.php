@@ -66,19 +66,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 			}
 			$badge_html .= '</div>';
 
-			$rows[] = $this->p->util->get_th( 'Show Button in', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'stumble' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'stumble_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( 'JavaScript in', 'short' ).'<td>'.
+			$this->p->util->get_th( _x( 'JavaScript in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'stumble_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Button Style', 'short' ).'<td>'.$badge_html.'</td>';
+			$rows[] = $this->p->util->get_th( _x( 'Button Style',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+					'<td>'.$badge_html.'</td>';
 
 			return $rows;
 		}

@@ -15,13 +15,15 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '1.6.9',	// plugin version
+					'version' => '1.7.0',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to provide fast and accurate Social Sharing Buttons, including support for hashtags, short URLs, bbPress, BuddyPress, and WooCommerce.',
 					'slug' => 'wpsso-ssb',
 					'base' => 'wpsso-ssb/wpsso-ssb.php',
 					'update_auth' => 'tid',
+					'text_domain' => 'wpsso-ssb',
+					'domain_path' => '/languages',
 					'img' => array(
 						'icon_small' => 'images/icon-128x128.png',
 						'icon_medium' => 'images/icon-256x256.png',
@@ -107,7 +109,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
 			define( 'WPSSOSSB_PLUGINBASE', self::$cf['plugin']['wpssossb']['base'] );	// wpsso-ssb/wpsso-ssb.php
-			define( 'WPSSOSSB_TEXTDOM', self::$cf['plugin']['wpssossb']['slug'] );		// wpsso-ssb
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
 			self::set_variable_constants();
 		}

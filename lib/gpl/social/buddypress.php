@@ -21,35 +21,12 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypress' ) ) {
 				$this->p->debug->mark();
 
 			if ( is_admin() || bp_current_component() ) {
-				$this->p->util->add_plugin_filters( $this, array( 
-					'post_types' => 3,
-				) );
 				if ( ! empty( $this->p->is_avail['ssb'] ) ) {
 					$classname = __CLASS__.'Sharing';
 					if ( class_exists( $classname ) )
 						$this->sharing = new $classname( $this->p );
 				}
 			}
-		}
-
-		/* Purpose: Provide custom post types for wpssossb, without having to register them with WordPress */
-		public function filter_post_types( $pt, $prefix, $output = 'objects' ) {
-			if ( $prefix == 'buttons' ) {
-				if ( $output == 'objects' ) {
-					foreach ( array( 
-						'activity' => 'Activity',
-						'group' => 'Group',
-						'members' => 'Members',
-					) as $name => $desc ) {
-						$pt['bp_'.$name] = new stdClass();
-						$pt['bp_'.$name]->public = true;
-						$pt['bp_'.$name]->name = 'bp_'.$name;
-						$pt['bp_'.$name]->label = $desc;
-						$pt['bp_'.$name]->description = 'BuddyPress '.$desc;
-					}
-				}
-			}
-			return $pt;
 		}
 	}
 }
@@ -119,17 +96,20 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 		/* Purpose: Add css input textarea for the 'BP Activity' style tab */
 		public function filter_style_bp_activity_rows( $rows, $form ) {
-			$rows[] = '<td class="textinfo">
-			<p>Social sharing buttons added to BuddyPress Activities are assigned the 
-			\'wpsso-bp_activity-buttons\' class, which itself contains the 
-			\'wpsso-buttons\' class -- a common class for all the sharing buttons 
-			(see the All Buttons tab).</p> 
+
+			$rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
+
+			$rows[] = '<th class="textinfo">
+			<p>Social sharing buttons added to BuddyPress Activities are assigned the \'wpsso-bp_activity-buttons\' class, which itself contains the \'wpsso-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+
 			<p>Example:</p><pre>
 .wpsso-bp_activity-buttons 
     .wpsso-buttons
-        .facebook-button { }</pre></td>'.
-			'<td class="blank tall code">'.$form->get_hidden( 'buttons_css_bp_activity' ).
-				$this->p->options['buttons_css_bp_activity'].'</td>';
+        .facebook-button { }</pre></th><td><textarea disabled="disabled" class="tall code">'.
+			$this->p->options['buttons_css_bp_activity'].'</textarea></td>';
+
 			return $rows;
 		}
 	}

@@ -114,8 +114,8 @@ jQuery("#wpsso-sidebar").click( function(){
 				'show_on' => array( 
 					'content' => 'Content', 
 					'excerpt' => 'Excerpt', 
-					'sidebar' => 'Sidebar', 
-					'admin_edit' => 'Adm Edit',
+					'sidebar' => 'CSS Sidebar', 
+					'admin_edit' => 'Admin Edit Page',
 				),
 				'style' => array(
 					'sharing' => 'All Buttons',
@@ -125,6 +125,11 @@ jQuery("#wpsso-sidebar").click( function(){
 					'admin_edit' => 'Admin Edit',
 					'shortcode' => 'Shortcode',
 					'widget' => 'Widget',
+				),
+				'position' => array(
+					'top' => 'Top',
+					'bottom' => 'Bottom',
+					'both' => 'Both Top and Bottom',
 				),
 			),
 		);
@@ -212,7 +217,8 @@ jQuery("#wpsso-sidebar").click( function(){
 					if ( ! file_exists( $buttons_css_file ) )
 						continue;
 					elseif ( ! $fh = @fopen( $buttons_css_file, 'rb' ) )
-						$this->p->notice->err( 'Failed to open the '.$buttons_css_file.' file for reading.' );
+						$this->p->notice->err( sprintf( __( 'Failed to open the %s file for reading.',
+							'wpsso-ssb' ), $buttons_css_file ) );
 					else {
 						$css_data = fread( $fh, filesize( $buttons_css_file ) );
 						fclose( $fh );
@@ -285,29 +291,32 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function filter_post_cache_transients( $transients, $post_id, $lang = 'en_US', $sharing_url ) {
-			if ( ! empty( self::$cf['sharing']['show_on'] ) &&
-				is_array( self::$cf['sharing']['show_on'] ) ) {
+			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
+				self::$cf['sharing']['show_on'], null );
 
-				$transients['WpssoSsbSharing::get_buttons'] = array();
-				foreach( self::$cf['sharing']['show_on'] as $type_id => $type_name )
-					$transients['WpssoSsbSharing::get_buttons'][$type_id] = 'lang:'.$lang.'_type:'.$type_id.'_post:'.$post_id;
-			}
+			foreach( $show_on as $type_id => $type_name )
+				$transients['WpssoSsbSharing::get_buttons'][$type_id] = 'lang:'.$lang.'_type:'.$type_id.'_post:'.$post_id;
+
 			return $transients;
 		}
 
 		public function filter_status_gpl_features( $features, $lca, $info ) {
 			if ( ! empty( $info['lib']['submenu']['sharing'] ) )
-				$features['Sharing Buttons'] = array( 'classname' => $lca.'Sharing' );
-
+				$features['Sharing Buttons'] = array(
+					'classname' => $lca.'Sharing',
+				);
 			if ( ! empty( $info['lib']['submenu']['style'] ) )
-				$features['Sharing Stylesheet'] = array( 'status' => $this->p->options['buttons_use_social_css'] ? 'on' : 'off' );
-
+				$features['Sharing Stylesheet'] = array(
+					'status' => $this->p->options['buttons_use_social_css'] ? 'on' : 'off',
+				);
 			if ( ! empty( $info['lib']['shortcode']['sharing'] ) )
-				$features['Sharing Shortcode'] = array( 'classname' => $lca.'ShortcodeSharing' );
-
+				$features['Sharing Shortcode'] = array(
+					'classname' => $lca.'ShortcodeSharing',
+				);
 			if ( ! empty( $info['lib']['widget']['sharing'] ) )
-				$features['Sharing Widget'] = array( 'classname' => $lca.'WidgetSharing' );
-
+				$features['Sharing Widget'] = array(
+					'classname' => $lca.'WidgetSharing'
+				);
 			return $features;
 		}
 
@@ -317,7 +326,7 @@ jQuery("#wpsso-sidebar").click( function(){
 
 				$aop = $this->p->check->aop( $lca );
 				$features['Social File Cache'] = array( 
-					'status' => empty( $this->options['plugin_file_cache_exp'] ) ? 
+					'status' => $this->p->options['plugin_file_cache_exp'] ?
 						( $aop ? 'on' : 'rec' ) : 'off',
 					'td_class' => $aop ? '' : 'blank',
 				);
@@ -332,45 +341,43 @@ jQuery("#wpsso-sidebar").click( function(){
 		public function filter_messages_tooltip_side( $text, $idx, $atts ) {
 			switch ( $idx ) {
 				case 'tooltip-side-sharing-buttons':
-					$text = 'Social sharing features include the '.$this->p->cf['menu'].' '.$this->p->util->get_admin_url( 'sharing', 'Sharing Buttons' ).' and '.$this->p->util->get_admin_url( 'style', 'Sharing Styles' ).' settings pages, the Social Settings -&gt; Sharing Buttons tab on editing pages, along with the social sharing shortcode and widget. All social sharing features can be disabled using one of the available PHP <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constants</a>.';
+					$text = sprintf( __( 'Social sharing features include the <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> metabox, along with the social sharing shortcode and widget.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'sharing' ), _x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'style' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), _x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' ), _x( 'Social Settings', 'metabox title', 'wpsso-ssb' ) ).' '.sprintf( __( 'All social sharing features can be disabled using a <a href="%s" target="_blank">PHP constant</a> in your wp-config.php file.', 'wpsso-ssb' ), 'http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/' );
 					break;
 				case 'tooltip-side-sharing-stylesheet':
-					$text = 'A stylesheet can be included on all webpages for the social sharing buttons. Enable or disable the addition of the stylesheet from the '.$this->p->util->get_admin_url( 'style', 'Sharing Styles' ).' settings page.';
+					$text = sprintf( __( 'A stylesheet for the social sharing buttons can be included in all webpages. You can enable or disable use of the stylesheet from the <a href="%1$s">%2$s</a> settings page.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'style' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ) );
 					break;
 				case 'tooltip-side-sharing-shortcode':
-					$text = 'Support for shortcode(s) can be enabled / disabled on the '.$this->p->util->get_admin_url( 'advanced', 'Advanced' ).' settings page. Shortcodes are disabled by default to optimize WordPress performance and content processing.';
+					$text = sprintf( __( 'Support for shortcode(s) can be enabled and disabled on the <a href="%1$s">%2$s</a> settings page. Shortcodes are disabled by default to optimize performance and content processing.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ) );
 					break;
 				case 'tooltip-side-sharing-widget':
-					$text = 'The social sharing widget feature adds a "Sharing Buttons" widget in the WordPress Appearance -&gt; Widgets page. The widget can be used in any number of widget areas to share the current webpage URL. The widget, along with all social sharing features, can be disabled using an available <a href="http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/" target="_blank">constant</a>.';
+					$text = sprintf( __( 'The sharing widget feature adds a <em>%s</em> widget to the WordPress Widgets settings page. The sharing widget shares the URL for the current webpage (and not individual items within an index / archive webpage, for example).', 'wpsso-ssb' ),_x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' ) );
 					break;
 				case 'tooltip-side-sharing-styles-editor':
-					$text = 'WPSSOSSB Pro includes a CSS editor for the various social sharing button locations.';
+					$text = __( 'A stylesheet editor is available to edit the default CSS of social sharing buttons based on their intended location (content, except, etc.).', 'wpsso-ssb' );
 					break;
 				case 'tooltip-side-social-file-cache':
-					$text = 'WPSSOSSB Pro can save social sharing images and JavaScript to a cache folder, and provide URLs to these cached files instead of the originals. The current \'Social File Cache Expiry\' value, as defined on the '.$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_cache', 'Advanced' ).' settings page, is '.$this->p->options['plugin_file_cache_exp'].' seconds (the default value of 0 disables the social file caching feature).';
+					$text = __( 'Social sharing button images and JavaScript can be saved to a local cache folder. When this feature is enabled, the image and JavaScript URLs provided are those of the cached files instead of the originals (often with much better performance).', 'wpsso-ssb' ).' '.sprintf( __( 'The current <em>%1$s</em> value defined on the <a href="%2$s">%3$s</a> settings page is %4$s seconds (the default value of 0 disables social file caching).', 'wpsso-ssb' ), _x( 'Social File Cache Expiry', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ), $this->p->options['plugin_file_cache_exp'] );
 					break;
 			}
 			return $text;
 		}
 
 		public function filter_messages_tooltip_post( $text, $idx, $atts ) {
-			$ptn = empty( $atts['ptn'] ) ?
-				'Post' : $atts['ptn'];
 			switch ( $idx ) {
 				 case 'tooltip-post-pin_desc':
-					$text = 'A custom caption text, used by the Pinterest social sharing button, for the custom Image ID, attached or featured image.';
+					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Image ID, attached or featured image.', 'wpsso-ssb' ), 'Pinterest' );
 				 	break;
 				 case 'tooltip-post-tumblr_img_desc':
-				 	$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Image ID, attached or featured image.';
+					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Image ID, attached or featured image.', 'wpsso-ssb' ), 'Tumblr' );
 				 	break;
 				 case 'tooltip-post-tumblr_vid_desc':
-					$text = 'A custom caption, used by the Tumblr social sharing button, for the custom Video URL or embedded video.';
+					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Video URL or embedded video.', 'wpsso-ssb' ), 'Tumblr' );
 				 	break;
 				 case 'tooltip-post-twitter_desc':
-				 	$text = 'A custom Tweet text for the Twitter social sharing button. This text is in addition to any Twitter Card description.';
+				 	$text = __( 'A custom Tweet text for the Twitter social sharing button. This text is different than the Twitter Card description.', 'wpsso-ssb' );
 				 	break;
 				 case 'tooltip-post-buttons_disabled':
-					$text = 'Disable all social sharing buttons (content, excerpt, widget, shortcode) for this '.$ptn.'.';
+					$text = __( 'Disable all social sharing buttons (content, excerpt, widget, shortcode).', 'wpsso-ssb' );
 				 	break;
 			}
 			return $text;
@@ -394,7 +401,8 @@ jQuery("#wpsso-sidebar").click( function(){
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( self::$sharing_css_file.' is not readable' );
 						if ( is_admin() )
-							$this->p->notice->err( 'The '.self::$sharing_css_file.' file is not readable.', true );
+							$this->p->notice->err( sprintf( __( 'The %s file is not readable.',
+								'wpsso-ssb' ), self::$sharing_css_file ), true );
 					} else {
 						echo '<style type="text/css">';
 						if ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
@@ -406,7 +414,7 @@ jQuery("#wpsso-sidebar").click( function(){
 					}
 				}
 			} elseif ( $this->p->debug->enabled )
-				$this->p->debug->log( 'social css option is disabled' );
+				$this->p->debug->log( 'buttons_use_social_css option is disabled' );
 		}
 
 		public function update_sharing_css( &$opts ) {
@@ -427,19 +435,22 @@ jQuery("#wpsso-sidebar").click( function(){
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'failed to load minify class SuextMinifyCssCompressor' );
 					if ( is_admin() )
-						$this->p->notice->err( 'Failed to load the minify class SuextMinifyCssCompressor.', true );
+						$this->p->notice->err( __( 'Failed to load the minify class SuextMinifyCssCompressor.',
+							'wpsso-ssb' ), true );
 				}
 
 				if ( $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
 					if ( ( $written = fwrite( $fh, $css_data ) ) === false ) {
 						if ( $this->p->debug->enabled )
-							$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
+							$this->p->debug->log( 'failure while writing to '.self::$sharing_css_file );
 						if ( is_admin() )
-							$this->p->notice->err( 'Failed writing to the '.self::$sharing_css_file.' file.', true );
+							$this->p->notice->err( sprintf( __( 'Failure while writing to the % file.',
+								'wpsso-ssb' ), self::$sharing_css_file ), true );
 					} elseif ( $this->p->debug->enabled ) {
-						if ( is_admin() )
-							$this->p->notice->inf( 'Updated CSS '.self::$sharing_css_file.' ('.$written.' bytes written)', true );
 						$this->p->debug->log( 'updated css file '.self::$sharing_css_file.' ('.$written.' bytes written)' );
+						if ( is_admin() )
+							$this->p->notice->inf( sprintf( __( 'Updated the %1$s stylesheet (%2$d bytes written).',
+								'wpsso-ssb' ), self::$sharing_css_file, $written ), true );
 					}
 					fclose( $fh );
 				} else {
@@ -447,12 +458,14 @@ jQuery("#wpsso-sidebar").click( function(){
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
 						if ( is_admin() )
-							$this->p->notice->err( 'The '.WPSSO_CACHEDIR.' folder is not writable.', true );
+							$this->p->notice->err( sprintf( __( 'The %s folder is not writable.',
+								'wpsso-ssb' ), WPSSO_CACHEDIR ), true );
 					}
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'failed opening '.self::$sharing_css_file.' for writing' );
 					if ( is_admin() )
-						$this->p->notice->err( 'Failed to open file '.self::$sharing_css_file.' for writing.', true );
+						$this->p->notice->err( sprintf( __( 'Failed to open file %s for writing.',
+							'wpsso-ssb' ), self::$sharing_css_file ), true );
 				}
 			} else $this->unlink_sharing_css();
 		}
@@ -461,7 +474,7 @@ jQuery("#wpsso-sidebar").click( function(){
 			if ( file_exists( self::$sharing_css_file ) ) {
 				if ( ! @unlink( self::$sharing_css_file ) ) {
 					if ( is_admin() )
-						$this->p->notice->err( 'Error removing the minimized stylesheet file &mdash; does the web server have sufficient privileges?', true );
+						$this->p->notice->err( __( 'Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ), true );
 				}
 			}
 		}
@@ -480,8 +493,9 @@ jQuery("#wpsso-sidebar").click( function(){
 
 			if ( ! empty( $this->p->options[ 'buttons_add_to_'.$post_type->name ] ) ) {
 				// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
-				add_meta_box( '_'.$this->p->cf['lca'].'_share', 'Sharing Buttons', 
-					array( &$this, 'show_admin_sharing' ), $post_type->name, 'side', 'high' );
+				add_meta_box( '_'.$this->p->cf['lca'].'_share',
+					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
+						array( &$this, 'show_admin_sharing' ), $post_type->name, 'side', 'high' );
 			}
 		}
 
@@ -534,7 +548,10 @@ jQuery("#wpsso-sidebar").click( function(){
 			$post_type = get_post_type_object( $post->post_type );	// since 3.0
 			$post_type_name = ucfirst( $post_type->name );
 			$css_data = $this->p->options['buttons_css_admin_edit'];
-			$classname = apply_filters( $this->p->cf['lca'].'_load_lib', false, 'ext/compressor', 'SuextMinifyCssCompressor' );
+
+			$classname = apply_filters( $this->p->cf['lca'].'_load_lib', 
+				false, 'ext/compressor', 'SuextMinifyCssCompressor' );
+
 			if ( $classname !== false && class_exists( $classname ) )
 				$css_data = call_user_func( array( $classname, 'process' ), $css_data );
 
@@ -552,7 +569,8 @@ jQuery("#wpsso-sidebar").click( function(){
 				if ( $this->p->debug->enabled )
 					$this->p->debug->show_html( null, 'Debug Log' );
 
-			} else echo '<p class="centered">The '.$post_type_name.' must be published<br/>before it can be shared.</p>';
+			} else echo '<p class="centered">'.sprintf( __( '%s must be published<br/>before it can be shared.',
+				'wpsso-ssb' ), $post_type_name ).'</p>';
 			echo '</td></tr></table>';
 		}
 
@@ -678,7 +696,7 @@ jQuery("#wpsso-sidebar").click( function(){
 						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
 						if ( $this->p->debug->enabled )
 							$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
-							$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)' );
+								$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)' );
 					}
 				}
 			}

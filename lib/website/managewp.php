@@ -27,15 +27,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingManagewp' ) && class_exists( 'WpssoS
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
-			$rows[] = $this->p->util->get_th( 'Show Button in', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'managewp' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Preferred Order', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'managewp_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
 					'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( 'Button Type', 'short' ).'<td>'.
+			$rows[] = $this->p->util->get_th( _x( 'Button Type',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'managewp_type', 
 				array( 
 					'small' => 'Small',

@@ -1,0 +1,682 @@
+# Copyright (C) 2015 WPSSO Social Sharing Buttons (WPSSO SSB)
+# This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 1.7.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
+"POT-Creation-Date: 2015-10-16 00:24:23+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: lib/config-gettext-extract.php:3 lib/sharing.php:344 lib/sharing.php:353
+msgctxt "lib file description"
+msgid "Sharing Buttons"
+msgstr ""
+
+#: lib/config-gettext-extract.php:4 lib/sharing.php:344 lib/sharing.php:347
+msgctxt "lib file description"
+msgid "Sharing Styles"
+msgstr ""
+
+#: lib/config-gettext-extract.php:5
+msgctxt "plugin description"
+msgid ""
+"WPSSO extension to provide fast and accurate Social Sharing Buttons, "
+"including support for hashtags, short URLs, bbPress, BuddyPress, and "
+"WooCommerce."
+msgstr ""
+
+#: lib/config-gettext-extract.php:6
+msgctxt "metabox tab"
+msgid "Admin Edit"
+msgstr ""
+
+#: lib/config-gettext-extract.php:7
+msgctxt "option value"
+msgid "Admin Edit Page"
+msgstr ""
+
+#: lib/config-gettext-extract.php:8 lib/website/facebook.php:30
+msgctxt "metabox tab"
+msgid "All Buttons"
+msgstr ""
+
+#: lib/config-gettext-extract.php:9
+msgctxt "option value"
+msgid "Both Top and Bottom"
+msgstr ""
+
+#: lib/config-gettext-extract.php:10
+msgctxt "option value"
+msgid "Bottom"
+msgstr ""
+
+#: lib/config-gettext-extract.php:11
+msgctxt "metabox tab"
+msgid "Content"
+msgstr ""
+
+#: lib/config-gettext-extract.php:12
+msgctxt "option value"
+msgid "Content"
+msgstr ""
+
+#: lib/config-gettext-extract.php:13
+msgctxt "metabox tab"
+msgid "CSS Sidebar"
+msgstr ""
+
+#: lib/config-gettext-extract.php:14
+msgctxt "option value"
+msgid "CSS Sidebar"
+msgstr ""
+
+#: lib/config-gettext-extract.php:15
+msgctxt "metabox tab"
+msgid "Excerpt"
+msgstr ""
+
+#: lib/config-gettext-extract.php:16
+msgctxt "option value"
+msgid "Excerpt"
+msgstr ""
+
+#: lib/config-gettext-extract.php:17
+msgctxt "metabox tab"
+msgid "Shortcode"
+msgstr ""
+
+#: lib/config-gettext-extract.php:18
+msgctxt "option value"
+msgid "Top"
+msgstr ""
+
+#: lib/config-gettext-extract.php:19
+msgctxt "metabox tab"
+msgid "Widget"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:34
+#: lib/sharing.php:359
+msgctxt "option label"
+msgid "Social File Cache Expiry"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:31 lib/pro/admin/sharing.php:38
+msgctxt "option comment"
+msgid "hours"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:48 lib/pro/admin/sharing.php:52
+msgctxt "option label"
+msgid "Include on Post Types"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:66 lib/pro/admin/sharing.php:66
+msgctxt "option label"
+msgid "%s Preset"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:78 lib/pro/admin/sharing.php:79
+#: lib/sharing.php:344
+msgctxt "metabox tab"
+msgid "Sharing Buttons"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:98 lib/pro/admin/sharing.php:96
+msgctxt "option label"
+msgid "Pinterest Caption Text"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:119 lib/pro/admin/sharing.php:119
+msgctxt "option label"
+msgid "Tumblr Image Caption"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:137 lib/pro/admin/sharing.php:139
+msgid "Caption disabled - no suitable image found for the %s button"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:139 lib/pro/admin/sharing.php:141
+msgctxt "option label"
+msgid "Tumblr Video Caption"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:147 lib/pro/admin/sharing.php:151
+msgid "Caption disabled - no suitable video found for the %s button"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:153 lib/gpl/admin/sharing.php:159
+#: lib/pro/admin/sharing.php:157 lib/pro/admin/sharing.php:163
+msgctxt "option label"
+msgid "Tweet Text"
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:155 lib/pro/admin/sharing.php:159
+msgid "Save a draft version or publish to enable this field."
+msgstr ""
+
+#: lib/gpl/admin/sharing.php:166 lib/pro/admin/sharing.php:172
+msgctxt "option label"
+msgid "Disable Sharing Buttons"
+msgstr ""
+
+#: lib/gpl/admin/style.php:64 lib/pro/admin/style.php:65
+msgctxt "option label"
+msgid "Sidebar Javascript"
+msgstr ""
+
+#: lib/gpl/ecom/woocommerce.php:120 lib/pro/ecom/woocommerce.php:122
+msgctxt "option label"
+msgid "Position in Woo Short Text"
+msgstr ""
+
+#: lib/gpl/forum/bbpress.php:128 lib/pro/forum/bbpress.php:163
+msgctxt "option label"
+msgid "Position in bbPress Single"
+msgstr ""
+
+#: lib/sharing.php:220
+msgid "Failed to open the %s file for reading."
+msgstr ""
+
+#: lib/sharing.php:344
+msgid ""
+"Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href=\"%"
+"3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
+"metabox, along with the social sharing shortcode and widget."
+msgstr ""
+
+#: lib/sharing.php:344
+msgctxt "metabox title"
+msgid "Social Settings"
+msgstr ""
+
+#: lib/sharing.php:344
+msgid ""
+"All social sharing features can be disabled using a <a href=\"%s\" target="
+"\"_blank\">PHP constant</a> in your wp-config.php file."
+msgstr ""
+
+#: lib/sharing.php:347
+msgid ""
+"A stylesheet for the social sharing buttons can be included in all webpages. "
+"You can enable or disable use of the stylesheet from the <a href=\"%1$s\">%2"
+"$s</a> settings page."
+msgstr ""
+
+#: lib/sharing.php:350
+msgid ""
+"Support for shortcode(s) can be enabled and disabled on the <a href=\"%1$s\">"
+"%2$s</a> settings page. Shortcodes are disabled by default to optimize "
+"performance and content processing."
+msgstr ""
+
+#: lib/sharing.php:350 lib/sharing.php:359
+msgctxt "lib file description"
+msgid "Advanced"
+msgstr ""
+
+#: lib/sharing.php:353
+msgid ""
+"The sharing widget feature adds a <em>%s</em> widget to the WordPress "
+"Widgets settings page. The sharing widget shares the URL for the current "
+"webpage (and not individual items within an index / archive webpage, for "
+"example)."
+msgstr ""
+
+#: lib/sharing.php:356
+msgid ""
+"A stylesheet editor is available to edit the default CSS of social sharing "
+"buttons based on their intended location (content, except, etc.)."
+msgstr ""
+
+#: lib/sharing.php:359
+msgid ""
+"Social sharing button images and JavaScript can be saved to a local cache "
+"folder. When this feature is enabled, the image and JavaScript URLs provided "
+"are those of the cached files instead of the originals (often with much "
+"better performance)."
+msgstr ""
+
+#: lib/sharing.php:359
+msgid ""
+"The current <em>%1$s</em> value defined on the <a href=\"%2$s\">%3$s</a> "
+"settings page is %4$s seconds (the default value of 0 disables social file "
+"caching)."
+msgstr ""
+
+#: lib/sharing.php:368 lib/sharing.php:371
+msgid ""
+"A custom caption text used by the %s social sharing button for the custom "
+"Image ID, attached or featured image."
+msgstr ""
+
+#: lib/sharing.php:374
+msgid ""
+"A custom caption text used by the %s social sharing button for the custom "
+"Video URL or embedded video."
+msgstr ""
+
+#: lib/sharing.php:377
+msgid ""
+"A custom Tweet text for the Twitter social sharing button. This text is "
+"different than the Twitter Card description."
+msgstr ""
+
+#: lib/sharing.php:380
+msgid ""
+"Disable all social sharing buttons (content, excerpt, widget, shortcode)."
+msgstr ""
+
+#: lib/sharing.php:404
+msgid "The %s file is not readable."
+msgstr ""
+
+#: lib/sharing.php:438
+msgid "Failed to load the minify class SuextMinifyCssCompressor."
+msgstr ""
+
+#: lib/sharing.php:447
+msgid "Failure while writing to the % file."
+msgstr ""
+
+#: lib/sharing.php:452
+msgid "Updated the %1$s stylesheet (%2$d bytes written)."
+msgstr ""
+
+#: lib/sharing.php:461
+msgid "The %s folder is not writable."
+msgstr ""
+
+#: lib/sharing.php:467
+msgid "Failed to open file %s for writing."
+msgstr ""
+
+#: lib/sharing.php:477
+msgid ""
+"Error removing the minimized stylesheet &mdash; does the web server have "
+"sufficient privileges?"
+msgstr ""
+
+#: lib/sharing.php:497
+msgctxt "metabox title"
+msgid "Sharing Buttons"
+msgstr ""
+
+#: lib/sharing.php:572
+msgid "%s must be published<br/>before it can be shared."
+msgstr ""
+
+#: lib/submenu/sharing.php:61
+msgid ""
+"Social sharing buttons can be added to the top, bottom, or both. Each "
+"sharing button must also be enabled below (see the <em>%s</em> options)."
+msgstr ""
+
+#: lib/submenu/sharing.php:61
+msgctxt "option label"
+msgid "Show Button in"
+msgstr ""
+
+#: lib/submenu/sharing.php:64
+msgid ""
+"Add the social sharing buttons to each entry of an index webpage (for "
+"example, <strong>non-static</strong> homepage, category, archive, etc.). "
+"Social sharing buttons are not included on index webpages by default."
+msgstr ""
+
+#: lib/submenu/sharing.php:67
+msgid ""
+"If a static Post or Page has been selected for the homepage, you can add the "
+"social sharing buttons to that static homepage as well (default is "
+"unchecked)."
+msgstr ""
+
+#: lib/submenu/sharing.php:70
+msgid ""
+"Enabled social sharing buttons are added to the Post, Page, Media, and "
+"Product webpages by default. If your theme (or another plugin) supports "
+"additional custom post types, and you would like to include social sharing "
+"buttons on these webpages, check the appropriate option(s) here."
+msgstr ""
+
+#: lib/submenu/sharing.php:82
+msgctxt "metabox title"
+msgid "Social Sharing Buttons"
+msgstr ""
+
+#: lib/submenu/sharing.php:120
+msgctxt "metabox tab"
+msgid "Include Buttons"
+msgstr ""
+
+#: lib/submenu/sharing.php:121
+msgctxt "metabox tab"
+msgid "Buttons Position"
+msgstr ""
+
+#: lib/submenu/sharing.php:122
+msgctxt "metabox tab"
+msgid "Button Presets"
+msgstr ""
+
+#: lib/submenu/sharing.php:147
+msgctxt "option label"
+msgid "Include on Index Webpages"
+msgstr ""
+
+#: lib/submenu/sharing.php:151
+msgctxt "option label"
+msgid "Include on Static Homepage"
+msgstr ""
+
+#: lib/submenu/sharing.php:159
+msgctxt "option label"
+msgid "Position in Content Text"
+msgstr ""
+
+#: lib/submenu/sharing.php:164
+msgctxt "option label"
+msgid "Position in Excerpt Text"
+msgstr ""
+
+#: lib/submenu/style.php:131
+msgctxt "metabox title"
+msgid "Social Sharing Styles"
+msgstr ""
+
+#: lib/submenu/style.php:144
+msgctxt "option label"
+msgid "Use the Social Stylesheet"
+msgstr ""
+
+#: lib/submenu/style.php:148
+msgctxt "option label"
+msgid "Enqueue the Stylesheet"
+msgstr ""
+
+#: lib/website/buffer.php:33
+msgctxt "option label"
+msgid "Buffer <em>Sharing Button</em>"
+msgstr ""
+
+#: lib/website/buffer.php:44 lib/website/facebook.php:46
+#: lib/website/gplus.php:30 lib/website/linkedin.php:34
+#: lib/website/managewp.php:30 lib/website/pinterest.php:44
+#: lib/website/reddit.php:30 lib/website/stumbleupon.php:69
+#: lib/website/tumblr.php:62 lib/website/twitter.php:30
+msgctxt "option label (short)"
+msgid "Show Button in"
+msgstr ""
+
+#: lib/website/buffer.php:48 lib/website/facebook.php:50
+#: lib/website/gplus.php:34 lib/website/linkedin.php:38
+#: lib/website/managewp.php:34 lib/website/pinterest.php:48
+#: lib/website/reddit.php:34 lib/website/stumbleupon.php:73
+#: lib/website/tumblr.php:66 lib/website/twitter.php:34
+msgctxt "option label (short)"
+msgid "Preferred Order"
+msgstr ""
+
+#: lib/website/buffer.php:55 lib/website/facebook.php:56
+#: lib/website/gplus.php:41 lib/website/linkedin.php:45
+#: lib/website/pinterest.php:54 lib/website/stumbleupon.php:80
+#: lib/website/tumblr.php:73 lib/website/twitter.php:40
+msgctxt "option label (short)"
+msgid "JavaScript in"
+msgstr ""
+
+#: lib/website/buffer.php:59 lib/website/twitter.php:48
+msgctxt "option label (short)"
+msgid "Count Position"
+msgstr ""
+
+#: lib/website/buffer.php:64 lib/website/pinterest.php:94
+#: lib/website/tumblr.php:81
+msgctxt "option label (short)"
+msgid "Image Dimensions"
+msgstr ""
+
+#: lib/website/buffer.php:69 lib/website/twitter.php:58
+msgctxt "option label (short)"
+msgid "Tweet Text Source"
+msgstr ""
+
+#: lib/website/buffer.php:74 lib/website/twitter.php:63
+msgctxt "option label (short)"
+msgid "Tweet Text Length"
+msgstr ""
+
+#: lib/website/buffer.php:77 lib/website/pinterest.php:107
+#: lib/website/tumblr.php:94 lib/website/tumblr.php:100
+#: lib/website/twitter.php:66
+msgctxt "option comment"
+msgid "characters or less"
+msgstr ""
+
+#: lib/website/buffer.php:79 lib/website/twitter.php:74
+msgctxt "option label (short)"
+msgid "Add via @username"
+msgstr ""
+
+#: lib/website/buffer.php:130
+msgctxt "image size label"
+msgid "Buffer Sharing Button"
+msgstr ""
+
+#: lib/website/facebook.php:31
+msgctxt "metabox tab"
+msgid "Like and Send"
+msgstr ""
+
+#: lib/website/facebook.php:32
+msgctxt "metabox tab"
+msgid "Share"
+msgstr ""
+
+#: lib/website/facebook.php:60 lib/website/gplus.php:45
+#: lib/website/twitter.php:44
+msgctxt "option label (short)"
+msgid "Default Language"
+msgstr ""
+
+#: lib/website/facebook.php:64 lib/website/gplus.php:49
+#: lib/website/managewp.php:40 lib/website/reddit.php:40
+msgctxt "option label (short)"
+msgid "Button Type"
+msgstr ""
+
+#: lib/website/facebook.php:72
+msgctxt "option label (short)"
+msgid "Markup Language"
+msgstr ""
+
+#: lib/website/facebook.php:81
+msgctxt "option label (short)"
+msgid "Include Send"
+msgstr ""
+
+#: lib/website/facebook.php:86 lib/website/facebook.php:137
+msgctxt "option label (short)"
+msgid "Layout"
+msgstr ""
+
+#: lib/website/facebook.php:97
+msgctxt "option label (short)"
+msgid "Show Faces"
+msgstr ""
+
+#: lib/website/facebook.php:102
+msgctxt "option label (short)"
+msgid "Font"
+msgstr ""
+
+#: lib/website/facebook.php:115
+msgctxt "option label (short)"
+msgid "Color Scheme"
+msgstr ""
+
+#: lib/website/facebook.php:124
+msgctxt "option label (short)"
+msgid "Action Name"
+msgstr ""
+
+#: lib/website/gplus.php:56 lib/website/twitter.php:53
+msgctxt "option label (short)"
+msgid "Button Size"
+msgstr ""
+
+#: lib/website/gplus.php:65
+msgctxt "option label (short)"
+msgid "Annotation"
+msgstr ""
+
+#: lib/website/gplus.php:75
+msgctxt "option label (short)"
+msgid "Expand to"
+msgstr ""
+
+#: lib/website/linkedin.php:49
+msgctxt "option label (short)"
+msgid "Counter Mode"
+msgstr ""
+
+#: lib/website/linkedin.php:60
+msgctxt "option label (short)"
+msgid "Zero in Counter"
+msgstr ""
+
+#: lib/website/pinterest.php:33
+msgctxt "option label"
+msgid "Pinterest <em>Sharing Button</em>"
+msgstr ""
+
+#: lib/website/pinterest.php:58
+msgctxt "option label (short)"
+msgid "Button Height"
+msgstr ""
+
+#: lib/website/pinterest.php:63
+msgctxt "option label (short)"
+msgid "Button Shape"
+msgstr ""
+
+#: lib/website/pinterest.php:68
+msgctxt "option label (short)"
+msgid "Button Color"
+msgstr ""
+
+#: lib/website/pinterest.php:73
+msgctxt "option label (short)"
+msgid "Button Language"
+msgstr ""
+
+#: lib/website/pinterest.php:78
+msgctxt "option label (short)"
+msgid "Show Pin Count"
+msgstr ""
+
+#: lib/website/pinterest.php:89
+msgctxt "option label (short)"
+msgid "Share Single Image"
+msgstr ""
+
+#: lib/website/pinterest.php:99
+msgctxt "option label (short)"
+msgid "Caption Text"
+msgstr ""
+
+#: lib/website/pinterest.php:104 lib/website/tumblr.php:91
+msgctxt "option label (short)"
+msgid "Caption Length"
+msgstr ""
+
+#: lib/website/pinterest.php:157
+msgctxt "image size label"
+msgid "Pinterest Sharing Button"
+msgstr ""
+
+#: lib/website/stumbleupon.php:84 lib/website/tumblr.php:77
+msgctxt "option label (short)"
+msgid "Button Style"
+msgstr ""
+
+#: lib/website/tumblr.php:33
+msgctxt "option label"
+msgid "Tumblr <em>Sharing Button</em>"
+msgstr ""
+
+#: lib/website/tumblr.php:86
+msgctxt "option label (short)"
+msgid "Media Caption"
+msgstr ""
+
+#: lib/website/tumblr.php:97
+msgctxt "option label (short)"
+msgid "Link Description"
+msgstr ""
+
+#: lib/website/tumblr.php:146
+msgctxt "image size label"
+msgid "Tumblr Sharing Button"
+msgstr ""
+
+#: lib/website/twitter.php:69
+msgctxt "option label (short)"
+msgid "Do Not Track"
+msgstr ""
+
+#: lib/website/twitter.php:80
+msgctxt "option label (short)"
+msgid "Recommend Author"
+msgstr ""
+
+#: lib/website/twitter.php:87
+msgctxt "option label (short)"
+msgid "Shorten URLs with"
+msgstr ""
+
+#: wpsso-ssb.php:77
+msgid ""
+"The %1$s extension requires the %2$s plugin &mdash; please install and "
+"activate the %3$s plugin before trying to re-activate the %4$s extension."
+msgstr ""
+
+#: wpsso-ssb.php:79
+msgid ""
+"The %1$s extension requires the %2$s plugin &mdash; please install and "
+"activate the %3$s plugin."
+msgstr ""
+
+#: wpsso-ssb.php:129
+msgid ""
+"The %1$s extension version %2$s requires the use of %3$s version %4$s or "
+"newer (version %5$s is currently installed)."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WPSSO Social Sharing Buttons (WPSSO SSB)"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://surniaulula.com/extend/plugins/wpsso-ssb/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
+"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Jean-Sebastien Morisset"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://surniaulula.com/"
+msgstr ""
