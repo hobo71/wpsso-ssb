@@ -254,7 +254,3 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 2015/10/16 Added a French language (fr_FR) translation. Added translation function calls to all option labels. Added a POT in languages/wpsso-ssb.pot.
 
-= 1.6.9 =
-
-2015/09/19 Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
-
