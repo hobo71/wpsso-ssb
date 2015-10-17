@@ -27,7 +27,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			$widget_class = $this->p->cf['lca'].'-widget-buttons';
 			$widget_ops = array( 
 				'classname' => $widget_class,
-				'description' => 'The '.$short.' social sharing buttons widget.'
+				'description' => sprintf( __( 'The %s social sharing buttons widget.', 'wpsso-ssb' ), $short ),
 			);
 
 			parent::__construct( $widget_class, $widget_name, $widget_ops );
@@ -43,7 +43,8 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			if ( ! is_object( $this->p ) )
 				return;
 
-			if ( is_object( $this->p->sharing ) && $this->p->sharing->is_post_buttons_disabled() ) {
+			if ( is_object( $this->p->sharing ) && 
+				$this->p->sharing->is_post_buttons_disabled() ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'widget buttons skipped: sharing buttons disabled' );
 				return;
@@ -110,11 +111,12 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 		}
 	
 		public function form( $instance ) {
-			$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : 'Share It';
-			echo "\n", '<p><label for="', $this->get_field_id( 'title' ), '">Title (Leave Blank for No Title):</label>',
-				'<input class="widefat" id="', $this->get_field_id( 'title' ), 
-					'" name="', $this->get_field_name( 'title' ), 
-					'" type="text" value="', $title, '" /></p>', "\n";
+			$title = isset( $instance['title'] ) ?
+				esc_attr( $instance['title'] ) : _x( 'Share It', 'option value', 'wpsso-ssb' );
+			echo "\n".'<p><label for="'.$this->get_field_id( 'title' ).'">'.
+				_x( 'Widget Title (leave blank for no title)', 'option label', 'wpsso-ssb' ).':</label>'.
+				'<input class="widefat" id="'.$this->get_field_id( 'title' ).'" name="'.
+					$this->get_field_name( 'title' ).'" type="text" value="'.$title.'"/></p>'."\n";
 	
 			foreach ( $this->p->sharing->get_defined_website_names() as $id => $name ) {
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
@@ -127,10 +129,10 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				echo ' /> '.$name;
 				switch ( $id ) {
 					case 'pinterest':
-						echo ' (not added on indexes)';
+						echo ' '._x( '(not added on indexes)', 'option comment', 'wpsso-ssb' );
 						break;
 					case 'tumblr':
-						echo ' (shares link on indexes)';
+						echo ' '._x( '(shares link on indexes)', 'option comment', 'wpsso-ssb' );
 						break;
 				}
 				echo '</label></p>', "\n";

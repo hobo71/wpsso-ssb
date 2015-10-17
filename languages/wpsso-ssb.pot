@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2015-10-17 07:06:49+00:00\n"
+"POT-Creation-Date: 2015-10-17 08:45:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,6 +18,7 @@ msgid "Sharing Buttons"
 msgstr ""
 
 #: lib/config-gettext-extract.php:4 lib/sharing.php:348 lib/sharing.php:351
+#: lib/submenu/style.php:31
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
@@ -384,17 +385,37 @@ msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
 
-#: lib/submenu/style.php:131
+#: lib/submenu/style.php:31
+msgid ""
+"Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
+"will be <strong>minimized</strong>, and saved to a single stylesheet with a "
+"URL of <a href=\"%2$s\">%3$s</a>. The minimized stylesheet can be enqueued "
+"or added directly to the webpage HTML."
+msgstr ""
+
+#: lib/submenu/style.php:35
+msgid "JavaScript that is added to webpages for the social sharing sidebar."
+msgstr ""
+
+#: lib/submenu/style.php:39
+msgid ""
+"Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
+"the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
+"desirable if you use a plugin to concatenate all enqueued styles into a "
+"single stylesheet URL."
+msgstr ""
+
+#: lib/submenu/style.php:130
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/style.php:144
+#: lib/submenu/style.php:143
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/style.php:148
+#: lib/submenu/style.php:147
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
@@ -638,6 +659,30 @@ msgstr ""
 #: lib/website/twitter.php:87
 msgctxt "option label (short)"
 msgid "Shorten URLs with"
+msgstr ""
+
+#: lib/widget/sharing.php:30
+msgid "The %s social sharing buttons widget."
+msgstr ""
+
+#: lib/widget/sharing.php:115
+msgctxt "option value"
+msgid "Share It"
+msgstr ""
+
+#: lib/widget/sharing.php:117
+msgctxt "option label"
+msgid "Widget Title (leave blank for no title)"
+msgstr ""
+
+#: lib/widget/sharing.php:132
+msgctxt "option comment"
+msgid "(not added on indexes)"
+msgstr ""
+
+#: lib/widget/sharing.php:135
+msgctxt "option comment"
+msgid "(shares link on indexes)"
 msgstr ""
 
 #: wpsso-ssb.php:77

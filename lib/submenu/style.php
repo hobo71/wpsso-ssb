@@ -28,15 +28,15 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 
 			switch ( $idx ) {
 				case 'tooltip-buttons_use_social_css':
-					$text = 'Add the CSS from all style tabs to webpages (default is checked).  The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with the URL of <a href="'.WpssoSsbSharing::$sharing_css_url.'">'.WpssoSsbSharing::$sharing_css_url.'</a>. The minimized stylesheet can be enqueued by WordPress, or included directly in the webpage header.';
+					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
 					break;
 	
 				case 'tooltip-buttons_js_sidebar':
-					$text = 'JavaScript that is added to the webpage for the social sharing sidebar.';
+					$text = __( 'JavaScript that is added to webpages for the social sharing sidebar.' );
 					break;
 
 				case 'tooltip-buttons_enqueue_social_css':
-					$text = 'Have WordPress enqueue the social stylesheet instead of including the CSS directly in the webpage header (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.';
+					$text = __( 'Have WordPress enqueue the social stylesheet instead of adding the CSS to in the webpage HTML (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.', 'wpsso-rrssb' );
 					break;
 			}
 			return $text;
@@ -48,7 +48,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 
 			$lca =  $this->p->cf['lca'];
 			$short = $this->p->cf['plugin'][$lca]['short'];
-			$short_pro = $short.' Pro';
 
 			switch ( $idx ) {
 
