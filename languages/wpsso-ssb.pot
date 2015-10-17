@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 1.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2015-10-17 08:45:03+00:00\n"
+"POT-Creation-Date: 2015-10-17 16:07:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,8 +26,8 @@ msgstr ""
 #: lib/config-gettext-extract.php:5
 msgctxt "plugin description"
 msgid ""
-"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
-"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO extension to add traditional Social Sharing Buttons with support for "
+"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #: lib/config-gettext-extract.php:6
@@ -216,7 +216,7 @@ msgid ""
 "performance and content processing."
 msgstr ""
 
-#: lib/sharing.php:354 lib/sharing.php:363
+#: lib/sharing.php:354 lib/sharing.php:363 lib/website/twitter.php:89
 msgctxt "lib file description"
 msgid "Advanced"
 msgstr ""
@@ -480,6 +480,7 @@ msgid "characters or less"
 msgstr ""
 
 #: lib/website/buffer.php:79 lib/website/twitter.php:74
+#: lib/website/twitter.php:82
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
@@ -651,14 +652,52 @@ msgctxt "option label (short)"
 msgid "Do Not Track"
 msgstr ""
 
+#: lib/website/twitter.php:71
+msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
+msgstr ""
+
+#: lib/website/twitter.php:76
+msgid ""
+"Append the website's business @username to the tweet (see the <a href=\"%1$s"
+"\">Twitter</a> options tab on the %2$s settings page). The website's "
+"@username will be displayed and recommended after the webpage is shared."
+msgstr ""
+
+#: lib/website/twitter.php:76
+msgctxt "lib file description"
+msgid "General"
+msgstr ""
+
 #: lib/website/twitter.php:80
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
 
+#: lib/website/twitter.php:82
+msgid ""
+"Recommend following the author's Twitter @username (from their profile) "
+"after sharing a webpage. If the <em>%1$s</em> option is also checked, the "
+"website's @username is suggested first."
+msgstr ""
+
 #: lib/website/twitter.php:87
 msgctxt "option label (short)"
 msgid "Shorten URLs with"
+msgstr ""
+
+#: lib/website/twitter.php:89
+msgid ""
+"If you select a URL shortening service here, you must also enter its <a href="
+"\"%1$s\">%2$s</a> on the %3$s settings page."
+msgstr ""
+
+#: lib/website/twitter.php:89 lib/website/twitter.php:93
+msgctxt "metabox tab"
+msgid "Service API Keys"
+msgstr ""
+
+#: lib/website/twitter.php:93
+msgid "using these <a href=\"%1$s\">%2$s</a>"
 msgstr ""
 
 #: lib/widget/sharing.php:30
@@ -713,8 +752,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
-"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO extension to add traditional Social Sharing Buttons with support for "
+"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #. Author of the plugin/theme
