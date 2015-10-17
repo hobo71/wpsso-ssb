@@ -124,9 +124,11 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
+			$use_post = isset( $atts['use_post'] ) ?
+				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'stumbleupon', $atts );
-			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
+			$atts['add_page'] = isset( $atts['add_page'] ) ?
+				$atts['add_page'] : true;	// get_sharing_url argument
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 

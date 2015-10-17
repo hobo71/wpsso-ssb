@@ -143,12 +143,11 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				$opts =& $this->p->options;
 			global $post; 
 			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$use_post = isset( $atts['use_post'] ) ?  $atts['use_post'] : true;
+			$use_post = isset( $atts['use_post'] ) ?
+				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'twitter', $atts );
-
-			if ( ! isset( $atts['add_page'] ) )
-				$atts['add_page'] = true;	// required by get_sharing_url()
-
+			$atts['add_page'] = isset( $atts['add_page'] ) ?
+				$atts['add_page'] : true;	// get_sharing_url argument
 			$long_url = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url',

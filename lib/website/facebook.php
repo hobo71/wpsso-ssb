@@ -195,15 +195,23 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
-			$send = $opts['fb_send'] ? 'true' : 'false';
-			$show_faces = $opts['fb_show_faces'] ? 'true' : 'false';
+			$use_post = isset( $atts['use_post'] ) ?
+				$atts['use_post'] : true;
+			$send = $opts['fb_send'] ?
+				'true' : 'false';
+			$show_faces = $opts['fb_show_faces'] ?
+				'true' : 'false';
 			$src_id = 'facebook';
 			switch ( $opts['fb_button'] ) {
-				case 'like': $src_id = $this->p->util->get_source_id( 'facebook', $atts ); break;
-				case 'share': $src_id = $this->p->util->get_source_id( 'fb-share', $atts ); break;
+				case 'like':
+					$src_id = $this->p->util->get_source_id( 'facebook', $atts );
+					break;
+				case 'share':
+					$src_id = $this->p->util->get_source_id( 'fb-share', $atts );
+					break;
 			}
-			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
+			$atts['add_page'] = isset( $atts['add_page'] ) ?
+				$atts['add_page'] : true;	// get_sharing_url argument
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 

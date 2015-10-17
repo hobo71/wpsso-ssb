@@ -159,11 +159,13 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 			$lca = $this->p->cf['lca'];
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
-			$use_post = array_key_exists( 'use_post', $atts ) ? $atts['use_post'] : true;
+			$prot = empty( $_SERVER['HTTPS'] ) ?
+				'http:' : 'https:';
+			$use_post = isset( $atts['use_post'] ) ?
+				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'tumblr', $atts );
-			$atts['add_page'] = array_key_exists( 'add_page', $atts ) ? $atts['add_page'] : true;	// get_sharing_url argument
-
+			$atts['add_page'] = isset( $atts['add_page'] ) ?
+				$atts['add_page'] : true;	// get_sharing_url argument
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $lca.'_sharing_url', $atts['url'], 
