@@ -4,7 +4,8 @@
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-/* align the buttons vertically in a single 160px wide column */
+/* align the buttons vertically in a single 160px wide column 
+ */
 .wpsso-widget-buttons { 
 	text-align:left;
 }

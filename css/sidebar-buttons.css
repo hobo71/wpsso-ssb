@@ -4,7 +4,8 @@
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-/* hide the sidebar if screen width is less than 1000px */
+/* hide the sidebar if screen width is less than 1000px 
+ */
 @media (max-width:1000px) {
 	#wpsso-sidebar {
 		display:none;
@@ -17,30 +18,32 @@
 	position:fixed;
 	z-index:99;
 
-	/* position 100px down from top and 10% from left */
+	/* position 100px down from top and 10% from left 
+	 */
 	top:100px;
 	left:10%;
 
 	/* position 100px down from top and 450px left of center 
-	 * by using the right margin to push sidebar left */
-	/*
-		top:100px;
-		right:50%;
-		margin:0 450px 0 0;
-	 */
+	 * by using the right margin to push sidebar left
+	 *
+	top:100px;
+	right:50%;
+	margin:0 450px 0 0;
+	*/
 }
 
+/* show a large sharing icon at the top
+ * using javascript, this header can be hovered/clicked to 
+ * show/hide the sidebar
+ *
 #wpsso-sidebar-header { 
-	/* show a large sharing icon at the top
-	 * using javascript, this header can be hovered/clicked to 
-	 * show/hide the sidebar
-	 */
 	width:72px;
 	height:72px;
 	background-image:url("%%plugin_url_path%%images/share-icon-2.png");
 	background-repeat:no-repeat;
 	background-position:center;
 }
+ */
 
 #wpsso-sidebar-buttons { 
 	display:block;
@@ -49,28 +52,31 @@
 	overflow:visible;
 	border-style:solid;
 
-	/* uncomment to hide the sidebar buttons by default */
-	/*
-		width:0;		
-		height:0;
-		overflow:hidden;
-		border-style:none;
+	/* hide the sidebar buttons by default
+	 * you must enable the #wpsso-sidebar-header 
+	 * to show something that can be clicked
+	 *
+	width:0;		
+	height:0;
+	overflow:hidden;
+	border-style:none;
 	*/
 
-	/* create a shadowed box with a light grey background */
-		border-radius:5px;
-		background:none repeat scroll 0% 0% rgb(250, 250, 250);
-		box-shadow:0px 0px 5px rgb(120, 120, 120);
-		border-width:1px;
-		border-color:rgb(255, 255, 255);
+	/* create a shadowed box with a light grey background
+	 */
+	border-radius:5px;
+	background:none repeat scroll 0% 0% rgb(250, 250, 250);
+	box-shadow:0px 0px 5px rgb(120, 120, 120);
+	border-width:1px;
+	border-color:rgb(255, 255, 255);
 }
 
 #wpsso-sidebar .wpsso-buttons > div,	/* default uses large buttons */
 #wpsso-sidebar .wpsso-preset-large_share_vertical .wpsso-buttons > div { 
 	display:block;
 	text-align:center;
-	width:60px;
-	height:65px;
+	width:70px;
+	height:61px;
 	margin:10px 5px;
 }
 
@@ -82,6 +88,10 @@
 	height:20px;
 	margin:10px;
 }
+
+#wpsso-sidebar .wpsso-buttons div.gplus-button,
+#wpsso-sidebar .wpsso-preset-large_share_vertical
+	.wpsso-buttons div.gplus-button { height:60px; line-height:40px;}
 
 #wpsso-sidebar .wpsso-buttons div.pinterest-button,
 #wpsso-sidebar .wpsso-preset-large_share_vertical
@@ -101,7 +111,7 @@
 
 #wpsso-sidebar .wpsso-buttons div.reddit-button,
 #wpsso-sidebar .wpsso-preset-large_share_vertical
-	.wpsso-buttons div.reddit-button { margin-bottom:15px; }
+	.wpsso-buttons div.reddit-button { margin:20px 5px 20px 5px; }
 #wpsso-sidebar .wpsso-preset-small_share_count
 	.wpsso-buttons div.reddit-button { margin-bottom:10px; }
 

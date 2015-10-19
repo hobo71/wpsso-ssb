@@ -4,7 +4,8 @@
  * buttons can be aligned vertically, horizontally, floated, etc.
  */
 
-/* make sure the Facebook flyout does not get clipped */
+/* make sure the Facebook flyout does not get clipped
+ */
 #page { overflow:visible; }
 
 /* The .wpsso-buttons class is common to all other button classes
@@ -39,9 +40,9 @@
 
 .wpsso-preset-large_share_vertical .wpsso-buttons > div,
 .wpsso-preset-large_share_vertical .wpsso-buttons > div[class*="-button"] { 
-	line-height:65px;
-	width:60px;
-	height:65px;
+	line-height:61px;
+	width:70px;
+	height:61px;
 }
 
 .wpsso-buttons div.facebook-button,
@@ -63,7 +64,7 @@
 
 .wpsso-buttons div.gplusone-button,
 .wpsso-preset-small_share_count 
-	.wpsso-buttons div.gplusone-button { width:75px; }
+	.wpsso-buttons div.gplusone-button { width:75px; line-height:10px; }
 
 .wpsso-buttons div.twitter-button,
 .wpsso-preset-small_share_count 

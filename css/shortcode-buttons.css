@@ -5,7 +5,8 @@
  */
 
 .wpsso-shortcode-buttons { 
-	/* display the buttons inline, aligned with the left margin */
+	/* display the buttons inline, aligned with the left margin
+	 */
 	display:inline-block;
 	text-align:left;
 }

@@ -5,7 +5,8 @@
  */
 
 .wpsso-excerpt-buttons { 
-	/* center the buttons with an extra 5px margin top and bottom */
+	/* center the buttons with an extra 5px margin top and bottom 
+	 */
 	display:block;
 	margin:5px auto;
 	text-align:center;
