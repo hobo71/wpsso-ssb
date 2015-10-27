@@ -12,6 +12,9 @@
  * (excerpt, content, shortcode, widget). Any change made to this
  * class will affect all other button layouts.
  */
+.wpsso-buttons { 
+	box-sizing:content-box;
+}
 .wpsso-buttons img { 
 	margin:none;
 	border:none;
