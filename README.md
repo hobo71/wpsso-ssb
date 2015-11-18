@@ -126,7 +126,7 @@
 <ul>
 <li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/">Sharing Buttons Function</a></li>
 </ul></li>
-<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode</a></li>
+<li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/">SSB Shortcode for Sharing Buttons</a></li>
 <li><a href="http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/">Styling Social Buttons</a></li>
 </ul>
 

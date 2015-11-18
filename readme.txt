@@ -103,7 +103,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 * [Developer Resources](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/)
 	* [Sharing Buttons Function](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
-* [SSB Shortcode](http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
+* [SSB Shortcode for Sharing Buttons](http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
 * [Styling Social Buttons](http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/)
 
 == Screenshots ==
