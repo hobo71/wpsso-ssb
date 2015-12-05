@@ -121,7 +121,22 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 1.7.0 2015/10/16 =
+= Version 1.7.1 (TBD) =
+
+Official announcement: N/A
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* Added a check for HTTPS when defining the social buttons transient cache object, allowing for differences in sharing URLs when using HTTP and HTTPS.
+* **Developer Notes**
+	* *None*
+
+= Version 1.7.0 (2015/10/16) =
+
+Official announcement: N/A
 
 * **New Features**
 	* Added a French language (fr_FR) translation.
@@ -133,7 +148,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Added a POT (Portable Object Template) file with translation strings in languages/wpsso-ssb.pot.
 
-= Version 1.6.9 2015/09/19 =
+= Version 1.6.9 (2015/09/19) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -144,7 +161,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Added a self-deactivation feature when WPSSO SSB is activated and WPSSO is missing. 
 
-= Version 1.6.8 2015/09/09 =
+= Version 1.6.8 (2015/09/09) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -155,7 +174,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* Added a WpssoSsbRegister class with `WpssoUtil::save_time()` calls during activation to save install / activation / update timestamps.
 
-= Version 1.6.7 2015/09/03 =
+= Version 1.6.7 (2015/09/03) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -168,7 +189,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Removed the WPSSO SSB specific 'installed_version' and 'ua_plugin' filters.
 	* Improved the setting of constants with new `set_variable_constants()` and `get_variable_constants()` methods in the WpssoSsbConfig class.
 
-= Version 1.6.6 2015/08/18 =
+= Version 1.6.6 (2015/08/18) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -179,7 +202,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.5 2015/08/17 =
+= Version 1.6.5 (2015/08/17) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -190,7 +215,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.4 2015/08/04 =
+= Version 1.6.4 (2015/08/04) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -201,7 +228,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.3 2015/08/02 =
+= Version 1.6.3 (2015/08/02) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -213,7 +242,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6.2 2015/07/31 =
+= Version 1.6.2 (2015/07/31) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -225,7 +256,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Renamed the '\*_js_loc' options to '\*_script_loc' to avoid the location options being defined as containing javascript code.
 	* Renamed the `get_js()` methods to `get_script()`.
 
-= Version 1.6.1 2015/07/28 =
+= Version 1.6.1 (2015/07/28) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
@@ -237,7 +270,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * **Developer Notes**
 	* *None*
 
-= Version 1.6 2015/07/21 =
+= Version 1.6 (2015/07/21) =
+
+Official announcement: N/A
 
 * **New Features**
 	* Added thumbnails of shared images in the Social Settings metabox under the Sharing Buttons tab.
