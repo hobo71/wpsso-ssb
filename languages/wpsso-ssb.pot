@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 1.7.0\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 1.7.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2015-11-06 03:00:42+00:00\n"
+"POT-Creation-Date: 2015-12-06 04:27:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,12 +12,12 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: lib/config-gettext-extract.php:3 lib/sharing.php:348 lib/sharing.php:357
+#: lib/config-gettext-extract.php:3 lib/sharing.php:350 lib/sharing.php:359
 msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:4 lib/sharing.php:348 lib/sharing.php:351
+#: lib/config-gettext-extract.php:4 lib/sharing.php:350 lib/sharing.php:353
 #: lib/submenu/style.php:31
 msgctxt "lib file description"
 msgid "Sharing Styles"
@@ -101,7 +101,7 @@ msgid "Widget"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:34
-#: lib/sharing.php:363
+#: lib/sharing.php:365
 msgctxt "option label"
 msgid "Social File Cache Expiry"
 msgstr ""
@@ -122,7 +122,7 @@ msgid "%s Preset"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:78 lib/pro/admin/sharing.php:79
-#: lib/sharing.php:348
+#: lib/sharing.php:350
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr ""
@@ -184,44 +184,44 @@ msgstr ""
 msgid "Failed to open the %s file for reading."
 msgstr ""
 
-#: lib/sharing.php:348
+#: lib/sharing.php:350
 msgid ""
 "Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href=\"%"
 "3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
 "metabox, along with the social sharing shortcode and widget."
 msgstr ""
 
-#: lib/sharing.php:348
+#: lib/sharing.php:350
 msgctxt "metabox title"
 msgid "Social Settings"
 msgstr ""
 
-#: lib/sharing.php:348
+#: lib/sharing.php:350
 msgid ""
 "All social sharing features can be disabled using a <a href=\"%s\" target="
 "\"_blank\">PHP constant</a> in your wp-config.php file."
 msgstr ""
 
-#: lib/sharing.php:351
+#: lib/sharing.php:353
 msgid ""
 "A stylesheet for the social sharing buttons can be included in all webpages. "
 "You can enable or disable use of the stylesheet from the <a href=\"%1$s\">%2"
 "$s</a> settings page."
 msgstr ""
 
-#: lib/sharing.php:354
+#: lib/sharing.php:356
 msgid ""
 "Support for shortcode(s) can be enabled and disabled on the <a href=\"%1$s\">"
 "%2$s</a> settings page. Shortcodes are disabled by default to optimize "
 "performance and content processing."
 msgstr ""
 
-#: lib/sharing.php:354 lib/sharing.php:363 lib/website/twitter.php:89
+#: lib/sharing.php:356 lib/sharing.php:365 lib/website/twitter.php:91
 msgctxt "lib file description"
 msgid "Advanced"
 msgstr ""
 
-#: lib/sharing.php:357
+#: lib/sharing.php:359
 msgid ""
 "The sharing widget feature adds a <em>%s</em> widget to the WordPress "
 "Widgets settings page. The sharing widget shares the URL for the current "
@@ -229,13 +229,13 @@ msgid ""
 "example)."
 msgstr ""
 
-#: lib/sharing.php:360
+#: lib/sharing.php:362
 msgid ""
 "A stylesheet editor is available to edit the default CSS of social sharing "
 "buttons based on their intended location (content, except, etc.)."
 msgstr ""
 
-#: lib/sharing.php:363
+#: lib/sharing.php:365
 msgid ""
 "Social sharing button images and JavaScript can be saved to a local cache "
 "folder. When this feature is enabled, the image and JavaScript URLs provided "
@@ -243,72 +243,72 @@ msgid ""
 "better performance)."
 msgstr ""
 
-#: lib/sharing.php:363
+#: lib/sharing.php:365
 msgid ""
 "The current <em>%1$s</em> value defined on the <a href=\"%2$s\">%3$s</a> "
 "settings page is %4$s seconds (the default value of 0 disables social file "
 "caching)."
 msgstr ""
 
-#: lib/sharing.php:372 lib/sharing.php:375
+#: lib/sharing.php:374 lib/sharing.php:377
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Image ID, attached or featured image."
 msgstr ""
 
-#: lib/sharing.php:378
+#: lib/sharing.php:380
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Video URL or embedded video."
 msgstr ""
 
-#: lib/sharing.php:381
+#: lib/sharing.php:383
 msgid ""
 "A custom Tweet text for the Twitter social sharing button. This text is "
 "different than the Twitter Card description."
 msgstr ""
 
-#: lib/sharing.php:384
+#: lib/sharing.php:386
 msgid ""
 "Disable all social sharing buttons (content, excerpt, widget, shortcode)."
 msgstr ""
 
-#: lib/sharing.php:408
+#: lib/sharing.php:410
 msgid "The %s file is not readable."
 msgstr ""
 
-#: lib/sharing.php:442
+#: lib/sharing.php:444
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr ""
 
-#: lib/sharing.php:451
+#: lib/sharing.php:453
 msgid "Failure while writing to the % file."
 msgstr ""
 
-#: lib/sharing.php:456
+#: lib/sharing.php:458
 msgid "Updated the %1$s stylesheet (%2$d bytes written)."
 msgstr ""
 
-#: lib/sharing.php:465
+#: lib/sharing.php:467
 msgid "The %s folder is not writable."
 msgstr ""
 
-#: lib/sharing.php:471
+#: lib/sharing.php:473
 msgid "Failed to open file %s for writing."
 msgstr ""
 
-#: lib/sharing.php:481
+#: lib/sharing.php:483
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:501
+#: lib/sharing.php:503
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:572
+#: lib/sharing.php:574
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
@@ -410,12 +410,12 @@ msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/style.php:143
+#: lib/submenu/style.php:144
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/style.php:147
+#: lib/submenu/style.php:148
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
@@ -451,7 +451,7 @@ msgctxt "option label (short)"
 msgid "JavaScript in"
 msgstr ""
 
-#: lib/website/buffer.php:59 lib/website/twitter.php:48
+#: lib/website/buffer.php:59
 msgctxt "option label (short)"
 msgid "Count Position"
 msgstr ""
@@ -462,25 +462,25 @@ msgctxt "option label (short)"
 msgid "Image Dimensions"
 msgstr ""
 
-#: lib/website/buffer.php:69 lib/website/twitter.php:58
+#: lib/website/buffer.php:69 lib/website/twitter.php:60
 msgctxt "option label (short)"
 msgid "Tweet Text Source"
 msgstr ""
 
-#: lib/website/buffer.php:74 lib/website/twitter.php:63
+#: lib/website/buffer.php:74 lib/website/twitter.php:65
 msgctxt "option label (short)"
 msgid "Tweet Text Length"
 msgstr ""
 
 #: lib/website/buffer.php:77 lib/website/pinterest.php:107
 #: lib/website/tumblr.php:94 lib/website/tumblr.php:100
-#: lib/website/twitter.php:66
+#: lib/website/twitter.php:68
 msgctxt "option comment"
 msgid "characters or less"
 msgstr ""
 
-#: lib/website/buffer.php:79 lib/website/twitter.php:74
-#: lib/website/twitter.php:82
+#: lib/website/buffer.php:79 lib/website/twitter.php:76
+#: lib/website/twitter.php:84
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
@@ -522,32 +522,32 @@ msgctxt "option label (short)"
 msgid "Include Send"
 msgstr ""
 
-#: lib/website/facebook.php:86 lib/website/facebook.php:137
+#: lib/website/facebook.php:86 lib/website/facebook.php:138
 msgctxt "option label (short)"
 msgid "Layout"
 msgstr ""
 
-#: lib/website/facebook.php:97
+#: lib/website/facebook.php:98
 msgctxt "option label (short)"
 msgid "Show Faces"
 msgstr ""
 
-#: lib/website/facebook.php:102
+#: lib/website/facebook.php:103
 msgctxt "option label (short)"
 msgid "Font"
 msgstr ""
 
-#: lib/website/facebook.php:115
+#: lib/website/facebook.php:116
 msgctxt "option label (short)"
 msgid "Color Scheme"
 msgstr ""
 
-#: lib/website/facebook.php:124
+#: lib/website/facebook.php:125
 msgctxt "option label (short)"
 msgid "Action Name"
 msgstr ""
 
-#: lib/website/gplus.php:56 lib/website/twitter.php:53
+#: lib/website/gplus.php:56 lib/website/twitter.php:55
 msgctxt "option label (short)"
 msgid "Button Size"
 msgstr ""
@@ -647,56 +647,56 @@ msgctxt "image size label"
 msgid "Tumblr Sharing Button"
 msgstr ""
 
-#: lib/website/twitter.php:69
+#: lib/website/twitter.php:71
 msgctxt "option label (short)"
 msgid "Do Not Track"
 msgstr ""
 
-#: lib/website/twitter.php:71
+#: lib/website/twitter.php:73
 msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
 msgstr ""
 
-#: lib/website/twitter.php:76
+#: lib/website/twitter.php:78
 msgid ""
 "Append the website's business @username to the tweet (see the <a href=\"%1$s"
 "\">Twitter</a> options tab on the %2$s settings page). The website's "
 "@username will be displayed and recommended after the webpage is shared."
 msgstr ""
 
-#: lib/website/twitter.php:76
+#: lib/website/twitter.php:78
 msgctxt "lib file description"
 msgid "General"
 msgstr ""
 
-#: lib/website/twitter.php:80
+#: lib/website/twitter.php:82
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
 
-#: lib/website/twitter.php:82
+#: lib/website/twitter.php:84
 msgid ""
 "Recommend following the author's Twitter @username (from their profile) "
 "after sharing a webpage. If the <em>%1$s</em> option is also checked, the "
 "website's @username is suggested first."
 msgstr ""
 
-#: lib/website/twitter.php:87
+#: lib/website/twitter.php:89
 msgctxt "option label (short)"
 msgid "Shorten URLs with"
 msgstr ""
 
-#: lib/website/twitter.php:89
+#: lib/website/twitter.php:91
 msgid ""
 "If you select a URL shortening service here, you must also enter its <a href="
 "\"%1$s\">%2$s</a> on the %3$s settings page."
 msgstr ""
 
-#: lib/website/twitter.php:89 lib/website/twitter.php:93
+#: lib/website/twitter.php:91 lib/website/twitter.php:95
 msgctxt "metabox tab"
 msgid "Service API Keys"
 msgstr ""
 
-#: lib/website/twitter.php:93
+#: lib/website/twitter.php:95
 msgid "using these <a href=\"%1$s\">%2$s</a>"
 msgstr ""
 

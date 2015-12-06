@@ -45,10 +45,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
 
+			/*
 			$rows[] = $this->p->util->get_th( _x( 'Count Position',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_count', array( 'none' => '', 
 			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
+			*/
 
 			$rows[] = $this->p->util->get_th( _x( 'Button Size',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.

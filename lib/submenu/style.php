@@ -139,15 +139,17 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					$css_min_msg = ' <a href="'.WpssoSsbSharing::$sharing_css_url.'">minimized css is '.$fsize.' bytes</a>';
 			else $css_min_msg = '';
 
-			$this->p->util->do_table_rows( array( 
-				$this->p->util->get_th( _x( 'Use the Social Stylesheet',
-					'option label', 'wpsso-ssb' ), 'highlight', 'buttons_use_social_css' ).
-				'<td>'.$this->form->get_checkbox( 'buttons_use_social_css' ).$css_min_msg.'</td>',
-
-				$this->p->util->get_th( _x( 'Enqueue the Stylesheet',
-					'option label', 'wpsso-ssb' ), null, 'buttons_enqueue_social_css' ).
-				'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
-			) );
+			$this->p->util->do_table_rows( 
+				array( 
+					$this->p->util->get_th( _x( 'Use the Social Stylesheet',
+						'option label', 'wpsso-ssb' ), 'highlight', 'buttons_use_social_css' ).
+					'<td>'.$this->form->get_checkbox( 'buttons_use_social_css' ).$css_min_msg.'</td>',
+	
+					$this->p->util->get_th( _x( 'Enqueue the Stylesheet',
+						'option label', 'wpsso-ssb' ), null, 'buttons_enqueue_social_css' ).
+					'<td>'.$this->form->get_checkbox( 'buttons_enqueue_social_css' ).'</td>',
+				)
+			);
 
 			$tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', 
 				WpssoSsbSharing::$cf['sharing']['style'] );
