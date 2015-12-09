@@ -61,7 +61,7 @@
 <p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
 </blockquote>
 
-<p>** WPSSO SSB Pro / Power-User Features**</p>
+<p><strong>WPSSO SSB Pro / Power-User Features</strong></p>
 
 <p>The <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Pro version of WPSSO SSB</a> includes a number of additional options and features:</p>
 

@@ -55,7 +55,7 @@ The Facebook, Google+ and Twitter sharing buttons also support *multiple default
 <p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
 </blockquote>
 
-** WPSSO SSB Pro / Power-User Features**
+**WPSSO SSB Pro / Power-User Features**
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
