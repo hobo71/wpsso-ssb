@@ -121,6 +121,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 1.7.2 (2015/12/09) =
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Updated tested up to WP v4.4.
+	* Updated minimum required version to WPSSO v3.18.0.
+	* Updated method names and arguments for WPSSO v3.18.0. 
+
 = Version 1.7.1 (2015/12/06) =
 
 Official announcement: N/A
@@ -149,6 +162,10 @@ Official announcement: N/A
 	* Added a POT (Portable Object Template) file with translation strings in languages/wpsso-ssb.pot.
 
 == Upgrade Notice ==
+
+= 1.7.2 =
+
+2015/12/09 Updated the required and tested version strings. Updated method names and arguments for WPSSO v3.18.0. 
 
 = 1.7.1 =
 
