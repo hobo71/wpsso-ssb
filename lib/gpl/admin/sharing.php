@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		public function filter_sharing_include_rows( $rows, $form ) {
 			$checkboxes = '';
 
-			foreach ( $this->p->util->get_post_types( 'frontend' ) as $post_type )
+			foreach ( $this->p->util->get_post_types() as $post_type )
 				$checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).' '.
 					$post_type->label.' '.( empty( $post_type->description ) ? '' :
 						'('.$post_type->description.')' ).'</p>';
