@@ -121,6 +121,18 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 2.0.0 (2015/12/11) =
+
+* **New Features**
+	* Included an 'ssb' prefix in CSS class and ID names.
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Renamed all button related option keys to include an 'ssb' prefix.
+	* Renamed all button CSS classes and IDs to include an 'ssb' prefix.
+
 = Version 1.7.2 (2015/12/09) =
 
 * **New Features**
