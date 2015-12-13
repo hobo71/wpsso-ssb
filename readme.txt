@@ -121,12 +121,13 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 2.0.0 (2015/12/11) =
+= Version 2.0.0 (TBD) =
 
 * **New Features**
-	* Included an 'ssb' prefix in CSS class and ID names.
+	* Added a new "E-Mail" sharing button.
+	* Added an 'ssb' prefix to all CSS class and ID names. This new version of WPSSO SSB will load new default CSS styles. If you've made changes to the default styles, you will have to apply those changes to these new defaults as well.
 * **Improvements**
-	* *None*
+	* Enabled the CSS editing features on the Sharing Styles page for the Free version as well.
 * **Bugfixes**
 	* *None*
 * **Developer Notes**
