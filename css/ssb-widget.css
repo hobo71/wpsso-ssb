@@ -3,7 +3,7 @@
  * necessary to customize the layout for your website.
  */
 
-/* align the buttons vertically in a single 160px wide column */
+/* align the buttons vertically in a single 117px wide column */
 .wpsso-ssb-widget { 
 	text-align:left;
 }
@@ -11,7 +11,10 @@
 	margin:20px 0 0 0;
 }
 .wpsso-ssb-widget .ssb-buttons > div { 
-	display:block;
-	margin:10px;
-	width:160px; 
+	display:inline-block;
+	vertical-align:top;
+	padding:0;
+	margin:5px;
+	width:117px; 
+	height:20px;
 }

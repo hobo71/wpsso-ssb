@@ -25,7 +25,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			$name = $this->p->cf['plugin']['wpssossb']['name'];
 
 			$widget_name = $short;
-			$widget_class = $lca.'-widget-buttons';
+			$widget_class = $lca.'-ssb-widget';
 			$widget_ops = array( 
 				'classname' => $widget_class,
 				'description' => sprintf( __( 'The %s widget.', 'wpsso-ssb' ), $name ),

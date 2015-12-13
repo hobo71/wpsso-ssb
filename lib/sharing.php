@@ -58,7 +58,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'buttons_preset_ssb-admin_edit' => 'small_share_count',
 					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
 					'buttons_preset_ssb-shortcode' => '',
-					'buttons_preset_ssb-widget' => '',
+					'buttons_preset_ssb-widget' => 'small_share_count',
 				),
 				'preset' => array(
 					'small_share_count' => array(
