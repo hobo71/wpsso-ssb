@@ -434,11 +434,12 @@ msgctxt "option label (short)"
 msgid "Show Button in"
 msgstr ""
 
-#: lib/website/buffer.php:48 lib/website/facebook.php:50
-#: lib/website/gplus.php:34 lib/website/linkedin.php:34
-#: lib/website/managewp.php:34 lib/website/pinterest.php:48
-#: lib/website/reddit.php:34 lib/website/stumbleupon.php:73
-#: lib/website/tumblr.php:66 lib/website/twitter.php:34
+#: lib/website/buffer.php:48 lib/website/email.php:30
+#: lib/website/facebook.php:50 lib/website/gplus.php:34
+#: lib/website/linkedin.php:34 lib/website/managewp.php:34
+#: lib/website/pinterest.php:48 lib/website/reddit.php:34
+#: lib/website/stumbleupon.php:73 lib/website/tumblr.php:66
+#: lib/website/twitter.php:34
 msgctxt "option label (short)"
 msgid "Preferred Order"
 msgstr ""
@@ -488,11 +489,6 @@ msgstr ""
 #: lib/website/buffer.php:130
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
-msgstr ""
-
-#: lib/website/email.php:30
-msgctxt "option label"
-msgid "Preferred Order"
 msgstr ""
 
 #: lib/website/email.php:40

@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingEmail' ) && class_exists( 'WpssoSsbS
 			$rows = array();
 
 			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label', 'wpsso-ssb' ), null, 'email_order' ).
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'email_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).  '</td>';
 
