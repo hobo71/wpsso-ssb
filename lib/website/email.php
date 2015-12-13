@@ -64,10 +64,10 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'email_on_content' => 0,
+					'email_on_content' => 1,
 					'email_on_excerpt' => 0,
 					'email_on_sidebar' => 0,
-					'email_on_admin_edit' => 0,
+					'email_on_admin_edit' => 1,
 					'email_order' => 1,
 					'email_cap_len' => 500,
 					'email_cap_hashtags' => 0,
