@@ -176,11 +176,15 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
+= 2.0.0 =
+
+TBD - Added a new "E-Mail" sharing button. Added 'ssb' prefix to all CSS class and ID names. Enabled CSS editing features for the Free version.
+
 = 1.7.2 =
 
-2015/12/09 Updated the required and tested version strings. Updated method names and arguments for WPSSO v3.18.0. 
+2015/12/09 - Updated the required and tested version strings. Updated method names and arguments for WPSSO v3.18.0. 
 
 = 1.7.1 =
 
-2015/12/06 Added a check for HTTPS when defining the social buttons transient cache object.
+2015/12/06 - Added a check for HTTPS when defining the social buttons transient cache object.
 
