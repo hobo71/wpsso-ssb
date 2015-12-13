@@ -1,0 +1,20 @@
+/* Save an empty style text box to reload the default example styles.
+ * These styles are provided as examples only - modifications may be
+ * necessary to customize the layout for your website.
+ */
+
+/* align the buttons vertically in two 117px wide columns */
+.wpsso-ssb-admin_edit { 
+	text-align:left; 
+}
+.wpsso-ssb-admin_edit .ssb-buttons { 
+	margin:0;
+}
+.wpsso-ssb-admin_edit .ssb-buttons > div { 
+	display:inline-block;
+	vertical-align:top;
+	padding:0;
+	margin:5px;
+	width:117px; 
+	height:20px;
+}

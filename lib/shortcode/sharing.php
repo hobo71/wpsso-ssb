@@ -58,19 +58,19 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 		}
 
 		public function shortcode( $atts, $content = null ) { 
-			$atts = apply_filters( $this->p->cf['lca'].'_shortcode_'.WPSSOSSB_SHARING_SHORTCODE, $atts, $content );
 			if ( ( $obj = $this->p->util->get_post_object() ) === false ) {
 				$this->p->debug->log( 'exiting early: invalid object type' );
 				return $content;
 			}
 			$post_id = empty( $obj->ID ) || empty( $obj->post_type ) ?
 				0 : $obj->ID;
+			$lca = $this->p->cf['lca'];
+			$atts = apply_filters( $lca.'_shortcode_'.WPSSOSSB_SHARING_SHORTCODE,
+				$atts, $content );
 			$atts['url'] = empty( $atts['url'] ) ?
 				$this->p->util->get_sharing_url( true ) : $atts['url'];
-			$atts['css_id'] = empty( $atts['css_id'] ) && ! empty( $post_id ) ?
-				'shortcode' : $atts['css_id'];
 			$atts['css_class'] = empty( $atts['css_class'] ) ?
-				'button' : $atts['css_class'];
+				'ssb-shortcode' : $atts['css_class'];
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ?
 				'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ?
@@ -78,14 +78,12 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 			$html = '';
 			if ( ! empty( $atts['buttons'] ) ) {
-				$atts['css_id'] .= '-buttons';
-
 				if ( $this->p->is_avail['cache']['transient'] ) {
 					$keys = implode( '|', array_keys( $atts ) );
 					$vals = preg_replace( '/[, ]+/', '_', implode( '|', array_values( $atts ) ) );
 					$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_post:'.$post_id.
 						'_atts_keys:'.$keys. '_atts_vals:'.$vals.')';
-					$cache_id = $this->p->cf['lca'].'_'.md5( $cache_salt );
+					$cache_id = $lca.'_'.md5( $cache_salt );
 					$cache_type = 'object cache';
 					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
 					$html = get_transient( $cache_id );
@@ -97,12 +95,12 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 				$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
 				unset ( $atts['buttons'] );
-				$html .= '<!-- '.$this->p->cf['lca'].' '.$atts['css_id'].' begin -->'.
+				$html .= '<!-- '.$lca.' '.$atts['css_class'].' begin -->'.
 					$this->p->sharing->get_script( 'shortcode-header', $ids ).
-					'<div class="'.$this->p->cf['lca'].'-'.$atts['css_id'].'">'.
+					'<div class="'.$lca.'-ssb '.$lca.'-'.$atts['css_class']."\">\n".
 					$this->p->sharing->get_html( $ids, $atts ).'</div>'.
 					$this->p->sharing->get_script( 'shortcode-footer', $ids ).
-					'<!-- '.$this->p->cf['lca'].' '.$atts['css_id'].' end -->';
+					'<!-- '.$lca.' '.$atts['css_class'].' end -->';
 
 				if ( $this->p->is_avail['cache']['transient'] ) {
 					set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );

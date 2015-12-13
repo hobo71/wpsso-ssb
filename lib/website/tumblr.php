@@ -115,7 +115,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 					'tumblr_on_excerpt' => 0,
 					'tumblr_on_sidebar' => 0,
 					'tumblr_on_admin_edit' => 1,
-					'tumblr_order' => 10,
+					'tumblr_order' => 11,
 					'tumblr_script_loc' => 'footer',
 					'tumblr_button_style' => 'share_1',
 					'tumblr_desc_len' => 300,

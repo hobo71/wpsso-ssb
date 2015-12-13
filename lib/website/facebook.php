@@ -166,7 +166,7 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 					'fb_on_excerpt' => 0,
 					'fb_on_sidebar' => 0,
 					'fb_on_admin_edit' => 1,
-					'fb_order' => 1,
+					'fb_order' => 3,
 					'fb_script_loc' => 'header',
 					'fb_button' => 'like',
 					'fb_markup' => 'xfbml',

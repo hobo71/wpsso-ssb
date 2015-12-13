@@ -101,8 +101,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			}
 
 			// these metabox ids should be closed by default (array_diff() selects everything except those listed)
-			$ids = array_diff( array_keys( $this->p->cf['plugin']['wpssossb']['lib']['website'] ), 
-				array( 'facebook', 'gplus', 'twitter' ) );
+			$ids = array_diff( array_keys( $this->p->cf['plugin']['wpssossb']['lib']['website'] ), array() );
 			$this->p->mods['util']['user']->reset_metabox_prefs( $this->pagehook, $ids, 'closed' );
 		}
 
@@ -142,7 +141,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 
 				case 'sharing-include':
 
-					$rows[] = '<tr><td colspan="2">'.$this->p->msgs->get( 'info-'.$metabox.'-'.$key ).'</td></tr>';
+					$rows[] = '<tr><td colspan="2">'.
+						$this->p->msgs->get( 'info-'.$metabox.'-'.$key ).'</td></tr>';
 
 					$rows[] = $this->p->util->get_th( _x( 'Include on Index Webpages',
 						'option label', 'wpsso-ssb' ), null, 'buttons_on_index' ).

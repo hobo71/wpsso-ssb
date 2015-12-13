@@ -54,9 +54,11 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function filter_sharing_preset_rows( $rows, $form ) {
 
-			$presets = array();
-			foreach ( SucomUtil::preg_grep_keys( '/^buttons_preset_/', $this->p->options, false, '' ) as $key => $val )
-				$presets[$key] = ucwords( preg_replace( '/_/', ' ', $key ) );
+			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
+			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
+				WpssoSsbSharing::$cf['sharing']['show_on'], '' );
+			foreach ( $show_on as $type => $label )
+				$presets[$type] = $label;
 			asort( $presets );
 
 			$rows[] = '<td colspan="2" align="center">'.

@@ -21,13 +21,14 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				return;
 
 			$lca = $this->p->cf['lca'];
-			$short = $this->p->cf['plugin'][$lca]['short'];
+			$short = $this->p->cf['plugin']['wpssossb']['short'];
+			$name = $this->p->cf['plugin']['wpssossb']['name'];
 
-			$widget_name = 'Sharing Buttons';
-			$widget_class = $this->p->cf['lca'].'-widget-buttons';
+			$widget_name = $short;
+			$widget_class = $lca.'-widget-buttons';
 			$widget_ops = array( 
 				'classname' => $widget_class,
-				'description' => sprintf( __( 'The %s social sharing buttons widget.', 'wpsso-ssb' ), $short ),
+				'description' => sprintf( __( 'The %s widget.', 'wpsso-ssb' ), $name ),
 			);
 
 			parent::__construct( $widget_class, $widget_name, $widget_ops );
@@ -51,10 +52,11 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			}
 			extract( $args );
 
+			$lca = $this->p->cf['lca'];
 			if ( $this->p->is_avail['cache']['transient'] ) {
 				$sharing_url = $this->p->util->get_sharing_url();
 				$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_widget:'.$this->id.'_url:'.$sharing_url.')';
-				$cache_id = $this->p->cf['lca'].'_'.md5( $cache_salt );
+				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
@@ -84,12 +86,12 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			);
 			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
-			$html = '<!-- '.$this->p->cf['lca'].' '.$args['widget_id'].' begin -->'.
+			$html = '<!-- '.$lca.' '.$args['widget_id'].' begin -->'.
 				$before_widget.
 				( empty( $title ) ? '' : $before_title.$title.$after_title ).
 				$this->p->sharing->get_html( $sorted_ids, $atts ).
 				$after_widget.
-				'<!-- '.$this->p->cf['lca'].' '.$args['widget_id'].' end -->'."\n";
+				'<!-- '.$lca.' '.$args['widget_id'].' end -->'."\n";
 
 			if ( $this->p->is_avail['cache']['transient'] ) {
 				set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );

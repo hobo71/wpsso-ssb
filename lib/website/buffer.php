@@ -99,7 +99,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 					'buffer_on_excerpt' => 0,
 					'buffer_on_sidebar' => 0,
 					'buffer_on_admin_edit' => 1,
-					'buffer_order' => 6,
+					'buffer_order' => 7,
 					'buffer_script_loc' => 'footer',
 					'buffer_count' => 'horizontal',
 					'buffer_img_width' => 600,

@@ -34,31 +34,31 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_pos_excerpt' => 'bottom',
 					'buttons_use_social_css' => 1,
 					'buttons_enqueue_social_css' => 1,
-					'buttons_css_sharing' => '',		// all buttons
-					'buttons_css_content' => '',		// post/page content
-					'buttons_css_excerpt' => '',		// post/page excerpt
-					'buttons_css_admin_edit' => '',
-					'buttons_css_sidebar' => '',
-					'buttons_css_shortcode' => '',
-					'buttons_css_widget' => '',
-					'buttons_js_sidebar' => '/* Save an empty style text box to reload the default javascript */
+					'buttons_css_ssb-sharing' => '',		// all buttons
+					'buttons_css_ssb-content' => '',		// post/page content
+					'buttons_css_ssb-excerpt' => '',		// post/page excerpt
+					'buttons_css_ssb-admin_edit' => '',
+					'buttons_css_ssb-sidebar' => '',
+					'buttons_css_ssb-shortcode' => '',
+					'buttons_css_ssb-widget' => '',
+					'buttons_js_ssb-sidebar' => '/* Save an empty style text box to reload the default javascript */
 
-jQuery("#wpsso-sidebar").mouseenter( function(){ 
-	jQuery("#wpsso-sidebar-buttons").css({
-		display:"block",
-		width:"auto",
-		height:"auto",
-		overflow:"visible",
-		"border-style":"solid",
+jQuery("#wpsso-ssb-sidebar-container").mouseenter( function(){ 
+	jQuery("#wpsso-ssb-sidebar").css({
+		"display":"block",
+		"width":"auto",
+		"height":"auto",
+		"overflow":"visible",
+		"border-style":"none",
 	}); } );
-jQuery("#wpsso-sidebar").click( function(){ 
-	jQuery("#wpsso-sidebar-buttons").toggle(); } );',
-					'buttons_preset_content' => '',
-					'buttons_preset_excerpt' => '',
-					'buttons_preset_admin_edit' => 'small_share_count',
-					'buttons_preset_sidebar' => 'large_share_vertical',
-					'buttons_preset_shortcode' => '',
-					'buttons_preset_widget' => '',
+jQuery("#wpsso-ssb-sidebar-header").click( function(){ 
+	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
+					'buttons_preset_ssb-content' => '',
+					'buttons_preset_ssb-excerpt' => '',
+					'buttons_preset_ssb-admin_edit' => 'small_share_count',
+					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
+					'buttons_preset_ssb-shortcode' => '',
+					'buttons_preset_ssb-widget' => '',
 				),
 				'preset' => array(
 					'small_share_count' => array(
@@ -115,16 +115,16 @@ jQuery("#wpsso-sidebar").click( function(){
 					'content' => 'Content', 
 					'excerpt' => 'Excerpt', 
 					'sidebar' => 'CSS Sidebar', 
-					'admin_edit' => 'Admin Edit Page',
+					'admin_edit' => 'Admin Edit',
 				),
 				'style' => array(
-					'sharing' => 'All Buttons',
-					'content' => 'Content',
-					'excerpt' => 'Excerpt',
-					'sidebar' => 'CSS Sidebar',
-					'admin_edit' => 'Admin Edit',
-					'shortcode' => 'Shortcode',
-					'widget' => 'Widget',
+					'ssb-sharing' => 'All Buttons',
+					'ssb-content' => 'Content',
+					'ssb-excerpt' => 'Excerpt',
+					'ssb-sidebar' => 'CSS Sidebar',
+					'ssb-admin_edit' => 'Admin Edit',
+					'ssb-shortcode' => 'Shortcode',
+					'ssb-widget' => 'Widget',
 				),
 				'position' => array(
 					'top' => 'Top',
@@ -214,7 +214,7 @@ jQuery("#wpsso-sidebar").click( function(){
 			$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
 
 			foreach ( $style_tabs as $id => $name ) {
-				$buttons_css_file = $plugin_dir.'css/'.$id.'-buttons.css';
+				$buttons_css_file = $plugin_dir.'css/'.$id.'.css';
 
 				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
 				if ( empty( $opts_def['buttons_css_'.$id] ) ) {
@@ -247,6 +247,7 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function filter_option_type( $type, $key, $network, $mod ) {
+		error_log( $key.' = '.$type );
 			if ( ! empty( $type ) )
 				return $type;
 
@@ -448,9 +449,9 @@ jQuery("#wpsso-sidebar").click( function(){
 				if ( $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
 					if ( ( $written = fwrite( $fh, $css_data ) ) === false ) {
 						if ( $this->p->debug->enabled )
-							$this->p->debug->log( 'failure while writing to '.self::$sharing_css_file );
+							$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
 						if ( is_admin() )
-							$this->p->notice->err( sprintf( __( 'Failure while writing to the % file.',
+							$this->p->notice->err( sprintf( __( 'Failed writing to the % file.',
 								'wpsso-ssb' ), self::$sharing_css_file ), true );
 					} elseif ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'updated css file '.self::$sharing_css_file.' ('.$written.' bytes written)' );
@@ -532,12 +533,13 @@ jQuery("#wpsso-sidebar").click( function(){
 
 		public function show_sidebar() {
 			$lca = $this->p->cf['lca'];
-			$js = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_sidebar'] ) );
+			$js = trim( preg_replace( '/\/\*.*\*\//', '',
+				$this->p->options['buttons_js_ssb-sidebar'] ) );
 			$text = '';	// variable must be passed by reference
 			$text = $this->get_buttons( $text, 'sidebar', false );	// use_post = false
 			if ( ! empty( $text ) ) {
-				echo '<div id="'.$lca.'-sidebar">';
-				echo '<div id="'.$lca.'-sidebar-header"></div>';
+				echo '<div id="'.$lca.'-ssb-sidebar-container">';
+				echo '<div id="'.$lca.'-ssb-sidebar-header"></div>';
 				echo $text;
 				echo '</div>', "\n";
 				echo '<script type="text/javascript">'.$js.'</script>', "\n";
@@ -549,7 +551,7 @@ jQuery("#wpsso-sidebar").click( function(){
 		public function show_admin_sharing( $post ) {
 			$post_type = get_post_type_object( $post->post_type );	// since 3.0
 			$post_type_name = ucfirst( $post_type->name );
-			$css_data = $this->p->options['buttons_css_admin_edit'];
+			$css_data = $this->p->options['buttons_css_ssb-admin_edit'];
 
 			$classname = apply_filters( $this->p->cf['lca'].'_load_lib', 
 				false, 'ext/compressor', 'SuextMinifyCssCompressor' );
@@ -682,19 +684,23 @@ jQuery("#wpsso-sidebar").click( function(){
 				ksort( $sorted_ids );
 
 				$atts['use_post'] = $use_post;
-				$css_type = $atts['css_id'] = $type.'-buttons';
-				if ( ! empty( $this->p->options['buttons_preset_'.$type] ) ) {
-					$atts['preset_id'] = $this->p->options['buttons_preset_'.$type];
+				$css_type = $atts['css_id'] = 'ssb-'.$type;
+
+				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
+					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
 					$css_preset = $lca.'-preset-'.$atts['preset_id'];
 				} else $css_preset = '';
 
 				$buttons_html = $this->get_html( $sorted_ids, $atts );
-				if ( trim( $buttons_html ) !== '' ) {
+
+				if ( ! empty( $buttons_html ) ) {
 					$html = '
 <!-- '.$lca.' '.$css_type.' begin -->
-<div class="'.( $css_preset ? $css_preset.' ' : '' ).
-	( $use_post ? $lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).'
-'.$buttons_html.'</div><!-- .'.$lca.'-'.$css_type.' -->
+<div class="'.$lca.'-ssb'.
+	( $css_preset ? ' '.$css_preset : '' ).
+	( $use_post ? ' '.$lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).'
+'.$buttons_html.'</div><!-- .'.$lca.'-ssb '.
+	( $use_post ? '.' : '#' ).$lca.'-'.$css_type.' -->
 <!-- '.$lca.' '.$css_type.' end -->'."\n\n";
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
@@ -728,11 +734,12 @@ jQuery("#wpsso-sidebar").click( function(){
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
 		public function get_html( &$ids = array(), &$atts = array() ) {
-
 			$lca = $this->p->cf['lca'];
+			$html_ret = '';
+			$html_begin = '<div class="ssb-buttons">'."\n";
+			$html_end = '</div><!-- .ssb-buttons -->'."\n";
 			$preset_id = empty( $atts['preset_id'] ) ? '' : 
 				preg_replace( '/[^a-z0-9\-_]/', '', $atts['preset_id'] );
-
 			$filter_id = empty( $atts['filter_id'] ) ? '' : 
 				preg_replace( '/[^a-z0-9\-_]/', '', $atts['filter_id'] );
 
@@ -762,18 +769,17 @@ jQuery("#wpsso-sidebar").click( function(){
 					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
 			}
 
-			$html = '';
 			foreach ( $ids as $id ) {
 				$id = preg_replace( '/[^a-z]/', '', $id );	// sanitize the website object name
 				if ( isset( $this->website[$id] ) &&
 					method_exists( $this->website[$id], 'get_html' ) )
-						$html .= $this->website[$id]->get_html( $atts, $custom_opts )."\n";
+						$html_ret .= $this->website[$id]->get_html( $atts, $custom_opts )."\n";
 			}
 
-			if ( trim( $html ) !== '' ) 
-				$html = "<div class=\"".$lca."-buttons\">\n".$html."</div><!-- .".$lca."-buttons -->\n";
-
-			return $html;
+			$html_ret = trim( $html_ret );
+			if ( ! empty( $html_ret ) )
+				$html_ret = $html_begin.$html_ret.$html_end;
+			return $html_ret;
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
@@ -860,8 +866,10 @@ jQuery("#wpsso-sidebar").click( function(){
 		}
 
 		public function get_script_loader( $pos = 'id' ) {
-			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
-			$lang = apply_filters( $this->p->cf['lca'].'_lang', $lang, SucomUtil::get_pub_lang( 'gplus' ) );
+			$lang = empty( $this->p->options['gp_lang'] ) ?
+				'en-US' : $this->p->options['gp_lang'];
+			$lang = apply_filters( $this->p->cf['lca'].'_lang',
+				$lang, SucomUtil::get_pub_lang( 'gplus' ) );
 			return '<script type="text/javascript" id="wpssossb-header-script">
 	window.___gcfg = { lang: "'.$lang.'" };
 	function '.$this->p->cf['lca'].'_insert_js( script_id, url, async ) {

@@ -63,7 +63,7 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 					'reddit_on_excerpt' => 0,
 					'reddit_on_sidebar' => 0,
 					'reddit_on_admin_edit' => 1,
-					'reddit_order' => 7,
+					'reddit_order' => 8,
 					'reddit_type' => 'static-wide',
 				),
 			),

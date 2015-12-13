@@ -24,10 +24,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 				$this->p->debug->mark();
 		}
 
-		public function filter_get_defaults( $opts_def ) {
-			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
-		}
-
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
@@ -77,7 +73,7 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 					'linkedin_on_excerpt' => 0,
 					'linkedin_on_sidebar' => 0,
 					'linkedin_on_admin_edit' => 1,
-					'linkedin_order' => 5,
+					'linkedin_order' => 6,
 					'linkedin_script_loc' => 'header',
 					'linkedin_counter' => 'right',
 					'linkedin_showzero' => 1,

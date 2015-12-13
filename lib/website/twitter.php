@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 					'twitter_on_excerpt' => 0,
 					'twitter_on_sidebar' => 0,
 					'twitter_on_admin_edit' => 1,
-					'twitter_order' => 3,
+					'twitter_order' => 2,
 					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
 					'twitter_count' => 'horizontal',

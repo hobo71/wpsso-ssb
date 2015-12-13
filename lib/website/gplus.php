@@ -102,7 +102,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 					'gp_on_excerpt' => 0,
 					'gp_on_sidebar' => 0,
 					'gp_on_admin_edit' => 1,
-					'gp_order' => 2,
+					'gp_order' => 4,
 					'gp_script_loc' => 'header',
 					'gp_lang' => 'en-US',
 					'gp_action' => 'plusone',
