@@ -123,6 +123,8 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Version 2.0.0 (2015/12/15) =
 
+Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-names-email-button/
+
 * **New Features**
 	* Added a new "E-Mail" sharing button.
 	* Added an 'ssb' prefix to all CSS class and ID names. This new version of WPSSO SSB will load new default CSS styles. If you've made changes to the default styles, you will have to apply those changes to these new defaults as well.
@@ -135,6 +137,8 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 	* Renamed all button CSS classes and IDs to include an 'ssb' prefix.
 
 = Version 1.7.2 (2015/12/09) =
+
+Official announcement: N/A
 
 * **New Features**
 	* *None*
