@@ -10,7 +10,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.1
 Tested Up To: 4.4
-Stable Tag: 1.7.2
+Stable Tag: 2.0.0
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -121,7 +121,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 2.0.0 (TBD) =
+= Version 2.0.0 (2015/12/15) =
 
 * **New Features**
 	* Added a new "E-Mail" sharing button.
@@ -178,7 +178,7 @@ Official announcement: N/A
 
 = 2.0.0 =
 
-TBD - Added a new "E-Mail" sharing button. Added 'ssb' prefix to all CSS class and ID names. Enabled CSS editing features for the Free version.
+2015/12/15 - Added a new "E-Mail" sharing button. Added 'ssb' prefix to all CSS class and ID names. Enabled CSS editing features for the Free version.
 
 = 1.7.2 =
 
