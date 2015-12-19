@@ -43,6 +43,7 @@
 
 <ul>
 <li>Buffer</li>
+<li>Email</li>
 <li>Facebook (like, send and share buttons)</li>
 <li>Google+</li>
 <li>LinkedIn</li>
@@ -53,6 +54,7 @@
 <li>Tumblr (shares links, quotes, images, videos)</li>
 <li>Twitter (shares summary, large image summary and player cards &ndash; the photo, gallery, and product cards are no longer supported by Twitter as of July 3rd 2015)</li>
 </ul></li>
+<li>A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).</li>
 </ul>
 
 <p>The Facebook, Google+ and Twitter sharing buttons also support <em>multiple default languages</em>, and WPSSO SSB can include a number of <strong><em>hashtags</em></strong> &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.</p>
@@ -66,12 +68,11 @@
 <p>The <a href="http://wpsso.com/extend/plugins/wpsso-ssb/">Pro version of WPSSO SSB</a> includes a number of additional options and features:</p>
 
 <ul>
-<li>File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.</li>
-<li>A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).</li>
 <li>Dynamic button language switching based on the current WordPress locale.</li>
 <li>URL shortening with Bitly or Google for URLs in Tweet texts.</li>
-<li>Ability to include / exclude sharing buttons by post type.</li>
+<li>File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.</li>
 <li>Selection of preset button options by location (content, excerpt, shortcode, widget, etc.).</li>
+<li>Ability to include / exclude sharing buttons by post type.</li>
 <li>Additional sharing button locations and CSS styles for:
 
 <ul>

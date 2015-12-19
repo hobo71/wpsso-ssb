@@ -39,6 +39,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 	* A function in your theme's template(s).
 * Each of these social sharing buttons can be configured and styled individually:
 	* Buffer
+	* Email
 	* Facebook (like, send and share buttons)
 	* Google+
 	* LinkedIn
@@ -48,6 +49,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 	* StumbleUpon
 	* Tumblr (shares links, quotes, images, videos)
 	* Twitter (shares summary, large image summary and player cards &ndash; the photo, gallery, and product cards are no longer supported by Twitter as of July 3rd 2015)
+* A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 
 The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
@@ -59,12 +61,11 @@ The Facebook, Google+ and Twitter sharing buttons also support *multiple default
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
-* File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
-* A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 * Dynamic button language switching based on the current WordPress locale.
 * URL shortening with Bitly or Google for URLs in Tweet texts.
-* Ability to include / exclude sharing buttons by post type.
+* File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
 * Selection of preset button options by location (content, excerpt, shortcode, widget, etc.).
+* Ability to include / exclude sharing buttons by post type.
 * Additional sharing button locations and CSS styles for:
 	* [bbPress](https://wordpress.org/plugins/bbpress/)
 	* [BuddyPress](https://wordpress.org/plugins/buddypress/)
