@@ -122,6 +122,21 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
+= Version 2.0.1 (2015/12/27) =
+
+Official announcement: N/A
+
+* **New Features**
+	* *None*
+* **Improvements**
+	* *None*
+* **Bugfixes**
+	* *None*
+* **Developer Notes**
+	* Updated minimum required version to WPSSO v3.20.0.
+	* Updated the settings page construct to include the library name argument.
+	* Renamed the website class `$id` and `$name` properties to `$website_id` and `$website_name`.
+
 = Version 2.0.0 (2015/12/15) =
 
 Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-names-email-button/
@@ -181,15 +196,11 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
+= 2.0.1 =
+
+2015/12/27 - Updated minimum required version to WPSSO v3.20.0. Updated the settings page construct to include the library name argument.
+
 = 2.0.0 =
 
 2015/12/15 - Added a new "E-Mail" sharing button. Added 'ssb' prefix to all CSS class and ID names. Enabled CSS editing features for the Free version.
-
-= 1.7.2 =
-
-2015/12/09 - Updated the required and tested version strings. Updated method names and arguments for WPSSO v3.18.0. 
-
-= 1.7.1 =
-
-2015/12/06 - Added a check for HTTPS when defining the social buttons transient cache object.
 
