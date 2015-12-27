@@ -189,10 +189,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		private function set_objects() {
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsharing'.$id );
-				if ( $classname !== false && class_exists( $classname ) )
+				if ( $classname !== false && class_exists( $classname ) ) {
 					$this->website[$id] = new $classname( $this->p );
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $classname.' class loaded' );
+				}
 			}
 		}
 
@@ -247,7 +248,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_option_type( $type, $key, $network, $mod ) {
-		error_log( $key.' = '.$type );
 			if ( ! empty( $type ) )
 				return $type;
 

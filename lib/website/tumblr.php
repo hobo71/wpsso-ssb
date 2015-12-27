@@ -12,14 +12,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 
 	class WpssoSsbSubmenuSharingTumblr extends WpssoSsbSubmenuSharing {
 
-		public $id = '';
-		public $name = '';
-		public $form = '';
-
 		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
-			$this->id = $id;
-			$this->name = $name;
+			$this->website_id = $id;
+			$this->website_name = $name;
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$this->p->util->add_plugin_filters( $this, array( 

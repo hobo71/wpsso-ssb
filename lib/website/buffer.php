@@ -12,14 +12,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 
 	class WpssoSsbSubmenuSharingBuffer extends WpssoSsbSubmenuSharing {
 
-		public $id = '';
-		public $name = '';
-		public $form = '';
-
 		public function __construct( &$plugin, $id, $name ) {
 			$this->p =& $plugin;
-			$this->id = $id;
-			$this->name = $name;
+			$this->website_id = $id;
+			$this->website_name = $name;
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 			$this->p->util->add_plugin_filters( $this, array( 
@@ -78,7 +74,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 
 			$rows[] = $this->p->util->get_th( _x( 'Add via @username',
 				'option label (short)', 'wpsso-ssb' ), 'short', null,
-			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General settings page).' ).
+			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General Settings page).' ).
 			( $this->p->check->aop() == true ? 
 				'<td>'.$this->form->get_checkbox( 'buffer_via' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'buffer_via' ).'</td>' );
