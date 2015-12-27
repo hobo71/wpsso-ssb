@@ -85,7 +85,7 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 			$rows['buttons_pos_bbp_single'] = $this->p->util->get_th( _x( 'Position in bbPress Single',
 				'option label', 'wpsso-ssb' ), null, 'buttons_pos_bbp_single' ).
-			'<td class="blank">'.WpssoSsbSharing::$cf['sharing']['position'][$this->p->options['buttons_pos_bbp_single']].'</td>';
+			'<td class="blank">'.$this->p->cf['sharing']['position'][$this->p->options['buttons_pos_bbp_single']].'</td>';
 			return $rows;
 		}
 	}

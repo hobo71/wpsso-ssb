@@ -57,7 +57,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 			foreach ( $this->p->cf['opt']['pre'] as $name => $prefix )
 				$opts_def[$prefix.'_on_woo_short'] = 0;
 			$opts_def['buttons_pos_woo_short'] = 'bottom';
-			$opts_def['buttons_preset_woo_short'] = '';
+			$opts_def['buttons_preset_ssb-woo_short'] = '';
 			return $opts_def;
 		}
 
@@ -78,7 +78,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 			$rows['buttons_pos_woo_short'] = $this->p->util->get_th( _x( 'Position in Woo Short Text',
 				'option label', 'wpsso-ssb' ), null, 'buttons_pos_woo_short' ).
-			'<td class="blank">'.WpssoSsbSharing::$cf['sharing']['position'][$this->p->options['buttons_pos_woo_short']].'</td>';
+			'<td class="blank">'.$this->p->cf['sharing']['position'][$this->p->options['buttons_pos_woo_short']].'</td>';
 			return $rows;
 		}
 	}

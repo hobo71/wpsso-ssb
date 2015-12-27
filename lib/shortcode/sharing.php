@@ -74,7 +74,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ?
 				'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ?
-				$this->p->options['buttons_preset_shortcode'] : $atts['preset_id'];
+				$this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
 
 			$html = '';
 			if ( ! empty( $atts['buttons'] ) ) {

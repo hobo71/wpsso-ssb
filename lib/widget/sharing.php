@@ -82,7 +82,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				'css_id' => $args['widget_id'],
 				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
 				'use_post' => false,		// don't use the post ID on indexes
-				'preset_id' => $this->p->options['buttons_preset_widget'],
+				'preset_id' => $this->p->options['buttons_preset_ssb-widget'],
 			);
 			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 

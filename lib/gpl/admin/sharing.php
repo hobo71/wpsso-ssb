@@ -56,7 +56,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
 			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
-				WpssoSsbSharing::$cf['sharing']['show_on'], '' );
+				$this->p->cf['sharing']['show_on'], '' );
 			foreach ( $show_on as $type => $label )
 				$presets[$type] = $label;
 			asort( $presets );
@@ -67,7 +67,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			foreach( $presets as $filter_id => $filter_name )
 				$rows[] = $this->p->util->get_th( sprintf( _x( '%s Preset',
 					'option label', 'wpsso-ssb' ), $filter_name ), null, 'sharing_preset' ).
-				'<td class="blank">'.$this->p->options['buttons_preset_'.$filter_id].'</td>';
+				'<td class="blank">'.$this->p->options['buttons_preset_ssb-'.$filter_id].'</td>';
 
 			return $rows;
 		}

@@ -122,11 +122,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 .wpsso-ssb .wpsso-ssb-'.$type.'
     .ssb-buttons 
         .facebook-button {}</pre>';
-			if ( $preset )
-				$text .= '<p>The '.$this->p->cf['sharing']['show_on'][$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
+			if ( $preset ) {
+				$text .= '<p>The '.$this->p->cf['sharing']['style']['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
-						( empty( $this->p->options['buttons_preset_ssb-'.$idx] ) ? '[none]' :
-							$this->p->options['buttons_preset_ssb-'.$idx] ).'</p>';
+						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[none]' :
+							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
+			}
 			return $text;
 		}
 
@@ -156,7 +157,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			) );
 
 			$tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', 
-				WpssoSsbSharing::$cf['sharing']['style'] );
+				$this->p->cf['sharing']['style'] );
 			$rows = array();
 			foreach ( $tabs as $key => $title ) {
 				$tabs[$key] = _x( $title, 'metabox tab', 'wpsso-ssb' );	// translate the tab title

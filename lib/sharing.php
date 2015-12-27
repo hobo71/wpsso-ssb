@@ -60,77 +60,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'buttons_preset_ssb-shortcode' => '',
 					'buttons_preset_ssb-widget' => 'small_share_count',
 				),
-				'preset' => array(
-					'small_share_count' => array(
-						'fb_button' => 'share',
-						'fb_send' => 0,
-						'fb_show_faces' => 0,
-						'fb_action' => 'like',
-						'fb_type' => 'button_count',
-						'gp_action' => 'share',
-						'gp_size' => 'medium',
-						'gp_annotation' => 'bubble',
-						'gp_expandto' => '',
-						'twitter_size' => 'medium',
-						'twitter_count' => 'horizontal',
-						'linkedin_counter' => 'right',
-						'linkedin_showzero' => 1,
-						'pin_button_shape' => 'rect',
-						'pin_button_height' => 'small',
-						'pin_count_layout' => 'beside',
-						'buffer_count' => 'horizontal',
-						'reddit_type' => 'static-wide',
-						'managewp_type' => 'small',
-						'tumblr_button_style' => 'share_1',
-						'stumble_badge' => 1,
-					),
-					'large_share_vertical' => array(
-						'fb_button' => 'share',
-						'fb_send' => 0,
-						'fb_show_faces' => 0,
-						'fb_action' => 'like',
-						'fb_type' => 'box_count',
-						'fb_layout' => 'box_count',
-						'gp_action' => 'share',
-						'gp_size' => 'tall',
-						'gp_annotation' => 'vertical-bubble',
-						'gp_expandto' => '',
-						'twitter_size' => 'medium',
-						'twitter_count' => 'vertical',
-						'linkedin_counter' => 'top',
-						'linkedin_showzero' => '1',
-						'pin_button_shape' => 'rect',
-						'pin_button_height' => 'large',
-						'pin_count_layout' => 'above',
-						'buffer_count' => 'vertical',
-						'reddit_type' => 'static-tall-text',
-						'managewp_type' => 'big',
-						'tumblr_button_style' => 'share_2',
-						'stumble_badge' => 5,
-					),
-				),
-			),
-			'sharing' => array(
-				'show_on' => array( 
-					'content' => 'Content', 
-					'excerpt' => 'Excerpt', 
-					'sidebar' => 'CSS Sidebar', 
-					'admin_edit' => 'Admin Edit',
-				),
-				'style' => array(
-					'ssb-sharing' => 'All Buttons',
-					'ssb-content' => 'Content',
-					'ssb-excerpt' => 'Excerpt',
-					'ssb-sidebar' => 'CSS Sidebar',
-					'ssb-admin_edit' => 'Admin Edit',
-					'ssb-shortcode' => 'Shortcode',
-					'ssb-widget' => 'Widget',
-				),
-				'position' => array(
-					'top' => 'Top',
-					'bottom' => 'Bottom',
-					'both' => 'Both Top and Bottom',
-				),
 			),
 		);
 
@@ -212,7 +141,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$opts_def = $this->p->util->add_ptns_to_opts( $opts_def, 'buttons_add_to' );
 			$plugin_dir = trailingslashit( realpath( dirname( $this->plugin_filepath ) ) );
 			$url_path = parse_url( trailingslashit( plugins_url( '', $this->plugin_filepath ) ), PHP_URL_PATH );	// relative URL
-			$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
+			$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', 
+				$this->p->cf['sharing']['style'] );
 
 			foreach ( $style_tabs as $id => $name ) {
 				$buttons_css_file = $plugin_dir.'css/'.$id.'.css';
@@ -297,7 +227,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_post_cache_transients( $transients, $post_id, $lang = 'en_US', $sharing_url ) {
 			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
-				self::$cf['sharing']['show_on'], null );
+				$this->p->cf['sharing']['show_on'], null );
 
 			foreach( $show_on as $type_id => $type_name ) {
 				$transients['WpssoSsbSharing::get_buttons'][] = 'lang:'.$lang.'_type:'.$type_id.'_post:'.$post_id;
@@ -427,7 +357,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function update_sharing_css( &$opts ) {
 			if ( ! empty( $opts['buttons_use_social_css'] ) ) {
 				$css_data = '';
-				$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', self::$cf['sharing']['style'] );
+				$style_tabs = apply_filters( $this->p->cf['lca'].'_style_tabs', 
+					$this->p->cf['sharing']['style'] );
 
 				foreach ( $style_tabs as $id => $name )
 					if ( isset( $opts['buttons_css_'.$id] ) )
@@ -749,12 +680,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			else $custom_opts = $this->p->options;
 
 			// apply the presets to $custom_opts
-			if ( ! empty( $preset_id ) && ! empty( self::$cf['opt']['preset'] ) ) {
-				if ( array_key_exists( $preset_id, self::$cf['opt']['preset'] ) &&
-					is_array( self::$cf['opt']['preset'][$preset_id] ) ) {
+			if ( ! empty( $preset_id ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
+				if ( array_key_exists( $preset_id, $this->p->cf['opt']['preset'] ) &&
+					is_array( $this->p->cf['opt']['preset'][$preset_id] ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'applying preset_id '.$preset_id.' to options' );
-					$custom_opts = array_merge( $custom_opts, self::$cf['opt']['preset'][$preset_id] );
+					$custom_opts = array_merge( $custom_opts, 
+						$this->p->cf['opt']['preset'][$preset_id] );
 				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( $preset_id.' preset_id missing or not array'  );
 			} 
