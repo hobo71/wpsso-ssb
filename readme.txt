@@ -136,6 +136,8 @@ Official announcement: N/A
 	* Updated minimum required version to WPSSO v3.20.0.
 	* Updated the settings page construct to include the library name argument.
 	* Renamed the website class `$id` and `$name` properties to `$website_id` and `$website_name`.
+	* Moved `WpssoSsbSharing::$cf['sharing']` to `WpssoSsbConfig::$cf['sharing']`.
+	* Moved `WpssoSsbSharing::$cf['opt']['preset']` to `WpssoSsbConfig::$cf['opt']['preset']`.
 
 = Version 2.0.0 (2015/12/15) =
 
