@@ -1,14 +1,14 @@
-# Copyright (C) 2015 WPSSO Social Sharing Buttons (WPSSO SSB)
+# Copyright (C) 2016 WPSSO Social Sharing Buttons (WPSSO SSB)
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2015-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -100,67 +100,67 @@ msgid ""
 "hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:34
+#: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
 #: lib/sharing.php:296
 msgctxt "option label"
 msgid "Social File Cache Expiry"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:31 lib/pro/admin/sharing.php:38
+#: lib/gpl/admin/sharing.php:31 lib/pro/admin/sharing.php:39
 msgctxt "option comment"
 msgid "hours"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:48 lib/pro/admin/sharing.php:52
+#: lib/gpl/admin/sharing.php:48 lib/pro/admin/sharing.php:53
 msgctxt "option label"
 msgid "Include on Post Types"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:68 lib/pro/admin/sharing.php:69
+#: lib/gpl/admin/sharing.php:68 lib/pro/admin/sharing.php:70
 msgctxt "option label"
 msgid "%s Preset"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:80 lib/pro/admin/sharing.php:82
+#: lib/gpl/admin/sharing.php:80 lib/pro/admin/sharing.php:83
 #: lib/sharing.php:281
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:100 lib/pro/admin/sharing.php:99
+#: lib/gpl/admin/sharing.php:100 lib/pro/admin/sharing.php:100
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:121 lib/pro/admin/sharing.php:122
+#: lib/gpl/admin/sharing.php:121 lib/pro/admin/sharing.php:123
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:139 lib/pro/admin/sharing.php:142
+#: lib/gpl/admin/sharing.php:139 lib/pro/admin/sharing.php:143
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:141 lib/pro/admin/sharing.php:144
+#: lib/gpl/admin/sharing.php:141 lib/pro/admin/sharing.php:145
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:149 lib/pro/admin/sharing.php:154
+#: lib/gpl/admin/sharing.php:149 lib/pro/admin/sharing.php:155
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:155 lib/gpl/admin/sharing.php:161
-#: lib/pro/admin/sharing.php:160 lib/pro/admin/sharing.php:166
+#: lib/pro/admin/sharing.php:161 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:157 lib/pro/admin/sharing.php:162
+#: lib/gpl/admin/sharing.php:157 lib/pro/admin/sharing.php:163
 msgid "Save a draft version or publish to enable this field."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:175
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:176
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
@@ -181,8 +181,8 @@ msgstr ""
 
 #: lib/sharing.php:281
 msgid ""
-"Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href=\"%"
-"3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
+"Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href="
+"\"%3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
 "metabox, along with the social sharing shortcode and widget."
 msgstr ""
 
@@ -200,8 +200,8 @@ msgstr ""
 #: lib/sharing.php:284
 msgid ""
 "A stylesheet for the social sharing buttons can be included in all webpages. "
-"You can enable or disable use of the stylesheet from the <a href=\"%1$s\">%2"
-"$s</a> settings page."
+"You can enable or disable use of the stylesheet from the <a href=\"%1$s\">"
+"%2$s</a> settings page."
 msgstr ""
 
 #: lib/sharing.php:287
