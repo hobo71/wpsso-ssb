@@ -202,7 +202,3 @@ Official announcement: N/A
 
 2015/12/27 - Updated minimum required version to WPSSO v3.20.0. Updated the settings page construct to include the library name argument.
 
-= 2.0.0 =
-
-2015/12/15 - Added a new "E-Mail" sharing button. Added 'ssb' prefix to all CSS class and ID names. Enabled CSS editing features for the Free version.
-
