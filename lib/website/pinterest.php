@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 
 			$rows[] = $this->p->util->get_th( _x( 'Pinterest <em>Sharing Button</em>',
 				'option label', 'wpsso-ssb' ), null, 'pin_img_dimensions',
-			'The image dimensions that the Pinterest Pin It button will share (defaults is '.$this->p->opt->get_defaults( 'pin_img_width' ).'x'.$this->p->opt->get_defaults( 'pin_img_height' ).' '.( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'un' : '' ).'cropped). Images in the Facebook / Open Graph meta tags are usually cropped square, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
+			'The image dimensions that the Pinterest Pin It button will share (defaults is '.$this->p->opt->get_defaults( 'pin_img_width' ).'x'.$this->p->opt->get_defaults( 'pin_img_height' ).' '.( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'un' : '' ).'cropped). Images in the Facebook / Open Graph meta tags are usually cropped, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'pin_img' ).'</td>';
 
 			return $rows;

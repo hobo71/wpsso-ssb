@@ -862,14 +862,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( ! empty( $post ) ) {
 				if ( $this->p->mods['util']['post']->get_options( $post->ID, 'buttons_disabled' ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'post '.$post->ID.
-							': sharing buttons disabled by custom meta option' );
+						$this->p->debug->log( 'post '.$post->ID.': sharing buttons disabled by custom meta option' );
 					$ret = true;
 				} elseif ( ! empty( $post->post_type ) && 
 					empty( $this->p->options['buttons_add_to_'.$post->post_type] ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'post '.$post->ID.
-							': sharing buttons not enabled for post type '.$post->post_type );
+						$this->p->debug->log( 'post '.$post->ID.': sharing buttons not enabled for post type '.$post->post_type );
 					$ret = true;
 				}
 			}
