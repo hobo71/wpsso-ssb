@@ -150,9 +150,8 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
-				$prot.'//apis.google.com/js/plusone.js', $pos ) );
+				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 
 			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";

@@ -80,8 +80,6 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$prot = empty( $_SERVER['HTTPS'] ) ?
-				'http:' : 'https:';
 			$use_post = isset( $atts['use_post'] ) ?
 				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'managewp', $atts );
@@ -106,7 +104,7 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 				);
 
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
-				$prot.'//managewp.org/share.js#'.$prot.'//managewp.org/share', '' ) );
+				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button --><div '.$this->p->sharing->get_css( 'managewp', $atts ).'>';
 			$html .= '<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"';

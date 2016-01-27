@@ -116,9 +116,8 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_linkedin',
-				$prot.'//platform.linkedin.com/in.js', $pos ) );
+				SucomUtil::get_prot().'://platform.linkedin.com/in.js', $pos ) );
 
 			return  '<script type="text/javascript" id="linkedin-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";

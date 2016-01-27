@@ -165,8 +165,6 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$prot = empty( $_SERVER['HTTPS'] ) ?
-				'http:' : 'https:';
 			$use_post = isset( $atts['use_post'] ) ?
 				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'pinterest', $atts );
@@ -235,13 +233,13 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				case 'rect':
 					$pin_img_width = $opts['pin_button_height'] == 'small' ? 40 : 56;
 					$pin_img_height = $opts['pin_button_height'] == 'small' ? 20 : 28;
-					$pin_img_url = $prot.'//assets.pinterest.com/images/pidgets/pinit_fg_'.
+					$pin_img_url = SucomUtil::get_prot().'://assets.pinterest.com/images/pidgets/pinit_fg_'.
 						$opts['pin_button_lang'].'_'.$opts['pin_button_shape'].'_'.
 						$opts['pin_button_color'].'_'.$pin_img_height.'.png';
 					break;
 				case 'round':
 					$pin_img_width = $pin_img_height = $opts['pin_button_height'] == 'small' ? 16 : 32;
-					$pin_img_url = $prot.'//assets.pinterest.com/images/pidgets/pinit_fg_'.
+					$pin_img_url = SucomUtil::get_prot().'://assets.pinterest.com/images/pidgets/pinit_fg_'.
 						'en_'.$opts['pin_button_shape'].'_'.
 						'red_'.$pin_img_height.'.png';
 					break;
@@ -254,7 +252,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			$pin_img_url = $this->p->util->get_cache_file_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button --><div '.$this->p->sharing->get_css( 'pinterest', $atts ).'>'.
-			'<a href="'.$prot.'//pinterest.com/pin/create/button/'.$href_query.'" '.
+			'<a href="'.SucomUtil::get_prot().'://pinterest.com/pin/create/button/'.$href_query.'" '.
 			'data-pin-do="buttonPin" '.
 			'data-pin-lang="'.$opts['pin_button_lang'].'" '.
 			'data-pin-shape="'.$opts['pin_button_shape'].'" '.
@@ -271,9 +269,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
-				$prot.'//assets.pinterest.com/js/pinit.js', $pos ) );
+				SucomUtil::get_prot().'://assets.pinterest.com/js/pinit.js', $pos ) );
 
 			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "pinterest-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";

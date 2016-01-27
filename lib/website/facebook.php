@@ -253,15 +253,13 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
-
 			$lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
 			$lang = apply_filters( $this->p->cf['lca'].'_lang', $lang, SucomUtil::get_pub_lang( 'facebook' ) );
 
 			// do not use get_cache_file_url() since the facebook javascript does not work when hosted locally
 			$js_url = apply_filters( $this->p->cf['lca'].'_js_url_facebook', 
-				$prot.'//connect.facebook.net/'.$lang.'/sdk.js#xfbml=1&version=v2.3&appId='.$app_id, $pos );
+				SucomUtil::get_prot().'://connect.facebook.net/'.$lang.'/sdk.js#xfbml=1&version=v2.3&appId='.$app_id, $pos );
 
 			$html = '<script type="text/javascript" id="fb-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "fb-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";

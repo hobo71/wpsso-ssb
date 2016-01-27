@@ -22,13 +22,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$badge_html = '
 				<style type="text/css">
 					.badge { 
 						display:block;
 						background: url("'.$this->p->util->get_cache_file_url( 
-							$prot.'//b9.sustatic.com/7ca234_0mUVfxHFR0NAk1g' ).'") no-repeat transparent; 
+							SucomUtil::get_prot().'://b9.sustatic.com/7ca234_0mUVfxHFR0NAk1g' ).'") no-repeat transparent; 
 						width:110px;
 						margin:5px 0 5px 0;
 					}
@@ -141,9 +140,8 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$prot = empty( $_SERVER['HTTPS'] ) ? 'http:' : 'https:';
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
-				$prot.'//platform.stumbleupon.com/1/widgets.js', $pos ) );
+				SucomUtil::get_prot().'://platform.stumbleupon.com/1/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";

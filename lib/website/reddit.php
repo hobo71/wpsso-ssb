@@ -81,8 +81,6 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 				$this->p->debug->mark();
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$prot = empty( $_SERVER['HTTPS'] ) ?
-				'http:' : 'https:';
 			$use_post = isset( $atts['use_post'] ) ?
 				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'reddit', $atts );
@@ -108,14 +106,14 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 
 			switch ( $opts['reddit_type'] ) {
 				case 'static-tall-text':
-					$js_url = $prot.'//www.reddit.com/static/button/button2.js';
+					$js_url = SucomUtil::get_prot().'://www.reddit.com/static/button/button2.js';
 					break;
 				case 'static-tall-logo':
-					$js_url = $prot.'//www.reddit.com/static/button/button3.js';
+					$js_url = SucomUtil::get_prot().'://www.reddit.com/static/button/button3.js';
 					break;
 				case 'static-wide':
 				default:	// just in case
-					$js_url = $prot.'//www.reddit.com/static/button/button1.js';
+					$js_url = SucomUtil::get_prot().'://www.reddit.com/static/button/button1.js';
 					break;
 			}
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.0.1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -428,7 +428,7 @@ msgstr ""
 #: lib/website/buffer.php:40 lib/website/facebook.php:42
 #: lib/website/gplus.php:26 lib/website/linkedin.php:26
 #: lib/website/managewp.php:26 lib/website/pinterest.php:40
-#: lib/website/reddit.php:26 lib/website/stumbleupon.php:65
+#: lib/website/reddit.php:26 lib/website/stumbleupon.php:64
 #: lib/website/tumblr.php:58 lib/website/twitter.php:26
 msgctxt "option label (short)"
 msgid "Show Button in"
@@ -438,7 +438,7 @@ msgstr ""
 #: lib/website/facebook.php:46 lib/website/gplus.php:30
 #: lib/website/linkedin.php:30 lib/website/managewp.php:30
 #: lib/website/pinterest.php:44 lib/website/reddit.php:30
-#: lib/website/stumbleupon.php:69 lib/website/tumblr.php:62
+#: lib/website/stumbleupon.php:68 lib/website/tumblr.php:62
 #: lib/website/twitter.php:30
 msgctxt "option label (short)"
 msgid "Preferred Order"
@@ -446,7 +446,7 @@ msgstr ""
 
 #: lib/website/buffer.php:51 lib/website/facebook.php:52
 #: lib/website/gplus.php:37 lib/website/linkedin.php:37
-#: lib/website/pinterest.php:50 lib/website/stumbleupon.php:76
+#: lib/website/pinterest.php:50 lib/website/stumbleupon.php:75
 #: lib/website/tumblr.php:69 lib/website/twitter.php:36
 msgctxt "option label (short)"
 msgid "JavaScript in"
@@ -638,7 +638,7 @@ msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr ""
 
-#: lib/website/stumbleupon.php:80 lib/website/tumblr.php:73
+#: lib/website/stumbleupon.php:79 lib/website/tumblr.php:73
 msgctxt "option label (short)"
 msgid "Button Style"
 msgstr ""
