@@ -197,7 +197,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			// if no image or video, then check for a 'quote'
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) && $post_id > 0 ) {
 				if ( get_post_format( $post_id ) === 'quote' ) 
-					$atts['quote'] = $this->p->webpage->get_quote();
+					$atts['quote'] = $this->p->webpage->get_quote( $post_id );
 			}
 
 			// we only need the caption, title, or description for some types of shares
