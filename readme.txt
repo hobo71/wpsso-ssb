@@ -3,7 +3,7 @@ Plugin Name: WPSSO Social Sharing Buttons (WPSSO SSB)
 Plugin Slug: wpsso-ssb
 Text Domain: wpsso-ssb
 Domain Path: /languages
-Contributors: JS Morisset
+Contributors: jsmoriss
 Donate Link: https://wpsso.com/
 Tags: wpsso, like button, share button, facebook, google, google plus, g+, twitter, linkedin, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, shorten, woocommerce
 License: GPLv3
