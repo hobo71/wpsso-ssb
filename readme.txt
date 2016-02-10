@@ -49,6 +49,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 	* StumbleUpon
 	* Tumblr (shares links, quotes, images, videos)
 	* Twitter (shares summary, large image summary and player cards &ndash; the photo, gallery, and product cards are no longer supported by Twitter as of July 3rd 2015)
+	* WhatsApp
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 
 The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
@@ -122,7 +123,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 2.0.2 (TBD) =
+= Version 2.1.0 (TBD) =
 
 Official announcement: N/A
 
