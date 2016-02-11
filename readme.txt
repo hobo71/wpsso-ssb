@@ -127,8 +127,11 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 Official announcement: N/A
 
+Please note: This latest release includes new social sharing buttons and styles. You can use the new "Reload Default Styles" action button to load the latest sharing styles.
+
 * **New Features**
-	* *None*
+	* Added a new "Allow for Platform" option for all social sharing buttons.
+	* Added a new "Reload Default Styles" action button on the Sharing Styles settings page.
 * **Improvements**
 	* *None*
 * **Bugfixes**
