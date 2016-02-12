@@ -125,7 +125,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-** Version 2.1.0 (2016/02/13) **
+**Version 2.1.0 (2016/02/13)**
 
 Official announcement: N/A
 
@@ -142,7 +142,7 @@ Please note: This latest release includes new social sharing buttons and styles.
 * **Developer Notes**
 	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
 
-** Version 2.0.1 (2015/12/27) **
+**Version 2.0.1 (2015/12/27)**
 
 Official announcement: N/A
 
@@ -159,7 +159,7 @@ Official announcement: N/A
 	* Moved `WpssoSsbSharing::$cf['sharing']` to `WpssoSsbConfig::$cf['sharing']`.
 	* Moved `WpssoSsbSharing::$cf['opt']['preset']` to `WpssoSsbConfig::$cf['opt']['preset']`.
 
-** Version 2.0.0 (2015/12/15) **
+**Version 2.0.0 (2015/12/15)**
 
 Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-names-email-button/
 
@@ -174,7 +174,7 @@ Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-na
 	* Renamed all button related option keys to include an 'ssb' prefix.
 	* Renamed all button CSS classes and IDs to include an 'ssb' prefix.
 
-** Version 1.7.2 (2015/12/09) **
+**Version 1.7.2 (2015/12/09)**
 
 Official announcement: N/A
 
@@ -189,7 +189,7 @@ Official announcement: N/A
 	* Updated minimum required version to WPSSO v3.18.0.
 	* Updated method names and arguments for WPSSO v3.18.0. 
 
-** Version 1.7.1 (2015/12/06) **
+**Version 1.7.1 (2015/12/06)**
 
 Official announcement: N/A
 
@@ -202,7 +202,7 @@ Official announcement: N/A
 * **Developer Notes**
 	* *None*
 
-** Version 1.7.0 (2015/10/16) **
+**Version 1.7.0 (2015/10/16)**
 
 Official announcement: N/A
 
