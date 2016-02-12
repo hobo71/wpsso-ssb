@@ -131,28 +131,28 @@ Official announcement: N/A
 
 Please note: This latest release includes new social sharing buttons and styles. **Use the "Reload Default Styles" action button on the Sharing Styles page to reload the latest default sharing styles.**
 
-* **New Features**
+* *New Features*
 	* Added a new "Allow for Platform" option for all social sharing buttons.
 	* Added a new "Reload Default Styles" action button on the Sharing Styles settings page.
 	* Added a new "WhatsApp" social sharing button -- Please note that the default "Allow for Platform" option value for the WhatsApp button is "Mobile Only".
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
 	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
 
 **Version 2.0.1 (2015/12/27)**
 
 Official announcement: N/A
 
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
 	* Updated minimum required version to WPSSO v3.20.0.
 	* Updated the settings page construct to include the library name argument.
 	* Renamed the website class `$id` and `$name` properties to `$website_id` and `$website_name`.
@@ -163,14 +163,14 @@ Official announcement: N/A
 
 Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-names-email-button/
 
-* **New Features**
+* *New Features*
 	* Added a new "E-Mail" sharing button.
 	* Added an 'ssb' prefix to all CSS class and ID names. This new version of WPSSO SSB will load new default CSS styles. If you've made changes to the default styles, you will have to apply those changes to these new defaults as well.
-* **Improvements**
+* *Improvements*
 	* Enabled the CSS editing features on the Sharing Styles page for the Free version as well.
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
+* *Bugfixes*
+	* None
+* *Developer Notes*
 	* Renamed all button related option keys to include an 'ssb' prefix.
 	* Renamed all button CSS classes and IDs to include an 'ssb' prefix.
 
@@ -178,13 +178,13 @@ Official announcement: http://wpsso.com/2015/12/15/wpsso-ssb-update-css-class-na
 
 Official announcement: N/A
 
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
 	* Updated tested up to WP v4.4.
 	* Updated minimum required version to WPSSO v3.18.0.
 	* Updated method names and arguments for WPSSO v3.18.0. 
@@ -193,27 +193,27 @@ Official announcement: N/A
 
 Official announcement: N/A
 
-* **New Features**
-	* *None*
-* **Improvements**
-	* *None*
-* **Bugfixes**
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
 	* Added a check for HTTPS when defining the social buttons transient cache object, allowing for differences in sharing URLs when using HTTP and HTTPS.
-* **Developer Notes**
-	* *None*
+* *Developer Notes*
+	* None
 
 **Version 1.7.0 (2015/10/16)**
 
 Official announcement: N/A
 
-* **New Features**
+* *New Features*
 	* Added a French language (fr_FR) translation.
-* **Improvements**
+* *Improvements*
 	* Added translation function calls to all option labels in the settings pages and metaboxes.
 	* Updated the text domain in preparation for plugin import to translate.wordpress.org.
-* **Bugfixes**
-	* *None*
-* **Developer Notes**
+* *Bugfixes*
+	* None
+* *Developer Notes*
 	* Added a POT (Portable Object Template) file with translation strings in languages/wpsso-ssb.pot.
 
 == Upgrade Notice ==
