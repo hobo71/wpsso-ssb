@@ -61,15 +61,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 			}
 			$badge_html .= '</div>';
 
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			$this->form->get_select( 'stumble_order', 
+				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'stumble' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'stumble_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'stumble_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -92,11 +97,12 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'stumble_order' => 11,
 					'stumble_on_content' => 0,
 					'stumble_on_excerpt' => 0,
 					'stumble_on_sidebar' => 0,
 					'stumble_on_admin_edit' => 1,
-					'stumble_order' => 10,
+					'stumble_platform' => 'any',
 					'stumble_script_loc' => 'footer',	// header or footer
 					'stumble_badge' => 1,
 				),

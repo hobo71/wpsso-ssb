@@ -15,11 +15,11 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
 			$this->p->util->add_plugin_filters( $this, array( 
-				'plugin_cache_rows' => 3,	// advanced 'File and Object Cache' options
-				'sharing_include_rows' => 2,	// social sharing 'Include Buttons' options
-				'sharing_preset_rows' => 2,	// social sharing 'Button Presets' options
-				'post_tabs' => 1,		// post 'Sharing Buttons' tab
-				'post_sharing_rows' => 3,	// post 'Sharing Buttons' options
+				'plugin_cache_rows' => 3,		// advanced 'File and Object Cache' options
+				'sharing_include_rows' => 2,		// social sharing 'Include Buttons' options
+				'sharing_preset_rows' => 2,		// social sharing 'Button Presets' options
+				'post_social_settings_tabs' => 1,	// post 'Sharing Buttons' tab
+				'post_sharing_rows' => 3,		// post 'Sharing Buttons' options
 			), 30 );
 		}
 
@@ -72,7 +72,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			return $rows;
 		}
 
-		public function filter_post_tabs( $tabs ) {
+		public function filter_post_social_settings_tabs( $tabs ) {
 			$new_tabs = array();
 			foreach ( $tabs as $key => $val ) {
 				$new_tabs[$key] = $val;

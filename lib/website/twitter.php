@@ -23,14 +23,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 			
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $this->show_on_checkboxes( 'twitter' ) ).'</td>';
-
 			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			( $this->show_on_checkboxes( 'twitter' ) ).'</td>';
+
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'twitter_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -102,11 +108,12 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'twitter_order' => 3,
 					'twitter_on_content' => 1,
 					'twitter_on_excerpt' => 0,
 					'twitter_on_sidebar' => 0,
 					'twitter_on_admin_edit' => 1,
-					'twitter_order' => 2,
+					'twitter_platform' => 'any',
 					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
 					'twitter_count' => 'horizontal',

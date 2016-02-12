@@ -88,7 +88,7 @@
 
 #wpsso-ssb-sidebar .ssb-buttons div.pinterest-button,
 #wpsso-ssb-sidebar .wpsso-preset-large_share_vertical
-	.ssb-buttons div.pinterest-button { height:40px; margin-top:42px; }
+	.ssb-buttons div.pinterest-button { line-height:115px; }
 #wpsso-ssb-sidebar .wpsso-preset-small_share_count
 	.ssb-buttons div.pinterest-button { height:20px; margin-top:10px; }
 
@@ -108,7 +108,7 @@
 
 #wpsso-ssb-sidebar .ssb-buttons div.reddit-button,
 #wpsso-ssb-sidebar .wpsso-preset-large_share_vertical
-	.ssb-buttons div.reddit-button { margin:20px 5px 20px 5px; }
+	.ssb-buttons div.reddit-button { margin:10px 5px 20px 5px; }
 #wpsso-ssb-sidebar .wpsso-preset-small_share_count
 	.ssb-buttons div.reddit-button { margin-bottom:10px; }
 

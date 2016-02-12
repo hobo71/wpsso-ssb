@@ -37,14 +37,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short', null ).
-			'<td>'.$this->show_on_checkboxes( 'pin' ).'</td>';
-
 			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_order', range( 1, 
 				count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
+			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+				'option label (short)', 'wpsso-ssb' ), 'short', null ).
+			'<td>'.$this->show_on_checkboxes( 'pin' ).'</td>';
+
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'pin_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -114,11 +120,12 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'pin_order' => 6,
 					'pin_on_content' => 0,
 					'pin_on_excerpt' => 0,
 					'pin_on_sidebar' => 0,
 					'pin_on_admin_edit' => 1,
-					'pin_order' => 5,
+					'pin_platform' => 'any',
 					'pin_script_loc' => 'footer',
 					'pin_button_lang' => 'en',
 					'pin_button_shape' => 'rect',

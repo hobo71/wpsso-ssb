@@ -39,15 +39,21 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 
 				case 'fb-all':
 
-					$rows[] = $this->p->util->get_th( _x( 'Show Button in',
-						'option label (short)', 'wpsso-ssb' ), 'short' ).
-					'<td>'.( $this->show_on_checkboxes( 'fb' ) ).'</td>';
-
 					$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_order', 
 						range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 	
+					$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+						'option label (short)', 'wpsso-ssb' ), 'short' ).
+					'<td>'.( $this->show_on_checkboxes( 'fb' ) ).'</td>';
+
+					$rows[] = '<tr class="hide_in_basic">'.
+					$this->p->util->get_th( _x( 'Allow for Platform',
+						'option label (short)', 'wpsso-ssb' ), 'short' ).
+					'<td>'.$this->form->get_select( 'fb_platform',
+						$this->p->cf['sharing']['platform'] ).'</td>';
+
 					$rows[] = '<tr class="hide_in_basic">'.
 					$this->p->util->get_th( _x( 'JavaScript in',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -158,11 +164,12 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'fb_order' => 4,
 					'fb_on_content' => 1,
 					'fb_on_excerpt' => 0,
 					'fb_on_sidebar' => 0,
 					'fb_on_admin_edit' => 1,
-					'fb_order' => 3,
+					'fb_platform' => 'any',
 					'fb_script_loc' => 'header',
 					'fb_button' => 'like',
 					'fb_markup' => 'xfbml',

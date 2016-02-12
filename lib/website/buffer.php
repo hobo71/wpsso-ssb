@@ -37,15 +37,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 			
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			$this->form->get_select( 'buffer_order', 
+				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'buffer' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'buffer_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -91,11 +96,12 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'buffer_order' => 8,
 					'buffer_on_content' => 0,
 					'buffer_on_excerpt' => 0,
 					'buffer_on_sidebar' => 0,
 					'buffer_on_admin_edit' => 1,
-					'buffer_order' => 7,
+					'buffer_platform' => 'any',
 					'buffer_script_loc' => 'footer',
 					'buffer_count' => 'horizontal',
 					'buffer_img_width' => 600,

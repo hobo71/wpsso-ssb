@@ -113,31 +113,20 @@
 .wpsso-preset-large_share_vertical 
 	.ssb-buttons div.tumblr-button { height:20px; line-height:20px; }
 
-.ssb-buttons div.css-button,
-.wpsso-preset-small_share_count 
-	.ssb-buttons div.css-button { width:60px; }
-.wpsso-preset-large_share_vertical 
-	.ssb-buttons div.css-button { height:20px !important; line-height:20px; }
+/* non-JavaScript buttons */
 
 .ssb-buttons div.css-button a {
 	display:inline-block;
+	line-height:20px;
 	width:60px;
 	font-size:10px;
 	border-radius:3px;
 	text-align:center;
 	text-decoration:none;
 	vertical-align:top;
-	border:0.5px solid #eee;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.ssb-buttons div.email-button a {
-	background-color:#0a88ff;
-}
-
-.ssb-buttons div.email-button a:hover {
-	background-color:#006ed6;
+	border:0.5px solid #ddd;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
 }
 
 .ssb-buttons div.css-button a .ssb-icon {
@@ -151,6 +140,49 @@
 	font-weight:bold;
 }
 
-.ssb-buttons div.email-button a .ssb-text:before {
-	content:"E-Mail";
+.ssb-buttons div.email-button,
+.wpsso-preset-small_share_count
+	.ssb-buttons div.email-button { 
+		width:60px; 
 }
+.ssb-buttons div.email-button a,
+.wpsso-preset-small_share_count
+	.ssb-buttons div.email-button a { 
+		width:60px;
+		background-color:#0a88ff;
+}
+.wpsso-preset-large_share_vertical
+	.ssb-buttons div.email-button {
+		height:20px !important;
+}
+.ssb-buttons div.email-button a:hover { background-color:#006ed6; }
+.ssb-buttons div.email-button a .ssb-text:before { content:" E-Mail"; }
+
+.ssb-buttons div.whatsapp-button,
+.wpsso-preset-small_share_count
+	.ssb-buttons div.whatsapp-button { 
+		width:80px; 
+}
+.ssb-buttons div.whatsapp-button a,
+.wpsso-preset-small_share_count
+	.ssb-buttons div.whatsapp-button a { 
+		width:80px; 
+		background-color:#64d448;
+}
+.wpsso-preset-large_share_vertical
+	.ssb-buttons div.whatsapp-button {
+		height:55px !important;
+}
+.wpsso-preset-large_share_vertical
+	.ssb-buttons div.whatsapp-button a {
+		width:60px;
+}
+.wpsso-preset-large_share_vertical
+	.ssb-buttons div.whatsapp-button a .ssb-icon svg { 
+		width:auto;
+		height:22px;
+		margin:5px 0 0 0;
+}
+.ssb-buttons div.whatsapp-button a:hover { background-color:#49bd2c; }
+.ssb-buttons div.whatsapp-button a .ssb-text:before { content:" WhatsApp"; }
+

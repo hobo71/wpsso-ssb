@@ -23,15 +23,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			$this->form->get_select( 'gp_order', 
+				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'gp' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'gp_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'gp_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -94,11 +99,12 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'gp_order' => 5,
 					'gp_on_content' => 1,
 					'gp_on_excerpt' => 0,
 					'gp_on_sidebar' => 0,
 					'gp_on_admin_edit' => 1,
-					'gp_order' => 4,
+					'gp_platform' => 'any',
 					'gp_script_loc' => 'header',
 					'gp_lang' => 'en-US',
 					'gp_action' => 'plusone',

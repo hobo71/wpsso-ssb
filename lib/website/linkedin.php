@@ -23,15 +23,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingLinkedin' ) && class_exists( 'WpssoS
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			$this->form->get_select( 'linkedin_order', 
+				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'linkedin' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'linkedin_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'linkedin_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
@@ -65,11 +70,12 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'linkedin_order' => 7,
 					'linkedin_on_content' => 0,
 					'linkedin_on_excerpt' => 0,
 					'linkedin_on_sidebar' => 0,
 					'linkedin_on_admin_edit' => 1,
-					'linkedin_order' => 6,
+					'linkedin_platform' => 'any',
 					'linkedin_script_loc' => 'header',
 					'linkedin_counter' => 'right',
 					'linkedin_showzero' => 1,

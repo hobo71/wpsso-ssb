@@ -23,15 +23,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingReddit' ) && class_exists( 'WpssoSsb
 		protected function get_rows( $metabox, $key ) {
 			$rows = array();
 
+			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
+			$this->form->get_select( 'reddit_order', 
+				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'reddit' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'reddit_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 
-					'short' ).'</td>';
+			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'reddit_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
@@ -55,11 +60,12 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'reddit_order' => 9,
 					'reddit_on_content' => 0,
 					'reddit_on_excerpt' => 0,
 					'reddit_on_sidebar' => 0,
 					'reddit_on_admin_edit' => 1,
-					'reddit_order' => 8,
+					'reddit_platform' => 'any',
 					'reddit_type' => 'static-wide',
 				),
 			),

@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 
 		public function show_metabox_sharing() {
 			$metabox = 'sharing';
-			$tabs = apply_filters( $this->p->cf['lca'].'_'.$metabox.'_tabs', array(
+			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_buttons_tabs', array(
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset' => _x( 'Button Presets', 'metabox tab', 'wpsso-ssb' ),

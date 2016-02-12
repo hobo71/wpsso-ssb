@@ -29,18 +29,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingEmail' ) && class_exists( 'WpssoSsbS
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).  '</td>';
 
 			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
-				'option label', 'wpsso-ssb' ) ).
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->show_on_checkboxes( 'email' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
+			$this->p->util->get_th( _x( 'Allow for Platform',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$this->form->get_select( 'email_platform',
+				$this->p->cf['sharing']['platform'] ).'</td>';
+
+			$rows[] = '<tr class="hide_in_basic">'.
                         $this->p->util->get_th( _x( 'Email Message Length',
-				'option label', 'wpsso-ssb' ) ).
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_input( 'email_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'Add Hashtags to Message',
-				'option label', 'wpsso-ssb' ) ).
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'email_cap_hashtags',
 				range( 0, $this->p->cf['form']['max_hashtags'] ), 'short', null, true ).' '.
 					_x( 'tag names', 'option comment', 'wpsso-ssb' ).'</td>';
@@ -60,11 +66,12 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					'email_order' => 1,
 					'email_on_content' => 1,
 					'email_on_excerpt' => 0,
 					'email_on_sidebar' => 0,
 					'email_on_admin_edit' => 1,
-					'email_order' => 1,
+					'email_platform' => 'any',
 					'email_cap_len' => 500,
 					'email_cap_hashtags' => 0,
 					'email_ssb_html' => '<div class="css-button email-button">
@@ -123,11 +130,11 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 				$atts['source_id'] = $this->p->util->get_source_id( 'email', $atts );
 
 			return $this->p->util->replace_inline_vars( $this->p->options['email_ssb_html'], $use_post, false, $atts, array(
-				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
-						$use_post, true, false, false, 'og_title', 'email' ) ),
-				 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
-						$use_post, true, $add_hashtags, false, 'og_desc', 'email' ) ),
-				 ) );
+			 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
+					$use_post, true, false, false, 'og_title', 'email' ) ),
+			 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
+					$use_post, true, $add_hashtags, false, 'og_desc', 'email' ) ),
+			 ) );
 		}
 	}
 }
