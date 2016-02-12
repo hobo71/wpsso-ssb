@@ -37,22 +37,22 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 	* In a floating CSS / javascript button sidebar.
 	* A shortcode within your content and/or excerpt.
 	* A function in your theme's template(s).
-* Each of these social sharing buttons can be configured and styled individually:
+* Social sharing buttons for the content, excerpt, in a widget, as a shortcode, floating sidebar, and/or PHP function.
 	* Buffer
 	* Email
-	* Facebook (like, send and share buttons)
+	* Facebook
 	* Google+
 	* LinkedIn
 	* ManageWP
 	* Pinterest
 	* Reddit
 	* StumbleUpon
-	* Tumblr (shares links, quotes, images, videos)
-	* Twitter (shares summary, large image summary and player cards &ndash; the photo, gallery, and product cards are no longer supported by Twitter as of July 3rd 2015)
-	* WhatsApp
+	* Tumblr
+	* Twitter
+	* WhatsApp (for Mobile Devices)
+* Include / exclude each social sharing button based on the viewing device (desktop and/or mobile).
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
-
-The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
+* The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
 <blockquote>
 <p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
@@ -123,15 +123,16 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
-= Version 2.1.0 (TBD) =
+= Version 2.1.0 (2016/02/13) =
 
 Official announcement: N/A
 
-Please note: This latest release includes new social sharing buttons and styles. You can use the new "Reload Default Styles" action button to load the latest sharing styles.
+Please note: This latest release includes new social sharing buttons and styles. **Use the "Reload Default Styles" action button on the Sharing Styles page to reload the latest default sharing styles.**
 
 * **New Features**
 	* Added a new "Allow for Platform" option for all social sharing buttons.
 	* Added a new "Reload Default Styles" action button on the Sharing Styles settings page.
+	* Added a new "WhatsApp" social sharing button -- Please note that the default "Allow for Platform" option value for the WhatsApp button is "Mobile Only".
 * **Improvements**
 	* *None*
 * **Bugfixes**
@@ -215,7 +216,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.0.1 =
+= 2.1.0 =
 
-2015/12/27 - Updated minimum required version to WPSSO v3.20.0. Updated the settings page construct to include the library name argument.
+2016/02/13 - Added a new "WhatsApp" sharing button and "Allow for Platform" option. Use the "Reload Default Styles" action button on the Sharing Styles page to reload the latest default sharing styles.
 
