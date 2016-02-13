@@ -44,8 +44,8 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			if ( ! is_object( $this->p ) )
 				return;
 
-			if ( is_object( $this->p->sharing ) && 
-				$this->p->sharing->is_post_buttons_disabled() ) {
+			if ( is_object( $this->p->ssb ) && 
+				$this->p->ssb->is_post_buttons_disabled() ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'widget buttons skipped: sharing buttons disabled' );
 				return;
@@ -89,7 +89,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			$html = '<!-- '.$lca.' '.$args['widget_id'].' begin -->'.
 				$before_widget.
 				( empty( $title ) ? '' : $before_title.$title.$after_title ).
-				$this->p->sharing->get_html( $sorted_ids, $atts ).
+				$this->p->ssb->get_html( $sorted_ids, $atts ).
 				$after_widget.
 				'<!-- '.$lca.' '.$args['widget_id'].' end -->'."\n";
 
@@ -107,7 +107,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 		public function update( $new_instance, $old_instance ) {
 			$instance = $old_instance;
 			$instance['title'] = strip_tags( $new_instance['title'] );
-			foreach ( $this->p->sharing->get_defined_website_names() as $id => $name )
+			foreach ( $this->p->ssb->get_defined_website_names() as $id => $name )
 				$instance[$id] = empty( $new_instance[$id] ) ? 0 : 1;
 			return $instance;
 		}
@@ -120,7 +120,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				'<input class="widefat" id="'.$this->get_field_id( 'title' ).'" name="'.
 					$this->get_field_name( 'title' ).'" type="text" value="'.$title.'"/></p>'."\n";
 	
-			foreach ( $this->p->sharing->get_defined_website_names() as $id => $name ) {
+			foreach ( $this->p->ssb->get_defined_website_names() as $id => $name ) {
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
 				echo '<p><label for="'.$this->get_field_id( $id ).'">'.
 					'<input id="'.$this->get_field_id( $id ).
@@ -140,7 +140,6 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				echo '</label></p>', "\n";
 			}
 		}
-
 	}
 }
 

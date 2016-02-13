@@ -100,6 +100,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				return;		// stop here
 
 			$this->p->is_avail['ssb'] = true;
+
 			if ( is_admin() ) {
 				$this->p->is_avail['admin']['sharing'] = true;
 				$this->p->is_avail['admin']['style'] = true;
@@ -110,8 +111,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			if ( self::$wpsso_has_min_ver === false )
 				return;		// stop here
 
-			WpssoSsbConfig::load_lib( false, 'sharing' );
-			$this->p->sharing = new WpssoSsbSharing( $this->p, __FILE__ );
+			$this->p->ssb = new WpssoSsbSharing( $this->p, __FILE__ );
 		}
 
 		public function wpsso_init_plugin() {

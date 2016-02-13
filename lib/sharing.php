@@ -868,7 +868,7 @@ $buttons_html.
 </script>'."\n";
 		}
 
-		public function get_css( $css_name, &$atts = array(), $css_class_extra = '' ) {
+		public static function get_css_class_id( $css_name, &$atts = array(), $css_class_extra = '' ) {
 
 			foreach ( array( 'css_class', 'css_id' ) as $key )
 				if ( empty( $atts[$key] ) )

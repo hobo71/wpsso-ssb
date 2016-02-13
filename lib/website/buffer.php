@@ -212,13 +212,14 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			if ( ! array_key_exists( 'hashtags', $atts ) )
 				$atts['hashtags'] = '';
 
-			$html = '<!-- Buffer Button --><div '.$this->p->sharing->get_css( 'buffer', $atts ).'>';
-			$html .= '<a href="'.SucomUtil::get_prot().'://bufferapp.com/add" class="buffer-add-button" ';
-			$html .= 'data-url="'.$atts['url'].'" ';
-			$html .= empty( $atts['photo'] ) ? '' : 'data-picture="'.$atts['photo'].'" ';
-			$html .= empty( $atts['caption'] ) ? '' : 'data-text="'.$atts['caption'].'" ';	// html encoded
-			$html .= empty( $atts['via'] ) ? '' : 'data-via="'.$atts['via'].'" ';
-			$html .= 'data-count="'.$opts['buffer_count'].'"></a></div>';
+			$html = '<!-- Buffer Button -->'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'buffer', $atts ).'>'.
+			'<a href="'.SucomUtil::get_prot().'://bufferapp.com/add" class="buffer-add-button"'.
+			' data-url="'.$atts['url'].'"'.
+			' data-count="'.$opts['buffer_count'].'"'.
+				( empty( $atts['photo'] ) ? '' : ' data-picture="'.$atts['photo'].'"' ).
+				( empty( $atts['caption'] ) ? '' : ' data-text="'.$atts['caption'].'"' ).
+				( empty( $atts['via'] ) ? '' : ' data-via="'.$atts['via'].'"' ).'></a></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );

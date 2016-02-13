@@ -203,11 +203,19 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			if ( ! array_key_exists( 'dnt', $atts ) ) 
 				$atts['dnt'] = $opts['twitter_dnt'] ? 'true' : 'false';
 
-			$html = '<!-- Twitter Button --><div '.$this->p->sharing->get_css( 'twitter', $atts ).'>';
-			$html .= '<a href="'.SucomUtil::get_prot().'://twitter.com/share" class="twitter-share-button" data-lang="'. $atts['lang'].'" ';
-			$html .= 'data-url="'.$short_url.'" data-counturl="'.$long_url.'" data-text="'.$atts['caption'].'" ';
-			$html .= 'data-via="'.$atts['via'].'" data-related="'.$atts['related'].'" data-hashtags="'.$atts['hashtags'].'" ';
-			$html .= 'data-count="'.$opts['twitter_count'].'" data-size="'.$opts['twitter_size'].'" data-dnt="'.$atts['dnt'].'"></a></div>';
+			$html = '<!-- Twitter Button -->'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'twitter', $atts ).'>'.
+			'<a href="'.SucomUtil::get_prot().'://twitter.com/share" class="twitter-share-button"'.
+			' data-lang="'.$atts['lang'].'"'.
+			' data-url="'.$short_url.'"'.
+			' data-counturl="'.$long_url.'"'.
+			' data-text="'.$atts['caption'].'"'.
+			' data-via="'.$atts['via'].'"'.
+			' data-related="'.$atts['related'].'"'.
+			' data-hashtags="'.$atts['hashtags'].'"'.
+			' data-count="'.$opts['twitter_count'].'"'.
+			' data-size="'.$opts['twitter_size'].'"'.
+			' data-dnt="'.$atts['dnt'].'"></a></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );

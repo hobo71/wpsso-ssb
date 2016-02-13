@@ -218,8 +218,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		}
 
 		public static function require_libs( $plugin_filepath ) {
+
 			require_once( WPSSOSSB_PLUGINDIR.'lib/register.php' );
 			require_once( WPSSOSSB_PLUGINDIR.'lib/functions.php' );
+			require_once( WPSSOSSB_PLUGINDIR.'lib/sharing.php' );
+
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );
 		}
 

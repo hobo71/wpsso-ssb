@@ -96,10 +96,10 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
 				unset ( $atts['buttons'] );
 				$html .= '<!-- '.$lca.' '.$atts['css_class'].' begin -->'.
-					$this->p->sharing->get_script( 'shortcode-header', $ids ).
+					$this->p->ssb->get_script( 'shortcode-header', $ids ).
 					'<div class="'.$lca.'-ssb '.$lca.'-'.$atts['css_class']."\">\n".
-					$this->p->sharing->get_html( $ids, $atts ).'</div>'.
-					$this->p->sharing->get_script( 'shortcode-footer', $ids ).
+					$this->p->ssb->get_html( $ids, $atts ).'</div>'.
+					$this->p->ssb->get_script( 'shortcode-footer', $ids ).
 					'<!-- '.$lca.' '.$atts['css_class'].' end -->';
 
 				if ( $this->p->is_avail['cache']['transient'] ) {

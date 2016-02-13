@@ -112,10 +112,11 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
-			$html = '<!-- ManageWP Button --><div '.$this->p->sharing->get_css( 'managewp', $atts ).'>';
-			$html .= '<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"';
-			$html .= empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"';
-			$html .= '></script></div>';
+			$html = '<!-- ManageWP Button -->'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'managewp', $atts ).'>'.
+			'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"'.
+				( empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"' ).'>'.
+			'</script></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );

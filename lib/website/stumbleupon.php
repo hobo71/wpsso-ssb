@@ -135,8 +135,9 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
 					$use_post, $atts['add_page'], $src_id );
 
-			$html = '<!-- StumbleUpon Button --><div '.$this->p->sharing->get_css( 'stumbleupon', $atts, 'stumble-button' ).'>';
-			$html .= '<su:badge layout="'.$opts['stumble_badge'].'" location="'.$atts['url'].'"></su:badge></div>';
+			$html = '<!-- StumbleUpon Button -->'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'stumbleupon', $atts, 'stumble-button' ).'>'.
+			'<su:badge layout="'.$opts['stumble_badge'].'" location="'.$atts['url'].'"></su:badge></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );

@@ -124,10 +124,10 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 			}
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
 
-			$html = '<!-- Reddit Button -->';
-			$html .= '<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>';
-			$html .= '<div '.$this->p->sharing->get_css( 'reddit', $atts ).'>';
-			$html .= '<script type="text/javascript" src="'.$js_url.'"></script></div>';
+			$html = '<!-- Reddit Button -->'.
+			'<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'reddit', $atts ).'>'.
+			'<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );

@@ -109,10 +109,12 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'],
 					$use_post, $atts['add_page'], $src_id );
 
-			$html = '<!-- LinkedIn Button --><div '.$this->p->sharing->get_css( 'linkedin', $atts ).'><script type="IN/Share" data-url="'.$atts['url'].'"';
-			$html .= empty( $opts['linkedin_counter'] ) ? '' : ' data-counter="'.$opts['linkedin_counter'].'"';
-			$html .= empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"';
-			$html .= '></script></div>';
+			$html = '<!-- LinkedIn Button -->'.
+			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'linkedin', $atts ).'>'.
+			'<script type="IN/Share" data-url="'.$atts['url'].'"'.
+				( empty( $opts['linkedin_counter'] ) ? '' : ' data-counter="'.$opts['linkedin_counter'].'"' ).
+				( empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"' ).'>'.
+			'</script></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
