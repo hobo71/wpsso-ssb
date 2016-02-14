@@ -125,7 +125,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.1.0 (2016/02/14)**
+**Version 2.1.1 (2016/02/14)**
 
 Official announcement: N/A
 
@@ -218,7 +218,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.1.0 =
+= 2.1.1 =
 
 2016/02/14 - Added a new "WhatsApp" sharing button and "Allow for Platform" option. Use the "Reload Default Styles" action button on the Sharing Styles page to reload the latest default sharing styles.
 
