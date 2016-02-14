@@ -213,7 +213,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				$atts['hashtags'] = '';
 
 			$html = '<!-- Buffer Button -->'.
-			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'buffer', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( 'buffer', $atts ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://bufferapp.com/add" class="buffer-add-button"'.
 			' data-url="'.$atts['url'].'"'.
 			' data-count="'.$opts['buffer_count'].'"'.

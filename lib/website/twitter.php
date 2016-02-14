@@ -204,7 +204,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				$atts['dnt'] = $opts['twitter_dnt'] ? 'true' : 'false';
 
 			$html = '<!-- Twitter Button -->'.
-			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'twitter', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( 'twitter', $atts ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://twitter.com/share" class="twitter-share-button"'.
 			' data-lang="'.$atts['lang'].'"'.
 			' data-url="'.$short_url.'"'.

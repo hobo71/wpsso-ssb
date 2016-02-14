@@ -126,7 +126,7 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 
 			$html = '<!-- Reddit Button -->'.
 			'<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>'.
-			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'reddit', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( 'reddit', $atts ).'>'.
 			'<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
 			if ( $this->p->debug->enabled )

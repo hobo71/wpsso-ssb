@@ -136,7 +136,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 					$use_post, $atts['add_page'], $src_id );
 
 			$html = '<!-- StumbleUpon Button -->'.
-			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'stumbleupon', $atts, 'stumble-button' ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( 'stumbleupon', $atts, 'stumble-button' ).'>'.
 			'<su:badge layout="'.$opts['stumble_badge'].'" location="'.$atts['url'].'"></su:badge></div>';
 
 			if ( $this->p->debug->enabled )

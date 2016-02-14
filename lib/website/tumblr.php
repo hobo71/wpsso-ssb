@@ -267,7 +267,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			if ( empty( $query ) ) return;
 
 			$html = '<!-- Tumblr Button -->'.
-			'<div '.WpssoSsbSharingSharing::get_css_class_id( 'tumblr', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( 'tumblr', $atts ).'>'.
 			'<a href="http://www.tumblr.com/share/'. $query.'" title="Share on Tumblr">'.
 			'<img border="0" alt="Share on Tumblr" src="'.
 				$this->p->util->get_cache_file_url( SucomUtil::get_prot().'://platform.tumblr.com/v1/'.
