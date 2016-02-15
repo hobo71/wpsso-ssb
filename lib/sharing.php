@@ -465,7 +465,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			if ( ! empty( $this->p->options[ 'buttons_add_to_'.$post_type->name ] ) ) {
 				// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
-				add_meta_box( '_'.$this->p->cf['lca'].'_share',
+				add_meta_box( '_'.$this->p->cf['lca'].'_ssb_share',
 					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
 						array( &$this, 'show_admin_sharing' ), $post_type->name, 'side', 'high' );
 			}
@@ -514,9 +514,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function show_admin_sharing( $post ) {
+			$lca = $this->p->cf['lca'];
 			$post_type = get_post_type_object( $post->post_type );	// since 3.0
 			$post_type_name = ucfirst( $post_type->name );
-			$css_data = $this->p->options['buttons_css_ssb-admin_edit'];
+			$css_data = '#side-sortables #_'.$lca.'_ssb_share .inside table.sucom-setting { padding:0; }'.
+				$this->p->options['buttons_css_ssb-admin_edit'];
 
 			$classname = apply_filters( $this->p->cf['lca'].'_load_lib', 
 				false, 'ext/compressor', 'SuextMinifyCssCompressor' );
