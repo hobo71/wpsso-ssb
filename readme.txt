@@ -125,6 +125,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.1.2 (2016/02/15)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Updated the admin editing page CSS for the new Email and WhatsApp buttons.
+* *Developer Notes*
+	* None
+
 **Version 2.1.1 (2016/02/14)**
 
 Official announcement: N/A
@@ -217,6 +230,10 @@ Official announcement: N/A
 	* Added a POT (Portable Object Template) file with translation strings in languages/wpsso-ssb.pot.
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+
+2016/02/15 - Updated the admin editing page CSS for the new Email and WhatsApp buttons.
 
 = 2.1.1 =
 
