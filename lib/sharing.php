@@ -132,7 +132,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 		}
 
-		public function filter_get_meta_defaults( $opts_def, $mod ) {
+		public function filter_get_meta_defaults( $opts_def, $mod_name ) {
 			$meta_def = array(
 				'tumblr_title' => '',
 				'tumblr_desc' => '',
@@ -185,7 +185,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $opts;
 		}
 
-		public function filter_option_type( $type, $key, $network, $mod ) {
+		public function filter_option_type( $type, $key, $network, $mod_name ) {
 			if ( ! empty( $type ) )
 				return $type;
 

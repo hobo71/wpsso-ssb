@@ -102,10 +102,12 @@ if ( ! class_exists( 'WpssoSsbSharingWhatsApp' ) ) {
 			if ( ! isset( $atts['source_id'] ) )
 				$atts['source_id'] = $this->p->util->get_source_id( 'whatsapp', $atts );
 
-			return $this->p->util->replace_inline_vars( $this->p->options['wa_ssb_html'], $use_post, false, $atts, array(
-			 	'title' => rawurlencode( $this->p->webpage->get_title( 0, '',
-					$use_post, true, false, false, 'og_title', 'whatsapp' ) ),
-			) );
+			return $this->p->util->replace_inline_vars( '<!-- WhatsApp Button -->'.
+				$this->p->options['wa_ssb_html'], $use_post, false, $atts, array(
+			 		'title' => rawurlencode( $this->p->webpage->get_title( 0, '',
+						$use_post, true, false, false, 'og_title', 'whatsapp' ) ),
+				)
+			);
 		}
 	}
 }

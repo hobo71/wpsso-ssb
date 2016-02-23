@@ -98,7 +98,7 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 			) );
 		}
 
-		public function filter_get_meta_defaults( $opts_def, $mod ) {
+		public function filter_get_meta_defaults( $opts_def, $mod_name ) {
 			$meta_def = array(
 				'email_title' => '',
 				'email_desc' => '',
@@ -129,12 +129,14 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 			if ( ! isset( $atts['source_id'] ) )
 				$atts['source_id'] = $this->p->util->get_source_id( 'email', $atts );
 
-			return $this->p->util->replace_inline_vars( $this->p->options['email_ssb_html'], $use_post, false, $atts, array(
-			 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
-					$use_post, true, false, false, 'og_title', 'email' ) ),
-			 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
-					$use_post, true, $add_hashtags, false, 'og_desc', 'email' ) ),
-			 ) );
+			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
+				$this->p->options['email_ssb_html'], $use_post, false, $atts, array(
+				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
+						$use_post, true, false, false, 'og_title', 'email' ) ),
+				 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
+						$use_post, true, $add_hashtags, false, 'og_desc', 'email' ) ),
+				 )
+			 );
 		}
 	}
 }
