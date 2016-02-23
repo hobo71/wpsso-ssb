@@ -51,9 +51,9 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 			}
 
 			$html = '<!-- '.$wpsso->cf['lca'].' sharing buttons begin -->'.
-				$wpsso->sharing->get_script( 'sharing-buttons-header', $ids ).
-				$wpsso->sharing->get_html( $ids, $atts ).
-				$wpsso->sharing->get_script( 'sharing-buttons-footer', $ids ).
+				$wpsso->ssb->get_script( 'sharing-buttons-header', $ids ).
+				$wpsso->ssb->get_html( $ids, $atts ).
+				$wpsso->ssb->get_script( 'sharing-buttons-footer', $ids ).
 				'<!-- '.$wpsso->cf['lca'].' sharing buttons end -->';
 	
 			if ( $wpsso->is_avail['cache']['transient'] ||
