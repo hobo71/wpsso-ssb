@@ -129,6 +129,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.1.3 (2016/02/23)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed an undefined `Wpsso::$sharing` property error in the functions.php code.
+* *Developer Notes*
+	* None
+
 **Version 2.1.2 (2016/02/15)**
 
 Official announcement: N/A
@@ -160,6 +173,10 @@ Please note: This latest release includes new social sharing buttons and styles.
 	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
 
 == Upgrade Notice ==
+
+= 2.1.3 =
+
+2016/02/23 - Fixed an undefined `Wpsso::$sharing` property error in the functions.php code.
 
 = 2.1.2 =
 
