@@ -50,7 +50,7 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 				return $wpsso->debug->get_html().$html;
 			}
 
-			$html = '<!-- '.$wpsso->cf['lca'].' '.__FUNCTION__.' function begin -->'."\n";
+			$html = '<!-- '.$wpsso->cf['lca'].' '.__FUNCTION__.' function begin -->'."\n".
 				$wpsso->ssb->get_script( 'sharing-buttons-header', $ids ).
 				$wpsso->ssb->get_html( $ids, $atts ).
 				$wpsso->ssb->get_script( 'sharing-buttons-footer', $ids ).
