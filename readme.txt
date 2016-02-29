@@ -129,6 +129,21 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.1.5 (TBD)**
+
+Official announcement: N/A
+
+Please note: This latest release includes style changes for the Tumblr button -- **use the "Reload Default Styles" action button, on the Sharing Styles page, to reload the latest default sharing styles.**
+
+* *New Features*
+	* None
+* *Improvements*
+	* Updated the Tumblr button module with the latest options and HTML code (see https://www.tumblr.com/docs/en/share_button).
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.1.4 (2016/02/24)**
 
 Official announcement: N/A
