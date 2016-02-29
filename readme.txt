@@ -129,7 +129,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.1.5 (TBD)**
+**Version 2.1.5 (2016/03/01)**
 
 Official announcement: N/A
 
@@ -201,6 +201,10 @@ Please note: This latest release includes new social sharing buttons and styles.
 	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
 
 == Upgrade Notice ==
+
+= 2.1.5 =
+
+2016/03/01 - This latest release includes style changes for the Tumblr button -- use the "Reload Default Styles" action button, on the Sharing Styles page, to reload the latest default sharing styles.
 
 = 2.1.4 =
 
