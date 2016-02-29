@@ -98,16 +98,8 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 					$use_post, $atts['add_page'], $src_id );
 
 			if ( empty( $atts['title'] ) )
-				$atts['title'] = $this->p->webpage->get_title( 
-					null,				// max length
-					null,				// trailing
-					$use_post,			//
-					true,				// use_cache
-					false,				// add_hashtags
-					true,				// encode
-					null,				// metadata key
-					$src_id
-				);
+				$atts['title'] = $this->p->webpage->get_title( null, null,
+					$use_post, true, false, true, null, $src_id );
 
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
@@ -120,7 +112,7 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 	}
 }

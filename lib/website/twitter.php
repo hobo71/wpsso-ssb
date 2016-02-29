@@ -141,26 +141,30 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 		public function get_html( $atts = array(), &$opts = array() ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
+
 			global $post; 
+
+			$lca = $this->p->cf['lca'];
 			$use_post = isset( $atts['use_post'] ) ?
 				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'twitter', $atts );
+
 			$atts['add_page'] = isset( $atts['add_page'] ) ?
 				$atts['add_page'] : true;	// get_sharing_url argument
+
 			$long_url = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url',
-					$atts['url'], $use_post, $atts['add_page'], $src_id );
+				apply_filters( $lca.'_sharing_url', $atts['url'], $use_post, $atts['add_page'], $src_id );
 
-			$short_url = apply_filters( $this->p->cf['lca'].'_shorten_url',
-				$long_url, $opts['plugin_shortener'] );
+			$short_url = apply_filters( $lca.'_shorten_url', $long_url, $opts['plugin_shortener'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) )
-				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
-			$atts['lang'] = apply_filters( $this->p->cf['lca'].'_lang', 
-				$atts['lang'], SucomUtil::get_pub_lang( 'twitter' ) );
+				$atts['lang'] = empty( $opts['twitter_lang'] ) ?
+					'en' : $opts['twitter_lang'];
+			$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'twitter' );
 
 			if ( array_key_exists( 'tweet', $atts ) )
 				$atts['caption'] = $atts['tweet'];
@@ -168,16 +172,8 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $long_url, 'twitter', $short_url );
-					$atts['caption'] = $this->p->webpage->get_caption( 
-						$opts['twitter_caption'],	// title, excerpt, both
-						$caption_len,			// max caption length 
-						$use_post,			// 
-						true,				// use_cache
-						true, 				// add_hashtags
-						true, 				// encode
-						'twitter_desc',			// metadata key
-						$src_id				// 
-					);
+					$atts['caption'] = $this->p->webpage->get_caption( $opts['twitter_caption'], $caption_len,
+						$use_post, true, true, true, 'twitter_desc', $src_id );
 				}
 			}
 
@@ -219,7 +215,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
@@ -229,7 +225,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				SucomUtil::get_prot().'://platform.twitter.com/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

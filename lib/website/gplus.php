@@ -41,18 +41,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 			$rows[] = '<tr class="hide_in_basic">'.
 			$this->p->util->get_th( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'gp_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
+			$this->form->get_select( 'gp_script_loc',
+				$this->p->cf['form']['script_locations'] ).'</td>';
 
 			$rows[] = $this->p->util->get_th( _x( 'Default Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'gp_lang', SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
+			$this->form->get_select( 'gp_lang',
+				SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
 
 			$rows[] = $this->p->util->get_th( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'gp_action', array( 
-				'plusone' => 'G +1', 
-				'share' => 'G+ Share',
-			) ).'</td>';
+			$this->form->get_select( 'gp_action',
+				array( 'plusone' => 'G +1', 'share' => 'G+ Share' ) ).'</td>';
 
 			$rows[] = $this->p->util->get_th( _x( 'Button Size',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
@@ -152,7 +152,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
@@ -162,7 +162,7 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 
 			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

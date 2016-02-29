@@ -57,15 +57,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 					$rows[] = '<tr class="hide_in_basic">'.
 					$this->p->util->get_th( _x( 'JavaScript in',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
-					'<td>'. $this->form->get_select( 'fb_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
+					'<td>'. $this->form->get_select( 'fb_script_loc',
+						$this->p->cf['form']['script_locations'] ).'</td>';
 	
 					$rows[] = $this->p->util->get_th( _x( 'Default Language',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
-					'<td>'.$this->form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
+					'<td>'.$this->form->get_select( 'fb_lang',
+						SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 	
 					$rows[] = $this->p->util->get_th( _x( 'Button Type',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
-					'<td>'.$this->form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
+					'<td>'.$this->form->get_select( 'fb_button',
+						array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
 
 					break;
 
@@ -74,11 +77,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 					$rows[] = $this->p->util->get_th( _x( 'Markup Language',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_markup', 
-						array( 
-							'html5' => 'HTML5', 
-							'xfbml' => 'XFBML',
-						) 
-					).'</td>';
+						array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
 	
 					$rows[] = $this->p->util->get_th( _x( 'Include Send',
 						'option label (short)', 'wpsso-ssb' ), 'short', null, 
@@ -254,7 +253,7 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
@@ -262,14 +261,14 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 				$this->p->debug->mark();
 			$app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
 			$lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
-			$lang = apply_filters( $this->p->cf['lca'].'_lang', $lang, SucomUtil::get_pub_lang( 'facebook' ) );
+			$lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $lang, 'facebook' );
 
 			// do not use get_cache_file_url() since the facebook javascript does not work when hosted locally
 			$js_url = apply_filters( $this->p->cf['lca'].'_js_url_facebook', 
 				SucomUtil::get_prot().'://connect.facebook.net/'.$lang.'/sdk.js#xfbml=1&version=v2.3&appId='.$app_id, $pos );
 
 			$html = '<script type="text/javascript" id="fb-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "fb-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "fb-script-'.$pos.'", "'.$js_url.'" );</script>';
 
 			return $html;
 		}

@@ -26,9 +26,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 		// add an option to the WordPress -> Settings -> Image Dimensions page
 		public function filter_image_dimensions_general_rows( $rows, $form ) {
 
-			$rows[] = $this->p->util->get_th( _x( 'Pinterest <em>Sharing Button</em>',
-				'option label', 'wpsso-ssb' ), null, 'pin_img_dimensions',
-			'The image dimensions that the Pinterest Pin It button will share (defaults is '.$this->p->opt->get_defaults( 'pin_img_width' ).'x'.$this->p->opt->get_defaults( 'pin_img_height' ).' '.( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'un' : '' ).'cropped). Images in the Facebook / Open Graph meta tags are usually cropped, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
+			$def_dimensions = $this->p->opt->get_defaults( 'pin_img_width' ).'x'.
+				$this->p->opt->get_defaults( 'pin_img_height' ).' '.
+				( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
+
+			$rows[] = $this->p->util->get_th( _x( 'Pinterest <em>Sharing Button</em>', 'option label', 'nextgen-facebook' ), null, 'pin_img_dimensions', 'The image dimensions that the Pinterest Pin It button will share (defaults is '.$def_dimensions.'). Images in the Facebook / Open Graph meta tags are usually cropped, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'pin_img' ).'</td>';
 
 			return $rows;
@@ -75,7 +77,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			$rows[] = $this->p->util->get_th( _x( 'Button Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_lang', 
-				array( 'en' => 'English', 'ja' => 'Japanese' ) );
+				SucomUtil::get_pub_lang( 'pinterest' ) );
 
 			$rows[] = $this->p->util->get_th( _x( 'Show Pin Count',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -170,13 +172,17 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 		public function get_html( $atts = array(), &$opts = array() ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
+
 			$use_post = isset( $atts['use_post'] ) ?
 				$atts['use_post'] : true;
 			$src_id = $this->p->util->get_source_id( 'pinterest', $atts );
+
 			$atts['add_page'] = isset( $atts['add_page'] ) ?
 				$atts['add_page'] : true;	// get_sharing_url argument
+
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
@@ -222,16 +228,8 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			} else $href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
-				$atts['caption'] = $this->p->webpage->get_caption(
-					$opts['pin_caption'],		// title, excerpt, both
-					$opts['pin_cap_len'],		// max caption length
-					$use_post,			//
-					true,				// use_cache
-					true,				// add_hashtags
-					false,				// encode (false for later url encoding)
-					'pin_desc',			// metadata key
-					$src_id
-				);
+				$atts['caption'] = $this->p->webpage->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],
+					$use_post, true, true, false, 'pin_desc', $src_id );
 			}
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
 			$href_query .= '&amp;description='.rawurlencode( $atts['caption'] );
@@ -271,7 +269,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 
 		public function get_script( $pos = 'id' ) {
@@ -281,7 +279,7 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				SucomUtil::get_prot().'://assets.pinterest.com/js/pinit.js', $pos ) );
 
 			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "pinterest-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "pinterest-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

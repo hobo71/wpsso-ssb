@@ -118,7 +118,7 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
@@ -128,7 +128,7 @@ if ( ! class_exists( 'WpssoSsbSharingLinkedin' ) ) {
 				SucomUtil::get_prot().'://platform.linkedin.com/in.js', $pos ) );
 
 			return  '<script type="text/javascript" id="linkedin-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

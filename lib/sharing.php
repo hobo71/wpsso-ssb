@@ -422,8 +422,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'updated css file '.self::$sharing_css_file.' ('.$written.' bytes written)' );
 					if ( is_admin() )
-						$this->p->notice->inf( sprintf( __( 'Updated the %1$s stylesheet (%2$d bytes written).',
-							'wpsso-ssb' ), self::$sharing_css_file, $written ), true );
+						$this->p->notice->inf( sprintf( __( 'Updated the <a href="%1$s">%2$s</a> stylesheet (%3$d bytes written).',
+							'wpsso-ssb' ), self::$sharing_css_url, self::$sharing_css_file, $written ), true );
 				}
 				fclose( $fh );
 			} else {
@@ -673,7 +673,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 <div class="'.$lca.'-ssb'.
 	( $css_preset ? ' '.$css_preset : '' ).
 	( $use_post ? ' '.$lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).
-$buttons_html.
+$buttons_html."\n".
 '</div><!-- .'.$lca.'-ssb '.
 	( $use_post ? '.' : '#' ).$lca.'-'.$css_type.' -->
 <!-- '.$lca.' '.$css_type.' end -->'."\n\n";
@@ -709,10 +709,12 @@ $buttons_html.
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
 		public function get_html( &$ids = array(), &$atts = array() ) {
+
 			$lca = $this->p->cf['lca'];
 			$html_ret = '';
-			$html_begin = '<div class="ssb-buttons">'."\n";
-			$html_end = '</div><!-- .ssb-buttons -->'."\n";
+			$html_begin = "\n".'<div class="ssb-buttons">'."\n";
+			$html_end = "\n".'</div><!-- .ssb-buttons -->';
+
 			$preset_id = empty( $atts['preset_id'] ) ?
 				'' : preg_replace( '/[^a-z0-9\-_]/', '', $atts['preset_id'] );
 			$filter_id = empty( $atts['filter_id'] ) ?
@@ -856,18 +858,21 @@ $buttons_html.
 						method_exists( $this->website[$id], 'get_script' ) && 
 						isset( $this->p->options[$opt_name] ) && 
 						$this->p->options[$opt_name] == $script_loc )
-							$js .= $this->website[$id]->get_script( $pos );
+							$js .= $this->website[$id]->get_script( $pos )."\n";
 				}
 			}
 			$js .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
+
 			return $js;
 		}
 
 		public function get_script_loader( $pos = 'id' ) {
+
 			$lang = empty( $this->p->options['gp_lang'] ) ?
 				'en-US' : $this->p->options['gp_lang'];
-			$lang = apply_filters( $this->p->cf['lca'].'_lang',
-				$lang, SucomUtil::get_pub_lang( 'gplus' ) );
+
+			$lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $lang, 'google' );
+
 			return '<script type="text/javascript" id="wpssossb-header-script">
 	window.___gcfg = { lang: "'.$lang.'" };
 	function '.$this->p->cf['lca'].'_insert_js( script_id, url, async ) {

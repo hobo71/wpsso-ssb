@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.1.4',	// plugin version
+					'version' => '2.1.5',	// plugin version
 					'short' => 'WPSSO SSB',
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
@@ -106,6 +106,8 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			'opt' => array(				// options
 				'preset' => array(
 					'small_share_count' => array(
+						'twitter_size' => 'medium',
+						'twitter_count' => 'horizontal',
 						'fb_button' => 'share',
 						'fb_send' => 0,
 						'fb_show_faces' => 0,
@@ -115,8 +117,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'gp_size' => 'medium',
 						'gp_annotation' => 'bubble',
 						'gp_expandto' => '',
-						'twitter_size' => 'medium',
-						'twitter_count' => 'horizontal',
 						'linkedin_counter' => 'right',
 						'linkedin_showzero' => 1,
 						'pin_button_shape' => 'rect',
@@ -125,10 +125,12 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'buffer_count' => 'horizontal',
 						'reddit_type' => 'static-wide',
 						'managewp_type' => 'small',
-						'tumblr_button_style' => 'share_1',
 						'stumble_badge' => 1,
+						'tumblr_counter' => 'right',
 					),
 					'large_share_vertical' => array(
+						'twitter_size' => 'medium',
+						'twitter_count' => 'vertical',
 						'fb_button' => 'share',
 						'fb_send' => 0,
 						'fb_show_faces' => 0,
@@ -139,8 +141,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'gp_size' => 'tall',
 						'gp_annotation' => 'vertical-bubble',
 						'gp_expandto' => '',
-						'twitter_size' => 'medium',
-						'twitter_count' => 'vertical',
 						'linkedin_counter' => 'top',
 						'linkedin_showzero' => '1',
 						'pin_button_shape' => 'rect',
@@ -149,8 +149,8 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'buffer_count' => 'vertical',
 						'reddit_type' => 'static-tall-text',
 						'managewp_type' => 'big',
-						'tumblr_button_style' => 'share_2',
 						'stumble_badge' => 5,
+						'tumblr_counter' => 'top',
 					),
 				),
 			),

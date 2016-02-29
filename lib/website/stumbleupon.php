@@ -141,7 +141,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 
 		public function get_script( $pos = 'id' ) {
@@ -151,7 +151,7 @@ if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
 				SucomUtil::get_prot().'://platform.stumbleupon.com/1/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

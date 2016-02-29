@@ -99,16 +99,8 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 					$use_post, $atts['add_page'], $src_id );
 
 			if ( empty( $atts['title'] ) ) 
-				$atts['title'] = $this->p->webpage->get_title( 
-					null,				// max length
-					null,				// trailing
-					$use_post,			//
-					true,				// use_cache
-					false,				// add_hashtags
-					true,				// encode
-					null,				// metadata key
-					$src_id
-				);
+				$atts['title'] = $this->p->webpage->get_title( null, null,
+					$use_post, true, false, true, null, $src_id );
 
 			switch ( $opts['reddit_type'] ) {
 				case 'static-tall-text':
@@ -131,7 +123,7 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 	}
 }

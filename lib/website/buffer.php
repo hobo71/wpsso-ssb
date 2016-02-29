@@ -189,16 +189,8 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
-					$atts['caption'] = $this->p->webpage->get_caption( 
-						$opts['buffer_caption'],	// title, excerpt, both
-						$caption_len,			// max caption length 
-						$use_post,			// 
-						true,				// use_cache
-						true, 				// add_hashtags
-						true, 				// encode
-						'twitter_desc',			// metadata key
-						$src_id				// 
-					);
+					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
+						$use_post, true, true, true, 'twitter_desc', $src_id );
 				}
 			}
 
@@ -223,7 +215,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
-			return $html."\n";
+			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
@@ -233,7 +225,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				SucomUtil::get_prot().'://d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
 			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>'."\n";
+				$this->p->cf['lca'].'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }
