@@ -218,7 +218,6 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) )
 					if ( get_post_format( $post_id ) === 'quote' ) 
 						$atts['quote'] = $this->p->webpage->get_quote( $post_id );
-	
 				$atts['tags'] = implode( ', ', $this->p->webpage->get_tags( $post_id ) );
 			}
 
@@ -281,7 +280,7 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			' data-content="'.$atts['content'].'"'.
 			( isset( $atts['title'] ) ? ' data-title="'.$atts['title'].'"' : '' ).
 			( isset( $atts['caption'] ) ? ' data-caption="'.$atts['caption'].'"' : '' ).
-			' data-tags="'.$atts['tags'].'"'.
+			( isset( $atts['tags'] ) ? ' data-tags="'.$atts['tags'].'"' : '' ).
 			' data-locale="'.$opts['tumblr_lang'].'"'.
 			' data-color="'.$opts['tumblr_color'].'"'.
 			' data-notes="'.$opts['tumblr_counter'].'"'.
