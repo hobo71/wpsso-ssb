@@ -456,12 +456,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 
 			// get the current object / post type
-			if ( ( $obj = $this->p->util->get_post_object() ) === false ) {
+			if ( ( $post_obj = $this->p->util->get_post_object() ) === false ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'exiting early: invalid object type' );
 				return;
 			}
-			$post_type = get_post_type_object( $obj->post_type );
+			$post_type = get_post_type_object( $post_obj->post_type );
 
 			if ( ! empty( $this->p->options[ 'buttons_add_to_'.$post_type->name ] ) ) {
 				// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
@@ -620,9 +620,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$lca = $this->p->cf['lca'];
-			$obj = $this->p->util->get_post_object( $use_post );
-			$post_id = empty( $obj->ID ) || empty( $obj->post_type ) || 
-				( ! is_singular() && $use_post === false ) ? 0 : $obj->ID;
+			$post_obj = $this->p->util->get_post_object( $use_post );
+			$post_id = empty( $post_obj->ID ) || empty( $post_obj->post_type ) || 
+				( ! is_singular() && $use_post === false ) ? 0 : $post_obj->ID;
 			$src_id = $this->p->util->get_source_id( $type );
 			$html = false;
 
@@ -777,9 +777,9 @@ $buttons_html."\n".
 
 			if ( empty( $requested_ids ) ) {
 				if ( is_admin() ) {
-					if ( ( $obj = $this->p->util->get_post_object() ) === false  ||
-						( get_post_status( $obj->ID ) !== 'publish' &&
-							get_post_type( $obj->ID ) !== 'attachment' ) )
+					if ( ( $post_obj = $this->p->util->get_post_object() ) === false  ||
+						( get_post_status( $post_obj->ID ) !== 'publish' &&
+							get_post_type( $post_obj->ID ) !== 'attachment' ) )
 								return;
 				} elseif ( is_singular() && $this->is_post_buttons_disabled() ) {
 					if ( $this->p->debug->enabled )
