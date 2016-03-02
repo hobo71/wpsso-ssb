@@ -17,11 +17,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 		protected $website_id = '';
 		protected $website_name = '';
 
-		public function __construct( &$plugin, $id, $name, $lib ) {
+		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
 			$this->menu_id = $id;
 			$this->menu_name = $name;
 			$this->menu_lib = $lib;
+			$this->menu_ext = $ext;
 			$this->set_objects();
 			$this->p->util->add_plugin_actions( $this, array(
 				'form_content_metaboxes_sharing' => 1,

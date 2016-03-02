@@ -67,7 +67,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			foreach( $presets as $filter_id => $filter_name )
 				$rows[] = $this->p->util->get_th( sprintf( _x( '%s Preset',
 					'option label', 'wpsso-ssb' ), $filter_name ), null, 'sharing_preset' ).
-				'<td class="blank">'.$this->p->options['buttons_preset_ssb-'.$filter_id].'</td>';
+				'<td class="blank">'.( isset( $this->p->options['buttons_preset_ssb-'.$filter_id] ) ?
+					$this->p->options['buttons_preset_ssb-'.$filter_id] : '' ).'</td>';
 
 			return $rows;
 		}
