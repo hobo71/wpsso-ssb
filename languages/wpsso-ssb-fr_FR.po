@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.1.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-02-29 06:07-0400\n"
-"PO-Revision-Date: 2016-02-29 06:07-0400\n"
+"POT-Creation-Date: 2016-03-04 12:34-0400\n"
+"PO-Revision-Date: 2016-03-04 12:34-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -37,13 +37,13 @@ msgstr "Le bas"
 
 #: lib/config-gettext-extract.php:7
 msgctxt "option value"
-msgid "Content"
-msgstr "Contenu"
+msgid "CSS Sidebar"
+msgstr "Barre Latérale"
 
 #: lib/config-gettext-extract.php:8
 msgctxt "option value"
-msgid "CSS Sidebar"
-msgstr "Barre Latérale"
+msgid "Content"
+msgstr "Contenu"
 
 #: lib/config-gettext-extract.php:9
 msgctxt "option value"
@@ -66,7 +66,7 @@ msgid "Sharing Buttons"
 msgstr "Boutons de Partage"
 
 #: lib/config-gettext-extract.php:13 lib/sharing.php:289 lib/sharing.php:292
-#: lib/submenu/style.php:32
+#: lib/submenu/style.php:33
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr "Styles de Partage"
@@ -87,11 +87,6 @@ msgid "Top"
 msgstr "Le haut"
 
 #: lib/config-gettext-extract.php:17
-msgctxt "option value"
-msgid "Widget"
-msgstr "Widget"
-
-#: lib/config-gettext-extract.php:18
 msgctxt "plugin description"
 msgid ""
 "WPSSO extension to add traditional Social Sharing Buttons with support for "
@@ -100,6 +95,11 @@ msgstr ""
 "Une extension WPSSO pour ajouter des boutons de partage social avec support "
 "pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien "
 "plus."
+
+#: lib/config-gettext-extract.php:18
+msgctxt "option value"
+msgid "Widget"
+msgstr "Widget"
 
 #: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
 #: lib/sharing.php:304
@@ -122,46 +122,46 @@ msgctxt "option label"
 msgid "%s Preset"
 msgstr "Préréglage '%s'"
 
-#: lib/gpl/admin/sharing.php:80 lib/pro/admin/sharing.php:83
+#: lib/gpl/admin/sharing.php:81 lib/pro/admin/sharing.php:83
 #: lib/sharing.php:289
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage"
 
-#: lib/gpl/admin/sharing.php:100 lib/pro/admin/sharing.php:100
+#: lib/gpl/admin/sharing.php:101 lib/pro/admin/sharing.php:100
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr "Texte légende Pinterest"
 
-#: lib/gpl/admin/sharing.php:121 lib/pro/admin/sharing.php:123
+#: lib/gpl/admin/sharing.php:122 lib/pro/admin/sharing.php:123
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr "Légende d'image Tumblr"
 
-#: lib/gpl/admin/sharing.php:139 lib/pro/admin/sharing.php:143
+#: lib/gpl/admin/sharing.php:140 lib/pro/admin/sharing.php:143
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %"
 
-#: lib/gpl/admin/sharing.php:141 lib/pro/admin/sharing.php:145
+#: lib/gpl/admin/sharing.php:142 lib/pro/admin/sharing.php:145
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr "Légende vidéo Tumblr"
 
-#: lib/gpl/admin/sharing.php:149 lib/pro/admin/sharing.php:155
+#: lib/gpl/admin/sharing.php:150 lib/pro/admin/sharing.php:155
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %"
 
-#: lib/gpl/admin/sharing.php:155 lib/gpl/admin/sharing.php:161
+#: lib/gpl/admin/sharing.php:156 lib/gpl/admin/sharing.php:162
 #: lib/pro/admin/sharing.php:161 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr "Texte du Tweet"
 
-#: lib/gpl/admin/sharing.php:157 lib/pro/admin/sharing.php:163
+#: lib/gpl/admin/sharing.php:158 lib/pro/admin/sharing.php:163
 msgid "Save a draft version or publish to enable this field."
 msgstr "Enregistrer une version préliminaire ou publiez pour activer ce champ."
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:176
+#: lib/gpl/admin/sharing.php:169 lib/pro/admin/sharing.php:176
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr "Désactiver les boutons"
@@ -359,7 +359,7 @@ msgstr "Boutons de Partage Social"
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
-#: lib/submenu/sharing.php:65
+#: lib/submenu/sharing.php:66
 msgid ""
 "Social sharing buttons can be added to the top, bottom, or both. Each "
 "sharing button must also be enabled below (see the <em>%s</em> options)."
@@ -368,12 +368,12 @@ msgstr ""
 "deux. Chaque bouton de partage doit aussi être activé ci-dessous (voir les "
 "options <em>%s</em>)."
 
-#: lib/submenu/sharing.php:65
+#: lib/submenu/sharing.php:66
 msgctxt "option label"
 msgid "Show Button in"
 msgstr "Afficher le bouton"
 
-#: lib/submenu/sharing.php:68
+#: lib/submenu/sharing.php:69
 msgid ""
 "Add the social sharing buttons to each entry of an index webpage (for "
 "example, <strong>non-static</strong> homepage, category, archive, etc.). "
@@ -384,7 +384,7 @@ msgstr ""
 "etc.). Les boutons de partage social ne sont pas inclus dans les pages Web "
 "d'index par défaut."
 
-#: lib/submenu/sharing.php:71
+#: lib/submenu/sharing.php:72
 msgid ""
 "If a static Post or Page has been selected for the homepage, you can add the "
 "social sharing buttons to that static homepage as well (default is "
@@ -394,7 +394,7 @@ msgstr ""
 "d'accueil, les boutons de partage social peuvent paraître sur la page "
 "d'accueil statique aussi (valeur par défaut est décochée)."
 
-#: lib/submenu/sharing.php:74
+#: lib/submenu/sharing.php:75
 msgid ""
 "Enabled social sharing buttons are added to the Post, Page, Media, and "
 "Product webpages by default. If your theme (or another plugin) supports "
@@ -407,47 +407,47 @@ msgstr ""
 "que vous souhaitez ajouter des boutons de partage social sur ces pages Web, "
 "cochez les options appropriées ici."
 
-#: lib/submenu/sharing.php:86
+#: lib/submenu/sharing.php:87
 msgctxt "metabox title"
 msgid "Social Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/submenu/sharing.php:123
+#: lib/submenu/sharing.php:124
 msgctxt "metabox tab"
 msgid "Include Buttons"
 msgstr "Ajout de Boutons"
 
-#: lib/submenu/sharing.php:124
+#: lib/submenu/sharing.php:125
 msgctxt "metabox tab"
 msgid "Buttons Position"
 msgstr "Position des Boutons"
 
-#: lib/submenu/sharing.php:125
+#: lib/submenu/sharing.php:126
 msgctxt "metabox tab"
 msgid "Button Presets"
 msgstr "Préréglages des Butons"
 
-#: lib/submenu/sharing.php:156
+#: lib/submenu/sharing.php:157
 msgctxt "option label"
 msgid "Include on Index Webpages"
 msgstr "Inclure sur les pages Web d'index"
 
-#: lib/submenu/sharing.php:160
+#: lib/submenu/sharing.php:161
 msgctxt "option label"
 msgid "Include on Static Homepage"
 msgstr "Inclure sur la page d'accueil statique"
 
-#: lib/submenu/sharing.php:168
+#: lib/submenu/sharing.php:169
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr "Position dans le texte de contenu"
 
-#: lib/submenu/sharing.php:173
+#: lib/submenu/sharing.php:174
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr "Position dans le texte d'extrait"
 
-#: lib/submenu/style.php:32
+#: lib/submenu/style.php:33
 msgid ""
 "Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
 "will be <strong>minimized</strong>, and saved to a single stylesheet with a "
@@ -459,12 +459,12 @@ msgstr ""
 "de style avec l'URL <a href=\"%2$s\">%3$s</a>. La feuille de style peut être "
 "mis en queue ou ajouté directement au HTML des pages Web."
 
-#: lib/submenu/style.php:36
+#: lib/submenu/style.php:37
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 "JavaScript ajouté au pages Web pour la barre latérale de partage sociale."
 
-#: lib/submenu/style.php:40
+#: lib/submenu/style.php:41
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
 "the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
@@ -477,22 +477,22 @@ msgstr ""
 "extension pour assembler tous le contenu des feuilles de styles dans un seul "
 "URL."
 
-#: lib/submenu/style.php:140
+#: lib/submenu/style.php:141
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr "Styles de Partage Social"
 
-#: lib/submenu/style.php:153
+#: lib/submenu/style.php:154
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr "Utiliser la feuille de style social"
 
-#: lib/submenu/style.php:157
+#: lib/submenu/style.php:158
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr "Placer la feuille de style en queue"
 
-#: lib/submenu/style.php:184
+#: lib/submenu/style.php:185
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr "JavaScript de la barre latérale"

@@ -206,7 +206,8 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 					$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $atts['size'], $post_id, 'og' );
+				extract( $this->p->og->get_the_media_info( $atts['size'],
+					$post_id, 'og', array( 'img_url', 'vid_url' ) ) );
 				if ( empty( $atts['photo'] ) )
 					$atts['photo'] = $img_url;
 				if ( empty( $atts['embed'] ) )

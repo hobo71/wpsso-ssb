@@ -178,10 +178,10 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			}
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
-				if ( ! empty( $opts['twitter_via'] ) && 
-					$this->p->check->aop( 'wpssossb' ) )
-						$atts['via'] = preg_replace( '/^@/', '', $opts['tc_site'] );
-				else $atts['via'] = '';
+				if ( ! empty( $opts['twitter_via'] ) && $this->p->check->aop( 'wpssossb' ) ) {
+					$key_locale = SucomUtil::get_key_locale( 'tc_site', $opts );
+					$atts['via'] = preg_replace( '/^@/', '', $opts[$key_locale] );
+				} else $atts['via'] = '';
 			}
 
 			if ( ! array_key_exists( 'related', $atts ) ) {

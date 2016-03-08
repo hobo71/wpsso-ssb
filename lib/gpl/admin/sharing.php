@@ -95,8 +95,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/*
 			 * Pinterest
 			 */
-			list( $pid, $img_url ) = $this->p->og->get_the_media_urls( $lca.'-pinterest-button',
-				$head_info['post_id'], 'rp', array( 'pid', 'image' ) );
+			extract( $this->p->og->get_the_media_info( $lca.'-pinterest-button',
+				$head_info['post_id'], 'rp', array( 'pid', 'img_url' ) ) );
 
 			$th = $this->p->util->get_th( _x( 'Pinterest Caption Text',
 				'option label', 'wpsso-ssb' ), 'medium', 'post-pin_desc' );
@@ -116,8 +116,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/*
 			 * Tumblr
 			 */
-			list( $pid, $img_url, $vid_url, $prev_url ) = $this->p->og->get_the_media_urls( $lca.'-tumblr-button', 
-				$head_info['post_id'], 'og', array( 'pid', 'image', 'video', 'preview' ) );
+			extract( $this->p->og->get_the_media_info( $lca.'-tumblr-button', 
+				$head_info['post_id'], 'og', array( 'pid', 'img_url', 'vid_url', 'prev_url' ) ) );
 
 			$th = $this->p->util->get_th( _x( 'Tumblr Image Caption',
 				'option label', 'wpsso-ssb' ), 'medium', 'post-tumblr_img_desc' );

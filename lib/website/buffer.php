@@ -176,7 +176,8 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				list( $img_url, $vid_url ) = $this->p->og->get_the_media_urls( $atts['size'], $post_id, 'og' );
+				extract( $this->p->og->get_the_media_info( $atts['size'],
+					$post_id, 'og', array( 'img_url', 'vid_url' ) ) );
 				if ( empty( $atts['photo'] ) )
 					$atts['photo'] = $img_url;
 				if ( empty( $atts['embed'] ) )
@@ -195,9 +196,10 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			}
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
-				if ( ! empty( $opts['buffer_via'] ) && $this->p->check->aop() )
-					$atts['via'] = preg_replace( '/^@/', '', $opts['tc_site'] );
-				else $atts['via'] = '';
+				if ( ! empty( $opts['buffer_via'] ) && $this->p->check->aop( 'wpssossb' ) ) {
+					$key_locale = SucomUtil::get_key_locale( 'tc_site', $opts );
+					$atts['via'] = preg_replace( '/^@/', '', $opts[$key_locale] );
+				} else $atts['via'] = '';
 			}
 
 			// hashtags are included in the caption instead

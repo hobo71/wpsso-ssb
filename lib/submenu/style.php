@@ -129,7 +129,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 
 				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
-						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[none]' :
+						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
 							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
 			}
 			return $text;
