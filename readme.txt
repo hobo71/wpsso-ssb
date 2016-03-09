@@ -99,9 +99,9 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 * [Can I use other social sharing buttons?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/)
 * [How do I turn on Social Sharing Buttons for a page?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
 * [Why are the buttons showing the wrong language?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/)
-* [Why does the Facebook “Like” button flyout get clipped?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
-* [Why doesn’t the Pinterest button show?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
-* [Why doesn’t the Twitter count increase?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
+* [Why does the Facebook "Like" button flyout get clipped?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
+* [Why doesn't the Pinterest button show?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
+* [Why doesn't the Twitter count increase?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
 
 == Other Notes ==
 
