@@ -129,14 +129,14 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.1.6 (TBD)**
+**Version 2.1.6 (2016/03/09)**
 
 Official announcement: N/A
 
 * *New Features*
 	* None
 * *Improvements*
-	* Added locale support for the Twitter site user name (Pro version).
+	* Added multilingual / multi-language support for the Twitter site user name (Pro version).
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -214,6 +214,10 @@ Please note: This latest release includes new social sharing buttons and styles.
 	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
 
 == Upgrade Notice ==
+
+= 2.1.6 =
+
+2016/03/09 - Added multilingual / multi-language support for the Twitter site user name (Pro version).
 
 = 2.1.5 =
 
