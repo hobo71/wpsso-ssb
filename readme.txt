@@ -129,6 +129,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.0 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.1.6 (2016/03/09)**
 
 Official announcement: N/A
