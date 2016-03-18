@@ -16,79 +16,73 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 			
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'twitter' ) ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Allow for Platform',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'twitter_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'JavaScript in',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Default Language',
+			$table_rows[] = $this->form->get_th_html( _x( 'Default Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
 
-			/*
-			$rows[] = $this->p->util->get_th( _x( 'Count Position',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'twitter_count', array( 'none' => '', 
-			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
-			*/
-
-			$rows[] = $this->p->util->get_th( _x( 'Button Size',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Size',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Tweet Text Source',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Tweet Text Source',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Tweet Text Length',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Tweet Text Length',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_input( 'twitter_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Do Not Track',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Do Not Track',
 				'option label (short)', 'wpsso-ssb' ), 'short', null,
 			__( 'Disable tracking for Twitter\'s tailored suggestions and ads feature.', 'wpsso-ssb' ) ).
 			'<td>'.$this->form->get_checkbox( 'twitter_dnt' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Add via @username',
+			$table_rows[] = $this->form->get_th_html( _x( 'Add via @username',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'Append the website\'s business @username to the tweet (see the <a href="%1$s">Twitter</a> options tab on the %2$s settings page). The website\'s @username will be displayed and recommended after the webpage is shared.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter' ), _x( 'General', 'lib file description', 'wpsso-ssb' ) ) ).
 			( $this->p->check->aop( 'wpssossb' ) ? '<td>'.$this->form->get_checkbox( 'twitter_via' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'twitter_via' ).'</td>' );
 
-			$rows[] = $this->p->util->get_th( _x( 'Recommend Author',
+			$table_rows[] = $this->form->get_th_html( _x( 'Recommend Author',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'Recommend following the author\'s Twitter @username (from their profile) after sharing a webpage. If the <em>%1$s</em> option is also checked, the website\'s @username is suggested first.', 'wpsso-ssb' ), _x( 'Add via @username', 'option label (short)', 'wpsso-rrssb' ) ) ).
 			( $this->p->check->aop( 'wpssossb' ) ? 
 				'<td>'.$this->form->get_checkbox( 'twitter_rel_author' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'twitter_rel_author' ).'</td>' );
 
-			$rows[] = $this->p->util->get_th( _x( 'Shorten URLs with',
+			$table_rows[] = $this->form->get_th_html( _x( 'Shorten URLs with',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'If you select a URL shortening service here, you must also enter its <a href="%1$s">%2$s</a> on the %3$s settings page.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys' ), _x( 'Service API Keys', 'metabox tab', 'wpsso-ssb' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ) ) ).
 			( $this->p->check->aop( 'wpssossb' ) ? 
@@ -96,7 +90,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTwitter' ) && class_exists( 'WpssoSs
 				'<td class="blank">'.$this->p->cf['form']['shorteners'][$this->p->options['plugin_shortener']].' &mdash; ' ).
 			sprintf( __( 'using these <a href="%1$s">%2$s</a>', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys' ), _x( 'Service API Keys', 'metabox tab', 'wpsso-ssb' ) ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -116,7 +110,6 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 					'twitter_platform' => 'any',
 					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
-					'twitter_count' => 'horizontal',
 					'twitter_caption' => 'title',
 					'twitter_cap_len' => 140,
 					'twitter_size' => 'medium',
@@ -138,7 +131,8 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
@@ -148,16 +142,14 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			global $post; 
 
 			$lca = $this->p->cf['lca'];
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$src_id = $this->p->util->get_source_id( 'twitter', $atts );
-
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+			$atts['source_id'] = isset( $atts['source_id'] ) ?
+				$atts['source_id'] : $this->p->util->get_source_id( 'twitter', $atts );
 
 			$long_url = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $use_post, $atts['add_page'], $src_id );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'], $atts['source_id'] );
 
 			$short_url = apply_filters( $lca.'_shorten_url', $long_url, $opts['plugin_shortener'] );
 
@@ -173,7 +165,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $long_url, 'twitter', $short_url );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['twitter_caption'], $caption_len,
-						$use_post, true, true, true, 'twitter_desc', $src_id );
+						$atts['use_post'], true, true, true, 'twitter_desc', $atts['source_id'] );
 				}
 			}
 
@@ -186,7 +178,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 
 			if ( ! array_key_exists( 'related', $atts ) ) {
 				if ( ! empty( $opts['twitter_rel_author'] ) && 
-					! empty( $post ) && $use_post === true && $this->p->check->aop( 'wpssossb' ) )
+					! empty( $post ) && $atts['use_post'] === true && $this->p->check->aop( 'wpssossb' ) )
 						$atts['related'] = preg_replace( '/^@/', '', 
 							get_the_author_meta( $opts['plugin_cm_twitter_name'], $post->author ) );
 				else $atts['related'] = '';
@@ -209,7 +201,6 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 			' data-via="'.$atts['via'].'"'.
 			' data-related="'.$atts['related'].'"'.
 			' data-hashtags="'.$atts['hashtags'].'"'.
-			' data-count="'.$opts['twitter_count'].'"'.
 			' data-size="'.$opts['twitter_size'].'"'.
 			' data-dnt="'.$atts['dnt'].'"></a></div>';
 

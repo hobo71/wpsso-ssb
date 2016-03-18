@@ -16,61 +16,63 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			$this->p->util->add_plugin_filters( $this, array( 
-				'image-dimensions_general_rows' => 2,
+				'image-dimensions_general_rows' => 2,	// $table_rows, $form
 			) );
 		}
 
 		// add an option to the WordPress -> Settings -> Image Dimensions page
-		public function filter_image_dimensions_general_rows( $rows, $form ) {
+		public function filter_image_dimensions_general_rows( $table_rows, $form ) {
 
 			$def_dimensions = $this->p->opt->get_defaults( 'tumblr_img_width' ).'x'.
 				$this->p->opt->get_defaults( 'tumblr_img_height' ).' '.
 				( $this->p->opt->get_defaults( 'tumblr_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
 
-			$rows[] = $this->p->util->get_th( _x( 'Tumblr <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'tumblr_img_dimensions', 'The image dimensions that the Tumblr button will share (defaults is '.$def_dimensions.').' ).
+			$table_rows[] = $form->get_th_html( _x( 'Tumblr <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'tumblr_img_dimensions', 'The image dimensions that the Tumblr button will share (defaults is '.$def_dimensions.').' ).
 			'<td>'.$form->get_image_dimensions_input( 'tumblr_img' ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'tumblr_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$this->show_on_checkboxes( 'tumblr' ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Allow for Platform',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'tumblr_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'JavaScript in',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'tumblr_script_loc',
 				$this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Language',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'tumblr_lang', 
 				SucomUtil::get_pub_lang( 'tumblr' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Color',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Color',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'tumblr_color', 
 				array( 'blue' => 'Blue', 'black' => 'Black', 'white' => 'White' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Counter',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Counter',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'tumblr_counter', 
 				array( 
@@ -80,32 +82,32 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingTumblr' ) && class_exists( 'WpssoSsb
 				)
 			).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Add Attribution',
+			$table_rows[] = $this->form->get_th_html( _x( 'Add Attribution',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_checkbox( 'tumblr_show_via' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Image Dimensions',
+			$table_rows[] = $this->form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'tumblr_img', false, true ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Media Caption',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Media Caption',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'tumblr_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Caption Length',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Caption Length',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_input( 'tumblr_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 	
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Link Description',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Link Description',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_input( 'tumblr_desc_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -163,63 +165,50 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 
-			$lca = $this->p->cf['lca'];
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$src_id = $this->p->util->get_source_id( 'tumblr', $atts );
-
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+			$atts['source_id'] = isset( $atts['source_id'] ) ?
+				$atts['source_id'] : $this->p->util->get_source_id( 'tumblr', $atts );
 
 			if ( ! array_key_exists( 'lang', $atts ) )
 				$atts['lang'] = empty( $opts['tumblr_lang'] ) ?
 					'en_US' : $opts['tumblr_lang'];
-			$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'tumblr' );
+			$atts['lang'] = apply_filters( $this->p->cf['lca'].'_pub_lang', $atts['lang'], 'tumblr' );
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $src_id );
-
-			if ( SucomUtil::is_post_page( $use_post ) ) {
-				if ( ( $post_obj = $this->p->util->get_post_object( $use_post ) ) === false ) {
-					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: invalid object type' );
-					return false;
-				}
-				$post_id = empty( $post_obj->ID ) || 
-					empty( $post_obj->post_type ) ? 0 : $post_obj->ID;
-			} else $post_id = 0;
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
+					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
 
 			if ( empty( $atts['size'] ) ) 
-				$atts['size'] = $lca.'-tumblr-button';
+				$atts['size'] = $this->p->cf['lca'].'-tumblr-button';
 
 			if ( ! empty( $atts['pid'] ) )
 				list( $atts['photo'], $atts['width'], $atts['height'], 
 					$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				extract( $this->p->og->get_the_media_info( $atts['size'],
-					$post_id, 'og', array( 'img_url', 'vid_url' ) ) );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'og', array( 'img_url', 'vid_url' ) );
 				if ( empty( $atts['photo'] ) )
-					$atts['photo'] = $img_url;
+					$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['embed'] ) )
-					$atts['embed'] = $vid_url;
+					$atts['embed'] = $media_info['vid_url'];
 			}
 
-			if ( $post_id > 0 ) {
+			if ( $mod['name'] === 'post' && $mod['id'] > 0 ) {
 				// if no image or video, then check for a 'quote'
 				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) )
-					if ( get_post_format( $post_id ) === 'quote' ) 
-						$atts['quote'] = $this->p->webpage->get_quote( $post_id );
-				$atts['tags'] = implode( ', ', $this->p->webpage->get_tags( $post_id ) );
+					if ( get_post_format( $mod['id'] ) === 'quote' ) 
+						$atts['quote'] = $this->p->webpage->get_quote( $mod['id'] );
+				$atts['tags'] = implode( ', ', $this->p->webpage->get_tags( $mod['id'] ) );
 			}
 
 			// we only need the caption, title, or description for some types of shares
@@ -227,17 +216,17 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 				// html encode param is false to use url encoding instead
 				if ( empty( $atts['caption'] ) ) 
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
-						$use_post, true, false, false, ( ! empty( $atts['photo'] ) ?
-							'tumblr_img_desc' : 'tumblr_vid_desc' ), $src_id );
+						$atts['use_post'], true, false, false, ( ! empty( $atts['photo'] ) ?
+							'tumblr_img_desc' : 'tumblr_vid_desc' ), $atts['source_id'] );
 
 			} else {
 				if ( empty( $atts['title'] ) ) 
 					$atts['title'] = $this->p->webpage->get_title( null, null,
-						$use_post, true, false, false, null, $src_id );
+						$atts['use_post'], true, false, false, null, $atts['source_id'] );
 
 				if ( empty( $atts['description'] ) ) 
 					$atts['description'] = $this->p->webpage->get_description( $opts['tumblr_desc_len'], '...',
-						$use_post, true, false, false, null, $src_id );
+						$atts['use_post'], true, false, false, null, $atts['source_id'] );
 			}
 
 			// define the button, based on what we have

@@ -16,75 +16,77 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsb
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			$this->p->util->add_plugin_filters( $this, array( 
-				'image-dimensions_general_rows' => 2,
+				'image-dimensions_general_rows' => 2,	// $table_rows, $form
 			) );
 		}
 
 		// add an option to the WordPress -> Settings -> Image Dimensions page
-		public function filter_image_dimensions_general_rows( $rows, $form ) {
+		public function filter_image_dimensions_general_rows( $table_rows, $form ) {
 
-			$rows[] = $this->p->util->get_th( _x( 'Buffer <em>Sharing Button</em>',
+			$table_rows[] = $form->get_th_html( _x( 'Buffer <em>Sharing Button</em>',
 				'option label', 'wpsso-ssb' ), null, 'buffer_img_dimensions',
 			'The image dimensions that the Buffer button will share (defaults is '.$this->p->opt->get_defaults( 'buffer_img_width' ).'x'.$this->p->opt->get_defaults( 'buffer_img_height' ).' '.( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'un' : '' ).'cropped). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 			
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'buffer' ) ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Allow for Platform',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'buffer_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'JavaScript in',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Count Position',
+			$table_rows[] = $this->form->get_th_html( _x( 'Count Position',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_count', array( 'none' => '', 
 			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Image Dimensions',
+			$table_rows[] = $this->form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Tweet Text Source',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Tweet Text Source',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Tweet Text Length',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Tweet Text Length',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_input( 'buffer_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Add via @username',
+			$table_rows[] = $this->form->get_th_html( _x( 'Add via @username',
 				'option label (short)', 'wpsso-ssb' ), 'short', null,
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General Settings page).' ).
 			( $this->p->check->aop() == true ? 
 				'<td>'.$this->form->get_checkbox( 'buffer_via' ).'</td>' :
 				'<td class="blank">'.$this->form->get_no_checkbox( 'buffer_via' ).'</td>' );
 
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -139,33 +141,23 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$src_id = $this->p->util->get_source_id( 'buffer', $atts );
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
+
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+			$atts['source_id'] = isset( $atts['source_id'] ) ?
+				$atts['source_id'] : $this->p->util->get_source_id( 'buffer', $atts );
+			$atts['size'] = isset( $atts['size'] ) ?
+				$atts['size'] : $this->p->cf['lca'].'-buffer-button';
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $src_id );
-
-			$post_id = 0;
-			if ( is_singular() || $use_post !== false ) {
-				if ( ( $post_obj = $this->p->util->get_post_object( $use_post ) ) === false ) {
-					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: invalid object type' );
-					return false;
-				}
-				$post_id = empty( $post_obj->ID ) || empty( $post_obj->post_type ) ? 0 : $post_obj->ID;
-			}
-
-			if ( empty( $atts['size'] ) ) 
-				$atts['size'] = $this->p->cf['lca'].'-buffer-button';
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'], $atts['source_id'] );
 
 			if ( ! empty( $atts['pid'] ) )
 				list(
@@ -176,12 +168,11 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				extract( $this->p->og->get_the_media_info( $atts['size'],
-					$post_id, 'og', array( 'img_url', 'vid_url' ) ) );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'og', array( 'img_url', 'vid_url' ) );
 				if ( empty( $atts['photo'] ) )
-					$atts['photo'] = $img_url;
+					$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['embed'] ) )
-					$atts['embed'] = $vid_url;
+					$atts['embed'] = $media_info['vid_url'];
 			}
 
 			if ( array_key_exists( 'tweet', $atts ) )
@@ -191,7 +182,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
-						$use_post, true, true, true, 'twitter_desc', $src_id );
+						$atts['use_post'], true, true, true, 'twitter_desc', $atts['source_id'] );
 				}
 			}
 

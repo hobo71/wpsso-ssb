@@ -25,6 +25,7 @@
 .ssb-buttons iframe { 
 	margin:0;
 	max-width:none;
+	vertical-align:baseline;
 }
 
 .ssb-buttons > div,		/* default uses small buttons */

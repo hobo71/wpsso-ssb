@@ -16,70 +16,72 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			$this->p->util->add_plugin_filters( $this, array( 
-				'image-dimensions_general_rows' => 2,
+				'image-dimensions_general_rows' => 2,	// $table_rows, $form
 			) );
 		}
 
 		// add an option to the WordPress -> Settings -> Image Dimensions page
-		public function filter_image_dimensions_general_rows( $rows, $form ) {
+		public function filter_image_dimensions_general_rows( $table_rows, $form ) {
 
 			$def_dimensions = $this->p->opt->get_defaults( 'pin_img_width' ).'x'.
 				$this->p->opt->get_defaults( 'pin_img_height' ).' '.
 				( $this->p->opt->get_defaults( 'pin_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
 
-			$rows[] = $this->p->util->get_th( _x( 'Pinterest <em>Sharing Button</em>', 'option label', 'nextgen-facebook' ), null, 'pin_img_dimensions', 'The image dimensions that the Pinterest Pin It button will share (defaults is '.$def_dimensions.'). Images in the Facebook / Open Graph meta tags are usually cropped, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
+			$table_rows[] = $form->get_th_html( _x( 'Pinterest <em>Sharing Button</em>', 'option label', 'nextgen-facebook' ), null, 'pin_img_dimensions', 'The image dimensions that the Pinterest Pin It button will share (defaults is '.$def_dimensions.'). Images in the Facebook / Open Graph meta tags are usually cropped, where-as images on Pinterest often look better in their original aspect ratio (uncropped) and/or cropped using portrait photo dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'pin_img' ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_order', range( 1, 
 				count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$this->show_on_checkboxes( 'pin' ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Allow for Platform',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'JavaScript in',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Height',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Height',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_height', 
 				array( 'small' => 'Small', 'large' => 'Large' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Shape',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Shape',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_shape', 
 				array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Color',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Color',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_color', 
 				array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Language',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_button_lang', 
 				SucomUtil::get_pub_lang( 'pinterest' ) );
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Pin Count',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Pin Count',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_count_layout', 
 				array( 
@@ -89,28 +91,28 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingPinterest' ) && class_exists( 'Wpsso
 				)
 			).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Share Single Image',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Share Single Image',
 				'option label (short)', 'wpsso-ssb' ), 'short', null,
 			'Check this option to have the Pinterest Pin It button appear only on Posts and Pages with a custom Image ID (in the Social Settings metabox), a featured image, or an attached image, that is equal to or larger than the \'Image Dimensions\' you have chosen. <strong>By leaving this option unchecked, the Pin It button will submit the current webpage URL without a specific image</strong>, allowing Pinterest to present any number of available images for pinning.' ).
 			'<td>'.$this->form->get_checkbox( 'pin_use_img' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Image Dimensions',
+			$table_rows[] = $this->form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_image_dimensions_input( 'pin_img', false, true ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Caption Text',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Caption Text',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Caption Length',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Caption Length',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_input( 'pin_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -169,35 +171,23 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$src_id = $this->p->util->get_source_id( 'pinterest', $atts );
-
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
-
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+			$atts['source_id'] = isset( $atts['source_id'] ) ?
+				$atts['source_id'] : $this->p->util->get_source_id( 'pinterest', $atts );
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $src_id );
+					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
 			$href_query = '?url='.urlencode( $atts['url'] );
-
-			$post_id = 0;
-			if ( is_singular() || $use_post !== false ) {
-				if ( ( $post_obj = $this->p->util->get_post_object( $use_post ) ) === false ) {
-					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: invalid object type' );
-					return false;
-				}
-				$post_id = empty( $post_obj->ID ) || empty( $post_obj->post_type ) ? 0 : $post_obj->ID;
-			}
 
 			if ( empty( $atts['size'] ) ) 
 				$atts['size'] = $this->p->cf['lca'].'-pinterest-button';
@@ -211,12 +201,11 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				extract( $this->p->og->get_the_media_info( $atts['size'],
-					$post_id, 'rp', array( 'img_url', 'vid_url' ) ) );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'rp', array( 'img_url', 'vid_url' ) );
 				if ( empty( $atts['photo'] ) )
-					$atts['photo'] = $img_url;
+					$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['embed'] ) )
-					$atts['embed'] = $vid_url;
+					$atts['embed'] = $media_info['vid_url'];
 			}
 
 			// let the pinterest crawler choose an image
@@ -224,13 +213,13 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 				$href_query .= '&amp;media=';
 			elseif ( empty( $atts['photo'] ) ) {
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'exiting early: no photo defined for post_id '.$post_id );
-				return false;
+					$this->p->debug->log( 'exiting early: pin_use_img enabled but no photo available' );
+				return false;	// abort
 			} else $href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],
-					$use_post, true, true, false, 'pin_desc', $src_id );
+					$atts['use_post'], true, true, false, 'pin_desc', $atts['source_id'] );
 			}
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
 			$href_query .= '&amp;description='.rawurlencode( $atts['caption'] );

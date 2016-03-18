@@ -16,45 +16,46 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 
-			$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_order', 
 				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			( $this->show_on_checkboxes( 'gp' ) ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Allow for Platform',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$this->form->get_select( 'gp_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'JavaScript in',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_script_loc',
 				$this->p->cf['form']['script_locations'] ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Default Language',
+			$table_rows[] = $this->form->get_th_html( _x( 'Default Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_lang',
 				SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Type',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_action',
 				array( 'plusone' => 'G +1', 'share' => 'G+ Share' ) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Button Size',
+			$table_rows[] = $this->form->get_th_html( _x( 'Button Size',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_size', array( 
 				'small' => 'Small [ 15px ]',
@@ -63,7 +64,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 				'tall' => 'Tall [ 60px ]',
 			) ).'</td>';
 
-			$rows[] = $this->p->util->get_th( _x( 'Annotation',
+			$table_rows[] = $this->form->get_th_html( _x( 'Annotation',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_annotation', array( 
 				'none' => '',
@@ -72,8 +73,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 				'vertical-bubble' => 'Vertical Bubble',
 			) ).'</td>';
 
-			$rows[] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Expand to',
+			$table_rows[] = '<tr class="hide_in_basic">'.
+			$this->form->get_th_html( _x( 'Expand to',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 			$this->form->get_select( 'gp_expandto', array( 
 				'none' => '',
@@ -87,7 +88,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingGplus' ) && class_exists( 'WpssoSsbS
 				'bottom,right' => 'Bottom Right',
 			) ).'</td>';
 	
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -126,20 +127,22 @@ if ( ! class_exists( 'WpssoSsbSharingGplus' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$src_id = $this->p->util->get_source_id( 'gplus', $atts );
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
+
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+			$atts['source_id'] = isset( $atts['source_id'] ) ?
+				$atts['source_id'] : $this->p->util->get_source_id( 'gplus', $atts );
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'],
-					$use_post, $atts['add_page'], $src_id );
+					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
 			$gp_class = $opts['gp_action'] == 'share' ?
 				'class="g-plus" data-action="share"' : 'class="g-plusone"';
 

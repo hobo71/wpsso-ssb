@@ -15,44 +15,46 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
 			$this->p->util->add_plugin_filters( $this, array( 
-				'plugin_cache_rows' => 3,		// advanced 'File and Object Cache' options
-				'sharing_include_rows' => 2,		// social sharing 'Include Buttons' options
-				'sharing_preset_rows' => 2,		// social sharing 'Button Presets' options
-				'post_social_settings_tabs' => 1,	// post 'Sharing Buttons' tab
-				'post_sharing_rows' => 3,		// post 'Sharing Buttons' options
+				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
+				'sharing_include_rows' => 2,		// $table_rows, $form
+				'sharing_preset_rows' => 2,		// $table_rows, $form
+				'post_social_settings_tabs' => 1,	// $tabs
+				'post_sharing_rows' => 4,		// $table_rows, $form, $head, $mod
 			), 30 );
 		}
 
-		public function filter_plugin_cache_rows( $rows, $form, $network = false ) {
+		public function filter_plugin_cache_rows( $table_rows, $form, $network = false ) {
 
-			$rows['plugin_file_cache_exp'] = $this->p->util->get_th( _x( 'Social File Cache Expiry',
+			$table_rows['plugin_file_cache_exp'] = $form->get_th_html( _x( 'Social File Cache Expiry',
 				'option label', 'wpsso-ssb' ), 'highlight', 'plugin_file_cache_exp' ).
-			'<td nowrap class="blank">'.$this->p->cf['form']['file_cache_hrs'][$form->options['plugin_file_cache_exp']].' '.
-				_x( 'hours', 'option comment', 'wpsso-ssb' ).'</td>'.
+			'<td nowrap class="blank">'.$form->get_no_select( 'plugin_file_cache_exp', 
+				$this->p->cf['form']['file_cache_hrs'], 'medium', '', true ).
+					_x( 'hours', 'option comment', 'wpsso-ssb' ).'</td>'.
 			$this->p->admin->get_site_use( $form, $network, 'plugin_file_cache_exp' );
 
-			return $rows;
+			return $table_rows;
 		}
 
-		public function filter_sharing_include_rows( $rows, $form ) {
-			$checkboxes = '';
+		public function filter_sharing_include_rows( $table_rows, $form ) {
 
+			$add_to_checkboxes = '';
 			foreach ( $this->p->util->get_post_types() as $post_type )
-				$checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).' '.
+				$add_to_checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).' '.
 					$post_type->label.' '.( empty( $post_type->description ) ? '' :
 						'('.$post_type->description.')' ).'</p>';
 
-			$rows[] = '<td colspan="2" align="center">'.
-				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$table_rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$rows['buttons_add_to'] = $this->p->util->get_th( _x( 'Include on Post Types',
+			$table_rows['buttons_add_to'] = $form->get_th_html( _x( 'Include on Post Types',
 				'option label', 'wpsso-ssb' ), null, 'buttons_add_to' ).
-				'<td class="blank">'.$checkboxes.'</td>';
+				'<td class="blank">'.$add_to_checkboxes.'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 
-		public function filter_sharing_preset_rows( $rows, $form ) {
+		public function filter_sharing_preset_rows( $table_rows, $form ) {
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
 			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
@@ -61,16 +63,17 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$presets[$type] = $label;
 			asort( $presets );
 
-			$rows[] = '<td colspan="2" align="center">'.
-				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+			$table_rows[] = '<td colspan="2" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			foreach( $presets as $filter_id => $filter_name )
-				$rows[] = $this->p->util->get_th( sprintf( _x( '%s Preset',
+				$table_rows[] = $form->get_th_html( sprintf( _x( '%s Preset',
 					'option label', 'wpsso-ssb' ), $filter_name ), null, 'sharing_preset' ).
-				'<td class="blank">'.( isset( $this->p->options['buttons_preset_ssb-'.$filter_id] ) ?
-					$this->p->options['buttons_preset_ssb-'.$filter_id] : '' ).'</td>';
+				'<td class="blank">'.$form->get_no_select( 'buttons_preset_ssb-'.$filter_id, 
+					array_merge( array( '' ), array_keys( $this->p->cf['opt']['preset'] ) ) ).'</td>';
 
-			return $rows;
+			return $table_rows;
 		}
 
 		public function filter_post_social_settings_tabs( $tabs ) {
@@ -78,99 +81,105 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			foreach ( $tabs as $key => $val ) {
 				$new_tabs[$key] = $val;
 				if ( $key === 'media' )	// insert the social sharing tab after the media tab
-					$new_tabs['sharing'] = _x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' );
+					$new_tabs['sharing'] = _x( 'Sharing Buttons',
+						'metabox tab', 'wpsso-ssb' );
 			}
 			return $new_tabs;
 		}
 
-		public function filter_post_sharing_rows( $rows, $form, $head_info ) {
+		public function filter_post_sharing_rows( $table_rows, $form, $head, $mod ) {
 
-			$lca = $this->p->cf['lca'];
-			$post_status = get_post_status( $head_info['post_id'] );
+			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
+				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
+					sprintf( __( 'Save a draft version or publish the %s to display these options.',
+						'wpsso-ssb' ), $mod['post_type'] ).'</p></td>';
+				return $table_rows;	// abort
+			}
+
 			$size_info = $this->p->media->get_size_info( 'thumbnail' );
-
-			$rows[] = '<td colspan="3" align="center">'.
-				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-
-			/*
-			 * Pinterest
-			 */
-			extract( $this->p->og->get_the_media_info( $lca.'-pinterest-button',
-				$head_info['post_id'], 'rp', array( 'pid', 'img_url' ) ) );
-
-			$th = $this->p->util->get_th( _x( 'Pinterest Caption Text',
-				'option label', 'wpsso-ssb' ), 'medium', 'post-pin_desc' );
-			if ( ! empty( $pid ) ) {
-				list(
-					$img_url,
-					$img_width,
-					$img_height,
-					$img_cropped
-				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
-			}
-			$rows['pin_caption'] = $th.'<td class="blank">'.
-			$this->p->webpage->get_caption( $this->p->options['pin_caption'], $this->p->options['pin_cap_len'] ).'</td>'.
-			( empty( $img_url ) ? '' : '<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
-				style="max-width:'.$size_info['width'].'px;"></td>' );
-
-			/*
-			 * Tumblr
-			 */
-			extract( $this->p->og->get_the_media_info( $lca.'-tumblr-button', 
-				$head_info['post_id'], 'og', array( 'pid', 'img_url', 'vid_url', 'prev_url' ) ) );
-
-			$th = $this->p->util->get_th( _x( 'Tumblr Image Caption',
-				'option label', 'wpsso-ssb' ), 'medium', 'post-tumblr_img_desc' );
-
-			if ( ! empty( $pid ) ) {
-				list(
-					$img_url,
-					$img_width,
-					$img_height,
-					$img_cropped
-				) = $this->p->media->get_attachment_image_src( $pid, 'thumbnail', false ); 
-			}
-
-			if ( ! empty( $img_url ) ) {
-				$rows['tumblr_img_desc'] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
-				'<td style="width:'.$size_info['width'].'px;"><img src="'.$img_url.'"
-					style="max-width:'.$size_info['width'].'px;"></td>';
-			} else $rows['tumblr_img_desc'] = $th.'<td class="blank"><em>'.
-				sprintf( __( 'Caption disabled - no suitable image found for the %s button', 'wpsso-ssb' ), 'Tumblr' ).'</em></td>';
-
-			$th = $this->p->util->get_th( _x( 'Tumblr Video Caption',
-				'option label', 'wpsso-ssb' ), 'medium', 'post-tumblr_vid_desc' );
-			if ( ! empty( $vid_url ) ) {
-				$rows['tumblr_vid_desc'] = $th.'<td class="blank">'.
-				$this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $this->p->options['tumblr_cap_len'] ).'</td>'.
-				'<td style="width:'.$size_info['width'].'px;"><img src="'.$prev_url.'" 
-					style="max-width:'.$size_info['width'].'px;"></td>';
-			} else $rows['tumblr_vid_desc'] = $th.'<td class="blank"><em>'.
-				sprintf( __( 'Caption disabled - no suitable video found for the %s button', 'wpsso-ssb' ), 'Tumblr' ).'</em></td>';
+			$table_rows[] = '<td colspan="3" align="center">'.
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			/*
 			 * Twitter
 			 */
-			if ( $post_status == 'auto-draft' ) {
-				$rows['twitter_desc'] = $this->p->util->get_th( _x( 'Tweet Text',
-					'option label', 'wpsso-ssb' ), 'medium', 'post-twitter_desc' ). 
-				'<td class="blank"><em>'.__( 'Save a draft version or publish to enable this field.',
-					'wpsso-ssb' ).'</em></td>';
-			} else {
-				$twitter_cap_len = $this->p->util->get_tweet_max_len( get_permalink( $head_info['post_id'] ) );
-				$rows['twitter_desc'] = $this->p->util->get_th( _x( 'Tweet Text',
-					'option label', 'wpsso-ssb' ), 'medium', 'post-twitter_desc' ). 
-				'<td class="blank">'.$this->p->webpage->get_caption( $this->p->options['twitter_caption'], $twitter_cap_len,
-					true, true, true ).'</td>';	// $use_post = true, $use_cache = true, $add_hashtags = true
-			}
+			$caption_len = $this->p->util->get_tweet_max_len( get_post_permalink( $mod['id'] ) );
+			$caption_text = $this->p->webpage->get_caption( $this->p->options['twitter_caption'],
+				$caption_len, $mod['use_post'], true, true );	// $use_cache = true, $add_hashtags = true
 
-			$rows['buttons_disabled'] = '<tr class="hide_in_basic">'.
-			$this->p->util->get_th( _x( 'Disable Sharing Buttons',
-				'option label', 'wpsso-ssb' ), 'medium', 'post-buttons_disabled', $head_info ).
-			'<td class="blank">&nbsp;</td>';
+			$form_rows['twitter_desc'] = array(
+				'label' => _x( 'Tweet Text', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-twitter_desc', 'td_class' => 'blank',
+				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ),
+			);
 
-			return $rows;
+			/*
+			 * Pinterest
+			 */
+			$caption_len = $this->p->options['pin_cap_len'];
+			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'],
+				$caption_len, $mod['use_post'] );
+
+			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-pinterest-button',
+				$mod, 'rp', array( 'pid', 'img_url' ) );
+
+			if ( ! empty( $media['pid'] ) )
+				list( $media['img_url'], $img_width, $img_height,
+					$img_cropped ) = $this->p->media->get_attachment_image_src( $media['pid'],
+						'thumbnail', false ); 
+			
+			$form_rows['pin_desc'] = array(
+				'label' => _x( 'Pinterest Caption Text', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-pin_desc', 'td_class' => 'blank top',
+				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ).
+					'</td><td class="top" style="width:'.$size_info['width'].'px;"><img src="'.
+					$media['img_url'].'" style="max-width:'.$size_info['width'].'px;">',
+			);
+
+			/*
+			 * Tumblr
+			 */
+			$caption_len = $this->p->options['tumblr_cap_len'];
+			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'],
+				$caption_len, $mod['use_post'] );
+
+			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-tumblr-button',
+				$mod, 'og', array( 'pid', 'img_url' ) );
+
+			if ( ! empty( $media['pid'] ) )
+				list( $media['img_url'], $img_width, $img_height,
+					$img_cropped ) = $this->p->media->get_attachment_image_src( $media['pid'],
+						'thumbnail', false ); 
+
+			$form_rows['tumblr_img_desc'] = array(
+				'label' => _x( 'Tumblr Image Caption', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-tumblr_img_desc', 'td_class' => 'blank top',
+				'content' => ( empty( $media['img_url'] ) ?
+					'<em>'.sprintf( __( 'Caption disabled - no suitable image found for the %s button',
+						'wpsso-ssb' ), 'Tumblr' ).'</em>' :
+					$form->get_no_textarea_value( $caption_text, '', '', $caption_len ).
+					'</td><td class="top" style="width:'.$size_info['width'].'px;"><img src="'.
+					$media['img_url'].'" style="max-width:'.$size_info['width'].'px;">' ),
+			);
+
+			$form_rows['tumblr_vid_desc'] = array(
+				'label' => _x( 'Tumblr Video Caption', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-tumblr_vid_desc', 'td_class' => 'blank',
+				'content' => '<em>'.sprintf( __( 'Caption disabled - no suitable video found for the %s button',
+					'wpsso-ssb' ), 'Tumblr' ).'</em>',
+			);
+
+			/*
+			 * Disable Buttons Checkbox
+			 */
+			$form_rows['buttons_disabled'] = array(
+				'label' => _x( 'Disable Sharing Buttons', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-buttons_disabled', 'td_class' => 'blank',
+				'content' => $form->get_no_checkbox( 'buttons_disabled' ),
+			);
+
+			return $form->get_md_form_rows( $table_rows, $form_rows, $head, $mod );
 		}
 	}
 }

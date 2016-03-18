@@ -16,6 +16,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 			$this->p =& $plugin;
 			$this->website_id = $id;
 			$this->website_name = $name;
+
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 		}
@@ -27,45 +28,45 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 				'like' => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),
 				'share' => _x( 'Share', 'metabox tab', 'wpsso-ssb' ),
 			);
-			$rows = array();
+			$table_rows = array();
 			foreach ( $tabs as $key => $title )
-				$rows[$key] = $this->get_rows( $metabox, $key );
-			$this->p->util->do_tabs( $metabox, $tabs, $rows );
+				$table_rows[$key] = $this->get_table_rows( $metabox, $key );
+			$this->p->util->do_metabox_tabs( $metabox, $tabs, $table_rows );
 		}
 
-		protected function get_rows( $metabox, $key ) {
-			$rows = array();
+		protected function get_table_rows( $metabox, $key ) {
+			$table_rows = array();
 			switch ( $metabox.'-'.$key ) {
 
 				case 'fb-all':
 
-					$rows[] = $this->p->util->get_th( _x( 'Preferred Order',
+					$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_order', 
 						range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Show Button in',
+					$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.( $this->show_on_checkboxes( 'fb' ) ).'</td>';
 
-					$rows[] = '<tr class="hide_in_basic">'.
-					$this->p->util->get_th( _x( 'Allow for Platform',
+					$table_rows[] = '<tr class="hide_in_basic">'.
+					$this->form->get_th_html( _x( 'Allow for Platform',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_platform',
 						$this->p->cf['sharing']['platform'] ).'</td>';
 
-					$rows[] = '<tr class="hide_in_basic">'.
-					$this->p->util->get_th( _x( 'JavaScript in',
+					$table_rows[] = '<tr class="hide_in_basic">'.
+					$this->form->get_th_html( _x( 'JavaScript in',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'. $this->form->get_select( 'fb_script_loc',
 						$this->p->cf['form']['script_locations'] ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Default Language',
+					$table_rows[] = $this->form->get_th_html( _x( 'Default Language',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_lang',
 						SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Button Type',
+					$table_rows[] = $this->form->get_th_html( _x( 'Button Type',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_button',
 						array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
@@ -74,17 +75,17 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 
 				case 'fb-like':
 
-					$rows[] = $this->p->util->get_th( _x( 'Markup Language',
+					$table_rows[] = $this->form->get_th_html( _x( 'Markup Language',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$this->form->get_select( 'fb_markup', 
 						array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Include Send',
+					$table_rows[] = $this->form->get_th_html( _x( 'Include Send',
 						'option label (short)', 'wpsso-ssb' ), 'short', null, 
 					'The Send button is only available in combination with the XFBML <em>Markup Language</em>.' ).
 					'<td>'.$this->form->get_checkbox( 'fb_send' ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Layout',
+					$table_rows[] = $this->form->get_th_html( _x( 'Layout',
 						'option label (short)', 'wpsso-ssb' ), 'short', null, 
 					'The Standard layout displays social text to the right of the button, and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout" target="_blank">Facebook Layout Settings FAQ</a> for more details.' ).
 					'<td>'.$this->form->get_select( 'fb_layout', 
@@ -96,12 +97,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 						) 
 					).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Show Faces',
+					$table_rows[] = $this->form->get_th_html( _x( 'Show Faces',
 						'option label (short)', 'wpsso-ssb' ), 'short', null, 
 					'Show profile photos below the Standard button (Standard button <em>Layout</em> only).' ).
 					'<td>'.$this->form->get_checkbox( 'fb_show_faces' ).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Font',
+					$table_rows[] = $this->form->get_th_html( _x( 'Font',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 					$this->form->get_select( 'fb_font', 
 						array( 
@@ -114,7 +115,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 						) 
 					).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Color Scheme',
+					$table_rows[] = $this->form->get_th_html( _x( 'Color Scheme',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 					$this->form->get_select( 'fb_colorscheme', 
 						array( 
@@ -123,7 +124,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 						)
 					).'</td>';
 	
-					$rows[] = $this->p->util->get_th( _x( 'Action Name',
+					$table_rows[] = $this->form->get_th_html( _x( 'Action Name',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 					$this->form->get_select( 'fb_action', 
 						array( 
@@ -136,7 +137,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 	
 				case 'fb-share':
 
-					$rows[] = $this->p->util->get_th( _x( 'Layout',
+					$table_rows[] = $this->form->get_th_html( _x( 'Layout',
 						'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
 					$this->form->get_select( 'fb_type', 
 						array(
@@ -151,7 +152,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingFacebook' ) && class_exists( 'WpssoS
 
 					break;
 			}
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
@@ -194,32 +195,34 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
 		}
 
-		public function get_html( $atts = array(), &$opts = array() ) {
+		// do not use an $atts reference to allow for local changes
+		public function get_html( array $atts, array &$opts, array &$mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
+
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
-			$send = $opts['fb_send'] ?
-				'true' : 'false';
-			$show_faces = $opts['fb_show_faces'] ?
-				'true' : 'false';
-			$src_id = 'facebook';
+
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
+
+			$atts['source_id'] = 'facebook';
 			switch ( $opts['fb_button'] ) {
 				case 'like':
-					$src_id = $this->p->util->get_source_id( 'facebook', $atts );
+					$atts['source_id'] = $this->p->util->get_source_id( 'facebook', $atts );
 					break;
 				case 'share':
-					$src_id = $this->p->util->get_source_id( 'fb-share', $atts );
+					$atts['source_id'] = $this->p->util->get_source_id( 'fb-share', $atts );
 					break;
 			}
-			$atts['add_page'] = isset( $atts['add_page'] ) ?
-				$atts['add_page'] : true;	// get_sharing_url argument
+
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $use_post, $atts['add_page'], $src_id ) : 
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
 				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$use_post, $atts['add_page'], $src_id );
+					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
+
+			$atts['send'] = $opts['fb_send'] ? 'true' : 'false';
+			$atts['show_faces'] = $opts['fb_show_faces'] ? 'true' : 'false';
 
 			$html = '';
 			switch ( $opts['fb_button'] ) {
@@ -229,16 +232,16 @@ if ( ! class_exists( 'WpssoSsbSharingFacebook' ) ) {
 							// XFBML
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
 							WpssoSsbSharing::get_css_class_id( 'facebook', $atts, 'fb-like' ).'><fb:like href="'.
-							$atts['url'].'" send="'.$send.'" layout="'.$opts['fb_layout'].'" show_faces="'.
-							$show_faces.'" font="'.$opts['fb_font'].'" action="'.
+							$atts['url'].'" send="'.$atts['send'].'" layout="'.$opts['fb_layout'].'" show_faces="'.
+							$atts['show_faces'].'" font="'.$opts['fb_font'].'" action="'.
 							$opts['fb_action'].'" colorscheme="'.$opts['fb_colorscheme'].'"></fb:like></div>';
 							break;
 						case 'html5':
 							// HTML5
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
 							WpssoSsbSharing::get_css_class_id( 'facebook', $atts, 'fb-like' ).' data-href="'.
-							$atts['url'].'" data-send="'.$send.'" data-layout="'.
-							$opts['fb_layout'].'" data-show-faces="'.$show_faces.'" data-font="'.
+							$atts['url'].'" data-send="'.$atts['send'].'" data-layout="'.
+							$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" data-font="'.
 							$opts['fb_font'].'" data-action="'.$opts['fb_action'].'" data-colorscheme="'.
 							$opts['fb_colorscheme'].'"></div>';
 							break;

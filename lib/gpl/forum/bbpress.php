@@ -80,13 +80,13 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 			return $tabs;
 		}
 
-		public function filter_sharing_position_rows( $rows, $form ) {
-			$rows[] = '<td colspan="2" align="center">'.
+		public function filter_sharing_position_rows( $table_rows, $form ) {
+			$table_rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
-			$rows['buttons_pos_bbp_single'] = $this->p->util->get_th( _x( 'Position in bbPress Single',
+			$table_rows['buttons_pos_bbp_single'] = $form->get_th_html( _x( 'Position in bbPress Single',
 				'option label', 'wpsso-ssb' ), null, 'buttons_pos_bbp_single' ).
 			'<td class="blank">'.$this->p->cf['sharing']['position'][$this->p->options['buttons_pos_bbp_single']].'</td>';
-			return $rows;
+			return $table_rows;
 		}
 	}
 }
