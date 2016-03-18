@@ -51,6 +51,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 	* Twitter
 	* WhatsApp (for Mobile Devices)
 * Include / exclude each social sharing button based on the viewing device (desktop and/or mobile).
+* Support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 * The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
@@ -129,14 +130,16 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.0 (TBD)**
+**Version 2.2.0 (ETA 2016/03/20)**
 
 Official announcement: N/A
+
+> Required update for WordPress Social Sharing Optimization (WPSSO) version 3.28.0.
 
 * *New Features*
 	* Added support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
 * *Improvements*
-	* None
+	* Improved the Social Settings options display (Free version).
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -228,23 +231,11 @@ Please note: This latest release includes new social sharing buttons and styles.
 
 == Upgrade Notice ==
 
+= 2.2.0 =
+
+ETA 2016/03/20 - Required update for WPSSO v3.28.0. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
+
 = 2.1.6 =
 
 2016/03/09 - Added multilingual / multi-language support for the Twitter site user name (Pro version).
-
-= 2.1.5 =
-
-2016/03/01 - This latest release includes style changes for the Tumblr button -- use the "Reload Default Styles" action button, on the Sharing Styles page, to reload the latest default sharing styles.
-
-= 2.1.4 =
-
-2016/02/24 - Fixed possible inclusion of duplicate JavaScript when using the wpssossb_get_sharing_buttons() function.
-
-= 2.1.3 =
-
-2016/02/23 - Fixed an undefined `Wpsso::$sharing` property error in the functions.php code.
-
-= 2.1.2 =
-
-2016/02/15 - Updated the admin editing page CSS for the new Email and WhatsApp buttons.
 
