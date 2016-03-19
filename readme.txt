@@ -134,7 +134,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 Official announcement: N/A
 
-> Required update for WordPress Social Sharing Optimization (WPSSO) version 3.28.0.
+> Required update for WordPress Social Sharing Optimization (WPSSO) version 3.28.1.
 
 * *New Features*
 	* Added support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
@@ -233,7 +233,7 @@ Please note: This latest release includes new social sharing buttons and styles.
 
 = 2.2.0 =
 
-ETA 2016/03/20 - Required update for WPSSO v3.28.0. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
+ETA 2016/03/20 - Required update for WPSSO v3.28.1. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
 
 = 2.1.6 =
 
