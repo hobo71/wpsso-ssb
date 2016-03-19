@@ -301,7 +301,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$text = sprintf( __( 'The sharing widget feature adds a <em>%s</em> widget to the WordPress Widgets settings page. The sharing widget shares the URL for the current webpage (and not individual items within an index / archive webpage, for example).', 'wpsso-ssb' ),_x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' ) );
 					break;
 				case 'tooltip-side-sharing-styles-editor':
-					$text = __( 'A stylesheet editor is available to edit the default CSS of social sharing buttons based on their intended location (content, except, etc.).', 'wpsso-ssb' );
+					$text = __( 'A stylesheet editor is available to modify the default CSS of social sharing buttons based on their intended location (content, except, etc.).', 'wpsso-ssb' );
 					break;
 				case 'tooltip-side-social-file-cache':
 					$text = __( 'Social sharing button images and JavaScript can be saved to a local cache folder. When this feature is enabled, the image and JavaScript URLs provided are those of the cached files instead of the originals (often with much better performance).', 'wpsso-ssb' ).' '.sprintf( __( 'The current <em>%1$s</em> value defined on the <a href="%2$s">%3$s</a> settings page is %4$s seconds (the default value of 0 disables social file caching).', 'wpsso-ssb' ), _x( 'Social File Cache Expiry', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ), $this->p->options['plugin_file_cache_exp'] );
