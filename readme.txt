@@ -145,97 +145,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* None
 
-**Version 2.1.6 (2016/03/09)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added multilingual / multi-language support for the Twitter site user name (Pro version).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed the WpssoOpengraph `get_the_media_urls()` method to `get_the_media_info()` for WPSSO v3.27.0.
-
-**Version 2.1.5 (2016/03/01)**
-
-Official announcement: N/A
-
-Please note: This latest release includes style changes for the Tumblr button -- **use the "Reload Default Styles" action button, on the Sharing Styles page, to reload the latest default sharing styles.**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Updated the Tumblr button module with the latest options and HTML code (see https://www.tumblr.com/docs/en/share_button).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.1.4 (2016/02/24)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed possible inclusion of duplicate JavaScript when using the `wpssossb_get_sharing_buttons()` function.
-* *Developer Notes*
-	* None
-
-**Version 2.1.3 (2016/02/23)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed an undefined `Wpsso::$sharing` property error in the functions.php code.
-* *Developer Notes*
-	* None
-
-**Version 2.1.2 (2016/02/15)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Updated the admin editing page CSS for the new Email and WhatsApp buttons.
-* *Developer Notes*
-	* None
-
-**Version 2.1.1 (2016/02/14)**
-
-Official announcement: N/A
-
-Please note: This latest release includes new social sharing buttons and styles. **Use the "Reload Default Styles" action button on the Sharing Styles page to reload the latest default sharing styles.**
-
-* *New Features*
-	* Added a new "Allow for Platform" option for all social sharing buttons.
-	* Added a new "Reload Default Styles" action button on the Sharing Styles settings page.
-	* Added a new "WhatsApp" social sharing button -- Please note that the default "Allow for Platform" option value for the WhatsApp button is "Mobile Only".
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Used the new SucomUtil::is_https() and SucomUtil::get_prot() static methods to determine the protocol to be used (http or https).
-
 == Upgrade Notice ==
 
 = 2.2.0 =
 
 2016/03/20 - Required update for WPSSO v3.28.1. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
-
-= 2.1.6 =
-
-2016/03/09 - Added multilingual / multi-language support for the Twitter site user name (Pro version).
 
