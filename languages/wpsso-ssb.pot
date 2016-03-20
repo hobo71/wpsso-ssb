@@ -301,12 +301,12 @@ msgid ""
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:472
+#: lib/sharing.php:471
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:546
+#: lib/sharing.php:543
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
