@@ -10,7 +10,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.1
 Tested Up To: 4.4.2
-Stable Tag: 2.1.6
+Stable Tag: 2.2.0
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.0 (ETA 2016/03/20)**
+**Version 2.2.0 (2016/03/20)**
 
 Official announcement: N/A
 
@@ -233,7 +233,7 @@ Please note: This latest release includes new social sharing buttons and styles.
 
 = 2.2.0 =
 
-ETA 2016/03/20 - Required update for WPSSO v3.28.1. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
+2016/03/20 - Required update for WPSSO v3.28.1. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
 
 = 2.1.6 =
 
