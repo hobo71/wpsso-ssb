@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.2 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Refactored the WpssoSsbSharing `get_script()` method to improve the enabled/disabled buttons logic (which no longer applies to shortcode, function or widget buttons).
+
 **Version 2.2.1 (ETA 2016/03/23)**
 
 Official announcement: N/A
