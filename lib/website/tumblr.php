@@ -216,17 +216,17 @@ if ( ! class_exists( 'WpssoSsbSharingTumblr' ) ) {
 				// html encode param is false to use url encoding instead
 				if ( empty( $atts['caption'] ) ) 
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
-						$atts['use_post'], true, false, false, ( ! empty( $atts['photo'] ) ?
+						$mod, true, false, false, ( ! empty( $atts['photo'] ) ?
 							'tumblr_img_desc' : 'tumblr_vid_desc' ), $atts['source_id'] );
 
 			} else {
 				if ( empty( $atts['title'] ) ) 
 					$atts['title'] = $this->p->webpage->get_title( null, null,
-						$atts['use_post'], true, false, false, null, $atts['source_id'] );
+						$mod, true, false, false, null, $atts['source_id'] );
 
 				if ( empty( $atts['description'] ) ) 
 					$atts['description'] = $this->p->webpage->get_description( $opts['tumblr_desc_len'], '...',
-						$atts['use_post'], true, false, false, null, $atts['source_id'] );
+						$mod, true, false, false, null, $atts['source_id'] );
 			}
 
 			// define the button, based on what we have

@@ -101,7 +101,7 @@ if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
 
 			if ( empty( $atts['title'] ) )
 				$atts['title'] = $this->p->webpage->get_title( null, null,
-					$atts['use_post'], true, false, true, null, $atts['source_id'] );
+					$mod, true, false, true, null, $atts['source_id'] );
 
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );

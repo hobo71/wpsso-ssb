@@ -106,7 +106,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$caption_len = $this->p->util->get_tweet_max_len( get_post_permalink( $mod['id'] ) );
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['twitter_caption'],
-				$caption_len, $mod['use_post'], true, true );	// $use_cache = true, $add_hashtags = true
+				$caption_len, $mod, true, true );	// $use_cache = true, $add_hashtags = true
 
 			$form_rows['twitter_desc'] = array(
 				'label' => _x( 'Tweet Text', 'option label', 'wpsso-ssb' ),
@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$caption_len = $this->p->options['pin_cap_len'];
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'],
-				$caption_len, $mod['use_post'] );
+				$caption_len, $mod );
 
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-pinterest-button',
 				$mod, 'rp', array( 'pid', 'img_url' ) );
@@ -133,8 +133,9 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'label' => _x( 'Pinterest Caption Text', 'option label', 'wpsso-ssb' ),
 				'th_class' => 'medium', 'tooltip' => 'post-pin_desc', 'td_class' => 'blank top',
 				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ).
-					'</td><td class="top" style="width:'.$size_info['width'].'px;"><img src="'.
-					$media['img_url'].'" style="max-width:'.$size_info['width'].'px;">',
+					( empty( $media['img_url'] ) ? '' : '</td><td class="top" style="width:'.
+					$size_info['width'].'px;"><img src="'.$media['img_url'].'" style="max-width:'.
+					$size_info['width'].'px;">' ),
 			);
 
 			/*
@@ -142,7 +143,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$caption_len = $this->p->options['tumblr_cap_len'];
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'],
-				$caption_len, $mod['use_post'] );
+				$caption_len, $mod );
 
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-tumblr-button',
 				$mod, 'og', array( 'pid', 'img_url' ) );

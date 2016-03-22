@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.0\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -136,25 +136,25 @@ msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:156 lib/pro/admin/sharing.php:154
+#: lib/gpl/admin/sharing.php:157 lib/pro/admin/sharing.php:154
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:159 lib/pro/admin/sharing.php:157
+#: lib/gpl/admin/sharing.php:160 lib/pro/admin/sharing.php:157
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:167 lib/pro/admin/sharing.php:166
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:166
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:169 lib/pro/admin/sharing.php:169
+#: lib/gpl/admin/sharing.php:170 lib/pro/admin/sharing.php:169
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:177 lib/pro/admin/sharing.php:181
+#: lib/gpl/admin/sharing.php:178 lib/pro/admin/sharing.php:181
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
@@ -769,19 +769,19 @@ msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr ""
 
-#: wpsso-ssb.php:78
+#: wpsso-ssb.php:77
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin before trying to re-activate the %4$s extension."
 msgstr ""
 
-#: wpsso-ssb.php:80
+#: wpsso-ssb.php:79
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin."
 msgstr ""
 
-#: wpsso-ssb.php:131
+#: wpsso-ssb.php:127
 msgid ""
 "The %1$s extension version %2$s requires the use of %3$s version %4$s or "
 "newer (version %5$s is currently installed)."

@@ -583,7 +583,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $this->get_buttons( $text, 'content' );
 		}
 
-		public function get_buttons( &$text, $type = 'content', $use_post = true, $location = '' ) {
+		public function get_buttons( &$text, $type = 'content', $use_post = true, $location = '', $atts = array() ) {
 
 			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
@@ -656,7 +656,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						$sorted_ids[ zeroise( $this->p->options[$pre.'_order'], 3 ).'-'.$id ] = $id;
 				ksort( $sorted_ids );
 
-				$atts = array();
 				$atts['use_post'] = $use_post;
 				$atts['css_id'] = $css_type = 'ssb-'.$type;
 

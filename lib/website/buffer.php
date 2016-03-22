@@ -182,7 +182,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
-						$atts['use_post'], true, true, true, 'twitter_desc', $atts['source_id'] );
+						$mod, true, true, true, 'twitter_desc', $atts['source_id'] );
 				}
 			}
 

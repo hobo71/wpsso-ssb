@@ -165,7 +165,7 @@ if ( ! class_exists( 'WpssoSsbSharingTwitter' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $long_url, 'twitter', $short_url );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['twitter_caption'], $caption_len,
-						$atts['use_post'], true, true, true, 'twitter_desc', $atts['source_id'] );
+						$mod, true, true, true, 'twitter_desc', $atts['source_id'] );
 				}
 			}
 

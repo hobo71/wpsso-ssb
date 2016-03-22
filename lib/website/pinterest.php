@@ -219,8 +219,9 @@ if ( ! class_exists( 'WpssoSsbSharingPinterest' ) ) {
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],
-					$atts['use_post'], true, true, false, 'pin_desc', $atts['source_id'] );
+					$mod, true, true, false, 'pin_desc', $atts['source_id'] );
 			}
+
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
 			$href_query .= '&amp;description='.rawurlencode( $atts['caption'] );
 

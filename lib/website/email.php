@@ -120,9 +120,9 @@ if ( ! class_exists( 'WpssoSsbSharingEmail' ) ) {
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
 				$this->p->options['email_ssb_html'], $atts['use_post'], false, $atts, array(
 				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
-						$atts['use_post'], true, false, false, 'og_title', 'email' ) ),
+						$mod, true, false, false, 'og_title', 'email' ) ),
 				 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
-						$atts['use_post'], true, $atts['add_hashtags'], false, 'og_desc', 'email' ) ),
+						$mod, true, $atts['add_hashtags'], false, 'og_desc', 'email' ) ),
 				)
 			);
 		}

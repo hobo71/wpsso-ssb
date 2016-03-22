@@ -102,7 +102,7 @@ if ( ! class_exists( 'WpssoSsbSharingReddit' ) ) {
 
 			if ( empty( $atts['title'] ) ) 
 				$atts['title'] = $this->p->webpage->get_title( null, null,
-					$atts['use_post'], true, false, true, null, $atts['source_id'] );
+					$mod, true, false, true, null, $atts['source_id'] );
 
 			switch ( $opts['reddit_type'] ) {
 				case 'static-tall-text':
