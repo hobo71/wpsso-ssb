@@ -130,19 +130,6 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.2 (TBD)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Refactored the WpssoSsbSharing `get_script()` method to improve the enabled/disabled buttons logic (which no longer applies to shortcode, function or widget buttons).
-
 **Version 2.2.1 (ETA 2016/03/23)**
 
 Official announcement: N/A
@@ -154,7 +141,9 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
+	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
 	* Modified the SucomWebpage `get_caption()`, `get_title()`, and `get_description()` method arguments to use the new `$mod` array.
+	* Refactored the WpssoSsbSharing `get_script()` method to improve the enabled/disabled buttons logic (which no longer applies to shortcode, function or widget buttons).
 
 **Version 2.2.0 (2016/03/20)**
 
@@ -175,7 +164,7 @@ Official announcement: [WPSSO Update - AMP Support and Several Core Changes](htt
 
 = 2.2.1 =
 
-ETA 2016/03/23 - Modified several SucomWebage method arguments to use the new `$mod` array.
+ETA 2016/03/23 - Modified several SucomWebage method arguments to use the new $mod array.
 
 = 2.2.0 =
 
