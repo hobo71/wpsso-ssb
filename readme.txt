@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.1 (ETA 2016/03/23)**
+**Version 2.2.1 (2016/03/23)**
 
 Official announcement: N/A
 
@@ -163,7 +163,7 @@ Official announcement: [WPSSO Update - AMP Support and Several Core Changes](htt
 
 = 2.2.1 =
 
-ETA 2016/03/23 - Modified several SucomWebage method arguments to use the new $mod array.
+2016/03/23 - Modified several SucomWebage method arguments to use the new $mod array. Improved enabled/disabled buttons logic (no longer applies to shortcode, function or widget buttons).
 
 = 2.2.0 =
 
