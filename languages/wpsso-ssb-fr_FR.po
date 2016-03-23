@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.2\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-03-22 08:37-0400\n"
-"PO-Revision-Date: 2016-03-22 08:37-0400\n"
+"POT-Creation-Date: 2016-03-23 07:03-0400\n"
+"PO-Revision-Date: 2016-03-23 07:03-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -354,7 +354,7 @@ msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/sharing.php:543
+#: lib/sharing.php:547
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
@@ -426,22 +426,22 @@ msgctxt "metabox tab"
 msgid "Button Presets"
 msgstr "Préréglages des Butons"
 
-#: lib/submenu/sharing.php:163
+#: lib/submenu/sharing.php:160
 msgctxt "option label"
 msgid "Include on Index Webpages"
 msgstr "Inclure sur les pages Web d'index"
 
-#: lib/submenu/sharing.php:167
+#: lib/submenu/sharing.php:164
 msgctxt "option label"
 msgid "Include on Static Homepage"
 msgstr "Inclure sur la page d'accueil statique"
 
-#: lib/submenu/sharing.php:175
+#: lib/submenu/sharing.php:172
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr "Position dans le texte de contenu"
 
-#: lib/submenu/sharing.php:180
+#: lib/submenu/sharing.php:177
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr "Position dans le texte d'extrait"
@@ -832,22 +832,22 @@ msgstr "utilisant ces <a href=\"%1$s\">%2$s</a>"
 msgid "The %s widget."
 msgstr "Le widget %s."
 
-#: lib/widget/sharing.php:117
+#: lib/widget/sharing.php:111
 msgctxt "option value"
 msgid "Share It"
 msgstr "Partager"
 
-#: lib/widget/sharing.php:119
+#: lib/widget/sharing.php:113
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr "Titre du Widget (laisser vide pour aucun titre)"
 
-#: lib/widget/sharing.php:134
+#: lib/widget/sharing.php:128
 msgctxt "option comment"
 msgid "(not added on indexes)"
 msgstr "(pas ajouté sur pages index)"
 
-#: lib/widget/sharing.php:137
+#: lib/widget/sharing.php:131
 msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr "(partage un lien sur pages index)"
