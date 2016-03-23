@@ -137,11 +137,10 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* None
+	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
 	* Modified the SucomWebpage `get_caption()`, `get_title()`, and `get_description()` method arguments to use the new `$mod` array.
 	* Refactored the WpssoSsbSharing `get_script()` method to improve the enabled/disabled buttons logic (which no longer applies to shortcode, function or widget buttons).
 
