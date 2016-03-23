@@ -3,7 +3,7 @@
  * necessary to customize the layout for your website.
  */
 
-/* align the buttons vertically in a single 117px wide column */
+/* align the buttons vertically in 135px wide column(s) */
 .wpsso-ssb-widget { 
 	text-align:left;
 }
@@ -15,6 +15,6 @@
 	vertical-align:top;
 	padding:0;
 	margin:5px;
-	width:117px; 
+	width:135px; 
 	height:20px;
 }

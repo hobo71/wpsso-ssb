@@ -306,7 +306,7 @@ msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:543
+#: lib/sharing.php:547
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
@@ -363,22 +363,22 @@ msgctxt "metabox tab"
 msgid "Button Presets"
 msgstr ""
 
-#: lib/submenu/sharing.php:163
+#: lib/submenu/sharing.php:160
 msgctxt "option label"
 msgid "Include on Index Webpages"
 msgstr ""
 
-#: lib/submenu/sharing.php:167
+#: lib/submenu/sharing.php:164
 msgctxt "option label"
 msgid "Include on Static Homepage"
 msgstr ""
 
-#: lib/submenu/sharing.php:175
+#: lib/submenu/sharing.php:172
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr ""
 
-#: lib/submenu/sharing.php:180
+#: lib/submenu/sharing.php:177
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
@@ -749,22 +749,22 @@ msgstr ""
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:117
+#: lib/widget/sharing.php:111
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:119
+#: lib/widget/sharing.php:113
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""
 
-#: lib/widget/sharing.php:134
+#: lib/widget/sharing.php:128
 msgctxt "option comment"
 msgid "(not added on indexes)"
 msgstr ""
 
-#: lib/widget/sharing.php:137
+#: lib/widget/sharing.php:131
 msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr ""

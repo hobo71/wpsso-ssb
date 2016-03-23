@@ -90,10 +90,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults' => 1,		// add sharing options and css file contents to defaults
-				'get_md_defaults' => 1,		// add sharing options to meta data defaults
-				'text_filter_has_added' => 2,	// re-add the buttons filter to content, excerpt, etc.
-				'text_filter_has_removed' => 2,	// remove the buttons filter from content, excerpt, etc.
+				'get_defaults' => 1,				// add sharing options and css file contents to defaults
+				'get_md_defaults' => 1,				// add sharing options to meta data defaults
+				'text_filter_has_added' => 2,			// re-add the buttons filter to content, excerpt, etc.
+				'text_filter_has_removed' => 2,			// remove the buttons filter from content, excerpt, etc.
 			) );
 
 			if ( is_admin() ) {
@@ -102,7 +102,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options' => 3,			// update the sharing css file
-					'option_type' => 4,			// identify option type for sanitation
+					'option_type' => 2,			// identify option type for sanitation
 					'post_cache_transients' => 4,		// clear transients on post save
 					'messages_tooltip_side' => 3,		// tooltip messages for side boxes
 					'messages_tooltip_post' => 3,		// tooltip messages for post social settings
@@ -188,7 +188,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $opts;
 		}
 
-		public function filter_option_type( $type, $key, $network, $mod_name ) {
+		public function filter_option_type( $type, $key ) {
 			if ( ! empty( $type ) )
 				return $type;
 
@@ -499,6 +499,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function show_sidebar() {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$lca = $this->p->cf['lca'];
 			$js = trim( preg_replace( '/\/\*.*\*\//', '',
 				$this->p->options['buttons_js_ssb-sidebar'] ) );
@@ -516,6 +518,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function show_admin_sharing( $post_obj ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$lca = $this->p->cf['lca'];
 			$css_data = '#side-sortables #_'.$lca.'_ssb_share .inside table.sucom-setting { padding:0; }'.
 				$this->p->options['buttons_css_ssb-admin_edit'];
@@ -569,6 +573,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function get_buttons_the_excerpt( $text ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			$id = $this->p->cf['lca'].' excerpt-buttons';
 			$text = preg_replace_callback( '/(<!-- '.$id.' begin -->.*<!-- '.$id.' end -->)(<\/p>)?/Usi', 
 				array( __CLASS__, 'remove_paragraph_tags' ), $text );
@@ -576,16 +582,21 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function get_buttons_get_the_excerpt( $text ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			return $this->get_buttons( $text, 'excerpt' );
 		}
 
 		public function get_buttons_the_content( $text ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 			return $this->get_buttons( $text, 'content' );
 		}
 
 		public function get_buttons( &$text, $type = 'content', $use_post = true, $location = '', $atts = array() ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
-			// should we skip the sharing buttons for this content type or webpage?
 			if ( is_admin() ) {
 				if ( strpos( $type, 'admin_' ) !== 0 ) {
 					if ( $this->p->debug->enabled )
@@ -600,19 +611,22 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $type.' filter skipped: buttons not allowed in rss feeds'  );
 				return $text;
-			} else {
-				if ( ! is_singular() && empty( $this->p->options['buttons_on_index'] ) ) {
+			} elseif ( ! is_singular() ) {
+				if ( empty( $this->p->options['buttons_on_index'] ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
 					return $text;
-				} elseif ( is_front_page() && empty( $this->p->options['buttons_on_front'] ) ) {
+				}
+			} elseif ( is_front_page() ) {
+				if ( empty( $this->p->options['buttons_on_front'] ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
 					return $text;
 				}
+			} elseif ( is_singular() ) {
 				if ( $this->is_post_buttons_disabled() ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( $type.' filter skipped: sharing buttons disabled' );
+						$this->p->debug->log( $type.' filter skipped: is singular and post buttons disabled' );
 					return $text;
 				}
 			}
@@ -708,6 +722,8 @@ $buttons_html."\n".
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
 		public function get_html( array &$ids, array &$atts, &$mod = false ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$lca = $this->p->cf['lca'];
 			$use_post = isset( $atts['use_post'] ) ?
@@ -776,54 +792,23 @@ $buttons_html."\n".
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
 		public function get_script( $pos = 'header', $requested_ids = array() ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
-			/*
-			 * Prevent duplicate loading of JavaScript by comparing enabled ids for the
-			 * current webpage, and any requested ids (by the sharing buttons function).
-			 */
 			$enabled_ids = array();
 
-			if ( empty( $requested_ids ) ) {
-				if ( is_admin() ) {
-					if ( ( $post_obj = $this->p->util->get_post_object() ) === false  ||
-						( get_post_status( $post_obj->ID ) !== 'publish' &&
-							$post_obj->post_type !== 'attachment' ) )
-								return;
-				} elseif ( is_singular() && $this->is_post_buttons_disabled() ) {
-					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: buttons disabled' );
-					return;
-				}
-			}
-
-			if ( is_admin() ) {
-				foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
-						if ( ! empty( $val ) )
-							$enabled_ids[] = $id;
-					}
-				}
-			} else {
-				if ( is_singular() || 
-					( ! is_singular() && ! empty( $this->p->options['buttons_on_index'] ) ) || 
-					( is_front_page() && ! empty( $this->p->options['buttons_on_front'] ) ) ) {
-
-					// exclude buttons enabled for admin editing pages
-					foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
-						foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_/', $this->p->options ) as $key => $val )
-							if ( strpos( $key, $pre.'_on_admin_' ) === false && ! empty( $val ) )
-								$enabled_ids[] = $id;
-					}
-				}
-
+			// there are no widgets on the admin back-end, so don't bother checking
+			if ( ! is_admin() ) {
 				if ( class_exists( 'WpssoSsbWidgetSharing' ) ) {
 					$widget = new WpssoSsbWidgetSharing();
 			 		$widget_settings = $widget->get_settings();
 				} else $widget_settings = array();
-
+	
 				// check for enabled buttons in ACTIVE widget(s)
 				foreach ( $widget_settings as $num => $instance ) {
-					if ( is_object( $widget ) && is_active_widget( false, $widget->id_base.'-'.$num, $widget->id_base ) ) {
+					if ( is_object( $widget ) && is_active_widget( false,
+						$widget->id_base.'-'.$num, $widget->id_base ) ) {
+	
 						foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
 							if ( array_key_exists( $id, $instance ) && 
 								! empty( $instance[$id] ) )
@@ -831,25 +816,68 @@ $buttons_html."\n".
 						}
 					}
 				}
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'enabled widget ids: '.
+						SucomDebug::pretty_array( $enabled_ids, true ) );
 			}
 
-			if ( empty( $requested_ids ) ) {
+			$exit_message = false;
+			if ( is_admin() ) {
+				if ( ( $post_obj = $this->p->util->get_post_object() ) === false ||
+					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) )
+						$exit_message = 'exiting early: must be published or attachment for admin buttons';
+			} elseif ( ! is_singular() ) {
+				if ( empty( $this->p->options['buttons_on_index'] ) )
+					$exit_message = 'exiting early: index page without buttons_on_index enabled';
+			} elseif ( is_front_page() ) {
+				if ( empty( $this->p->options['buttons_on_front'] ) )
+					$exit_message = 'exiting early: front page without buttons_on_front enabled';
+			} elseif ( is_singular() ) {
+				if ( $this->is_post_buttons_disabled() )
+					$exit_message = 'exiting early: is singular and post buttons disabled';
+			}
+
+			if ( $exit_message ) {
+				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( $exit_message  );
+					return;
+				} elseif ( $this->p->debug->enabled )
+					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
+			} elseif ( is_admin() ) {
+				foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
+						if ( ! empty( $val ) )
+							$enabled_ids[] = $id;
+					}
+				}
+			} else {
+				foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_/', $this->p->options ) as $key => $val ) {
+						// exclude buttons enabled for admin editing pages
+						if ( strpos( $key, $pre.'_on_admin_' ) === false && ! empty( $val ) )
+							$enabled_ids[] = $id;
+					}
+				}
+			}
+
+			if ( empty( $request_ids ) ) {
 				if ( empty( $enabled_ids ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'exiting early: no buttons enabled or requested' );
 					return;
-				} else $ids = $enabled_ids;
+				} else $include_ids = $enabled_ids;
 			} else {
-				$ids = array_diff( $requested_ids, $enabled_ids );
-				if ( empty( $ids ) ) {
+				$include_ids = array_diff( $request_ids, $enabled_ids );
+				if ( empty( $include_ids ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: no buttons after removing enabled' );
+						$this->p->debug->log( 'exiting early: no scripts to add after removing enabled buttons' );
 					return;
 				}
 			}
 
-			natsort( $ids );
-			$ids = array_unique( $ids );
+			natsort( $include_ids );
+			$include_ids = array_unique( $include_ids );
 			$js = '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript begin -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
@@ -858,15 +886,16 @@ $buttons_html."\n".
 				$script_loc = 'footer';
 			else $script_loc = $pos;
 
-			if ( ! empty( $ids ) ) {
-				foreach ( $ids as $id ) {
+			if ( ! empty( $include_ids ) ) {
+				foreach ( $include_ids as $id ) {
 					$id = preg_replace( '/[^a-z]/', '', $id );
 					$opt_name = $this->p->cf['opt']['pre'][$id].'_script_loc';
+
 					if ( isset( $this->website[$id] ) &&
 						method_exists( $this->website[$id], 'get_script' ) && 
-						isset( $this->p->options[$opt_name] ) && 
-						$this->p->options[$opt_name] == $script_loc )
-							$js .= $this->website[$id]->get_script( $pos )."\n";
+							isset( $this->p->options[$opt_name] ) && 
+								$this->p->options[$opt_name] === $script_loc )
+									$js .= $this->website[$id]->get_script( $pos )."\n";
 				}
 			}
 			$js .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
