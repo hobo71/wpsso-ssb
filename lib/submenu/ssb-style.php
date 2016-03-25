@@ -8,9 +8,9 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' ) ) {
 
-	class WpssoSsbSubmenuStyle extends WpssoAdmin {
+	class WpssoSsbSubmenuSsbStyle extends WpssoAdmin {
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
@@ -59,12 +59,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 					break;
 
 				case 'info-style-ssb-content':
-					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'sharing', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'content', true );
 					break;
 
 				case 'info-style-ssb-excerpt':
-					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'sharing', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'excerpt', true );
 					break;
 
@@ -128,10 +128,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
     .ssb-buttons 
         .facebook-button {}</pre>';
 			if ( $preset ) {
-				$tabs = apply_filters( $this->p->cf['lca'].'_sharing_ssb_styles_tabs', 
+				$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 					$this->p->cf['sharing']['ssb-style'] );
 
-				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'sharing#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
+				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
 						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
 							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
@@ -165,7 +165,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuStyle' ) && class_exists( 'WpssoAdmin' ) ) 
 			) );
 
 			$table_rows = array();
-			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_ssb_styles_tabs', 
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 				$this->p->cf['sharing']['ssb-style'] );
 
 			foreach ( $tabs as $key => $title ) {

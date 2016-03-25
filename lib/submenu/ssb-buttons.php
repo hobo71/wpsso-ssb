@@ -8,14 +8,11 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin' ) ) {
 
-	class WpssoSsbSubmenuSharing extends WpssoAdmin {
+	class WpssoSsbSubmenuSsbButtons extends WpssoAdmin {
 
 		public $website = array();
-
-		protected $website_id = '';
-		protected $website_name = '';
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
@@ -30,7 +27,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			$this->set_objects();
 
 			$this->p->util->add_plugin_actions( $this, array(
-				'form_content_metaboxes_sharing' => 1,
+				'form_content_metaboxes_ssb_buttons' => 1,	// show two-column metaboxes
 			) );
 
 			$this->p->util->add_plugin_filters( $this, array(
@@ -39,21 +36,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 		}
 
 		private function set_objects() {
-			foreach ( $this->p->cf['*']['lib']['website'] as $id => $name ) {
-				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsubmenusharing'.$id );
-				if ( $classname !== false && class_exists( $classname ) )
-					$this->website[$id] = new $classname( $this->p, $id, $name );
+			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
+				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsubmenuwebsite'.$id );
+				if ( $classname !== false && class_exists( $classname ) ) {
+					$this->website[$id] = new $classname( $this->p );
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( $classname.' class loaded' );
+				}
 			}
 		}
 
-		// display two-column metaboxes for sharing buttons
-		public function action_form_content_metaboxes_sharing( $pagehook ) {
+		// show two-column metaboxes for sharing buttons
+		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
 			if ( isset( $this->website ) ) {
 				foreach ( range( 1, ceil( count( $this->website ) / 2 ) ) as $row ) {
 					echo '<div class="website-row">', "\n";
 					foreach ( range( 1, 2 ) as $col ) {
 						$pos_id = 'website-row-'.$row.'-col-'.$col;
-						echo '<div class="website-col-', $col, '" id="', $pos_id, '" >';
+						echo '<div class="website-col-'.$col.'" id="'.$pos_id.'" >';
 						do_meta_boxes( $pagehook, $pos_id, null ); 
 						echo '</div>', "\n";
 					}
@@ -89,44 +89,46 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			$row = 0;
 
 			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
-			add_meta_box( $this->pagehook.'_sharing',
+			add_meta_box( $this->pagehook.'_ssb_buttons',
 				_x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
-					array( &$this, 'show_metabox_sharing' ), $this->pagehook, 'normal' );
+					array( &$this, 'show_metabox_ssb_buttons' ),
+						$this->pagehook, 'normal' );
 
-			foreach ( $this->p->cf['*']['lib']['website'] as $id => $name ) {
-				$classname = __CLASS__.$id;
-				if ( class_exists( $classname ) ) {
-					$col = $col == 1 ? 2 : 1;
-					$row = $col == 1 ? $row + 1 : $row;
-					$pos_id = 'website-row-'.$row.'-col-'.$col;
-					$name = $name == 'GooglePlus' ? 'Google+' : $name;
+			$website_ids = $this->p->ssb->get_website_object_ids( $this->website );
 
-					add_meta_box( $this->pagehook.'_'.$id, $name, 
-						array( &$this->website[$id], 'show_metabox_website' ), $this->pagehook, $pos_id );
+			foreach ( $website_ids as $id => $name ) {
+				$col = $col == 1 ? 2 : 1;
+				$row = $col == 1 ? $row + 1 : $row;
+				$pos_id = 'website-row-'.$row.'-col-'.$col;
+				$name = $name == 'GooglePlus' ?
+					'Google+' : $name;
+				$args = array( 'id' => $id, 'name' => $name );
 
-					add_filter( 'postbox_classes_'.$this->pagehook.'_'.$this->pagehook.'_'.$id, 
-						array( &$this, 'add_class_postbox_website' ) );
+				add_meta_box( $this->pagehook.'_'.$id, $name, 
+					array( &$this, 'show_metabox_ssb_website' ),
+						$this->pagehook, $pos_id, 'default', $args );
 
-					$this->website[$id]->form = &$this->get_form_reference();
-				}
+				add_filter( 'postbox_classes_'.$this->pagehook.'_'.$this->pagehook.'_'.$id, 
+					array( &$this, 'add_class_postbox_ssb_website' ) );
 			}
 
 			// these metabox ids should be closed by default (array_diff() selects everything except those listed)
-			$ids = array_diff( array_keys( $this->p->cf['plugin']['wpssossb']['lib']['website'] ), array() );
+			$ids = array_diff( array_keys( $website_ids ), array() );
 			$this->p->m['util']['user']->reset_metabox_prefs( $this->pagehook, $ids, 'closed' );
 		}
 
-		public function add_class_postbox_website( $classes ) {
+		public function add_class_postbox_ssb_website( $classes ) {
 			$show_opts = WpssoUser::show_opts();
-			$classes[] = 'postbox_website';
+			$classes[] = 'postbox-ssb_website';
 			if ( ! empty( $show_opts ) )
-				$classes[] = 'postbox_show_'.$show_opts;
+				$classes[] = 'postbox-show_'.$show_opts;
 			return $classes;
 		}
 
-		public function show_metabox_sharing() {
-			$metabox = 'sharing';
-			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_buttons_tabs', array(
+		public function show_metabox_ssb_buttons() {
+			$lca = $this->p->cf['lca'];
+			$metabox = 'ssb_buttons';
+			$tabs = apply_filters( $lca.'_ssb_buttons_tabs', array(
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset' => _x( 'Button Presets', 'metabox tab', 'wpsso-ssb' ),
@@ -134,28 +136,36 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			$table_rows = array();
 			foreach ( $tabs as $key => $title )
 				$table_rows[$key] = array_merge( $this->get_table_rows( $metabox, $key ), 
-					apply_filters( $this->p->cf['lca'].'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
+					apply_filters( $lca.'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
 			$this->p->util->do_metabox_tabs( $metabox, $tabs, $table_rows );
 		}
 
-		public function show_metabox_website() {
-			$metabox = 'website';
-			$key = $this->website_id;
-			$this->p->util->do_table_rows( 
-				array_merge( 
-					$this->get_table_rows( $metabox, $key ),
-					apply_filters( $this->p->cf['lca'].'_'.$metabox.'_'.$key.'_rows', array(), $this->form )
-				),
-				'metabox-'.$metabox.'-'.$key,
-				'metabox-website'
-			);
+		public function show_metabox_ssb_website( $post, $callback ) {
+			$lca = $this->p->cf['lca'];
+			$args = $callback['args'];
+			$metabox = 'ssb_website';
+			$tabs = apply_filters( $lca.'_'.$metabox.'_'.$args['id'].'_tabs', array() );
+
+			if ( empty( $tabs ) ) {
+				$this->p->util->do_table_rows( 
+					apply_filters( $lca.'_'.$metabox.'_'.$args['id'].'_rows',
+						array(), $this->form, $this ),
+					'metabox-'.$metabox.'-'.$args['id'],
+					'metabox-'.$metabox
+				);
+			} else {
+				foreach ( $tabs as $tab => $title )
+					$table_rows[$tab] = apply_filters( $lca.'_'.$metabox.'_'.$args['id'].'_'.$tab.'_rows',
+						array(), $this->form, $this );
+				$this->p->util->do_metabox_tabs( $metabox.'_'.$args['id'], $tabs, $table_rows );
+			}
 		}
 
 		protected function get_table_rows( $metabox, $key ) {
 			$table_rows = array();
 			switch ( $metabox.'-'.$key ) {
 
-				case 'sharing-include':
+				case 'ssb_buttons-include':
 
 					$table_rows[] = $this->form->get_th_html( _x( 'Include on Index Webpages',
 						'option label', 'wpsso-ssb' ), null, 'buttons_on_index' ).
@@ -167,7 +177,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 
 					break;
 
-				case 'sharing-position':
+				case 'ssb_buttons-position':
 
 					$table_rows[] = $this->form->get_th_html( _x( 'Position in Content Text',
 						'option label', 'wpsso-ssb' ), null, 'buttons_pos_content' ).
@@ -184,25 +194,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharing' ) && class_exists( 'WpssoAdmin' ) 
 			return $table_rows;
 		}
 
-		// called by each website's settings class to display a list of checkboxes
-		// Show Button in: Content, Excerpt, Admin Edit, etc.
-		protected function show_on_checkboxes( $prefix ) {
+		public function show_on_checkboxes( $opt_prefix ) {
 			$col = 0;
 			$max = 2;
 			$html = '<table>';
-			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
-				$this->p->cf['sharing']['show_on'], $prefix );
-			foreach ( $show_on as $suffix => $desc ) {
+			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
+				$this->p->cf['sharing']['show_on'], $opt_prefix );
+
+			foreach ( $show_on as $opt_suffix => $short_desc ) {
 				$col++;
-				$class = isset( $this->p->options[$prefix.'_on_'.$suffix.':is'] ) &&
-					$this->p->options[$prefix.'_on_'.$suffix.':is'] === 'disabled' &&
+				$class = isset( $this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] ) &&
+					$this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] === 'disabled' &&
 					! $this->p->check->aop( 'wpssossb', true, $this->p->is_avail['aop'] ) ?
 						'show_on blank' : 'show_on';
 				if ( $col == 1 )
 					$html .= '<tr><td class="'.$class.'">';
 				else $html .= '<td class="'.$class.'">';
-				$html .= $this->form->get_checkbox( $prefix.'_on_'.$suffix ).
-					_x( $desc, 'option value', 'wpsso-ssb' ).'&nbsp; ';
+				$html .= $this->form->get_checkbox( $opt_prefix.'_on_'.$opt_suffix ).
+					_x( $short_desc, 'option value', 'wpsso-ssb' ).'&nbsp; ';
 				if ( $col == $max ) {
 					$html .= '</td></tr>';
 					$col = 0;
