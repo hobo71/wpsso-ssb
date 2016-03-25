@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.2.1',		// plugin version
+					'version' => '2.2.2',		// plugin version
 					'opt_version' => '13',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -46,10 +46,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'pro_support' => 'http://wpsso-ssb.support.wpsso.com/',
 					),
 					'lib' => array(
+						// submenu items must have unique keys
 						'submenu' => array (
-							'wpssossb-separator-0' => 'SSB Extension',
-							'sharing' => 'Sharing Buttons',
-							'style' => 'Sharing Styles',
+							//'wpssossb-separator-0' => 'SSB Extension',
+							'ssb-buttons' => 'Sharing Buttons',
+							'ssb-style' => 'Sharing Styles',
 						),
 						'website' => array(
 							'email' => 'Email',
@@ -68,14 +69,14 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'whatsapp' => 'WhatsApp',
 						),
 						'shortcode' => array(
-							'sharing' => 'Sharing',
+							'sharing' => 'Sharing Shortcode',
 						),
 						'widget' => array(
-							'sharing' => 'Sharing',
+							'sharing' => 'Sharing Widget',
 						),
 						'gpl' => array(
 							'admin' => array(
-								'sharing' => 'Button Settings',
+								'sharing' => 'Sharing Settings',
 							),
 							'ecom' => array(
 								'woocommerce' => 'WooCommerce',
@@ -89,7 +90,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						),
 						'pro' => array(
 							'admin' => array(
-								'sharing' => 'Button Settings',
+								'sharing' => 'Sharing Settings',
 							),
 							'ecom' => array(
 								'woocommerce' => 'WooCommerce',

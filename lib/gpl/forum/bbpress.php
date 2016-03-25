@@ -48,9 +48,9 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 
 			if ( is_admin() ) {
 				$this->p->util->add_plugin_filters( $this, array( 
-					'sharing_show_on' => 2,
-					'sharing_ssb_styles_tabs' => 1,
-					'sharing_position_rows' => 2,
+					'ssb_buttons_show_on' => 2,
+					'ssb_styles_tabs' => 1,
+					'ssb_buttons_position_rows' => 2,
 				) );
 			}
 		}
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 			return $opts_def;
 		}
 
-		public function filter_sharing_show_on( $show_on = array(), $prefix = '' ) {
+		public function filter_ssb_buttons_show_on( $show_on = array(), $prefix = '' ) {
 			switch ( $prefix ) {
 				case 'pin':
 					break;
@@ -74,13 +74,13 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 			return $show_on;
 		}
 
-		public function filter_sharing_ssb_styles_tabs( $tabs ) {
+		public function filter_ssb_styles_tabs( $tabs ) {
 			$tabs['ssb-bbp_single'] = 'bbPress Single';
 			$this->p->options['buttons_css_ssb-bbp_single:is'] = 'disabled';
 			return $tabs;
 		}
 
-		public function filter_sharing_position_rows( $table_rows, $form ) {
+		public function filter_ssb_buttons_position_rows( $table_rows, $form ) {
 			$table_rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 			$table_rows['buttons_pos_bbp_single'] = $form->get_th_html( _x( 'Position in bbPress Single',

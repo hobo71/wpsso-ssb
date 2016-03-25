@@ -46,9 +46,9 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 			if ( is_admin() ) {
 				$this->p->util->add_plugin_filters( $this, array( 
-					'sharing_show_on' => 2,
-					'sharing_ssb_styles_tabs' => 1,
-					'sharing_position_rows' => 2,	// social sharing 'Buttons Position' options
+					'ssb_buttons_show_on' => 2,
+					'ssb_styles_tabs' => 1,
+					'ssb_buttons_position_rows' => 2,	// social sharing 'Buttons Position' options
 				) );
 			}
 		}
@@ -61,19 +61,19 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 			return $opts_def;
 		}
 
-		public function filter_sharing_show_on( $show_on = array(), $prefix ) {
+		public function filter_ssb_buttons_show_on( $show_on = array(), $prefix ) {
 			$show_on['woo_short'] = 'Woo Short';
 			$this->p->options[$prefix.'_on_woo_short:is'] = 'disabled';
 			return $show_on;
 		}
 
-		public function filter_sharing_ssb_styles_tabs( $tabs ) {
+		public function filter_ssb_styles_tabs( $tabs ) {
 			$tabs['ssb-woo_short'] = 'Woo Short';
 			$this->p->options['buttons_css_ssb-woo_short:is'] = 'disabled';
 			return $tabs;
 		}
 
-		public function filter_sharing_position_rows( $table_rows, $form ) {
+		public function filter_ssb_buttons_position_rows( $table_rows, $form ) {
 			$table_rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
 			$table_rows['buttons_pos_woo_short'] = $form->get_th_html( _x( 'Position in Woo Short Text',

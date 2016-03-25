@@ -8,92 +8,88 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuSharingBuffer' ) && class_exists( 'WpssoSsbSubmenuSharing' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
-	class WpssoSsbSubmenuSharingBuffer extends WpssoSsbSubmenuSharing {
+	class WpssoSsbSubmenuWebsiteBuffer {
 
-		public function __construct( &$plugin, $id, $name ) {
+		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->website_id = $id;
-			$this->website_name = $name;
-
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
-
 			$this->p->util->add_plugin_filters( $this, array( 
 				'image-dimensions_general_rows' => 2,	// $table_rows, $form
+				'ssb_website_buffer_rows' => 3,		// $table_rows, $form, $submenu
 			) );
 		}
 
 		// add an option to the WordPress -> Settings -> Image Dimensions page
 		public function filter_image_dimensions_general_rows( $table_rows, $form ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Buffer <em>Sharing Button</em>',
-				'option label', 'wpsso-ssb' ), null, 'buffer_img_dimensions',
-			'The image dimensions that the Buffer button will share (defaults is '.$this->p->opt->get_defaults( 'buffer_img_width' ).'x'.$this->p->opt->get_defaults( 'buffer_img_height' ).' '.( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'un' : '' ).'cropped). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
+			$def_dimensions = $this->p->opt->get_defaults( 'buffer_img_width' ).'x'.
+				$this->p->opt->get_defaults( 'buffer_img_height' ).' '.
+				( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
+
+			$table_rows['buffer_img_dimensions'] = $form->get_th_html( _x( 'Buffer <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'buffer_img_dimensions', 'The image dimensions that the Buffer button will share (defaults is '.$def_dimensions.'). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
 			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';
 
 			return $table_rows;
 		}
 
-		protected function get_table_rows( $metabox, $key ) {
-			$table_rows = array();
+		public function filter_ssb_website_buffer_rows( $table_rows, $form, $submenu ) {
 			
-			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+			$form->get_select( 'buffer_order', 
+				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $this->show_on_checkboxes( 'buffer' ) ).'</td>';
+			( $submenu->show_on_checkboxes( 'buffer' ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'Allow for Platform',
+			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$this->form->get_select( 'buffer_platform',
+			'<td>'.$form->get_select( 'buffer_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'JavaScript in',
+			$form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
+			$form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Count Position',
+			$table_rows[] = $form->get_th_html( _x( 'Count Position',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_count', array( 'none' => '', 
+			$form->get_select( 'buffer_count', array( 'none' => '', 
 			'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Image Dimensions',
+			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$this->form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
+			'<td>'.$form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'Tweet Text Source',
+			$form->get_th_html( _x( 'Tweet Text Source',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
+			$form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'Tweet Text Length',
+			$form->get_th_html( _x( 'Tweet Text Length',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_input( 'buffer_cap_len', 'short' ).' '.
+			$form->get_input( 'buffer_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Add via @username',
+			$table_rows[] = $form->get_th_html( _x( 'Add via @username',
 				'option label (short)', 'wpsso-ssb' ), 'short', null,
 			'Append the website\'s @username to the tweet (see the '.$this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter', 'Twitter options tab' ).' on the General Settings page).' ).
 			( $this->p->check->aop() == true ? 
-				'<td>'.$this->form->get_checkbox( 'buffer_via' ).'</td>' :
-				'<td class="blank">'.$this->form->get_no_checkbox( 'buffer_via' ).'</td>' );
+				'<td>'.$form->get_checkbox( 'buffer_via' ).'</td>' :
+				'<td class="blank">'.$form->get_no_checkbox( 'buffer_via' ).'</td>' );
 
 			return $table_rows;
 		}
 	}
 }
 
-if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
+if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
-	class WpssoSsbSharingBuffer {
+	class WpssoSsbWebsiteBuffer {
 
 		private static $cf = array(
 			'opt' => array(				// options
@@ -131,8 +127,7 @@ if ( ! class_exists( 'WpssoSsbSharingBuffer' ) ) {
 		public function filter_plugin_image_sizes( $sizes ) {
 			$sizes['buffer_img'] = array(
 				'name' => 'buffer-button',
-				'label' => _x( 'Buffer Sharing Button',
-					'image size label', 'wpsso-ssb' ),
+				'label' => _x( 'Buffer Sharing Button', 'image size label', 'wpsso-ssb' ),
 			);
 			return $sizes;
 		}

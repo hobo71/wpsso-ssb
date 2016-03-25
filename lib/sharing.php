@@ -125,7 +125,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		private function set_objects() {
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
-				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsharing'.$id );
+				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbwebsite'.$id );
 				if ( $classname !== false && class_exists( $classname ) ) {
 					$this->website[$id] = new $classname( $this->p );
 					if ( $this->p->debug->enabled )
@@ -152,7 +152,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$def_opts = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to' );
 			$plugin_dir = trailingslashit( realpath( dirname( $this->plugin_filepath ) ) );
 			$url_path = parse_url( trailingslashit( plugins_url( '', $this->plugin_filepath ) ), PHP_URL_PATH );	// relative URL
-			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_ssb_styles_tabs', 
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 				$this->p->cf['sharing']['ssb-style'] );
 
 			foreach ( $tabs as $id => $name ) {
@@ -237,7 +237,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_post_cache_transients( $transients, $post_id, $lang = 'en_US', $sharing_url ) {
-			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
+			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
 				$this->p->cf['sharing']['show_on'], null );
 
 			foreach( $show_on as $type_id => $type_name ) {
@@ -340,7 +340,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
 			$opts =& $this->p->options;
 			$def_opts = $this->p->opt->get_defaults();
-			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_ssb_styles_tabs', 
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 				$this->p->cf['sharing']['ssb-style'] );
 
 			foreach ( $tabs as $id => $name )
@@ -395,7 +395,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$css_data = '';
-			$tabs = apply_filters( $this->p->cf['lca'].'_sharing_ssb_styles_tabs', 
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 				$this->p->cf['sharing']['ssb-style'] );
 
 			foreach ( $tabs as $id => $name )
@@ -878,7 +878,7 @@ $buttons_html."\n".
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$js = '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript begin -->'."\n";
+			$html = '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript begin -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
 				$script_loc = 'header';
@@ -895,12 +895,12 @@ $buttons_html."\n".
 						method_exists( $this->website[$id], 'get_script' ) && 
 							isset( $this->p->options[$opt_name] ) && 
 								$this->p->options[$opt_name] === $script_loc )
-									$js .= $this->website[$id]->get_script( $pos )."\n";
+									$html .= $this->website[$id]->get_script( $pos )."\n";
 				}
 			}
-			$js .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
+			$html .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
 
-			return $js;
+			return $html;
 		}
 
 		public function get_script_loader( $pos = 'id' ) {
@@ -1014,10 +1014,19 @@ $buttons_html."\n".
 			return $suff.$ret; 
 		}
 
-		public function get_defined_website_names() {
+		public function get_website_object_ids( $website_obj = array() ) {
 			$ids = array();
-			foreach ( array_keys( $this->website ) as $id )
-				$ids[$id] = $this->p->cf['*']['lib']['website'][$id];
+
+			if ( empty( $website_obj ) )
+				$website_keys = array_keys( $this->website );
+			else $website_keys = array_keys( $website_obj );
+
+			$website_ids = $this->p->cf['plugin']['wpssossb']['lib']['website'];
+
+			foreach ( $website_keys as $id )
+				$ids[$id] = isset( $website_ids[$id] ) ?
+					$website_ids[$id] : ucfirst( $id );
+
 			return $ids;
 		}
 	}

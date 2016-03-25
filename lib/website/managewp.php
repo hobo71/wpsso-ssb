@@ -8,40 +8,37 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuSharingManagewp' ) && class_exists( 'WpssoSsbSubmenuSharing' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuWebsiteManagewp' ) ) {
 
-	class WpssoSsbSubmenuSharingManagewp extends WpssoSsbSubmenuSharing {
+	class WpssoSsbSubmenuWebsiteManagewp {
 
-		public function __construct( &$plugin, $id, $name ) {
+		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->website_id = $id;
-			$this->website_name = $name;
-
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
+			$this->p->util->add_plugin_filters( $this, array( 
+				'ssb_website_managewp_rows' => 3,	// $table_rows, $form, $submenu
+			) );
 		}
 
-		protected function get_table_rows( $metabox, $key ) {
-			$table_rows = array();
+		public function filter_ssb_website_managewp_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'managewp_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+			$form->get_select( 'managewp_order', 
+				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $this->show_on_checkboxes( 'managewp' ) ).'</td>';
+			( $submenu->show_on_checkboxes( 'managewp' ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'Allow for Platform',
+			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$this->form->get_select( 'managewp_platform',
+			'<td>'.$form->get_select( 'managewp_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Button Type',
+			$table_rows[] = $form->get_th_html( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'managewp_type', 
+			$form->get_select( 'managewp_type', 
 				array( 
 					'small' => 'Small',
 					'big' => 'Big',
@@ -53,9 +50,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingManagewp' ) && class_exists( 'WpssoS
 	}
 }
 
-if ( ! class_exists( 'WpssoSsbSharingManagewp' ) ) {
+if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 
-	class WpssoSsbSharingManagewp {
+	class WpssoSsbWebsiteManagewp {
 
 		private static $cf = array(
 			'opt' => array(				// options

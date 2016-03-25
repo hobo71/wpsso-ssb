@@ -8,21 +8,19 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'WpssoSsbSubmenuSharing' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 
-	class WpssoSsbSubmenuSharingStumbleupon extends WpssoSsbSubmenuSharing {
+	class WpssoSsbSubmenuWebsiteStumbleupon {
 
-		public function __construct( &$plugin, $id, $name ) {
+		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			$this->website_id = $id;
-			$this->website_name = $name;
-
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
+			$this->p->util->add_plugin_filters( $this, array( 
+				'ssb_website_stumbleupon_rows' => 3,	// $table_rows, $form, $submenu
+			) );
 		}
 
-		protected function get_table_rows( $metabox, $key ) {
-			$table_rows = array();
+		public function filter_ssb_website_stumbleupon_rows( $table_rows, $form, $submenu ) {
+
 			$badge_html = '
 				<style type="text/css">
 					.badge { 
@@ -49,40 +47,40 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 			$badge_number = empty( $this->p->options['stumble_badge'] ) ? 1 : $this->p->options['stumble_badge'];
 			foreach ( array( 1, 2, 3, 6 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
-				$badge_html .= '<input type="radio" name="'.$this->form->options_name.'[stumble_badge]" 
+				$badge_html .= '<input type="radio" name="'.$form->options_name.'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
 			$badge_html .= '</div><div class="badge-col-right">';
 			foreach ( array( 4, 5 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
-				$badge_html .= '<input type="radio" name="'.$this->form->options_name.'[stumble_badge]" 
+				$badge_html .= '<input type="radio" name="'.$form->options_name.'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
 			$badge_html .= '</div>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Preferred Order',
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'stumble_order', 
-				range( 1, count( $this->p->admin->submenu['sharing']->website ) ), 'short' ).'</td>';
+			$form->get_select( 'stumble_order', 
+				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Show Button in',
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $this->show_on_checkboxes( 'stumble' ) ).'</td>';
+			( $submenu->show_on_checkboxes( 'stumble' ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'Allow for Platform',
+			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$this->form->get_select( 'stumble_platform',
+			'<td>'.$form->get_select( 'stumble_platform',
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$this->form->get_th_html( _x( 'JavaScript in',
+			$form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$this->form->get_select( 'stumble_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
+			$form->get_select( 'stumble_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $this->form->get_th_html( _x( 'Button Style',
+			$table_rows[] = $form->get_th_html( _x( 'Button Style',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 					'<td>'.$badge_html.'</td>';
 
@@ -91,9 +89,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharingStumbleupon' ) && class_exists( 'Wps
 	}
 }
 
-if ( ! class_exists( 'WpssoSsbSharingStumbleupon' ) ) {
+if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 
-	class WpssoSsbSharingStumbleupon {
+	class WpssoSsbWebsiteStumbleupon {
 
 		private static $cf = array(
 			'opt' => array(				// options

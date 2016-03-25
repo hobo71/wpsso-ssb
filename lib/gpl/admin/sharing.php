@@ -16,8 +16,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$this->p =& $plugin;
 			$this->p->util->add_plugin_filters( $this, array( 
 				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
-				'sharing_include_rows' => 2,		// $table_rows, $form
-				'sharing_preset_rows' => 2,		// $table_rows, $form
+				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
+				'ssb_buttons_preset_rows' => 2,		// $table_rows, $form
 				'post_social_settings_tabs' => 1,	// $tabs
 				'post_sharing_rows' => 4,		// $table_rows, $form, $head, $mod
 			), 30 );
@@ -35,7 +35,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			return $table_rows;
 		}
 
-		public function filter_sharing_include_rows( $table_rows, $form ) {
+		public function filter_ssb_buttons_include_rows( $table_rows, $form ) {
 
 			$add_to_checkboxes = '';
 			foreach ( $this->p->util->get_post_types() as $post_type )
@@ -54,10 +54,10 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			return $table_rows;
 		}
 
-		public function filter_sharing_preset_rows( $table_rows, $form ) {
+		public function filter_ssb_buttons_preset_rows( $table_rows, $form ) {
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
-			$show_on = apply_filters( $this->p->cf['lca'].'_sharing_show_on', 
+			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
 				$this->p->cf['sharing']['show_on'], '' );
 			foreach ( $show_on as $type => $label )
 				$presets[$type] = $label;
@@ -69,7 +69,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			foreach( $presets as $filter_id => $filter_name )
 				$table_rows[] = $form->get_th_html( sprintf( _x( '%s Preset',
-					'option label', 'wpsso-ssb' ), $filter_name ), null, 'sharing_preset' ).
+					'option label', 'wpsso-ssb' ), $filter_name ), null, 'buttons_preset' ).
 				'<td class="blank">'.$form->get_no_select( 'buttons_preset_ssb-'.$filter_id, 
 					array_merge( array( '' ), array_keys( $this->p->cf['opt']['preset'] ) ) ).'</td>';
 
