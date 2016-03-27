@@ -185,13 +185,17 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			if ( empty( $atts['size'] ) ) 
 				$atts['size'] = $this->p->cf['lca'].'-pinterest-button';
 
-			if ( ! empty( $atts['pid'] ) )
+			if ( ! empty( $atts['pid'] ) ) {
 				list(
 					$atts['photo'],
 					$atts['width'],
 					$atts['height'],
-					$atts['cropped']
-				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
+					$atts['cropped'],
+					$atts['pid']
+				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );	// $check_dupes = false
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
+			}
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
 				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'rp', array( 'img_url', 'vid_url' ) );
