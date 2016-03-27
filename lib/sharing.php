@@ -136,14 +136,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_get_md_defaults( $def_opts ) {
 			return array_merge( $def_opts, array(
-				'email_title' => '',
-				'email_desc' => '',
-				'tumblr_title' => '',
-				'tumblr_desc' => '',
-				'tumblr_img_desc' => '',
-				'tumblr_vid_desc' => '',
-				'twitter_desc' => '',
-				'buttons_disabled' => 0,
+				'twitter_desc' => '',		// Tweet Text
+				'pin_desc' => '',		// Pinterest Caption Text
+				'tumblr_img_desc' => '',	// Tumblr Image Caption
+				'tumblr_vid_desc' => '',	// Tumblr Video Caption
+				'buttons_disabled' => 0,	// Disable Sharing Buttons
 			) );
 		}
 

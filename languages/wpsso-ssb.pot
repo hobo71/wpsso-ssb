@@ -57,12 +57,12 @@ msgctxt "option value"
 msgid "Mobile Only"
 msgstr ""
 
-#: lib/config-gettext-extract.php:12 lib/sharing.php:292 lib/sharing.php:301
+#: lib/config-gettext-extract.php:12 lib/sharing.php:289 lib/sharing.php:298
 msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:13 lib/sharing.php:292 lib/sharing.php:295
+#: lib/config-gettext-extract.php:13 lib/sharing.php:289 lib/sharing.php:292
 #: lib/submenu/ssb-style.php:37
 msgctxt "lib file description"
 msgid "Sharing Styles"
@@ -96,7 +96,7 @@ msgid "Widget"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgctxt "option label"
 msgid "Social File Cache Expiry"
 msgstr ""
@@ -117,7 +117,7 @@ msgid "%s Preset"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:84 lib/pro/admin/sharing.php:83
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr ""
@@ -169,48 +169,48 @@ msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""
 
-#: lib/sharing.php:166
+#: lib/sharing.php:163
 msgid "Failed to open the %s file for reading."
 msgstr ""
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgid ""
 "Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href="
 "\"%3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
 "metabox, along with the social sharing shortcode and widget."
 msgstr ""
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgctxt "metabox title"
 msgid "Social Settings"
 msgstr ""
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgid ""
 "All social sharing features can be disabled using a <a href=\"%s\" target="
 "\"_blank\">PHP constant</a> in your wp-config.php file."
 msgstr ""
 
-#: lib/sharing.php:295
+#: lib/sharing.php:292
 msgid ""
 "A stylesheet for the social sharing buttons can be included in all webpages. "
 "You can enable or disable use of the stylesheet from the <a href=\"%1$s\">"
 "%2$s</a> settings page."
 msgstr ""
 
-#: lib/sharing.php:298
+#: lib/sharing.php:295
 msgid ""
 "Support for shortcode(s) can be enabled and disabled on the <a href=\"%1$s\">"
 "%2$s</a> settings page. Shortcodes are disabled by default to optimize "
 "performance and content processing."
 msgstr ""
 
-#: lib/sharing.php:298 lib/sharing.php:307 lib/website/twitter.php:84
+#: lib/sharing.php:295 lib/sharing.php:304 lib/website/twitter.php:84
 msgctxt "lib file description"
 msgid "Advanced"
 msgstr ""
 
-#: lib/sharing.php:301
+#: lib/sharing.php:298
 msgid ""
 "The sharing widget feature adds a <em>%s</em> widget to the WordPress "
 "Widgets settings page. The sharing widget shares the URL for the current "
@@ -218,13 +218,13 @@ msgid ""
 "example)."
 msgstr ""
 
-#: lib/sharing.php:304
+#: lib/sharing.php:301
 msgid ""
 "A stylesheet editor is available to modify the default CSS of social sharing "
 "buttons based on their intended location (content, except, etc.)."
 msgstr ""
 
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgid ""
 "Social sharing button images and JavaScript can be saved to a local cache "
 "folder. When this feature is enabled, the image and JavaScript URLs provided "
@@ -232,81 +232,81 @@ msgid ""
 "better performance)."
 msgstr ""
 
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgid ""
 "The current <em>%1$s</em> value defined on the <a href=\"%2$s\">%3$s</a> "
 "settings page is %4$s seconds (the default value of 0 disables social file "
 "caching)."
 msgstr ""
 
-#: lib/sharing.php:316 lib/sharing.php:319
+#: lib/sharing.php:313 lib/sharing.php:316
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Image ID, attached or featured image."
 msgstr ""
 
-#: lib/sharing.php:322
+#: lib/sharing.php:319
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Video URL or embedded video."
 msgstr ""
 
-#: lib/sharing.php:325
+#: lib/sharing.php:322
 msgid ""
 "A custom Tweet text for the Twitter social sharing button. This text is "
 "different than the Twitter Card description."
 msgstr ""
 
-#: lib/sharing.php:328
+#: lib/sharing.php:325
 msgid ""
 "Disable all social sharing buttons (content, excerpt, widget, shortcode)."
 msgstr ""
 
-#: lib/sharing.php:336
+#: lib/sharing.php:333
 msgid "Reload Default Styles"
 msgstr ""
 
-#: lib/sharing.php:353
+#: lib/sharing.php:350
 msgid ""
 "All sharing styles have been reloaded with their default settings and saved."
 msgstr ""
 
-#: lib/sharing.php:374
+#: lib/sharing.php:371
 msgid "The %s file is not readable."
 msgstr ""
 
-#: lib/sharing.php:414
+#: lib/sharing.php:411
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr ""
 
-#: lib/sharing.php:423
+#: lib/sharing.php:420
 msgid "Failed writing to the % file."
 msgstr ""
 
-#: lib/sharing.php:428
+#: lib/sharing.php:425
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr ""
 
-#: lib/sharing.php:437
+#: lib/sharing.php:434
 msgid "The %s folder is not writable."
 msgstr ""
 
-#: lib/sharing.php:443
+#: lib/sharing.php:440
 msgid "Failed to open file %s for writing."
 msgstr ""
 
-#: lib/sharing.php:452
+#: lib/sharing.php:449
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:471
+#: lib/sharing.php:468
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:547
+#: lib/sharing.php:544
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
