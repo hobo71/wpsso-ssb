@@ -148,5 +148,5 @@ Official announcement: N/A
 
 = 2.2.3-1 =
 
-ETA 2016/03/31 - Refactored sharing button settings to use a filter hooks. Tested with WordPress v4.5-RC1-37079.
+ETA 2016/03/31 - Improved / optimized image selection for the Pinterest button. Adopted a standard version numbering system.
 
