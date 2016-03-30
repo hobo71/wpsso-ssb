@@ -471,7 +471,7 @@ msgctxt "option label (short)"
 msgid "Count Position"
 msgstr ""
 
-#: lib/website/buffer.php:63 lib/website/pinterest.php:94
+#: lib/website/buffer.php:63 lib/website/pinterest.php:88
 #: lib/website/tumblr.php:83
 msgctxt "option label (short)"
 msgid "Image Dimensions"
@@ -488,7 +488,7 @@ msgid "Tweet Text Length"
 msgstr ""
 
 #: lib/website/buffer.php:76 lib/website/email.php:43
-#: lib/website/pinterest.php:107 lib/website/tumblr.php:96
+#: lib/website/pinterest.php:101 lib/website/tumblr.php:96
 #: lib/website/tumblr.php:102 lib/website/twitter.php:61
 msgctxt "option comment"
 msgid "characters or less"
@@ -637,22 +637,17 @@ msgctxt "option label (short)"
 msgid "Show Pin Count"
 msgstr ""
 
-#: lib/website/pinterest.php:89
-msgctxt "option label (short)"
-msgid "Share Single Image"
-msgstr ""
-
-#: lib/website/pinterest.php:99
+#: lib/website/pinterest.php:93
 msgctxt "option label (short)"
 msgid "Caption Text"
 msgstr ""
 
-#: lib/website/pinterest.php:104 lib/website/tumblr.php:93
+#: lib/website/pinterest.php:98 lib/website/tumblr.php:93
 msgctxt "option label (short)"
 msgid "Caption Length"
 msgstr ""
 
-#: lib/website/pinterest.php:158
+#: lib/website/pinterest.php:151
 msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr ""
