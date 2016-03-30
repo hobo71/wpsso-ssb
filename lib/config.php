@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.2.2',		// plugin version
+					'version' => '2.2.3-1',		// plugin version
 					'opt_version' => '13',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -48,7 +48,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'lib' => array(
 						// submenu items must have unique keys
 						'submenu' => array (
-							//'wpssossb-separator-0' => 'SSB Extension',
 							'ssb-buttons' => 'Sharing Buttons',
 							'ssb-style' => 'Sharing Styles',
 						),
@@ -228,14 +227,13 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );
 		}
 
-		// gpl / pro library loader
 		public static function load_lib( $ret = false, $filespec = '', $classname = '' ) {
 			if ( $ret === false && ! empty( $filespec ) ) {
 				$filepath = WPSSOSSB_PLUGINDIR.'lib/'.$filespec.'.php';
 				if ( file_exists( $filepath ) ) {
 					require_once( $filepath );
 					if ( empty( $classname ) )
-						return 'wpssossb'.str_replace( array( '/', '-' ), '', $filespec );
+						return SucomUtil::sanitize_classname( 'wpssossb'.$filespec );
 					else return $classname;
 				}
 			}

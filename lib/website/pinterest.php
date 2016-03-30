@@ -197,22 +197,19 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
 			}
 
-			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'rp', array( 'img_url', 'vid_url' ) );
-				if ( empty( $atts['photo'] ) )
+			// we must have an image to proceed
+			if ( ! empty( $this->p->options['pin_use_img'] ) ) {
+				if ( empty( $atts['photo'] ) ) {
+					$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'rp', array( 'img_url' ) );
 					$atts['photo'] = $media_info['img_url'];
-				if ( empty( $atts['embed'] ) )
-					$atts['embed'] = $media_info['vid_url'];
+					if ( empty( $atts['photo'] ) ) {
+						if ( $this->p->debug->enabled )
+							$this->p->debug->log( 'exiting early: pin_use_img enabled but no photo available' );
+						return '<!-- Pinterest Button: No Photo Available -->';	// abort
+					}
+				}
+				$href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 			}
-
-			// let the pinterest crawler choose an image
-			if ( empty( $this->p->options['pin_use_img'] ) )
-				$href_query .= '&amp;media=';
-			elseif ( empty( $atts['photo'] ) ) {
-				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'exiting early: pin_use_img enabled but no photo available' );
-				return false;	// abort
-			} else $href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.2\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.3-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -769,19 +769,19 @@ msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr ""
 
-#: wpsso-ssb.php:77
+#: wpsso-ssb.php:84
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin before trying to re-activate the %4$s extension."
 msgstr ""
 
-#: wpsso-ssb.php:79
+#: wpsso-ssb.php:86
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin."
 msgstr ""
 
-#: wpsso-ssb.php:125
+#: wpsso-ssb.php:132
 msgid ""
 "The %1$s extension version %2$s requires the use of %3$s version %4$s or "
 "newer (version %5$s is currently installed)."
