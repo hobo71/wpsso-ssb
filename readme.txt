@@ -130,61 +130,23 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.2 (2016/03/25)**
+**Version 2.2.3-1 (ETA 2016/03/31)**
 
 Official announcement: N/A
 
 * *New Features*
 	* None
 * *Improvements*
-	* Refactored individual sharing button settings to use a filter hook instead of extending a class.
+	* Improved / optimized image selection for the Pinterest button.
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Tested with WordPress v4.5-RC1-37079.
-	* Renamed the website library classes.
-	* Renamed CSS classes and ids for the website metaboxes.
-
-**Version 2.2.1 (2016/03/23)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Removed the check for enabled/disabled buttons by webpage type for the buttons widget (it will always show).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Modified the SucomWebpage `get_caption()`, `get_title()`, and `get_description()` method arguments to use the new `$mod` array.
-	* Refactored the WpssoSsbSharing `get_script()` method to improve the enabled/disabled buttons logic (which no longer applies to shortcode, function or widget buttons).
-
-**Version 2.2.0 (2016/03/20)**
-
-Official announcement: [WPSSO Update - AMP Support and Several Core Changes](http://wpsso.com/2016/03/20/wpsso-update-amp-support-and-several-core-changes/)
-
-> Required update for WordPress Social Sharing Optimization (WPSSO) version 3.28.1.
-
-* *New Features*
-	* Added support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin. See [the AMP project README on GitHub](https://github.com/Automattic/amp-wp/blob/master/readme.md) for details on modifying AMP plugin settings with custom filters.
-* *Improvements*
-	* Improved the Social Settings options display (Free version).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
+	* Adopted a standard version numbering system:
+		* `{major}.{minor}.{bugfix}-{stage}{level}`
 
 == Upgrade Notice ==
 
-= 2.2.2 =
+= 2.2.3-1 =
 
-2016/03/25 - Refactored sharing button settings to use a filter hooks. Tested with WordPress v4.5-RC1-37079.
-
-= 2.2.1 =
-
-2016/03/23 - Modified several SucomWebage method arguments to use the new $mod array. Improved enabled/disabled buttons logic (no longer applies to shortcode, function or widget buttons).
-
-= 2.2.0 =
-
-2016/03/20 - Required update for WPSSO v3.28.1. Improved the Social Settings options display (Free version). Added support for Automattic's AMP plugin.
+ETA 2016/03/31 - Refactored sharing button settings to use a filter hooks. Tested with WordPress v4.5-RC1-37079.
 
