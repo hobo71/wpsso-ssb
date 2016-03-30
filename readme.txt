@@ -137,7 +137,8 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* Improved / optimized image selection for the Pinterest button.
+	* Optimized image selection for the Pinterest button, including fallback to the default image.
+	* Removed the "Share Single Image" option from the Pinterest button settings.
 * *Bugfixes*
 	* None
 * *Developer Notes*
