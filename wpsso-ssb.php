@@ -34,11 +34,10 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		public $p;			// Wpsso
 		public $reg;			// WpssoSsbRegister
 
-		protected static $instance = null;
-
+		private static $instance = null;
 		private static $wpsso_short = 'WPSSO';
 		private static $wpsso_name = 'WordPress Social Sharing Optimization (WPSSO)';
-		private static $wpsso_min_version = '3.28.4';
+		private static $wpsso_min_version = '3.28.5-1';
 		private static $wpsso_has_min_ver = true;
 
 		public static function &get_instance() {
@@ -134,7 +133,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 	}
 
         global $wpssossb;
-	$wpssossb = WpssoSsb::get_instance();
+	$wpssossb =& WpssoSsb::get_instance();
 }
 
 ?>
