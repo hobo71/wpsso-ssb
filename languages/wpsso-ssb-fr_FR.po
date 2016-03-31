@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.2\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.3-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-03-25 13:48-0400\n"
-"PO-Revision-Date: 2016-03-25 13:48-0400\n"
+"POT-Creation-Date: 2016-03-31 03:33-0400\n"
+"PO-Revision-Date: 2016-03-31 03:33-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -60,12 +60,12 @@ msgctxt "option value"
 msgid "Mobile Only"
 msgstr "Mobile Seulement"
 
-#: lib/config-gettext-extract.php:12 lib/sharing.php:292 lib/sharing.php:301
+#: lib/config-gettext-extract.php:12 lib/sharing.php:289 lib/sharing.php:298
 msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage"
 
-#: lib/config-gettext-extract.php:13 lib/sharing.php:292 lib/sharing.php:295
+#: lib/config-gettext-extract.php:13 lib/sharing.php:289 lib/sharing.php:292
 #: lib/submenu/ssb-style.php:37
 msgctxt "lib file description"
 msgid "Sharing Styles"
@@ -102,7 +102,7 @@ msgid "Widget"
 msgstr "Widget"
 
 #: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgctxt "option label"
 msgid "Social File Cache Expiry"
 msgstr "Expiration cache des fichiers social"
@@ -123,7 +123,7 @@ msgid "%s Preset"
 msgstr "Préréglage '%s'"
 
 #: lib/gpl/admin/sharing.php:84 lib/pro/admin/sharing.php:83
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage"
@@ -175,11 +175,11 @@ msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr "Position dans le texte bbPress Single"
 
-#: lib/sharing.php:166
+#: lib/sharing.php:163
 msgid "Failed to open the %s file for reading."
 msgstr "Impossible d'ouvrir le fichier %s pour la lecture."
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgid ""
 "Social sharing features include the <a href=\"%1$s\">%2$s</a> and <a href="
 "\"%3$s\">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> "
@@ -189,12 +189,12 @@ msgstr ""
 "\"%1$s\">%2$s</a> et <a href=\"%3$s\">%4$s</a>, l'onglet <em>%5$s</em> dans "
 "la metabox <em>%6$s</em>, ainsi que le shortcode et widget de partage social."
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgctxt "metabox title"
 msgid "Social Settings"
 msgstr "Réglages Sociaux"
 
-#: lib/sharing.php:292
+#: lib/sharing.php:289
 msgid ""
 "All social sharing features can be disabled using a <a href=\"%s\" target="
 "\"_blank\">PHP constant</a> in your wp-config.php file."
@@ -203,7 +203,7 @@ msgstr ""
 "utilisant une <a href=\"%s\" target=\"_blank\">constante PHP</a> dans votre "
 "fichier wp-config.php."
 
-#: lib/sharing.php:295
+#: lib/sharing.php:292
 msgid ""
 "A stylesheet for the social sharing buttons can be included in all webpages. "
 "You can enable or disable use of the stylesheet from the <a href=\"%1$s\">"
@@ -213,7 +213,7 @@ msgstr ""
 "dans toutes les pages Web. Vous pouvez activer ou désactiver l'utilisation "
 "de la feuille de style dans la page de réglage <a href=\"%1$s\">%2$s</a>."
 
-#: lib/sharing.php:298
+#: lib/sharing.php:295
 msgid ""
 "Support for shortcode(s) can be enabled and disabled on the <a href=\"%1$s\">"
 "%2$s</a> settings page. Shortcodes are disabled by default to optimize "
@@ -223,12 +223,12 @@ msgstr ""
 "réglage <a href=\"%1$s\">%2$s</a>. Les shortcodes sont désactivés par défaut "
 "pour optimiser la performance et le traitement du contenu."
 
-#: lib/sharing.php:298 lib/sharing.php:307 lib/website/twitter.php:84
+#: lib/sharing.php:295 lib/sharing.php:304 lib/website/twitter.php:84
 msgctxt "lib file description"
 msgid "Advanced"
 msgstr "Avancés"
 
-#: lib/sharing.php:301
+#: lib/sharing.php:298
 msgid ""
 "The sharing widget feature adds a <em>%s</em> widget to the WordPress "
 "Widgets settings page. The sharing widget shares the URL for the current "
@@ -240,7 +240,7 @@ msgstr ""
 "sociaux l'URL de la page Web actuelle (et non l'URL de chaque item sur une "
 "page Web d'index / archive, par exemple)."
 
-#: lib/sharing.php:304
+#: lib/sharing.php:301
 msgid ""
 "A stylesheet editor is available to modify the default CSS of social sharing "
 "buttons based on their intended location (content, except, etc.)."
@@ -249,7 +249,7 @@ msgstr ""
 "défaut des boutons de partage social basé sur l'emplacement des boutons "
 "(contenu, sauf, etc..)."
 
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgid ""
 "Social sharing button images and JavaScript can be saved to a local cache "
 "folder. When this feature is enabled, the image and JavaScript URLs provided "
@@ -262,7 +262,7 @@ msgstr ""
 "cache au lieux des URLs originaux (qui donne souvent une meilleure "
 "performance)."
 
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgid ""
 "The current <em>%1$s</em> value defined on the <a href=\"%2$s\">%3$s</a> "
 "settings page is %4$s seconds (the default value of 0 disables social file "
@@ -272,7 +272,7 @@ msgstr ""
 "réglage <a href=\"%2$s\">%3$s</a> est %4$s secondes (la valeur par défaut de "
 "0 désactive la mise en cache des fichiers sociaux)."
 
-#: lib/sharing.php:316 lib/sharing.php:319
+#: lib/sharing.php:313 lib/sharing.php:316
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Image ID, attached or featured image."
@@ -280,7 +280,7 @@ msgstr ""
 "Un texte de légende personnalisé utilisé par le bouton de partage social %s "
 "pour l'ID de l'Image personnalisée, attaché ou a la une."
 
-#: lib/sharing.php:322
+#: lib/sharing.php:319
 msgid ""
 "A custom caption text used by the %s social sharing button for the custom "
 "Video URL or embedded video."
@@ -288,7 +288,7 @@ msgstr ""
 "Un texte de légende personnalisé utilisé par le bouton de partage social %s "
 "pour l'URL d'un video personnalisé ou un video intégré."
 
-#: lib/sharing.php:325
+#: lib/sharing.php:322
 msgid ""
 "A custom Tweet text for the Twitter social sharing button. This text is "
 "different than the Twitter Card description."
@@ -296,52 +296,52 @@ msgstr ""
 "Un texte Tweet personnalisé pour le bouton Twitter de partage social. Ce "
 "texte est différent de la description de la carte Twitter."
 
-#: lib/sharing.php:328
+#: lib/sharing.php:325
 msgid ""
 "Disable all social sharing buttons (content, excerpt, widget, shortcode)."
 msgstr ""
 "Désactiver tous les boutons de partage social (contenu, extrait, widget, "
 "shortcode)."
 
-#: lib/sharing.php:336
+#: lib/sharing.php:333
 msgid "Reload Default Styles"
 msgstr "Recharger Styles par Défaut"
 
-#: lib/sharing.php:353
+#: lib/sharing.php:350
 msgid ""
 "All sharing styles have been reloaded with their default settings and saved."
 msgstr ""
 "Tous les styles de partage ont été rechargé avec leurs paramètres par défaut "
 "et sauvegardé."
 
-#: lib/sharing.php:374
+#: lib/sharing.php:371
 msgid "The %s file is not readable."
 msgstr "Le fichier %s n'est pas lisible."
 
-#: lib/sharing.php:414
+#: lib/sharing.php:411
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr ""
 "Impossible de charger la classe de rapetissement SuextMinifyCssCompressor."
 
-#: lib/sharing.php:423
+#: lib/sharing.php:420
 msgid "Failed writing to the % file."
 msgstr "Echec d'écriture dans le fichier%."
 
-#: lib/sharing.php:428
+#: lib/sharing.php:425
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr ""
 "La feuille de style <a href=\"%1$s\">%2$s</a> a été mise à jour (%3$s octets "
 "écrits)."
 
-#: lib/sharing.php:437
+#: lib/sharing.php:434
 msgid "The %s folder is not writable."
 msgstr "Le dossier %s n'est pas accessible en écriture."
 
-#: lib/sharing.php:443
+#: lib/sharing.php:440
 msgid "Failed to open file %s for writing."
 msgstr "Impossible d'ouvrir le fichier %s pour l'écriture."
 
-#: lib/sharing.php:452
+#: lib/sharing.php:449
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
@@ -349,12 +349,12 @@ msgstr ""
 "Erreur en retirant la feuille de style minimisé &mdash; le serveur Web a "
 "t'il les privilèges nécessaires?"
 
-#: lib/sharing.php:471
+#: lib/sharing.php:468
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/sharing.php:547
+#: lib/sharing.php:544
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
@@ -544,7 +544,7 @@ msgctxt "option label (short)"
 msgid "Count Position"
 msgstr "Position du compteur"
 
-#: lib/website/buffer.php:63 lib/website/pinterest.php:94
+#: lib/website/buffer.php:63 lib/website/pinterest.php:88
 #: lib/website/tumblr.php:83
 msgctxt "option label (short)"
 msgid "Image Dimensions"
@@ -561,7 +561,7 @@ msgid "Tweet Text Length"
 msgstr "Longueur du Tweet"
 
 #: lib/website/buffer.php:76 lib/website/email.php:43
-#: lib/website/pinterest.php:107 lib/website/tumblr.php:96
+#: lib/website/pinterest.php:101 lib/website/tumblr.php:96
 #: lib/website/tumblr.php:102 lib/website/twitter.php:61
 msgctxt "option comment"
 msgid "characters or less"
@@ -710,22 +710,17 @@ msgctxt "option label (short)"
 msgid "Show Pin Count"
 msgstr "Afficher le compteur"
 
-#: lib/website/pinterest.php:89
-msgctxt "option label (short)"
-msgid "Share Single Image"
-msgstr "Partage une image"
-
-#: lib/website/pinterest.php:99
+#: lib/website/pinterest.php:93
 msgctxt "option label (short)"
 msgid "Caption Text"
 msgstr "Texte de légende"
 
-#: lib/website/pinterest.php:104 lib/website/tumblr.php:93
+#: lib/website/pinterest.php:98 lib/website/tumblr.php:93
 msgctxt "option label (short)"
 msgid "Caption Length"
 msgstr "Longueur Légende"
 
-#: lib/website/pinterest.php:158
+#: lib/website/pinterest.php:151
 msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr "Bouton de partage Pinterest"
@@ -852,7 +847,7 @@ msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr "(partage un lien sur pages index)"
 
-#: wpsso-ssb.php:77
+#: wpsso-ssb.php:83
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin before trying to re-activate the %4$s extension."
@@ -860,7 +855,7 @@ msgstr ""
 "L'extension %1$s requiert %2$s &mdash; s'il vous plaît installer et activer "
 "l'extension %3$s avant d'essayer de re-activer %4$s."
 
-#: wpsso-ssb.php:79
+#: wpsso-ssb.php:85
 msgid ""
 "The %1$s extension requires the %2$s plugin &mdash; please install and "
 "activate the %3$s plugin."
@@ -868,7 +863,7 @@ msgstr ""
 "L'extension %1$s requiert %2$s &mdash; s'il vous plaît installer et activer "
 "l'extension %3$s."
 
-#: wpsso-ssb.php:125
+#: wpsso-ssb.php:131
 msgid ""
 "The %1$s extension version %2$s requires the use of %3$s version %4$s or "
 "newer (version %5$s is currently installed)."
@@ -900,3 +895,7 @@ msgstr "JS Morisset"
 #. Author URI of the plugin/theme
 msgid "http://surniaulula.com/"
 msgstr "http://surniaulula.com/"
+
+#~ msgctxt "option label (short)"
+#~ msgid "Share Single Image"
+#~ msgstr "Partage une image"
