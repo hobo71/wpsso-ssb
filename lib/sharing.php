@@ -246,11 +246,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_status_gpl_features( $features, $lca, $info ) {
-			if ( ! empty( $info['lib']['submenu']['sharing'] ) )
+			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) )
 				$features['Sharing Buttons'] = array(
 					'classname' => $lca.'Sharing',
 				);
-			if ( ! empty( $info['lib']['submenu']['style'] ) )
+			if ( ! empty( $info['lib']['submenu']['ssb-style'] ) )
 				$features['Sharing Stylesheet'] = array(
 					'status' => $this->p->options['buttons_use_social_css'] ? 'on' : 'off',
 				);
@@ -267,7 +267,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_status_pro_features( $features = array(), $lca = '', $info = array() ) {
 			if ( ! empty( $lca ) && 
-				! empty( $info['lib']['submenu']['sharing'] ) ) {
+				! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 
 				$aop = $this->p->check->aop( $lca );
 				$features['Social File Cache'] = array( 
