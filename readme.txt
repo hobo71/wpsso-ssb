@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.3-1 (ETA 2016/03/31)**
+**Version 2.2.3-1 (2016/03/31)**
 
 Official announcement: N/A
 
@@ -149,5 +149,5 @@ Official announcement: N/A
 
 = 2.2.3-1 =
 
-2.2.3-1 ETA 2016/03/31 - Improved / optimized image selection for the Pinterest button. Adopted a standard version numbering system.
+(2016/03/31) Improved / optimized image selection for the Pinterest button. Adopted a standard version numbering system.
 
