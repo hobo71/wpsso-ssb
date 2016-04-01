@@ -149,5 +149,5 @@ Official announcement: N/A
 
 = 2.2.3-1 =
 
-(2016/03/31) Improved / optimized image selection for the Pinterest button. Adopted a standard version numbering system.
+(2016/03/31) Improved / optimized image selection for the Pinterest button. Removed the "Share Single Image" option from the Pinterest button settings.
 
