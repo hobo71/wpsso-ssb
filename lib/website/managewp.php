@@ -89,16 +89,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'managewp', $atts );
+
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
 
 			if ( empty( $atts['title'] ) )
-				$atts['title'] = $this->p->webpage->get_title( null, null,
-					$mod, true, false, true, null, $atts['source_id'] );
+				$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, true, null );
 
 			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );

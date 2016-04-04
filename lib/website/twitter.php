@@ -141,12 +141,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			$lca = $this->p->cf['lca'];
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'twitter', $atts );
 
 			$long_url = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
 
 			$short_url = apply_filters( $lca.'_shorten_url', $long_url, $opts['plugin_shortener'] );
 
@@ -162,7 +160,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $long_url, 'twitter', $short_url );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['twitter_caption'], $caption_len,
-						$mod, true, true, true, 'twitter_desc', $atts['source_id'] );
+						$mod, true, true, true, 'twitter_desc' );
 				}
 			}
 

@@ -146,13 +146,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'buffer', $atts );
+
 			$atts['size'] = isset( $atts['size'] ) ?
 				$atts['size'] : $this->p->cf['lca'].'-buffer-button';
+
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
 
 			if ( ! empty( $atts['pid'] ) )
 				list(
@@ -162,12 +162,9 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 					$atts['cropped']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
-			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'og', array( 'img_url', 'vid_url' ) );
-				if ( empty( $atts['photo'] ) )
-					$atts['photo'] = $media_info['img_url'];
-				if ( empty( $atts['embed'] ) )
-					$atts['embed'] = $media_info['vid_url'];
+			if ( empty( $atts['photo'] ) ) {
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url' ), $mod, 'og' );
+				$atts['photo'] = $media_info['img_url'];
 			}
 
 			if ( array_key_exists( 'tweet', $atts ) )
@@ -177,7 +174,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
-						$mod, true, true, true, 'twitter_desc', $atts['source_id'] );
+						$mod, true, true, true, 'twitter_desc' );
 				}
 			}
 

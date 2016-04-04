@@ -122,7 +122,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$caption_len, $mod );
 
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-pinterest-button',
-				$mod, 'rp', array( 'pid', 'img_url' ) );
+				array( 'pid', 'img_url' ), $mod, 'rp' );
 
 			if ( ! empty( $media['pid'] ) )
 				list( $media['img_url'], $img_width, $img_height,
@@ -146,7 +146,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$caption_len, $mod );
 
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-tumblr-button',
-				$mod, 'og', array( 'pid', 'img_url' ) );
+				array( 'pid', 'img_url' ), $mod, 'og' );
 
 			if ( ! empty( $media['pid'] ) )
 				list( $media['img_url'], $img_width, $img_height,

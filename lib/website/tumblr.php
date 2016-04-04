@@ -124,8 +124,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 					'tumblr_color' => 'blue',
 					'tumblr_counter' => 'right',
 					'tumblr_show_via' => 1,
-					'tumblr_img_width' => 600,
-					'tumblr_img_height' => 600,
+					'tumblr_img_width' => 800,
+					'tumblr_img_height' => 1600,
 					'tumblr_img_crop' => 0,
 					'tumblr_img_crop_x' => 'center',
 					'tumblr_img_crop_y' => 'center',
@@ -168,8 +168,6 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'tumblr', $atts );
 
 			if ( ! array_key_exists( 'lang', $atts ) )
 				$atts['lang'] = empty( $opts['tumblr_lang'] ) ?
@@ -177,9 +175,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			$atts['lang'] = apply_filters( $this->p->cf['lca'].'_pub_lang', $atts['lang'], 'tumblr' );
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
 
 			if ( empty( $atts['size'] ) ) 
 				$atts['size'] = $this->p->cf['lca'].'-tumblr-button';
@@ -189,7 +186,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 					$atts['cropped'] ) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'og', array( 'img_url', 'vid_url' ) );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url', 'vid_url' ), $mod, 'og' );
 				if ( empty( $atts['photo'] ) )
 					$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['embed'] ) )
@@ -200,7 +197,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 				// if no image or video, then check for a 'quote'
 				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) )
 					if ( get_post_format( $mod['id'] ) === 'quote' ) 
-						$atts['quote'] = $this->p->webpage->get_quote( $mod['id'] );
+						$atts['quote'] = $this->p->webpage->get_quote( $mod );
 				$atts['tags'] = implode( ', ', $this->p->webpage->get_tags( $mod['id'] ) );
 			}
 
@@ -210,16 +207,15 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 				if ( empty( $atts['caption'] ) ) 
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
 						$mod, true, false, false, ( ! empty( $atts['photo'] ) ?
-							'tumblr_img_desc' : 'tumblr_vid_desc' ), $atts['source_id'] );
+							'tumblr_img_desc' : 'tumblr_vid_desc' ) );
 
 			} else {
 				if ( empty( $atts['title'] ) ) 
-					$atts['title'] = $this->p->webpage->get_title( null, null,
-						$mod, true, false, false, null, $atts['source_id'] );
+					$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, false, null );
 
 				if ( empty( $atts['description'] ) ) 
 					$atts['description'] = $this->p->webpage->get_description( $opts['tumblr_desc_len'], '...',
-						$mod, true, false, false, null, $atts['source_id'] );
+						$mod, true, false, false, null );
 			}
 
 			// define the button, based on what we have

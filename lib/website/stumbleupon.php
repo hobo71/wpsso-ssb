@@ -129,12 +129,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'stumbleupon', $atts );
+
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
 
 			$html = '<!-- StumbleUpon Button -->'.
 			'<div '.WpssoSsbSharing::get_css_class_id( 'stumbleupon', $atts, 'stumble-button' ).'>'.

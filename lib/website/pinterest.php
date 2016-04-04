@@ -125,7 +125,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					'pin_button_height' => 'small',
 					'pin_count_layout' => 'beside',
 					'pin_img_width' => 800,
-					'pin_img_height' => 1200,
+					'pin_img_height' => 1600,
 					'pin_img_crop' => 0,
 					'pin_img_crop_x' => 'center',
 					'pin_img_crop_y' => 'center',
@@ -167,12 +167,11 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-			$atts['source_id'] = isset( $atts['source_id'] ) ?
-				$atts['source_id'] : $this->p->util->get_source_id( 'pinterest', $atts );
+
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'], $atts['source_id'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], 
-					$atts['use_post'], $atts['add_page'], $atts['source_id'] );
+				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
+				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
+
 			$href_query = '?url='.urlencode( $atts['url'] );
 
 			if ( empty( $atts['size'] ) ) 
@@ -191,7 +190,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			}
 
 			if ( empty( $atts['photo'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], $mod, 'rp', array( 'img_url' ) );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url' ), $mod, 'rp' );
 				$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['photo'] ) ) {
 					if ( $this->p->debug->enabled )
@@ -203,7 +202,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 
 			if ( empty( $atts['caption'] ) ) {
 				$atts['caption'] = $this->p->webpage->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],
-					$mod, true, true, false, 'pin_desc', $atts['source_id'] );
+					$mod, true, true, false, 'pin_desc' );
 			}
 
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
