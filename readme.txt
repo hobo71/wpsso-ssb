@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.4-dev1 (2016/04/02)**
+**Version 2.2.4-dev2 (2016/04/04)**
 
 Official announcement: N/A
 
@@ -141,7 +141,8 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0-dev1.
+	* Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0.
+	* Removed all references to the WpssoUtil `get_source_id()` method and the `$src_id` method / filter argument.
 
 **Version 2.2.3-1 (2016/03/31)**
 
@@ -160,9 +161,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.4-dev1 =
+= 2.2.4-dev2 =
 
-(2016/04/02) Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0-dev1.
+(2016/04/04) Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0.
 
 = 2.2.3-1 =
 
