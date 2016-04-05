@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.4-dev2 (2016/04/04)**
+**Version 2.2.4-alpha1 (2016/04/04)**
 
 Official announcement: N/A
 
@@ -161,7 +161,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.4-dev2 =
+= 2.2.4-alpha1 =
 
 (2016/04/04) Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0.
 
