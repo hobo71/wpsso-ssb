@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.2.4-dev2',		// plugin version
+					'version' => '2.2.4-alpha1',		// plugin version
 					'opt_version' => '13',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -183,6 +183,10 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 				),
 			),
 		);
+
+		public static function get_version() { 
+			return self::$cf['plugin']['wpssossb']['version'];
+		}
 
 		public static function set_constants( $plugin_filepath ) { 
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						

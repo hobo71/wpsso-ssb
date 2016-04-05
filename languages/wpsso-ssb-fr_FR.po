@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.4-dev1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.4-dev2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-03-31 03:33-0400\n"
-"PO-Revision-Date: 2016-03-31 03:33-0400\n"
+"POT-Creation-Date: 2016-04-05 17:05-0400\n"
+"PO-Revision-Date: 2016-04-05 17:05-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -37,13 +37,13 @@ msgstr "Le bas"
 
 #: lib/config-gettext-extract.php:7
 msgctxt "option value"
-msgid "CSS Sidebar"
-msgstr "Barre Latérale"
+msgid "Content"
+msgstr "Contenu"
 
 #: lib/config-gettext-extract.php:8
 msgctxt "option value"
-msgid "Content"
-msgstr "Contenu"
+msgid "CSS Sidebar"
+msgstr "Barre Latérale"
 
 #: lib/config-gettext-extract.php:9
 msgctxt "option value"
@@ -87,6 +87,11 @@ msgid "Top"
 msgstr "Le haut"
 
 #: lib/config-gettext-extract.php:17
+msgctxt "option value"
+msgid "Widget"
+msgstr "Widget"
+
+#: lib/config-gettext-extract.php:18
 msgctxt "plugin description"
 msgid ""
 "WPSSO extension to add traditional Social Sharing Buttons with support for "
@@ -95,11 +100,6 @@ msgstr ""
 "Une extension WPSSO pour ajouter des boutons de partage social avec support "
 "pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien "
 "plus."
-
-#: lib/config-gettext-extract.php:18
-msgctxt "option value"
-msgid "Widget"
-msgstr "Widget"
 
 #: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
 #: lib/sharing.php:304
