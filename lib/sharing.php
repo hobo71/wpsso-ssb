@@ -456,7 +456,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 
 			// get the current object / post type
-			if ( ( $post_obj = $this->p->util->get_post_object() ) === false ) {
+			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'exiting early: invalid post object' );
 				return;
@@ -614,7 +614,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
 					return $text;
 				}
-			} elseif ( is_front_page() ) {
+			} elseif ( SucomUtil::is_front_page() ) {
 				if ( empty( $this->p->options['buttons_on_front'] ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
@@ -819,13 +819,13 @@ $buttons_html."\n".
 
 			$exit_message = false;
 			if ( is_admin() ) {
-				if ( ( $post_obj = $this->p->util->get_post_object() ) === false ||
+				if ( ( $post_obj = SucomUtil::get_post_object() ) === false ||
 					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) )
 						$exit_message = 'exiting early: must be published or attachment for admin buttons';
 			} elseif ( ! is_singular() ) {
 				if ( empty( $this->p->options['buttons_on_index'] ) )
 					$exit_message = 'exiting early: index page without buttons_on_index enabled';
-			} elseif ( is_front_page() ) {
+			} elseif ( SucomUtil::is_front_page() ) {
 				if ( empty( $this->p->options['buttons_on_front'] ) )
 					$exit_message = 'exiting early: front page without buttons_on_front enabled';
 			} elseif ( is_singular() ) {
@@ -976,7 +976,7 @@ $buttons_html."\n".
 		public function is_post_buttons_disabled() {
 			$ret = false;
 
-			if ( ( $post_obj = $this->p->util->get_post_object() ) === false ) {
+			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'exiting early: invalid post object' );
 				return $ret;
