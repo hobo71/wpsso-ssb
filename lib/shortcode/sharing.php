@@ -67,10 +67,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'exiting early: buttons not allowed in rss feeds'  );
 				return $content;
-			} elseif ( ( $post_obj = $this->p->util->get_post_object() ) === false ) {
-				$this->p->debug->log( 'exiting early: invalid post object' );
-				return $content;
-			} else $post_id = empty( $post_obj->ID ) ? 0 : $post_obj->ID;
+			}
 
 			$lca = $this->p->cf['lca'];
 			$atts = apply_filters( $lca.'_shortcode_'.WPSSOSSB_SHARING_SHORTCODE, $atts, $content );
@@ -78,14 +75,15 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			$atts['css_class'] = empty( $atts['css_class'] ) ? 'ssb-shortcode' : $atts['css_class'];
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ? 'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
+			$atts['use_post'] = SucomUtil::sanitize_use_post( $atts ); 
+			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 
 			$html = '';
 			if ( ! empty( $atts['buttons'] ) ) {
 				if ( $this->p->is_avail['cache']['transient'] ) {
 					$keys = implode( '|', array_keys( $atts ) );
 					$vals = preg_replace( '/[, ]+/', '_', implode( '|', array_values( $atts ) ) );
-					$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_post:'.$post_id.
-						'_atts_keys:'.$keys. '_atts_vals:'.$vals.')';
+					$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod ).'_atts_keys:'.$keys. '_atts_vals:'.$vals.')';
 					$cache_id = $lca.'_'.md5( $cache_salt );
 					$cache_type = 'object cache';
 					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
@@ -98,10 +96,11 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 				$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
 				unset ( $atts['buttons'] );
+
 				$html .= '<!-- '.$lca.' '.$atts['css_class'].' begin -->'.
 					$this->p->ssb->get_script( 'shortcode-header', $ids ).
 					'<div class="'.$lca.'-ssb '.$lca.'-'.$atts['css_class']."\">\n".
-					$this->p->ssb->get_html( $ids, $atts ).'</div>'.
+					$this->p->ssb->get_html( $ids, $atts, $mod ).'</div>'.
 					$this->p->ssb->get_script( 'shortcode-footer', $ids ).
 					'<!-- '.$lca.' '.$atts['css_class'].' end -->';
 

@@ -46,10 +46,19 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 
 			extract( $args );
 
+			$atts = array( 
+				'css_id' => $args['widget_id'],
+				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
+				'use_post' => false,		// don't use the post ID on indexes
+				'preset_id' => $this->p->options['buttons_preset_ssb-widget'],
+			);
+
+			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+
 			$lca = $this->p->cf['lca'];
 			if ( $this->p->is_avail['cache']['transient'] ) {
-				$sharing_url = $this->p->util->get_sharing_url();
-				$cache_salt = __METHOD__.'(lang:'.SucomUtil::get_locale().'_widget:'.$this->id.'_url:'.$sharing_url.')';
+				$sharing_url = $this->p->util->get_sharing_url( $atts['use_post'] );
+				$cache_salt = __METHOD__.'(locale:'.SucomUtil::get_locale().'_widget:'.$this->id.'_url:'.$sharing_url.')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				$cache_type = 'object cache';
 				if ( $this->p->debug->enabled )
@@ -71,14 +80,6 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				if ( array_key_exists( $id, $instance ) && (int) $instance[$id] )
 					$sorted_ids[ zeroise( $this->p->options[$pre.'_order'], 3 ).'-'.$id] = $id;
 			ksort( $sorted_ids );
-
-			$atts = array( 
-				'css_id' => $args['widget_id'],
-				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
-				'use_post' => false,		// don't use the post ID on indexes
-				'preset_id' => $this->p->options['buttons_preset_ssb-widget'],
-			);
-			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
 
 			$html = '<!-- '.$lca.' '.$args['widget_id'].' begin -->'.
 				$before_widget.

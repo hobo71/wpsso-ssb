@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.4-alpha1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.4-alpha2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -744,22 +744,22 @@ msgstr ""
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:111
+#: lib/widget/sharing.php:112
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:113
+#: lib/widget/sharing.php:114
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""
 
-#: lib/widget/sharing.php:128
+#: lib/widget/sharing.php:129
 msgctxt "option comment"
 msgid "(not added on indexes)"
 msgstr ""
 
-#: lib/widget/sharing.php:131
+#: lib/widget/sharing.php:132
 msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr ""
