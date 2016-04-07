@@ -679,6 +679,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( trim( $buttons_html ) ) {
 					$html = '
 <!-- '.$lca.' '.$css_type.' begin -->
+<!-- generated on '.date( 'c' ).' -->
 <div class="'.$lca.'-ssb'.
 	( $css_preset ? ' '.$css_preset : '' ).
 	( $use_post ? ' '.$lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).
@@ -874,7 +875,8 @@ $buttons_html."\n".
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$html = '<!-- wpssossb '.$pos.' javascript begin -->'."\n";
+			$html = '<!-- wpssossb '.$pos.' javascript begin -->'."\n".
+				'<!-- generated on '.date( 'c' ).' -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
 				$script_loc = 'header';
