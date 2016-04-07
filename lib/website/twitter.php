@@ -148,10 +148,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 
 			$short_url = apply_filters( $lca.'_shorten_url', $long_url, $opts['plugin_shortener'] );
 
-			if ( ! array_key_exists( 'lang', $atts ) )
-				$atts['lang'] = empty( $opts['twitter_lang'] ) ?
-					'en' : $opts['twitter_lang'];
-			$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'twitter' );
+			if ( ! array_key_exists( 'lang', $atts ) ) {
+				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
+				$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'twitter', 'current' );
+			}
 
 			if ( array_key_exists( 'tweet', $atts ) )
 				$atts['caption'] = $atts['tweet'];

@@ -12,7 +12,7 @@
  * Description: WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
  * Requires At Least: 3.1
  * Tested Up To: 4.5
- * Version: 2.2.4-alpha3
+ * Version: 2.2.4-beta1
  * 
  * Version Numbers: {major}.{minor}.{bugfix}-{stage}{level}
  *
@@ -37,7 +37,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		private static $instance = null;
 		private static $wpsso_short = 'WPSSO';
 		private static $wpsso_name = 'WordPress Social Sharing Optimization (WPSSO)';
-		private static $wpsso_min_version = '3.29.0-alpha3';
+		private static $wpsso_min_version = '3.29.0-beta1';
 		private static $wpsso_has_min_ver = true;
 
 		public static function &get_instance() {

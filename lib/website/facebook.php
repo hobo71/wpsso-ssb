@@ -245,7 +245,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 				$this->p->debug->mark();
 			$app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
 			$lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
-			$lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $lang, 'facebook' );
+			$lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $lang, 'facebook', 'current' );
 
 			// do not use get_cache_file_url() since the facebook javascript does not work when hosted locally
 			$js_url = apply_filters( $this->p->cf['lca'].'_js_url_facebook', 

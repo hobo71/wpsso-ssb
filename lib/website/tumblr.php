@@ -169,10 +169,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 
-			if ( ! array_key_exists( 'lang', $atts ) )
-				$atts['lang'] = empty( $opts['tumblr_lang'] ) ?
-					'en_US' : $opts['tumblr_lang'];
-			$atts['lang'] = apply_filters( $this->p->cf['lca'].'_pub_lang', $atts['lang'], 'tumblr' );
+			if ( ! array_key_exists( 'lang', $atts ) ) {
+				$atts['lang'] = empty( $opts['tumblr_lang'] ) ? 'en_US' : $opts['tumblr_lang'];
+				$atts['lang'] = apply_filters( $this->p->cf['lca'].'_pub_lang', $atts['lang'], 'tumblr', 'current' );
+			}
 
 			$atts['url'] = empty( $atts['url'] ) ? 
 				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
