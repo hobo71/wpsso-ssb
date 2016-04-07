@@ -791,6 +791,7 @@ $buttons_html."\n".
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
+			$lca = $this->p->cf['lca'];
 			$enabled_ids = array();
 
 			// there are no widgets on the admin back-end, so don't bother checking
@@ -821,23 +822,23 @@ $buttons_html."\n".
 			if ( is_admin() ) {
 				if ( ( $post_obj = SucomUtil::get_post_object() ) === false ||
 					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) )
-						$exit_message = 'exiting early: must be published or attachment for admin buttons';
+						$exit_message = 'must be published or attachment for admin buttons';
 			} elseif ( ! is_singular() ) {
 				if ( empty( $this->p->options['buttons_on_index'] ) )
-					$exit_message = 'exiting early: index page without buttons_on_index enabled';
+					$exit_message = 'index page without buttons_on_index enabled';
 			} elseif ( SucomUtil::is_front_page() ) {
 				if ( empty( $this->p->options['buttons_on_front'] ) )
-					$exit_message = 'exiting early: front page without buttons_on_front enabled';
+					$exit_message = 'front page without buttons_on_front enabled';
 			} elseif ( is_singular() ) {
 				if ( $this->is_post_buttons_disabled() )
-					$exit_message = 'exiting early: is singular and post buttons disabled';
+					$exit_message = 'is singular and post buttons disabled';
 			}
 
 			if ( $exit_message ) {
 				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( $exit_message  );
-					return;
+						$this->p->debug->log( 'exiting early: '.$exit_message  );
+					return '<!-- '.$lca.' '.$pos.':'.$exit_message.' -->'."\n";
 				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
 			} elseif ( is_admin() ) {
@@ -861,20 +862,20 @@ $buttons_html."\n".
 				if ( empty( $enabled_ids ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'exiting early: no buttons enabled or requested' );
-					return;
+					return '<!-- '.$lca.' '.$pos.': no buttons enabled or requested -->'."\n";
 				} else $include_ids = $enabled_ids;
 			} else {
 				$include_ids = array_diff( $request_ids, $enabled_ids );
 				if ( empty( $include_ids ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'exiting early: no scripts to add after removing enabled buttons' );
-					return;
+						$this->p->debug->log( 'exiting early: no scripts after removing enabled buttons' );
+					return '<!-- '.$lca.' '.$pos.': no scripts after removing enabled buttons -->'."\n";
 				}
 			}
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$html = '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript begin -->'."\n";
+			$html = '<!-- '.$lca.' '.$pos.' javascript begin -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
 				$script_loc = 'header';
@@ -894,7 +895,8 @@ $buttons_html."\n".
 									$html .= $this->website[$id]->get_script( $pos )."\n";
 				}
 			}
-			$html .= '<!-- '.$this->p->cf['lca'].' '.$pos.' javascript end -->'."\n";
+
+			$html .= '<!-- '.$lca.' '.$pos.' javascript end -->'."\n";
 
 			return $html;
 		}
