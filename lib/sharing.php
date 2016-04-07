@@ -838,7 +838,7 @@ $buttons_html."\n".
 				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
 					if ( $this->p->debug->enabled )
 						$this->p->debug->log( 'exiting early: '.$exit_message  );
-					return '<!-- '.$lca.' '.$pos.':'.$exit_message.' -->'."\n";
+					return '<!-- '.$lca.' '.$pos.': '.$exit_message.' -->'."\n";
 				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
 			} elseif ( is_admin() ) {
@@ -889,10 +889,13 @@ $buttons_html."\n".
 					$opt_name = $this->p->cf['opt']['pre'][$id].'_script_loc';
 
 					if ( isset( $this->website[$id] ) &&
-						method_exists( $this->website[$id], 'get_script' ) && 
-							isset( $this->p->options[$opt_name] ) && 
-								$this->p->options[$opt_name] === $script_loc )
-									$html .= $this->website[$id]->get_script( $pos )."\n";
+						method_exists( $this->website[$id], 'get_script' ) ) {
+
+						if ( isset( $this->p->options[$opt_name] ) && 
+							$this->p->options[$opt_name] === $script_loc )
+								$html .= $this->website[$id]->get_script( $pos )."\n";
+						else $html .= '<!-- '.$lca.' '.$pos.': '.$id.' script location is '.$script_loc.' -->'."\n";
+					}
 				}
 			}
 
