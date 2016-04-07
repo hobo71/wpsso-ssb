@@ -788,7 +788,7 @@ $buttons_html."\n".
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
-		public function get_script( $pos = 'header', $requested_ids = array() ) {
+		public function get_script( $pos = 'header', $request_ids = array() ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
