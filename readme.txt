@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.4-rc1 (2016/04/08)**
+**Version 2.2.4-1 (2016/04/08)**
 
 Official announcement: N/A
 
@@ -163,9 +163,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.4-rc1 =
+= 2.2.4-1 =
 
-(2016/04/08) Modified the order of WpssoOpengraph `get_the_media_info()` method arguments for WPSSO v3.29.0.
+(2016/04/08) Added support for a 'use_post' argument in the sharing buttons shortcode. Modified filter and method arguments for WPSSO v3.29.0.
 
 = 2.2.3-1 =
 
