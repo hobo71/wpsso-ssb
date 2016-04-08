@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.4-dev2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-04-05 17:05-0400\n"
-"PO-Revision-Date: 2016-04-05 17:05-0400\n"
+"POT-Creation-Date: 2016-04-08 08:07-0400\n"
+"PO-Revision-Date: 2016-04-08 08:07-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -827,22 +827,22 @@ msgstr "utilisant ces <a href=\"%1$s\">%2$s</a>"
 msgid "The %s widget."
 msgstr "Le widget %s."
 
-#: lib/widget/sharing.php:111
+#: lib/widget/sharing.php:112
 msgctxt "option value"
 msgid "Share It"
 msgstr "Partager"
 
-#: lib/widget/sharing.php:113
+#: lib/widget/sharing.php:114
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr "Titre du Widget (laisser vide pour aucun titre)"
 
-#: lib/widget/sharing.php:128
+#: lib/widget/sharing.php:129
 msgctxt "option comment"
 msgid "(not added on indexes)"
 msgstr "(pas ajouté sur pages index)"
 
-#: lib/widget/sharing.php:131
+#: lib/widget/sharing.php:132
 msgctxt "option comment"
 msgid "(shares link on indexes)"
 msgstr "(partage un lien sur pages index)"
@@ -895,7 +895,3 @@ msgstr "JS Morisset"
 #. Author URI of the plugin/theme
 msgid "http://surniaulula.com/"
 msgstr "http://surniaulula.com/"
-
-#~ msgctxt "option label (short)"
-#~ msgid "Share Single Image"
-#~ msgstr "Partage une image"
