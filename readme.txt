@@ -139,7 +139,7 @@ Official announcement: N/A
 * *Improvements*
 	* None
 * *Bugfixes*
-	* Fixed a variable name in the `wpssossb_get_sharing_buttons()` funtion.
+	* Fixed an incorrect variable reference in the `wpssossb_get_sharing_buttons()` funtion.
 * *Developer Notes*
 	* None
 
@@ -177,7 +177,7 @@ Official announcement: N/A
 
 = 2.2.5-1 =
 
-(2016/04/10) Fixed a variable name in the `wpssossb_get_sharing_buttons()` funtion.
+(2016/04/10) Fixed an incorrect variable reference in the `wpssossb_get_sharing_buttons()` funtion.
 
 = 2.2.4-1 =
 
