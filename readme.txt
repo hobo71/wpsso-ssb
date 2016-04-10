@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.5-1 (2016/04/10)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed a variable name in the `wpssossb_get_sharing_buttons()` funtion.
+* *Developer Notes*
+	* None
+
 **Version 2.2.4-1 (2016/04/08)**
 
 Official announcement: N/A
@@ -161,6 +174,10 @@ Official announcement: N/A
 	* Adopted a new version numbering system: `{major}.{minor}.{bugfix}-{stage}{level}`
 
 == Upgrade Notice ==
+
+= 2.2.5-1 =
+
+(2016/04/10) Fixed a variable name in the `wpssossb_get_sharing_buttons()` funtion.
 
 = 2.2.4-1 =
 
