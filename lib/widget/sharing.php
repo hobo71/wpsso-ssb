@@ -123,16 +123,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 					'" value="1" type="checkbox" ';
 				if ( ! empty( $instance[$id] ) )
 					echo checked( 1, $instance[$id] );
-				echo ' /> '.$name;
-				switch ( $id ) {
-					case 'pinterest':
-						echo ' '._x( '(not added on indexes)', 'option comment', 'wpsso-ssb' );
-						break;
-					case 'tumblr':
-						echo ' '._x( '(shares link on indexes)', 'option comment', 'wpsso-ssb' );
-						break;
-				}
-				echo '</label></p>', "\n";
+				echo ' /> '.$name.'</label></p>', "\n";
 			}
 		}
 	}
