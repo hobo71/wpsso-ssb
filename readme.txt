@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.6-1 (2016/04/12)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed cache salt value for mobile/non-mobile version of sharing buttons.
+* *Developer Notes*
+	* None
+
 **Version 2.2.5-1 (2016/04/10)**
 
 Official announcement: N/A
@@ -175,9 +188,13 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
+= 2.2.6-1 =
+
+(2016/04/12) Fixed cache salt value for mobile/non-mobile version of sharing buttons.
+
 = 2.2.5-1 =
 
-(2016/04/10) Fixed an incorrect variable reference in the `wpssossb_get_sharing_buttons()` funtion.
+(2016/04/10) Fixed an incorrect variable reference in the wpssossb_get_sharing_buttons() funtion.
 
 = 2.2.4-1 =
 
