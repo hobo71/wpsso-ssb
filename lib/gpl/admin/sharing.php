@@ -19,7 +19,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
 				'ssb_buttons_preset_rows' => 2,		// $table_rows, $form
 				'post_social_settings_tabs' => 1,	// $tabs
-				'post_sharing_rows' => 4,		// $table_rows, $form, $head, $mod
+				'post_buttons_rows' => 4,		// $table_rows, $form, $head, $mod
 			), 30 );
 		}
 
@@ -81,13 +81,13 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			foreach ( $tabs as $key => $val ) {
 				$new_tabs[$key] = $val;
 				if ( $key === 'media' )
-					$new_tabs['sharing'] = _x( 'Sharing Buttons',
+					$new_tabs['buttons'] = _x( 'Sharing Buttons',
 						'metabox tab', 'wpsso-ssb' );
 			}
 			return $new_tabs;
 		}
 
-		public function filter_post_sharing_rows( $table_rows, $form, $head, $mod ) {
+		public function filter_post_buttons_rows( $table_rows, $form, $head, $mod ) {
 
 			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
 				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
@@ -97,9 +97,32 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			}
 
 			$size_info = $this->p->media->get_size_info( 'thumbnail' );
+			$title_caption = $this->p->webpage->get_caption( 'title', 0, $mod, true, false );
+
 			$table_rows[] = '<td colspan="3" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', 
 					array( 'lca' => 'wpssossb' ) ).'</td>';
+
+			$table_rows[] = '<td colspan="3" align="center">'.
+				$this->p->msgs->get( 'pro-about-msg-post' ).'</td>';
+
+			/*
+			 * Email
+			 */
+			$caption_len = $this->p->options['email_cap_len'];
+			$caption_text = $this->p->webpage->get_caption( 'excerpt', $caption_len, 
+				$mod, true, $this->p->options['email_cap_hashtags'], true, 'none' );
+
+			$form_rows['email_title'] = array(
+				'label' => _x( 'Email Subject', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-email_title', 'td_class' => 'blank',
+				'content' => $form->get_no_input_value( $title_caption, 'wide' ),
+			);
+			$form_rows['email_desc'] = array(
+				'label' => _x( 'Email Message', 'option label', 'wpsso-ssb' ),
+				'th_class' => 'medium', 'tooltip' => 'post-email_desc', 'td_class' => 'blank',
+				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ),
+			);
 
 			/*
 			 * Twitter

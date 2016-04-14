@@ -105,7 +105,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'option_type' => 2,			// identify option type for sanitation
 					'post_cache_transients' => 4,		// clear transients on post save
 					'messages_tooltip_side' => 3,		// tooltip messages for side boxes
-					'messages_tooltip_post' => 3,		// tooltip messages for post social settings
 					'secondary_action_buttons' => 4,	// add a reload default styles button
 				) );
 
@@ -136,6 +135,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_get_md_defaults( $def_opts ) {
 			return array_merge( $def_opts, array(
+				'email_title' => '',		// Email Subject
+				'email_desc' => '',		// Email Message
 				'twitter_desc' => '',		// Tweet Text
 				'pin_desc' => '',		// Pinterest Caption Text
 				'tumblr_img_desc' => '',	// Tumblr Image Caption
@@ -304,27 +305,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				case 'tooltip-side-social-file-cache':
 					$text = __( 'Social sharing button images and JavaScript can be saved to a local cache folder. When this feature is enabled, the image and JavaScript URLs provided are those of the cached files instead of the originals (often with much better performance).', 'wpsso-ssb' ).' '.sprintf( __( 'The current <em>%1$s</em> value defined on the <a href="%2$s">%3$s</a> settings page is %4$s seconds (the default value of 0 disables social file caching).', 'wpsso-ssb' ), _x( 'Social File Cache Expiry', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ), $this->p->options['plugin_file_cache_exp'] );
 					break;
-			}
-			return $text;
-		}
-
-		public function filter_messages_tooltip_post( $text, $idx, $atts ) {
-			switch ( $idx ) {
-				 case 'tooltip-post-pin_desc':
-					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Image ID, attached or featured image.', 'wpsso-ssb' ), 'Pinterest' );
-				 	break;
-				 case 'tooltip-post-tumblr_img_desc':
-					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Image ID, attached or featured image.', 'wpsso-ssb' ), 'Tumblr' );
-				 	break;
-				 case 'tooltip-post-tumblr_vid_desc':
-					$text = sprintf( __( 'A custom caption text used by the %s social sharing button for the custom Video URL or embedded video.', 'wpsso-ssb' ), 'Tumblr' );
-				 	break;
-				 case 'tooltip-post-twitter_desc':
-				 	$text = __( 'A custom Tweet text for the Twitter social sharing button. This text is different than the Twitter Card description.', 'wpsso-ssb' );
-				 	break;
-				 case 'tooltip-post-buttons_disabled':
-					$text = __( 'Disable all social sharing buttons (content, excerpt, widget, shortcode).', 'wpsso-ssb' );
-				 	break;
 			}
 			return $text;
 		}
