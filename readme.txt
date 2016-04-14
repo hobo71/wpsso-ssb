@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.7-dev1 (TBD)**
+**Version 2.2.7-dev1 (2016/04/14)**
 
 Official announcement: N/A
 
@@ -201,6 +201,10 @@ Official announcement: N/A
 	* Adopted a new version numbering system: `{major}.{minor}.{bugfix}-{stage}{level}`
 
 == Upgrade Notice ==
+
+= 2.2.7-dev1 =
+
+(2016/04/14) Added the "Email Subject" and "Email Message" options in the Social Settings metabox. Added a message in the Free / Basic version to explain how to change the social text and image.
 
 = 2.2.6-1 =
 
