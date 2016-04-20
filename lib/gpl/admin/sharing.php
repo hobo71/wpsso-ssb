@@ -103,9 +103,6 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$this->p->msgs->get( 'pro-feature-msg', 
 					array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			$table_rows[] = '<td colspan="3" align="center">'.
-				$this->p->msgs->get( 'pro-about-msg-post' ).'</td>';
-
 			/*
 			 * Email
 			 */
