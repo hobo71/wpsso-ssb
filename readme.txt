@@ -138,7 +138,6 @@ Official announcement: N/A
 	* None
 * *Improvements*
 	* Added the "Email Subject" and "Email Message" options in the Social Settings metabox.
-	* Added a message in the Free / Basic version to explain how to change the social text and image.
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -204,7 +203,7 @@ Official announcement: N/A
 
 = 2.2.7-1 =
 
-(2016/04/15) Added the "Email Subject" and "Email Message" options in the Social Settings metabox. Added a message in the Free / Basic version to explain how to change the social text and image.
+(2016/04/15) Added the "Email Subject" and "Email Message" options in the Social Settings metabox.
 
 = 2.2.6-1 =
 
