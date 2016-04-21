@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.8-1 (2016/04/21)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Changed a call to `SucomUtil::is_front_page()` back to `is_front_page()`.
+
 **Version 2.2.7-1 (2016/04/15)**
 
 Official announcement: N/A
@@ -200,6 +213,10 @@ Official announcement: N/A
 	* Adopted a new version numbering system: `{major}.{minor}.{bugfix}-{stage}{level}`
 
 == Upgrade Notice ==
+
+= 2.2.8-1 =
+
+(2016/04/21) Minor code changes for WPSSO v3.29.6-1.
 
 = 2.2.7-1 =
 
