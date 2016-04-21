@@ -592,19 +592,19 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			} elseif ( ! is_singular() ) {
 				if ( empty( $this->p->options['buttons_on_index'] ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( $type.' filter skipped: index page without buttons_on_index enabled' );
+						$this->p->debug->log( $type.' filter skipped: buttons_on_index not enabled' );
 					return $text;
 				}
-			} elseif ( SucomUtil::is_front_page() ) {
+			} elseif ( is_front_page() ) {
 				if ( empty( $this->p->options['buttons_on_front'] ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( $type.' filter skipped: front page without buttons_on_front enabled' );
+						$this->p->debug->log( $type.' filter skipped: buttons_on_front not enabled' );
 					return $text;
 				}
 			} elseif ( is_singular() ) {
 				if ( $this->is_post_buttons_disabled() ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( $type.' filter skipped: is singular and post buttons disabled' );
+						$this->p->debug->log( $type.' filter skipped: post buttons are disabled' );
 					return $text;
 				}
 			}
@@ -807,13 +807,13 @@ $buttons_html."\n".
 						$exit_message = 'must be published or attachment for admin buttons';
 			} elseif ( ! is_singular() ) {
 				if ( empty( $this->p->options['buttons_on_index'] ) )
-					$exit_message = 'index page without buttons_on_index enabled';
-			} elseif ( SucomUtil::is_front_page() ) {
+					$exit_message = 'buttons_on_index not enabled';
+			} elseif ( is_front_page() ) {
 				if ( empty( $this->p->options['buttons_on_front'] ) )
-					$exit_message = 'front page without buttons_on_front enabled';
+					$exit_message = 'buttons_on_front not enabled';
 			} elseif ( is_singular() ) {
 				if ( $this->is_post_buttons_disabled() )
-					$exit_message = 'is singular and post buttons disabled';
+					$exit_message = 'post buttons are disabled';
 			}
 
 			if ( $exit_message ) {
