@@ -11,6 +11,7 @@
  * class will affect all other button layouts.
  */
 .ssb-buttons { 
+	visibility:visible;
 	box-sizing:content-box;
 }
 .ssb-buttons img { 
