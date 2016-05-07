@@ -69,23 +69,22 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 			$table_rows[] = $form->get_th_html( _x( 'Add via @username',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'Append the website\'s business @username to the tweet (see the <a href="%1$s">Twitter</a> options tab on the %2$s settings page). The website\'s @username will be displayed and recommended after the webpage is shared.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter' ), _x( 'General', 'lib file description', 'wpsso-ssb' ) ) ).
-			( $this->p->check->aop( 'wpssossb' ) ? '<td>'.$form->get_checkbox( 'twitter_via' ).'</td>' :
-				'<td class="blank">'.$form->get_no_checkbox( 'twitter_via' ).'</td>' );
+			'<td>'.$form->get_checkbox( 'twitter_via' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Recommend Author',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'Recommend following the author\'s Twitter @username (from their profile) after sharing a webpage. If the <em>%1$s</em> option is also checked, the website\'s @username is suggested first.', 'wpsso-ssb' ), _x( 'Add via @username', 'option label (short)', 'wpsso-rrssb' ) ) ).
-			( $this->p->check->aop( 'wpssossb' ) ? 
-				'<td>'.$form->get_checkbox( 'twitter_rel_author' ).'</td>' :
-				'<td class="blank">'.$form->get_no_checkbox( 'twitter_rel_author' ).'</td>' );
+			'<td>'.$form->get_checkbox( 'twitter_rel_author' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Shorten URLs with',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			sprintf( __( 'If you select a URL shortening service here, you must also enter its <a href="%1$s">%2$s</a> on the %3$s settings page.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys' ), _x( 'Service API Keys', 'metabox tab', 'wpsso-ssb' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ) ) ).
-			( $this->p->check->aop( 'wpssossb' ) ? 
+			( $this->p->check->aop( $this->p->cf['lca'], true, $this->p->is_avail['aop'] ) ? 
 				'<td>'.$form->get_select( 'plugin_shortener', $this->p->cf['form']['shorteners'], 'short' ).'&nbsp; ' :
 				'<td class="blank">'.$this->p->cf['form']['shorteners'][$this->p->options['plugin_shortener']].' &mdash; ' ).
-			sprintf( __( 'using these <a href="%1$s">%2$s</a>', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys' ), _x( 'Service API Keys', 'metabox tab', 'wpsso-ssb' ) ).'</td>';
+			sprintf( __( 'using these <a href="%1$s">%2$s</a>', 'wpsso-ssb' ),
+				$this->p->util->get_admin_url( 'advanced#sucom-tabset_plugin-tab_apikeys' ),
+				_x( 'Service API Keys', 'metabox tab', 'wpsso-ssb' ) ).'</td>';
 
 			return $table_rows;
 		}
@@ -165,7 +164,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			}
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
-				if ( ! empty( $opts['twitter_via'] ) && $this->p->check->aop( 'wpssossb' ) ) {
+				if ( ! empty( $opts['twitter_via'] ) ) {
 					$key_locale = SucomUtil::get_key_locale( 'tc_site', $opts );
 					$atts['via'] = preg_replace( '/^@/', '', $opts[$key_locale] );
 				} else $atts['via'] = '';
@@ -173,7 +172,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 
 			if ( ! array_key_exists( 'related', $atts ) ) {
 				if ( ! empty( $opts['twitter_rel_author'] ) && 
-					! empty( $post ) && $atts['use_post'] === true && $this->p->check->aop( 'wpssossb' ) )
+					! empty( $post ) && $atts['use_post'] )
 						$atts['related'] = preg_replace( '/^@/', '', 
 							get_the_author_meta( $opts['plugin_cm_twitter_name'], $post->author ) );
 				else $atts['related'] = '';

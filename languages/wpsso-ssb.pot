@@ -215,7 +215,7 @@ msgid ""
 "performance and content processing."
 msgstr ""
 
-#: lib/sharing.php:297 lib/sharing.php:306 lib/website/twitter.php:84
+#: lib/sharing.php:297 lib/sharing.php:306 lib/website/twitter.php:81
 msgctxt "lib file description"
 msgid "Advanced"
 msgstr ""
@@ -482,12 +482,23 @@ msgid "characters or less"
 msgstr ""
 
 #: lib/website/buffer.php:78 lib/website/twitter.php:69
-#: lib/website/twitter.php:77
+#: lib/website/twitter.php:76
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
 
-#: lib/website/buffer.php:130
+#: lib/website/buffer.php:80
+msgid ""
+"Append the website's business @username to the tweet (see the <a href=\"%1$s"
+"\">Twitter</a> options tab on the %2$s settings page)."
+msgstr ""
+
+#: lib/website/buffer.php:80 lib/website/twitter.php:71
+msgctxt "lib file description"
+msgid "General"
+msgstr ""
+
+#: lib/website/buffer.php:128
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
 msgstr ""
@@ -690,40 +701,35 @@ msgid ""
 "@username will be displayed and recommended after the webpage is shared."
 msgstr ""
 
-#: lib/website/twitter.php:71
-msgctxt "lib file description"
-msgid "General"
-msgstr ""
-
-#: lib/website/twitter.php:75
+#: lib/website/twitter.php:74
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
 
-#: lib/website/twitter.php:77
+#: lib/website/twitter.php:76
 msgid ""
 "Recommend following the author's Twitter @username (from their profile) "
 "after sharing a webpage. If the <em>%1$s</em> option is also checked, the "
 "website's @username is suggested first."
 msgstr ""
 
-#: lib/website/twitter.php:82
+#: lib/website/twitter.php:79
 msgctxt "option label (short)"
 msgid "Shorten URLs with"
 msgstr ""
 
-#: lib/website/twitter.php:84
+#: lib/website/twitter.php:81
 msgid ""
 "If you select a URL shortening service here, you must also enter its <a href="
 "\"%1$s\">%2$s</a> on the %3$s settings page."
 msgstr ""
 
-#: lib/website/twitter.php:84 lib/website/twitter.php:88
+#: lib/website/twitter.php:81 lib/website/twitter.php:87
 msgctxt "metabox tab"
 msgid "Service API Keys"
 msgstr ""
 
-#: lib/website/twitter.php:88
+#: lib/website/twitter.php:85
 msgid "using these <a href=\"%1$s\">%2$s</a>"
 msgstr ""
 
