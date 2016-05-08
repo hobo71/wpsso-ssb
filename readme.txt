@@ -130,6 +130,20 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.9-1 (2016/05/08)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Renamed the 'wpsso_text_filter_has_removed' to 'wpsso_text_filter_has_changes_before'.
+	* Renamed the 'wpsso_text_filter_has_added' to 'wpsso_text_filter_has_changes_after'.
+
 **Version 2.2.8-1 (2016/04/21)**
 
 Official announcement: N/A
@@ -213,6 +227,10 @@ Official announcement: N/A
 	* Adopted a new version numbering system: `{major}.{minor}.{bugfix}-{stage}{level}`
 
 == Upgrade Notice ==
+
+= 2.2.9-1 =
+
+(2016/05/08) Minor code changes for WPSSO v3.30.0-1.
 
 = 2.2.8-1 =
 
