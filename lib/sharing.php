@@ -104,7 +104,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'save_options' => 3,			// update the sharing css file
 					'option_type' => 2,			// identify option type for sanitation
 					'post_cache_transients' => 4,		// clear transients on post save
-					'messages_tooltip_side' => 3,		// tooltip messages for side boxes
 					'secondary_action_buttons' => 4,	// add a reload default styles button
 				) );
 
@@ -234,79 +233,56 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_post_cache_transients( $transients, $post_id, $locale = 'en_US', $sharing_url ) {
+			$locale_salt = 'locale:'.$locale.'_post:'.$post_id;
 			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
 				$this->p->cf['sharing']['show_on'], null );
 
 			foreach( $show_on as $type_id => $type_name ) {
-				$transients['WpssoSsbSharing::get_buttons'][] = 'locale:'.$locale.'_post:'.$post_id.'_type:'.$type_id;
-				$transients['WpssoSsbSharing::get_buttons'][] = 'locale:'.$locale.'_post:'.$post_id.'_type:'.$type_id.'_prot:https';
-				$transients['WpssoSsbSharing::get_buttons'][] = 'locale:'.$locale.'_post:'.$post_id.'_type:'.$type_id.'_mobile:true';
-				$transients['WpssoSsbSharing::get_buttons'][] = 'locale:'.$locale.'_post:'.$post_id.'_type:'.$type_id.'_mobile:true_prot:https';
+				$transients['WpssoSsbSharing::get_buttons'][] = $locale_salt.'_type:'.$type_id;
+				$transients['WpssoSsbSharing::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_prot:https';
+				$transients['WpssoSsbSharing::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_mobile:true';
+				$transients['WpssoSsbSharing::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_mobile:true_prot:https';
 			}
 
 			return $transients;
 		}
 
-		public function filter_status_gpl_features( $features, $lca, $info ) {
+		// hooked to 'wpssossb_status_gpl_features'
+		public function filter_status_gpl_features( $features, $ext, $info ) {
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) )
-				$features['Sharing Buttons'] = array(
-					'classname' => $lca.'Sharing',
+				$features['(sharing) Sharing Buttons'] = array(
+					'classname' => $ext.'Sharing',
 				);
 			if ( ! empty( $info['lib']['submenu']['ssb-style'] ) )
-				$features['Sharing Stylesheet'] = array(
+				$features['(sharing) Sharing Stylesheet'] = array(
 					'status' => $this->p->options['buttons_use_social_css'] ? 'on' : 'off',
 				);
 			if ( ! empty( $info['lib']['shortcode']['sharing'] ) )
-				$features['Sharing Shortcode'] = array(
-					'classname' => $lca.'ShortcodeSharing',
+				$features['(sharing) Sharing Shortcode'] = array(
+					'classname' => $ext.'ShortcodeSharing',
 				);
 			if ( ! empty( $info['lib']['widget']['sharing'] ) )
-				$features['Sharing Widget'] = array(
-					'classname' => $lca.'WidgetSharing'
+				$features['(sharing) Sharing Widget'] = array(
+					'classname' => $ext.'WidgetSharing'
 				);
 			return $features;
 		}
 
-		public function filter_status_pro_features( $features = array(), $lca = '', $info = array() ) {
-			if ( ! empty( $lca ) && 
-				! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
-
-				$aop = $this->p->check->aop( $lca );
-				$features['Social File Cache'] = array( 
+		// hooked to 'wpssossb_status_pro_features'
+		public function filter_status_pro_features( $features, $ext, $info ) {
+			if ( ! empty( $ext ) && ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+				$aop = $this->p->check->aop( $ext, true, $this->p->is_avail['aop'] );
+				$features['(tool) Sharing Buttons Image / JavaScript File Cache'] = array( 
 					'status' => $this->p->options['plugin_file_cache_exp'] ?
 						( $aop ? 'on' : 'rec' ) : 'off',
 					'td_class' => $aop ? '' : 'blank',
 				);
-				$features['Sharing Styles Editor'] = array( 
+				$features['(tool) Sharing Styles Editor'] = array( 
 					'status' => $aop ? 'on' : 'rec',
 					'td_class' => $aop ? '' : 'blank',
 				);
 			}
 			return $features;
-		}
-
-		public function filter_messages_tooltip_side( $text, $idx, $atts ) {
-			switch ( $idx ) {
-				case 'tooltip-side-sharing-buttons':
-					$text = sprintf( __( 'Social sharing features include the <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a> settings pages, the <em>%5$s</em> tab in the <em>%6$s</em> metabox, along with the social sharing shortcode and widget.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'sharing' ), _x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'style' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), _x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' ), _x( 'Social Settings', 'metabox title', 'wpsso-ssb' ) ).' '.sprintf( __( 'All social sharing features can be disabled using a <a href="%s" target="_blank">PHP constant</a> in your wp-config.php file.', 'wpsso-ssb' ), 'http://surniaulula.com/codex/plugins/wpsso-ssb/notes/constants/' );
-					break;
-				case 'tooltip-side-sharing-stylesheet':
-					$text = sprintf( __( 'A stylesheet for the social sharing buttons can be included in all webpages. You can enable or disable use of the stylesheet from the <a href="%1$s">%2$s</a> settings page.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'style' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ) );
-					break;
-				case 'tooltip-side-sharing-shortcode':
-					$text = sprintf( __( 'Support for shortcode(s) can be enabled and disabled on the <a href="%1$s">%2$s</a> settings page. Shortcodes are disabled by default to optimize performance and content processing.', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ) );
-					break;
-				case 'tooltip-side-sharing-widget':
-					$text = sprintf( __( 'The sharing widget feature adds a <em>%s</em> widget to the WordPress Widgets settings page. The sharing widget shares the URL for the current webpage (and not individual items within an index / archive webpage, for example).', 'wpsso-ssb' ),_x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' ) );
-					break;
-				case 'tooltip-side-sharing-styles-editor':
-					$text = __( 'A stylesheet editor is available to modify the default CSS of social sharing buttons based on their intended location (content, except, etc.).', 'wpsso-ssb' );
-					break;
-				case 'tooltip-side-social-file-cache':
-					$text = __( 'Social sharing button images and JavaScript can be saved to a local cache folder. When this feature is enabled, the image and JavaScript URLs provided are those of the cached files instead of the originals (often with much better performance).', 'wpsso-ssb' ).' '.sprintf( __( 'The current <em>%1$s</em> value defined on the <a href="%2$s">%3$s</a> settings page is %4$s seconds (the default value of 0 disables social file caching).', 'wpsso-ssb' ), _x( 'Social File Cache Expiry', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'advanced' ), _x( 'Advanced', 'lib file description', 'wpsso-ssb' ), $this->p->options['plugin_file_cache_exp'] );
-					break;
-			}
-			return $text;
 		}
 
 		public function filter_secondary_action_buttons( $actions, $menu_id, $menu_name, $menu_lib ) {
