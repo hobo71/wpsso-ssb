@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.10-dev1 (2016/05/10)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Categorized the display of Free / Pro features in the sidebar metabox.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.9-1 (2016/05/08)**
 
 Official announcement: N/A
@@ -145,6 +158,10 @@ Official announcement: N/A
 	* Renamed the 'wpsso_text_filter_has_added' to 'wpsso_text_filter_has_changes_after'.
 
 == Upgrade Notice ==
+
+= 2.2.10-dev1 =
+
+(2016/05/10) Categorized the display of Free / Pro features in the sidebar metabox.
 
 = 2.2.9-1 =
 
