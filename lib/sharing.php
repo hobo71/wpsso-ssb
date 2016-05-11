@@ -270,7 +270,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		// hooked to 'wpssossb_status_pro_features'
 		public function filter_status_pro_features( $features, $ext, $info ) {
-			if ( ! empty( $ext ) && ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$aop = $this->p->check->aop( $ext, true, $this->p->is_avail['aop'] );
 				$features['(tool) Sharing Buttons Image / JavaScript File Cache'] = array( 
 					'status' => $this->p->options['plugin_file_cache_exp'] ?
