@@ -143,27 +143,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* None
 
-**Version 2.2.9-1 (2016/05/08)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed the 'wpsso_text_filter_has_removed' to 'wpsso_text_filter_has_changes_before'.
-	* Renamed the 'wpsso_text_filter_has_added' to 'wpsso_text_filter_has_changes_after'.
-
 == Upgrade Notice ==
 
 = 2.2.10-1 =
 
 (2016/05/14) Categorized the display of Free / Pro features in the sidebar metabox.
-
-= 2.2.9-1 =
-
-(2016/05/08) Minor code changes for WPSSO v3.30.0-1.
 
