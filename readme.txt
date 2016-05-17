@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.11-dev1 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added the current locale value to the sharing buttons CSS class (example: .ssb-buttons.en_US).
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.10-1 (2016/05/14)**
 
 Official announcement: N/A
@@ -144,6 +157,10 @@ Official announcement: N/A
 	* None
 
 == Upgrade Notice ==
+
+= 2.2.11-dev1 =
+
+(TBD) Added current locale to the sharing buttons CSS class.
 
 = 2.2.10-1 =
 
