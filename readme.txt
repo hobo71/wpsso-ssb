@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.12-dev1 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpss-ssb-preset-*'.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.11-1 (2016/05/18)**
 
 Official announcement: N/A
