@@ -629,7 +629,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
 					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
-					$css_preset = $lca.'-preset-'.$atts['preset_id'];
+					$css_preset = $lca.'-ssb-preset-'.$atts['preset_id'];
 				} else $css_preset = '';
 
 				$buttons_html = $this->get_html( $sorted_ids, $atts, $mod );
