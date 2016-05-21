@@ -137,7 +137,7 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpss-ssb-preset-*'.
+	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
 * *Bugfixes*
 	* None
 * *Developer Notes*
