@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.12-dev1 (TBD)**
+**Version 2.2.12-dev1 (2015/05/22)**
 
 Official announcement: N/A
 
@@ -156,26 +156,13 @@ Official announcement: N/A
 * *Developer Notes*
 	* None
 
-**Version 2.2.10-1 (2016/05/14)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Categorized the display of Free / Pro features in the sidebar metabox.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
+
+= 2.2.12-dev1 =
+
+(2016/05/22) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
 
 = 2.2.11-1 =
 
 (2016/05/18) Added current locale to the sharing buttons CSS class.
-
-= 2.2.10-1 =
-
-(2016/05/14) Categorized the display of Free / Pro features in the sidebar metabox.
 
