@@ -130,7 +130,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
-**Version 2.2.12-1 (2015/05/22)**
+**Version 2.2.12-1 (2015/05/23)**
 
 Official announcement: N/A
 
@@ -160,7 +160,7 @@ Official announcement: N/A
 
 = 2.2.12-1 =
 
-(2016/05/22) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
+(2016/05/23) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
 
 = 2.2.11-1 =
 
