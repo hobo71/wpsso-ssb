@@ -137,7 +137,7 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
+	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'. You may need to clear the "All Buttons" CSS on the Sharing Styles settings page to reload the new default CSS.
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -160,7 +160,7 @@ Official announcement: N/A
 
 = 2.2.12-1 =
 
-(2016/05/23) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'.
+(2016/05/23) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'. You may need to clear the "All Buttons" CSS on the Sharing Styles settings page to reload the new default CSS.
 
 = 2.2.11-1 =
 
