@@ -142,8 +142,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 
 			$long_url = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
+				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			$short_url = apply_filters( $lca.'_shorten_url', $long_url, $opts['plugin_shortener'] );
 

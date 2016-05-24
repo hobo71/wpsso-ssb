@@ -597,7 +597,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			if ( $this->p->is_avail['cache']['transient'] ) {
 
-				$sharing_url = $this->p->util->get_sharing_url( $use_post, true );
+				$sharing_url = $this->p->util->get_sharing_url( $mod, true );
 				$cache_salt = __METHOD__.'('.apply_filters( $lca.'_buttons_cache_salt', 
 					SucomUtil::get_mod_salt( $mod ).'_type:'.$type.
 					( SucomUtil::is_mobile() ? '_mobile:true' : '' ).

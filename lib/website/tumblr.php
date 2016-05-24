@@ -166,17 +166,18 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 
+			$lca = $this->p->cf['lca'];
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['tumblr_lang'] ) ? 'en_US' : $opts['tumblr_lang'];
-				$atts['lang'] = apply_filters( $this->p->cf['lca'].'_pub_lang', $atts['lang'], 'tumblr', 'current' );
+				$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'tumblr', 'current' );
 			}
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
+				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			if ( empty( $atts['size'] ) ) 
 				$atts['size'] = $this->p->cf['lca'].'-tumblr-button';

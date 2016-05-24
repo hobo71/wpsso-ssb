@@ -100,12 +100,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 
+			$lca = $this->p->cf['lca'];
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
+				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			$html = '<!-- LinkedIn Button -->'.
 			'<div '.WpssoSsbSharing::get_css_class_id( 'linkedin', $atts ).'>'.

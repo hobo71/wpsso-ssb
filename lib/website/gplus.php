@@ -132,12 +132,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 			if ( empty( $opts ) ) 
 				$opts =& $this->p->options;
 
+			$lca = $this->p->cf['lca'];
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 
 			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $atts['use_post'], $atts['add_page'] ) : 
-				apply_filters( $this->p->cf['lca'].'_sharing_url', $atts['url'], $atts['use_post'], $atts['add_page'] );
+				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
+				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			$gp_class = $opts['gp_action'] == 'share' ?
 				'class="g-plus" data-action="share"' :
