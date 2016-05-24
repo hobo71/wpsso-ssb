@@ -142,7 +142,7 @@ Official announcement: N/A
 	* None
 * *Developer Notes*
 	* Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
-	* Replaced the `$use_post` variable by `$mod` in the WpssoUtil `replace_inline_vars()` method.
+	* Replaced the 'use_post' by `$mod` when calling the WpssoUtil `replace_inline_vars()` method.
 
 **Version 2.2.12-1 (2015/05/23)**
 
