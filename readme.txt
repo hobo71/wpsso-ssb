@@ -130,6 +130,19 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Changelog / Release Notes =
 
+**Version 2.2.13-dev1 (2015/05/24)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
+
 **Version 2.2.12-1 (2015/05/23)**
 
 Official announcement: N/A
@@ -157,6 +170,10 @@ Official announcement: N/A
 	* None
 
 == Upgrade Notice ==
+
+= 2.2.13-dev1 =
+
+(2016/05/24) Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
 
 = 2.2.12-1 =
 
