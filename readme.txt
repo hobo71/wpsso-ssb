@@ -134,7 +134,7 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
-**Version 2.2.13-dev2 (2015/05/24)**
+**Version 2.2.13-dev3 (2015/05/24)**
 
 Official announcement: N/A
 
@@ -147,6 +147,7 @@ Official announcement: N/A
 * *Developer Notes*
 	* Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
 	* Replaced the 'use_post' by `$mod` when calling the WpssoUtil `replace_inline_vars()` method.
+	* Updated the WpssoUtil `get_tweet_max_len()` arguments for the new refactored method.
 
 **Version 2.2.12-1 (2015/05/23)**
 
@@ -176,7 +177,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.13-dev2 =
+= 2.2.13-dev3 =
 
 (2016/05/24) Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
 
