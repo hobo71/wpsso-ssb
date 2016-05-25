@@ -60,7 +60,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
-* Extends the features of WPSSO Pro (all WPSSO Pro extensions require a licensed and active WPSSO Pro plugin).
+* Extends the features of WPSSO Pro (requires a licensed and active WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
 * URL shortening with Bitly or Google for URLs in Tweet texts.
 * File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
