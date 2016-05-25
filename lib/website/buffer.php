@@ -169,7 +169,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
-					$caption_len = $this->p->util->get_tweet_max_len( $atts['url'], 'buffer' );
+					$caption_len = $this->p->util->get_tweet_max_len( 'buffer' );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
 						$mod, true, true, true, 'twitter_desc' );
 				}

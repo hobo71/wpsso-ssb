@@ -124,7 +124,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/*
 			 * Twitter
 			 */
-			$caption_len = $this->p->util->get_tweet_max_len( get_post_permalink( $mod['id'] ) );
+			$caption_len = $this->p->util->get_tweet_max_len();
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['twitter_caption'],
 				$caption_len, $mod, true, true );	// $use_cache = true, $add_hashtags = true
 
