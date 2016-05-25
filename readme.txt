@@ -30,6 +30,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 
 **WPSSO SSB Free / Basic Features**
 
+* Extends the features of either the Free or Pro versions of WPSSO.
 * Allows you to include a selection of traditional social sharing buttons in multiple locations:
 	* Above and/or below your content and/or excerpt text.
 	* On admin editing pages, including media, product pages, and custom post types.
@@ -55,14 +56,11 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 * The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
-<blockquote>
-<p>Download the Free version from <a href="http://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
-</blockquote>
-
 **WPSSO SSB Pro / Power-User Features**
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
+* Extends the features of WPSSO Pro (all WPSSO Pro extensions require a licensed and active WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
 * URL shortening with Bitly or Google for URLs in Tweet texts.
 * File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
@@ -73,17 +71,23 @@ The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) inclu
 	* [BuddyPress](https://wordpress.org/plugins/buddypress/)
 	* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
 
-= Extends the WPSSO Social Plugin =
+= Proven Performance =
+
+WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all available caching techniques (persistent / non-persistent object and disk caching). WPSSO loads only the library files and object classes it needs, keeping it small, fast, and yet still able to support a wide range of 3rd party integration features.
+
+= Available in Multiple Languages =
+
+* English (US)
+* French (France)
+* More to come...
+
+= Extends the WPSSO Plugin =
 
 The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension.
 
 You can use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO, but the [WPSSO SSB Pro](http://wpsso.com/extend/plugins/wpsso-ssb/) version requires the use of the [WPSSO Pro](http://wpsso.com/extend/plugins/wpsso/) version as well.
 
 Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/extend/plugins/wpsso-ssb/) extension (includes a *No Risk 30 Day Refund Policy*).
-
-= Proven Performance =
-
-WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all available caching techniques (persistent / non-persistent object and disk caching). WPSSO loads only the library files and object classes it needs, keeping it small, fast, and yet still able to support a wide range of 3rd party integration features.
 
 == Installation ==
 
