@@ -134,7 +134,7 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
-**Version 2.2.13-rc1 (2015/05/24)**
+**Version 2.2.13-1 (2015/05/27)**
 
 Official announcement: N/A
 
@@ -177,9 +177,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.13-rc1 =
+= 2.2.13-1 =
 
-(2016/05/24) Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
+(2016/05/27) Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
 
 = 2.2.12-1 =
 
