@@ -134,6 +134,19 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
+**Version 2.2.14-1 (2015/05/29)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Updated the Facebook SDK version number from v2.3 to v2.6.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.13-1 (2015/05/27)**
 
 Official announcement: N/A
@@ -176,6 +189,10 @@ Official announcement: N/A
 	* None
 
 == Upgrade Notice ==
+
+= 2.2.14-1 =
+
+(2016/05/29) Updated the Facebook SDK version number from v2.3 to v2.6.
 
 = 2.2.13-1 =
 
