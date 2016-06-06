@@ -134,6 +134,19 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
+**Version 2.2.15-dev1 (2016/06/05)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
+
 **Version 2.2.14-1 (2015/05/29)**
 
 Official announcement: N/A
@@ -147,62 +160,13 @@ Official announcement: N/A
 * *Developer Notes*
 	* None
 
-**Version 2.2.13-1 (2015/05/27)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
-	* Replaced the 'use_post' by `$mod` when calling the WpssoUtil `replace_inline_vars()` method.
-	* Updated `get_tweet_max_len()` arguments for the new refactored method.
-
-**Version 2.2.12-1 (2015/05/23)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'. You may need to clear the "All Buttons" CSS on the Sharing Styles settings page to reload the new default CSS.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.2.11-1 (2016/05/18)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added the current locale value to the sharing buttons CSS class (example: .ssb-buttons.en_US).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
+
+= 2.2.15-dev1 =
+
+(2016/06/05) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
 
 = 2.2.14-1 =
 
 (2016/05/29) Updated the Facebook SDK version number from v2.3 to v2.6.
-
-= 2.2.13-1 =
-
-(2016/05/27) Modified the 'wpsso_sharing_url' filter arguments for WPSSO v3.32.1-1.
-
-= 2.2.12-1 =
-
-(2016/05/23) Renamed the preset buttons CSS classes from 'wpsso-preset-*' to 'wpsso-ssb-preset-*'. You may need to clear the "All Buttons" CSS on the Sharing Styles settings page to reload the new default CSS.
-
-= 2.2.11-1 =
-
-(2016/05/18) Added current locale to the sharing buttons CSS class.
 
