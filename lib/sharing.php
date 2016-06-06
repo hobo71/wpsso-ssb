@@ -185,12 +185,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_option_type( $type, $key ) {
+
 			if ( ! empty( $type ) )
 				return $type;
-
-			// remove localization for more generic match
-			if ( strpos( $key, '#' ) !== false )
-				$key = preg_replace( '/#.*$/', '', $key );
 
 			switch ( $key ) {
 				// integer options that must be 1 or more (not zero)
