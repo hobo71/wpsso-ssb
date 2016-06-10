@@ -134,7 +134,7 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
-**Version 2.2.15-dev1 (2016/06/05)**
+**Version 2.2.15-dev2 (2016/06/10)**
 
 Official announcement: N/A
 
@@ -162,9 +162,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.15-dev1 =
+= 2.2.15-dev2 =
 
-(2016/06/05) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
+(2016/06/10) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
 
 = 2.2.14-1 =
 
