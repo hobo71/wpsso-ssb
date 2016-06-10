@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.15-dev1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.15-dev2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -166,12 +166,12 @@ msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/ecom/woocommerce.php:79 lib/pro/ecom/woocommerce.php:84
+#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:84
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
 
-#: lib/gpl/forum/bbpress.php:86 lib/pro/forum/bbpress.php:124
+#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:124
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""

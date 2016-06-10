@@ -75,7 +75,8 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 		public function filter_ssb_buttons_position_rows( $table_rows, $form ) {
 			$table_rows[] = '<td colspan="2" align="center">'.
-				$this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ).'</td>';
+				$this->p->msgs->get( 'pro-feature-msg', 
+					array( 'lca' => 'wpssossb' ) ).'</td>';
 			$table_rows['buttons_pos_woo_short'] = $form->get_th_html( _x( 'Position in Woo Short Text',
 				'option label', 'wpsso-ssb' ), null, 'buttons_pos_woo_short' ).
 			'<td class="blank">'.$this->p->cf['sharing']['position'][$this->p->options['buttons_pos_woo_short']].'</td>';
