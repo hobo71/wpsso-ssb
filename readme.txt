@@ -85,7 +85,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension.
 
-You can use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO, but the [WPSSO SSB Pro](http://wpsso.com/extend/plugins/wpsso-ssb/) version requires the use of the [WPSSO Pro](http://wpsso.com/extend/plugins/wpsso/) version as well.
+Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO. The [WPSSO SSB Pro](http://wpsso.com/extend/plugins/wpsso-ssb/) extension (along with all WPSSO Pro extensions) requires the [WPSSO Pro](http://wpsso.com/extend/plugins/wpsso/) plugin as well.
 
 Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/extend/plugins/wpsso-ssb/) extension (includes a *No Risk 30 Day Refund Policy*).
 
