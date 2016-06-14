@@ -10,7 +10,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.1
 Tested Up To: 4.5.2
-Stable Tag: 2.2.14-1
+Stable Tag: 2.2.15-1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -134,7 +134,7 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
-**Version 2.2.15-1 (2016/06/13)**
+**Version 2.2.15-1 (2016/06/14)**
 
 Official announcement: N/A
 
@@ -164,7 +164,7 @@ Official announcement: N/A
 
 = 2.2.15-1 =
 
-(2016/06/13) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
+(2016/06/14) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
 
 = 2.2.14-1 =
 
