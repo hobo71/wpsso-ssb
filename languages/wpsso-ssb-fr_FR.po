@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.15-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-05-29 09:28-0400\n"
-"PO-Revision-Date: 2016-06-10 18:10-0400\n"
+"POT-Creation-Date: 2016-06-14 15:55-0400\n"
+"PO-Revision-Date: 2016-06-14 15:55-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -167,12 +167,12 @@ msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr "Désactiver les boutons"
 
-#: lib/gpl/ecom/woocommerce.php:79 lib/pro/ecom/woocommerce.php:84
+#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:84
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr "Position dans le texte Woo Short"
 
-#: lib/gpl/forum/bbpress.php:86 lib/pro/forum/bbpress.php:124
+#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:124
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr "Position dans le texte bbPress Single"
@@ -181,48 +181,48 @@ msgstr "Position dans le texte bbPress Single"
 msgid "Failed to open the %s file for reading."
 msgstr "Impossible d'ouvrir le fichier %s pour la lecture."
 
-#: lib/sharing.php:290
+#: lib/sharing.php:287
 msgid "Reload Default Styles"
 msgstr "Recharger Styles par Défaut"
 
-#: lib/sharing.php:307
+#: lib/sharing.php:304
 msgid "All sharing styles have been reloaded with their default settings and saved."
 msgstr "Tous les styles de partage ont été rechargé avec leurs paramètres par défaut et sauvegardé."
 
-#: lib/sharing.php:328
+#: lib/sharing.php:325
 msgid "The %s file is not readable."
 msgstr "Le fichier %s n'est pas lisible."
 
-#: lib/sharing.php:368
+#: lib/sharing.php:365
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr "Impossible de charger la classe de rapetissement SuextMinifyCssCompressor."
 
-#: lib/sharing.php:377
+#: lib/sharing.php:374
 msgid "Failed writing to the % file."
 msgstr "Echec d'écriture dans le fichier%."
 
-#: lib/sharing.php:382
+#: lib/sharing.php:379
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr "La feuille de style <a href=\"%1$s\">%2$s</a> a été mise à jour (%3$s octets écrits)."
 
-#: lib/sharing.php:391
+#: lib/sharing.php:388
 msgid "The %s folder is not writable."
 msgstr "Le dossier %s n'est pas accessible en écriture."
 
-#: lib/sharing.php:397
+#: lib/sharing.php:394
 msgid "Failed to open file %s for writing."
 msgstr "Impossible d'ouvrir le fichier %s pour l'écriture."
 
-#: lib/sharing.php:406
+#: lib/sharing.php:403
 msgid "Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?"
 msgstr "Erreur en retirant la feuille de style minimisé &mdash; le serveur Web a t'il les privilèges nécessaires?"
 
-#: lib/sharing.php:425
+#: lib/sharing.php:422
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/sharing.php:501
+#: lib/sharing.php:498
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
