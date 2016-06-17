@@ -237,7 +237,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 				if ( file_exists( $filepath ) ) {
 					require_once( $filepath );
 					if ( empty( $classname ) )
-						return SucomUtil::sanitize_classname( 'wpssossb'.$filespec );
+						return SucomUtil::sanitize_classname( 'wpssossb'.$filespec, false );	// $underscore = false
 					else return $classname;
 				}
 			}
