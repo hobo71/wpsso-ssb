@@ -147,26 +147,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
 
-**Version 2.2.14-1 (2015/05/29)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Updated the Facebook SDK version number from v2.3 to v2.6.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
 
 = 2.2.15-1 =
 
 (2016/06/14) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
-
-= 2.2.14-1 =
-
-(2016/05/29) Updated the Facebook SDK version number from v2.3 to v2.6.
 
