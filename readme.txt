@@ -152,4 +152,3 @@ Official announcement: N/A
 = 2.2.15-1 =
 
 (2016/06/14) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
-
