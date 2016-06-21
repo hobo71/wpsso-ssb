@@ -9,7 +9,7 @@ Tags: wpsso, like button, share button, facebook, google, google plus, g+, twitt
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.txt
 Requires At Least: 3.1
-Tested Up To: 4.5.2
+Tested Up To: 4.5.3
 Stable Tag: 2.2.15-1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
