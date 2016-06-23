@@ -8,9 +8,9 @@
 if ( ! defined( 'ABSPATH' ) ) 
 	die( 'These aren\'t the droids you\'re looking for...' );
 
-if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' ) ) {
+if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' ) ) {
 
-	class WpssoSsbSubmenuSsbStyle extends WpssoAdmin {
+	class WpssoSsbSubmenuSsbStyles extends WpssoAdmin {
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
@@ -49,26 +49,26 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
 		}
 
 		public function filter_messages_info( $text, $idx ) {
-			if ( strpos( $idx, 'info-style-ssb-' ) !== 0 )
+			if ( strpos( $idx, 'info-styles-ssb-' ) !== 0 )
 				return $text;
 			$short = $this->p->cf['plugin']['wpsso']['short'];
 			switch ( $idx ) {
 
-				case 'info-style-ssb-sharing':
+				case 'info-styles-ssb-sharing':
 					$text = '<p>'.$short.' uses the \'wpsso-ssb\' and \'ssb-buttons\' classes to wrap all its sharing buttons, and each button has it\'s own individual class name as well. This tab can be used to edit the CSS common to all sharing button locations.</p>';
 					break;
 
-				case 'info-style-ssb-content':
+				case 'info-styles-ssb-content':
 					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'content', true );
 					break;
 
-				case 'info-style-ssb-excerpt':
+				case 'info-styles-ssb-excerpt':
 					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'excerpt', true );
 					break;
 
-				case 'info-style-ssb-sidebar':
+				case 'info-styles-ssb-sidebar':
 					$text = '<p>Social sharing buttons added to the sidebar are assigned the \'#wpsso-ssb-sidebar-container\' CSS id, which itself contains \'#wpsso-ssb-sidebar-header\', \'#wpsso-ssb-sidebar\' and the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>
 					<p>Example:</p><pre>
 #wpsso-ssb-sidebar-container
@@ -80,12 +80,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
 	    .facebook-button {}</pre>';
 					break;
 
-				case 'info-style-ssb-shortcode':
+				case 'info-styles-ssb-shortcode':
 					$text = '<p>Social sharing buttons added from a shortcode are assigned the \'wpsso-ssb-shortcode\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'shortcode', true );
 					break;
 
-				case 'info-style-ssb-widget':
+				case 'info-styles-ssb-widget':
 					$text = '<p>Social sharing buttons within the '.$this->p->cf['menu'].' Sharing Buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
 					<p>Example:</p><pre>
 .wpsso-ssb-widget
@@ -98,22 +98,22 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
         #facebook-wpsso-widget-buttons-2 { }</pre>';
 					break;
 
-				case 'info-style-ssb-admin_edit':
+				case 'info-styles-ssb-admin_edit':
 					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox are assigned the \'wpsso-ssb-admin_edit\' class, which itself contains the \'sso-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'admin_edit', true );
 					break;
 
-				case 'info-style-ssb-woo_short':
+				case 'info-styles-ssb-woo_short':
 					$text = '<p>Social sharing buttons added to the WooCommerce Short Description are assigned the \'wpsso-ssb-woo_short\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'woo_short', true );
 					break;
 
-				case 'info-style-ssb-bbp_single':
+				case 'info-styles-ssb-bbp_single':
 					$text = '<p>Social sharing buttons added at the top of bbPress Single templates are assigned the \'wpsso-ssb-bbp_single\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'bbp_single' );
 					break;
 
-				case 'info-style-ssb-bp_activity':
+				case 'info-styles-ssb-bp_activity':
 					$text = '<p>Social sharing buttons added on BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_css_example( 'bp_activity' );
 					break;
@@ -129,7 +129,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
         .facebook-button {}</pre>';
 			if ( $preset ) {
 				$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
-					$this->p->cf['sharing']['ssb-style'] );
+					$this->p->cf['sharing']['ssb-styles'] );
 
 				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
@@ -141,13 +141,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
 
 		protected function add_meta_boxes() {
 			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
-			add_meta_box( $this->pagehook.'_style',
+			add_meta_box( $this->pagehook.'_styles',
 				_x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' ),
-					array( &$this, 'show_metabox_style' ), $this->pagehook, 'normal' );
+					array( &$this, 'show_metabox_styles' ), $this->pagehook, 'normal' );
 		}
 
-		public function show_metabox_style() {
-			$metabox = 'style';
+		public function show_metabox_styles() {
+			$metabox = 'styles';
 
 			if ( file_exists( WpssoSsbSharing::$sharing_css_file ) &&
 				( $fsize = filesize( WpssoSsbSharing::$sharing_css_file ) ) !== false )
@@ -166,7 +166,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
 
 			$table_rows = array();
 			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
-				$this->p->cf['sharing']['ssb-style'] );
+				$this->p->cf['sharing']['ssb-styles'] );
 
 			foreach ( $tabs as $key => $title ) {
 				$tabs[$key] = _x( $title, 'metabox tab', 'wpsso-ssb' );	// translate the tab title
@@ -178,7 +178,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyle' ) && class_exists( 'WpssoAdmin' )
 
 		protected function get_table_rows( $metabox, $key ) {
 
-			$table_rows['buttons_css_'.$key] = '<th class="textinfo">'.$this->p->msgs->get( 'info-style-'.$key ).'</th>'.
+			$table_rows['buttons_css_'.$key] = '<th class="textinfo">'.$this->p->msgs->get( 'info-styles-'.$key ).'</th>'.
 			'<td'.( isset( $this->p->options['buttons_css_'.$key.':is'] ) &&
 				$this->p->options['buttons_css_'.$key.':is'] === 'disabled' ? ' class="blank"' : '' ).'>'.
 			$this->form->get_textarea( 'buttons_css_'.$key, 'tall code' ).'</td>';

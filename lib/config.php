@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.2.15-1',	// plugin version
+					'version' => '2.2.16-1',	// plugin version
 					'opt_version' => '13',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						// submenu items must have unique keys
 						'submenu' => array (
 							'ssb-buttons' => 'Sharing Buttons',
-							'ssb-style' => 'Sharing Styles',
+							'ssb-styles' => 'Sharing Styles',
 						),
 						'website' => array(
 							'email' => 'Email',
@@ -162,7 +162,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'sidebar' => 'CSS Sidebar', 
 					'admin_edit' => 'Admin Edit',
 				),
-				'ssb-style' => array(
+				'ssb-styles' => array(
 					'ssb-sharing' => 'All Buttons',
 					'ssb-content' => 'Content',
 					'ssb-excerpt' => 'Excerpt',

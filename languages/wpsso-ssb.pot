@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.15-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.16-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:13 lib/submenu/ssb-style.php:37
+#: lib/config-gettext-extract.php:13 lib/submenu/ssb-styles.php:37
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
@@ -301,7 +301,7 @@ msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
 
-#: lib/submenu/ssb-style.php:37
+#: lib/submenu/ssb-styles.php:37
 msgid ""
 "Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
 "will be <strong>minimized</strong>, and saved to a single stylesheet with a "
@@ -309,11 +309,11 @@ msgid ""
 "or added directly to the webpage HTML."
 msgstr ""
 
-#: lib/submenu/ssb-style.php:41
+#: lib/submenu/ssb-styles.php:41
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 
-#: lib/submenu/ssb-style.php:45
+#: lib/submenu/ssb-styles.php:45
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
 "the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
@@ -321,22 +321,22 @@ msgid ""
 "single stylesheet URL."
 msgstr ""
 
-#: lib/submenu/ssb-style.php:145
+#: lib/submenu/ssb-styles.php:145
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-style.php:158
+#: lib/submenu/ssb-styles.php:158
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-style.php:162
+#: lib/submenu/ssb-styles.php:162
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-style.php:189
+#: lib/submenu/ssb-styles.php:189
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr ""
