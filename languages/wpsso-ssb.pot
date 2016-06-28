@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.16-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.17-dev1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -205,26 +205,26 @@ msgstr ""
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr ""
 
-#: lib/sharing.php:388
+#: lib/sharing.php:389
 msgid "The %s folder is not writable."
 msgstr ""
 
-#: lib/sharing.php:394
+#: lib/sharing.php:395
 msgid "Failed to open file %s for writing."
 msgstr ""
 
-#: lib/sharing.php:403
+#: lib/sharing.php:404
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:422
+#: lib/sharing.php:423
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:498
+#: lib/sharing.php:499
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
@@ -281,22 +281,22 @@ msgctxt "metabox tab"
 msgid "Button Presets"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:170
+#: lib/submenu/ssb-buttons.php:166
 msgctxt "option label"
 msgid "Include on Index Webpages"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:174
+#: lib/submenu/ssb-buttons.php:170
 msgctxt "option label"
 msgid "Include on Static Homepage"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:182
+#: lib/submenu/ssb-buttons.php:178
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:187
+#: lib/submenu/ssb-buttons.php:183
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
