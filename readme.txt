@@ -60,7 +60,7 @@ WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the [WordPres
 
 The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
-* Extends the features of WPSSO Pro (requires a licensed and active WPSSO Pro plugin).
+* Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
 * URL shortening with Bitly or Google for URLs in Tweet texts.
 * File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
@@ -134,6 +134,19 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
+**Version 2.2.17-dev1 (2016/06/28)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
+
 **Version 2.2.16-1 (2016/06/23)**
 
 Official announcement: N/A
@@ -147,26 +160,13 @@ Official announcement: N/A
 * *Developer Notes*
 	* Renamed the 'ssb-style' library and array indexes to 'ssb-styles'.
 
-**Version 2.2.15-1 (2016/06/14)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
-
 == Upgrade Notice ==
+
+= 2.2.17-dev1 =
+
+(2016/06/28) Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
 = 2.2.16-1 =
 
 (2016/06/23) Renamed the 'ssb-style' library and array indexes to 'ssb-styles'.
-
-= 2.2.15-1 =
-
-(2016/06/14) Optimized the 'filter_option_type()' filter for a small performance gain when saving options.
 
