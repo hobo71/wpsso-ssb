@@ -134,7 +134,7 @@ Purchase the [WPSSO Social Sharing Buttons (WPSSO SSB) Pro](http://wpsso.com/ext
 
 = Changelog / Release Notes =
 
-**Version 2.2.17-dev1 (2016/06/28)**
+**Version 2.2.17-b1 (2016/06/29)**
 
 Official announcement: N/A
 
@@ -162,9 +162,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.17-dev1 =
+= 2.2.17-b1 =
 
-(2016/06/28) Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
+(2016/06/29) Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
 = 2.2.16-1 =
 
