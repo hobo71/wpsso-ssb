@@ -15,5 +15,5 @@ _x( 'Shortcode', 'option value', 'wpsso-ssb' );
 _x( 'Top and Bottom', 'option value', 'wpsso-ssb' );
 _x( 'Top', 'option value', 'wpsso-ssb' );
 _x( 'Widget', 'option value', 'wpsso-ssb' );
-_x( 'WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.', 'plugin description', 'wpsso-ssb' );
+_x( 'WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.', 'plugin description', 'wpsso-ssb' );
 ?>
