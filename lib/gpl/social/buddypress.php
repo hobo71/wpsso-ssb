@@ -46,7 +46,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 				'get_defaults' => 1,
 			) );
 
-			if ( is_admin() ) {
+			if ( is_admin() && empty( $this->p->options['plugin_hide_pro'] ) ) {
 				$this->p->util->add_plugin_filters( $this, array( 
 					'ssb_buttons_show_on' => 2,
 					'ssb_styles_tabs' => 1,
