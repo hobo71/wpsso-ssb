@@ -147,26 +147,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
-**Version 2.2.16-1 (2016/06/23)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed the 'ssb-style' library and array indexes to 'ssb-styles'.
-
 == Upgrade Notice ==
 
 = 2.2.17-1 =
 
 (2016/06/30) Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
-
-= 2.2.16-1 =
-
-(2016/06/23) Renamed the 'ssb-style' library and array indexes to 'ssb-styles'.
 
