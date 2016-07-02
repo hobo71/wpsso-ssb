@@ -134,6 +134,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.18-dev1 (2016/07/02)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Updated the default CSS for the latest Facebook button style. Click "Reload Default Styles" on the Sharing Styles settings page to reload the default CSS.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.17-1 (2016/06/30)**
 
 Official announcement: N/A
@@ -148,6 +161,10 @@ Official announcement: N/A
 	* Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
 == Upgrade Notice ==
+
+= 2.2.18-dev1 =
+
+(2016/07/02) Updated the default CSS for the latest Facebook button style.
 
 = 2.2.17-1 =
 
