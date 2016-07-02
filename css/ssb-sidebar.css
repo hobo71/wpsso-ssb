@@ -86,6 +86,10 @@
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
 	.ssb-buttons div.twitter-button { height:20px; line-height:20px; }
 
+#wpsso-ssb-sidebar .ssb-buttons div.fb-share-button,
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
+	.ssb-buttons div.fb-share-button { height:40px; line-height:40px;}
+
 #wpsso-ssb-sidebar .ssb-buttons div.gplus-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
 	.ssb-buttons div.gplus-button { height:60px; line-height:40px;}

@@ -50,15 +50,21 @@
 
 .ssb-buttons div.facebook-button,		/* English (Default) */
 .wpsso-ssb-preset-small_share_count
-	.ssb-buttons div.facebook-button { width:139px; }
+	.ssb-buttons div.facebook-button { width:114px; }
 
 .ssb-buttons.cs_CZ div.facebook-button,		/* Czech */
 .wpsso-ssb-preset-small_share_count 
-	.ssb-buttons.cs_CZ div.fb-share-button { width:105px; }
+	.ssb-buttons.cs_CZ div.facebook-button { width:144px; }
+
+.ssb-buttons div.fb-share-button,
+.wpsso-ssb-preset-small_share_count
+        .ssb-buttons div.fb-share-button { width:80px; }
+
+.wpsso-ssb-preset-large_share_vertical 
+	.ssb-buttons div.fb-share-button { height:40px; line-height:40px; }
 
 .ssb-buttons div.fb-share-button span {
 	display:inline-block	!important;
-	vertical-align:middle	!important;
 }
 
 .ssb-buttons div.gplus-button,
@@ -93,7 +99,7 @@
 
 .ssb-buttons div.pinterest-button,
 .wpsso-ssb-preset-small_share_count 
-	.ssb-buttons div.pinterest-button { width:78px; }
+	.ssb-buttons div.pinterest-button { width:85px; }
 .wpsso-ssb-preset-large_share_vertical 
 	.ssb-buttons div.pinterest-button { height:40px; margin-top:42px; }
 

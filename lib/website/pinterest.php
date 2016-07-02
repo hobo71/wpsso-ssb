@@ -235,6 +235,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			'<div '.WpssoSsbSharing::get_css_class_id( 'pinterest', $atts ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://pinterest.com/pin/create/button/'.$href_query.'" '.
 			'data-pin-do="buttonPin" '.
+			'data-pin-zero="true" '.
 			'data-pin-lang="'.$opts['pin_button_lang'].'" '.
 			'data-pin-shape="'.$opts['pin_button_shape'].'" '.
 			'data-pin-color="'.$opts['pin_button_color'].'" '.
