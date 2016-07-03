@@ -134,7 +134,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.18-dev1 (2016/07/02)**
+**Version 2.2.18-1 (2016/07/03)**
 
 Official announcement: N/A
 
@@ -162,9 +162,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.18-dev1 =
+= 2.2.18-1 =
 
-(2016/07/02) Updated the default CSS for the latest Facebook button style.
+(2016/07/03) Updated the default CSS for the latest Facebook button style.
 
 = 2.2.17-1 =
 
