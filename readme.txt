@@ -134,6 +134,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.19-dev1 (2016/07/04)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added recursion prevention to the BuddyPress `add_activity_entry_buttons()` method (Pro version).
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.18-1 (2016/07/03)**
 
 Official announcement: N/A
@@ -161,6 +174,10 @@ Official announcement: N/A
 	* Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
 == Upgrade Notice ==
+
+= 2.2.19-dev1 =
+
+(2016/07/04) Updated the BuddyPress module to prevent recursion (Pro version).
 
 = 2.2.18-1 =
 
