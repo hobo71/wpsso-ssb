@@ -134,7 +134,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.19-rc1 (2016/07/05)**
+**Version 2.2.19-1 (2016/07/06)**
 
 Official announcement: N/A
 
@@ -175,9 +175,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.19-rc1 =
+= 2.2.19-1 =
 
-(2016/07/05) Updated the BuddyPress module to prevent recursion (Pro version).
+(2016/07/06) Updated the BuddyPress module to prevent recursion (Pro version).
 
 = 2.2.18-1 =
 
