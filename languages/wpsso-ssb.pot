@@ -94,74 +94,69 @@ msgid ""
 "short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:28 lib/pro/admin/sharing.php:35
+#: lib/gpl/admin/sharing.php:27 lib/pro/admin/sharing.php:34
 msgctxt "option label"
 msgid "Social File Cache Expiry"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:32 lib/pro/admin/sharing.php:39
+#: lib/gpl/admin/sharing.php:31 lib/pro/admin/sharing.php:38
 msgctxt "option comment"
 msgid "hours"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:50 lib/pro/admin/sharing.php:53
+#: lib/gpl/admin/sharing.php:49 lib/pro/admin/sharing.php:52
 msgctxt "option label"
 msgid "Include on Post Types"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:71 lib/pro/admin/sharing.php:70
+#: lib/gpl/admin/sharing.php:70 lib/pro/admin/sharing.php:69
 msgctxt "option label"
 msgid "%s Preset"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:84 lib/pro/admin/sharing.php:83
-msgctxt "metabox tab"
-msgid "Sharing Buttons"
-msgstr ""
-
-#: lib/gpl/admin/sharing.php:94 lib/pro/admin/sharing.php:93
+#: lib/gpl/admin/sharing.php:82 lib/pro/admin/sharing.php:81
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:114 lib/pro/admin/sharing.php:109
+#: lib/gpl/admin/sharing.php:102 lib/pro/admin/sharing.php:97
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:119 lib/pro/admin/sharing.php:115
+#: lib/gpl/admin/sharing.php:107 lib/pro/admin/sharing.php:103
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:132 lib/pro/admin/sharing.php:129
+#: lib/gpl/admin/sharing.php:120 lib/pro/admin/sharing.php:117
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:153 lib/pro/admin/sharing.php:151
+#: lib/gpl/admin/sharing.php:141 lib/pro/admin/sharing.php:139
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:177 lib/pro/admin/sharing.php:175
+#: lib/gpl/admin/sharing.php:165 lib/pro/admin/sharing.php:163
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:180 lib/pro/admin/sharing.php:178
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:166
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:188 lib/pro/admin/sharing.php:187
+#: lib/gpl/admin/sharing.php:176 lib/pro/admin/sharing.php:175
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:190 lib/pro/admin/sharing.php:190
+#: lib/gpl/admin/sharing.php:178 lib/pro/admin/sharing.php:178
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:198 lib/pro/admin/sharing.php:202
+#: lib/gpl/admin/sharing.php:186 lib/pro/admin/sharing.php:190
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
@@ -176,55 +171,60 @@ msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""
 
-#: lib/sharing.php:162
+#: lib/sharing.php:163
 msgid "Failed to open the %s file for reading."
 msgstr ""
 
-#: lib/sharing.php:287
+#: lib/sharing.php:235
+msgctxt "metabox tab"
+msgid "Sharing Buttons"
+msgstr ""
+
+#: lib/sharing.php:293
 msgid "Reload Default Styles"
 msgstr ""
 
-#: lib/sharing.php:304
+#: lib/sharing.php:310
 msgid ""
 "All sharing styles have been reloaded with their default settings and saved."
 msgstr ""
 
-#: lib/sharing.php:325
+#: lib/sharing.php:331
 msgid "The %s file is not readable."
 msgstr ""
 
-#: lib/sharing.php:365
+#: lib/sharing.php:371
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr ""
 
-#: lib/sharing.php:374
+#: lib/sharing.php:380
 msgid "Failed writing to the % file."
 msgstr ""
 
-#: lib/sharing.php:379
+#: lib/sharing.php:385
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr ""
 
-#: lib/sharing.php:389
+#: lib/sharing.php:395
 msgid "The %s folder is not writable."
 msgstr ""
 
-#: lib/sharing.php:395
+#: lib/sharing.php:401
 msgid "Failed to open file %s for writing."
 msgstr ""
 
-#: lib/sharing.php:404
+#: lib/sharing.php:410
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:423
+#: lib/sharing.php:429
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:499
+#: lib/sharing.php:505
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 

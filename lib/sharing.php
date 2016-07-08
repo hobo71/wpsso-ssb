@@ -103,6 +103,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options' => 3,			// update the sharing css file
 					'option_type' => 2,			// identify option type for sanitation
+					'post_social_settings_tabs' => 2,	// $tabs, $mod
 					'post_cache_transients' => 4,		// clear transients on post save
 					'secondary_action_buttons' => 4,	// add a reload default styles button
 				) );
@@ -227,6 +228,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					break;
 			}
 			return $type;
+		}
+
+		public function filter_post_social_settings_tabs( $tabs, $mod ) {
+			return SucomUtil::after_key( $tabs, 'media', 'buttons',
+				_x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' ) );
 		}
 
 		public function filter_post_cache_transients( $transients, $post_id, $locale = 'en_US', $sharing_url ) {

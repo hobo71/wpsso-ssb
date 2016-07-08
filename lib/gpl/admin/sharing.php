@@ -18,7 +18,6 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
 				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
 				'ssb_buttons_preset_rows' => 2,		// $table_rows, $form
-				'post_social_settings_tabs' => 1,	// $tabs
 				'post_buttons_rows' => 4,		// $table_rows, $form, $head, $mod
 			), 30 );
 		}
@@ -74,17 +73,6 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					array_merge( array( '' ), array_keys( $this->p->cf['opt']['preset'] ) ) ).'</td>';
 
 			return $table_rows;
-		}
-
-		public function filter_post_social_settings_tabs( $tabs ) {
-			$new_tabs = array();
-			foreach ( $tabs as $key => $val ) {
-				$new_tabs[$key] = $val;
-				if ( $key === 'media' )
-					$new_tabs['buttons'] = _x( 'Sharing Buttons',
-						'metabox tab', 'wpsso-ssb' );
-			}
-			return $new_tabs;
 		}
 
 		public function filter_post_buttons_rows( $table_rows, $form, $head, $mod ) {
