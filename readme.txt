@@ -147,43 +147,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* None
 
-**Version 2.2.18-1 (2016/07/03)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Updated the default CSS for the latest Facebook button style. Click "Reload Default Styles" on the Sharing Styles settings page to reload the default CSS.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.2.17-1 (2016/06/30)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
-
 == Upgrade Notice ==
 
 = 2.2.19-1 =
 
 (2016/07/06) Updated the BuddyPress module to prevent recursion (Pro version).
-
-= 2.2.18-1 =
-
-(2016/07/03) Updated the default CSS for the latest Facebook button style.
-
-= 2.2.17-1 =
-
-(2016/06/30) Adjusted notices for the new notice methods in WPSSO v3.33.2-1.
 
