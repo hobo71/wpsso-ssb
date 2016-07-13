@@ -161,12 +161,12 @@ msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:84
+#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:83
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
 
-#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:124
+#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:123
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""
@@ -278,7 +278,7 @@ msgstr ""
 
 #: lib/submenu/ssb-buttons.php:134
 msgctxt "metabox tab"
-msgid "Button Presets"
+msgid "Buttons Presets"
 msgstr ""
 
 #: lib/submenu/ssb-buttons.php:166

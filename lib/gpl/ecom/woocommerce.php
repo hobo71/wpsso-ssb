@@ -48,7 +48,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 				$this->p->util->add_plugin_filters( $this, array( 
 					'ssb_buttons_show_on' => 2,
 					'ssb_styles_tabs' => 1,
-					'ssb_buttons_position_rows' => 2,	// social sharing 'Buttons Position' options
+					'ssb_buttons_position_rows' => 2,
 				) );
 			}
 		}

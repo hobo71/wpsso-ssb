@@ -131,7 +131,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$tabs = apply_filters( $lca.'_ssb_buttons_tabs', array(
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
-				'preset' => _x( 'Button Presets', 'metabox tab', 'wpsso-ssb' ),
+				'preset' => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
 			) );
 			$table_rows = array();
 			foreach ( $tabs as $key => $title )
