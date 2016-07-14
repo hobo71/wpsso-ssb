@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.19-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-07-09 15:49-0400\n"
-"PO-Revision-Date: 2016-07-09 15:49-0400\n"
+"POT-Creation-Date: 2016-07-14 12:04-0400\n"
+"PO-Revision-Date: 2016-07-14 12:04-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -93,7 +93,7 @@ msgstr "Widget"
 #: lib/config-gettext-extract.php:18
 msgctxt "plugin description"
 msgid "WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
-msgstr "Une extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
+msgstr "Extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
 
 #: lib/gpl/admin/sharing.php:27 lib/pro/admin/sharing.php:34
 msgctxt "option label"
@@ -162,12 +162,12 @@ msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr "Désactiver les boutons"
 
-#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:84
+#: lib/gpl/ecom/woocommerce.php:80 lib/pro/ecom/woocommerce.php:83
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr "Position dans le texte Woo Short"
 
-#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:124
+#: lib/gpl/forum/bbpress.php:87 lib/pro/forum/bbpress.php:123
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr "Position dans le texte bbPress Single"
@@ -264,13 +264,13 @@ msgstr "Position des Boutons"
 
 #: lib/submenu/ssb-buttons.php:134
 msgctxt "metabox tab"
-msgid "Button Presets"
-msgstr "Préréglages des Butons"
+msgid "Buttons Presets"
+msgstr "Préréglages des Boutons"
 
 #: lib/submenu/ssb-buttons.php:166
 msgctxt "option label"
-msgid "Include on Index Webpages"
-msgstr "Inclure sur les pages Web d'index"
+msgid "Include on Index / Archive Webpages"
+msgstr "Inclure sur les pages d'index / archive"
 
 #: lib/submenu/ssb-buttons.php:170
 msgctxt "option label"
@@ -673,7 +673,7 @@ msgstr "http://surniaulula.com/extend/plugins/wpsso-ssb/"
 
 #. Description of the plugin/theme
 msgid "WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
-msgstr "Une extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
+msgstr "Extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
 
 #. Author of the plugin/theme
 msgid "JS Morisset"
