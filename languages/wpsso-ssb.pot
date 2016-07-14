@@ -283,7 +283,7 @@ msgstr ""
 
 #: lib/submenu/ssb-buttons.php:166
 msgctxt "option label"
-msgid "Include on Index Webpages"
+msgid "Include on Index / Archive Webpages"
 msgstr ""
 
 #: lib/submenu/ssb-buttons.php:170
