@@ -134,7 +134,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.20-rc1 (2016/07/17)**
+**Version 2.2.20-1 (2016/07/17)**
 
 Official announcement: N/A
 
@@ -162,7 +162,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.20-rc1 =
+= 2.2.20-1 =
 
 (2016/07/17) Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
