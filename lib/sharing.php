@@ -67,7 +67,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled )
-				$this->p->debug->mark( 'action / filter setup' );
+				$this->p->debug->mark( 'ssb sharing action / filter setup' );
 
 			$this->plugin_filepath = $plugin_filepath;
 
@@ -119,7 +119,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			if ( $this->p->debug->enabled )
-				$this->p->debug->mark( 'action / filter setup' );
+				$this->p->debug->mark( 'ssb sharing action / filter setup' );
 		}
 
 		private function set_objects() {
