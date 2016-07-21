@@ -147,26 +147,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
-**Version 2.2.19-1 (2016/07/06)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added recursion prevention to the BuddyPress `add_activity_entry_buttons()` method (Pro version).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
 
 = 2.2.20-1 =
 
 (2016/07/18) Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
-
-= 2.2.19-1 =
-
-(2016/07/06) Updated the BuddyPress module to prevent recursion (Pro version).
 
