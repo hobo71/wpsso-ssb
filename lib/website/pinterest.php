@@ -186,6 +186,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					$atts['cropped'],
 					$atts['pid']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );	// $check_dupes = false
+
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
 			}

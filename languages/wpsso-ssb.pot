@@ -133,30 +133,30 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:141 lib/pro/admin/sharing.php:139
+#: lib/gpl/admin/sharing.php:146 lib/pro/admin/sharing.php:144
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:165 lib/pro/admin/sharing.php:163
+#: lib/gpl/admin/sharing.php:170 lib/pro/admin/sharing.php:168
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:166
+#: lib/gpl/admin/sharing.php:173 lib/pro/admin/sharing.php:171
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:176 lib/pro/admin/sharing.php:175
+#: lib/gpl/admin/sharing.php:181 lib/pro/admin/sharing.php:180
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:178 lib/pro/admin/sharing.php:178
+#: lib/gpl/admin/sharing.php:183 lib/pro/admin/sharing.php:183
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:186 lib/pro/admin/sharing.php:190
+#: lib/gpl/admin/sharing.php:191 lib/pro/admin/sharing.php:195
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""

@@ -151,13 +151,18 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
 				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
-			if ( ! empty( $atts['pid'] ) )
+			if ( ! empty( $atts['pid'] ) ) {
 				list(
 					$atts['photo'],
 					$atts['width'],
 					$atts['height'],
-					$atts['cropped']
+					$atts['cropped'],
+					$atts['pid'],
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
+
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
+			}
 
 			if ( empty( $atts['photo'] ) ) {
 				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url' ), $mod, 'og' );
