@@ -134,6 +134,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.21-1 (2016/07/23)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Moved the WpssoMedia get_size_info() method to the SucomUtil class.
+
 **Version 2.2.20-1 (2016/07/18)**
 
 Official announcement: N/A
@@ -148,6 +161,10 @@ Official announcement: N/A
 	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
 == Upgrade Notice ==
+
+= 2.2.21-1 =
+
+(2016/07/23) Moved the WpssoMedia get_size_info() method to the SucomUtil class.
 
 = 2.2.20-1 =
 
