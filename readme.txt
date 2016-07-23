@@ -145,7 +145,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Moved the WpssoMedia get_size_info() method to the SucomUtil class.
+	* Updated the get_size_info() method class from WpssoMedia to SucomUtil.
 
 **Version 2.2.20-1 (2016/07/18)**
 
@@ -164,7 +164,7 @@ Official announcement: N/A
 
 = 2.2.21-1 =
 
-(2016/07/23) Moved the WpssoMedia get_size_info() method to the SucomUtil class.
+(2016/07/23) Updated the get_size_info() method class from WpssoMedia to SucomUtil.
 
 = 2.2.20-1 =
 
