@@ -129,7 +129,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Free / Basic Version Repository =
 
-* [GitHub](https://github.com/SurniaUlula/wpsso-ssb)
+* [GitHub](https://surniaulula.github.io/wpsso-ssb/)
 * [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
 
 = Changelog / Release Notes =
