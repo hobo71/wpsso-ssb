@@ -5,6 +5,7 @@
  * Text Domain: wpsso-ssb
  * Domain Path: /languages
  * Plugin URI: http://surniaulula.com/extend/plugins/wpsso-ssb/
+ * Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
  * Author: JS Morisset
  * Author URI: http://surniaulula.com/
  * License: GPLv3
