@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.22-1 (2016/08/09)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added thumbnail preview CSS for mobile in the Social Settings metabox.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.21-1 (2016/07/23)**
 
 Official announcement: N/A
@@ -162,6 +175,10 @@ Official announcement: N/A
 	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
 == Upgrade Notice ==
+
+= 2.2.22-1 =
+
+(2016/08/09) Added thumbnail preview CSS for mobile in the Social Settings metabox.
 
 = 2.2.21-1 =
 
