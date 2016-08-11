@@ -109,7 +109,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			$html = '<!-- LinkedIn Button -->'.
-			'<div '.WpssoSsbSharing::get_css_class_id( 'linkedin', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( $atts, 'linkedin' ).'>'.
 			'<script type="IN/Share" data-url="'.$atts['url'].'"'.
 				( empty( $opts['linkedin_counter'] ) ? '' : ' data-counter="'.$opts['linkedin_counter'].'"' ).
 				( empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"' ).'>'.

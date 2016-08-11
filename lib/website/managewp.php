@@ -102,7 +102,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button -->'.
-			'<div '.WpssoSsbSharing::get_css_class_id( 'managewp', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( $atts, 'managewp' ).'>'.
 			'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"'.
 				( empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"' ).'>'.
 			'</script></div>';

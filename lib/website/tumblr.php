@@ -260,7 +260,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			}
 
 			$html = '<!-- Tumblr Button -->'.
-			'<div '.WpssoSsbSharing::get_css_class_id( 'tumblr', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( $atts, 'tumblr' ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://www.tumblr.com/share" class="tumblr-share-button"'.
 			' data-posttype="'.$atts['posttype'].'"'.
 			' data-content="'.$atts['content'].'"'.

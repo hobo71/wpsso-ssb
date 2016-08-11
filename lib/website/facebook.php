@@ -214,7 +214,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 						case 'xfbml':
 							// XFBML
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							WpssoSsbSharing::get_css_class_id( 'facebook', $atts, 'fb-like' ).'><fb:like href="'.
+							WpssoSsbSharing::get_css_class_id( $atts, 'facebook', 'fb-like' ).'><fb:like href="'.
 							$atts['url'].'" send="'.$atts['send'].'" layout="'.$opts['fb_layout'].'" show_faces="'.
 							$atts['show_faces'].'" font="'.$opts['fb_font'].'" action="'.
 							$opts['fb_action'].'" colorscheme="'.$opts['fb_colorscheme'].'"></fb:like></div>';
@@ -222,7 +222,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 						case 'html5':
 							// HTML5
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							WpssoSsbSharing::get_css_class_id( 'facebook', $atts, 'fb-like' ).' data-href="'.
+							WpssoSsbSharing::get_css_class_id( $atts, 'facebook', 'fb-like' ).' data-href="'.
 							$atts['url'].'" data-send="'.$atts['send'].'" data-layout="'.
 							$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" data-font="'.
 							$opts['fb_font'].'" data-action="'.$opts['fb_action'].'" data-colorscheme="'.
@@ -232,7 +232,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 					break;
 				case 'share':
 					$html .= '<!-- Facebook Share Button --><div '.
-					WpssoSsbSharing::get_css_class_id( 'fb-share', $atts, 'fb-share' ).'><fb:share-button href="'.
+					WpssoSsbSharing::get_css_class_id( $atts, 'fb-share', 'fb-share' ).'><fb:share-button href="'.
 					$atts['url'].'" font="'.$opts['fb_font'].'" type="'.$opts['fb_type'].'"></fb:share-button></div>';
 					break;
 			}

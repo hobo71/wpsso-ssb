@@ -233,7 +233,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			$pin_img_url = $this->p->util->get_cache_file_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button -->'.
-			'<div '.WpssoSsbSharing::get_css_class_id( 'pinterest', $atts ).'>'.
+			'<div '.WpssoSsbSharing::get_css_class_id( $atts, 'pinterest' ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://pinterest.com/pin/create/button/'.$href_query.'" '.
 			'data-pin-do="buttonPin" '.
 			'data-pin-zero="true" '.

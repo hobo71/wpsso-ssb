@@ -319,10 +319,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 				if ( ! empty( $this->p->options['buttons_enqueue_social_css'] ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_sharing_buttons' );
-					wp_register_style( $this->p->cf['lca'].'_sharing_buttons', self::$sharing_css_url, 
+						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_ssb_sharing_css' );
+					wp_register_style( $this->p->cf['lca'].'_ssb_sharing_css', self::$sharing_css_url, 
 						false, $this->p->cf['plugin'][$this->p->cf['lca']]['version'] );
-					wp_enqueue_style( $this->p->cf['lca'].'_sharing_buttons' );
+					wp_enqueue_style( $this->p->cf['lca'].'_ssb_sharing_css' );
 				} else {
 					if ( ! is_readable( self::$sharing_css_file ) ) {
 						if ( $this->p->debug->enabled )
@@ -889,27 +889,6 @@ $buttons_html."\n".
 </script>'."\n";
 		}
 
-		public static function get_css_class_id( $css_name, &$atts = array(), $css_class_extra = '' ) {
-
-			foreach ( array( 'css_class', 'css_id' ) as $key )
-				if ( empty( $atts[$key] ) )
-					$atts[$key] = 'button';
-
-			$css_class = $css_name.'-'.$atts['css_class'];
-			$css_id = $css_name.'-'.$atts['css_id'];
-
-			if ( is_singular() || in_the_loop() ) {
-				global $post;
-				if ( ! empty( $post->ID ) )
-					$css_id .= '-post-'.$post->ID;
-			}
-
-			if ( ! empty( $css_class_extra ) ) 
-				$css_class = $css_class_extra.' '.$css_class;
-
-			return 'class="'.$css_class.'" id="'.$css_id.'"';
-		}
-
 		public function have_buttons_for_type( $type ) {
 			if ( isset( $this->buttons_for_type[$type] ) )
 				return $this->buttons_for_type[$type];
@@ -1030,6 +1009,28 @@ $buttons_html."\n".
 					$site_len.' for site name and '.$short_len.' for url)' );
 
 			return $max_len;
+		}
+
+		public static function get_css_class_id( array $atts, $css_class_name, $css_class_extra = '' ) {
+
+			// set default css class and id value to 'button'
+			foreach ( array( 'css_class', 'css_id' ) as $key )
+				if ( empty( $atts[$key] ) )
+					$atts[$key] = 'button';
+
+			$css_class = $css_class_name.'-'.$atts['css_class'];
+			$css_id = $css_class_name.'-'.$atts['css_id'];
+
+			if ( is_singular() || in_the_loop() ) {
+				global $post;
+				if ( ! empty( $post->ID ) )
+					$css_id .= '-post-'.$post->ID;
+			}
+
+			if ( ! empty( $css_class_extra ) ) 
+				$css_class = $css_class_extra.' '.$css_class;
+
+			return 'class="'.$css_class.'" id="'.$css_id.'"';
 		}
 	}
 }
