@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.23-dev1 (2016/08/11)**
+**Version 2.2.23-dev1 (TBD)**
 
 Official announcement: N/A
 
@@ -188,10 +188,6 @@ Official announcement: N/A
 	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
 == Upgrade Notice ==
-
-= 2.2.23-dev1 =
-
-(2016/08/11) Removed the "Shorten URLs with" duplicate option from Twitter settings. Flipped WpssoSsbSharing get_css_class_id() arguments.
 
 = 2.2.22-1 =
 
