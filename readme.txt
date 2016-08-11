@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.23-dev1 (TBD)**
+**Version 2.2.23-dev1 (2016/08/11)**
 
 Official announcement: N/A
 
@@ -146,7 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Flipped `WpssoSsbSharing::get_css_class_id()` arguments (the CSS class name is now second).
+	* Flipped `WpssoSsbSharing::get_css_class_id()` method arguments (the CSS class name is now second).
 
 **Version 2.2.22-1 (2016/08/09)**
 
@@ -188,6 +188,10 @@ Official announcement: N/A
 	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
 
 == Upgrade Notice ==
+
+= 2.2.23-dev1 =
+
+(2016/08/11) Removed the "Shorten URLs with" option from Twitter settings. Flipped NgfbSharing get_css_class_id() arguments.
 
 = 2.2.22-1 =
 
