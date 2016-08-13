@@ -184,25 +184,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 			$this->p->util->add_plugin_filters( $this, array( 'get_defaults' => 1 ) );
 		}
 
-		public function filter_get_defaults( $opts_def ) {
-			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
+		public function filter_get_defaults( $def_opts ) {
+			return array_merge( $def_opts, self::$cf['opt']['defaults'] );
 		}
 
-		// do not use an $atts reference to allow for local changes
-		public function get_html( array $atts, array &$opts, array &$mod ) {
+		public function get_html( array $atts, array $opts, array $mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-
-			if ( empty( $opts ) ) 
-				$opts =& $this->p->options;
-
-			$lca = $this->p->cf['lca'];
-			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-
-			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			$atts['send'] = $opts['fb_send'] ? 'true' : 'false';
 			$atts['show_faces'] = $opts['fb_show_faces'] ? 'true' : 'false';
@@ -214,7 +202,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 						case 'xfbml':
 							// XFBML
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							WpssoSsbSharing::get_css_class_id( $atts, 'facebook', 'fb-like' ).'><fb:like href="'.
+							SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).'><fb:like href="'.
 							$atts['url'].'" send="'.$atts['send'].'" layout="'.$opts['fb_layout'].'" show_faces="'.
 							$atts['show_faces'].'" font="'.$opts['fb_font'].'" action="'.
 							$opts['fb_action'].'" colorscheme="'.$opts['fb_colorscheme'].'"></fb:like></div>';
@@ -222,7 +210,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 						case 'html5':
 							// HTML5
 							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							WpssoSsbSharing::get_css_class_id( $atts, 'facebook', 'fb-like' ).' data-href="'.
+							SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).' data-href="'.
 							$atts['url'].'" data-send="'.$atts['send'].'" data-layout="'.
 							$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" data-font="'.
 							$opts['fb_font'].'" data-action="'.$opts['fb_action'].'" data-colorscheme="'.
@@ -232,13 +220,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 					break;
 				case 'share':
 					$html .= '<!-- Facebook Share Button --><div '.
-					WpssoSsbSharing::get_css_class_id( $atts, 'fb-share', 'fb-share' ).'><fb:share-button href="'.
+					SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).'><fb:share-button href="'.
 					$atts['url'].'" font="'.$opts['fb_font'].'" type="'.$opts['fb_type'].'"></fb:share-button></div>';
 					break;
 			}
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+
 			return $html;
 		}
 		

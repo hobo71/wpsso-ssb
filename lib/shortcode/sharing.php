@@ -72,12 +72,13 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			$lca = $this->p->cf['lca'];
 			$atts = apply_filters( $lca.'_shortcode_'.WPSSOSSB_SHARING_SHORTCODE, $atts, $content );
 
+			$atts['use_post'] = SucomUtil::sanitize_use_post( $atts, true );	// $default = true
 			$atts['css_class'] = empty( $atts['css_class'] ) ? 'ssb-shortcode' : $atts['css_class'];
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ? 'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
-			$atts['use_post'] = SucomUtil::sanitize_use_post( $atts ); 
 
 			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
+
 			$atts['url'] = empty( $atts['url'] ) ?
 				$this->p->util->get_sharing_url( $mod ) : $atts['url'];
 
@@ -98,6 +99,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				}
 
 				$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
+
 				unset ( $atts['buttons'] );
 
 				$html .= '<!-- '.$lca.' '.$atts['css_class'].' begin -->'.
@@ -113,6 +115,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 						$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)');
 				}
 			}
+
 			return $html.$this->p->debug->get_html();
 		}
 	}

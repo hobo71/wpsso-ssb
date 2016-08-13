@@ -99,16 +99,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 			return array_merge( $def_opts, self::$cf['opt']['defaults'] );
 		}
 
-		// do not use an $atts reference to allow for local changes
-		public function get_html( array $atts, array &$opts, array &$mod ) {
+		public function get_html( array $atts, array $opts, array $mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
-			if ( empty( $opts ) ) 
-				$opts =& $this->p->options;
-
-			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
 			$atts['add_hashtags'] = empty( $this->p->options['email_cap_hashtags'] ) ?
 				false : $this->p->options['email_cap_hashtags'];
 
@@ -116,7 +110,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 				$this->p->options['email_ssb_html'], $mod, $atts, array(
 				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
 						$mod, true, false, false, 'og_title', 'email' ) ),
-				 	'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
+					'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
 						$mod, true, $atts['add_hashtags'], false, 'og_desc', 'email' ) ),
 				)
 			);

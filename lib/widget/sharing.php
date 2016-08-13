@@ -47,10 +47,10 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			extract( $args );
 
 			$atts = array( 
-				'css_id' => $args['widget_id'],
-				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
 				'use_post' => false,		// don't use the post ID on indexes
+				'css_id' => $args['widget_id'],
 				'preset_id' => $this->p->options['buttons_preset_ssb-widget'],
+				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
 			);
 
 			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
@@ -94,6 +94,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 					$this->p->debug->log( $cache_type.': html saved to transient '.
 						$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)');
 			}
+
 			echo $html;
 			if ( $this->p->debug->enabled )
 				$this->p->debug->show_html();

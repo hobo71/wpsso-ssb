@@ -629,26 +629,26 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				ksort( $sorted_ids );
 
 				$atts['use_post'] = $use_post;
-				$atts['css_id'] = $css_type = 'ssb-'.$type;
+				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
 
 				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
 					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
-					$css_preset = $lca.'-ssb-preset-'.$atts['preset_id'];
-				} else $css_preset = '';
+					$css_preset_name = $lca.'-ssb-preset-'.$atts['preset_id'];
+				} else $css_preset_name = '';
 
 				$buttons_html = $this->get_html( $sorted_ids, $atts, $mod );
 
 				if ( trim( $buttons_html ) ) {
 					$html = '
-<!-- '.$lca.' '.$css_type.' begin -->
+<!-- '.$lca.' '.$css_type_name.' begin -->
 <!-- generated on '.date( 'c' ).' -->
 <div class="'.$lca.'-ssb'.
-	( $css_preset ? ' '.$css_preset : '' ).
-	( $use_post ? ' '.$lca.'-'.$css_type.'">' : '" id="'.$lca.'-'.$css_type.'">' ).
+	( $css_preset_name ? ' '.$css_preset_name : '' ).
+	( $use_post ? ' '.$lca.'-'.$css_type_name.'">' : '" id="'.$lca.'-'.$css_type_name.'">' ).
 $buttons_html."\n".
 '</div><!-- .'.$lca.'-ssb '.
-	( $use_post ? '.' : '#' ).$lca.'-'.$css_type.' -->
-<!-- '.$lca.' '.$css_type.' end -->'."\n\n";
+	( $use_post ? '.' : '#' ).$lca.'-'.$css_type_name.' -->
+<!-- '.$lca.' '.$css_type_name.' end -->'."\n\n";
 
 					if ( $this->p->is_avail['cache']['transient'] ) {
 						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
@@ -680,61 +680,62 @@ $buttons_html."\n".
 		}
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
-		public function get_html( array &$ids, array &$atts, &$mod = false ) {
+		public function get_html( array $ids, array $atts, $mod = false ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
 			$lca = $this->p->cf['lca'];
-			$use_post = isset( $atts['use_post'] ) ?
-				$atts['use_post'] : true;
+			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;	// maintain backwards compat
+			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
+			$atts['preset_id'] = isset( $atts['preset_id'] ) ? SucomUtil::sanitize_key( $atts['preset_id'] ) : '';
+			$atts['filter_id'] = isset( $atts['filter_id'] ) ? SucomUtil::sanitize_key( $atts['filter_id'] ) : '';
+
 			if ( ! is_array( $mod ) )
-				$mod = $this->p->util->get_page_mod( $use_post );	// get post/user/term id, module name, and module object reference
+				$mod = $this->p->util->get_page_mod( $atts['use_post'] );	// get post/user/term id, module name, and module object reference
 
 			$html_ret = '';
 			$html_begin = "\n".'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
 			$html_end = "\n".'</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->';
 
-			$preset_id = empty( $atts['preset_id'] ) ?
-				'' : preg_replace( '/[^a-z0-9\-_]/', '', $atts['preset_id'] );
-			$filter_id = empty( $atts['filter_id'] ) ?
-				'' : preg_replace( '/[^a-z0-9\-_]/', '', $atts['filter_id'] );
-
 			// possibly dereference the opts variable to prevent passing on changes
-			if ( empty( $preset_id ) && empty( $filter_id ) )
+			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) )
 				$custom_opts =& $this->p->options;
 			else $custom_opts = $this->p->options;
 
 			// apply the presets to $custom_opts
-			if ( ! empty( $preset_id ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
-				if ( isset( $this->p->cf['opt']['preset'][$preset_id] ) &&
-					is_array( $this->p->cf['opt']['preset'][$preset_id] ) ) {
-
+			if ( ! empty( $atts['preset_id'] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
+				if ( isset( $this->p->cf['opt']['preset'][$atts['preset_id']] ) &&
+					is_array( $this->p->cf['opt']['preset'][$atts['preset_id']] ) ) {
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'applying preset_id '.$preset_id.' to options' );
-					$custom_opts = array_merge( $custom_opts, 
-						$this->p->cf['opt']['preset'][$preset_id] );
-
+						$this->p->debug->log( 'applying preset_id '.$atts['preset_id'].' to options' );
+					$custom_opts = array_merge( $custom_opts, $this->p->cf['opt']['preset'][$atts['preset_id']] );
 				} elseif ( $this->p->debug->enabled )
-					$this->p->debug->log( $preset_id.' preset_id missing or not array'  );
+					$this->p->debug->log( $atts['preset_id'].' preset_id missing or not array'  );
 			} 
 
-			if ( ! empty( $filter_id ) ) {
-				$filter_name = $lca.'_sharing_html_'.$filter_id.'_options';
+			if ( ! empty( $atts['filter_id'] ) ) {
+				$filter_name = $lca.'_sharing_html_'.$atts['filter_id'].'_options';
 				if ( has_filter( $filter_name ) ) {
-
 					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'applying filter_id '.$filter_id.' to options ('.$filter_name.')' );
+						$this->p->debug->log( 'applying filter_id '.$atts['filter_id'].' to options ('.$filter_name.')' );
 					$custom_opts = apply_filters( $filter_name, $custom_opts );
-
 				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
 			}
 
+			$saved_atts = $atts;
 			foreach ( $ids as $id ) {
 				if ( isset( $this->website[$id] ) ) {
 					if ( method_exists( $this->website[$id], 'get_html' ) ) {
 						if ( $this->allow_for_platform( $id ) ) {
+
+							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// uses 'css_id' and 'use_post'
+							$atts['url'] = empty( $atts['url'] ) ? 
+								$this->p->util->get_sharing_url( $mod, $atts['add_page'], $atts['src_id'] ) : 
+								apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'], $atts['src_id'] );
 							$html_ret .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
+							$atts = $saved_atts;	// restore the common $atts array
+
 						} elseif ( $this->p->debug->enabled )
 							$this->p->debug->log( $id.' not allowed for platform' );
 					} elseif ( $this->p->debug->enabled )
@@ -1009,28 +1010,6 @@ $buttons_html."\n".
 					$site_len.' for site name and '.$short_len.' for url)' );
 
 			return $max_len;
-		}
-
-		public static function get_css_class_id( array $atts, $css_class_name, $css_class_extra = '' ) {
-
-			// set default css class and id value to 'button'
-			foreach ( array( 'css_class', 'css_id' ) as $key )
-				if ( empty( $atts[$key] ) )
-					$atts[$key] = 'button';
-
-			$css_class = $css_class_name.'-'.$atts['css_class'];
-			$css_id = $css_class_name.'-'.$atts['css_id'];
-
-			if ( is_singular() || in_the_loop() ) {
-				global $post;
-				if ( ! empty( $post->ID ) )
-					$css_id .= '-post-'.$post->ID;
-			}
-
-			if ( ! empty( $css_class_extra ) ) 
-				$css_class = $css_class_extra.' '.$css_class;
-
-			return 'class="'.$css_class.'" id="'.$css_id.'"';
 		}
 	}
 }

@@ -76,25 +76,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 			$this->p->util->add_plugin_filters( $this, array( 'get_defaults' => 1 ) );
 		}
 
-		public function filter_get_defaults( $opts_def ) {
-			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
+		public function filter_get_defaults( $def_opts ) {
+			return array_merge( $def_opts, self::$cf['opt']['defaults'] );
 		}
 
-		// do not use an $atts reference to allow for local changes
-		public function get_html( array $atts, array &$opts, array &$mod ) {
+		public function get_html( array $atts, array $opts, array $mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-
-			if ( empty( $opts ) ) 
-				$opts =& $this->p->options;
-
-			$lca = $this->p->cf['lca'];
-			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-
-			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
 
 			if ( empty( $atts['title'] ) ) 
 				$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, true, null );
@@ -115,11 +103,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 
 			$html = '<!-- Reddit Button -->'.
 			'<script type="text/javascript">reddit_url=\''.$atts['url'].'\'; reddit_title=\''.$atts['title'].'\';</script>'.
-			'<div '.WpssoSsbSharing::get_css_class_id( $atts, 'reddit' ).'>'.
+			'<div '.SucomUtil::get_atts_css_attr( $atts, 'reddit' ).'>'.
 			'<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+
 			return $html;
 		}
 	}

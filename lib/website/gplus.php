@@ -120,39 +120,24 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 			$this->p->util->add_plugin_filters( $this, array( 'get_defaults' => 1 ) );
 		}
 
-		public function filter_get_defaults( $opts_def ) {
-			return array_merge( $opts_def, self::$cf['opt']['defaults'] );
+		public function filter_get_defaults( $def_opts ) {
+			return array_merge( $def_opts, self::$cf['opt']['defaults'] );
 		}
 
-		// do not use an $atts reference to allow for local changes
-		public function get_html( array $atts, array &$opts, array &$mod ) {
+		public function get_html( array $atts, array $opts, array $mod ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
-			if ( empty( $opts ) ) 
-				$opts =& $this->p->options;
-
-			$lca = $this->p->cf['lca'];
-			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// get_sharing_url() argument
-
-			$atts['url'] = empty( $atts['url'] ) ? 
-				$this->p->util->get_sharing_url( $mod, $atts['add_page'] ) : 
-				apply_filters( $lca.'_sharing_url', $atts['url'], $mod, $atts['add_page'] );
-
-			$gp_class = $opts['gp_action'] == 'share' ?
-				'class="g-plus" data-action="share"' :
-				'class="g-plusone"';
-
 			$html = '<!-- GooglePlus Button -->'.
-			'<div '.WpssoSsbSharing::get_css_class_id( $atts, ( $opts['gp_action'] == 'share' ? 'gplus' : 'gplusone' ) ).'>'.
-			'<span '.$gp_class.' data-size="'.$opts['gp_size'].'" data-annotation="'.$opts['gp_annotation'].'" data-href="'.$atts['url'].'"'.
-				( empty( $opts['gp_expandto'] ) || $opts['gp_expandto'] == 'none' ?
-					'' : ' data-expandTo="'.$opts['gp_expandto'].'"' ).'>'.
+			'<div '.SucomUtil::get_atts_css_attr( $atts, ( $opts['gp_action'] == 'share' ? 'gplus' : 'gplusone' ) ).'>'.
+			'<span '.( $opts['gp_action'] == 'share' ? 'class="g-plus" data-action="share"' : 'class="g-plusone"' ).
+			' data-size="'.$opts['gp_size'].'" data-annotation="'.$opts['gp_annotation'].'" data-href="'.$atts['url'].'"'.
+			( empty( $opts['gp_expandto'] ) || $opts['gp_expandto'] == 'none' ? '' : ' data-expandTo="'.$opts['gp_expandto'].'"' ).'>'.
 			'</span></div>';
 
 			if ( $this->p->debug->enabled )
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+
 			return $html;
 		}
 		
