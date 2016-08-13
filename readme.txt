@@ -146,7 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Flipped `WpssoSsbSharing::get_css_class_id()` method arguments (the CSS class name is now second).
+	* None
 
 **Version 2.2.22-1 (2016/08/09)**
 
@@ -191,7 +191,7 @@ Official announcement: N/A
 
 = 2.2.23-dev1 =
 
-(2016/08/11) Removed the "Shorten URLs with" option from Twitter settings. Flipped NgfbSharing get_css_class_id() arguments.
+(2016/08/11) Removed the "Shorten URLs with" option from Twitter settings.
 
 = 2.2.22-1 =
 
