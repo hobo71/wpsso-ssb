@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.23-dev2 (2016/08/13)**
+**Version 2.2.23-rc1 (2016/08/14)**
 
 Official announcement: N/A
 
@@ -146,7 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Moved the get_sharing_url() call from the social website modules into the main sharing class loop.
+	* Moved the `get_sharing_url()` call from the social website modules into the main WpssoSsbSharing loop.
 
 **Version 2.2.22-1 (2016/08/09)**
 
@@ -189,9 +189,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.23-dev2 =
+= 2.2.23-rc1 =
 
-(2016/08/13) Removed the "Shorten URLs with" option from Twitter settings.
+(2016/08/14) Removed the "Shorten URLs with" option from Twitter settings.
 
 = 2.2.22-1 =
 
