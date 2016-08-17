@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.23-rc1 (2016/08/14)**
+**Version 2.2.23-rc2 (2016/08/17)**
 
 Official announcement: N/A
 
@@ -189,9 +189,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.23-rc1 =
+= 2.2.23-rc2 =
 
-(2016/08/14) Removed the "Shorten URLs with" option from Twitter settings.
+(2016/08/17) Removed the "Shorten URLs with" option from Twitter settings.
 
 = 2.2.22-1 =
 
