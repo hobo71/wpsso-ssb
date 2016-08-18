@@ -11,7 +11,7 @@ Tags: wpsso, social, like, share, sharing, buttons, facebook, google, google plu
 Contributors: jsmoriss
 Requires At Least: 3.1
 Tested Up To: 4.6
-Stable Tag: 2.2.22-1
+Stable Tag: 2.2.23-1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -148,56 +148,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Moved the `get_sharing_url()` call from the social website modules into the main WpssoSsbSharing loop.
 
-**Version 2.2.22-1 (2016/08/09)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added thumbnail preview CSS for mobile in the Social Settings metabox.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.2.21-1 (2016/07/23)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Updated the get_size_info() method class from WpssoMedia to SucomUtil.
-
-**Version 2.2.20-1 (2016/07/18)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Updated the 'wpsso_get_config' filter to use the new version argument in WPSSO v3.33.5-1.
-
 == Upgrade Notice ==
 
 = 2.2.23-1 =
 
 (2016/08/18) Removed the "Shorten URLs with" option from Twitter settings.
-
-= 2.2.22-1 =
-
-(2016/08/09) Added thumbnail preview CSS for mobile in the Social Settings metabox.
-
-= 2.2.21-1 =
-
-(2016/07/23) Updated the get_size_info() method class from WpssoMedia to SucomUtil.
 
