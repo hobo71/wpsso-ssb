@@ -163,7 +163,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 				case 'ssb_buttons-include':
 
-					$table_rows[] = $this->form->get_th_html( _x( 'Include on Index Webpages',
+					$table_rows[] = $this->form->get_th_html( _x( 'Include on Archive Webpages',
 						'option label', 'wpsso-ssb' ), null, 'buttons_on_index' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_index' ).'</td>';
 
