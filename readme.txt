@@ -167,7 +167,3 @@ Official announcement: N/A
 
 (2016/08/24) Fixed the email and whatsapp button SVG icon width value.
 
-= 2.2.23-1 =
-
-(2016/08/18) Removed the "Shorten URLs with" option from Twitter settings.
-
