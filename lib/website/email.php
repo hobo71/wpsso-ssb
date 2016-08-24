@@ -106,8 +106,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 			$atts['add_hashtags'] = empty( $this->p->options['email_cap_hashtags'] ) ?
 				false : $this->p->options['email_cap_hashtags'];
 
+			$email_button_html = $this->p->options['email_ssb_html'];
+			$email_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/',	// just in case
+				'${1}9${3}', $email_button_html );
+
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
-				$this->p->options['email_ssb_html'], $mod, $atts, array(
+				$email_button_html, $mod, $atts, array(
 				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
 						$mod, true, false, false, 'og_title', 'email' ) ),
 					'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],

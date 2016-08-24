@@ -151,12 +151,12 @@
 .ssb-buttons div.email-button,
 .wpsso-ssb-preset-small_share_count
 	.ssb-buttons div.email-button { 
-		width:60px; 
+		width:62px; 
 }
 .ssb-buttons div.email-button a,
 .wpsso-ssb-preset-small_share_count
 	.ssb-buttons div.email-button a { 
-		width:60px;
+		width:62px;
 		background-color:#0a88ff;
 }
 .wpsso-ssb-preset-large_share_vertical
