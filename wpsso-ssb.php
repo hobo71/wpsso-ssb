@@ -55,7 +55,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 
 			require_once ( dirname( __FILE__ ).'/lib/config.php' );
 			WpssoSsbConfig::set_constants( __FILE__ );
-			WpssoSsbConfig::require_libs( __FILE__ );
+			WpssoSsbConfig::require_libs( __FILE__ );	// includes the register.php class library
 			$this->reg = new WpssoSsbRegister();		// activate, deactivate, uninstall hooks
 
 			if ( is_admin() ) {
