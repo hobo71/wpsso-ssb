@@ -21,7 +21,7 @@
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and *accurate* information to each social websites.</p>
 
 <blockquote>
-<p><strong>Prerequisite:</strong> WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin.</p>
+<p><strong>Prerequisite:</strong> The WPSSO Social Sharing Buttons (WPSSO SSB) plugin is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin.</p>
 </blockquote>
 
 <h4>Quick List of Features</h4>
