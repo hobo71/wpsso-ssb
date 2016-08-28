@@ -14,14 +14,14 @@
 
 <h2>Description</h2>
 
-<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p>Add traditional social sharing buttons from social websites to Posts / Pages, Custom Post Types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and many more. The sharing buttons can be included in the content, excerpt, widget, CSS floating sidebar, and on admin editing pages.</p>
+<p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p>Add traditional social sharing buttons to Posts / Pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
-<p>WPSSO Social Sharing Buttons (WPSSO SSB) works in conjunction with the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, extending its features with additional settings pages, tabs, and options to provide traditional social sharing buttons. WPSSO SSB sources JavaScript provided by each social website asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and accurate information to social websites.</p>
+<p>WPSSO SSB buttons can be included in the content, excerpt, widget, CSS floating sidebar, in templates, and even on admin editing pages!</p>
+
+<p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and *accurate* information to each social websites.</p>
 
 <blockquote>
-<p><strong>Looking for Ridiculously Responsive Social Sharing Buttons?</strong></p>
-
-<p>WPSSO SSB uses traditional social sharing buttons provided by each social website. If you're looking for a responsive / flat design style, have a look at the <a href="https://wordpress.org/plugins/wpsso-rrssb/">WPSSO Ridiculously Responsive Social Sharing Buttons (WPSSO RRSSB)</a> plugin. The Scalable Vector Graphics (SVG) used by WPSSO RRSSB resize automatically to their container size, so they always look great from any device (phone, tablet, laptop, etc.), including high resolution retina displays.</p>
+<p><strong>Prerequisite:</strong> WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin.</p>
 </blockquote>
 
 <h4>Quick List of Features</h4>
