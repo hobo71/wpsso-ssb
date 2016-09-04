@@ -329,7 +329,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 							$this->p->debug->log( self::$sharing_css_file.' is not readable' );
 						if ( is_admin() )
 							$this->p->notice->err( sprintf( __( 'The %s file is not readable.',
-								'wpsso-ssb' ), self::$sharing_css_file ), true );
+								'wpsso-ssb' ), self::$sharing_css_file ) );
 					} else {
 						echo '<style type="text/css">';
 						if ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
@@ -369,7 +369,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$this->p->debug->log( 'failed to load minify class SuextMinifyCssCompressor' );
 				if ( is_admin() )
 					$this->p->notice->err( __( 'Failed to load the minify class SuextMinifyCssCompressor.',
-						'wpsso-ssb' ), true );
+						'wpsso-ssb' ) );
 			}
 
 			if ( $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
@@ -378,13 +378,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
 					if ( is_admin() )
 						$this->p->notice->err( sprintf( __( 'Failed writing to the % file.',
-							'wpsso-ssb' ), self::$sharing_css_file ), true );
+							'wpsso-ssb' ), self::$sharing_css_file ) );
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'updated css file '.self::$sharing_css_file.' ('.$written.' bytes written)' );
 					if ( is_admin() )
 						$this->p->notice->upd( sprintf( __( 'Updated the <a href="%1$s">%2$s</a> stylesheet (%3$d bytes written).',
 							'wpsso-ssb' ), self::$sharing_css_url, self::$sharing_css_file, $written ), 
-								true, true, 'updated_'.self::$sharing_css_file, true );
+								true, 'updated_'.self::$sharing_css_file, true );
 				}
 				fclose( $fh );
 			} else {
@@ -393,13 +393,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
 					if ( is_admin() )
 						$this->p->notice->err( sprintf( __( 'The %s folder is not writable.',
-							'wpsso-ssb' ), WPSSO_CACHEDIR ), true );
+							'wpsso-ssb' ), WPSSO_CACHEDIR ) );
 				}
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'failed opening '.self::$sharing_css_file.' for writing' );
 				if ( is_admin() )
 					$this->p->notice->err( sprintf( __( 'Failed to open file %s for writing.',
-						'wpsso-ssb' ), self::$sharing_css_file ), true );
+						'wpsso-ssb' ), self::$sharing_css_file ) );
 			}
 		}
 
@@ -407,7 +407,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( file_exists( self::$sharing_css_file ) ) {
 				if ( ! @unlink( self::$sharing_css_file ) ) {
 					if ( is_admin() )
-						$this->p->notice->err( __( 'Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ), true );
+						$this->p->notice->err( __( 'Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ) );
 				}
 			}
 		}
