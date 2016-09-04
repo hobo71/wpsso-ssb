@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.25-dev1 (2016/09/04)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Updated the SucomNotice method calls for WPSSO v3.35.0-1.
+
 **Version 2.2.24-1 (2016/08/24)**
 
 Official announcement: N/A
@@ -162,6 +175,10 @@ Official announcement: N/A
 	* Moved the `get_sharing_url()` call from the social website modules into the main WpssoSsbSharing loop.
 
 == Upgrade Notice ==
+
+= 2.2.24-dev1 =
+
+(2016/09/04) Updated the SucomNotice method calls for WPSSO v3.35.0-1.
 
 = 2.2.24-1 =
 
