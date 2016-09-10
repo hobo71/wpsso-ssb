@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.25-rc2 (2016/09/09)**
+**Version 2.2.25-1 (2016/09/10)**
 
 Official announcement: N/A
 
@@ -176,9 +176,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.24-rc2 =
+= 2.2.24-1 =
 
-(2016/09/09) Updated the SucomNotice method calls for WPSSO v3.35.0-1.
+(2016/09/10) Updated the SucomNotice method calls for WPSSO v3.35.0-1.
 
 = 2.2.24-1 =
 
