@@ -176,7 +176,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.24-1 =
+= 2.2.25-1 =
 
 (2016/09/10) Updated the SucomNotice method calls for WPSSO v3.35.0-1.
 
