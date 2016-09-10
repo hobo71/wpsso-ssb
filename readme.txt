@@ -148,39 +148,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Updated the SucomNotice method calls for WPSSO v3.35.0-1.
 
-**Version 2.2.24-1 (2016/08/24)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed the email and whatsapp button SVG icon width value.
-* *Developer Notes*
-	* None
-
-**Version 2.2.23-1 (2016/08/18)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Removed the "Shorten URLs with" duplicate option from Twitter settings (see the Advanced settings page for shortening options).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Moved the `get_sharing_url()` call from the social website modules into the main WpssoSsbSharing loop.
-
 == Upgrade Notice ==
 
 = 2.2.25-1 =
 
 (2016/09/10) Updated the SucomNotice method calls for WPSSO v3.35.0-1.
-
-= 2.2.24-1 =
-
-(2016/08/24) Fixed the email and whatsapp button SVG icon width value.
 
