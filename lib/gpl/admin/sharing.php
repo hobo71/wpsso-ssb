@@ -80,7 +80,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
 				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
 					sprintf( __( 'Save a draft version or publish the %s to display these options.',
-						'wpsso-ssb' ), ucfirst( $mod['post_type'] ) ).'</p></td>';
+						'wpsso-ssb' ), SucomUtil::title_words( $mod['post_type'] ) ).'</p></td>';
 				return $table_rows;	// abort
 			}
 

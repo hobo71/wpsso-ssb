@@ -503,7 +503,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$this->p->debug->show_html( null, 'Debug Log' );
 
 			} else echo '<p class="centered">'.sprintf( __( '%s must be published<br/>before it can be shared.',
-				'wpsso-ssb' ), ucfirst( $post_obj->post_type ) ).'</p>';
+				'wpsso-ssb' ), SucomUtil::title_words( $post_obj->post_type ) ).'</p>';
 			echo '</td></tr></table>';
 		}
 
