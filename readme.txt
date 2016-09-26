@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.26-dev1 (2016/09/25)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added a SucomUtil::titleize() method call to format post type names for display.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.2.25-1 (2016/09/10)**
 
 Official announcement: N/A
@@ -149,6 +162,10 @@ Official announcement: N/A
 	* Updated the SucomNotice method calls for WPSSO v3.35.0-1.
 
 == Upgrade Notice ==
+
+= 2.2.26-dev1 =
+
+(2016/09/25) Added a SucomUtil::titleize() method call to format post type names for display.
 
 = 2.2.25-1 =
 
