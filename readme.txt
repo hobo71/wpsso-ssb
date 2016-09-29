@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.26-dev1 (2016/09/25)**
+**Version 2.2.26-b1 (2016/09/29)**
 
 Official announcement: N/A
 
@@ -163,9 +163,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.2.26-dev1 =
+= 2.2.26-b1 =
 
-(2016/09/25) Added a SucomUtil::titleize() method call to format post type names for display.
+(2016/09/29) Added a SucomUtil::titleize() method call to format post type names for display.
 
 = 2.2.25-1 =
 
