@@ -174,8 +174,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
 				if ( ! empty( $opts['buffer_via'] ) ) {
-					$key_locale = SucomUtil::get_key_locale( 'tc_site', $opts );
-					$atts['via'] = preg_replace( '/^@/', '', $opts[$key_locale] );
+					$atts['via'] = preg_replace( '/^@/', '', 
+						SucomUtil::get_locale_opt( 'tc_site', $opts ) );
 				} else $atts['via'] = '';
 			}
 
