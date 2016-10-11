@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.27-dev1 (2016/10/11)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed the localized 'via' value for Twitter and Buffer buttons.
+* *Developer Notes*
+	* None
+
 **Version 2.2.26-1 (2016/10/01)**
 
 Official announcement: N/A
@@ -149,6 +162,10 @@ Official announcement: N/A
 	* None
 
 == Upgrade Notice ==
+
+= 2.2.27-dev1 =
+
+(2016/10/11) Fixed the localized 'via' value for Twitter and Buffer buttons.
 
 = 2.2.26-1 =
 
