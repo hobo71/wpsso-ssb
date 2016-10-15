@@ -4,14 +4,14 @@ Plugin Slug: wpsso-ssb
 Text Domain: wpsso-ssb
 Domain Path: /languages
 License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl.txt
+License URI: https://www.gnu.org/licenses/gpl.txt
 Donate Link: https://wpsso.com/?utm_source=wpssossb-readme-donate
 Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
 Tags: wpsso, social, like, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, shorten, woocommerce
 Contributors: jsmoriss
 Requires At Least: 3.1
 Tested Up To: 4.6.1
-Stable Tag: 2.2.26-1
+Stable Tag: 2.2.27-1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -166,8 +166,4 @@ Official announcement: N/A
 = 2.2.27-1 =
 
 (2016/10/15) Fixed the localized 'via' value for Twitter and Buffer buttons.
-
-= 2.2.26-1 =
-
-(2016/10/01) Added a SucomUtil::titleize() method call to format post type names for display.
 
