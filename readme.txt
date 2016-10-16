@@ -24,7 +24,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and <em>accurate</em> information to each social websites.</p>
 
 <blockquote>
-<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin.</p>
+<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, which <em>automatically</em> creates complete and accurate meta tags and Schema markup for Social Sharing Optimization (SSO) and SEO.</p>
 </blockquote>
 
 = Quick List of Features =
@@ -86,7 +86,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension.
 
-Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO. The [WPSSO SSB Pro](http://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends) extension (along with all WPSSO Pro extensions) requires the [WPSSO Pro](http://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends) plugin as well.
+Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO. The [WPSSO SSB Pro extension](http://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends) (along with all WPSSO Pro extensions) requires the [WPSSO Pro plugin](http://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends) as well.
 
 [Purchase the WPSSO Social Sharing Buttons (WPSSO SSB) Pro extension](http://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase) (includes a *No Risk 30 Day Refund Policy*).
 
