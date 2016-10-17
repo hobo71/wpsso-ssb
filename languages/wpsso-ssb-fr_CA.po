@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.27-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-10-13 09:55-0700\n"
-"PO-Revision-Date: 2016-10-13 09:55-0700\n"
+"POT-Creation-Date: 2016-10-17 09:57-0700\n"
+"PO-Revision-Date: 2016-10-17 09:57-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -645,8 +645,8 @@ msgid "WPSSO Social Sharing Buttons (WPSSO SSB)"
 msgstr "WPSSO Social Sharing Buttons (WPSSO SSB)"
 
 #. Plugin URI of the plugin/theme
-msgid "http://surniaulula.com/extend/plugins/wpsso-ssb/"
-msgstr "http://surniaulula.com/extend/plugins/wpsso-ssb/"
+msgid "https://surniaulula.com/extend/plugins/wpsso-ssb/"
+msgstr "https://surniaulula.com/extend/plugins/wpsso-ssb/"
 
 #. Description of the plugin/theme
 msgid "WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
@@ -657,5 +657,5 @@ msgid "JS Morisset"
 msgstr "JS Morisset"
 
 #. Author URI of the plugin/theme
-msgid "http://surniaulula.com/"
-msgstr "http://surniaulula.com/"
+msgid "https://surniaulula.com/"
+msgstr "https://surniaulula.com/"
