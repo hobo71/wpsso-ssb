@@ -59,7 +59,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 **WPSSO SSB Pro / Power-User Features**
 
-The [Pro version of WPSSO SSB](http://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
+The [Pro version of WPSSO SSB](https://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
 
 * Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
@@ -86,37 +86,37 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension.
 
-Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO. The [WPSSO SSB Pro extension](http://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends) (along with all WPSSO Pro extensions) requires the [WPSSO Pro plugin](http://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends) as well.
+Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO. The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends) (along with all WPSSO Pro extensions) requires the [WPSSO Pro plugin](https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends) as well.
 
-[Purchase the WPSSO Social Sharing Buttons (WPSSO SSB) Pro extension](http://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase) (includes a *No Risk 30 Day Refund Policy*).
+[Purchase the WPSSO Social Sharing Buttons (WPSSO SSB) Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase) (includes a *No Risk 30 Day Refund Policy*).
 
 == Installation ==
 
 = Install and Uninstall =
 
-* [Install the Plugin](http://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/)
-* [Uninstall the Plugin](http://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
+* [Install the Plugin](https://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/)
+* [Uninstall the Plugin](https://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
 
 == Frequently Asked Questions ==
 
 = Frequently Asked Questions =
 
-* [Can I share a single image on a webpage?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/)
-* [Can I use other social sharing buttons?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/)
-* [How do I turn on Social Sharing Buttons for a page?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
-* [Why are the buttons showing the wrong language?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/)
-* [Why does the Facebook "Like" button flyout get clipped?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
-* [Why doesn't the Pinterest button show?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
-* [Why doesn't the Twitter count increase?](http://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
+* [Can I share a single image on a webpage?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/)
+* [Can I use other social sharing buttons?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/)
+* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
+* [Why are the buttons showing the wrong language?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/)
+* [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
+* [Why doesn't the Pinterest button show?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
+* [Why doesn't the Twitter count increase?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
 
 == Other Notes ==
 
 = Additional Documentation =
 
-* [Developer Resources](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/)
-	* [Sharing Buttons Function](http://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
-* [SSB Shortcode for Sharing Buttons](http://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
-* [Styling Social Buttons](http://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/)
+* [Developer Resources](https://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/)
+	* [Sharing Buttons Function](https://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
+* [SSB Shortcode for Sharing Buttons](https://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
+* [Styling Social Buttons](https://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/)
 
 == Screenshots ==
 
