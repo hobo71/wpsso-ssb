@@ -34,34 +34,29 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_order', 
-				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
+			'<td>'.$form->get_select( 'fb_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.( $submenu->show_on_checkboxes( 'fb' ) ).'</td>';
+			'<td>'.$submenu->show_on_checkboxes( 'fb' ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_platform',
-				$this->p->cf['sharing']['platform'] ).'</td>';
+			'<td>'.$form->get_select( 'fb_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'JavaScript in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'. $form->get_select( 'fb_script_loc',
-				$this->p->cf['form']['script_locations'] ).'</td>';
+			'<td>'. $form->get_select( 'fb_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Default Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_lang',
-				SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
+			'<td>'.$form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_button',
-				array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
+			'<td>'.$form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
 
 			return $table_rows;
 		}
@@ -110,21 +105,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Color Scheme',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_colorscheme', 
-				array( 
-					'light' => 'Light',
-					'dark' => 'Dark',
-				)
-			).'</td>';
+			$form->get_select( 'fb_colorscheme', array( 'light' => 'Light', 'dark' => 'Dark' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Action Name',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_action', 
-				array( 
-					'like' => 'Like',
-					'recommend' => 'Recommend',
-				)
-			).'</td>';
+			$form->get_select( 'fb_action', array( 'like' => 'Like', 'recommend' => 'Recommend' ) ).'</td>';
 
 			return $table_rows;
 		}

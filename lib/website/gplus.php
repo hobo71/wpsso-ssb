@@ -22,39 +22,34 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 		public function filter_ssb_website_gplus_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_order', 
-				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $submenu->show_on_checkboxes( 'gp' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$submenu->show_on_checkboxes( 'gp' ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'gp_platform',
-				$this->p->cf['sharing']['platform'] ).'</td>';
+			'<td>'.$form->get_select( 'gp_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_script_loc',
-				$this->p->cf['form']['script_locations'] ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Default Language',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_lang',
-				SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_lang', SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Type',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_action',
-				array( 'plusone' => 'G +1', 'share' => 'G+ Share' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_action', array( 'plusone' => 'G +1', 'share' => 'G+ Share' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Size',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_size', array( 
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_size', array( 
 				'small' => 'Small [ 15px ]',
 				'medium' => 'Medium [ 20px ]',
 				'standard' => 'Standard [ 24px ]',
@@ -62,8 +57,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Annotation',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_annotation', array( 
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_annotation', array( 
 				'none' => '',
 				'inline' => 'Inline',
 				'bubble' => 'Bubble',
@@ -72,8 +67,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Expand to',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'gp_expandto', array( 
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'gp_expandto', array( 
 				'none' => '',
 				'top' => 'Top',
 				'bottom' => 'Bottom',

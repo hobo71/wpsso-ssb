@@ -78,7 +78,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$this->set_objects();
 
 			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_enqueue_styles' ) );
-			add_action( 'wp_head', array( &$this, 'show_header' ), WPSSOSSB_HEAD_PRIORITY );
+			add_action( 'wp_head', array( &$this, 'show_head' ), WPSSOSSB_HEAD_PRIORITY );
 			add_action( 'wp_footer', array( &$this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
 
 			if ( $this->have_buttons_for_type( 'content' ) )
@@ -439,7 +439,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return ( $this->add_buttons_filter( $filter_name ) ? true : $ret );
 		}
 
-		public function show_header() {
+		public function show_head() {
 			echo $this->get_script_loader();
 			echo $this->get_script( 'header' );
 			if ( $this->p->debug->enabled )

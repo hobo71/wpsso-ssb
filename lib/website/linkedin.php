@@ -22,28 +22,26 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 		public function filter_ssb_website_linkedin_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'linkedin_order', 
-				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'linkedin_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $submenu->show_on_checkboxes( 'linkedin' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$submenu->show_on_checkboxes( 'linkedin' ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'linkedin_platform',
-				$this->p->cf['sharing']['platform'] ).'</td>';
+			'<td>'.$form->get_select( 'linkedin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Counter Mode',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'linkedin_counter', 
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'linkedin_counter', 
 				array( 
 					'none' => '',
 					'right' => 'Horizontal',
@@ -53,8 +51,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Zero in Counter',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_checkbox( 'linkedin_showzero' ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_checkbox( 'linkedin_showzero' ).'</td>';
 
 			return $table_rows;
 		}

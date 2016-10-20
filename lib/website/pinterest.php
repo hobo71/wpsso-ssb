@@ -37,8 +37,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_order', range( 1, 
-				count( $submenu->website ) ), 'short' ).'</td>';
+			'<td>'.$form->get_select( 'pin_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short', null ).
@@ -47,8 +46,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_platform',
-				$this->p->cf['sharing']['platform'] ).'</td>';
+			'<td>'.$form->get_select( 'pin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'JavaScript in',
@@ -57,23 +55,19 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Height',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_button_height', 
-				array( 'small' => 'Small', 'large' => 'Large' ) );
+			'<td>'.$form->get_select( 'pin_button_height', array( 'small' => 'Small', 'large' => 'Large' ) );
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Shape',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_button_shape', 
-				array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
+			'<td>'.$form->get_select( 'pin_button_shape', array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Color',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_button_color', 
-				array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
+			'<td>'.$form->get_select( 'pin_button_color', array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_button_lang', 
-				SucomUtil::get_pub_lang( 'pinterest' ) );
+			'<td>'.$form->get_select( 'pin_button_lang', SucomUtil::get_pub_lang( 'pinterest' ) );
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Pin Count',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
