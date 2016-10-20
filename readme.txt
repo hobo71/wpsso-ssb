@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.28-dev1 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed HTML table syntax in the Tumblr settings metabox.
+* *Developer Notes*
+	* None
+
 **Version 2.2.27-1 (2016/10/15)**
 
 Official announcement: N/A
