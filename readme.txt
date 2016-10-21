@@ -146,7 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* Fixed HTML table syntax in the Tumblr settings metabox.
 * *Developer Notes*
-	* None
+	* Minimum requirements updated to WP v3.5 and PHP v5.4.
 
 **Version 2.2.27-1 (2016/10/15)**
 
