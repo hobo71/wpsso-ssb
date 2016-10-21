@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.28-rc1 (2016/10/20)**
+**Version 2.2.28-rc1 (2016/10/21)**
 
 Official announcement: N/A
 
@@ -178,7 +178,7 @@ Official announcement: N/A
 
 = 2.2.28-rc1 =
 
-(2016/10/20) Fixed HTML table syntax in the Tumblr settings metabox.
+(2016/10/21) Fixed HTML table syntax in the Tumblr settings metabox.
 
 = 2.2.27-1 =
 
