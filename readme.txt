@@ -148,39 +148,9 @@ Official announcement: N/A
 * *Developer Notes*
 	* Minimum requirements updated to WP v3.5 and PHP v5.4.
 
-**Version 2.2.27-1 (2016/10/15)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed the localized 'via' value for Twitter and Buffer buttons.
-* *Developer Notes*
-	* None
-
-**Version 2.2.26-1 (2016/10/01)**
-
-Official announcement: N/A
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added a SucomUtil::titleize() method call to format post type names for display.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
 
 = 2.2.28-1 =
 
 (2016/10/22) Fixed HTML table syntax in the Tumblr settings metabox.
-
-= 2.2.27-1 =
-
-(2016/10/15) Fixed the localized 'via' value for Twitter and Buffer buttons.
 
