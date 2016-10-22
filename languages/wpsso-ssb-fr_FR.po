@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.27-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.2.28-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-10-17 09:57-0700\n"
-"PO-Revision-Date: 2016-10-17 09:57-0700\n"
+"POT-Creation-Date: 2016-10-22 09:47-0700\n"
+"PO-Revision-Date: 2016-10-22 09:47-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -334,78 +334,78 @@ msgctxt "option label (short)"
 msgid "Preferred Order"
 msgstr "Ordre de préférence"
 
-#: lib/website/buffer.php:43 lib/website/email.php:29
-#: lib/website/facebook.php:40 lib/website/gplus.php:29
-#: lib/website/linkedin.php:29 lib/website/managewp.php:29
-#: lib/website/pinterest.php:43 lib/website/reddit.php:29
-#: lib/website/stumbleupon.php:68 lib/website/tumblr.php:43
-#: lib/website/twitter.php:29 lib/website/whatsapp.php:29
+#: lib/website/buffer.php:42 lib/website/email.php:29
+#: lib/website/facebook.php:39 lib/website/gplus.php:28
+#: lib/website/linkedin.php:28 lib/website/managewp.php:29
+#: lib/website/pinterest.php:42 lib/website/reddit.php:29
+#: lib/website/stumbleupon.php:67 lib/website/tumblr.php:42
+#: lib/website/twitter.php:28 lib/website/whatsapp.php:29
 msgctxt "option label (short)"
 msgid "Show Button in"
 msgstr "Afficher le bouton"
 
-#: lib/website/buffer.php:48 lib/website/email.php:34
-#: lib/website/facebook.php:45 lib/website/gplus.php:34
-#: lib/website/linkedin.php:34 lib/website/managewp.php:34
-#: lib/website/pinterest.php:48 lib/website/reddit.php:34
-#: lib/website/stumbleupon.php:73 lib/website/tumblr.php:48
-#: lib/website/twitter.php:34 lib/website/whatsapp.php:34
+#: lib/website/buffer.php:47 lib/website/email.php:34
+#: lib/website/facebook.php:44 lib/website/gplus.php:33
+#: lib/website/linkedin.php:33 lib/website/managewp.php:34
+#: lib/website/pinterest.php:47 lib/website/reddit.php:34
+#: lib/website/stumbleupon.php:72 lib/website/tumblr.php:47
+#: lib/website/twitter.php:33 lib/website/whatsapp.php:34
 msgctxt "option label (short)"
 msgid "Allow for Platform"
 msgstr "Pour Plateforme"
 
-#: lib/website/buffer.php:54 lib/website/facebook.php:51
-#: lib/website/gplus.php:40 lib/website/linkedin.php:40
-#: lib/website/pinterest.php:54 lib/website/stumbleupon.php:79
-#: lib/website/tumblr.php:54 lib/website/twitter.php:40
+#: lib/website/buffer.php:52 lib/website/facebook.php:49
+#: lib/website/gplus.php:38 lib/website/linkedin.php:38
+#: lib/website/pinterest.php:52 lib/website/stumbleupon.php:77
+#: lib/website/tumblr.php:52 lib/website/twitter.php:38
 msgctxt "option label (short)"
 msgid "JavaScript in"
 msgstr "JavaScript dans"
 
-#: lib/website/buffer.php:58
+#: lib/website/buffer.php:56
 msgctxt "option label (short)"
 msgid "Count Position"
 msgstr "Position du compteur"
 
-#: lib/website/buffer.php:63 lib/website/pinterest.php:88
-#: lib/website/tumblr.php:83
+#: lib/website/buffer.php:60 lib/website/pinterest.php:82
+#: lib/website/tumblr.php:78
 msgctxt "option label (short)"
 msgid "Image Dimensions"
 msgstr "Dimensions de l’image"
 
-#: lib/website/buffer.php:68 lib/website/twitter.php:53
+#: lib/website/buffer.php:65 lib/website/twitter.php:51
 msgctxt "option label (short)"
 msgid "Tweet Text Source"
 msgstr "Source du texte Tweet"
 
-#: lib/website/buffer.php:73 lib/website/twitter.php:58
+#: lib/website/buffer.php:70 lib/website/twitter.php:56
 msgctxt "option label (short)"
 msgid "Tweet Text Length"
 msgstr "Longueur du Tweet"
 
-#: lib/website/buffer.php:76 lib/website/email.php:43
-#: lib/website/pinterest.php:101 lib/website/tumblr.php:96
-#: lib/website/tumblr.php:102 lib/website/twitter.php:61
+#: lib/website/buffer.php:73 lib/website/email.php:43
+#: lib/website/pinterest.php:95 lib/website/tumblr.php:91
+#: lib/website/tumblr.php:97 lib/website/twitter.php:59
 msgctxt "option comment"
 msgid "characters or less"
 msgstr "caractères ou moins"
 
-#: lib/website/buffer.php:78 lib/website/twitter.php:69
-#: lib/website/twitter.php:76
+#: lib/website/buffer.php:75 lib/website/twitter.php:67
+#: lib/website/twitter.php:74
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr "Ajouter via @nom"
 
-#: lib/website/buffer.php:80
+#: lib/website/buffer.php:77
 msgid "Append the website's business @username to the tweet (see the <a href=\"%1$s\">Twitter</a> options tab on the %2$s settings page)."
 msgstr "Ajouter le @nom d'affaires du site Web au Tweet (voir l'onglet d'options <a href=\"%1$s\">Twitter</a> sur la page de réglages %2$s)."
 
-#: lib/website/buffer.php:80 lib/website/twitter.php:71
+#: lib/website/buffer.php:77 lib/website/twitter.php:69
 msgctxt "lib file description"
 msgid "General"
 msgstr "Général"
 
-#: lib/website/buffer.php:128
+#: lib/website/buffer.php:125
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
 msgstr "Bouton de partage Buffer"
@@ -440,74 +440,74 @@ msgctxt "metabox tab"
 msgid "Share"
 msgstr "Partager"
 
-#: lib/website/facebook.php:56 lib/website/gplus.php:45
-#: lib/website/twitter.php:44
+#: lib/website/facebook.php:53 lib/website/gplus.php:42
+#: lib/website/twitter.php:42
 msgctxt "option label (short)"
 msgid "Default Language"
 msgstr "Langue par défaut"
 
-#: lib/website/facebook.php:61 lib/website/gplus.php:50
+#: lib/website/facebook.php:57 lib/website/gplus.php:46
 #: lib/website/managewp.php:39 lib/website/reddit.php:39
 msgctxt "option label (short)"
 msgid "Button Type"
 msgstr "Type de bouton"
 
-#: lib/website/facebook.php:71
+#: lib/website/facebook.php:66
 msgctxt "option label (short)"
 msgid "Markup Language"
 msgstr "Type de balisage"
 
-#: lib/website/facebook.php:76
+#: lib/website/facebook.php:71
 msgctxt "option label (short)"
 msgid "Include Send"
 msgstr "Ajout bouton Envoi"
 
-#: lib/website/facebook.php:81 lib/website/facebook.php:134
+#: lib/website/facebook.php:76 lib/website/facebook.php:119
 msgctxt "option label (short)"
 msgid "Layout"
 msgstr "Disposition"
 
-#: lib/website/facebook.php:93
+#: lib/website/facebook.php:88
 msgctxt "option label (short)"
 msgid "Show Faces"
 msgstr "Montrer les faces"
 
-#: lib/website/facebook.php:98
+#: lib/website/facebook.php:93
 msgctxt "option label (short)"
 msgid "Font"
 msgstr "Police de caractère"
 
-#: lib/website/facebook.php:111
+#: lib/website/facebook.php:106
 msgctxt "option label (short)"
 msgid "Color Scheme"
 msgstr "Jeu de couleurs"
 
-#: lib/website/facebook.php:120
+#: lib/website/facebook.php:110
 msgctxt "option label (short)"
 msgid "Action Name"
 msgstr "Nom de l'action"
 
-#: lib/website/gplus.php:55 lib/website/twitter.php:48
+#: lib/website/gplus.php:50 lib/website/twitter.php:46
 msgctxt "option label (short)"
 msgid "Button Size"
 msgstr "Taille du bouton"
 
-#: lib/website/gplus.php:64
+#: lib/website/gplus.php:59
 msgctxt "option label (short)"
 msgid "Annotation"
 msgstr "Annotation"
 
-#: lib/website/gplus.php:74
+#: lib/website/gplus.php:69
 msgctxt "option label (short)"
 msgid "Expand to"
 msgstr "Étendre à"
 
-#: lib/website/linkedin.php:44
+#: lib/website/linkedin.php:42
 msgctxt "option label (short)"
 msgid "Counter Mode"
 msgstr "Mode du compteur"
 
-#: lib/website/linkedin.php:55
+#: lib/website/linkedin.php:53
 msgctxt "option label (short)"
 msgid "Zero in Counter"
 msgstr "Le zéro est permis"
@@ -517,47 +517,47 @@ msgctxt "option label"
 msgid "Pinterest <em>Sharing Button</em>"
 msgstr "<em>Bouton de partage</em> Pinterest"
 
-#: lib/website/pinterest.php:58
+#: lib/website/pinterest.php:56
 msgctxt "option label (short)"
 msgid "Button Height"
 msgstr "Hauteur du bouton"
 
-#: lib/website/pinterest.php:63
+#: lib/website/pinterest.php:60
 msgctxt "option label (short)"
 msgid "Button Shape"
 msgstr "Forme du bouton"
 
-#: lib/website/pinterest.php:68 lib/website/tumblr.php:64
+#: lib/website/pinterest.php:64 lib/website/tumblr.php:60
 msgctxt "option label (short)"
 msgid "Button Color"
 msgstr "Couleur du bouton"
 
-#: lib/website/pinterest.php:73 lib/website/tumblr.php:59
+#: lib/website/pinterest.php:68 lib/website/tumblr.php:56
 msgctxt "option label (short)"
 msgid "Button Language"
 msgstr "Langue du bouton"
 
-#: lib/website/pinterest.php:78
+#: lib/website/pinterest.php:72
 msgctxt "option label (short)"
 msgid "Show Pin Count"
 msgstr "Afficher le compteur"
 
-#: lib/website/pinterest.php:93
+#: lib/website/pinterest.php:87
 msgctxt "option label (short)"
 msgid "Caption Text"
 msgstr "Texte de légende"
 
-#: lib/website/pinterest.php:98 lib/website/tumblr.php:93
+#: lib/website/pinterest.php:92 lib/website/tumblr.php:88
 msgctxt "option label (short)"
 msgid "Caption Length"
 msgstr "Longueur Légende"
 
-#: lib/website/pinterest.php:151
+#: lib/website/pinterest.php:145
 msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr "Bouton de partage Pinterest"
 
-#: lib/website/stumbleupon.php:83
+#: lib/website/stumbleupon.php:81
 msgctxt "option label (short)"
 msgid "Button Style"
 msgstr "Style du bouton"
@@ -567,50 +567,50 @@ msgctxt "option label"
 msgid "Tumblr <em>Sharing Button</em>"
 msgstr "<em>Bouton de partage</em> Tumblr"
 
-#: lib/website/tumblr.php:69
+#: lib/website/tumblr.php:64
 msgctxt "option label (short)"
 msgid "Show Counter"
 msgstr "Afficher compteur"
 
-#: lib/website/tumblr.php:79
+#: lib/website/tumblr.php:74
 msgctxt "option label (short)"
 msgid "Add Attribution"
 msgstr "Ajouter attribution"
 
-#: lib/website/tumblr.php:88
+#: lib/website/tumblr.php:83
 msgctxt "option label (short)"
 msgid "Media Caption"
 msgstr "Légende du média"
 
-#: lib/website/tumblr.php:99
+#: lib/website/tumblr.php:94
 msgctxt "option label (short)"
 msgid "Link Description"
 msgstr "Description d'un lien"
 
-#: lib/website/tumblr.php:152
+#: lib/website/tumblr.php:147
 msgctxt "image size label"
 msgid "Tumblr Sharing Button"
 msgstr "Bouton de partage Tumblr"
 
-#: lib/website/twitter.php:64
+#: lib/website/twitter.php:62
 msgctxt "option label (short)"
 msgid "Do Not Track"
 msgstr "No pas suivre"
 
-#: lib/website/twitter.php:66
+#: lib/website/twitter.php:64
 msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
 msgstr "Désactiver le suivi pour les annonces et suggestions adaptées de Twitter."
 
-#: lib/website/twitter.php:71
+#: lib/website/twitter.php:69
 msgid "Append the website's business @username to the tweet (see the <a href=\"%1$s\">Twitter</a> options tab on the %2$s settings page). The website's @username will be displayed and recommended after the webpage is shared."
 msgstr "Ajouter le @nom d'affaires du site Web au Tweet (voir l'onglet d'options <a href=\"%1$s\">Twitter</a> sur la page de réglages %2$s). Le @nom du site Web sera affichés et recommandé après que la page Web est été partagée."
 
-#: lib/website/twitter.php:74
+#: lib/website/twitter.php:72
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr "Recomm. l'auteur"
 
-#: lib/website/twitter.php:76
+#: lib/website/twitter.php:74
 msgid "Recommend following the author's Twitter @username (from their profile) after sharing a webpage. If the <em>%1$s</em> option is also checked, the website's @username is suggested first."
 msgstr "Conseiller de suivre le @nom Twitter de l'auteur (défini sur leur page de profil) après avoir partagé une page Web. Si l'option <em>%1$s</em> est également cochée, le @nom d'affaires Twitter du site Web est aussi recommandes."
 
