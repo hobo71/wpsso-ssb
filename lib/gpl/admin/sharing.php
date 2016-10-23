@@ -14,6 +14,9 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
+
 			$this->p->util->add_plugin_filters( $this, array( 
 				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
 				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
@@ -23,6 +26,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_plugin_cache_rows( $table_rows, $form, $network = false ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$table_rows['plugin_file_cache_exp'] = $form->get_th_html( _x( 'Social File Cache Expiry',
 				'option label', 'wpsso-ssb' ), 'highlight', 'plugin_file_cache_exp' ).
@@ -35,6 +40,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_include_rows( $table_rows, $form ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$add_to_checkboxes = '';
 			foreach ( $this->p->util->get_post_types() as $post_type )
@@ -54,6 +61,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_preset_rows( $table_rows, $form ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
 			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
@@ -76,6 +85,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_post_buttons_rows( $table_rows, $form, $head, $mod ) {
+			if ( $this->p->debug->enabled )
+				$this->p->debug->mark();
 
 			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
 				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
