@@ -29,12 +29,11 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
-			$table_rows['plugin_file_cache_exp'] = $form->get_th_html( _x( 'Social File Cache Expiry',
-				'option label', 'wpsso-ssb' ), 'highlight', 'plugin_file_cache_exp' ).
-			'<td nowrap class="blank">'.$form->get_no_select( 'plugin_file_cache_exp', 
-				$this->p->cf['form']['cache_hrs'], 'medium', '', true ).
-					_x( 'hours', 'option comment', 'wpsso-ssb' ).'</td>'.
-			$this->p->admin->get_site_use( $form, $network, 'plugin_file_cache_exp' );
+			SucomUtil::add_before_key( $table_rows, 'plugin_verify_certs', 'plugin_file_cache_exp',
+			$form->get_th_html( _x( 'Social File Cache Expiry', 'option label', 'wpsso-ssb' ), null, 'plugin_file_cache_exp' ).
+			'<td nowrap class="blank">'.$this->p->options['plugin_file_cache_exp'].' '.
+			_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>'.
+			$this->p->admin->get_site_use( $form, $network, 'plugin_file_cache_exp' ) );
 
 			return $table_rows;
 		}
