@@ -276,13 +276,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$aop = $this->p->check->aop( $ext, true, $this->p->is_avail['aop'] );
 				$features['(tool) Sharing Buttons Image / JavaScript File Cache'] = array( 
+					'td_class' => $aop ? '' : 'blank',
 					'status' => $this->p->options['plugin_file_cache_exp'] ?
 						( $aop ? 'on' : 'rec' ) : 'off',
-					'td_class' => $aop ? '' : 'blank',
 				);
 				$features['(tool) Sharing Styles Editor'] = array( 
-					'status' => $aop ? 'on' : 'rec',
 					'td_class' => $aop ? '' : 'blank',
+					'status' => $aop ? 'on' : 'rec',
 				);
 			}
 			return $features;
