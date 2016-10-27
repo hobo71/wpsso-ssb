@@ -13,7 +13,7 @@
  * Description: WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
  * Requires At Least: 3.5
  * Tested Up To: 4.6.1
- * Version: 2.2.28-1
+ * Version: 2.2.29-dev1
  * 
  * Version Numbers: {major}.{minor}.{bugfix}-{stage}{level}
  *

@@ -32,7 +32,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$table_rows['plugin_file_cache_exp'] = $form->get_th_html( _x( 'Social File Cache Expiry',
 				'option label', 'wpsso-ssb' ), 'highlight', 'plugin_file_cache_exp' ).
 			'<td nowrap class="blank">'.$form->get_no_select( 'plugin_file_cache_exp', 
-				$this->p->cf['form']['file_cache_hrs'], 'medium', '', true ).
+				$this->p->cf['form']['cache_hrs'], 'medium', '', true ).
 					_x( 'hours', 'option comment', 'wpsso-ssb' ).'</td>'.
 			$this->p->admin->get_site_use( $form, $network, 'plugin_file_cache_exp' );
 
