@@ -146,7 +146,9 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Renamed the 'file_cache_hrs' config array to 'cache_hrs' for WPSSO v3.37.0-1.
+	* Minor code changes required for WPSSO v3.37.0-1:
+		* Renamed the 'file_cache_hrs' config array to 'cache_hrs'.
+		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
 
 **Version 2.2.28-1 (2016/10/22)**
 
