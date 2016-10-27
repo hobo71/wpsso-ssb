@@ -135,6 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
+**Version 2.2.29-dev1 (TBD)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Renamed the 'file_cache_hrs' config array to 'cache_hrs' for WPSSO v3.37.0-1.
+
 **Version 2.2.28-1 (2016/10/22)**
 
 Official announcement: N/A
