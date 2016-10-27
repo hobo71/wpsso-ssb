@@ -142,12 +142,11 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* None
+	* Replaced the "Social File Cache Expiry" drop-down (in hours) with an input field (in seconds).
 * *Bugfixes*
 	* None
 * *Developer Notes*
 	* Minor code changes required for WPSSO v3.37.0-1:
-		* Renamed the 'file_cache_hrs' config array to 'cache_hrs'.
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
 
 **Version 2.2.28-1 (2016/10/22)**
