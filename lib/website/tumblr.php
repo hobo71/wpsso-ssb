@@ -269,7 +269,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_tumblr',
+			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_tumblr',
 				SucomUtil::get_prot().'://assets.tumblr.com/share-button.js', $pos ) );
 
 			return '<script type="text/javascript" id="tumblr-script-'.$pos.'">'.

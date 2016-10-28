@@ -63,9 +63,9 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 			}
 
 			$html = '<!-- '.$lca.' '.__FUNCTION__.' function begin -->'."\n".
-				$wpsso->ssb->get_script( 'sharing-buttons-header', $ids ).
-				$wpsso->ssb->get_html( $ids, $atts ).
-				$wpsso->ssb->get_script( 'sharing-buttons-footer', $ids ).
+				$wpsso->ssb_sharing->get_script( 'sharing-buttons-header', $ids ).
+				$wpsso->ssb_sharing->get_html( $ids, $atts ).
+				$wpsso->ssb_sharing->get_script( 'sharing-buttons-footer', $ids ).
 				'<!-- '.$lca.' '.__FUNCTION__.' function end -->';
 	
 			if ( $wpsso->is_avail['cache']['transient'] ||

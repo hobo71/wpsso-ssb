@@ -29,10 +29,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$this->p->util->add_plugin_actions( $this, array(
 				'form_content_metaboxes_ssb_buttons' => 1,	// show two-column metaboxes
 			) );
-
-			$this->p->util->add_plugin_filters( $this, array(
-				'messages_tooltip' => 2,
-			) );
 		}
 
 		private function set_objects() {
@@ -63,27 +59,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			}
 		}
 
-		public function filter_messages_tooltip( $text, $idx ) {
-			if ( strpos( $idx, 'tooltip-buttons_' ) !== 0 )
-				return $text;
-
-			switch ( $idx ) {
-				case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
-					$text = sprintf( __( 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options).', 'wpsso-ssb' ), _x( 'Show Button in', 'option label', 'wpsso-ssb' ) );
-					break;
-				case 'tooltip-buttons_on_index':
-					$text = __( 'Add the social sharing buttons to each entry of an index webpage (for example, <strong>non-static</strong> homepage, category, archive, etc.). Social sharing buttons are not included on index webpages by default.', 'wpsso-ssb' );
-					break;
-				case 'tooltip-buttons_on_front':
-					$text = __( 'If a static Post or Page has been selected for the homepage, you can add the social sharing buttons to that static homepage as well (default is unchecked).', 'wpsso-ssb' );
-					break;
-				case 'tooltip-buttons_add_to':
-					$text = __( 'Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here.', 'wpsso-ssb' );
-					break;
-			}
-			return $text;
-		}
-
 		protected function add_meta_boxes() {
 			$col = 0;
 			$row = 0;
@@ -94,7 +69,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					array( &$this, 'show_metabox_ssb_buttons' ),
 						$this->pagehook, 'normal' );
 
-			$website_ids = $this->p->ssb->get_website_object_ids( $this->website );
+			$website_ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
 			foreach ( $website_ids as $id => $name ) {
 				$col = $col == 1 ? 2 : 1;

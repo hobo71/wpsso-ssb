@@ -212,7 +212,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					return $html;
 					break;
 			}
-			$pin_img_url = $this->p->util->get_cache_file_url( $pin_img_url );
+			$pin_img_url = $this->p->ssb_sharing->get_file_cache_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'pinterest' ).'>'.
@@ -235,7 +235,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
+			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
 				SucomUtil::get_prot().'://assets.pinterest.com/js/pinit.js', $pos ) );
 
 			return '<script type="text/javascript" id="pinterest-script-'.$pos.'">'.

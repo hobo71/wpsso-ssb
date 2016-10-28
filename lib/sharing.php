@@ -25,13 +25,34 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		public static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
+					/*
+					 * Advanced Settings
+					 */
+					// File and Object Cache Tab
+					'plugin_buttons_cache_exp' => 604800,		// Sharing Buttons Cache Expiry
+					'plugin_file_cache_exp' => 0,			// Social File Cache Expiry
+					/*
+					 * Sharing Buttons
+					 */
+					// Include Buttons
 					'buttons_on_index' => 0,
 					'buttons_on_front' => 0,
 					'buttons_add_to_post' => 1,
 					'buttons_add_to_page' => 1,
 					'buttons_add_to_attachment' => 1,
+					// Buttons Position Tab
 					'buttons_pos_content' => 'bottom',
 					'buttons_pos_excerpt' => 'bottom',
+					// Buttons Presets Tab
+					'buttons_preset_ssb-content' => '',
+					'buttons_preset_ssb-excerpt' => '',
+					'buttons_preset_ssb-admin_edit' => 'small_share_count',
+					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
+					'buttons_preset_ssb-shortcode' => '',
+					'buttons_preset_ssb-widget' => 'small_share_count',
+					/*
+					 * Sharing Styles
+					 */
 					'buttons_use_social_css' => 1,
 					'buttons_enqueue_social_css' => 1,
 					'buttons_css_ssb-sharing' => '',		// all buttons
@@ -53,13 +74,13 @@ jQuery("#wpsso-ssb-sidebar-container").mouseenter( function(){
 	}); } );
 jQuery("#wpsso-ssb-sidebar-header").click( function(){ 
 	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
-					'buttons_preset_ssb-content' => '',
-					'buttons_preset_ssb-excerpt' => '',
-					'buttons_preset_ssb-admin_edit' => 'small_share_count',
-					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
-					'buttons_preset_ssb-shortcode' => '',
-					'buttons_preset_ssb-widget' => 'small_share_count',
-				),
+				),	// end of defaults
+				'site_defaults' => array(
+					'plugin_buttons_cache_exp' => 0,		// Sharing Buttons Cache Expiry
+					'plugin_buttons_cache_exp:use' => 'default',
+					'plugin_file_cache_exp' => 0,			// Social File Cache Expiry
+					'plugin_file_cache_exp:use' => 'default',
+				),	// end of site defaults
 			),
 		);
 
@@ -90,10 +111,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults' => 1,				// add sharing options and css file contents to defaults
-				'get_md_defaults' => 1,				// add sharing options to meta data defaults
-				'text_filter_has_changes_before' => 2,		// remove the buttons filter from content, excerpt, etc.
-				'text_filter_has_changes_after' => 2,		// re-add the buttons filter to content, excerpt, etc.
+				'get_defaults' => 1,
+				'get_site_defaults' => 1,
+				'get_md_defaults' => 1,
+				'text_filter_has_changes_before' => 2,
+				'text_filter_has_changes_after' => 2,
 			) );
 
 			if ( is_admin() ) {
@@ -106,6 +128,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'post_social_settings_tabs' => 2,	// $tabs, $mod
 					'post_cache_transients' => 4,		// clear transients on post save
 					'secondary_action_buttons' => 4,	// add a reload default styles button
+					'messages_tooltip' => 2,
+					'messages_info' => 2,
 				) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
@@ -131,18 +155,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						$this->p->debug->log( $classname.' class loaded' );
 				}
 			}
-		}
-
-		public function filter_get_md_defaults( $def_opts ) {
-			return array_merge( $def_opts, array(
-				'email_title' => '',		// Email Subject
-				'email_desc' => '',		// Email Message
-				'twitter_desc' => '',		// Tweet Text
-				'pin_desc' => '',		// Pinterest Caption Text
-				'tumblr_img_desc' => '',	// Tumblr Image Caption
-				'tumblr_vid_desc' => '',	// Tumblr Video Caption
-				'buttons_disabled' => 0,	// Disable Sharing Buttons
-			) );
 		}
 
 		public function filter_get_defaults( $def_opts ) {
@@ -176,6 +188,22 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 			}
 			return $def_opts;
+		}
+
+		public function filter_get_site_defaults( $site_def_opts ) {
+			return array_merge( $site_def_opts, self::$cf['opt']['site_defaults'] );
+		}
+
+		public function filter_get_md_defaults( $def_opts ) {
+			return array_merge( $def_opts, array(
+				'email_title' => '',		// Email Subject
+				'email_desc' => '',		// Email Message
+				'twitter_desc' => '',		// Tweet Text
+				'pin_desc' => '',		// Pinterest Caption Text
+				'tumblr_img_desc' => '',	// Tumblr Image Caption
+				'tumblr_vid_desc' => '',	// Tumblr Video Caption
+				'buttons_disabled' => 0,	// Disable Sharing Buttons
+			) );
 		}
 
 		public function filter_save_options( $opts, $options_name, $network ) {
@@ -1002,6 +1030,134 @@ $buttons_html."\n".
 					' less '.$site_len.' for site name and '.$short_len.' for url)' );
 
 			return $max_len;
+		}
+
+		public function get_file_cache_url( $url, $url_ext = '' ) {
+			$lca = $this->p->cf['lca'];
+
+			if ( empty( $this->p->options['plugin_file_cache_exp'] ) ||
+				! isset( $this->p->cache->base_dir ) )	// check for defined cache folder path, just in case
+					return apply_filters( $lca.'_rewrite_url', $url );
+
+			$cache_exp = (int) apply_filters( $lca.'_cache_expire_file_url', $this->p->options['plugin_file_cache_exp'] );
+			$cache_url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
+
+			return apply_filters( $lca.'_rewrite_url', $cache_url );
+		}
+
+		public function filter_messages_tooltip( $text, $idx ) {
+			if ( strpos( $idx, 'tooltip-buttons_' ) === 0 ) {
+				switch ( $idx ) {
+					case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
+						$text = sprintf( __( 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options).', 'wpsso-ssb' ), _x( 'Show Button in', 'option label', 'wpsso-ssb' ) );
+						break;
+					case 'tooltip-buttons_on_index':
+						$text = __( 'Add the social sharing buttons to each entry of an index webpage (for example, <strong>non-static</strong> homepage, category, archive, etc.). Social sharing buttons are not included on index webpages by default.', 'wpsso-ssb' );
+						break;
+					case 'tooltip-buttons_on_front':
+						$text = __( 'If a static Post or Page has been selected for the homepage, you can add the social sharing buttons to that static homepage as well (default is unchecked).', 'wpsso-ssb' );
+						break;
+					case 'tooltip-buttons_add_to':
+						$text = __( 'Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here.', 'wpsso-ssb' );
+						break;
+					case 'tooltip-buttons_use_social_css':
+						$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
+						break;
+					case 'tooltip-buttons_enqueue_social_css':
+						$text = __( 'Have WordPress enqueue the social stylesheet instead of adding the CSS to in the webpage HTML (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.', 'wpsso-ssb' );
+						break;
+					case 'tooltip-buttons_js_ssb-sidebar':
+						$text = __( 'JavaScript added to webpages for the social sharing sidebar.' );
+						break;
+				}
+			} elseif ( strpos( $idx, 'tooltip-plugin_' ) === 0 ) {
+				switch ( $idx ) {
+					case 'tooltip-plugin_file_cache_exp':
+						$text = 'Social sharing buttons JavaScript and images can be saved to a local cache folder, providing URLs to these cached files instead of the originals. If your hosting infrastructure performs reasonably well, this option can improve page load times significantly. All social sharing images and javascripts will be cached, except for the Facebook JavaScript SDK, which does not work correctly when cached.';
+						break;
+				}
+			}
+			return $text;
+		}
+
+		public function filter_messages_info( $text, $idx ) {
+			if ( strpos( $idx, 'info-styles-ssb-' ) !== 0 )
+				return $text;
+			$short = $this->p->cf['plugin']['wpsso']['short'];
+			switch ( $idx ) {
+				case 'info-styles-ssb-sharing':
+					$text = '<p>'.$short.' uses the \'wpsso-ssb\' and \'ssb-buttons\' classes to wrap all its sharing buttons, and each button has it\'s own individual class name as well. This tab can be used to edit the CSS common to all sharing button locations.</p>';
+					break;
+				case 'info-styles-ssb-content':
+					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'content', true );
+					break;
+				case 'info-styles-ssb-excerpt':
+					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'excerpt', true );
+					break;
+				case 'info-styles-ssb-sidebar':
+					$text = '<p>Social sharing buttons added to the sidebar are assigned the \'#wpsso-ssb-sidebar-container\' CSS id, which itself contains \'#wpsso-ssb-sidebar-header\', \'#wpsso-ssb-sidebar\' and the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>
+					<p>Example:</p><pre>
+#wpsso-ssb-sidebar-container
+    #wpsso-ssb-sidebar-header {}
+
+#wpsso-ssb-sidebar-container
+    #wpsso-ssb-sidebar
+        .ssb-buttons
+	    .facebook-button {}</pre>';
+					break;
+				case 'info-styles-ssb-shortcode':
+					$text = '<p>Social sharing buttons added from a shortcode are assigned the \'wpsso-ssb-shortcode\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'shortcode', true );
+					break;
+				case 'info-styles-ssb-widget':
+					$text = '<p>Social sharing buttons within the '.$this->p->cf['menu'].' Sharing Buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					<p>Example:</p><pre>
+.wpsso-ssb-widget
+    .ssb-buttons
+        .facebook-button { }</pre>
+					<p>The '.$this->p->cf['menu'].' Sharing Buttons widget also has an id of \'wpsso-ssb-widget-<em>#</em>\', and the buttons have an id of \'<em>name</em>-wpsso-ssb-widget-<em>#</em>\'.</p>
+					<p>Example:</p><pre>
+#wpsso-ssb-widget-buttons-2
+    .ssb-buttons
+        #facebook-wpsso-widget-buttons-2 { }</pre>';
+					break;
+				case 'info-styles-ssb-admin_edit':
+					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox are assigned the \'wpsso-ssb-admin_edit\' class, which itself contains the \'sso-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'admin_edit', true );
+					break;
+				case 'info-styles-ssb-woo_short':
+					$text = '<p>Social sharing buttons added to the WooCommerce Short Description are assigned the \'wpsso-ssb-woo_short\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'woo_short', true );
+					break;
+				case 'info-styles-ssb-bbp_single':
+					$text = '<p>Social sharing buttons added at the top of bbPress Single templates are assigned the \'wpsso-ssb-bbp_single\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'bbp_single' );
+					break;
+				case 'info-styles-ssb-bp_activity':
+					$text = '<p>Social sharing buttons added on BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$this->get_info_css_example( 'bp_activity' );
+					break;
+			}
+			return $text;
+		}
+
+		protected function get_info_css_example( $type, $preset = false ) {
+			$text = '<p>Example:</p><pre>
+.wpsso-ssb .wpsso-ssb-'.$type.'
+    .ssb-buttons 
+        .facebook-button {}</pre>';
+			if ( $preset ) {
+				$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
+					$this->p->cf['sharing']['ssb-styles'] );
+
+				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
+					<p><strong>Selected preset:</strong> '.
+						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
+							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
+			}
+			return $text;
 		}
 	}
 }

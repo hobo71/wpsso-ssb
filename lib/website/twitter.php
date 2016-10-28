@@ -133,7 +133,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
-					$caption_len = $this->p->ssb->get_tweet_max_len( 'twitter' );
+					$caption_len = $this->p->ssb_sharing->get_tweet_max_len( 'twitter' );
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['twitter_caption'], $caption_len,
 						$mod, true, true, true, 'twitter_desc' );
 				}
@@ -184,7 +184,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->util->get_cache_file_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
+			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
 				SucomUtil::get_prot().'://platform.twitter.com/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.
