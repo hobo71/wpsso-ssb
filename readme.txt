@@ -135,17 +135,19 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.2.29-dev1 (TBD)**
+**Version 2.3.0-dev1 (TBD)**
 
 Official announcement: N/A
 
 * *New Features*
 	* None
 * *Improvements*
+	* Added a "Sharing Buttons Cache Expiry" option on the Advanced settings page.
 	* Replaced the "Social File Cache Expiry" drop-down (in hours) with an input field (in seconds).
 * *Bugfixes*
 	* None
 * *Developer Notes*
+	* Renamed the `$wpsso->rrssb` object to `$wpsso->rrssb_sharing`.
 	* Minor code changes required for WPSSO v3.37.0-1:
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
 
