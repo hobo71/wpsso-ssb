@@ -86,7 +86,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 			if ( empty( $atts['title'] ) )
 				$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, true, null );
 
-			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button -->'.

@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					 */
 					// File and Object Cache Tab
 					'plugin_buttons_cache_exp' => 604800,		// Sharing Buttons Cache Expiry
-					'plugin_file_cache_exp' => 0,			// Social File Cache Expiry
+					'plugin_social_file_cache_exp' => 0,			// Social File Cache Expiry
 					/*
 					 * Sharing Buttons
 					 */
@@ -78,8 +78,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				'site_defaults' => array(
 					'plugin_buttons_cache_exp' => 0,		// Sharing Buttons Cache Expiry
 					'plugin_buttons_cache_exp:use' => 'default',
-					'plugin_file_cache_exp' => 0,			// Social File Cache Expiry
-					'plugin_file_cache_exp:use' => 'default',
+					'plugin_social_file_cache_exp' => 0,			// Social File Cache Expiry
+					'plugin_social_file_cache_exp:use' => 'default',
 				),	// end of site defaults
 			),
 		);
@@ -305,7 +305,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$aop = $this->p->check->aop( $ext, true, $this->p->is_avail['aop'] );
 				$features['(tool) Sharing Buttons Image / JavaScript File Cache'] = array( 
 					'td_class' => $aop ? '' : 'blank',
-					'status' => $this->p->options['plugin_file_cache_exp'] ?
+					'status' => $this->p->options['plugin_social_file_cache_exp'] ?
 						( $aop ? 'on' : 'rec' ) : 'off',
 				);
 				$features['(tool) Sharing Styles Editor'] = array( 
@@ -1032,14 +1032,14 @@ $buttons_html."\n".
 			return $max_len;
 		}
 
-		public function get_file_cache_url( $url, $url_ext = '' ) {
+		public function get_social_file_cache_url( $url, $url_ext = '' ) {
 			$lca = $this->p->cf['lca'];
 
-			if ( empty( $this->p->options['plugin_file_cache_exp'] ) ||
+			if ( empty( $this->p->options['plugin_social_file_cache_exp'] ) ||
 				! isset( $this->p->cache->base_dir ) )	// check for defined cache folder path, just in case
 					return apply_filters( $lca.'_rewrite_url', $url );
 
-			$cache_exp = (int) apply_filters( $lca.'_cache_expire_file_url', $this->p->options['plugin_file_cache_exp'] );
+			$cache_exp = (int) apply_filters( $lca.'_cache_expire_file_url', $this->p->options['plugin_social_file_cache_exp'] );
 			$cache_url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
 
 			return apply_filters( $lca.'_rewrite_url', $cache_url );
@@ -1072,7 +1072,7 @@ $buttons_html."\n".
 				}
 			} elseif ( strpos( $idx, 'tooltip-plugin_' ) === 0 ) {
 				switch ( $idx ) {
-					case 'tooltip-plugin_file_cache_exp':
+					case 'tooltip-plugin_social_file_cache_exp':
 						$text = 'Social sharing buttons JavaScript and images can be saved to a local cache folder, providing URLs to these cached files instead of the originals. If your hosting infrastructure performs reasonably well, this option can improve page load times significantly. All social sharing images and javascripts will be cached, except for the Facebook JavaScript SDK, which does not work correctly when cached.';
 						break;
 				}

@@ -198,7 +198,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
 				SucomUtil::get_prot().'://d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
 			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.

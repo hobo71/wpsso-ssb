@@ -139,7 +139,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
 				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 
 			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.

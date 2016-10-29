@@ -25,7 +25,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 				<style type="text/css">
 					.badge { 
 						display:block;
-						background: url("'.$this->p->ssb_sharing->get_file_cache_url( 
+						background: url("'.$this->p->ssb_sharing->get_social_file_cache_url( 
 							SucomUtil::get_prot().'://b9.sustatic.com/7ca234_0mUVfxHFR0NAk1g' ).'") no-repeat transparent; 
 						width:110px;
 						margin:5px 0 5px 0;
@@ -134,7 +134,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
-			$js_url = $this->p->ssb_sharing->get_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
 				SucomUtil::get_prot().'://platform.stumbleupon.com/1/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.
