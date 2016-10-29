@@ -29,8 +29,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					 * Advanced Settings
 					 */
 					// File and Object Cache Tab
-					'plugin_buttons_cache_exp' => 604800,		// Sharing Buttons Cache Expiry
-					'plugin_social_file_cache_exp' => 0,			// Social File Cache Expiry
+					'plugin_sharing_buttons_cache_exp' => 604800,	// Sharing Buttons Cache Expiry (7 days)
+					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
 					/*
 					 * Sharing Buttons
 					 */
@@ -76,9 +76,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
 				),	// end of defaults
 				'site_defaults' => array(
-					'plugin_buttons_cache_exp' => 0,		// Sharing Buttons Cache Expiry
-					'plugin_buttons_cache_exp:use' => 'default',
-					'plugin_social_file_cache_exp' => 0,			// Social File Cache Expiry
+					'plugin_sharing_buttons_cache_exp' => 604800,	// Sharing Buttons Cache Expiry (7 days)
+					'plugin_sharing_buttons_cache_exp:use' => 'default',
+					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
 					'plugin_social_file_cache_exp:use' => 'default',
 				),	// end of site defaults
 			),
@@ -265,16 +265,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_post_cache_transients( $transients, $post_id, $locale = 'en_US', $sharing_url ) {
 			$locale_salt = 'locale:'.$locale.'_post:'.$post_id;
-			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
-				$this->p->cf['sharing']['show_on'], null );
-
-			foreach( $show_on as $type_id => $type_name ) {
-				$transients[__CLASS__.'::get_buttons'][] = $locale_salt.'_type:'.$type_id;
-				$transients[__CLASS__.'::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_prot:https';
-				$transients[__CLASS__.'::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_mobile:true';
-				$transients[__CLASS__.'::get_buttons'][] = $locale_salt.'_type:'.$type_id.'_mobile:true_prot:https';
-			}
-
+			$transients[__CLASS__.'::get_buttons'][] = $locale_salt;
 			return $transients;
 		}
 
@@ -490,8 +481,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$lca = $this->p->cf['lca'];
 			$js = trim( preg_replace( '/\/\*.*\*\//', '',
 				$this->p->options['buttons_js_ssb-sidebar'] ) );
-			$text = '';	// variable must be passed by reference
-			$text = $this->get_buttons( $text, 'sidebar', false );	// $use_post = false
+			$text = $this->get_buttons( '', 'sidebar', false );	// $use_post = false
 			if ( ! empty( $text ) ) {
 				echo '<div id="'.$lca.'-ssb-sidebar-container">';
 				echo '<div id="'.$lca.'-ssb-sidebar-header"></div>';
@@ -579,7 +569,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $this->get_buttons( $text, 'content' );
 		}
 
-		public function get_buttons( &$text, $type = 'content', $use_post = true, $location = '', $atts = array() ) {
+		// $mod = true | false | post_id | $mod array
+		public function get_buttons( $text, $type = 'content', $mod = true, $location = '', $atts = array() ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();
 
@@ -624,39 +615,39 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$lca = $this->p->cf['lca'];
-			$mod = $this->p->util->get_page_mod( $use_post );	// get post/user/term id, module name, and module object reference
-			$html = false;
+			if ( ! is_array( $mod ) )
+				$mod = $this->p->util->get_page_mod( $mod );
+			$buttons_index = $this->get_buttons_cache_index( $type );
+			$buttons_array = array();
+			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', 
+				$this->p->options['plugin_sharing_buttons_cache_exp'], $buttons_index );
 
-			if ( $this->p->is_avail['cache']['transient'] ) {
-
-				$sharing_url = $this->p->util->get_sharing_url( $mod, true );
-				$cache_salt = __METHOD__.'('.apply_filters( $lca.'_buttons_cache_salt', 
-					SucomUtil::get_mod_salt( $mod ).'_type:'.$type.
-					( SucomUtil::is_mobile() ? '_mobile:true' : '' ).
-					( SucomUtil::is_https() ? '_prot:https' : '' ).
-					( empty( $mod['id'] ) ? '_url:'.$sharing_url : '' ),
-						$type, $use_post ).')';
-				$cache_id = $lca.'_'.md5( $cache_salt );
-				$cache_type = 'object cache';
-
-				if ( $this->p->debug->enabled )
-					$this->p->debug->log( $cache_type.': transient salt '.$cache_salt );
-
-				$html = get_transient( $cache_id );
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->log( 'buttons index = '.$buttons_index );
+				$this->p->debug->log( 'cache expire = '.$cache_exp );
 			}
 
-			if ( $html !== false ) {
+			if ( $cache_exp > 0 ) {
+				$cache_salt = __METHOD__.'('.apply_filters( $lca.'_sharing_buttons_cache_salt', SucomUtil::get_mod_salt( $mod ).
+					( empty( $mod['id'] ) ? '_url:'.$this->p->util->get_sharing_url( $mod, true ) : '' ), $type, $mod ).')';
+				$cache_id = $lca.'_'.md5( $cache_salt );
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( $cache_type.': '.$type.' html retrieved from transient '.$cache_id );
-			} else {
+					$this->p->debug->log( 'transient cache salt '.$cache_salt );
+				$buttons_array = get_transient( $cache_id );
+				if ( isset( $buttons_array[$buttons_index] ) ) {
+					if ( $this->p->debug->enabled )
+						$this->p->debug->log( $type.' buttons array retrieved from transient '.$cache_id );
+				}
+			}
+
+			if ( ! isset( $buttons_array[$buttons_index] ) ) {
 				// sort enabled sharing buttons by their preferred order
 				$sorted_ids = array();
 				foreach ( $this->p->cf['opt']['pre'] as $id => $pre )
 					if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) )
 						$sorted_ids[ zeroise( $this->p->options[$pre.'_order'], 3 ).'-'.$id ] = $id;
 				ksort( $sorted_ids );
-
-				$atts['use_post'] = $use_post;
+				$atts['use_post'] = $mod['use_post'];
 				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
 
 				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
@@ -664,25 +655,24 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$css_preset_name = $lca.'-ssb-preset-'.$atts['preset_id'];
 				} else $css_preset_name = '';
 
-				$buttons_html = $this->get_html( $sorted_ids, $atts, $mod );
+				// returns html or an empty string
+				$buttons_array[$buttons_index] = $this->get_html( $sorted_ids, $atts, $mod );
 
-				if ( trim( $buttons_html ) ) {
-					$html = '
+				if ( ! empty( $buttons_array[$buttons_index] ) ) {
+					$buttons_array[$buttons_index] = '
 <!-- '.$lca.' '.$css_type_name.' begin -->
 <!-- generated on '.date( 'c' ).' -->
-<div class="'.$lca.'-ssb'.
-	( $css_preset_name ? ' '.$css_preset_name : '' ).
-	( $use_post ? ' '.$lca.'-'.$css_type_name.'">' : '" id="'.$lca.'-'.$css_type_name.'">' ).
-$buttons_html."\n".
-'</div><!-- .'.$lca.'-ssb '.
-	( $use_post ? '.' : '#' ).$lca.'-'.$css_type_name.' -->
+<div class="'.$lca.'-ssb'.( $css_preset_name ? ' '.$css_preset_name : '' ).
+( $mod['use_post'] ? ' '.$lca.'-'.$css_type_name.'">' : '" id="'.$lca.'-'.$css_type_name.'">' ).
+$buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
+'</div><!-- .'.$lca.'-ssb '.( $mod['use_post'] ? '.' : '#' ).$lca.'-'.$css_type_name.' -->
 <!-- '.$lca.' '.$css_type_name.' end -->'."\n\n";
 
-					if ( $this->p->is_avail['cache']['transient'] ) {
-						set_transient( $cache_id, $html, $this->p->options['plugin_object_cache_exp'] );
+					if ( $cache_exp > 0 ) {
+						set_transient( $cache_id, $buttons_array, $cache_exp );
 						if ( $this->p->debug->enabled )
-							$this->p->debug->log( $cache_type.': '.$type.' html saved to transient '.
-								$cache_id.' ('.$this->p->options['plugin_object_cache_exp'].' seconds)' );
+							$this->p->debug->log( $type.' buttons html saved to transient '.
+								$cache_id.' ('.$cache_exp.' seconds)' );
 					}
 				}
 			}
@@ -694,17 +684,25 @@ $buttons_html."\n".
 
 			switch ( $location ) {
 				case 'top': 
-					$text = $html.$text; 
+					$text = $buttons_array[$buttons_index].$text; 
 					break;
 				case 'bottom': 
-					$text = $text.$html; 
+					$text = $text.$buttons_array[$buttons_index]; 
 					break;
 				case 'both': 
-					$text = $html.$text.$html; 
+					$text = $buttons_array[$buttons_index].$text.$buttons_array[$buttons_index]; 
 					break;
 			}
 
-			return $text.( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
+			return $text.( $this->p->debug->enabled ? 
+				$this->p->debug->get_html() : '' );
+		}
+
+		public function get_buttons_cache_index( $type ) {
+			$buttons_index = 'type:'.$type.
+				'_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ).
+				'_https:'.( SucomUtil::is_https() ? 'true' : 'false' );
+			return apply_filters( $this->p->cf['lca'].'_buttons_cache_index', $buttons_index, $type );
 		}
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
@@ -719,11 +717,11 @@ $buttons_html."\n".
 			$atts['filter_id'] = isset( $atts['filter_id'] ) ? SucomUtil::sanitize_key( $atts['filter_id'] ) : '';
 
 			if ( ! is_array( $mod ) )
-				$mod = $this->p->util->get_page_mod( $atts['use_post'] );	// get post/user/term id, module name, and module object reference
+				$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 
-			$html_ret = '';
-			$html_begin = "\n".'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
-			$html_end = "\n".'</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->';
+			$buttons_html = '';
+			$buttons_begin = "\n".'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
+			$buttons_end = "\n".'</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->';
 
 			// possibly dereference the opts variable to prevent passing on changes
 			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) )
@@ -764,7 +762,7 @@ $buttons_html."\n".
 									$atts['add_page'], $atts['src_id'] ) : 
 								apply_filters( $lca.'_sharing_url', $atts['url'], 
 									$mod, $atts['add_page'], $atts['src_id'] );
-							$html_ret .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
+							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
 							$atts = $saved_atts;	// restore the common $atts array
 
 						} elseif ( $this->p->debug->enabled )
@@ -775,10 +773,9 @@ $buttons_html."\n".
 					$this->p->debug->log( 'website object missing for '.$id );
 			}
 
-			$html_ret = trim( $html_ret );
-			if ( ! empty( $html_ret ) )
-				$html_ret = $html_begin.$html_ret.$html_end;
-			return $html_ret;
+			$buttons_html = trim( $buttons_html );
+			return empty( $buttons_html ) ? '' :
+				$buttons_begin.$buttons_html.$buttons_end;
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
@@ -869,7 +866,7 @@ $buttons_html."\n".
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$html = '<!-- wpssossb '.$pos.' javascript begin -->'."\n".
+			$script_html = '<!-- wpssossb '.$pos.' javascript begin -->'."\n".
 				'<!-- generated on '.date( 'c' ).' -->'."\n";
 
 			if ( strpos( $pos, '-header' ) ) 
@@ -888,15 +885,15 @@ $buttons_html."\n".
 
 						if ( isset( $this->p->options[$opt_name] ) && 
 							$this->p->options[$opt_name] === $script_loc )
-								$html .= $this->website[$id]->get_script( $pos )."\n";
-						else $html .= '<!-- wpssossb '.$pos.': '.$id.' script location is '.$this->p->options[$opt_name].' -->'."\n";
+								$script_html .= $this->website[$id]->get_script( $pos )."\n";
+						else $script_html .= '<!-- wpssossb '.$pos.': '.$id.' script location is '.$this->p->options[$opt_name].' -->'."\n";
 					}
 				}
 			}
 
-			$html .= '<!-- wpssossb '.$pos.' javascript end -->'."\n";
+			$script_html .= '<!-- wpssossb '.$pos.' javascript end -->'."\n";
 
-			return $html;
+			return $script_html;
 		}
 
 		public function get_script_loader( $pos = 'id' ) {
