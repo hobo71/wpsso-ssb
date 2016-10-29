@@ -135,7 +135,7 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 
 = Changelog / Release Notes =
 
-**Version 2.3.0-dev1 (TBD)**
+**Version 2.3.0-dev1 (2016/10/29)**
 
 Official announcement: N/A
 
@@ -146,6 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
+	* Added a new WpssoSsbSharing::get_buttons_index() method to cache sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per sharing buttons location within the same webpage.
 	* Renamed the `$wpsso->rrssb` object to `$wpsso->rrssb_sharing`.
 	* Minor code changes required for WPSSO v3.37.0-1:
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
@@ -164,6 +165,10 @@ Official announcement: N/A
 	* Minimum requirements updated to WP v3.5 and PHP v5.4.
 
 == Upgrade Notice ==
+
+= 2.3.0-dev1 =
+
+(2016/10/29) Minor code changes required for WPSSO v3.37.0-1. Added a Sharing Buttons Cache Expiry option on the Advanced settings page. Optimized the sharing buttons HTML cache by storing only one transient per webpage.
 
 = 2.2.28-1 =
 
