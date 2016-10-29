@@ -140,9 +140,8 @@ Use the Free version of WPSSO SSB with *both* the Free and Pro versions of WPSSO
 Official announcement: N/A
 
 * *New Features*
-	* None
-* *Improvements*
 	* Added a "Sharing Buttons Cache Expiry" option on the Advanced settings page.
+* *Improvements*
 	* Replaced the "Social File Cache Expiry" drop-down (in hours) with an input field (in seconds).
 * *Bugfixes*
 	* None
