@@ -85,7 +85,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				$this->p->util->get_sharing_url( $mod ) : $atts['url'];
 
 			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
-			$buttons_index = $this->p->ssb_sharing->get_buttons_cache_index( $type, $atts );;
+			$buttons_index = $this->p->ssb_sharing->get_buttons_cache_index( $type, $atts );
 			$buttons_array = array();
 			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', 
 				$this->p->options['plugin_sharing_buttons_cache_exp'], $buttons_index );
