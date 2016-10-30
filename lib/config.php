@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.3.0-dev2',	// plugin version
+					'version' => '2.3.0-dev3',	// plugin version
 					'opt_version' => '15',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -206,7 +206,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static function get_variable_constants() { 
 			$var_const = array();
 
-			$var_const['WPSSOSSB_SHARING_SHORTCODE'] = 'ssb';
+			$var_const['WPSSOSSB_SHARING_SHORTCODE_NAME'] = 'ssb';
 
 			/*
 			 * WPSSO SSB hook priorities
