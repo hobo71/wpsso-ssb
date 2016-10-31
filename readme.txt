@@ -152,7 +152,7 @@ Official announcement: N/A
 	* Renamed the `$wpsso->ssb` object to `$wpsso->ssb_sharing`.
 	* Renamed the 'wpsso_shortcode_ssb' filter to 'wpsso_sharing_shortcode_ssb'.
 	* Renamed the WPSSOSSB_SHARING_SHORTCODE contant to WPSSOSSB_SHARING_SHORTCODE_NAME.
-	* Added a new filter to adjust cache expiration:
+	* Added a new filter to adjust transient cache expiration:
 		* 'wpsso_cache_expire_sharing_buttons' ( $secs );
 	* Minor code changes required for WPSSO v3.37.0-1:
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
