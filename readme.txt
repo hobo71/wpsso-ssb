@@ -146,6 +146,7 @@ Official announcement: N/A
 * *Bugfixes*
 	* None
 * *Developer Notes*
+	* Refactored the shortcode and widget classes to optimize caching performance.
 	* Refactored the wpssossb_get_sharing_buttons() function to optimize caching performance.
 	* Added a new WpssoSsbSharing::get_buttons_cache_index() method to cache sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per sharing buttons location within the same webpage.
 	* Renamed the `$wpsso->ssb` object to `$wpsso->ssb_sharing`.
