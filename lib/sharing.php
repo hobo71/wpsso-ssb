@@ -128,8 +128,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'post_social_settings_tabs' => 2,	// $tabs, $mod
 					'post_cache_transients' => 4,		// clear transients on post save
 					'secondary_action_buttons' => 4,	// add a reload default styles button
-					'messages_tooltip' => 2,
 					'messages_info' => 2,
+					'messages_tooltip' => 2,
+					'messages_tooltip_plugin' => 2,
 				) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
@@ -1027,36 +1028,48 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 		}
 
 		public function filter_messages_tooltip( $text, $idx ) {
-			if ( strpos( $idx, 'tooltip-buttons_' ) === 0 ) {
-				switch ( $idx ) {
-					case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
-						$text = sprintf( __( 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options).', 'wpsso-ssb' ), _x( 'Show Button in', 'option label', 'wpsso-ssb' ) );
-						break;
-					case 'tooltip-buttons_on_index':
-						$text = __( 'Add the social sharing buttons to each entry of an index webpage (for example, <strong>non-static</strong> homepage, category, archive, etc.). Social sharing buttons are not included on index webpages by default.', 'wpsso-ssb' );
-						break;
-					case 'tooltip-buttons_on_front':
-						$text = __( 'If a static Post or Page has been selected for the homepage, you can add the social sharing buttons to that static homepage as well (default is unchecked).', 'wpsso-ssb' );
-						break;
-					case 'tooltip-buttons_add_to':
-						$text = __( 'Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here.', 'wpsso-ssb' );
-						break;
-					case 'tooltip-buttons_use_social_css':
-						$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
-						break;
-					case 'tooltip-buttons_enqueue_social_css':
-						$text = __( 'Have WordPress enqueue the social stylesheet instead of adding the CSS to in the webpage HTML (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.', 'wpsso-ssb' );
-						break;
-					case 'tooltip-buttons_js_ssb-sidebar':
+			if ( strpos( $idx, 'tooltip-buttons_' ) !== 0 )
+				return $text;
+			switch ( $idx ) {
+				case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
+					$text = sprintf( __( 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options).', 'wpsso-ssb' ), _x( 'Show Button in', 'option label', 'wpsso-ssb' ) );
+					break;
+				case 'tooltip-buttons_on_index':
+					$text = __( 'Add the social sharing buttons to each entry of an index webpage (for example, <strong>non-static</strong> homepage, category, archive, etc.). Social sharing buttons are not included on index webpages by default.', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_on_front':
+					$text = __( 'If a static Post or Page has been selected for the homepage, you can add the social sharing buttons to that static homepage as well (default is unchecked).', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_add_to':
+					$text = __( 'Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here.', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_use_social_css':
+					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
+					break;
+				case 'tooltip-buttons_enqueue_social_css':
+					$text = __( 'Have WordPress enqueue the social stylesheet instead of adding the CSS to in the webpage HTML (default is unchecked). Enqueueing the stylesheet may be desirable if you use a plugin to concatenate all enqueued styles into a single stylesheet URL.', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_js_ssb-sidebar':
 						$text = __( 'JavaScript added to webpages for the social sharing sidebar.' );
-						break;
-				}
-			} elseif ( strpos( $idx, 'tooltip-plugin_' ) === 0 ) {
-				switch ( $idx ) {
-					case 'tooltip-plugin_social_file_cache_exp':
-						$text = 'Social sharing buttons JavaScript and images can be saved to a local cache folder, providing URLs to these cached files instead of the originals. If your hosting infrastructure performs reasonably well, this option can improve page load times significantly. All social sharing images and javascripts will be cached, except for the Facebook JavaScript SDK, which does not work correctly when cached.';
-						break;
-				}
+					break;
+			}
+			return $text;
+		}
+
+		public function filter_messages_tooltip_plugin( $text, $idx ) {
+			switch ( $idx ) {
+				case 'tooltip-plugin_sharing_buttons_cache_exp':
+					$cache_exp = NgfbSharing::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];	// use original un-filtered value
+					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
+					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.',
+						'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).',
+							'wpsso-ssb' ), $cache_exp, $cache_diff );
+					break;
+				case 'tooltip-plugin_social_file_cache_exp':
+					$cache_exp = NgfbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];	// use original un-filtered value
+					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'nextgen-facebook' );
+					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'nextgen-facebook' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'nextgen-facebook' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'nextgen-facebook' ), $cache_exp, $cache_diff );
+					break;
 			}
 			return $text;
 		}
