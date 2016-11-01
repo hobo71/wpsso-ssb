@@ -296,11 +296,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function filter_status_pro_features( $features, $ext, $info ) {
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$aop = $this->p->check->aop( $ext, true, $this->p->is_avail['aop'] );
-				$features['(tool) Sharing Buttons Image / JavaScript File Cache'] = array( 
-					'td_class' => $aop ? '' : 'blank',
-					'status' => $this->p->options['plugin_social_file_cache_exp'] ?
-						( $aop ? 'on' : 'rec' ) : 'off',
-				);
 				$features['(tool) Sharing Styles Editor'] = array( 
 					'td_class' => $aop ? '' : 'blank',
 					'status' => $aop ? 'on' : 'rec',
@@ -1022,15 +1017,13 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 
 		public function get_social_file_cache_url( $url, $url_ext = '' ) {
 			$lca = $this->p->cf['lca'];
+			$cache_exp = (int) apply_filters( $lca.'_cache_expire_social_file', 
+				$this->p->options['plugin_social_file_cache_exp'] );
 
-			if ( empty( $this->p->options['plugin_social_file_cache_exp'] ) ||
-				! isset( $this->p->cache->base_dir ) )	// check for defined cache folder path, just in case
-					return apply_filters( $lca.'_rewrite_url', $url );
+			if ( $cache_exp > 0 && isset( $this->p->cache->base_dir ) )
+				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
 
-			$cache_exp = (int) apply_filters( $lca.'_cache_expire_file_url', $this->p->options['plugin_social_file_cache_exp'] );
-			$cache_url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
-
-			return apply_filters( $lca.'_rewrite_url', $cache_url );
+			return apply_filters( $lca.'_rewrite_url', $url );
 		}
 
 		public function filter_messages_tooltip( $text, $idx ) {

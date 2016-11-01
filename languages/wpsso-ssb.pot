@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.0-dev4\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.0-b1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:13 lib/sharing.php:1052
+#: lib/config-gettext-extract.php:13 lib/sharing.php:1045
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
@@ -186,80 +186,80 @@ msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:314
+#: lib/sharing.php:309
 msgid "Reload Default Styles"
 msgstr ""
 
-#: lib/sharing.php:331
+#: lib/sharing.php:326
 msgid ""
 "All sharing styles have been reloaded with their default settings and saved."
 msgstr ""
 
-#: lib/sharing.php:352
+#: lib/sharing.php:347
 msgid "The %s file is not readable."
 msgstr ""
 
-#: lib/sharing.php:392
+#: lib/sharing.php:387
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr ""
 
-#: lib/sharing.php:401
+#: lib/sharing.php:396
 msgid "Failed writing to the % file."
 msgstr ""
 
-#: lib/sharing.php:406
+#: lib/sharing.php:401
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr ""
 
-#: lib/sharing.php:416
+#: lib/sharing.php:411
 msgid "The %s folder is not writable."
 msgstr ""
 
-#: lib/sharing.php:422
+#: lib/sharing.php:417
 msgid "Failed to open file %s for writing."
 msgstr ""
 
-#: lib/sharing.php:431
+#: lib/sharing.php:426
 msgid ""
 "Error removing the minimized stylesheet &mdash; does the web server have "
 "sufficient privileges?"
 msgstr ""
 
-#: lib/sharing.php:450
+#: lib/sharing.php:445
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:525
+#: lib/sharing.php:520
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
-#: lib/sharing.php:1040
+#: lib/sharing.php:1033
 msgid ""
 "Social sharing buttons can be added to the top, bottom, or both. Each "
 "sharing button must also be enabled below (see the <em>%s</em> options)."
 msgstr ""
 
-#: lib/sharing.php:1040
+#: lib/sharing.php:1033
 msgctxt "option label"
 msgid "Show Button in"
 msgstr ""
 
-#: lib/sharing.php:1043
+#: lib/sharing.php:1036
 msgid ""
 "Add the social sharing buttons to each entry of an index webpage (for "
 "example, <strong>non-static</strong> homepage, category, archive, etc.). "
 "Social sharing buttons are not included on index webpages by default."
 msgstr ""
 
-#: lib/sharing.php:1046
+#: lib/sharing.php:1039
 msgid ""
 "If a static Post or Page has been selected for the homepage, you can add the "
 "social sharing buttons to that static homepage as well (default is "
 "unchecked)."
 msgstr ""
 
-#: lib/sharing.php:1049
+#: lib/sharing.php:1042
 msgid ""
 "Enabled social sharing buttons are added to the Post, Page, Media, and "
 "Product webpages by default. If your theme (or another plugin) supports "
@@ -267,7 +267,7 @@ msgid ""
 "buttons on these webpages, check the appropriate option(s) here."
 msgstr ""
 
-#: lib/sharing.php:1052
+#: lib/sharing.php:1045
 msgid ""
 "Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
 "will be <strong>minimized</strong>, and saved to a single stylesheet with a "
@@ -275,7 +275,7 @@ msgid ""
 "or added directly to the webpage HTML."
 msgstr ""
 
-#: lib/sharing.php:1055
+#: lib/sharing.php:1048
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
 "the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
@@ -283,7 +283,7 @@ msgid ""
 "single stylesheet URL."
 msgstr ""
 
-#: lib/sharing.php:1058
+#: lib/sharing.php:1051
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 
