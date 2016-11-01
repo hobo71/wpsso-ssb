@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					/*
 					 * Advanced Settings
 					 */
-					// File and Object Cache Tab
+					// Cache Settings Tab
 					'plugin_sharing_buttons_cache_exp' => 604800,	// Sharing Buttons Cache Expiry (7 days)
 					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
 					/*
