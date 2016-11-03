@@ -1106,12 +1106,12 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 					$this->get_info_css_example( 'shortcode', true );
 					break;
 				case 'info-styles-ssb-widget':
-					$text = '<p>Social sharing buttons within the '.$this->p->cf['menu'].' Sharing Buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
+					$text = '<p>Social sharing buttons within the social sharing buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
 					<p>Example:</p><pre>
 .wpsso-ssb-widget
     .ssb-buttons
         .facebook-button { }</pre>
-					<p>The '.$this->p->cf['menu'].' Sharing Buttons widget also has an id of \'wpsso-ssb-widget-<em>#</em>\', and the buttons have an id of \'<em>name</em>-wpsso-ssb-widget-<em>#</em>\'.</p>
+					<p>The social sharing buttons widget also has an id of \'wpsso-ssb-widget-<em>#</em>\', and the buttons have an id of \'<em>name</em>-wpsso-ssb-widget-<em>#</em>\'.</p>
 					<p>Example:</p><pre>
 #wpsso-ssb-widget-buttons-2
     .ssb-buttons
