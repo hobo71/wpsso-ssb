@@ -32,18 +32,18 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'url' => array(
 						// wordpress
 						'download' => 'https://wordpress.org/plugins/wpsso-ssb/',
+						'forum' => 'https://wordpress.org/support/plugin/wpsso-ssb',
 						'review' => 'https://wordpress.org/support/view/plugin-reviews/wpsso-ssb?filter=5&rate=5#postform',
-						'readme' => 'https://plugins.svn.wordpress.org/wpsso-ssb/trunk/readme.txt',
-						'wp_support' => 'https://wordpress.org/support/plugin/wpsso-ssb',
-						// surniaulula
+						// github
+						'readme_txt' => 'https://raw.githubusercontent.com/SurniaUlula/wpsso-ssb/master/readme.txt',
+						// wpsso
 						'update' => 'https://wpsso.com/extend/plugins/wpsso-ssb/update/',
 						'purchase' => 'https://wpsso.com/extend/plugins/wpsso-ssb/',
 						'changelog' => 'https://wpsso.com/extend/plugins/wpsso-ssb/changelog/',
 						'codex' => 'https://wpsso.com/codex/plugins/wpsso-ssb/',
 						'faq' => 'https://wpsso.com/codex/plugins/wpsso-ssb/faq/',
 						'notes' => 'https://wpsso.com/codex/plugins/wpsso-ssb/notes/',
-						'feed' => 'https://wpsso.com/category/application/wordpress/wp-plugins/wpsso-ssb/feed/',
-						'pro_support' => 'http://wpsso-ssb.support.wpsso.com/',
+						'support' => 'http://wpsso-ssb.support.wpsso.com/',
 					),
 					'lib' => array(
 						// submenu items must have unique keys
