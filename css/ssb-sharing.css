@@ -119,7 +119,7 @@
 .wpsso-ssb-preset-small_share_count 
 	.ssb-buttons div.tumblr-button { width:85px; }
 .wpsso-ssb-preset-large_share_vertical 
-	.ngfb-buttons div.tumblr-button { height:40px; }
+	.ssb-buttons div.tumblr-button { height:40px; }
 
 /* non-JavaScript buttons */
 
