@@ -264,8 +264,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				_x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' ) );
 		}
 
-		public function filter_post_cache_transients( $transients, $post_id, $locale, $sharing_url ) {
-			$locale_salt = 'locale:'.$locale.'_post:'.$post_id;	// see SucomUtil::get_mod_salt()
+		public function filter_post_cache_transients( $transients, $mod, $locale, $sharing_url ) {
+			$locale_salt = SucomUtil::get_mod_salt( $mod, $locale );
 			$transients['WpssoSsbSharing::get_buttons'][] = $locale_salt;
 			$transients['WpssoSsbShortcodeSharing::shortcode'][] = $locale_salt;
 			$transients['WpssoSsbWidgetSharing::widget'][] = $locale_salt;
