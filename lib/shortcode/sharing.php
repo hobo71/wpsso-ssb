@@ -80,10 +80,8 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
 
 			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
-
 			$atts['url'] = empty( $atts['url'] ) ?
 				$this->p->util->get_sharing_url( $mod ) : $atts['url'];
-
 			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
 			$buttons_index = $this->p->ssb_sharing->get_buttons_cache_index( $type, $atts );
 			$buttons_array = array();
@@ -91,16 +89,16 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				$this->p->options['plugin_sharing_buttons_cache_exp'] );
 
 			if ( $this->p->debug->enabled ) {
+				$this->p->debug->log( 'sharing url = '.$atts['url'] );
 				$this->p->debug->log( 'buttons index = '.$buttons_index );
 				$this->p->debug->log( 'cache expire = '.$cache_exp );
 			}
 
 			if ( $cache_exp > 0 ) {
-				$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod ).
-					( empty( $mod['id'] ) ? '_url:'.$atts['url'] : '' ).')';
+				$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, false, $atts['url'] ).')';
 				$cache_id = $lca.'_'.md5( $cache_salt );
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'transient cache salt '.$cache_salt );
+					$this->p->debug->log( 'transient cache salt = '.$cache_salt );
 				$buttons_array = get_transient( $cache_id );
 				if ( isset( $buttons_array[$buttons_index] ) ) {
 					if ( $this->p->debug->enabled )
