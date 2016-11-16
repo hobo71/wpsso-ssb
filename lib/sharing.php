@@ -631,9 +631,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( ! isset( $buttons_array[$buttons_index] ) ) {
 				// sort enabled sharing buttons by their preferred order
 				$sorted_ids = array();
-				foreach ( $this->p->cf['opt']['pre'] as $id => $pre )
-					if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) )
-						$sorted_ids[ zeroise( $this->p->options[$pre.'_order'], 3 ).'-'.$id ] = $id;
+				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre )
+					if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) )
+						$sorted_ids[ zeroise( $this->p->options[$opt_pre.'_order'], 3 ).'-'.$id ] = $id;
 				ksort( $sorted_ids );
 				$atts['use_post'] = $mod['use_post'];
 				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
@@ -785,7 +785,7 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 					if ( is_object( $widget ) && is_active_widget( false,
 						$widget->id_base.'-'.$num, $widget->id_base ) ) {
 	
-						foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
+						foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 							if ( array_key_exists( $id, $instance ) && 
 								! empty( $instance[$id] ) )
 									$enabled_ids[] = $id;
@@ -821,17 +821,17 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 				} elseif ( $this->p->debug->enabled )
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
 			} elseif ( is_admin() ) {
-				foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
+				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
 						if ( ! empty( $val ) )
 							$enabled_ids[] = $id;
 					}
 				}
 			} else {
-				foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^'.$pre.'_on_/', $this->p->options ) as $key => $val ) {
+				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_/', $this->p->options ) as $key => $val ) {
 						// exclude buttons enabled for admin editing pages
-						if ( strpos( $key, $pre.'_on_admin_' ) === false && ! empty( $val ) )
+						if ( strpos( $key, $opt_pre.'_on_admin_' ) === false && ! empty( $val ) )
 							$enabled_ids[] = $id;
 					}
 				}
@@ -866,7 +866,7 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 			if ( ! empty( $include_ids ) ) {
 				foreach ( $include_ids as $id ) {
 					$id = preg_replace( '/[^a-z]/', '', $id );
-					$opt_name = $this->p->cf['opt']['pre'][$id].'_script_loc';
+					$opt_name = $this->p->cf['opt']['cm_prefix'][$id].'_script_loc';
 
 					if ( isset( $this->website[$id] ) &&
 						method_exists( $this->website[$id], 'get_script' ) ) {
@@ -909,8 +909,8 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 		public function have_buttons_for_type( $type ) {
 			if ( isset( $this->buttons_for_type[$type] ) )
 				return $this->buttons_for_type[$type];
-			foreach ( $this->p->cf['opt']['pre'] as $id => $pre ) {
-				if ( ! empty( $this->p->options[$pre.'_on_'.$type] ) &&		// check if button is enabled
+			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+				if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) &&	// check if button is enabled
 					$this->allow_for_platform( $id ) )			// check if allowed on platform
 						return $this->buttons_for_type[$type] = true;
 			}
@@ -918,10 +918,10 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 		}
 
 		public function allow_for_platform( $id ) {
-			$pre = isset( $this->p->cf['opt']['pre'][$id] ) ?
-				$this->p->cf['opt']['pre'][$id] : $id;
-			if ( isset( $this->p->options[$pre.'_platform'] ) ) {
-				switch( $this->p->options[$pre.'_platform'] ) {
+			$opt_pre = isset( $this->p->cf['opt']['cm_prefix'][$id] ) ?
+				$this->p->cf['opt']['cm_prefix'][$id] : $id;
+			if ( isset( $this->p->options[$opt_pre.'_platform'] ) ) {
+				switch( $this->p->options[$opt_pre.'_platform'] ) {
 					case 'any':
 						return true;
 					case 'desktop':
