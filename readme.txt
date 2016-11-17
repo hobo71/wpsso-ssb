@@ -19,9 +19,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 <p><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" style="width:33%;min-width:128px;max-width:256px;float:left;margin:0 40px 20px 0;" />Add traditional social sharing buttons to Posts / Pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
-<p>WPSSO SSB can include sharing buttons in the content, excerpt, widget, CSS floating sidebar, shortcodes, templates, and even on admin editing pages!</p>
+<p>WPSSO SSB can include social sharing buttons in the content, excerpt, widget, CSS floating sidebar, shortcodes, templates, and even on admin editing pages!</p>
 
-<p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides customized and <em>accurate</em> information to each social websites.</p>
+<p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate information to each social website.</p>
 
 <blockquote>
 <p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, which <em>automatically</em> creates complete and accurate meta tags and Schema markup for Social Sharing Optimization (SSO) and SEO.</p>
@@ -55,7 +55,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 * Include / exclude each social sharing button based on the viewing device (desktop and/or mobile).
 * Support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
-* The Facebook, Google+ and Twitter sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
+* The Facebook, Google+ and Twitter social sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
 **WPSSO SSB Pro / Power-User Features**
 
@@ -66,7 +66,7 @@ The [Pro version of WPSSO SSB](https://wpsso.com/extend/plugins/wpsso-ssb/) incl
 * URL shortening with Bitly or Google for URLs in Tweet texts.
 * File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
 * Selection of preset button options by location (content, excerpt, shortcode, widget, etc.).
-* Ability to include / exclude sharing buttons by post type.
+* Ability to include / exclude social sharing buttons by post type.
 * Additional sharing button locations and CSS styles for:
 	* [bbPress](https://wordpress.org/plugins/bbpress/)
 	* [BuddyPress](https://wordpress.org/plugins/buddypress/)
@@ -185,7 +185,7 @@ Official announcement: N/A
 * *Developer Notes*
 	* Refactored the shortcode and widget classes to optimize caching performance.
 	* Refactored the wpssossb_get_sharing_buttons() function to optimize caching performance.
-	* Added a new WpssoSsbSharing::get_buttons_cache_index() method to cache sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per sharing buttons location within the same webpage.
+	* Added a new WpssoSsbSharing::get_buttons_cache_index() method to cache social sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per social sharing buttons location within the same webpage.
 	* Renamed the `$wpsso->ssb` object to `$wpsso->ssb_sharing`.
 	* Renamed the 'wpsso_shortcode_ssb' filter to 'wpsso_sharing_shortcode_ssb'.
 	* Renamed the WPSSOSSB_SHARING_SHORTCODE contant to WPSSOSSB_SHARING_SHORTCODE_NAME.
