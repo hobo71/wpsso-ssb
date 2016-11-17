@@ -146,7 +146,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.2-rc1 (2016/11/17)**
+**Version 2.3.2-1 (2016/11/17)**
 
 Official announcement: N/A
 
@@ -197,7 +197,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.3.2-rc1 =
+= 2.3.2-1 =
 
 (2016/11/17) Updated SucomUtil::get_mod_salt() method arguments for WPSSO v3.37.3-1.
 
