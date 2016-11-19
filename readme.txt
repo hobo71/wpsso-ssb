@@ -187,7 +187,6 @@ Official announcement: N/A
 	* Refactored the wpssossb_get_sharing_buttons() function to optimize caching performance.
 	* Added a new WpssoSsbSharing::get_buttons_cache_index() method to cache social sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per social sharing buttons location within the same webpage.
 	* Renamed the `$wpsso->ssb` object to `$wpsso->ssb_sharing`.
-	* Renamed the 'wpsso_shortcode_ssb' filter to 'wpsso_sharing_shortcode_ssb'.
 	* Renamed the WPSSOSSB_SHARING_SHORTCODE contant to WPSSOSSB_SHARING_SHORTCODE_NAME.
 	* Added new filters to adjust transient cache expiration:
 		* 'wpsso_cache_expire_sharing_buttons' ( $secs );
