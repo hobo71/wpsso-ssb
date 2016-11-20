@@ -309,7 +309,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$actions['reload_default_sharing_ssb_styles'] = __( 'Reload Default Styles', 'submit button', 'wpsso-ssb' );
 			return $actions;
 		}
-		
+
 		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
 			$opts =& $this->p->options;
 			$def_opts = $this->p->opt->get_defaults();
