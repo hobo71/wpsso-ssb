@@ -287,28 +287,56 @@ msgstr ""
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 
-#: lib/sharing.php:1063 lib/sharing.php:1070
+#: lib/sharing.php:1056
+msgid ""
+"Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</"
+"a> in the %3$s settings page). The %1$s will be displayed and recommended "
+"after the webpage is shared."
+msgstr ""
+
+#: lib/sharing.php:1056 lib/sharing.php:1059
+msgctxt "option label"
+msgid "Twitter Business @username"
+msgstr ""
+
+#: lib/sharing.php:1056
+msgctxt "lib file description"
+msgid "General"
+msgstr ""
+
+#: lib/sharing.php:1059
+msgid ""
+"Recommend following the author's Twitter @username after sharing a webpage. "
+"If the %1$s option (above) is also checked, the %2$s is suggested first."
+msgstr ""
+
+#: lib/sharing.php:1059 lib/website/buffer.php:75 lib/website/twitter.php:67
+msgctxt "option label (short)"
+msgid "Add via @username"
+msgstr ""
+
+#: lib/sharing.php:1069 lib/sharing.php:1076
 msgctxt "option comment"
 msgid "disabled"
 msgstr ""
 
-#: lib/sharing.php:1064
+#: lib/sharing.php:1070
 msgid ""
 "The rendered HTML for social sharing buttons is saved to the WordPress "
 "transient cache to optimize performance."
 msgstr ""
 
-#: lib/sharing.php:1065 lib/sharing.php:1071
+#: lib/sharing.php:1071 lib/sharing.php:1077
 msgid "The suggested cache expiration value is %1$s seconds (%2$s)."
 msgstr ""
 
-#: lib/sharing.php:1071
+#: lib/sharing.php:1077
 msgid ""
 "The JavaScript of most social sharing buttons can be saved locally to cache "
 "folder in order to provide cached URLs instead of the originals."
 msgstr ""
 
-#: lib/sharing.php:1071
+#: lib/sharing.php:1077
 msgid ""
 "If your hosting infrastructure performs reasonably well, this option can "
 "improve page load times significantly."
@@ -445,24 +473,7 @@ msgctxt "option comment"
 msgid "characters or less"
 msgstr ""
 
-#: lib/website/buffer.php:75 lib/website/twitter.php:67
-#: lib/website/twitter.php:74
-msgctxt "option label (short)"
-msgid "Add via @username"
-msgstr ""
-
-#: lib/website/buffer.php:77
-msgid ""
-"Append the website's business @username to the tweet (see the <a href=\"%1$s"
-"\">Twitter</a> options tab on the %2$s settings page)."
-msgstr ""
-
-#: lib/website/buffer.php:77 lib/website/twitter.php:69
-msgctxt "lib file description"
-msgid "General"
-msgstr ""
-
-#: lib/website/buffer.php:125
+#: lib/website/buffer.php:124
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
 msgstr ""
@@ -658,23 +669,9 @@ msgstr ""
 msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
 msgstr ""
 
-#: lib/website/twitter.php:69
-msgid ""
-"Append the website's business @username to the tweet (see the <a href=\"%1$s"
-"\">Twitter</a> options tab on the %2$s settings page). The website's "
-"@username will be displayed and recommended after the webpage is shared."
-msgstr ""
-
-#: lib/website/twitter.php:72
+#: lib/website/twitter.php:71
 msgctxt "option label (short)"
 msgid "Recommend Author"
-msgstr ""
-
-#: lib/website/twitter.php:74
-msgid ""
-"Recommend following the author's Twitter @username (from their profile) "
-"after sharing a webpage. If the <em>%1$s</em> option is also checked, the "
-"website's @username is suggested first."
 msgstr ""
 
 #: lib/widget/sharing.php:29

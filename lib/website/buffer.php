@@ -73,8 +73,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Add via @username',
-				'option label (short)', 'wpsso-ssb' ), 'short', null,
-			sprintf( __( 'Append the website\'s business @username to the tweet (see the <a href="%1$s">Twitter</a> options tab on the %2$s settings page).', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter' ), _x( 'General', 'lib file description', 'wpsso-ssb' ) ) ).
+				'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
 			'<td>'.$form->get_checkbox( 'buffer_via' ).'</td>';
 
 			return $table_rows;
