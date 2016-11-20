@@ -147,12 +147,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			}
 
 			if ( ! array_key_exists( 'related', $atts ) ) {
-				global $post; 
 				if ( ! empty( $opts['twitter_rel_author'] ) && 
-					! empty( $post ) && $atts['use_post'] ) {
-					$atts['related'] = preg_replace( '/^@/', '', 
-						get_the_author_meta( $opts['plugin_cm_twitter_name'], $post->author ) );
-				} else $atts['related'] = '';
+					! empty( $mod['post_author'] ) && $atts['use_post'] )
+						$atts['related'] = preg_replace( '/^@/', '', 
+							get_the_author_meta( $opts['plugin_cm_twitter_name'], $mod['post_author'] ) );
+				else $atts['related'] = '';
 			}
 
 			// hashtags are included in the caption instead
