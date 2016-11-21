@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.2-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.3-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-11-12 18:43-0800\n"
-"PO-Revision-Date: 2016-11-14 08:39-0800\n"
+"POT-Creation-Date: 2016-11-20 15:12-0800\n"
+"PO-Revision-Date: 2016-11-20 15:12-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -178,57 +178,57 @@ msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr "Position dans le texte bbPress Single"
 
-#: lib/sharing.php:176
+#: lib/sharing.php:175
 msgid "Failed to open the %s file for reading."
 msgstr "Impossible d'ouvrir le fichier %s pour la lecture."
 
-#: lib/sharing.php:264
+#: lib/sharing.php:263
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage"
 
-#: lib/sharing.php:310
+#: lib/sharing.php:309
 msgid "Reload Default Styles"
 msgstr "Recharger Styles par Défaut"
 
-#: lib/sharing.php:327
+#: lib/sharing.php:326
 msgid "All sharing styles have been reloaded with their default settings and saved."
 msgstr "Tous les styles de partage ont été rechargé avec leurs paramètres par défaut et sauvegardé."
 
-#: lib/sharing.php:348
+#: lib/sharing.php:347
 msgid "The %s file is not readable."
 msgstr "Le fichier %s n'est pas lisible."
 
-#: lib/sharing.php:388
+#: lib/sharing.php:387
 msgid "Failed to load the minify class SuextMinifyCssCompressor."
 msgstr "Impossible de charger la classe de rapetissement SuextMinifyCssCompressor."
 
-#: lib/sharing.php:397
+#: lib/sharing.php:396
 msgid "Failed writing to the % file."
 msgstr "Echec d'écriture dans le fichier%."
 
-#: lib/sharing.php:402
+#: lib/sharing.php:401
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
 msgstr "La feuille de style <a href=\"%1$s\">%2$s</a> a été mise à jour (%3$s octets écrits)."
 
-#: lib/sharing.php:412
+#: lib/sharing.php:411
 msgid "The %s folder is not writable."
 msgstr "Le dossier %s n'est pas accessible en écriture."
 
-#: lib/sharing.php:418
+#: lib/sharing.php:417
 msgid "Failed to open file %s for writing."
 msgstr "Impossible d'ouvrir le fichier %s pour l'écriture."
 
-#: lib/sharing.php:427
+#: lib/sharing.php:426
 msgid "Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?"
 msgstr "Erreur en retirant la feuille de style minimisé &mdash; le serveur Web a t'il les privilèges nécessaires?"
 
-#: lib/sharing.php:446
+#: lib/sharing.php:445
 msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/sharing.php:521
+#: lib/sharing.php:520
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
@@ -265,24 +265,47 @@ msgstr "Demander a WordPress de mettre la feuille de style en queue au lieu d'aj
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr "JavaScript ajouté au pages Web pour la barre latérale de partage sociale."
 
-#: lib/sharing.php:1063 lib/sharing.php:1070
+#: lib/sharing.php:1056
+msgid "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</a> in the %3$s settings page). The %1$s will be displayed and recommended after the webpage is shared."
+msgstr "Ajouter le %1$s au Tweet (voir <a href=\"%1$s\">l'onglet d'options Twitter</a> sur la page de réglages %2$s). Le %1$s sera affichés et recommandé après que la page Web est été partagée."
+
+#: lib/sharing.php:1056 lib/sharing.php:1059
+msgctxt "option label"
+msgid "Twitter Business @username"
+msgstr "Le @nom d'affaires Twitter"
+
+#: lib/sharing.php:1056
+msgctxt "lib file description"
+msgid "General"
+msgstr "Général"
+
+#: lib/sharing.php:1059
+msgid "Recommend following the author's Twitter @username after sharing a webpage. If the %1$s option (above) is also checked, the %2$s is suggested first."
+msgstr "Conseiller de suivre le @nom Twitter de l'auteur après avoir partagé une page Web. Si l'option %1$s (ci-dessus) est également cochée, le %2$s sera recommandé en premier."
+
+#: lib/sharing.php:1059 lib/website/buffer.php:75 lib/website/twitter.php:67
+msgctxt "option label (short)"
+msgid "Add via @username"
+msgstr "Ajouter via @nom"
+
+#: lib/sharing.php:1069 lib/sharing.php:1076
 msgctxt "option comment"
 msgid "disabled"
 msgstr "désactivé"
 
-#: lib/sharing.php:1064
+#: lib/sharing.php:1070
 msgid "The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance."
 msgstr "Le code HTML des boutons de partage social est enregistré dans le cache transitoire de WordPress pour optimiser la performance."
 
-#: lib/sharing.php:1065 lib/sharing.php:1071
+#: lib/sharing.php:1071 lib/sharing.php:1077
 msgid "The suggested cache expiration value is %1$s seconds (%2$s)."
 msgstr "La valeur d'expiration de cache suggérée est de %1$s secondes (%2$s)."
 
-#: lib/sharing.php:1071
+#: lib/sharing.php:1077
 msgid "The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals."
 msgstr "Le JavaScript des boutons de partage social peut être enregistré localement afin de fournir des URLs du cache au lieu des originaux."
 
-#: lib/sharing.php:1071
+#: lib/sharing.php:1077
 msgid "If your hosting infrastructure performs reasonably well, this option can improve page load times significantly."
 msgstr "Si votre infrastructure d'hébergement fonctionne raisonnablement bien, cette option peut améliorer le temp de chargement des pages Web considérablement."
 
@@ -417,22 +440,7 @@ msgctxt "option comment"
 msgid "characters or less"
 msgstr "caractères ou moins"
 
-#: lib/website/buffer.php:75 lib/website/twitter.php:67
-#: lib/website/twitter.php:74
-msgctxt "option label (short)"
-msgid "Add via @username"
-msgstr "Ajouter via @nom"
-
-#: lib/website/buffer.php:77
-msgid "Append the website's business @username to the tweet (see the <a href=\"%1$s\">Twitter</a> options tab on the %2$s settings page)."
-msgstr "Ajouter le @nom d'affaires du site Web au Tweet (voir l'onglet d'options <a href=\"%1$s\">Twitter</a> sur la page de réglages %2$s)."
-
-#: lib/website/buffer.php:77 lib/website/twitter.php:69
-msgctxt "lib file description"
-msgid "General"
-msgstr "Général"
-
-#: lib/website/buffer.php:125
+#: lib/website/buffer.php:124
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
 msgstr "Bouton de partage Buffer"
@@ -628,44 +636,36 @@ msgstr "No pas suivre"
 msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
 msgstr "Désactiver le suivi pour les annonces et suggestions adaptées de Twitter."
 
-#: lib/website/twitter.php:69
-msgid "Append the website's business @username to the tweet (see the <a href=\"%1$s\">Twitter</a> options tab on the %2$s settings page). The website's @username will be displayed and recommended after the webpage is shared."
-msgstr "Ajouter le @nom d'affaires du site Web au Tweet (voir l'onglet d'options <a href=\"%1$s\">Twitter</a> sur la page de réglages %2$s). Le @nom du site Web sera affichés et recommandé après que la page Web est été partagée."
-
-#: lib/website/twitter.php:72
+#: lib/website/twitter.php:71
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr "Recomm. l'auteur"
-
-#: lib/website/twitter.php:74
-msgid "Recommend following the author's Twitter @username (from their profile) after sharing a webpage. If the <em>%1$s</em> option is also checked, the website's @username is suggested first."
-msgstr "Conseiller de suivre le @nom Twitter de l'auteur (défini sur leur page de profil) après avoir partagé une page Web. Si l'option <em>%1$s</em> est également cochée, le @nom d'affaires Twitter du site Web est aussi recommandes."
 
 #: lib/widget/sharing.php:29
 msgid "The %s widget."
 msgstr "Le widget %s."
 
-#: lib/widget/sharing.php:125
+#: lib/widget/sharing.php:127
 msgctxt "option value"
 msgid "Share It"
 msgstr "Partager"
 
-#: lib/widget/sharing.php:128
+#: lib/widget/sharing.php:130
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr "Titre du Widget (laisser vide pour aucun titre)"
 
-#: wpsso-ssb.php:86
-msgid "The %1$s extension requires the %2$s plugin &mdash; please install and activate the %3$s plugin before trying to re-activate the %4$s extension."
-msgstr "L'extension %1$s requiert %2$s &mdash; s'il vous plaît installer et activer l'extension %3$s avant d'essayer de re-activer %4$s."
+#: wpsso-ssb.php:82
+msgid "%1$s is an extension for the %2$s plugin &mdash; please install and activate the %3$s plugin before activating the %4$s extension."
+msgstr "%1$s est une extension pour %2$s &mdash; s'il vous plaît installer et activer %3$s avant d'essayer de re-activer l'extension %4$s."
 
-#: wpsso-ssb.php:88
+#: wpsso-ssb.php:84
 msgid "The %1$s extension requires the %2$s plugin &mdash; please install and activate the %3$s plugin."
 msgstr "L'extension %1$s requiert %2$s &mdash; s'il vous plaît installer et activer l'extension %3$s."
 
-#: wpsso-ssb.php:140
-msgid "The %1$s extension version %2$s requires the use of %3$s version %4$s or newer (version %5$s is currently installed)."
-msgstr "L'extension %1$s version %2$s requiert l'utilisation de %3$s version %4$s ou plus récente (la version %5$s est actuellement installée)."
+#: wpsso-ssb.php:141
+msgid "The %1$s extension v%2$s requires %3$s v%4$s or newer (v%5$s currently installed)."
+msgstr "L'extension %1$s v%2$s requiert l'utilisation de %3$s v%4$s ou plus récente (v%5$s est actuellement installée)."
 
 #. Plugin Name of the plugin/theme
 msgid "WPSSO Social Sharing Buttons (WPSSO SSB)"
