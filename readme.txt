@@ -146,7 +146,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.3-dev1 (2016/11/20)**
+**Version 2.3.3-dev2 (2016/11/21)**
 
 Official announcement: N/A
 
@@ -155,7 +155,8 @@ Official announcement: N/A
 * *Improvements*
 	* None
 * *Bugfixes*
-	* None
+	* Fixed an incorrect variable name in the WhatsApp class which prevented the button HTML from being added.
+	* Fixed the Tumblr caption, title, and description attribute values that were being added without being properly encoded.
 * *Developer Notes*
 	* Refactored the min_version_notice() method and moved variables to config class.
 	* Refactored the Twitter button class to use the $mod variable instead of the global $post.
@@ -213,9 +214,9 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.3.3-dev1 =
+= 2.3.3-dev2 =
 
-(2016/11/20) Refactored the Twitter button class and the min_version_notice() method.
+(2016/11/21) Refactored the Twitter button class and the min_version_notice() method.
 
 = 2.3.2-1 =
 
