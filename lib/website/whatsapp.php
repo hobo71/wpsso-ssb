@@ -89,8 +89,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 				$this->p->debug->mark();
 
 			$wa_button_html = $this->p->options['wa_ssb_html'];
-			$wa_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/',	// just in case
-				'${1}9${3}', $email_button_html );
+			$wa_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $wa_button_html );	// just in case
 
 			return $this->p->util->replace_inline_vars( '<!-- WhatsApp Button -->'.
 				$wa_button_html, $mod, $atts, array(

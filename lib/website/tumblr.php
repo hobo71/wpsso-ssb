@@ -201,12 +201,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 				// html encode param is false to use url encoding instead
 				if ( empty( $atts['caption'] ) ) 
 					$atts['caption'] = $this->p->webpage->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
-						$mod, true, false, false, ( ! empty( $atts['photo'] ) ?
-							'tumblr_img_desc' : 'tumblr_vid_desc' ) );
+						$mod, true, false, true, ( ! empty( $atts['photo'] ) ? 'tumblr_img_desc' : 'tumblr_vid_desc' ) );
 
 			} else {
 				if ( empty( $atts['title'] ) ) 
-					$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, false, null );
+					$atts['title'] = $this->p->webpage->get_title( null, 
+						null, $mod, true, false );	// $add_hashtags = false
 
 				if ( empty( $atts['description'] ) ) 
 					$atts['description'] = $this->p->webpage->get_description( $opts['tumblr_desc_len'], '...',
