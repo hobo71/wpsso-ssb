@@ -43,7 +43,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteEmail' ) ) {
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Add Hashtags to Message',
+			$form->get_th_html( _x( 'Add Hashtags',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'email_cap_hashtags',
 				range( 0, $this->p->cf['form']['max_hashtags'] ), 'short', null, true ).' '.
