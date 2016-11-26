@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.3-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-11-20 15:12-0800\n"
-"PO-Revision-Date: 2016-11-20 15:12-0800\n"
+"POT-Creation-Date: 2016-11-27 09:16+1000\n"
+"PO-Revision-Date: 2016-11-27 09:16+1000\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -452,8 +452,8 @@ msgstr "Longueur du message couriel"
 
 #: lib/website/email.php:46
 msgctxt "option label (short)"
-msgid "Add Hashtags to Message"
-msgstr "Ajout de hashtags au message"
+msgid "Add Hashtags"
+msgstr "Ajout de hashtags"
 
 #: lib/website/email.php:50
 msgctxt "option comment"
