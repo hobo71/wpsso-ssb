@@ -81,7 +81,8 @@ $wpsso->ssb_sharing->get_script( 'sharing-buttons-footer', $ids ).
 '<!-- '.$lca.' '.__FUNCTION__.' function end -->'."\n\n";
 
 				if ( $cache_exp > 0 ) {
-					set_transient( $cache_id, $buttons_array, $cache_exp );
+					// update the transient array and keep the original expiration time
+					$cache_exp = SucomUtil::update_transient_array( $cache_id, $buttons_array, $cache_exp );
 					if ( $wpsso->debug->enabled )
 						$wpsso->debug->log( $type.' buttons html saved to transient '.
 							$cache_id.' ('.$cache_exp.' seconds)' );
