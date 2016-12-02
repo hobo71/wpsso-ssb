@@ -153,7 +153,7 @@ Official announcement: N/A
 * *New Features*
 	* None
 * *Improvements*
-	* None
+	* Optimized wp_cache and transient caching for multilingual sites.
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -230,7 +230,7 @@ Official announcement: N/A
 
 = 2.3.4-dev4 =
 
-(2016/12/03) Replaced set_transient() to update buttons arrays and keep the original transient expiration time.
+(2016/12/03) Optimized wp_cache and transient caching for multilingual sites. Replaced set_transient() to update buttons arrays and keep the original transient expiration time.
 
 = 2.3.3-1 =
 
