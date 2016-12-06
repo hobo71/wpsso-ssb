@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.4-3\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.5-dev1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -520,19 +520,19 @@ msgctxt "option label (short)"
 msgid "Button Type"
 msgstr ""
 
-#: lib/website/facebook.php:66
+#: lib/website/facebook.php:69 lib/website/facebook.php:117
 msgctxt "option label (short)"
 msgid "Markup Language"
 msgstr ""
 
-#: lib/website/facebook.php:71
+#: lib/website/facebook.php:73
 msgctxt "option label (short)"
 msgid "Include Send"
 msgstr ""
 
-#: lib/website/facebook.php:76 lib/website/facebook.php:119
+#: lib/website/facebook.php:78 lib/website/facebook.php:121
 msgctxt "option label (short)"
-msgid "Layout"
+msgid "Button Layout"
 msgstr ""
 
 #: lib/website/facebook.php:88
@@ -545,19 +545,25 @@ msgctxt "option label (short)"
 msgid "Font"
 msgstr ""
 
-#: lib/website/facebook.php:106
+#: lib/website/facebook.php:104
 msgctxt "option label (short)"
 msgid "Color Scheme"
 msgstr ""
 
-#: lib/website/facebook.php:110
+#: lib/website/facebook.php:108
 msgctxt "option label (short)"
 msgid "Action Name"
 msgstr ""
 
-#: lib/website/gplus.php:50 lib/website/twitter.php:46
+#: lib/website/facebook.php:130 lib/website/gplus.php:50
+#: lib/website/twitter.php:46
 msgctxt "option label (short)"
 msgid "Button Size"
+msgstr ""
+
+#: lib/website/facebook.php:137
+msgctxt "option label (short)"
+msgid "Mobile iFrame"
 msgstr ""
 
 #: lib/website/gplus.php:59

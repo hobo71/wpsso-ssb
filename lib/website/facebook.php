@@ -2,7 +2,7 @@
 /*
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Copyright 2014-2016 Jean-Sebastien Morisset (https://surniaulula.com/)
+ * Copyright 2012-2016 Jean-Sebastien Morisset (https://surniaulula.com/)
  */
 
 if ( ! defined( 'ABSPATH' ) )
@@ -15,14 +15,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
 			$this->p->util->add_plugin_filters( $this, array( 
-				'ssb_website_facebook_tabs' => 1,	// $tabs
-				'ssb_website_facebook_all_rows' => 3,	// $table_rows, $form, $submenu
-				'ssb_website_facebook_like_rows' => 3,	// $table_rows, $form, $submenu
-				'ssb_website_facebook_share_rows' => 3,	// $table_rows, $form, $submenu
+				'website_facebook_tabs' => 1,		// $tabs
+				'website_facebook_all_rows' => 3,	// $table_rows, $form, $submenu
+				'website_facebook_like_rows' => 3,	// $table_rows, $form, $submenu
+				'website_facebook_share_rows' => 3,	// $table_rows, $form, $submenu
 			) );
 		}
 
-		public function filter_ssb_website_facebook_tabs( $tabs ) {
+		public function filter_website_facebook_tabs( $tabs ) {
 			return array( 
 				'all' => _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'like' => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),
@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			);
 		}
 
-		public function filter_ssb_website_facebook_all_rows( $table_rows, $form, $submenu ) {
+		public function filter_website_facebook_all_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -56,52 +56,50 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
+			'<td>'.$form->get_select( 'fb_button', array(
+				'like' => 'Like and Send',
+				'share' => 'Share'
+			) ).'</td>';
 
 			return $table_rows;
 		}
 
-		public function filter_ssb_website_facebook_like_rows( $table_rows, $form, $submenu ) {
+		public function filter_website_facebook_like_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Markup Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_markup', 
-				array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
+			'<td>'.$form->get_select( 'fb_markup', array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Include Send',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
 			'The Send button is only available in combination with the XFBML <em>Markup Language</em>.' ).
 			'<td>'.$form->get_checkbox( 'fb_send' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Layout',
+			$table_rows[] = $form->get_th_html( _x( 'Button Layout',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
-			'The Standard layout displays social text to the right of the button, and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout" target="_blank">Facebook Layout Settings FAQ</a> for more details.' ).
-			'<td>'.$form->get_select( 'fb_layout', 
-				array(
-					'standard' => 'Standard',
-					'button' => 'Button',
-					'button_count' => 'Button Count',
-					'box_count' => 'Box Count',
-				) 
-			).'</td>';
+			'The Standard layout displays social text to the right of the button and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout" target="_blank">Facebook Layout Settings FAQ</a> for details.' ).
+			'<td>'.$form->get_select( 'fb_layout', array(
+				'standard' => 'Standard',
+				'button' => 'Button',
+				'button_count' => 'Button Count',
+				'box_count' => 'Box Count',
+			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Faces',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
-			'Show profile photos below the Standard button (Standard button <em>Layout</em> only).' ).
+			'Show profile photos below the Standard button (Standard <em>Button Layout</em> only).' ).
 			'<td>'.$form->get_checkbox( 'fb_show_faces' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Font',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_font', 
-				array( 
-					'arial' => 'Arial',
-					'lucida grande' => 'Lucida Grande',
-					'segoe ui' => 'Segoe UI',
-					'tahoma' => 'Tahoma',
-					'trebuchet ms' => 'Trebuchet MS',
-					'verdana' => 'Verdana',
-				) 
-			).'</td>';
+			$form->get_select( 'fb_font', array( 
+				'arial' => 'Arial',
+				'lucida grande' => 'Lucida Grande',
+				'segoe ui' => 'Segoe UI',
+				'tahoma' => 'Tahoma',
+				'trebuchet ms' => 'Trebuchet MS',
+				'verdana' => 'Verdana',
+			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Color Scheme',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
@@ -113,21 +111,32 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			return $table_rows;
 		}
-	
-		public function filter_ssb_website_facebook_share_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Layout',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_type', 
-				array(
-					'button' => 'Button',
-					'button_count' => 'Button Count',
-					'box_count' => 'Box Count',
-					'icon' => 'Small Icon',
-					'icon_link' => 'Icon Link',
-					'link' => 'Text Link',
-				) 
-			).'</td>';
+		public function filter_website_facebook_share_rows( $table_rows, $form, $submenu ) {
+
+			$table_rows[] = $form->get_th_html( _x( 'Markup Language',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_share_markup', array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Button Layout',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_share_layout', array(
+				'button' => 'Button',
+				'button_count' => 'Button Count',
+				'box_count' => 'Box Count',
+				'icon_link' => 'Icon Link',
+			) ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Button Size',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_share_size', array(
+				'small' => 'Small',
+				'large' => 'Large',
+			) ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Mobile iFrame',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_checkbox( 'fb_share_mobile_iframe' ).'</td>';
 
 			return $table_rows;
 		}
@@ -152,11 +161,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 					'fb_markup' => 'xfbml',
 					'fb_send' => 1,
 					'fb_layout' => 'button_count',
-					'fb_font' => 'arial',
 					'fb_show_faces' => 0,
+					'fb_font' => 'arial',
 					'fb_colorscheme' => 'light',
 					'fb_action' => 'like',
-					'fb_type' => 'button_count',
+					'fb_share_markup' => 'xfbml',
+					'fb_share_layout' => 'button_count',
+					'fb_share_size' => 'small',
+					'fb_share_mobile_iframe' => 1,
 				),
 			),
 		);
@@ -185,28 +197,40 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 				case 'like':
 					switch ( $opts['fb_markup'] ) {
 						case 'xfbml':
-							// XFBML
-							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).'><fb:like href="'.
-							$atts['url'].'" send="'.$atts['send'].'" layout="'.$opts['fb_layout'].'" show_faces="'.
-							$atts['show_faces'].'" font="'.$opts['fb_font'].'" action="'.
-							$opts['fb_action'].'" colorscheme="'.$opts['fb_colorscheme'].'"></fb:like></div>';
+							$html .= '<!-- Facebook Like / Send Button (XFBML) -->'.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).'>'.
+							'<fb:like href="'.$atts['url'].'" send="'.$atts['send'].'" '.
+							'layout="'.$opts['fb_layout'].'" show_faces="'.$atts['show_faces'].'" '.
+							'font="'.$opts['fb_font'].'" colorscheme="'.$opts['fb_colorscheme'].'" '.
+							'action="'.$opts['fb_action'].'"></fb:like></div>';
 							break;
 						case 'html5':
-							// HTML5
-							$html .= '<!-- Facebook Like / Send Button(s) --><div '.
-							SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).' data-href="'.
-							$atts['url'].'" data-send="'.$atts['send'].'" data-layout="'.
-							$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" data-font="'.
-							$opts['fb_font'].'" data-action="'.$opts['fb_action'].'" data-colorscheme="'.
-							$opts['fb_colorscheme'].'"></div>';
+							$html .= '<!-- Facebook Like / Send Button (HTML5) -->'.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).' '.
+							'data-href="'.$atts['url'].'" data-send="'.$atts['send'].'" '.
+							'data-layout="'.$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" '.
+							'data-font="'.$opts['fb_font'].'" data-colorscheme="'.$opts['fb_colorscheme'].'" '.
+							'data-action="'.$opts['fb_action'].'"></div>';
 							break;
 					}
 					break;
 				case 'share':
-					$html .= '<!-- Facebook Share Button --><div '.
-					SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).'><fb:share-button href="'.
-					$atts['url'].'" font="'.$opts['fb_font'].'" type="'.$opts['fb_type'].'"></fb:share-button></div>';
+					switch ( $opts['fb_markup'] ) {
+						case 'xfbml':
+							$html .= '<!-- Facebook Share Button (XFBML) -->'.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).'>'.
+							'<fb:share-button href="'.$atts['url'].'" layout="'.$opts['fb_share_layout'].'" '.
+							'mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
+							'size="'.$opts['fb_share_size'].'"></fb:share-button></div>';
+							break;
+						case 'html5':
+							$html .= '<!-- Facebook Share Button (HTML5) -->'.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).' '.
+							'data-href="'.$atts['url'].'" data-layout="'.$opts['fb_share_layout'].'" '.
+							'data-mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
+							'data-size="'.$opts['fb_share_size'].'"></div>';
+							break;
+					}
 					break;
 			}
 
@@ -215,7 +239,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 
 			return $html;
 		}
-		
+
 		public function get_script( $pos = 'id' ) {
 			if ( $this->p->debug->enabled )
 				$this->p->debug->mark();

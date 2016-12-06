@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.3.4-3',		// plugin version
+					'version' => '2.3.5-dev1',		// plugin version
 					'opt_version' => '15',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short' => 'WPSSO',
 						'name' => 'WordPress Social Sharing Optimization (WPSSO)',
-						'min_version' => '3.37.6-1',
+						'min_version' => '3.37.7-dev1',
 					),
 					'img' => array(
 						'icon_small' => 'images/icon-128x128.png',
@@ -112,50 +112,73 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			'opt' => array(				// options
 				'preset' => array(
 					'small_share_count' => array(
+						// Twitter
 						'twitter_size' => 'medium',
 						'twitter_count' => 'horizontal',
-						'fb_button' => 'share',
-						'fb_send' => 0,
-						'fb_show_faces' => 0,
-						'fb_action' => 'like',
-						'fb_type' => 'button_count',
+						// Facebook
+						'fb_button' => 'share',			// Button Type
+						'fb_send' => 0,				// Like and Send: Include Send
+						'fb_layout' => 'button_count',		// Like and Send: Layout
+						'fb_show_faces' => 0,			// Like and Send: Show Faces
+						'fb_action' => 'like',			// Like and Send: Action Name
+						'fb_share_layout' => 'button_count',	// Share: Layout
+						'fb_share_size' => 'small',		// Share: Button Size
+						// Google+
 						'gp_action' => 'share',
 						'gp_size' => 'medium',
 						'gp_annotation' => 'bubble',
 						'gp_expandto' => '',
+						// LinkedIn
 						'linkedin_counter' => 'right',
 						'linkedin_showzero' => 1,
+						// Pinterest
 						'pin_button_shape' => 'rect',
 						'pin_button_height' => 'small',
 						'pin_count_layout' => 'beside',
+						// Buffer
 						'buffer_count' => 'horizontal',
+						// Reddit
 						'reddit_type' => 'static-wide',
+						// ManageWP
 						'managewp_type' => 'small',
+						// StumbleUpon
 						'stumble_badge' => 1,
+						// Tumblr
 						'tumblr_counter' => 'right',
 					),
 					'large_share_vertical' => array(
+						// Twitter
 						'twitter_size' => 'medium',
 						'twitter_count' => 'vertical',
-						'fb_button' => 'share',
-						'fb_send' => 0,
-						'fb_show_faces' => 0,
-						'fb_action' => 'like',
-						'fb_type' => 'box_count',
-						'fb_layout' => 'box_count',
+						// Facebook
+						'fb_button' => 'share',			// Facebook Button Type
+						'fb_send' => 0,				// Like and Send: Include Send
+						'fb_layout' => 'box_count',		// Like and Send: Layout
+						'fb_show_faces' => 0,			// Like and Send: Show Faces
+						'fb_action' => 'like',			// Like and Send: Action Name
+						'fb_share_layout' => 'box_count',	// Share: Layout
+						'fb_share_size' => 'small',		// Share: Button Size
+						// Google+
 						'gp_action' => 'share',
 						'gp_size' => 'tall',
 						'gp_annotation' => 'vertical-bubble',
 						'gp_expandto' => '',
+						// LinkedIn
 						'linkedin_counter' => 'top',
 						'linkedin_showzero' => '1',
+						// Pinterest
 						'pin_button_shape' => 'rect',
 						'pin_button_height' => 'large',
 						'pin_count_layout' => 'above',
+						// Buffer
 						'buffer_count' => 'vertical',
+						// Reddit
 						'reddit_type' => 'static-tall-text',
+						// ManageWP
 						'managewp_type' => 'big',
+						// StumbleUpon
 						'stumble_badge' => 5,
+						// Tumblr
 						'tumblr_counter' => 'top',
 					),
 				),
