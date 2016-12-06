@@ -146,6 +146,23 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
+**Version 2.3.5-dev1 (2016/12/06)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* Updated the Facebook share button with latest Facebook options (see https://developers.facebook.com/docs/plugins/share-button for details).
+		* Markup Language
+		* Button Layout
+		* Button Size
+		* Mobile iFrame
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.3.4-3 (2016/12/05)**
 
 Official announcement: N/A
@@ -227,6 +244,10 @@ Official announcement: N/A
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.5-dev1 =
+
+(2016/12/06) Updated the Facebook share button with latest Facebook options.
 
 = 2.3.4-3 =
 
