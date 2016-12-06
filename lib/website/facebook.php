@@ -50,7 +50,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'. $form->get_select( 'fb_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Default Language',
+			$table_rows[] = $form->get_th_html( _x( 'Button Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 

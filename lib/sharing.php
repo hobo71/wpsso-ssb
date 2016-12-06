@@ -233,11 +233,23 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					return 'ok_blank';
 					break;
 				// options that cannot be blank
+				case 'fb_platform': 
+				case 'fb_script_loc': 
+				case 'fb_lang': 
+				case 'fb_button': 
 				case 'fb_markup': 
+				case 'fb_layout': 
+				case 'fb_font': 
+				case 'fb_colorscheme': 
+				case 'fb_action': 
+				case 'fb_share_markup': 
+				case 'fb_share_layout': 
+				case 'fb_share_size': 
 				case 'gp_lang': 
 				case 'gp_action': 
 				case 'gp_size': 
 				case 'gp_annotation': 
+				case 'gp_expandto': 
 				case 'twitter_count': 
 				case 'twitter_size': 
 				case 'linkedin_counter':
