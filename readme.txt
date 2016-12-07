@@ -146,7 +146,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.5-rc1 (2016/12/08)**
+**Version 2.3.5-1 (2016/12/08)**
 
 Official announcement: N/A
 
@@ -245,7 +245,7 @@ Official announcement: N/A
 
 == Upgrade Notice ==
 
-= 2.3.5-rc1 =
+= 2.3.5-1 =
 
 (2016/12/08) Updated the Facebook share button with latest Facebook options.
 
