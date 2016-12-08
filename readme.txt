@@ -146,6 +146,19 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
+**Version 2.3.6-dev1 (2016/12/09)**
+
+Official announcement: N/A
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed the Reddit button title by adding the title non-encoded.
+* *Developer Notes*
+	* None
+
 **Version 2.3.5-1 (2016/12/08)**
 
 Official announcement: N/A
@@ -244,6 +257,10 @@ Official announcement: N/A
 		* Renamed the SucomUtil::after_key() method to SucomUtil::get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.6-dev1 =
+
+(2016/12/09) Fixed the Reddit button title by adding the title non-encoded.
 
 = 2.3.5-1 =
 
