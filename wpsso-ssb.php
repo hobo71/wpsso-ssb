@@ -48,10 +48,6 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 
 		public function __construct() {
 
-			if ( defined( 'WPSSOSSB_SOCIAL_SHARING_DISABLE' ) &&
-				WPSSOSSB_SOCIAL_SHARING_DISABLE )
-					return;
-
 			require_once ( dirname( __FILE__ ).'/lib/config.php' );
 			WpssoSsbConfig::set_constants( __FILE__ );
 			WpssoSsbConfig::require_libs( __FILE__ );	// includes the register.php class library
