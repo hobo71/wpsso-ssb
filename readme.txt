@@ -146,7 +146,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.6-rc1 (2016/12/11)**
+**Version 2.3.6-rc1 (2016/12/12)**
 
 Official announcement: N/A
 
@@ -260,7 +260,7 @@ Official announcement: N/A
 
 = 2.3.6-rc1 =
 
-(2016/12/11) Fixed the Reddit button title by adding the title non-encoded.
+(2016/12/12) Fixed the Reddit button title by adding the title non-encoded.
 
 = 2.3.5-1 =
 
