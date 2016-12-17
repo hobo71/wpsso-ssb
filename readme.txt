@@ -148,8 +148,6 @@ Note that the production stage level can be incremented on occasion for simple t
 
 **Version 2.3.6-1 (2016/12/12)**
 
-Official announcement: N/A
-
 * *New Features*
 	* None
 * *Improvements*
@@ -160,8 +158,6 @@ Official announcement: N/A
 	* None
 
 **Version 2.3.5-1 (2016/12/08)**
-
-Official announcement: N/A
 
 * *New Features*
 	* None
@@ -178,8 +174,6 @@ Official announcement: N/A
 
 **Version 2.3.4-3 (2016/12/05)**
 
-Official announcement: N/A
-
 * *New Features*
 	* None
 * *Improvements*
@@ -191,8 +185,6 @@ Official announcement: N/A
 	* Removed $locale argument from SucomUtil::get_mod_salt() calls.
 
 **Version 2.3.3-1 (2016/11/25)**
-
-Official announcement: N/A
 
 * *New Features*
 	* None
@@ -209,8 +201,6 @@ Official announcement: N/A
 
 **Version 2.3.2-1 (2016/11/17)**
 
-Official announcement: N/A
-
 * *New Features*
 	* None
 * *Improvements*
@@ -222,8 +212,6 @@ Official announcement: N/A
 
 **Version 2.3.1-1 (2016/11/12)**
 
-Official announcement: N/A
-
 * *New Features*
 	* None
 * *Improvements*
@@ -234,8 +222,6 @@ Official announcement: N/A
 	* Updated 'wpsso_post_cache_transients' filter arguments for WPSSO v3.37.2-1.
 
 **Version 2.3.0-1 (2016/11/04)**
-
-Official announcement: N/A
 
 * *New Features*
 	* Added a "Sharing Buttons Cache Expiry" option on the Advanced settings page.
