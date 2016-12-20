@@ -181,7 +181,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			}
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url', 'vid_url' ), $mod, 'og' );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], 
+					array( 'img_url', 'vid_url' ), $mod, 'og' );
 				if ( empty( $atts['photo'] ) )
 					$atts['photo'] = $media_info['img_url'];
 				if ( empty( $atts['embed'] ) )
