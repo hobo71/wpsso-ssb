@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.6-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-12-11 13:49+1000\n"
-"PO-Revision-Date: 2016-12-23 19:40+1100\n"
+"POT-Creation-Date: 2016-12-24 08:48+1100\n"
+"PO-Revision-Date: 2016-12-24 09:15+1100\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -152,7 +152,7 @@ msgstr "Légende d'image Tumblr"
 
 #: lib/gpl/admin/sharing.php:195 lib/pro/admin/sharing.php:189
 msgid "Caption disabled - no suitable image found for the %s button"
-msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %"
+msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %s"
 
 #: lib/gpl/admin/sharing.php:203 lib/pro/admin/sharing.php:197
 msgctxt "option label"
@@ -161,7 +161,7 @@ msgstr "Légende vidéo Tumblr"
 
 #: lib/gpl/admin/sharing.php:205 lib/pro/admin/sharing.php:200
 msgid "Caption disabled - no suitable video found for the %s button"
-msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %"
+msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %s"
 
 #: lib/gpl/admin/sharing.php:213 lib/pro/admin/sharing.php:211
 msgctxt "option label"
@@ -209,7 +209,7 @@ msgstr "Echec d'écriture dans le fichier%."
 
 #: lib/sharing.php:413
 msgid "Updated the <a href=\"%1$s\">%2$s</a> stylesheet (%3$d bytes written)."
-msgstr "La feuille de style <a href=\"%1$s\">%2$s</a> a été mise à jour (%3$s octets écrits)."
+msgstr "La feuille de style <a href=\"%1$s\">%2$s</a> a été mise à jour (%3$d octets écrits)."
 
 #: lib/sharing.php:423
 msgid "The %s folder is not writable."
