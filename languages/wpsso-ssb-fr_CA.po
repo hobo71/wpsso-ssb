@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.6-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2016-12-11 13:49+1000\n"
-"PO-Revision-Date: 2016-12-11 13:49+1000\n"
+"PO-Revision-Date: 2016-12-23 19:40+1100\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -267,7 +267,7 @@ msgstr "JavaScript ajouté au pages Web pour la barre latérale de partage socia
 
 #: lib/sharing.php:1075
 msgid "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</a> in the %3$s settings page). The %1$s will be displayed and recommended after the webpage is shared."
-msgstr "Ajouter le %1$s au Tweet (voir <a href=\"%1$s\">l'onglet d'options Twitter</a> sur la page de réglages %2$s). Le %1$s sera affichés et recommandé après que la page Web est été partagée."
+msgstr "Ajouter le %1$s au Tweet (voir <a href=\"%2$s\">l'onglet d'options Twitter</a> sur la page de réglages %3$s). Le %1$s sera affichés et recommandé après que la page Web est été partagée."
 
 #: lib/sharing.php:1075 lib/sharing.php:1078
 msgctxt "option label"
