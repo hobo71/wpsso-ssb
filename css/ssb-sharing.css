@@ -133,6 +133,7 @@
 	text-decoration:none;
 	vertical-align:top;
 	border:0.5px solid #ddd;
+	box-shadow:none;
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
