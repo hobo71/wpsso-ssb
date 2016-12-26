@@ -7,7 +7,7 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Donate Link: https://wpsso.com/?utm_source=wpssossb-readme-donate
 Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
-Tags: wpsso, social, like, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, shorten, woocommerce
+Tags: social, like, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, shorten, woocommerce
 Contributors: jsmoriss
 Requires At Least: 3.7
 Tested Up To: 4.7
