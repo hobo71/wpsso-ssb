@@ -13,7 +13,6 @@ if ( ! class_exists( 'WpssoSsbRegister' ) ) {
 	class WpssoSsbRegister {
 
 		public function __construct() {
-
 			register_activation_hook( WPSSOSSB_FILEPATH, array( &$this, 'network_activate' ) );
 			//register_deactivation_hook( WPSSOSSB_FILEPATH, array( &$this, 'network_deactivate' ) );	// nothing to do
 
