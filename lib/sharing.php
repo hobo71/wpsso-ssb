@@ -1092,8 +1092,8 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 					break;
 				case 'tooltip-plugin_social_file_cache_exp':
 					$cache_exp = WpssoSsbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];	// use original un-filtered value
-					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'nextgen-facebook' );
-					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'nextgen-facebook' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'nextgen-facebook' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'nextgen-facebook' ), $cache_exp, $cache_diff );
+					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
+					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp, $cache_diff );
 					break;
 			}
 			return $text;
