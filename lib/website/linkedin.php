@@ -43,7 +43,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_counter', 
 				array( 
-					'none' => '',
+					'none' => 'none',
 					'right' => 'Horizontal',
 					'top' => 'Vertical',
 				)

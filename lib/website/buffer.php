@@ -55,7 +55,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Count Position',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'buffer_count', array( 'none' => '', 'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
+			'<td>'.$form->get_select( 'buffer_count', array( 'none' => 'none', 'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
