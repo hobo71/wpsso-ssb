@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 				( $this->p->opt->get_defaults( 'buffer_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
 
 			$table_rows['buffer_img_dimensions'] = $form->get_th_html( _x( 'Buffer <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'buffer_img_dimensions', 'The image dimensions that the Buffer button will share (defaults is '.$def_dimensions.'). Note that original images in the WordPress Media Library and/or NextGEN Gallery must be larger than your chosen image dimensions.' ).
-			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';
+			'<td>'.$form->get_image_dimensions_input( 'buffer_img' ).'</td>';	// $use_opts = false
 
 			return $table_rows;
 		}
@@ -59,7 +59,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';
+			'<td>'.$form->get_image_dimensions_input( 'buffer_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Tweet Text Source',
