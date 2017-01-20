@@ -140,6 +140,17 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
+**Version 2.3.9-rc1 (2017/01/20)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
+
 **Version 2.3.8-1 (2017/01/08)**
 
 * *New Features*
@@ -259,6 +270,10 @@ Note that the production stage level can be incremented on occasion for simple t
 		* Renamed the SucomUtil after_key() method to get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.9-rc1 =
+
+(2017/01/20) Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
 
 = 2.3.8-1 =
 
