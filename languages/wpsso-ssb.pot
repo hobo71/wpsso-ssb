@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.8-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.9-rc1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2017-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -139,30 +139,30 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:164 lib/pro/admin/sharing.php:162
+#: lib/gpl/admin/sharing.php:163 lib/pro/admin/sharing.php:161
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:192 lib/pro/admin/sharing.php:186
+#: lib/gpl/admin/sharing.php:190 lib/pro/admin/sharing.php:189
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:195 lib/pro/admin/sharing.php:189
+#: lib/gpl/admin/sharing.php:193 lib/pro/admin/sharing.php:192
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:203 lib/pro/admin/sharing.php:197
+#: lib/gpl/admin/sharing.php:201 lib/pro/admin/sharing.php:200
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:205 lib/pro/admin/sharing.php:200
+#: lib/gpl/admin/sharing.php:203 lib/pro/admin/sharing.php:203
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:213 lib/pro/admin/sharing.php:211
+#: lib/gpl/admin/sharing.php:211 lib/pro/admin/sharing.php:214
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""

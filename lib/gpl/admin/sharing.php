@@ -144,9 +144,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Pinterest
 			 */
 			$caption_len = $this->p->options['pin_cap_len'];
-			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'],
-				$caption_len, $mod );
-
+			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'], $caption_len, $mod );
+			$force_regen = $this->p->util->is_force_regen( $mod, 'rp' );	// false by default
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-pinterest-button',
 				array( 'pid', 'img_url' ), $mod, 'rp' );
 
@@ -157,7 +156,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$img_height,
 					$img_cropped,
 					$img_pid
-				) = $this->p->media->get_attachment_image_src( $media['pid'], 'thumbnail', false ); 
+				) = $this->p->media->get_attachment_image_src( $media['pid'], 'thumbnail', false, $force_regen ); 
 			}
 			
 			$form_rows['pin_desc'] = array(
@@ -172,9 +171,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Tumblr
 			 */
 			$caption_len = $this->p->options['tumblr_cap_len'];
-			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'],
-				$caption_len, $mod );
-
+			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $caption_len, $mod );
+			$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-tumblr-button',
 				array( 'pid', 'img_url' ), $mod, 'og' );
 
@@ -185,7 +183,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					$img_height,
 					$img_cropped,
 					$img_pid
-				) = $this->p->media->get_attachment_image_src( $media['pid'], 'thumbnail', false ); 
+				) = $this->p->media->get_attachment_image_src( $media['pid'], 'thumbnail', false, $force_regen ); 
 			}
 
 			$form_rows['tumblr_img_desc'] = array(

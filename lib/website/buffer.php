@@ -140,21 +140,22 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				$atts['size'] : $lca.'-buffer-button';
 
 			if ( ! empty( $atts['pid'] ) ) {
+				$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
+
 				list(
 					$atts['photo'],
 					$atts['width'],
 					$atts['height'],
 					$atts['cropped'],
 					$atts['pid']
-				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false );
+				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false, $force_regen );
 
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
 			}
 
 			if ( empty( $atts['photo'] ) ) {
-				$media_info = $this->p->og->get_the_media_info( $atts['size'], 
-					array( 'img_url' ), $mod, 'og' );
+				$media_info = $this->p->og->get_the_media_info( $atts['size'], array( 'img_url' ), $mod, 'og' );
 				$atts['photo'] = $media_info['img_url'];
 			}
 
