@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.7-1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.9-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2016-12-24 08:48+1100\n"
-"PO-Revision-Date: 2016-12-25 07:49+1100\n"
+"POT-Creation-Date: 2017-01-21 07:26+0800\n"
+"PO-Revision-Date: 2017-01-21 07:27+0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -141,30 +141,30 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr "Texte du Tweet"
 
-#: lib/gpl/admin/sharing.php:164 lib/pro/admin/sharing.php:162
+#: lib/gpl/admin/sharing.php:163 lib/pro/admin/sharing.php:161
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr "Texte légende Pinterest"
 
-#: lib/gpl/admin/sharing.php:192 lib/pro/admin/sharing.php:186
+#: lib/gpl/admin/sharing.php:190 lib/pro/admin/sharing.php:189
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr "Légende d'image Tumblr"
 
-#: lib/gpl/admin/sharing.php:195 lib/pro/admin/sharing.php:189
+#: lib/gpl/admin/sharing.php:193 lib/pro/admin/sharing.php:192
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %s"
 
-#: lib/gpl/admin/sharing.php:203 lib/pro/admin/sharing.php:197
+#: lib/gpl/admin/sharing.php:201 lib/pro/admin/sharing.php:200
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr "Légende vidéo Tumblr"
 
-#: lib/gpl/admin/sharing.php:205 lib/pro/admin/sharing.php:200
+#: lib/gpl/admin/sharing.php:203 lib/pro/admin/sharing.php:203
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %s"
 
-#: lib/gpl/admin/sharing.php:213 lib/pro/admin/sharing.php:211
+#: lib/gpl/admin/sharing.php:211 lib/pro/admin/sharing.php:214
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr "Désactiver les boutons"
@@ -658,15 +658,15 @@ msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr "Titre du Widget (laisser vide pour aucun titre)"
 
-#: wpsso-ssb.php:78
+#: wpsso-ssb.php:82
 msgid "%1$s is an extension for the %2$s plugin &mdash; please install and activate the %3$s plugin before activating the %4$s extension."
 msgstr "%1$s est une extension pour %2$s &mdash; s'il vous plaît installer et activer %3$s avant d'essayer de re-activer l'extension %4$s."
 
-#: wpsso-ssb.php:80
+#: wpsso-ssb.php:84
 msgid "The %1$s extension requires the %2$s plugin &mdash; please install and activate the %3$s plugin."
 msgstr "L'extension %1$s requiert %2$s &mdash; s'il vous plaît installer et activer l'extension %3$s."
 
-#: wpsso-ssb.php:137
+#: wpsso-ssb.php:141
 msgid "The %1$s extension v%2$s requires %3$s v%4$s or newer (v%5$s currently installed)."
 msgstr "L'extension %1$s v%2$s requiert l'utilisation de %3$s v%4$s ou plus récente (v%5$s est actuellement installée)."
 
