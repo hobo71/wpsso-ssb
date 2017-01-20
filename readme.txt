@@ -140,7 +140,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.9-rc1 (2017/01/20)**
+**Version 2.3.9-1 (2017/01/21)**
 
 * *New Features*
 	* None
@@ -271,9 +271,9 @@ Note that the production stage level can be incremented on occasion for simple t
 
 == Upgrade Notice ==
 
-= 2.3.9-rc1 =
+= 2.3.9-1 =
 
-(2017/01/20) Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
+(2017/01/21) Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
 
 = 2.3.8-1 =
 
