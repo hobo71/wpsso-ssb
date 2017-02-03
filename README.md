@@ -4,7 +4,7 @@
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Social Sharing Buttons (WPSSO SSB)</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.3.9-1</td></tr>
-<tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.7</td></tr>
+<tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.8</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 4.7.2</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
 <tr><th align="right" valign="top" nowrap>Website URL</th><td><a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-donate">https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-donate</a></td></tr>
