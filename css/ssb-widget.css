@@ -1,28 +1,25 @@
-/* Save an empty style text box to reload the default example styles.
+/*
+ * Save an empty style text box to reload the default example styles.
  * These styles are provided as examples only - modifications may be
  * necessary to customize the layout for your website.
  */
 
 /* align the buttons vertically in 135px wide column(s) */
-.wpsso-ssb-widget { 
+.wpsso-ssb-widget {
 	text-align:left;
 }
-.wpsso-ssb-widget .ssb-buttons { 
+.wpsso-ssb-widget .ssb-buttons {
 	margin:20px 0 0 0;
 }
-.wpsso-ssb-widget .ssb-buttons > div { 
+.wpsso-ssb-widget .ssb-buttons > div {
 	display:inline-block;
 	vertical-align:top;
 	padding:0;
 	margin:5px;
-	width:135px; 
+	width:135px;
 	height:20px;
 }
-.wpsso-ssb-widget .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div { 
+.wpsso-ssb-widget .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div {
 	width:70px;
 	height:61px;
-}
-.wpsso-ssb-widget .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div.pinterest-button { 
-	height:40px;
-	line-height:40px;
 }

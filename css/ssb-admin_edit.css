@@ -1,25 +1,26 @@
-/* Save an empty style text box to reload the default example styles.
+/*
+ * Save an empty style text box to reload the default example styles.
  * These styles are provided as examples only - modifications may be
  * necessary to customize the layout for your website.
  */
 
 /* align the buttons vertically in two 117px wide columns */
-.wpsso-ssb-admin_edit { 
-	text-align:left; 
+.wpsso-ssb-admin_edit {
+	text-align:left;
 }
-.wpsso-ssb-admin_edit .ssb-buttons { 
+.wpsso-ssb-admin_edit .ssb-buttons {
 	margin:0;
 }
-.wpsso-ssb-admin_edit .ssb-buttons > div { 
+.wpsso-ssb-admin_edit .ssb-buttons > div {
 	display:inline-block;
 	vertical-align:top;
 	padding:0;
 	margin:5px 0;
-	width:118px; 
+	width:118px;
 	height:20px;
 }
 
-/* non-JavaScript buttons */
+/* Non-JavaScript Buttons */
 
 .wpsso-ssb-admin_edit .ssb-buttons div.css-button a {
 	display:inline-block;
@@ -34,23 +35,38 @@
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
-
 .wpsso-ssb-admin_edit .ssb-buttons div.css-button a .ssb-icon {
 	fill:#ffffff;
 	vertical-align:bottom;
 }
-
 .wpsso-ssb-admin_edit .ssb-buttons div.css-button a .ssb-text {
 	color:#ffffff;
 	white-space:nowrap;
 	font-weight:bold;
 }
 
-.wpsso-ssb-admin_edit .ssb-buttons div.email-button a { width:60px; background-color:#0a88ff; }
-.wpsso-ssb-admin_edit .ssb-buttons div.email-button a:hover { background-color:#006ed6; }
-.wpsso-ssb-admin_edit .ssb-buttons div.email-button a .ssb-text:before { content:" E-Mail"; }
+/* E-Mail Button */
 
-.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a { width:80px; background-color:#64d448; }
-.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a:hover { background-color:#49bd2c; }
-.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a .ssb-text:before { content:" WhatsApp"; }
+.wpsso-ssb-admin_edit .ssb-buttons div.email-button a {
+	width:60px;
+	background-color:#0a88ff;
+}
+.wpsso-ssb-admin_edit .ssb-buttons div.email-button a:hover {
+	background-color:#006ed6;
+}
+.wpsso-ssb-admin_edit .ssb-buttons div.email-button a .ssb-text:before {
+	content:" E-Mail";
+}
 
+/* WhatsApp Button */
+
+.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a {
+	width:80px;
+	background-color:#64d448;
+}
+.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a:hover {
+	background-color:#49bd2c;
+}
+.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a .ssb-text:before {
+	content:" WhatsApp";
+}

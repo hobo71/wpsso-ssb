@@ -1,4 +1,5 @@
-/* Save an empty style text box to reload the default example styles.
+/*
+ * Save an empty style text box to reload the default example styles.
  * These styles are provided as examples only - modifications may be
  * necessary to customize the layout for your website.
  */
@@ -10,7 +11,7 @@
 	}
 }
 
-#wpsso-ssb-sidebar-container { 
+#wpsso-ssb-sidebar-container {
 	cursor:pointer;
 	text-align:center;
 	position:fixed;
@@ -20,7 +21,7 @@
 	top:100px;
 	left:50px;
 
-	/* position 100px down from top and 450px left of center 
+	/* position 100px down from top and 450px left of center
 	 * by using the right margin to push sidebar left
 	top:100px;
 	right:50%;
@@ -28,10 +29,9 @@
 	*/
 }
 
-/* show a large share icon at the top
- * using javascript, this header can be hovered/clicked to 
- * show/hide the sidebar
-#wpsso-ssb-sidebar-header { 
+/* show a large share icon at the top - using javascript, this header can be
+ * hovered/clicked to show/hide the sidebar
+#wpsso-ssb-sidebar-header {
 	width:72px;
 	height:72px;
 	background-image:url("%%plugin_url_path%%images/share-icon-2.png");
@@ -40,7 +40,7 @@
 }
  */
 
-#wpsso-ssb-sidebar-container { 
+#wpsso-ssb-sidebar-container {
 	display:block;
 	width:auto;
 	height:auto;
@@ -48,7 +48,7 @@
 	border-style:solid;
 
 	/* hide the sidebar buttons by default
-	 * you must enable the #wpsso-ssb-sidebar-header 
+	 * you must enable the #wpsso-ssb-sidebar-header
 	 * to show something that can be clicked
 	width:0;		
 	height:0;
@@ -65,7 +65,7 @@
 }
 
 #wpsso-ssb-sidebar .ssb-buttons > div,	/* default uses large buttons */
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div { 
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div {
 	display:block;
 	text-align:center;
 	width:70px;
@@ -74,7 +74,7 @@
 }
 
 #wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons > div,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons > div[class*="-button"] { 
+#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons > div[class*="-button"] {
 	text-align:left;
 	line-height:20px;
 	width:120px;
@@ -83,36 +83,52 @@
 }
 
 #wpsso-ssb-sidebar .ssb-buttons div.twitter-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.twitter-button { height:20px; line-height:20px; }
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.twitter-button {
+	height:20px;
+	line-height:20px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.fb-share-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.fb-share-button { height:40px; line-height:40px;}
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.fb-share-button {
+	height:40px;
+	line-height:40px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.gplus-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.gplus-button { height:60px; line-height:40px;}
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.gplus-button {
+	height:60px;
+	line-height:40px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.pinterest-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.pinterest-button { line-height:115px; }
-#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count
-	.ssb-buttons div.pinterest-button { height:20px; margin-top:10px; }
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.pinterest-button {
+	line-height:115px;
+}
+#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons div.pinterest-button {
+	height:20px;
+	margin-top:10px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.reddit-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.reddit-button { margin:10px 5px 20px 5px; }
-#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count
-	.ssb-buttons div.reddit-button { margin-bottom:10px; }
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.reddit-button {
+	margin:10px 5px 20px 5px;
+}
+#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons div.reddit-button {
+	margin-bottom:10px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.stumbleupon-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.stumbleupon-button { height:60px; line-height:60px; }
-#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count
-	.ssb-buttons div.stumbleupon-button { height:20px; line-height:20px; }
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.stumbleupon-button {
+	height:60px;
+	line-height:60px;
+}
+#wpsso-ssb-sidebar .wpsso-ssb-preset-small_share_count .ssb-buttons div.stumbleupon-button {
+	height:20px;
+	line-height:20px;
+}
 
 #wpsso-ssb-sidebar .ssb-buttons div.tumblr-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical
-	.ssb-buttons div.tumblr-button { height:40px; }
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.tumblr-button {
+	height:40px;
+}
 
