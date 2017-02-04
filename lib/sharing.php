@@ -652,10 +652,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$atts['use_post'] = $mod['use_post'];
 				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
 
-				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
+				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) )
 					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
-					$css_preset_name = $lca.'-ssb-preset-'.$atts['preset_id'];
-				} else $css_preset_name = '';
 
 				// returns html or an empty string
 				$buttons_array[$buttons_index] = $this->get_html( $sorted_ids, $atts, $mod );
@@ -664,9 +662,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$buttons_array[$buttons_index] = '
 <!-- '.$lca.' '.$css_type_name.' begin -->
 <!-- generated on '.date( 'c' ).' -->
-<div class="'.$lca.'-ssb'.( $css_preset_name ? ' '.$css_preset_name : '' ).
-( $mod['use_post'] ? ' '.$lca.'-'.$css_type_name.'">' : '" id="'.$lca.'-'.$css_type_name.'">' ).
-$buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
+<div class="'.$lca.'-ssb'.( $mod['use_post'] ? ' '.$lca.'-'.$css_type_name.'"' : '" id="'.$lca.'-'.$css_type_name.'"' ).'>'."\n".
+$buttons_array[$buttons_index].
 '</div><!-- .'.$lca.'-ssb '.( $mod['use_post'] ? '.' : '#' ).$lca.'-'.$css_type_name.' -->
 <!-- '.$lca.' '.$css_type_name.' end -->'."\n\n";
 
@@ -726,8 +723,10 @@ $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
 				$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 
 			$buttons_html = '';
-			$buttons_begin = "\n".'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
-			$buttons_end = "\n".'</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->';
+			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-'.$atts['preset_id'].'">'."\n" ).
+				'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
+			$buttons_end = '</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->'."\n".
+				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-'.$atts['preset_id'].' -->'."\n" );
 
 			// possibly dereference the opts variable to prevent passing on changes
 			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) )

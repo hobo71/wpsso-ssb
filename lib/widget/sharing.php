@@ -87,13 +87,14 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 					if ( array_key_exists( $id, $instance ) && (int) $instance[$id] )
 						$sorted_ids[ zeroise( $this->p->options[$opt_pre.'_order'], 3 ).'-'.$id] = $id;
 				ksort( $sorted_ids );
-	
+
 				// returns html or an empty string
 				$buttons_array[$buttons_index] = $this->p->ssb_sharing->get_html( $sorted_ids, $atts, $mod );
 
 				if ( ! empty( $buttons_array[$buttons_index] ) ) {
 					$buttons_array[$buttons_index] = '
-<!-- '.$lca.' sharing widget '.$args['widget_id'].' begin -->'."\n".
+<!-- '.$lca.' sharing widget '.$args['widget_id'].' begin -->
+<!-- generated on '.date( 'c' ).' -->'.
 $before_widget.
 ( empty( $title ) ? '' : $before_title.$title.$after_title ).
 $buttons_array[$buttons_index]."\n".	// buttons html is trimmed, so add newline
