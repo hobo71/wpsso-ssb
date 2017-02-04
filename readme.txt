@@ -145,7 +145,8 @@ Note that the production stage level can be incremented on occasion for simple t
 * *New Features*
 	* None
 * *Improvements*
-	* None
+	* Added a distinct / separate div container for the buttons preset ID.
+	* Added CSS for the large_share_vertical preset ID in the default widget buttons stylesheet.
 * *Bugfixes*
 	* None
 * *Developer Notes*
