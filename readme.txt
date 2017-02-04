@@ -285,7 +285,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = 2.3.10-1 =
 
-(2017/02/04) None
+(2017/02/04) Added a distinct / separate div container for the buttons preset ID. Added CSS for the large_share_vertical preset ID in the default widget buttons stylesheet.
 
 = 2.3.9-1 =
 
