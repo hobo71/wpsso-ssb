@@ -11,7 +11,7 @@ Tags: social, like, share, sharing, buttons, facebook, google, google plus, g+, 
 Contributors: jsmoriss
 Requires At Least: 3.8
 Tested Up To: 4.7.2
-Stable Tag: 2.3.9-1
+Stable Tag: 2.3.10-1
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
