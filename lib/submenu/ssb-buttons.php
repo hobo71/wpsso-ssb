@@ -142,7 +142,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 						'option label', 'wpsso-ssb' ), null, 'buttons_on_index' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_index' ).'</td>';
 
-					$table_rows[] = $this->form->get_th_html( _x( 'Include on Static Homepage',
+					$table_rows[] = $this->form->get_th_html( _x( 'Include on Static Front Page',
 						'option label', 'wpsso-ssb' ), null, 'buttons_on_front' ).
 					'<td>'.$this->form->get_checkbox( 'buttons_on_front' ).'</td>';
 
