@@ -62,7 +62,7 @@ msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:13 lib/sharing.php:1065
+#: lib/config-gettext-extract.php:13 lib/sharing.php:1055
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
@@ -230,36 +230,36 @@ msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/sharing.php:532
+#: lib/sharing.php:523
 msgid "%s must be published<br/>before it can be shared."
 msgstr ""
 
-#: lib/sharing.php:1053
+#: lib/sharing.php:1043
 msgid ""
 "Social sharing buttons can be added to the top, bottom, or both. Each "
 "sharing button must also be enabled below (see the <em>%s</em> options)."
 msgstr ""
 
-#: lib/sharing.php:1053
+#: lib/sharing.php:1043
 msgctxt "option label"
 msgid "Show Button in"
 msgstr ""
 
-#: lib/sharing.php:1056
+#: lib/sharing.php:1046
 msgid ""
 "Add the social sharing buttons to each entry of an index webpage (for "
 "example, <strong>non-static</strong> homepage, category, archive, etc.). "
 "Social sharing buttons are not included on index webpages by default."
 msgstr ""
 
-#: lib/sharing.php:1059
+#: lib/sharing.php:1049
 msgid ""
 "If a static Post or Page has been selected for the homepage, you can add the "
 "social sharing buttons to that static homepage as well (default is "
 "unchecked)."
 msgstr ""
 
-#: lib/sharing.php:1062
+#: lib/sharing.php:1052
 msgid ""
 "Enabled social sharing buttons are added to the Post, Page, Media, and "
 "Product webpages by default. If your theme (or another plugin) supports "
@@ -267,7 +267,7 @@ msgid ""
 "buttons on these webpages, check the appropriate option(s) here."
 msgstr ""
 
-#: lib/sharing.php:1065
+#: lib/sharing.php:1055
 msgid ""
 "Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
 "will be <strong>minimized</strong>, and saved to a single stylesheet with a "
@@ -275,7 +275,7 @@ msgid ""
 "or added directly to the webpage HTML."
 msgstr ""
 
-#: lib/sharing.php:1068
+#: lib/sharing.php:1058
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
 "the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
@@ -283,60 +283,60 @@ msgid ""
 "single stylesheet URL."
 msgstr ""
 
-#: lib/sharing.php:1071
+#: lib/sharing.php:1061
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 
-#: lib/sharing.php:1074
+#: lib/sharing.php:1064
 msgid ""
 "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</"
 "a> in the %3$s settings page). The %1$s will be displayed and recommended "
 "after the webpage is shared."
 msgstr ""
 
-#: lib/sharing.php:1074 lib/sharing.php:1077
+#: lib/sharing.php:1064 lib/sharing.php:1067
 msgctxt "option label"
 msgid "Twitter Business @username"
 msgstr ""
 
-#: lib/sharing.php:1074
+#: lib/sharing.php:1064
 msgctxt "lib file description"
 msgid "General"
 msgstr ""
 
-#: lib/sharing.php:1077
+#: lib/sharing.php:1067
 msgid ""
 "Recommend following the author's Twitter @username after sharing a webpage. "
 "If the %1$s option (above) is also checked, the %2$s is suggested first."
 msgstr ""
 
-#: lib/sharing.php:1077 lib/website/buffer.php:75 lib/website/twitter.php:67
+#: lib/sharing.php:1067 lib/website/buffer.php:75 lib/website/twitter.php:67
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
 
-#: lib/sharing.php:1087 lib/sharing.php:1094
+#: lib/sharing.php:1077 lib/sharing.php:1084
 msgctxt "option comment"
 msgid "disabled"
 msgstr ""
 
-#: lib/sharing.php:1088
+#: lib/sharing.php:1078
 msgid ""
 "The rendered HTML for social sharing buttons is saved to the WordPress "
 "transient cache to optimize performance."
 msgstr ""
 
-#: lib/sharing.php:1089 lib/sharing.php:1095
+#: lib/sharing.php:1079 lib/sharing.php:1085
 msgid "The suggested cache expiration value is %1$s seconds (%2$s)."
 msgstr ""
 
-#: lib/sharing.php:1095
+#: lib/sharing.php:1085
 msgid ""
 "The JavaScript of most social sharing buttons can be saved locally to cache "
 "folder in order to provide cached URLs instead of the originals."
 msgstr ""
 
-#: lib/sharing.php:1095
+#: lib/sharing.php:1085
 msgid ""
 "If your hosting infrastructure performs reasonably well, this option can "
 "improve page load times significantly."
@@ -680,12 +680,12 @@ msgstr ""
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:130
+#: lib/widget/sharing.php:128
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:133
+#: lib/widget/sharing.php:131
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""

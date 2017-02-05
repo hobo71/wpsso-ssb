@@ -470,8 +470,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function show_head() {
 			echo $this->get_script_loader();
 			echo $this->get_script( 'header' );
-			if ( $this->p->debug->enabled )
-				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_footer() {
@@ -480,8 +478,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			elseif ( $this->p->debug->enabled )
 				$this->p->debug->log( 'no buttons enabled for sidebar' );
 			echo $this->get_script( 'footer' );
-			if ( $this->p->debug->enabled )
-				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_sidebar() {
@@ -498,8 +494,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				echo '</div>', "\n";
 				echo '<script type="text/javascript">'.$js.'</script>', "\n";
 			}
-			if ( $this->p->debug->enabled )
-				$this->p->debug->show_html( null, 'Debug Log' );
 		}
 
 		public function show_admin_sharing( $post_obj ) {
@@ -525,9 +519,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				echo $this->get_script( 'header' );
 				echo $this->get_buttons( $content, 'admin_edit' );
 				echo $this->get_script( 'footer' );
-
-				if ( $this->p->debug->enabled )
-					$this->p->debug->show_html( null, 'Debug Log' );
 
 			} else echo '<p class="centered">'.sprintf( __( '%s must be published<br/>before it can be shared.',
 				'wpsso-ssb' ), SucomUtil::titleize( $post_obj->post_type ) ).'</p>';
@@ -608,8 +599,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( $error_msg ) {
 				if ( $this->p->debug->enabled )
 					$this->p->debug->log( $type.' filter skipped: '.$error_msg );
-				return $text."\n".'<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_msg.' -->'."\n".
-					( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
+				return $text."\n".'<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_msg.' -->'."\n";
 			}
 
 			$lca = $this->p->cf['lca'];
@@ -694,7 +684,7 @@ $buttons_array[$buttons_index].
 					break;
 			}
 
-			return $text.( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
+			return $text;
 		}
 
 		public function get_buttons_cache_index( $type, $atts = false, $ids = false ) {

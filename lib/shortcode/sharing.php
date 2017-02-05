@@ -135,8 +135,7 @@ $this->p->ssb_sharing->get_script( 'shortcode-footer', $ids ).
 				}
 			}
 
-			return $buttons_array[$buttons_index].
-				( $this->p->debug->enabled ? $this->p->debug->get_html() : '' );
+			return $buttons_array[$buttons_index];
 		}
 	}
 }
