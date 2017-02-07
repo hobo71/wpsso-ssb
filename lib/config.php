@@ -48,7 +48,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'codex' => 'https://wpsso.com/codex/plugins/wpsso-ssb/',
 						'faq' => 'https://wpsso.com/codex/plugins/wpsso-ssb/faq/',
 						'notes' => 'https://wpsso.com/codex/plugins/wpsso-ssb/notes/',
-						'support' => 'http://wpsso-ssb.support.wpsso.com/',
+						'support' => 'http://wpsso-ssb.support.wpsso.com/support/tickets/new',
 					),
 					'lib' => array(
 						// submenu items must have unique keys
