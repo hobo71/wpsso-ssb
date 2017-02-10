@@ -1032,7 +1032,7 @@ $buttons_array[$buttons_index].
 			if ( $cache_exp > 0 && isset( $this->p->cache->base_dir ) )
 				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
 
-			return apply_filters( $lca.'_rewrite_url', $url );
+			return apply_filters( $lca.'_rewrite_cache_url', $url );
 		}
 
 		public function filter_messages_tooltip( $text, $idx ) {
