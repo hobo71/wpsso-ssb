@@ -718,8 +718,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"WPSSO extension to add traditional Social Sharing Buttons with support for "
-"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
+"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #. Author of the plugin/theme

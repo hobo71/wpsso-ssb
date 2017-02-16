@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.10-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2017-02-06 09:31+0800\n"
-"PO-Revision-Date: 2017-02-06 09:32+0800\n"
+"POT-Creation-Date: 2017-02-16 16:13+0700\n"
+"PO-Revision-Date: 2017-02-16 16:14+0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -679,7 +679,7 @@ msgid "https://surniaulula.com/extend/plugins/wpsso-ssb/"
 msgstr "https://surniaulula.com/extend/plugins/wpsso-ssb/"
 
 #. Description of the plugin/theme
-msgid "WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+msgid "WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr "Extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
 
 #. Author of the plugin/theme
@@ -689,3 +689,6 @@ msgstr "JS Morisset"
 #. Author URI of the plugin/theme
 msgid "https://surniaulula.com/"
 msgstr "https://surniaulula.com/"
+
+#~ msgid "WPSSO extension to add traditional Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+#~ msgstr "Extension WPSSO pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
