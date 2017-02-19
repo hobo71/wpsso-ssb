@@ -59,8 +59,6 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 **WPSSO SSB Pro / Power-User Features**
 
-The [Pro version of WPSSO SSB](https://wpsso.com/extend/plugins/wpsso-ssb/) includes a number of additional options and features:
-
 * Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
 * URL shortening with Bitly or Google for URLs in Tweet texts.

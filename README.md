@@ -64,8 +64,6 @@
 
 <p><strong>WPSSO SSB Pro / Power-User Features</strong></p>
 
-<p>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/">Pro version of WPSSO SSB</a> includes a number of additional options and features:</p>
-
 <ul>
 <li>Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).</li>
 <li>Dynamic button language switching based on the current WordPress locale.</li>
