@@ -603,8 +603,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$lca = $this->p->cf['lca'];
-			if ( ! is_array( $mod ) )
+			if ( ! is_array( $mod ) ) {
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'calling get_page_mod()' );
 				$mod = $this->p->util->get_page_mod( $mod );
+			}
 			$sharing_url = $this->p->util->get_sharing_url( $mod );
 			$buttons_array = array();
 			$buttons_index = $this->get_buttons_cache_index( $type );
@@ -709,8 +712,11 @@ $buttons_array[$buttons_index].
 			$atts['preset_id'] = isset( $atts['preset_id'] ) ? SucomUtil::sanitize_key( $atts['preset_id'] ) : '';
 			$atts['filter_id'] = isset( $atts['filter_id'] ) ? SucomUtil::sanitize_key( $atts['filter_id'] ) : '';
 
-			if ( ! is_array( $mod ) )
+			if ( ! is_array( $mod ) ) {
+				if ( $this->p->debug->enabled )
+					$this->p->debug->log( 'calling get_page_mod()' );
 				$mod = $this->p->util->get_page_mod( $atts['use_post'] );
+			}
 
 			$buttons_html = '';
 			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-'.$atts['preset_id'].'">'."\n" ).
