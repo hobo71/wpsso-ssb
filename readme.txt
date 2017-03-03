@@ -138,7 +138,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
-**Version 2.3.11-rc1 (2017/03/02)**
+**Version 2.3.11-rc2 (2017/03/03)**
 
 * *New Features*
 	* None
@@ -292,9 +292,9 @@ Note that the production stage level can be incremented on occasion for simple t
 
 == Upgrade Notice ==
 
-= 2.3.11-rc1 =
+= 2.3.11-rc2 =
 
-(2017/03/02) Added support for SucomUtil::is_amp() in WPSSO v3.40.2-1.
+(2017/03/03) Added support for SucomUtil::is_amp() in WPSSO v3.40.2-1.
 
 = 2.3.10-1 =
 
