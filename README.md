@@ -16,7 +16,7 @@
 
 <p align="center"><img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="256" height="256" /></p><p>Add traditional social sharing buttons to Posts / Pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
-<p><strong>WPSSO SSB can include social sharing buttons in the content, excerpt, widget, CSS floating sidebar, shortcodes, templates, and admin editing pages</strong> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes integration modules to add social sharing buttons to even more locations!</p>
+<p><strong>WPSSO SSB can include social sharing buttons in the content, excerpt, widget, CSS floating sidebar, shortcodes, templates, and admin editing pages</strong> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!</p>
 
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate information to each social website.</p>
 
