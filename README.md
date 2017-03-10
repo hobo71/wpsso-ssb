@@ -21,7 +21,10 @@
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate information to each social website.</p>
 
 <blockquote>
-<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, which <em>automatically</em> creates complete and accurate meta tags and Schema markup for Social Sharing Optimization (SSO) and SEO.</p>
+<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons (WPSSO SSB) is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WordPress Social Sharing Optimization (WPSSO)</a> plugin, which <em>automatically</em> generates complete and accurate meta tags + Schema markup from your content for Social Sharing Optimization (SSO) and Search Engine Optimization (SEO).</p>
+
+<p>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> requires the WPSSO Free or Pro plugin.<br/>
+The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-requires">WPSSO SSB Pro extension</a> requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-requires">WPSSO Pro plugin</a> as well.</p>
 </blockquote>
 
 <h4>Quick List of Features</h4>
@@ -29,7 +32,7 @@
 <p><strong>WPSSO SSB Free / Basic Features</strong></p>
 
 <ul>
-<li>Extends the features of either the Free or Pro versions of WPSSO.</li>
+<li>Extends the features of WPSSO Free or Pro.</li>
 <li>Allows you to include a selection of traditional social sharing buttons in multiple locations:
 
 <ul>
@@ -88,9 +91,11 @@
 
 <p>The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the WPSSO SSB extension.</p>
 
-<p>Use the Free version of WPSSO SSB with <em>both</em> the Free and Pro versions of WPSSO. The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro plugin</a> as well.</p>
+<blockquote>
+<p>The WPSSO SSB Free extension requires either the WPSSO Free or Pro plugin. The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro plugin</a> as well.</p>
+</blockquote>
 
-<p><a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase">Purchase the WPSSO Social Sharing Buttons (WPSSO SSB) Pro extension</a> (includes a <em>No Risk 30 Day Refund Policy</em>).</p>
+<p><a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase">Purchase the WPSSO Social Sharing Buttons (WPSSO SSB) Pro extension here</a> (all purchases include a <em>No Risk 30 Day Refund Policy</em>).</p>
 
 
 <h2>Installation</h2>
