@@ -117,7 +117,7 @@ The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the 
 
 01. An example showing Social Sharing Buttons enabled (with the default WPSSO SSB stylesheet) in the CSS sidebar, content text, and widget.
 02. Sharing Buttons widget configuration.
-03. Sharing Buttons tab in the Social Settings metabox &mdash; Allows you to fine-tune the text used by some social sharing websites.
+03. Sharing Buttons tab in the Social Settings metabox &mdash; allows you to fine-tune and customize the text used by some social sharing websites.
 04. Sharing Buttons settings page.
 05. Sharing Styles settings page.
 
