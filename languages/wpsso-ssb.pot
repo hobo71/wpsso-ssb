@@ -676,16 +676,16 @@ msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
 
-#: lib/widget/sharing.php:29
+#: lib/widget/sharing.php:31
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:132
+#: lib/widget/sharing.php:136
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:135
+#: lib/widget/sharing.php:139
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""
