@@ -15,14 +15,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
 			$this->p->util->add_plugin_filters( $this, array( 
-				'website_facebook_tabs' => 1,		// $tabs
-				'website_facebook_all_rows' => 3,	// $table_rows, $form, $submenu
-				'website_facebook_like_rows' => 3,	// $table_rows, $form, $submenu
-				'website_facebook_share_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_facebook_tabs' => 1,	// $tabs
+				'ssb_website_facebook_all_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_facebook_like_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_facebook_share_rows' => 3,	// $table_rows, $form, $submenu
 			) );
 		}
 
-		public function filter_website_facebook_tabs( $tabs ) {
+		public function filter_ssb_website_facebook_tabs( $tabs ) {
 			return array( 
 				'all' => _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'like' => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),
@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			);
 		}
 
-		public function filter_website_facebook_all_rows( $table_rows, $form, $submenu ) {
+		public function filter_ssb_website_facebook_all_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -64,7 +64,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			return $table_rows;
 		}
 
-		public function filter_website_facebook_like_rows( $table_rows, $form, $submenu ) {
+		public function filter_ssb_website_facebook_like_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Markup Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -112,7 +112,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			return $table_rows;
 		}
 
-		public function filter_website_facebook_share_rows( $table_rows, $form, $submenu ) {
+		public function filter_ssb_website_facebook_share_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Markup Language',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
