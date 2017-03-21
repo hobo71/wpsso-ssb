@@ -141,6 +141,17 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
+**Version 2.3.12-1 (2017/03/21)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fixed an incorrect filter hook name for the Facebook metabox contents.
+* *Developer Notes*
+	* None
+
 **Version 2.3.11-1 (2017/03/06)**
 
 * *New Features*
@@ -294,6 +305,10 @@ Note that the production stage level can be incremented on occasion for simple t
 		* Renamed the SucomUtil after_key() method to get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.12-1 =
+
+(2017/03/21) Fixed an incorrect filter hook name for the Facebook metabox contents.
 
 = 2.3.11-1 =
 
