@@ -10,10 +10,10 @@ if ( ! defined( 'ABSPATH' ) )
 
 if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 	function wpssossb_get_sharing_buttons( $ids = array(), $atts = array(), $cache_exp = false ) {
-
 		$wpsso =& Wpsso::get_instance();
-		if ( $wpsso->debug->enabled )
+		if ( $wpsso->debug->enabled ) {
 			$wpsso->debug->mark();
+		}
 
 		$error_msg = false;
 		if ( ! is_array( $ids ) ) {
