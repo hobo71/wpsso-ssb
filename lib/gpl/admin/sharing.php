@@ -47,18 +47,19 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_include_rows( $table_rows, $form ) {
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
+			$table_rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', 
+				array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			$add_to_checkboxes = '';
-			foreach ( $this->p->util->get_post_types() as $post_type )
-				$add_to_checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).' '.
-					$post_type->label.' '.( empty( $post_type->description ) ? '' :
-						'('.$post_type->description.')' ).'</p>';
-
-			$table_rows[] = '<td colspan="2" align="center">'.
-				$this->p->msgs->get( 'pro-feature-msg', 
-					array( 'lca' => 'wpssossb' ) ).'</td>';
+			foreach ( $this->p->util->get_post_types() as $post_type ) {
+				$add_to_checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).
+					' '.$post_type->label.( empty( $post_type->description ) ?
+						'' : ' ('.$post_type->description.')' ).'</p>';
+			}
 
 			$table_rows['buttons_add_to'] = $form->get_th_html( _x( 'Include on Post Types',
 				'option label', 'wpsso-ssb' ), null, 'buttons_add_to' ).
@@ -68,8 +69,9 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_preset_rows( $table_rows, $form ) {
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
 			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
