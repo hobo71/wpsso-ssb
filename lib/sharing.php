@@ -177,12 +177,14 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					else {
 						$css_data = fread( $fh, filesize( $buttons_css_file ) );
 						fclose( $fh );
-						if ( $this->p->debug->enabled )
+						if ( $this->p->debug->enabled ) {
 							$this->p->debug->log( 'read css from file '.$buttons_css_file );
+						}
 						foreach ( array( 
 							'plugin_url_path' => $url_path,
-						) as $macro => $value )
+						) as $macro => $value ) {
 							$css_data = preg_replace( '/%%'.$macro.'%%/', $value, $css_data );
+						}
 						$def_opts['buttons_css_'.$id] = $css_data;
 					}
 				}
@@ -358,14 +360,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						if ( is_admin() )
 							$this->p->notice->err( sprintf( __( 'The %s file is not readable.',
 								'wpsso-ssb' ), self::$sharing_css_file ) );
-					} else {
+					} elseif ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
+						$fh = @fopen( self::$sharing_css_file, 'rb' ) ) {
 						echo '<style type="text/css">';
-						if ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
-							$fh = @fopen( self::$sharing_css_file, 'rb' ) ) {
-							echo fread( $fh, $fsize );
-							fclose( $fh );
-						}
+						echo fread( $fh, $fsize );
 						echo '</style>',"\n";
+						fclose( $fh );
 					}
 				}
 			} elseif ( $this->p->debug->enabled )
