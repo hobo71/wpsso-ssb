@@ -148,7 +148,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$caption_len = $this->p->options['pin_cap_len'];
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'], $caption_len, $mod );
 			$force_regen = $this->p->util->is_force_regen( $mod, 'rp' );	// false by default
-			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-pinterest-button',
+			$media = $this->p->og->get_media_info( $this->p->cf['lca'].'-pinterest-button',
 				array( 'pid', 'img_url' ), $mod, 'rp' );
 
 			if ( ! empty( $media['pid'] ) ) {
@@ -175,7 +175,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$caption_len = $this->p->options['tumblr_cap_len'];
 			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $caption_len, $mod );
 			$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
-			$media = $this->p->og->get_the_media_info( $this->p->cf['lca'].'-tumblr-button',
+			$media = $this->p->og->get_media_info( $this->p->cf['lca'].'-tumblr-button',
 				array( 'pid', 'img_url' ), $mod, 'og' );
 
 			if ( ! empty( $media['pid'] ) ) {
