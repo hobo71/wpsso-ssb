@@ -140,6 +140,17 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = Changelog / Release Notes =
 
+**Version 2.3.13-dev4 (2017/03/28)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Renamed calls to the WpssoOpenGraph get_the_media_info() method to get_media_info() for WPSSO v3.40.7-1.
+
 **Version 2.3.12-1 (2017/03/21)**
 
 * *New Features*
@@ -304,6 +315,10 @@ Note that the production stage level can be incremented on occasion for simple t
 		* Renamed the SucomUtil after_key() method to get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.13-dev4 =
+
+(2017/03/28) Renamed calls to the WpssoOpenGraph get_the_media_info() method to get_media_info() for WPSSO v3.40.7-1.
 
 = 2.3.12-1 =
 
