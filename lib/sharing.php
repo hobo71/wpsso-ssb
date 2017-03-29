@@ -451,7 +451,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 			}
 
-			if ( ! empty( $this->p->options[ 'buttons_add_to_'.$post_obj->post_type ] ) ) {
+			if ( ! empty( $this->p->options['buttons_add_to_'.$post_obj->post_type] ) ) {
 				// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 				add_meta_box( '_'.$this->p->cf['lca'].'_ssb_share',
 					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
