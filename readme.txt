@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
-Tags: social, like, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, social, pinterest, tumblr, stumbleupon, widget, shortcode, bbpress, buddypress, shorten, woocommerce
+Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr, stumbleupon
 Contributors: jsmoriss
 Requires At Least: 3.7
 Tested Up To: 4.7.3
