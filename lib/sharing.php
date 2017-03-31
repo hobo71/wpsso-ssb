@@ -216,10 +216,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_option_type( $type, $key ) {
-
-			if ( ! empty( $type ) )
+			if ( ! empty( $type ) ) {
 				return $type;
-
+			}
 			switch ( $key ) {
 				// integer options that must be 1 or more (not zero)
 				case 'stumble_badge':
