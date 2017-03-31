@@ -201,7 +201,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$form_rows['tumblr_vid_desc'] = array(
 				'label' => _x( 'Tumblr Video Caption', 'option label', 'wpsso-ssb' ),
-				'th_class' => 'medium', 'tooltip' => 'post-tumblr_vid_desc', 'td_class' => 'blank',
+				'th_class' => 'medium', 'tooltip' => 'post-tumblr_vid_desc', 'td_class' => 'blank top',
 				'content' => '<em>'.sprintf( __( 'Caption disabled - no suitable video found for the %s button',
 					'wpsso-ssb' ), 'Tumblr' ).'</em>',
 			);
