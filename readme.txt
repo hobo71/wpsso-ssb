@@ -53,10 +53,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 	* Tumblr
 	* Twitter
 	* WhatsApp (for Mobile Devices)
-* Include / exclude each social sharing button based on the viewing device (desktop and/or mobile).
+* Include / exclude individual social sharing buttons based on the viewing device (desktop and/or mobile).
 * Support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
-* The Facebook, Google+ and Twitter social sharing buttons also support *multiple default languages*, and WPSSO SSB can include a number of ***hashtags*** &mdash; from WordPress and/or NextGEN Gallery tag names &mdash; in Tweet texts and other social captions.
 
 **WPSSO SSB Pro / Power-User Features**
 
