@@ -18,9 +18,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 <img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" style="width:33%;min-width:128px;max-width:256px;height:auto;float:left;margin:10px 40px 40px 0;" />
 
-<p>Add traditional social sharing buttons to Posts / Pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
+<p>Add traditional social sharing buttons to posts / pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
-<p><strong>WPSSO SSB can include social sharing buttons in the content, excerpt, widget, CSS floating sidebar, shortcodes, templates, and admin editing pages</strong> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!</p>
+<p><strong>WPSSO SSB can include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editing pages</em></strong> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!</p>
 
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate information to each social website.</p>
 
@@ -34,10 +34,10 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 * Extends the features of WPSSO Free or Pro.
 * Allows you to include a selection of traditional social sharing buttons in multiple locations:
-	* Above and/or below your content and/or excerpt text.
-	* On admin editing pages, including media, product pages, and custom post types.
+	* Above and/or below your post / page content and/or excerpt text.
+	* Admin editing pages &ndash; including media, product pages, and custom post types.
 	* In a WordPress sharing widget.
-	* In a floating CSS / javascript button sidebar.
+	* In a CSS / javascript sidebar.
 	* A shortcode within your content and/or excerpt.
 	* A function in your theme's template(s).
 * Social sharing buttons for the content, excerpt, in a widget, as a shortcode, floating sidebar, and/or PHP function.
@@ -61,7 +61,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 * Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
-* File caching for social sharing button images and JavaScript, maximizing performance on VPS and dedicated hardware hosting platforms.
+* Caching of sharing button images and JavaScript to maximizing performance on VPS and dedicated hardware hosting platforms.
 * Selection of preset button options by location (content, excerpt, shortcode, widget, etc.).
 * Ability to include / exclude social sharing buttons by post type.
 * Additional sharing button locations and CSS styles for:
