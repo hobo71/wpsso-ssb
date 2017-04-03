@@ -94,13 +94,13 @@ The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the 
 
 = Frequently Asked Questions =
 
-* [Can I share a single image on a webpage?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-share-a-single-image-on-a-webpage/)
-* [Can I use other social sharing buttons?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/can-i-use-other-social-sharing-buttons/)
-* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
-* [Why are the buttons showing the wrong language?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-are-the-buttons-showing-the-wrong-language/)
-* [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-does-the-facebook-like-button-flyout-get-clipped/)
-* [Why doesn't the Pinterest button show?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-pinterest-button-show/)
-* [Why doesn't the Twitter count increase?](https://wpsso.com/codex/plugins/wpsso-ssb/faq/why-doesnt-the-twitter-count-increase/)
+* [Can I share a single image on a webpage?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/)
+* [Can I use other social sharing buttons?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/can-i-use-other-social-sharing-buttons/)
+* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
+* [Why are the buttons showing the wrong language?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-are-the-buttons-showing-the-wrong-language/)
+* [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-does-the-facebook-like-button-flyout-get-clipped/)
+* [Why doesn't the Pinterest button show?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-doesnt-the-pinterest-button-show/)
+* [Why doesn't the Twitter count increase?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-doesnt-the-twitter-count-increase/)
 
 == Other Notes ==
 
