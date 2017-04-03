@@ -87,29 +87,29 @@ The WordPress Social Sharing Optimization (WPSSO) plugin is required to use the 
 
 = Install and Uninstall =
 
-* [Install the Plugin](https://wpsso.com/codex/plugins/wpsso-ssb/installation/install-the-plugin/)
-* [Uninstall the Plugin](https://wpsso.com/codex/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
+* [Install the Plugin](https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/)
+* [Uninstall the Plugin](https://wpsso.com/docs/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
 
 == Frequently Asked Questions ==
 
 = Frequently Asked Questions =
 
-* [Can I share a single image on a webpage?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/)
-* [Can I use other social sharing buttons?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/can-i-use-other-social-sharing-buttons/)
-* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
-* [Why are the buttons showing the wrong language?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-are-the-buttons-showing-the-wrong-language/)
-* [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-does-the-facebook-like-button-flyout-get-clipped/)
-* [Why doesn't the Pinterest button show?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-doesnt-the-pinterest-button-show/)
-* [Why doesn't the Twitter count increase?](https://wpsso.com/codex/plugins/wpsso-ssb/faqs/why-doesnt-the-twitter-count-increase/)
+* [Can I share a single image on a webpage?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/)
+* [Can I use other social sharing buttons?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-use-other-social-sharing-buttons/)
+* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
+* [Why are the buttons showing the wrong language?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-are-the-buttons-showing-the-wrong-language/)
+* [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-does-the-facebook-like-button-flyout-get-clipped/)
+* [Why doesn't the Pinterest button show?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-doesnt-the-pinterest-button-show/)
+* [Why doesn't the Twitter count increase?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-doesnt-the-twitter-count-increase/)
 
 == Other Notes ==
 
 = Additional Documentation =
 
-* [Developer Resources](https://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/)
-	* [Sharing Buttons Function](https://wpsso.com/codex/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
-* [SSB Shortcode for Sharing Buttons](https://wpsso.com/codex/plugins/wpsso-ssb/notes/ssb-shortcode/)
-* [Styling Social Buttons](https://wpsso.com/codex/plugins/wpsso-ssb/notes/styling-social-buttons/)
+* [Developer Resources](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/)
+	* [Sharing Buttons Function](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
+* [SSB Shortcode for Sharing Buttons](https://wpsso.com/docs/plugins/wpsso-ssb/notes/ssb-shortcode/)
+* [Styling Social Buttons](https://wpsso.com/docs/plugins/wpsso-ssb/notes/styling-social-buttons/)
 
 == Screenshots ==
 
@@ -137,6 +137,17 @@ Version components: `{major}.{minor}.{bugfix}-{stage}{level}`
 Note that the production stage level can be incremented on occasion for simple text revisions and/or translation updates. See [PHP's version_compare()](http://php.net/manual/en/function.version-compare.php) documentation for additional information on "PHP-standardized" version numbering.
 
 = Changelog / Release Notes =
+
+**Version 2.3.14-dev1 (2017/04/03)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* Updated the plugin documentation and FAQ URLs.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
 
 **Version 2.3.13-1 (2017/03/31)**
 
@@ -313,6 +324,10 @@ Note that the production stage level can be incremented on occasion for simple t
 		* Renamed the SucomUtil after_key() method to get_after_key().
 
 == Upgrade Notice ==
+
+= 2.3.14-dev1 =
+
+(2017/04/03) Updated the plugin documentation and FAQ URLs.
 
 = 2.3.13-1 =
 
