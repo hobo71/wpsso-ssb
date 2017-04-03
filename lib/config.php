@@ -45,9 +45,9 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'update' => 'https://wpsso.com/extend/plugins/wpsso-ssb/update/',
 						'purchase' => 'https://wpsso.com/extend/plugins/wpsso-ssb/',
 						'changelog' => 'https://wpsso.com/extend/plugins/wpsso-ssb/changelog/',
-						'codex' => 'https://wpsso.com/codex/plugins/wpsso-ssb/',
-						'faqs' => 'https://wpsso.com/codex/plugins/wpsso-ssb/faqs/',
-						'notes' => 'https://wpsso.com/codex/plugins/wpsso-ssb/notes/',
+						'docs' => 'https://wpsso.com/docs/plugins/wpsso-ssb/',
+						'faqs' => 'https://wpsso.com/docs/plugins/wpsso-ssb/faqs/',
+						'notes' => 'https://wpsso.com/docs/plugins/wpsso-ssb/notes/',
 						'support' => 'http://wpsso-ssb.support.wpsso.com/support/tickets/new',
 					),
 					'lib' => array(
