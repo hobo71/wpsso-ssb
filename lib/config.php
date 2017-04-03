@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.3.12-1',	// plugin version
+					'version' => '2.3.13-1',	// plugin version
 					'opt_version' => '15',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
@@ -46,7 +46,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						'purchase' => 'https://wpsso.com/extend/plugins/wpsso-ssb/',
 						'changelog' => 'https://wpsso.com/extend/plugins/wpsso-ssb/changelog/',
 						'codex' => 'https://wpsso.com/codex/plugins/wpsso-ssb/',
-						'faq' => 'https://wpsso.com/codex/plugins/wpsso-ssb/faq/',
+						'faqs' => 'https://wpsso.com/codex/plugins/wpsso-ssb/faqs/',
 						'notes' => 'https://wpsso.com/codex/plugins/wpsso-ssb/notes/',
 						'support' => 'http://wpsso-ssb.support.wpsso.com/support/tickets/new',
 					),
