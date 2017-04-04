@@ -16,13 +16,15 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$this->menu_id = $id;
 			$this->menu_name = $name;
 			$this->menu_lib = $lib;
-			$this->menu_ext = $ext;
-
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
+			$this->menu_ext = $ext;	// lowercase acronyn for plugin or extension
 
 			$this->set_objects();
 
@@ -75,8 +77,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$col = $col == 1 ? 2 : 1;
 				$row = $col == 1 ? $row + 1 : $row;
 				$pos_id = 'website-row-'.$row.'-col-'.$col;
-				$name = $name == 'GooglePlus' ?
-					'Google+' : $name;
+				$name = $name == 'GooglePlus' ? 'Google+' : $name;
 				$args = array( 'id' => $id, 'name' => $name );
 
 				add_meta_box( $this->pagehook.'_'.$id, $name, 
@@ -109,9 +110,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				'preset' => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
 			) );
 			$table_rows = array();
-			foreach ( $tabs as $key => $title )
+			foreach ( $tabs as $key => $title ) {
 				$table_rows[$key] = array_merge( $this->get_table_rows( $metabox, $key ), 
 					apply_filters( $lca.'_'.$metabox.'_'.$key.'_rows', array(), $this->form ) );
+			}
 			$this->p->util->do_metabox_tabs( $metabox, $tabs, $table_rows );
 		}
 
@@ -125,9 +127,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$this->p->util->do_table_rows( apply_filters( $lca.'_'.$metabox.'_'.$args['id'].'_rows',
 					array(), $this->form, $this ), 'metabox-'.$metabox.'-'.$args['id'], 'metabox-'.$metabox );
 			} else {
-				foreach ( $tabs as $tab => $title )
+				foreach ( $tabs as $tab => $title ) {
 					$table_rows[$tab] = apply_filters( $lca.'_'.$metabox.'_'.$args['id'].'_'.$tab.'_rows',
 						array(), $this->form, $this );
+				}
 				$this->p->util->do_metabox_tabs( $metabox.'_'.$args['id'], $tabs, $table_rows );
 			}
 		}

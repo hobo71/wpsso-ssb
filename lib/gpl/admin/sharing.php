@@ -34,13 +34,13 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					'option label', 'wpsso-ssb' ), null, 'plugin_sharing_buttons_cache_exp' ).
 				'<td nowrap class="blank">'.$this->p->options['plugin_sharing_buttons_cache_exp'].' '.
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>'.
-				$this->p->admin->get_site_use( $form, $network, 'plugin_sharing_buttons_cache_exp' ),
+				WpssoAdmin::get_option_site_use( 'plugin_sharing_buttons_cache_exp', $form, $network ),
 
 				'plugin_social_file_cache_exp' => $form->get_th_html( _x( 'Social File Cache Expiry',
 					'option label', 'wpsso-ssb' ), null, 'plugin_social_file_cache_exp' ).
 				'<td nowrap class="blank">'.$this->p->options['plugin_social_file_cache_exp'].' '.
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>'.
-				$this->p->admin->get_site_use( $form, $network, 'plugin_social_file_cache_exp' ),
+				WpssoAdmin::get_option_site_use( 'plugin_social_file_cache_exp', $form, $network ),
 			) );
 
 			return $table_rows;

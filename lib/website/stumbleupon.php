@@ -47,14 +47,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 			$badge_number = empty( $this->p->options['stumble_badge'] ) ? 1 : $this->p->options['stumble_badge'];
 			foreach ( array( 1, 2, 3, 6 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
-				$badge_html .= '<input type="radio" name="'.$form->options_name.'[stumble_badge]" 
+				$badge_html .= '<input type="radio" name="'.$form->get_options_name().'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
 			$badge_html .= '</div><div class="badge-col-right">';
 			foreach ( array( 4, 5 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
-				$badge_html .= '<input type="radio" name="'.$form->options_name.'[stumble_badge]" 
+				$badge_html .= '<input type="radio" name="'.$form->get_options_name().'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
