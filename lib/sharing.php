@@ -34,7 +34,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					/*
 					 * Sharing Buttons
 					 */
-					// Include Buttons
+					// Include Buttons Tab
 					'buttons_on_index' => 0,
 					'buttons_on_front' => 0,
 					'buttons_add_to_post' => 1,
@@ -151,8 +151,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbwebsite'.$id );
 				if ( $classname !== false && class_exists( $classname ) ) {
 					$this->website[$id] = new $classname( $this->p );
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $classname.' class loaded' );
+					}
 				}
 			}
 		}
@@ -169,20 +170,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
 				if ( empty( $def_opts['buttons_css_'.$id] ) ) {
-					if ( ! file_exists( $buttons_css_file ) )
+					if ( ! file_exists( $buttons_css_file ) ) {
 						continue;
-					elseif ( ! $fh = @fopen( $buttons_css_file, 'rb' ) )
+					} elseif ( ! $fh = @fopen( $buttons_css_file, 'rb' ) ) {
 						$this->p->notice->err( sprintf( __( 'Failed to open the %s file for reading.',
 							'wpsso-ssb' ), $buttons_css_file ) );
-					else {
+					} else {
 						$css_data = fread( $fh, filesize( $buttons_css_file ) );
 						fclose( $fh );
 						if ( $this->p->debug->enabled ) {
 							$this->p->debug->log( 'read css from file '.$buttons_css_file );
 						}
-						foreach ( array( 
-							'plugin_url_path' => $url_path,
-						) as $macro => $value ) {
+						foreach ( array( 'plugin_url_path' => $url_path ) as $macro => $value ) {
 							$css_data = preg_replace( '/%%'.$macro.'%%/', $value, $css_data );
 						}
 						$def_opts['buttons_css_'.$id] = $css_data;
@@ -210,8 +209,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_save_options( $opts, $options_name, $network ) {
 			// update the combined and minimized social stylesheet
-			if ( $network === false )
+			if ( $network === false ) {
 				$this->update_sharing_css( $opts );
+			}
 			return $opts;
 		}
 
@@ -292,7 +292,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				);
 			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) )
 				$features['(sharing) Sharing Stylesheet'] = array(
-					'status' => $this->p->options['buttons_use_social_style'] ? 'on' : 'off',
+					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
 				);
 			if ( ! empty( $info['lib']['shortcode']['sharing'] ) )
 				$features['(sharing) Sharing Shortcode'] = array(
@@ -342,23 +342,26 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function wp_enqueue_styles() {
 			if ( ! empty( $this->p->options['buttons_use_social_style'] ) ) {
 				if ( ! file_exists( self::$sharing_css_file ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'updating '.self::$sharing_css_file );
+					}
 					$this->update_sharing_css( $this->p->options );
 				}
 				if ( ! empty( $this->p->options['buttons_enqueue_social_style'] ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->cf['lca'].'_ssb_sharing_css' );
-					wp_register_style( $this->p->cf['lca'].'_ssb_sharing_css', self::$sharing_css_url, 
+					}
+					wp_enqueue_style( $this->p->cf['lca'].'_ssb_sharing_css', self::$sharing_css_url, 
 						false, $this->p->cf['plugin'][$this->p->cf['lca']]['version'] );
-					wp_enqueue_style( $this->p->cf['lca'].'_ssb_sharing_css' );
 				} else {
 					if ( ! is_readable( self::$sharing_css_file ) ) {
-						if ( $this->p->debug->enabled )
+						if ( $this->p->debug->enabled ) {
 							$this->p->debug->log( self::$sharing_css_file.' is not readable' );
-						if ( is_admin() )
+						}
+						if ( is_admin() ) {
 							$this->p->notice->err( sprintf( __( 'The %s file is not readable.',
 								'wpsso-ssb' ), self::$sharing_css_file ) );
+						}
 					} elseif ( ( $fsize = @filesize( self::$sharing_css_file ) ) > 0 &&
 						$fh = @fopen( self::$sharing_css_file, 'rb' ) ) {
 						echo '<style type="text/css">';
@@ -367,8 +370,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						fclose( $fh );
 					}
 				}
-			} elseif ( $this->p->debug->enabled )
+			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'buttons_use_social_style option is disabled' );
+			}
 		}
 
 		public function update_sharing_css( &$opts ) {
@@ -382,9 +386,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
 				$this->p->cf['sharing']['ssb-styles'] );
 
-			foreach ( $tabs as $id => $name )
-				if ( isset( $opts['buttons_css_'.$id] ) )
+			foreach ( $tabs as $id => $name ) {
+				if ( isset( $opts['buttons_css_'.$id] ) ) {
 					$css_data .= $opts['buttons_css_'.$id];
+				}
+			}
 
 			$classname = apply_filters( $this->p->cf['lca'].'_load_lib', 
 				false, 'ext/compressor', 'SuextMinifyCssCompressor' );

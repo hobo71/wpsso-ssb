@@ -17,13 +17,16 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerce' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			if ( ! empty( $this->p->is_avail['ssb'] ) ) {
 				$classname = __CLASS__.'Sharing';
-				if ( class_exists( $classname ) )
+				if ( class_exists( $classname ) ) {
 					$this->sharing = new $classname( $this->p );
+				}
 			}
 		}
 	}
@@ -37,8 +40,10 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
@@ -54,10 +59,12 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 		}
 
 		public function filter_get_defaults( $opts_def ) {
-			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre )
+			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				$opts_def[$opt_pre.'_on_woo_short'] = 0;
+			}
 			$opts_def['buttons_pos_woo_short'] = 'bottom';
 			$opts_def['buttons_preset_ssb-woo_short'] = '';
+
 			return $opts_def;
 		}
 
