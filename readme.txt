@@ -136,6 +136,18 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.3.15 (2017/04/08)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Minor revision to move URLs in the extension config to the main WPSSO plugin config.
+	* Dropped the package number from the production version string.
+
 **Version 2.3.14-1 (2017/04/05)**
 
 * *New Features*
@@ -193,136 +205,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* None
 
-**Version 2.3.9-1 (2017/01/21)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
-
-**Version 2.3.8-1 (2017/01/08)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added a 'plugins_loaded' action hook to load the plugin text domain.
-
-**Version 2.3.7-1 (2016/12/25)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Minor CSS update for the WordPress 2017 theme (added box-shadow:none to links). Click on the "Reload Default Styles" button to use these changes in your WPSSO SSB stylesheet.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.3.6-1 (2016/12/12)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed the Reddit button title by adding the title non-encoded.
-* *Developer Notes*
-	* None
-
-**Version 2.3.5-1 (2016/12/08)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Updated the Facebook share button with latest Facebook options (see https://developers.facebook.com/docs/plugins/share-button for details).
-		* Markup Language
-		* Button Layout
-		* Button Size
-		* Mobile iFrame
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.3.4-3 (2016/12/05)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Optimized wp_cache and transient caching for multilingual sites.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Replaced set_transient() by SucomUtil update_transient_array() to update buttons arrays and keep the original transient expiration time.
-	* Removed $locale argument from SucomUtil get_mod_salt() calls.
-
-**Version 2.3.3-1 (2016/11/25)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed an incorrect variable name in the WhatsApp class which prevented the button HTML from being added.
-	* Fixed the Tumblr caption, title, and description attribute values that were being added without being properly encoded.
-* *Developer Notes*
-	* Refactored the min_version_notice() method and moved variables to config class.
-	* Refactored the Twitter button class to use the $mod variable instead of the global $post.
-	* Renamed the 'buttons_use_social_css' option key to 'buttons_use_social_style'.
-	* Renamed the 'buttons_enqueue_social_css' option key to 'buttons_enqueue_social_style'.
-
-**Version 2.3.2-1 (2016/11/17)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Updated SucomUtil get_mod_salt() method arguments for WPSSO v3.37.3-1.
-
-**Version 2.3.1-1 (2016/11/12)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Updated 'wpsso_post_cache_transients' filter arguments for WPSSO v3.37.2-1.
-
-**Version 2.3.0-1 (2016/11/04)**
-
-* *New Features*
-	* Added a "Sharing Buttons Cache Expiry" option on the Advanced settings page.
-* *Improvements*
-	* Replaced the "Social File Cache Expiry" drop-down (in hours) with an input field (in seconds).
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Refactored the shortcode and widget classes to optimize caching performance.
-	* Refactored the wpssossb_get_sharing_buttons() function to optimize caching performance.
-	* Added a new WpssoSsbSharing get_buttons_cache_index() method to cache social sharing buttons HTML as array elements. This optimizes the cache by storing one transient instead of one transient per social sharing buttons location within the same webpage.
-	* Renamed the `$wpsso->ssb` object to `$wpsso->ssb_sharing`.
-	* Renamed the 'wpsso_shortcode_ssb' filter to 'wpsso_sharing_shortcode_ssb'.
-	* Renamed the WPSSOSSB_SHARING_SHORTCODE contant to WPSSOSSB_SHARING_SHORTCODE_NAME.
-	* Added new filters to adjust transient cache expiration:
-		* 'wpsso_cache_expire_sharing_buttons' ( $secs );
-		* 'wpsso_cache_expire_social_file' ( $secs );
-	* Minor code changes required for WPSSO v3.37.0-1:
-		* Renamed the SucomUtil after_key() method to get_after_key().
-
 == Upgrade Notice ==
+
+= 2.3.15 =
+
+(2017/04/08) Minor revision to move URLs in the extension config to the main WPSSO plugin config.
 
 = 2.3.14-1 =
 
@@ -343,28 +230,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.3.10-1 =
 
 (2017/02/04) Added a distinct / separate div container for the buttons preset ID. Added CSS for the large_share_vertical preset ID in the default widget buttons stylesheet.
-
-= 2.3.9-1 =
-
-(2017/01/21) Added support for the WpssoUtil is_force_regen() method introduced in WPSSO v3.39.1-1.
-
-= 2.3.8-1 =
-
-(2017/01/08) Added a 'plugins_loaded' action hook to load the plugin text domain.
-
-= 2.3.7-1 =
-
-(2016/12/25) Minor CSS update for the WordPress 2017 theme.
-
-= 2.3.6-1 =
-
-(2016/12/12) Fixed the Reddit button title by adding the title non-encoded.
-
-= 2.3.5-1 =
-
-(2016/12/08) Updated the Facebook share button with latest Facebook options.
-
-= 2.3.4-3 =
-
-(2016/12/05) Optimized wp_cache and transient caching for multilingual sites. Replaced set_transient() to update buttons arrays and keep the original transient expiration time.
 
