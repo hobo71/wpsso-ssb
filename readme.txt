@@ -16,7 +16,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 == Description ==
 
-<img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="128" height="128" class="plugin-icon">
+<img src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png" width="128" height="128" class="readme-plugin-icon">
 
 <p>Add traditional social sharing buttons to posts / pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
