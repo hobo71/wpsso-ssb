@@ -4,14 +4,15 @@
  * necessary to customize the layout for your website.
  */
 
-/* align the buttons vertically in two 117px wide columns */
+/* align the buttons vertically in two 118px wide columns */
 .wpsso-ssb-admin_edit {
 	text-align:left;
 }
 .wpsso-ssb-admin_edit .ssb-buttons {
 	margin:0;
 }
-.wpsso-ssb-admin_edit .ssb-buttons > div {
+.wpsso-ssb-admin_edit .ssb-buttons > div,	/* default uses small buttons */
+.wpsso-ssb-admin_edit .wpsso-ssb-preset-small_share_count .ssb-buttons > div {
 	display:inline-block;
 	vertical-align:top;
 	padding:0;

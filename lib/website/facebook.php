@@ -157,6 +157,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 					'fb_on_admin_edit' => 1,
 					'fb_platform' => 'any',
 					'fb_script_loc' => 'header',
+					'fb_lang' => 'en_US',
 					'fb_button' => 'like',
 					'fb_markup' => 'xfbml',
 					'fb_send' => 1,

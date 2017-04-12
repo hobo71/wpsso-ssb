@@ -11,7 +11,8 @@
 .wpsso-ssb-widget .ssb-buttons {
 	margin:20px 0 0 0;
 }
-.wpsso-ssb-widget .ssb-buttons > div {
+.wpsso-ssb-widget .ssb-buttons > div,	/* default uses small buttons */
+.wpsso-ssb-widget .wpsso-ssb-preset-small_share_count .ssb-buttons > div {
 	display:inline-block;
 	vertical-align:top;
 	padding:0;
