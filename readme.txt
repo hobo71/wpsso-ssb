@@ -143,7 +143,8 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Improvements*
 	* None
 * *Bugfixes*
-	* None
+	* Added a missing 'fb_lang' default options value for the Facebook button.
+	* Fixed the widget buttons layout when using the default CSS and small button preset.
 * *Developer Notes*
 	* Refactored the plugin init filters and moved/renamed the registration boolean from `is_avail[$name]` to `is_avail['p_ext'][$name]`.
 
