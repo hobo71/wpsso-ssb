@@ -136,6 +136,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.3.16-a.1 (2017/04/12)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Refactored the plugin init filters and moved/renamed the registration boolean from `is_avail[$name]` to `is_avail['p_ext'][$name]`.
+
 **Version 2.3.15 (2017/04/08)**
 
 * *New Features*
@@ -206,6 +217,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.3.16-a.1 =
+
+(2017/04/12) Refactored the plugin init filters and moved/renamed the registration boolean.
 
 = 2.3.15 =
 
