@@ -16,10 +16,13 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			if ( ! is_admin() ) {
-				if ( $this->p->is_avail['ssb'] ) {
+				if ( $this->p->is_avail['p_ext']['ssb'] ) {
 					$this->wpautop();
 					$this->add();
 				}
