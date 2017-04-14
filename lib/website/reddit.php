@@ -21,14 +21,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteReddit' ) ) {
 
 		public function filter_ssb_website_reddit_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'reddit_order', 
-				range( 1, count( $submenu->website ) ), 'short' ).'</td>';
-
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			( $submenu->show_on_checkboxes( 'reddit' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.( $submenu->show_on_checkboxes( 'reddit' ) ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'reddit_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
@@ -37,14 +36,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteReddit' ) ) {
 				$this->p->cf['sharing']['platform'] ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Type',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'reddit_type', 
-				array( 
-					'static-wide' => 'Interactive Wide',
-					'static-tall-text' => 'Interactive Tall Text',
-					'static-tall-logo' => 'Interactive Tall Logo',
-				)
-			).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'reddit_type', array( 
+				'static-wide' => 'Interactive Wide',
+				'static-tall-text' => 'Interactive Tall Text',
+				'static-tall-logo' => 'Interactive Tall Logo',
+			) ).'</td>';
 
 			return $table_rows;
 		}

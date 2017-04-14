@@ -35,13 +35,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 		public function filter_ssb_website_pinterest_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
-
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$submenu->show_on_checkboxes( 'pin' ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'pin_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
@@ -71,13 +71,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Pin Count',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'pin_count_layout', 
-				array( 
-					'none' => 'Not Shown',
-					'beside' => 'Beside the Button',
-					'above' => 'Above the Button',
-				)
-			).'</td>';
+			'<td>'.$form->get_select( 'pin_count_layout', array( 
+				'none' => 'Not Shown',
+				'beside' => 'Beside the Button',
+				'above' => 'Above the Button',
+			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).

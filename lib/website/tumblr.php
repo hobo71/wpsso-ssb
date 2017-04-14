@@ -35,13 +35,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 		public function filter_ssb_website_tumblr_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'tumblr_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
-
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$submenu->show_on_checkboxes( 'tumblr' ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'tumblr_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
@@ -63,13 +63,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Show Counter',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'tumblr_counter', 
-				array( 
-					'none' => 'Not Shown',
-					'top' => 'Above the Button',
-					'right' => 'Right of the Button',
-				)
-			).'</td>';
+			'<td>'.$form->get_select( 'tumblr_counter', array( 
+				'none' => 'Not Shown',
+				'top' => 'Above the Button',
+				'right' => 'Right of the Button',
+			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Add Attribution',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).

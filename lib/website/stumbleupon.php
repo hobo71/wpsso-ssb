@@ -25,15 +25,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 				<style type="text/css">
 					.badge { 
 						display:block;
-						background: url("'.$this->p->ssb_sharing->get_social_file_cache_url( 
-							SucomUtil::get_prot().'://b9.sustatic.com/7ca234_0mUVfxHFR0NAk1g' ).'") no-repeat transparent; 
-						width:110px;
+						background: url("'.
+							$this->p->ssb_sharing->get_social_file_cache_url( SucomUtil::get_prot().
+								'://b9.sustatic.com/7ca234_0mUVfxHFR0NAk1g' ).'") no-repeat transparent; 
+						min-width:100px;
 						margin:5px 0 5px 0;
 					}
-					.badge input[type=radio] {
+					.badge-col-left {
+						float:left;
+						display:inline-block;
+						margin-right:20px;
 					}
-					.badge-col-left { display:inline-block; float:left; margin-right:20px; }
-					.badge-col-right { display:inline-block; }
+					.badge-col-right {
+						display:inline-block;
+					}
 					#badge-1 { height:20px; background-position:25px 0px; }
 					#badge-2 { height:20px; background-position:25px -100px; }
 					#badge-3 { height:20px; background-position:25px -200px; }
@@ -60,13 +65,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 			}
 			$badge_html .= '</div>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'stumble_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
-
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'stumble' ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'stumble_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',

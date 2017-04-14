@@ -32,13 +32,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 		public function filter_ssb_website_facebook_all_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_order', range( 1, count( $submenu->website ) ), 'short' ).'</td>';
-
 			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'fb' ).'</td>';
+
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Allow for Platform',
@@ -91,8 +91,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			'<td>'.$form->get_checkbox( 'fb_show_faces' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Font',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_font', array( 
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_font', array( 
 				'arial' => 'Arial',
 				'lucida grande' => 'Lucida Grande',
 				'segoe ui' => 'Segoe UI',
@@ -102,12 +102,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Color Scheme',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_colorscheme', array( 'light' => 'Light', 'dark' => 'Dark' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_colorscheme', array( 'light' => 'Light', 'dark' => 'Dark' ) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Action Name',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).'<td>'.
-			$form->get_select( 'fb_action', array( 'like' => 'Like', 'recommend' => 'Recommend' ) ).'</td>';
+				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_action', array( 'like' => 'Like', 'recommend' => 'Recommend' ) ).'</td>';
 
 			return $table_rows;
 		}
