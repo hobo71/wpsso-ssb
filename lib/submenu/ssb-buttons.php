@@ -38,8 +38,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsubmenuwebsite'.$id );
 				if ( $classname !== false && class_exists( $classname ) ) {
 					$this->website[$id] = new $classname( $this->p );
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $classname.' class loaded' );
+					}
 				}
 			}
 		}
@@ -47,16 +48,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		// show two-column metaboxes for sharing buttons
 		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
 			if ( isset( $this->website ) ) {
+				echo '<div id="website-metaboxes">'."\n";
 				foreach ( range( 1, ceil( count( $this->website ) / 2 ) ) as $row ) {
-					echo '<div class="website-row">', "\n";
+					echo '<div class="website-row">'."\n";
 					foreach ( range( 1, 2 ) as $col ) {
 						$pos_id = 'website-row-'.$row.'-col-'.$col;
-						echo '<div class="website-col-'.$col.'" id="'.$pos_id.'" >';
+						echo '<div class="website-col-'.$col.'" id="'.$pos_id.'">';
 						do_meta_boxes( $pagehook, $pos_id, null ); 
-						echo '</div>', "\n";
+						echo '</div>'."\n";
 					}
-					echo '</div>', "\n";
+					echo '</div>'."\n";
 				}
+				echo '</div><!-- #website-metaboxes -->'."\n";
 				echo '<div style="clear:both;"></div>';
 			}
 		}
@@ -74,23 +77,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$website_ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
 			foreach ( $website_ids as $id => $name ) {
+
+				$name = $name == 'GooglePlus' ? 'Google+' : $name;
 				$col = $col == 1 ? 2 : 1;
 				$row = $col == 1 ? $row + 1 : $row;
 				$pos_id = 'website-row-'.$row.'-col-'.$col;
-				$name = $name == 'GooglePlus' ? 'Google+' : $name;
+				$prio = 'default';
 				$args = array( 'id' => $id, 'name' => $name );
 
 				add_meta_box( $this->pagehook.'_'.$id, $name, 
 					array( &$this, 'show_metabox_ssb_website' ),
-						$this->pagehook, $pos_id, 'default', $args );
+						$this->pagehook, $pos_id, $prio, $args );
 
 				add_filter( 'postbox_classes_'.$this->pagehook.'_'.$this->pagehook.'_'.$id, 
 					array( &$this, 'add_class_postbox_ssb_website' ) );
 			}
 
-			// these metabox ids should be closed by default (array_diff() selects everything except those listed)
-			$ids = array_diff( array_keys( $website_ids ), array() );
-			$this->p->m['util']['user']->reset_metabox_prefs( $this->pagehook, $ids, 'closed' );
+			// close all website metaboxes by default
+			NgfbUser::reset_metabox_prefs( $this->pagehook, array_keys( $website_ids ), 'closed' );
 		}
 
 		public function add_class_postbox_ssb_website( $classes ) {
@@ -118,6 +122,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		}
 
 		public function show_metabox_ssb_website( $post, $callback ) {
+
 			$lca = $this->p->cf['lca'];
 			$args = $callback['args'];
 			$metabox = 'ssb_website';
