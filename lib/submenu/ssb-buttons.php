@@ -5,14 +5,17 @@
  * Copyright 2014-2017 Jean-Sebastien Morisset (https://surniaulula.com/)
  */
 
-if ( ! defined( 'ABSPATH' ) ) 
+if ( ! defined( 'ABSPATH' ) ) {
 	die( 'These aren\'t the droids you\'re looking for...' );
+}
 
 if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin' ) ) {
 
 	class WpssoSsbSubmenuSsbButtons extends WpssoAdmin {
 
 		public $website = array();
+
+		private $website_max_cols = 2;
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
@@ -48,25 +51,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		// show two-column metaboxes for sharing buttons
 		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
 			if ( isset( $this->website ) ) {
-				echo '<div id="website-metaboxes">'."\n";
-				foreach ( range( 1, ceil( count( $this->website ) / 2 ) ) as $row ) {
-					echo '<div class="website-row">'."\n";
-					foreach ( range( 1, 2 ) as $col ) {
-						$pos_id = 'website-row-'.$row.'-col-'.$col;
-						echo '<div class="website-col-'.$col.'" id="'.$pos_id.'">';
-						do_meta_boxes( $pagehook, $pos_id, null ); 
-						echo '</div>'."\n";
-					}
-					echo '</div>'."\n";
+				echo '<div id="ssb_website-metaboxes">'."\n";
+				foreach ( range( 1, $this->website_max_cols ) as $col ) {
+					echo '<div id="ssb_website-col-'.$col.'">';
+					do_meta_boxes( $pagehook, 'ssb_website-col-'.$col, null );
+					echo '</div><!-- #ssb_website-col-'.$col.' -->'."\n";
 				}
-				echo '</div><!-- #website-metaboxes -->'."\n";
-				echo '<div style="clear:both;"></div>';
+				echo '</div><!-- #ssb_website-metaboxes -->'."\n";
+				echo '<div style="clear:both;"></div>'."\n";
 			}
 		}
 
 		protected function add_meta_boxes() {
-			$col = 0;
-			$row = 0;
 
 			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 			add_meta_box( $this->pagehook.'_ssb_buttons',
@@ -74,14 +70,18 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					array( &$this, 'show_metabox_ssb_buttons' ),
 						$this->pagehook, 'normal' );
 
-			$website_ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
+			$col = 0;
+			$ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
-			foreach ( $website_ids as $id => $name ) {
+			foreach ( $ids as $id => $name ) {
+
+				$col++;
+				if ( $col > $this->website_max_cols ) {
+					$col = 1;
+				}
 
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
-				$col = $col == 1 ? 2 : 1;
-				$row = $col == 1 ? $row + 1 : $row;
-				$pos_id = 'website-row-'.$row.'-col-'.$col;
+				$pos_id = 'ssb_website-col-'.$col;
 				$prio = 'default';
 				$args = array( 'id' => $id, 'name' => $name );
 
@@ -94,14 +94,15 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			}
 
 			// close all website metaboxes by default
-			WpssoUser::reset_metabox_prefs( $this->pagehook, array_keys( $website_ids ), 'closed' );
+			WpssoUser::reset_metabox_prefs( $this->pagehook, array_keys( $ids ), 'closed' );
 		}
 
 		public function add_class_postbox_ssb_website( $classes ) {
 			$show_opts = WpssoUser::show_opts();
 			$classes[] = 'postbox-ssb_website';
-			if ( ! empty( $show_opts ) )
+			if ( ! empty( $show_opts ) ) {
 				$classes[] = 'postbox-show_'.$show_opts;
+			}
 			return $classes;
 		}
 
@@ -174,6 +175,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		}
 
 		public function show_on_checkboxes( $opt_prefix ) {
+
 			$col = 0;
 			$max = 2;
 			$html = '<table>';
@@ -183,22 +185,30 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$this->p->cf['sharing']['show_on'], $opt_prefix );
 
 			foreach ( $show_on as $opt_suffix => $short_desc ) {
-				$col++;
-				$class = isset( $this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] ) &&
+				$css_class = isset( $this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] ) &&
 					$this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] === 'disabled' &&
 						! $aop ? 'show_on blank' : 'show_on';
-				if ( $col == 1 )
-					$html .= '<tr><td class="'.$class.'">';
-				else $html .= '<td class="'.$class.'">';
+				$col++;
+				if ( $col === 1 ) {
+					$html .= '<tr><td class="'.$css_class.'">';
+				} else {
+					$html .= '<td class="'.$css_class.'">';
+				}
+
 				$html .= $this->form->get_checkbox( $opt_prefix.'_on_'.$opt_suffix ).
 					_x( $short_desc, 'option value', 'wpsso-ssb' ).'&nbsp; ';
-				if ( $col == $max ) {
+
+				if ( $col === $max ) {
 					$html .= '</td></tr>';
 					$col = 0;
-				} else $html .= '</td>';
+				} else {
+					$html .= '</td>';
+				}
 			}
+
 			$html .= $col < $max ? '</tr>' : '';
 			$html .= '</table>';
+
 			return $html;
 		}
 	}
