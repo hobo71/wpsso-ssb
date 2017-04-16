@@ -10,7 +10,7 @@ Tags: social share, social sharing, share buttons, sharing buttons, bbpress, bud
 Contributors: jsmoriss
 Requires At Least: 3.7
 Tested Up To: 4.7.3
-Stable Tag: 2.3.15
+Stable Tag: 2.3.16
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -136,7 +136,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.3.16 (2017/04/15)**
+**Version 2.3.16 (2017/04/16)**
 
 * *New Features*
 	* None
@@ -221,7 +221,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.3.16 =
 
-(2017/04/15) Refactored the plugin init filters and moved/renamed the registration boolean.
+(2017/04/16) Refactored the plugin init filters and moved/renamed the registration boolean.
 
 = 2.3.15 =
 
