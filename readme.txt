@@ -136,7 +136,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.3.16-rc.2 (2017/04/15)**
+**Version 2.3.16 (2017/04/15)**
 
 * *New Features*
 	* None
@@ -219,7 +219,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.3.16-rc.2 =
+= 2.3.16 =
 
 (2017/04/15) Refactored the plugin init filters and moved/renamed the registration boolean.
 
