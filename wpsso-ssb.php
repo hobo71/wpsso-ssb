@@ -4,7 +4,7 @@
  * Plugin Slug: wpsso-ssb
  * Text Domain: wpsso-ssb
  * Domain Path: /languages
- * Plugin URI: https://surniaulula.com/extend/plugins/wpsso-ssb/
+ * Plugin URI: https://wpsso.com/extend/plugins/wpsso-ssb/
  * Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
  * Author: JS Morisset
  * Author URI: https://surniaulula.com/
@@ -36,7 +36,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		public $reg;			// WpssoSsbRegister
 
 		private static $instance;
-		private static $have_req_min = true;	// have minimum wpsso version
+		private static $have_min = true;	// have minimum wpsso version
 
 		public function __construct() {
 
@@ -96,7 +96,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			$info = WpssoSsbConfig::$cf['plugin']['wpssossb'];
 
 			if ( version_compare( $plugin_version, $info['req']['min_version'], '<' ) ) {
-				self::$have_req_min = false;
+				self::$have_min = false;
 				return $cf;
 			}
 
@@ -114,7 +114,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( self::$have_req_min ) {
+			if ( self::$have_min ) {
 				$this->p->is_avail['p_ext']['ssb'] = true;
 				if ( is_admin() ) {
 					$this->p->is_avail['admin']['sharing'] = true;
@@ -129,7 +129,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( self::$have_req_min ) {
+			if ( self::$have_min ) {
 				$this->p->ssb_sharing = new WpssoSsbSharing( $this->p, __FILE__ );
 			}
 		}
@@ -139,7 +139,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( ! self::$have_req_min ) {
+			if ( ! self::$have_min ) {
 				return $this->min_version_notice();	// stop here
 			}
 		}
