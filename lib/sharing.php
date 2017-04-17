@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					 * Advanced Settings
 					 */
 					// Cache Settings Tab
-					'plugin_sharing_buttons_cache_exp' => 604800,	// Sharing Buttons Cache Expiry (7 days)
+					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons Cache Expiry (7 days)
 					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
 					/*
 					 * Sharing Buttons
@@ -75,7 +75,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
 				),	// end of defaults
 				'site_defaults' => array(
-					'plugin_sharing_buttons_cache_exp' => 604800,	// Sharing Buttons Cache Expiry (7 days)
+					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons Cache Expiry (7 days)
 					'plugin_sharing_buttons_cache_exp:use' => 'default',
 					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
 					'plugin_social_file_cache_exp:use' => 'default',
@@ -1038,29 +1038,35 @@ $buttons_array[$buttons_index].
 
 		// $opt_pre can be twitter, buffer, etc.
 		public function get_tweet_max_len( $opt_pre = 'twitter' ) {
+
 			$short_len = 23;	// twitter counts 23 characters for any url
 
 			if ( isset( $this->p->options['tc_site'] ) && ! empty( $this->p->options[$opt_pre.'_via'] ) ) {
 				$tc_site = preg_replace( '/^@/', '', $this->p->options['tc_site'] );
 				$site_len = empty( $tc_site ) ? 0 : strlen( $tc_site ) + 6;
-			} else $site_len = 0;
+			} else {
+				$site_len = 0;
+			}
 
 			$max_len = $this->p->options[$opt_pre.'_cap_len'] - $site_len - $short_len;
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'max tweet length is '.$max_len.' chars ('.$this->p->options[$opt_pre.'_cap_len'].
 					' less '.$site_len.' for site name and '.$short_len.' for url)' );
+			}
 
 			return $max_len;
 		}
 
 		public function get_social_file_cache_url( $url, $url_ext = '' ) {
+
 			$lca = $this->p->cf['lca'];
 			$cache_exp = (int) apply_filters( $lca.'_cache_expire_social_file', 
 				$this->p->options['plugin_social_file_cache_exp'] );
 
-			if ( $cache_exp > 0 && isset( $this->p->cache->base_dir ) )
+			if ( $cache_exp > 0 && isset( $this->p->cache->base_dir ) ) {
 				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
+			}
 
 			return apply_filters( $lca.'_rewrite_cache_url', $url );
 		}
