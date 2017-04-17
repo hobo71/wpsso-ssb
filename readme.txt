@@ -136,7 +136,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.3.17-dev.1 (TBD)**
+**Version 2.3.17-dev.1 (2017/04/17)**
 
 * *New Features*
 	* None
@@ -145,7 +145,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Updated the Pinterest option key prefix from 'rp_' to 'p_' for WPSSO v3.41.0.
+	* Updated all Pinterest option key prefixes from 'rp' to 'p' for WPSSO v3.40.14.
 
 **Version 2.3.16 (2017/04/16)**
 
@@ -229,6 +229,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.3.17-dev.1 =
+
+(2017/04/17) Updated all Pinterest option key prefixes from 'rp' to 'p' for WPSSO v3.40.14.
 
 = 2.3.16 =
 
