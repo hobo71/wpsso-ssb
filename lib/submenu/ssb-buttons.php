@@ -15,7 +15,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 		public $website = array();
 
-		private $website_max_cols = 2;
+		private $max_cols = 2;
 
 		public function __construct( &$plugin, $id, $name, $lib, $ext ) {
 			$this->p =& $plugin;
@@ -51,11 +51,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		// show two-column metaboxes for sharing buttons
 		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
 			if ( isset( $this->website ) ) {
-				echo '<div id="ssb_website-metaboxes">'."\n";
-				foreach ( range( 1, $this->website_max_cols ) as $col ) {
-					echo '<div id="ssb_website-col-'.$col.'">';
+				echo '<div id="ssb_website-metaboxes" class="max-cols-'.$this->max_cols.'">'."\n";
+				foreach ( range( 1, $this->max_cols ) as $col ) {
+					echo '<div id="ssb_website-col-'.$col.'" class="ssb_website-col">';
 					do_meta_boxes( $pagehook, 'ssb_website-col-'.$col, null );
-					echo '</div><!-- #ssb_website-col-'.$col.' -->'."\n";
+					echo '</div><!-- #ssb_website-col-'.$col.'.ssb_website-col -->'."\n";
 				}
 				echo '</div><!-- #ssb_website-metaboxes -->'."\n";
 				echo '<div style="clear:both;"></div>'."\n";
@@ -74,12 +74,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
 			foreach ( $ids as $id => $name ) {
-
-				$col++;
-				if ( $col > $this->website_max_cols ) {
-					$col = 1;
-				}
-
+				$col = $col >= $this->max_cols ? 1 : $col + 1;
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
 				$pos_id = 'ssb_website-col-'.$col;
 				$prio = 'default';

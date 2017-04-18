@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.17-dev.3\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.3.17-dev.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2017-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -343,37 +343,37 @@ msgctxt "metabox title"
 msgid "Social Sharing Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:113
+#: lib/submenu/ssb-buttons.php:108
 msgctxt "metabox tab"
 msgid "Include Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:114
+#: lib/submenu/ssb-buttons.php:109
 msgctxt "metabox tab"
 msgid "Buttons Position"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:115
+#: lib/submenu/ssb-buttons.php:110
 msgctxt "metabox tab"
 msgid "Buttons Presets"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:150
+#: lib/submenu/ssb-buttons.php:145
 msgctxt "option label"
 msgid "Include on Archive Webpages"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:154
+#: lib/submenu/ssb-buttons.php:149
 msgctxt "option label"
 msgid "Include on Static Front Page"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:162
+#: lib/submenu/ssb-buttons.php:157
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:167
+#: lib/submenu/ssb-buttons.php:162
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""

@@ -1207,18 +1207,11 @@ $buttons_array[$buttons_index].
 				#ssb_website-metaboxes {
 					width:100%;
 				}
-				#ssb_website-col-1 {
+				.ssb_website-col {
 					float:left;
 					min-width:50%;
 				}
-				#ssb_website-col-1 .postbox {
-					overflow-x:hidden;
-				}
-				#ssb_website-col-2 {
-					float:left;
-					min-width:50%;
-				}
-				#ssb_website-col-2 .postbox {
+				.ssb_website-col .postbox {
 					overflow-x:hidden;
 				}
 				.postbox-ssb_website {
@@ -1237,12 +1230,10 @@ $buttons_array[$buttons_index].
 				.postbox-ssb_website.postbox-show_basic div.sucom-metabox-tabs div.sucom-tabset.active {
 					min-height:389px;
 				}
-				.postbox-ssb_website.closed {
-					overflow:hidden;
-				}
 				.postbox-ssb_website.closed,
 				.postbox-ssb_website.closed .metabox-ssb_website,
 				.postbox-ssb_website.postbox-show_basic.closed .metabox-ssb_website {
+					overflow:hidden;
 					height:auto;
 					min-height:0;
 				}
