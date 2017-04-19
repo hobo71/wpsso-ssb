@@ -30,10 +30,6 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$this->menu_ext = $ext;	// lowercase acronyn for plugin or extension
 
 			$this->set_objects();
-
-			$this->p->util->add_plugin_actions( $this, array(
-				'form_content_metaboxes_ssb_buttons' => 1,	// show two-column metaboxes
-			) );
 		}
 
 		private function set_objects() {
@@ -48,18 +44,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			}
 		}
 
-		// show two-column metaboxes for sharing buttons
-		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
-			if ( isset( $this->website ) ) {
-				echo '<div id="ssb_website-metaboxes" class="max-cols-'.$this->max_cols.'">'."\n";
-				foreach ( range( 1, $this->max_cols ) as $col ) {
-					echo '<div id="ssb_website-col-'.$col.'" class="ssb_website-col">';
-					do_meta_boxes( $pagehook, 'ssb_website-col-'.$col, null );
-					echo '</div><!-- #ssb_website-col-'.$col.'.ssb_website-col -->'."\n";
-				}
-				echo '</div><!-- #ssb_website-metaboxes -->'."\n";
-				echo '<div style="clear:both;"></div>'."\n";
-			}
+		protected function add_plugin_hooks() {
+			$this->p->util->add_plugin_actions( $this, array(
+				'form_content_metaboxes_ssb_buttons' => 1,	// show two-column metaboxes
+			) );
 		}
 
 		protected function add_meta_boxes() {
@@ -99,6 +87,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$classes[] = 'postbox-show_'.$show_opts;
 			}
 			return $classes;
+		}
+
+		// show two-column metaboxes for sharing buttons
+		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
+			if ( isset( $this->website ) ) {
+				echo '<div id="ssb_website-metaboxes" class="max-cols-'.$this->max_cols.'">'."\n";
+				foreach ( range( 1, $this->max_cols ) as $col ) {
+					echo '<div id="ssb_website-col-'.$col.'" class="ssb_website-col">';
+					do_meta_boxes( $pagehook, 'ssb_website-col-'.$col, null );
+					echo '</div><!-- #ssb_website-col-'.$col.'.ssb_website-col -->'."\n";
+				}
+				echo '</div><!-- #ssb_website-metaboxes -->'."\n";
+				echo '<div style="clear:both;"></div>'."\n";
+			}
 		}
 
 		public function show_metabox_ssb_buttons() {
