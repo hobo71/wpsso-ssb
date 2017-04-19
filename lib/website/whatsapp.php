@@ -29,11 +29,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteWhatsApp' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'wa_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Allow for Platform',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'wa_platform',
-				$this->p->cf['sharing']['platform'] ).'</td>';
+			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+				$table_rows[] = '<tr class="hide_in_basic">'.
+				$form->get_th_html( _x( 'Allow for Platform',
+					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				'<td>'.$form->get_select( 'wa_platform', $this->p->cf['sharing']['platform'] ).'</td>';
+			}
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			'<td colspan="2">'.$form->get_textarea( 'wa_ssb_html', 'average code' ).'</td>';
