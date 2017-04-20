@@ -9,7 +9,7 @@ Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
 Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr, stumbleupon
 Contributors: jsmoriss
 Requires At Least: 3.7
-Tested Up To: 4.7.3
+Tested Up To: 4.7.4
 Stable Tag: 2.3.16
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
