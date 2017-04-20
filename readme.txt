@@ -136,7 +136,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.3.17-b.1 (2017/04/20)**
+**Version 2.3.17-a.1 (2017/04/21)**
 
 * *New Features*
 	* None
@@ -231,9 +231,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.3.17-b.1 =
+= 2.3.17-a.1 =
 
-(2017/04/20) Minor CSS optimizations for the Sharing Buttons settings page. Updated all Pinterest option key prefixes and added support for a new constant in WPSSO v3.41.0.
+(2017/04/21) Minor CSS optimizations for the Sharing Buttons settings page. Updated all Pinterest option key prefixes and added support for a new constant in WPSSO v3.41.0.
 
 = 2.3.16 =
 
