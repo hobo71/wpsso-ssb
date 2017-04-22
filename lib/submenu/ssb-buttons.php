@@ -64,7 +64,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			foreach ( $ids as $id => $name ) {
 				$col = $col >= $this->max_cols ? 1 : $col + 1;
 				$name = $name == 'GooglePlus' ? 'Google+' : $name;
-				$pos_id = 'ssb_website-col-'.$col;
+				$pos_id = 'ssb_website_col_'.$col;	// ids must use underscores instead of hyphens to order metaboxes
 				$prio = 'default';
 				$args = array( 'id' => $id, 'name' => $name );
 
@@ -91,14 +91,13 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 		// show two-column metaboxes for sharing buttons
 		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
-			if ( isset( $this->website ) ) {
-				echo '<div id="ssb_website-metaboxes" class="max-cols-'.$this->max_cols.'">'."\n";
+			if ( ! empty( $this->website ) ) {
 				foreach ( range( 1, $this->max_cols ) as $col ) {
-					echo '<div id="ssb_website-col-'.$col.'" class="ssb_website-col">';
-					do_meta_boxes( $pagehook, 'ssb_website-col-'.$col, null );
-					echo '</div><!-- #ssb_website-col-'.$col.'.ssb_website-col -->'."\n";
+					// ids must use underscores instead of hyphens to order metaboxes
+					echo '<div id="ssb_website_col_'.$col.'" class="max-cols-'.$this->max_cols.' ssb_website_col">';
+					do_meta_boxes( $pagehook, 'ssb_website_col_'.$col, null );
+					echo '</div><!-- #ssb_website_col_'.$col.' -->'."\n";
 				}
-				echo '</div><!-- #ssb_website-metaboxes -->'."\n";
 				echo '<div style="clear:both;"></div>'."\n";
 			}
 		}

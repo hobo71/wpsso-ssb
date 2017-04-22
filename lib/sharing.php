@@ -1212,18 +1212,36 @@ $buttons_array[$buttons_index].
 
 		public function filter_settings_page_custom_style_css( $custom_style_css ) {
 			$custom_style_css .= '
-				#ssb_website-metaboxes {
-					width:100%;
-				}
-				.ssb_website-col {
+				.ssb_website_col {
 					float:left;
-					min-width:50%;
+					min-height:50px;
 				}
-				.ssb_website-col .postbox {
+				.max_cols_1.ssb_website_col {
+					width:100%;
+					min-width:100%;
+					max-width:100%;
+				}
+				.max_cols_2.dashboard_col {
+					width:50%;
+					min-width:50%;
+					max-width:50%;
+				}
+				.max_cols_3.dashboard_col {
+					width:33.3333%;
+					min-width:33.3333%;
+					max-width:33.3333%;
+				}
+				.max_cols_4.dashboard_col {
+					width:25%;
+					min-width:25%;
+					max-width:25%;
+				}
+				.ssb_website_col .postbox {
 					overflow-x:hidden;
 				}
 				.postbox-ssb_website {
 					min-width:452px;
+					overflow-y:auto;
 				}
 				.postbox-ssb_website .metabox-ssb_website {
 					min-height:565px;
@@ -1241,9 +1259,9 @@ $buttons_array[$buttons_index].
 				.postbox-ssb_website.closed,
 				.postbox-ssb_website.closed .metabox-ssb_website,
 				.postbox-ssb_website.postbox-show_basic.closed .metabox-ssb_website {
-					overflow:hidden;
 					height:auto;
 					min-height:0;
+					overflow:hidden;
 				}
 			';
 			return $custom_style_css;
