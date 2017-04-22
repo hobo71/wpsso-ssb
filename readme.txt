@@ -136,14 +136,14 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.3.17-rc.2 (2017/04/21)**
+**Version 2.3.17 (2017/04/22)**
 
 * *New Features*
 	* None
 * *Improvements*
-	* Minor CSS optimizations for the Sharing Buttons settings page.
-* *Bugfixes*
 	* None
+* *Bugfixes*
+	* Fixed the moving/re-ordering feature of Sharing Buttons metaboxes (CSS identifiers must use underscores and not hyphens).
 * *Developer Notes*
 	* Updated all Pinterest option key prefixes from 'rp' to 'p' for WPSSO v3.41.0.
 	* Added support for the new WPSSO_VARY_USER_AGENT_DISABLE constant in WPSSO v3.41.0.
@@ -231,9 +231,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.3.17-rc.2 =
+= 2.3.17 =
 
-(2017/04/21) Minor CSS optimizations for the Sharing Buttons settings page. Updated all Pinterest option key prefixes and added support for a new constant in WPSSO v3.41.0.
+(2017/04/22) Fixed the moving/re-ordering feature of Sharing Buttons metaboxes. Updated all Pinterest option key prefixes and added support for a new constant in WPSSO v3.41.0.
 
 = 2.3.16 =
 
