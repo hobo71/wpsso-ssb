@@ -136,6 +136,18 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.4.0-dev.1 (2017/04/24)**
+
+* *New Features*
+	* Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version).
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Renamed the $is_avail array to $avail for WPSSO v3.42.0.
+	* Replaced WPSSO_VARY_USER_AGENT_DISABLE constant checks by $avail['*']['vary_ua'].
+
 **Version 2.3.17 (2017/04/22)**
 
 * *New Features*
@@ -230,6 +242,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.3.18-dev.1 =
+
+(2017/04/24) Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version).
 
 = 2.3.17 =
 
