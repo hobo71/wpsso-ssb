@@ -22,7 +22,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerce' ) ) {
 				$this->p->debug->mark();
 			}
 
-			if ( ! empty( $this->p->is_avail['p_ext']['ssb'] ) ) {
+			if ( ! empty( $this->p->avail['p_ext']['ssb'] ) ) {
 				$classname = __CLASS__.'Sharing';
 				if ( class_exists( $classname ) ) {
 					$this->sharing = new $classname( $this->p );

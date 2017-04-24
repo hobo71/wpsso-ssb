@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteWhatsApp' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'wa_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			if ( $this->p->avail['*']['vary_ua'] ) {
 				$table_rows[] = '<tr class="hide_in_basic">'.
 				$form->get_th_html( _x( 'Allow for Platform',
 					'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -93,7 +93,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 
 			return $this->p->util->replace_inline_vars( '<!-- WhatsApp Button -->'.
 				$wa_button_html, $mod, $atts, array(
-			 		'title' => rawurlencode( $this->p->webpage->get_title( 0, '',
+			 		'title' => rawurlencode( $this->p->page->get_title( 0, '',
 						$mod, true, false, false, 'og_title', 'whatsapp' ) ),
 				)
 			);

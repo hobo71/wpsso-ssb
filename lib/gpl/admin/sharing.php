@@ -14,20 +14,25 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
 				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
 				'ssb_buttons_preset_rows' => 2,		// $table_rows, $form
+				'ssb_buttons_advanced_rows' => 2,	// $table_rows, $form
 				'post_buttons_rows' => 4,		// $table_rows, $form, $head, $mod
 			), 30 );
 		}
 
 		public function filter_plugin_cache_rows( $table_rows, $form, $network = false ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			SucomUtil::add_before_key( $table_rows, 'plugin_show_purge_count', array(
 				'plugin_sharing_buttons_cache_exp' => $form->get_th_html( _x( 'Sharing Buttons Cache Expiry',
@@ -47,6 +52,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_include_rows( $table_rows, $form ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
@@ -69,6 +75,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_preset_rows( $table_rows, $form ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
@@ -86,16 +93,28 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			foreach( $presets as $filter_id => $filter_name )
 				$table_rows[] = $form->get_th_html( sprintf( _x( '%s Preset',
-					'option label', 'wpsso-ssb' ), $filter_name ), null, 'buttons_preset' ).
+					'option label', 'wpsso-ssb' ), $filter_name ), '', 'buttons_preset' ).
 				'<td class="blank">'.$form->get_no_select( 'buttons_preset_ssb-'.$filter_id, 
 					array_merge( array( '' ), array_keys( $this->p->cf['opt']['preset'] ) ) ).'</td>';
 
 			return $table_rows;
 		}
 
+		public function filter_ssb_buttons_advanced_rows( $table_rows, $form ) {
+
+			$table_rows[] = $form->get_th_html( _x( 'Force Protocol for Shared URLs',
+				'option label', 'wpsso-ssb' ), '', 'buttons_force_prot' ).
+			'<td class="blank">'.$form->get_no_select( 'buttons_force_prot', 
+				array_merge( array( '' => 'none' ), $this->p->cf['sharing']['force_prot'] ) ).'</td>';
+
+			return $table_rows;
+		}
+
 		public function filter_post_buttons_rows( $table_rows, $form, $head, $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
 				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
@@ -105,7 +124,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			}
 
 			$size_info = SucomUtil::get_size_info( 'thumbnail' );
-			$title_caption = $this->p->webpage->get_caption( 'title', 0, $mod, true, false );
+			$title_caption = $this->p->page->get_caption( 'title', 0, $mod, true, false );
 
 			$table_rows[] = '<td colspan="3" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', 
@@ -115,7 +134,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Email
 			 */
 			$caption_len = $this->p->options['email_cap_len'];
-			$caption_text = $this->p->webpage->get_caption( 'excerpt', $caption_len, 
+			$caption_text = $this->p->page->get_caption( 'excerpt', $caption_len, 
 				$mod, true, $this->p->options['email_cap_hashtags'], true, 'none' );
 
 			$form_rows['email_title'] = array(
@@ -133,7 +152,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Twitter
 			 */
 			$caption_len = $this->p->ssb_sharing->get_tweet_max_len();
-			$caption_text = $this->p->webpage->get_caption( $this->p->options['twitter_caption'],
+			$caption_text = $this->p->page->get_caption( $this->p->options['twitter_caption'],
 				$caption_len, $mod, true, true );	// $use_cache = true, $add_hashtags = true
 
 			$form_rows['twitter_desc'] = array(
@@ -146,7 +165,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Pinterest
 			 */
 			$caption_len = $this->p->options['pin_cap_len'];
-			$caption_text = $this->p->webpage->get_caption( $this->p->options['pin_caption'], $caption_len, $mod );
+			$caption_text = $this->p->page->get_caption( $this->p->options['pin_caption'], $caption_len, $mod );
 			$force_regen = $this->p->util->is_force_regen( $mod, 'p' );	// false by default
 			$media = $this->p->og->get_media_info( $this->p->cf['lca'].'-pinterest-button',
 				array( 'pid', 'img_url' ), $mod, 'p' );
@@ -173,7 +192,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Tumblr
 			 */
 			$caption_len = $this->p->options['tumblr_cap_len'];
-			$caption_text = $this->p->webpage->get_caption( $this->p->options['tumblr_caption'], $caption_len, $mod );
+			$caption_text = $this->p->page->get_caption( $this->p->options['tumblr_caption'], $caption_len, $mod );
 			$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 			$media = $this->p->og->get_media_info( $this->p->cf['lca'].'-tumblr-button',
 				array( 'pid', 'img_url' ), $mod, 'og' );

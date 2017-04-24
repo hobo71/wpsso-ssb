@@ -15,8 +15,8 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.3.17',		// plugin version
-					'opt_version' => '15',		// increment when changing default options
+					'version' => '2.4.0-dev.1',		// plugin version
+					'opt_version' => '16',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons (WPSSO SSB)',
 					'desc' => 'WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
@@ -28,7 +28,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short' => 'WPSSO',
 						'name' => 'WordPress Social Sharing Optimization (WPSSO)',
-						'min_version' => '3.41.0',
+						'min_version' => '3.42.0-dev.1',
 					),
 					'img' => array(
 						'icons' => array(
@@ -176,7 +176,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'sidebar' => 'CSS Sidebar', 
 					'admin_edit' => 'Admin Edit',
 				),
-				'ssb-styles' => array(
+				'force_prot' => array( 
+					'http' => 'HTTP',
+					'https' => 'HTTPS',
+				),
+				'ssb_styles' => array(
 					'ssb-sharing' => 'All Buttons',
 					'ssb-content' => 'Content',
 					'ssb-excerpt' => 'Excerpt',

@@ -94,7 +94,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			if ( ! empty( $this->website ) ) {
 				foreach ( range( 1, $this->max_cols ) as $col ) {
 					// ids must use underscores instead of hyphens to order metaboxes
-					echo '<div id="ssb_website_col_'.$col.'" class="max-cols-'.$this->max_cols.' ssb_website_col">';
+					echo '<div id="ssb_website_col_'.$col.'" class="max_cols_'.$this->max_cols.' ssb_website_col">';
 					do_meta_boxes( $pagehook, 'ssb_website_col_'.$col, null );
 					echo '</div><!-- #ssb_website_col_'.$col.' -->'."\n";
 				}
@@ -109,6 +109,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset' => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
+				'advanced' => _x( 'Advanced', 'metabox tab', 'wpsso-ssb' ),
 			) );
 			$table_rows = array();
 			foreach ( $tabs as $key => $title ) {
@@ -176,7 +177,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$max = 2;
 			$html = '<table>';
 			$lca = $this->p->cf['lca'];
-			$aop = $this->p->check->aop( 'wpssossb', true, $this->p->is_avail['aop'] );
+			$aop = $this->p->check->aop( 'wpssossb', true, $this->p->avail['*']['p_dir'] );
 			$show_on = apply_filters( $lca.'_ssb_buttons_show_on', 
 				$this->p->cf['sharing']['show_on'], $opt_prefix );
 

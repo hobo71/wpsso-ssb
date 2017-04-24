@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteReddit' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'reddit_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			if ( $this->p->avail['*']['vary_ua'] ) {
 				$table_rows[] = '<tr class="hide_in_basic">'.
 				$form->get_th_html( _x( 'Allow for Platform',
 					'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -83,7 +83,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 				$this->p->debug->mark();
 
 			if ( empty( $atts['title'] ) ) 
-				$atts['title'] = $this->p->webpage->get_title( 0, '', $mod, true, false, false, null );	// $encode = false
+				$atts['title'] = $this->p->page->get_title( 0, '', $mod, true, false, false, null );	// $encode = false
 
 			switch ( $opts['reddit_type'] ) {
 				case 'static-tall-text':

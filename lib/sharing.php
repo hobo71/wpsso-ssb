@@ -50,6 +50,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
 					'buttons_preset_ssb-shortcode' => '',
 					'buttons_preset_ssb-widget' => 'small_share_count',
+					// Buttons Advanced
+					'buttons_force_prot' => '',
 					/*
 					 * Sharing Styles
 					 */
@@ -167,7 +169,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$def_opts = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
 			$plugin_dir = trailingslashit( realpath( dirname( $this->plugin_filepath ) ) );
 			$url_path = parse_url( trailingslashit( plugins_url( '', $this->plugin_filepath ) ), PHP_URL_PATH );	// relative URL
-			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb-styles'] );
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $tabs as $id => $name ) {
 				$buttons_css_file = $plugin_dir.'css/'.$id.'.css';
@@ -230,6 +232,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					return 'pos_int';
 					break;
 				// text strings that can be blank
+				case 'buttons_force_prot':
 				case 'gp_expandto':
 				case 'pin_desc':
 				case 'tumblr_img_desc':
@@ -326,7 +329,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$opts =& $this->p->options;
 			$def_opts = $this->p->opt->get_defaults();
 			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
-				$this->p->cf['sharing']['ssb-styles'] );
+				$this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $tabs as $id => $name )
 				if ( isset( $opts['buttons_css_'.$id] ) &&
@@ -383,7 +386,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$lca = $this->p->cf['lca'];
-			$tabs = apply_filters( $lca.'_ssb_styles_tabs', $this->p->cf['sharing']['ssb-styles'] );
+			$tabs = apply_filters( $lca.'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 			$sharing_css_data = '';
 
 			foreach ( $tabs as $id => $name ) {
@@ -489,10 +492,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
+
 			$lca = $this->p->cf['lca'];
-			$js = trim( preg_replace( '/\/\*.*\*\//', '',
-				$this->p->options['buttons_js_ssb-sidebar'] ) );
+			$js = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_ssb-sidebar'] ) );
 			$text = $this->get_buttons( '', 'sidebar', false );	// $use_post = false
+
 			if ( ! empty( $text ) ) {
 				echo '<div id="'.$lca.'-ssb-sidebar-container">';
 				echo '<div id="'.$lca.'-ssb-sidebar-header"></div>';
@@ -658,8 +662,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$atts['use_post'] = $mod['use_post'];
 				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
 
-				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) )
+				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
 					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
+				}
 
 				// returns html or an empty string
 				$buttons_array[$buttons_index] = $this->get_html( $sorted_ids, $atts, $mod );
@@ -710,8 +715,7 @@ $buttons_array[$buttons_index].
 			return 'locale:'.SucomUtil::get_locale( 'current' ).
 				'_type:'.( empty( $type ) ? 'none' : $type ).
 				'_https:'.( SucomUtil::is_https() ? 'true' : 'false' ).
-				( SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ?
-					'' : '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) ).
+				( $this->p->avail['*']['vary_ua'] ? '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) : '' ).
 				( $atts !== false ? '_atts:'.http_build_query( $atts, '', '_' ) : '' ).
 				( $ids !== false ? '_ids:'.http_build_query( $ids, '', '_' ) : '' );
 		}
@@ -774,12 +778,21 @@ $buttons_array[$buttons_index].
 						if ( $this->allow_for_platform( $id ) ) {
 
 							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// uses 'css_id' and 'use_post'
+
 							$atts['url'] = empty( $atts['url'] ) ? 				// used by get_inline_vals()
 								$this->p->util->get_sharing_url( $mod, 
 									$atts['add_page'], $atts['src_id'] ) : 
 								apply_filters( $lca.'_sharing_url', $atts['url'], 
 									$mod, $atts['add_page'], $atts['src_id'] );
+
+							if ( ! empty( $this->p->options['buttons_force_prot'] ) ) {
+								$atts['url'] = preg_replace( '/^.*:\/\//',
+									$this->p->options['buttons_force_prot'].'://',
+										$atts['url'] );
+							}
+
 							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
+
 							$atts = $saved_atts;	// restore the common $atts array
 
 						} elseif ( $this->p->debug->enabled )
@@ -951,8 +964,8 @@ $buttons_array[$buttons_index].
 
 		public function allow_for_platform( $id ) {
 
-			// always return allow if the content does not vary by user agent
-			if ( SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			// always allow if the content does not vary by user agent
+			if ( ! $this->p->avail['*']['vary_ua'] ) {
 				return true;
 			}
 
@@ -1038,7 +1051,7 @@ $buttons_array[$buttons_index].
 				$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
 				$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
 				$atts['add_hashtags'] = isset( $atts['add_hashtags'] ) ? $atts['add_hashtags'] : true;
-				return $this->p->webpage->get_caption( ( empty( $this->p->options[$opt_pre.'_caption'] ) ?
+				return $this->p->page->get_caption( ( empty( $this->p->options[$opt_pre.'_caption'] ) ?
 					'title' : $this->p->options[$opt_pre.'_caption'] ), $this->get_tweet_max_len( $opt_pre ),
 						$mod, true, $atts['add_hashtags'], false, $md_pre.'_desc' );
 			} else return $atts['tweet'];
@@ -1094,6 +1107,12 @@ $buttons_array[$buttons_index].
 					break;
 				case 'tooltip-buttons_add_to':
 					$text = __( 'Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here.', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_preset':
+					$text = __( 'Select a pre-defined set of option values for sharing buttons in this location.', 'wpsso-ssb' );
+					break;
+				case 'tooltip-buttons_force_prot':
+					$text = __( 'Modify URLs shared by the sharing buttons to use a specific protocol. This option can be useful to retain the share count of HTTP URLs after moving your site to HTTPS.', 'wpsso-ssb' );
 					break;
 				case 'tooltip-buttons_use_social_style':
 					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
@@ -1201,7 +1220,7 @@ $buttons_array[$buttons_index].
     .ssb-buttons 
         .facebook-button {}</pre>';
 			if ( $preset ) {
-				$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb-styles'] );
+				$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
 						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
@@ -1221,17 +1240,17 @@ $buttons_array[$buttons_index].
 					min-width:100%;
 					max-width:100%;
 				}
-				.max_cols_2.dashboard_col {
+				.max_cols_2.ssb_website_col {
 					width:50%;
 					min-width:50%;
 					max-width:50%;
 				}
-				.max_cols_3.dashboard_col {
+				.max_cols_3.ssb_website_col {
 					width:33.3333%;
 					min-width:33.3333%;
 					max-width:33.3333%;
 				}
-				.max_cols_4.dashboard_col {
+				.max_cols_4.ssb_website_col {
 					width:25%;
 					min-width:25%;
 					max-width:25%;

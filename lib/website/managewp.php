@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteManagewp' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'managewp_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			if ( $this->p->avail['*']['vary_ua'] ) {
 				$table_rows[] = '<tr class="hide_in_basic">'.
 				$form->get_th_html( _x( 'Allow for Platform',
 					'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -82,7 +82,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 				$this->p->debug->mark();
 
 			if ( empty( $atts['title'] ) )
-				$atts['title'] = $this->p->webpage->get_title( null, null, $mod, true, false, true, null );
+				$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false, true, null );
 
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );

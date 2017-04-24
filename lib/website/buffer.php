@@ -43,7 +43,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			if ( $this->p->avail['*']['vary_ua'] ) {
 				$table_rows[] = '<tr class="hide_in_basic">'.
 				$form->get_th_html( _x( 'Allow for Platform',
 					'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -167,7 +167,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->ssb_sharing->get_tweet_max_len( 'buffer' );
-					$atts['caption'] = $this->p->webpage->get_caption( $opts['buffer_caption'], $caption_len,
+					$atts['caption'] = $this->p->page->get_caption( $opts['buffer_caption'], $caption_len,
 						$mod, true, true, true, 'twitter_desc' );
 				}
 			}

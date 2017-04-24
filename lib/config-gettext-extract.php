@@ -8,6 +8,8 @@ _x( 'Content', 'option value', 'wpsso-ssb' );
 _x( 'CSS Sidebar', 'option value', 'wpsso-ssb' );
 _x( 'Desktop Only', 'option value', 'wpsso-ssb' );
 _x( 'Excerpt', 'option value', 'wpsso-ssb' );
+_x( 'HTTP', 'option value', 'wpsso-ssb' );
+_x( 'HTTPS', 'option value', 'wpsso-ssb' );
 _x( 'Mobile Only', 'option value', 'wpsso-ssb' );
 _x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' );
 _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' );

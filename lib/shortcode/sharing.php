@@ -22,7 +22,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			}
 
 			if ( ! is_admin() ) {
-				if ( $this->p->is_avail['p_ext']['ssb'] ) {
+				if ( $this->p->avail['p_ext']['ssb'] ) {
 					$this->wpautop();
 					$this->add();
 				}

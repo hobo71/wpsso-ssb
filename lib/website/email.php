@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteEmail' ) ) {
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'email_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
-			if ( ! SucomUtil::get_const( 'WPSSO_VARY_USER_AGENT_DISABLE' ) ) {
+			if ( $this->p->avail['*']['vary_ua'] ) {
 				$table_rows[] = '<tr class="hide_in_basic">'.
 				$form->get_th_html( _x( 'Allow for Platform',
 					'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -112,9 +112,9 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
 				$email_button_html, $mod, $atts, array(
-				 	'email_title' => rawurlencode( $this->p->webpage->get_title( 0, '',
+				 	'email_title' => rawurlencode( $this->p->page->get_title( 0, '',
 						$mod, true, false, false, 'og_title', 'email' ) ),
-					'email_excerpt' => rawurlencode( $this->p->webpage->get_caption( 'excerpt', $opts['email_cap_len'],
+					'email_excerpt' => rawurlencode( $this->p->page->get_caption( 'excerpt', $opts['email_cap_len'],
 						$mod, true, $atts['add_hashtags'], false, 'og_desc', 'email' ) ),
 				)
 			);
