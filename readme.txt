@@ -136,7 +136,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.4.0-dev.3 (2017/04/28)**
+**Version 2.4.0-dev.4 (2017/04/28)**
 
 * *New Features*
 	* Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version).
@@ -147,8 +147,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* Code refactoring to rename the $is_avail array to $avail for WPSSO v3.42.0.
 	* Replaced WPSSO_VARY_USER_AGENT_DISABLE constant checks by $avail array checks.
-	* Added a new filter:
-		* 'wpsso_ssb_sharing_buttons_html' ( $type, $mod, $location, $atts );
+	* Added a new filter: 'wpsso_ssb_sharing_buttons_html' ( $type, $mod, $location, $atts ).
 
 **Version 2.3.17 (2017/04/22)**
 
@@ -245,7 +244,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.4.0-dev.3 =
+= 2.4.0-dev.4 =
 
 (2017/04/28) Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version). Code refactoring to rename the $is_avail array to $avail, and replace the WPSSO_VARY_USER_AGENT_DISABLE constant checks by $avail array checks.
 
