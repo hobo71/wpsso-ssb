@@ -800,10 +800,11 @@ $buttons_array[$buttons_index].
 								apply_filters( $lca.'_sharing_url', $atts['url'], 
 									$mod, $atts['add_page'], $atts['src_id'] );
 
-							if ( ! empty( $this->p->options['buttons_force_prot'] ) ) {
-								$atts['url'] = preg_replace( '/^.*:\/\//',
-									$this->p->options['buttons_force_prot'].'://',
-										$atts['url'] );
+							$force_prot = apply_filters( $lca.'_ssb_buttons_force_prot',
+								$this->p->options['buttons_force_prot'], $mod, $atts['url'] );
+
+							if ( ! empty( $force_prot ) && $force_prot !== 'none' ) {
+								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot.'://', $atts['url'] );
 							}
 
 							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
