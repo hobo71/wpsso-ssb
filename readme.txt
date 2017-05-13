@@ -30,7 +30,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 = Quick List of Features =
 
-**WPSSO SSB Free / Basic Features**
+**WPSSO SSB Free / Core Features**
 
 * Extends the features of WPSSO Free or Pro.
 * Allows you to include a selection of traditional social sharing buttons in multiple locations:
