@@ -85,7 +85,7 @@
 
 <h4>Extends the WPSSO Plugin</h4>
 
-<p>The WPSSO (WordPress Social Sharing Optimization) plugin is required to use the WPSSO SSB extension.</p>
+<p>The WPSSO (Social Sharing Optimization) plugin is required to use the WPSSO SSB extension.</p>
 
 <blockquote>
 <p>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> works with the WPSSO Free or Pro plugin. The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro plugin</a> as well.</p>
