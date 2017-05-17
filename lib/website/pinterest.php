@@ -152,16 +152,19 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$href_query = '?url='.urlencode( $atts['url'] );
 
-			if ( empty( $atts['size'] ) ) 
+			if ( empty( $atts['size'] ) ) {
 				$atts['size'] = $this->p->cf['lca'].'-pinterest-button';
+			}
 
 			if ( ! empty( $atts['pid'] ) ) {
-				$force_regen = $this->p->util->is_force_regen( $mod, 'p' );	// false by default
+				$force_regen = $this->p->util->is_force_regen( $mod, 'schema' );	// false by default
 
 				list(
 					$atts['photo'],
@@ -171,19 +174,25 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					$atts['pid']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false, $force_regen );
 
-				if ( $this->p->debug->enabled )
+				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
+				}
 			}
 
 			if ( empty( $atts['photo'] ) ) {
-				$media_info = $this->p->og->get_media_info( $atts['size'], array( 'img_url' ), $mod, 'p' );
+				$media_info = $this->p->og->get_media_info( $atts['size'], 
+					array( 'img_url' ), $mod, 'schema' );	// $md_pre = 'schema'
+					
 				$atts['photo'] = $media_info['img_url'];
+
 				if ( empty( $atts['photo'] ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: no photo available' );
+					}
 					return '<!-- Pinterest Button: no photo available -->';	// abort
 				}
 			}
+
 			$href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
@@ -228,8 +237,9 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			'data-pin-config="'.$opts['pin_count_layout'].'">'.
 			'<img border="0" alt="Pin It" src="'.$pin_img_url.'" width="'.$pin_img_width.'" height="'.$pin_img_height.'" /></a></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
