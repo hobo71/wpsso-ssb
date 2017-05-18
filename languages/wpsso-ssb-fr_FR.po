@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons (WPSSO SSB) 2.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2017-04-30 07:18+0200\n"
-"PO-Revision-Date: 2017-04-30 07:18+0200\n"
+"POT-Creation-Date: 2017-05-18 08:35-0400\n"
+"PO-Revision-Date: 2017-05-18 08:35-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -236,7 +236,7 @@ msgctxt "metabox title"
 msgid "Sharing Buttons"
 msgstr "Boutons de Partage Social"
 
-#: lib/sharing.php:527
+#: lib/sharing.php:526
 msgid "%s must be published<br/>before it can be shared."
 msgstr "%s doit être publié<br/>avant d'être partagé."
 
