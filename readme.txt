@@ -57,7 +57,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 * Support for Automattic's [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin.
 * A stylesheets editor for each social sharing button locations (content, excerpt, shortcode, widget, etc.).
 
-**WPSSO SSB Pro / Power-User Features**
+**WPSSO SSB Pro / Additional Features**
 
 * Extends the features of WPSSO Pro (requires a licensed WPSSO Pro plugin).
 * Dynamic button language switching based on the current WordPress locale.
