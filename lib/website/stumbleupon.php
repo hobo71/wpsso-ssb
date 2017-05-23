@@ -125,22 +125,28 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$html = '<!-- StumbleUpon Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'stumbleupon', 'stumble-button' ).'>'.
 			'<su:badge layout="'.$opts['stumble_badge'].'" location="'.$atts['url'].'"></su:badge></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
 
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
 				SucomUtil::get_prot().'://platform.stumbleupon.com/1/widgets.js', $pos ) );
 
