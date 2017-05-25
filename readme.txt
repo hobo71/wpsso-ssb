@@ -132,6 +132,20 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.4.2 (2017/05/25)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added a note in the StumbleUpon settings metabox to inform users that StumbleUpon does not currently offer an HTTPS compatible share button.
+	* Added the following options to the Sharing Buttons settings page, under the Advanced Settings tab:
+		* Sharing Buttons Cache Expiry
+		* Social File Cache Expiry
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.4.1 (2017/05/19)**
 
 * *New Features*
@@ -250,6 +264,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.4.2 =
+
+(2017/05/25) Added a note in the StumbleUpon settings metabox to inform users that StumbleUpon does not currently offer an HTTPS compatible share button.
 
 = 2.4.1 =
 
