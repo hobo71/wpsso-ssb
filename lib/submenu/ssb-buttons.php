@@ -109,7 +109,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset' => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
-				'advanced' => _x( 'Advanced', 'metabox tab', 'wpsso-ssb' ),
+				'advanced' => _x( 'Advanced Settings', 'metabox tab', 'wpsso-ssb' ),
 			) );
 			$table_rows = array();
 			foreach ( $tabs as $key => $title ) {
