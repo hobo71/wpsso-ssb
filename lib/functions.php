@@ -5,8 +5,9 @@
  * Copyright 2014-2017 Jean-Sebastien Morisset (https://surniaulula.com/)
  */
 
-if ( ! defined( 'ABSPATH' ) ) 
+if ( ! defined( 'ABSPATH' ) ) {
 	die( 'These aren\'t the droids you\'re looking for...' );
+}
 
 if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 	function wpssossb_get_sharing_buttons( $ids = array(), $atts = array(), $cache_exp = false ) {
@@ -32,8 +33,9 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 		}
 
 		if ( $error_msg !== false ) {
-			if ( $wpsso->debug->enabled )
+			if ( $wpsso->debug->enabled ) {
 				$wpsso->debug->log( 'exiting early: '.$error_msg );
+			}
 			return '<!-- '.__FUNCTION__.' exiting early: '.$error_msg.' -->'."\n";
 		}
 
