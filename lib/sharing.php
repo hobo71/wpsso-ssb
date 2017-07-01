@@ -104,8 +104,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			add_action( 'wp_head', array( &$this, 'show_head' ), WPSSOSSB_HEAD_PRIORITY );
 			add_action( 'wp_footer', array( &$this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
 
-			if ( $this->have_buttons_for_type( 'content' ) )
+			if ( $this->have_buttons_for_type( 'content' ) ) {
 				$this->add_buttons_filter( 'the_content' );
+			}
 
 			if ( $this->have_buttons_for_type( 'excerpt' ) ) {
 				$this->add_buttons_filter( 'get_the_excerpt' );
@@ -481,10 +482,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function show_footer() {
-			if ( $this->have_buttons_for_type( 'sidebar' ) )
+			if ( $this->have_buttons_for_type( 'sidebar' ) ) {
 				echo $this->show_sidebar();
-			elseif ( $this->p->debug->enabled )
+			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'no buttons enabled for sidebar' );
+			}
 			echo $this->get_script( 'footer' );
 		}
 
@@ -971,8 +973,9 @@ $buttons_array[$buttons_index].
 
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) &&	// check if button is enabled
-					$this->allow_for_platform( $id ) )			// check if allowed on platform
-						return $this->buttons_for_type[$type] = true;
+					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
+					return $this->buttons_for_type[$type] = true;
+				}
 			}
 
 			return $this->buttons_for_type[$type] = false;
@@ -1008,16 +1011,21 @@ $buttons_array[$buttons_index].
 			$ret = false;
 
 			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
-				if ( $this->p->debug->enabled )
+				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'exiting early: invalid post object' );
+				}
 				return $ret;
-			} else $post_id = empty( $post_obj->ID ) ? 0 : $post_obj->ID;
+			} else {
+				$post_id = empty( $post_obj->ID ) ? 0 : $post_obj->ID;
+			}
 
-			if ( empty( $post_id ) )
+			if ( empty( $post_id ) ) {
 				return $ret;
+			}
 
-			if ( isset( $this->post_buttons_disabled[$post_id] ) )
+			if ( isset( $this->post_buttons_disabled[$post_id] ) ) {
 				return $this->post_buttons_disabled[$post_id];
+			}
 
 			// get_options() returns null if an index key is not found
 			if ( $this->p->m['util']['post']->get_options( $post_id, 'buttons_disabled' ) ) {
