@@ -132,6 +132,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.4.3-dev.2 (2017/07/20)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Added more debug messages to the WpssoSsbSharing::get_buttons() method.
+
 **Version 2.4.2 (2017/05/25)**
 
 * *New Features*
@@ -264,6 +275,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.4.3-dev.2 =
+
+(2017/07/20) Added more debug messages to the WpssoSsbSharing::get_buttons() method.
 
 = 2.4.2 =
 
