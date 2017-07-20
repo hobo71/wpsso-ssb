@@ -594,28 +594,46 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$error_msg = false;
 
 			if ( is_admin() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_admin is true' );
+				}
 				if ( strpos( $type, 'admin_' ) !== 0 ) {
 					$error_msg = $type.' ignored in back-end';
 				}
 			} elseif ( SucomUtil::is_amp() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_amp is true' );
+				}
 				$error_msg = 'buttons not allowed in amp endpoint';
 			} elseif ( is_feed() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_feed is true' );
+				}
 				$error_msg = 'buttons not allowed in rss feeds';
 			} elseif ( ! is_singular() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_singular is false' );
+				}
 				if ( empty( $this->p->options['buttons_on_index'] ) ) {
 					$error_msg = 'buttons_on_index not enabled';
 				}
 			} elseif ( is_front_page() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_front_page is true' );
+				}
 				if ( empty( $this->p->options['buttons_on_front'] ) ) {
 					$error_msg = 'buttons_on_front not enabled';
 				}
 			} elseif ( is_singular() ) {
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'is_singular is true' );
+				}
 				if ( $this->is_post_buttons_disabled() ) {
 					$error_msg = 'post buttons are disabled';
 				}
 			}
 
-			if ( ! $this->have_buttons_for_type( $type ) ) {
+			if ( $error_msg === false && ! $this->have_buttons_for_type( $type ) ) {
 				$error_msg = 'no sharing buttons enabled';
 			}
 
@@ -839,7 +857,9 @@ $buttons_array[$buttons_index].
 				if ( class_exists( 'WpssoSsbWidgetSharing' ) ) {
 					$widget = new WpssoSsbWidgetSharing();
 			 		$widget_settings = $widget->get_settings();
-				} else $widget_settings = array();
+				} else {
+					$widget_settings = array();
+				}
 	
 				// check for enabled buttons in ACTIVE widget(s)
 				foreach ( $widget_settings as $num => $instance ) {
@@ -861,17 +881,21 @@ $buttons_array[$buttons_index].
 			$exit_message = false;
 			if ( is_admin() ) {
 				if ( ( $post_obj = SucomUtil::get_post_object() ) === false ||
-					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) )
-						$exit_message = 'must be published or attachment for admin buttons';
+					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) ) {
+					$exit_message = 'must be published or attachment for admin buttons';
+				}
 			} elseif ( ! is_singular() ) {
-				if ( empty( $this->p->options['buttons_on_index'] ) )
+				if ( empty( $this->p->options['buttons_on_index'] ) ) {
 					$exit_message = 'buttons_on_index not enabled';
+				}
 			} elseif ( is_front_page() ) {
-				if ( empty( $this->p->options['buttons_on_front'] ) )
+				if ( empty( $this->p->options['buttons_on_front'] ) ) {
 					$exit_message = 'buttons_on_front not enabled';
+				}
 			} elseif ( is_singular() ) {
-				if ( $this->is_post_buttons_disabled() )
+				if ( $this->is_post_buttons_disabled() ) {
 					$exit_message = 'post buttons are disabled';
+				}
 			}
 
 			if ( $exit_message ) {
@@ -971,14 +995,12 @@ $buttons_array[$buttons_index].
 			if ( isset( $this->buttons_for_type[$type] ) ) {
 				return $this->buttons_for_type[$type];
 			}
-
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) &&	// check if button is enabled
 					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
 					return $this->buttons_for_type[$type] = true;
 				}
 			}
-
 			return $this->buttons_for_type[$type] = false;
 		}
 
@@ -1009,6 +1031,11 @@ $buttons_array[$buttons_index].
 		}
 
 		public function is_post_buttons_disabled() {
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$ret = false;
 
 			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
