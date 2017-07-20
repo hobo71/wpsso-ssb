@@ -600,7 +600,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function get_buttons( $text, $type = 'content', $mod = true, $location = '', $atts = array() ) {
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->mark();
+				$this->p->debug->mark( 'getting buttons for '.$type );	// start timer
 			}
 
 			$error_msg = false;
@@ -652,8 +652,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			if ( $error_msg ) {
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->mark();
 					$this->p->debug->log( $type.' filter skipped: '.$error_msg );
+					$this->p->debug->mark( 'getting buttons for '.$type );	// end timer
 				}
 				return $text."\n".'<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_msg.' -->'."\n";
 			}
@@ -753,6 +753,10 @@ $buttons_array[$buttons_index].
 				case 'both': 
 					$text = $buttons_array[$buttons_index].$text.$buttons_array[$buttons_index]; 
 					break;
+			}
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark( 'getting buttons for '.$type );	// end timer
 			}
 
 			return $text;
