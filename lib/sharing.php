@@ -619,6 +619,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 			} elseif ( is_front_page() ) {
 				if ( $this->p->debug->enabled ) {
+					$this->p->debug->mark();
 					$this->p->debug->log( 'is_front_page is true' );
 				}
 				if ( empty( $this->p->options['buttons_on_front'] ) ) {
@@ -639,6 +640,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			if ( $error_msg ) {
 				if ( $this->p->debug->enabled ) {
+					$this->p->debug->mark();
 					$this->p->debug->log( $type.' filter skipped: '.$error_msg );
 				}
 				return $text."\n".'<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_msg.' -->'."\n";
