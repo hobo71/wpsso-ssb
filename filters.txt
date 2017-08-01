@@ -1,3 +1,4 @@
-'wpsso_ssb_buttons_html' ( $type, $mod, $location, $atts );
+'wpsso_ssb_buttons_html' ( $html, $mod, $location, $atts );
+'wpsso_ssb_buttons_shared_url' ( $url, $mod, $button_id );
 'wpsso_ssb_buttons_force_prot' ( $prot, $mod, $url );	// $prot = '', 'http', or 'https'
 'wpsso_ssb_sharing_shortcode_atts' ( $atts, $content );
