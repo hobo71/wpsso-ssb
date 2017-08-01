@@ -817,11 +817,13 @@ $buttons_array[$buttons_index].
 			if ( ! empty( $atts['filter_id'] ) ) {
 				$filter_name = $lca.'_sharing_html_'.$atts['filter_id'].'_options';
 				if ( has_filter( $filter_name ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'applying filter_id '.$atts['filter_id'].' to options ('.$filter_name.')' );
+					}
 					$custom_opts = apply_filters( $filter_name, $custom_opts );
-				} elseif ( $this->p->debug->enabled )
+				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
+				}
 			}
 
 			$saved_atts = $atts;
@@ -832,14 +834,20 @@ $buttons_array[$buttons_index].
 
 							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// uses 'css_id' and 'use_post'
 
-							$atts['url'] = empty( $atts['url'] ) ? 				// used by get_inline_vals()
-								$this->p->util->get_sharing_url( $mod, 
-									$atts['add_page'], $atts['src_id'] ) : 
-								apply_filters( $lca.'_sharing_url', $atts['url'], 
-									$mod, $atts['add_page'], $atts['src_id'] );
+							if ( empty( $atts['url'] ) ) {
+								$atts['url'] = $this->p->util->get_sharing_url( $mod,
+									$atts['add_page'], $atts['src_id'] );
+							} else {
+								$atts['url'] = apply_filters( $lca.'_sharing_url',
+									$atts['url'], $mod, $atts['add_page'], $atts['src_id'] );
+							}
+
+							// filter to add custom tracking arguments
+							$atts['url'] = apply_filters( $lca.'_ssb_buttons_shared_url',
+								$atts['url'], $mod, $id );
 
 							$force_prot = apply_filters( $lca.'_ssb_buttons_force_prot',
-								$this->p->options['buttons_force_prot'], $mod, $atts['url'] );
+								$this->p->options['buttons_force_prot'], $mod, $id, $atts['url'] );
 
 							if ( ! empty( $force_prot ) && $force_prot !== 'none' ) {
 								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot.'://', $atts['url'] );
@@ -849,12 +857,15 @@ $buttons_array[$buttons_index].
 
 							$atts = $saved_atts;	// restore the common $atts array
 
-						} elseif ( $this->p->debug->enabled )
+						} elseif ( $this->p->debug->enabled ) {
 							$this->p->debug->log( $id.' not allowed for platform' );
-					} elseif ( $this->p->debug->enabled )
+						}
+					} elseif ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'get_html method missing for '.$id );
-				} elseif ( $this->p->debug->enabled )
+					}
+				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'website object missing for '.$id );
+				}
 			}
 
 			$buttons_html = trim( $buttons_html );
