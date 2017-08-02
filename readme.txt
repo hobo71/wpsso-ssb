@@ -132,7 +132,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.4.4-dev.2 (2017/08/01)**
+**Version 2.4.4-dev.2 (2017/08/02)**
 
 * *New Features*
 	* None
@@ -289,7 +289,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.4-dev.2 =
 
-(2017/08/01) Added a new 'wpsso_ssb_buttons_shared_url' filter.
+(2017/08/02) Added a new 'wpsso_ssb_buttons_shared_url' filter.
 
 = 2.4.3 =
 
