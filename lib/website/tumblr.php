@@ -212,8 +212,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 						null, $mod, true, false );	// $add_hashtags = false
 
 				if ( empty( $atts['description'] ) ) 
-					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_len'], '...',
-						$mod, true, false, false, null );
+					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_len'],
+						'...', $mod, true, false, false );
 			}
 
 			// define the button, based on what we have
