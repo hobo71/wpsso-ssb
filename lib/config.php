@@ -43,6 +43,12 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'ssb-buttons' => 'Sharing Buttons',
 							'ssb-styles' => 'Sharing Styles',
 						),
+						'shortcode' => array(
+							'sharing' => 'Sharing Shortcode',
+						),
+						'widget' => array(
+							'sharing' => 'Sharing Widget',
+						),
 						'website' => array(
 							'email' => 'Email',
 							'twitter' => 'Twitter',
@@ -58,12 +64,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'youtube' => 'YouTube',
 							'skype' => 'Skype',
 							'whatsapp' => 'WhatsApp',
-						),
-						'shortcode' => array(
-							'sharing' => 'Sharing Shortcode',
-						),
-						'widget' => array(
-							'sharing' => 'Sharing Widget',
 						),
 						'gpl' => array(
 							'admin' => array(
