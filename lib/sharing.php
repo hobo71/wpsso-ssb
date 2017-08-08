@@ -181,13 +181,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					if ( ! file_exists( $buttons_css_file ) ) {
 						continue;
 					} elseif ( ! $fh = @fopen( $buttons_css_file, 'rb' ) ) {
-						$this->p->notice->err( sprintf( __( 'Failed to open the %s file for reading.',
-							'wpsso-ssb' ), $buttons_css_file ) );
+						if ( $this->p->debug->enabled ) {
+							$this->p->debug->log( 'failed to open the css file '.self::$buttons_css_file.' for reading' );
+						}
+						if ( is_admin() ) {
+							$this->p->notice->err( sprintf( __( 'Failed to open the css file %s for reading.',
+								'wpsso-ssb' ), $buttons_css_file ) );
+						}
 					} else {
 						$buttons_css_data = fread( $fh, filesize( $buttons_css_file ) );
 						fclose( $fh );
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( 'read css from file '.$buttons_css_file );
+							$this->p->debug->log( 'read css file '.$buttons_css_file );
 						}
 						foreach ( array( 'plugin_url_path' => $url_path ) as $macro => $value ) {
 							$buttons_css_data = preg_replace( '/%%'.$macro.'%%/', $value, $buttons_css_data );
@@ -402,10 +407,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
 				if ( ( $written = fwrite( $fh, $sharing_css_data ) ) === false ) {
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'failed writing to '.self::$sharing_css_file );
+						$this->p->debug->log( 'failed writing the css file '.self::$sharing_css_file );
 					}
 					if ( is_admin() ) {
-						$this->p->notice->err( sprintf( __( 'Failed writing to the % file.',
+						$this->p->notice->err( sprintf( __( 'Failed writing the css file %s.',
 							'wpsso-ssb' ), self::$sharing_css_file ) );
 					}
 				} elseif ( $this->p->debug->enabled ) {
@@ -420,18 +425,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			} else {
 				if ( ! is_writable( WPSSO_CACHEDIR ) ) {
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( WPSSO_CACHEDIR.' is not writable', true );
+						$this->p->debug->log( 'cache folder '.WPSSO_CACHEDIR.' is not writable' );
 					}
 					if ( is_admin() ) {
-						$this->p->notice->err( sprintf( __( 'The %s folder is not writable.',
+						$this->p->notice->err( sprintf( __( 'Cache folder %s is not writable.',
 							'wpsso-ssb' ), WPSSO_CACHEDIR ) );
 					}
 				}
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'failed opening '.self::$sharing_css_file.' for writing' );
+					$this->p->debug->log( 'failed to open the css file '.self::$sharing_css_file.' for writing' );
 				}
 				if ( is_admin() ) {
-					$this->p->notice->err( sprintf( __( 'Failed to open file %s for writing.',
+					$this->p->notice->err( sprintf( __( 'Failed to open the css file %s for writing.',
 						'wpsso-ssb' ), self::$sharing_css_file ) );
 				}
 			}
