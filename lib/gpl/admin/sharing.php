@@ -62,15 +62,14 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				array( 'lca' => 'wpssossb' ) ).'</td>';
 
 			$add_to_checkboxes = '';
-			foreach ( $this->p->util->get_post_types() as $post_type ) {
-				$add_to_checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$post_type->name ).
-					' '.$post_type->label.( empty( $post_type->description ) ?
-						'' : ' ('.$post_type->description.')' ).'</p>';
+			foreach ( $this->p->util->get_post_types( 'object' ) as $pt ) {
+				$add_to_checkboxes .= '<p>'.$form->get_no_checkbox( 'buttons_add_to_'.$pt->name ).
+					' '.$pt->label.( empty( $pt->description ) ? '' : ' ('.$pt->description.')' ).'</p>';
 			}
 
 			$table_rows['buttons_add_to'] = $form->get_th_html( _x( 'Include on Post Types',
 				'option label', 'wpsso-ssb' ), null, 'buttons_add_to' ).
-				'<td class="blank">'.$add_to_checkboxes.'</td>';
+			'<td class="blank">'.$add_to_checkboxes.'</td>';
 
 			return $table_rows;
 		}
