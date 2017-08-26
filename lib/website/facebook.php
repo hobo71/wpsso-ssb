@@ -80,7 +80,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Layout',
 				'option label (short)', 'wpsso-ssb' ), 'short', null, 
-			'The Standard layout displays social text to the right of the button and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout" target="_blank">Facebook Layout Settings FAQ</a> for details.' ).
+			'The Standard layout displays social text to the right of the button and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout">Facebook Layout Settings FAQ</a> for details.' ).
 			'<td>'.$form->get_select( 'fb_layout', array(
 				'standard' => 'Standard',
 				'button' => 'Button',
