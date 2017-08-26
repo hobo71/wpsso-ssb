@@ -335,8 +335,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$opts =& $this->p->options;
 			$def_opts = $this->p->opt->get_defaults();
-			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', 
-				$this->p->cf['sharing']['ssb_styles'] );
+			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $tabs as $id => $name )
 				if ( isset( $opts['buttons_css_'.$id] ) &&
