@@ -28,7 +28,10 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 <blockquote>
 <p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO core plugin</a>, which <em>automatically</em> generates complete and accurate meta tags + Schema markup from your content for social media optimization (SMO) and SEO.</p>
 
-<p>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> works with either the WPSSO Free or Pro core plugin. The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Pro core plugin</a>.</p>
+<ul>
+<li>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> works with either the WPSSO Free or Pro core plugin.</li>
+<li>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Pro core plugin</a>.</li>
+</ul>
 </blockquote>
 
 = Quick List of Features =
@@ -78,7 +81,10 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Extends the WPSSO Plugin =
 
-<p>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> works with either the WPSSO Free or Pro core plugin. The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro core plugin</a>.</p>
+<ul>
+<li>The <a href="https://wordpress.org/plugins/wpsso-ssb/">WPSSO SSB Free extension</a> works with either the WPSSO Free or Pro core plugin.</li>
+<li>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> (along with all WPSSO Pro extensions) requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro core plugin</a>.</li>
+</ul>
 
 [Purchase the WPSSO Social Sharing Buttons Pro extension here](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase) (all purchases include a *No Risk 30 Day Refund Policy*).
 
