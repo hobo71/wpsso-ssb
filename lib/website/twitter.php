@@ -117,20 +117,22 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$lca = $this->p->cf['lca'];
-
-			$short_url = apply_filters( $lca.'_shorten_url', $atts['url'], $opts['plugin_shortener'] );
+			$short_url = apply_filters( $lca.'_get_short_url', $atts['url'], $opts['plugin_shortener'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
 				$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'twitter', 'current' );
 			}
 
-			if ( array_key_exists( 'tweet', $atts ) )
+			if ( array_key_exists( 'tweet', $atts ) ) {
 				$atts['caption'] = $atts['tweet'];
+			}
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
