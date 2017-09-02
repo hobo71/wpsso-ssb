@@ -141,6 +141,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
+**Version 2.4.5-b.1 (2017/09/02)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'.
+
 **Version 2.4.4 (2017/08/08)**
 
 * *New Features*
@@ -295,6 +306,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.4.5-b.1 =
+
+(2017/09/02) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'.
 
 = 2.4.4 =
 
