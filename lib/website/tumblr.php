@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 				( $this->p->opt->get_defaults( 'tumblr_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
 
 			$table_rows['tumblr_img_dimensions'] = $form->get_th_html( _x( 'Tumblr <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'tumblr_img_dimensions', 'The image dimensions that the Tumblr button will share (defaults is '.$def_dimensions.').' ).
-			'<td>'.$form->get_image_dimensions_input( 'tumblr_img' ).'</td>';	// $use_opts = false
+			'<td>'.$form->get_input_image_dimensions( 'tumblr_img' ).'</td>';	// $use_opts = false
 
 			return $table_rows;
 		}
@@ -78,7 +78,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_image_dimensions_input( 'tumblr_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
+			'<td>'.$form->get_input_image_dimensions( 'tumblr_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
 
 			$table_rows[] = '<tr class="hide_in_basic">'.
 			$form->get_th_html( _x( 'Media Caption',
