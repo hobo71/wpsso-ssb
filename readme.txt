@@ -26,7 +26,7 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate information to each social website.</p>
 
 <blockquote>
-<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO core plugin</a>, which <em>automatically</em> generates complete and accurate meta tags + Schema markup from your content for social media optimization (SMO) and SEO.</p>
+<p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons is an extension for the <a href="https://wordpress.org/plugins/wpsso/">WPSSO core plugin</a>, which <em>automatically</em> generates complete and accurate meta tags and Schema markup from your content for social media optimization (SMO) and SEO.</p>
 
 <ul>
 <li>The WPSSO SSB Free extension works with either the WPSSO Free or Pro core plugin.</li>
