@@ -141,7 +141,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.4.5-b.1 (2017/09/02)**
+**Version 2.4.5-b.2 (2017/09/03)**
 
 * *New Features*
 	* None
@@ -151,6 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 * *Developer Notes*
 	* Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'.
+	* Renamed the SucomForm get_image_dimensions_input() method to get_input_image_dimensions().
 
 **Version 2.4.4 (2017/08/08)**
 
@@ -307,9 +308,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.4.5-b.1 =
+= 2.4.5-b.2 =
 
-(2017/09/02) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'.
+(2017/09/03) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'. Renamed some SucomForm methods for WPSSO v3.45.8.
 
 = 2.4.4 =
 
