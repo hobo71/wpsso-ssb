@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires At Least: 3.7
 Tested Up To: 4.8.1
 Requires PHP: 5.3
-Stable Tag: 2.4.4
+Stable Tag: 2.4.5
 
 WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
