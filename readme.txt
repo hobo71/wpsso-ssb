@@ -92,8 +92,8 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Install and Uninstall =
 
-* [Install the Plugin (Free and Pro version)](https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/)
-* [Uninstall the Plugin](https://wpsso.com/docs/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
+* [Install the WPSSO SSB Plugin (Free and Pro version)](https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/)
+* [Uninstall the WPSSO SSB Plugin](https://wpsso.com/docs/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
 
 == Frequently Asked Questions ==
 
