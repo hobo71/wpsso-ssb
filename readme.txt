@@ -141,7 +141,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.4.5 (2017/09/04)**
+**Version 2.4.5 (2017/09/03)**
 
 * *New Features*
 	* None
@@ -310,7 +310,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.5 =
 
-(2017/09/04) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'. Renamed some SucomForm methods for WPSSO v3.45.8.
+(2017/09/03) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'. Renamed some SucomForm methods for WPSSO v3.45.8.
 
 = 2.4.4 =
 
