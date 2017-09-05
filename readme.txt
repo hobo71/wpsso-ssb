@@ -119,7 +119,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 == Screenshots ==
 
 01. WPSSO SSB example showing the **Social Sharing Buttons** enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
-02. WPSSO SSB Sharing Buttons tab in the Social Settings metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
+02. WPSSO SSB Sharing Buttons tab in the Social / Search Optimization metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
 03. WPSSO SSB Sharing Buttons settings page.
 04. WPSSO SSB Sharing Styles settings page.
 
@@ -206,7 +206,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *New Features*
 	* None
 * *Improvements*
-	* The Pinterest custom image in the Social Settings has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
+	* The Pinterest custom image has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
 * *Bugfixes*
 	* None
 * *Developer Notes*
@@ -342,7 +342,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.1 =
 
-(2017/05/19) The Pinterest custom image in the Social Settings has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
+(2017/05/19) The Pinterest custom image has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
 
 = 2.4.0 =
 
