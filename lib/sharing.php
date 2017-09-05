@@ -1212,7 +1212,7 @@ $buttons_array[$buttons_index].
 					$text = __( 'JavaScript added to webpages for the social sharing sidebar.' );
 					break;
 				case 'tooltip-buttons_add_via':
-					$text = sprintf( __( 'Append the %1$s to the tweet (see <a href="%2$s">the Twitter options tab</a> in the %3$s settings page). The %1$s will be displayed and recommended after the webpage is shared.', 'wpsso-ssb' ), _x( 'Twitter Business @username', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter' ), _x( 'General', 'lib file description', 'wpsso-ssb' ) );
+					$text = sprintf( __( 'Append the %1$s to the tweet (see <a href="%2$s">the Twitter options tab</a> in the %3$s page). The %1$s will be displayed and recommended after the webpage is shared.', 'wpsso-ssb' ), _x( 'Twitter Business @username', 'option label', 'wpsso-ssb' ), $this->p->util->get_admin_url( 'general#sucom-tabset_pub-tab_twitter' ), _x( 'General Settings', 'lib file description', 'wpsso-ssb' ) );
 					break;
 				case 'tooltip-buttons_rec_author':
 					$text = sprintf( __( 'Recommend following the author\'s Twitter @username after sharing a webpage. If the %1$s option (above) is also checked, the %2$s is suggested first.', 'wpsso-ssb' ), _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), _x( 'Twitter Business @username', 'option label', 'wpsso-ssb' ) );

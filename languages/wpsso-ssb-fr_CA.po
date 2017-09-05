@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons 2.4.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2017-09-05 14:01-0400\n"
-"PO-Revision-Date: 2017-09-05 14:01-0400\n"
+"POT-Creation-Date: 2017-09-05 15:25-0400\n"
+"PO-Revision-Date: 2017-09-05 15:58-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -43,12 +43,12 @@ msgstr "Contenu"
 #: lib/config-gettext-extract.php:8
 msgctxt "option value"
 msgid "CSS Sidebar"
-msgstr "Barre Latérale"
+msgstr "Barre latérale"
 
 #: lib/config-gettext-extract.php:9
 msgctxt "option value"
 msgid "Desktop Only"
-msgstr "Plateforme de Bureau"
+msgstr "Ordinateur seulement"
 
 #: lib/config-gettext-extract.php:10
 msgctxt "option value"
@@ -68,17 +68,17 @@ msgstr "HTTPS"
 #: lib/config-gettext-extract.php:13
 msgctxt "option value"
 msgid "Mobile Only"
-msgstr "Mobile Seulement"
+msgstr "Mobile seulement"
 
 #: lib/config-gettext-extract.php:14
 msgctxt "lib file description"
 msgid "Sharing Buttons"
-msgstr "Boutons de Partage"
+msgstr "Boutons de partage"
 
 #: lib/config-gettext-extract.php:15 lib/sharing.php:1206
 msgctxt "lib file description"
 msgid "Sharing Styles"
-msgstr "Styles de Partage"
+msgstr "Styles de partage"
 
 #: lib/config-gettext-extract.php:16
 msgctxt "option value"
@@ -88,7 +88,7 @@ msgstr "Shortcode"
 #: lib/config-gettext-extract.php:17
 msgctxt "option value"
 msgid "Top and Bottom"
-msgstr "Haut et Bas"
+msgstr "Haut et bas"
 
 #: lib/config-gettext-extract.php:18
 msgctxt "option value"
@@ -205,7 +205,7 @@ msgstr "Impossible d'ouvrir le fichier css %s pour lecture."
 #: lib/sharing.php:291
 msgctxt "metabox tab"
 msgid "Sharing Buttons"
-msgstr "Boutons de Partage"
+msgstr "Boutons de partage"
 
 #: lib/sharing.php:350
 msgid "All sharing styles have been reloaded with their default value and saved."
@@ -238,7 +238,7 @@ msgstr "Erreur en retirant la feuille de style minimisé &mdash; le serveur Web 
 #: lib/sharing.php:474
 msgctxt "metabox title"
 msgid "Sharing Buttons"
-msgstr "Boutons de Partage Social"
+msgstr "Boutons de partage"
 
 #: lib/sharing.php:548
 msgid "%s must be published<br/>before it can be shared."
@@ -263,7 +263,7 @@ msgstr "Si un Article ou une Page statique a été sélectionnée pour la page d
 
 #: lib/sharing.php:1197
 msgid "Enabled social sharing buttons are added to the Post, Page, Media, and Product webpages by default. If your theme (or another plugin) supports additional custom post types, and you would like to include social sharing buttons on these webpages, check the appropriate option(s) here."
-msgstr "Les boutons de partage social activés sont ajoutés par défaut au pages Web d'Articles, Pages, Médias, et Produits. Si votre thème (ou une autre extension) supporte des types d'articles personnalisé supplémentaires, et que vous souhaitez ajouter des boutons de partage social sur ces pages Web, cochez les options appropriées ici."
+msgstr "Les boutons de partage social activés sont ajoutés par défaut au articles, pages, médias, et produits. Si votre thème (ou une autre extension) supporte des articles de types personnalisé supplémentaires, et que vous souhaitez ajouter des boutons de partage social sur ces pages Web, cochez les options appropriées ici."
 
 #: lib/sharing.php:1200
 msgid "Select a pre-defined set of option values for sharing buttons in this location."
@@ -286,8 +286,8 @@ msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr "JavaScript ajouté au pages Web pour la barre latérale de partage sociale."
 
 #: lib/sharing.php:1215
-msgid "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</a> in the %3$s settings page). The %1$s will be displayed and recommended after the webpage is shared."
-msgstr "Ajouter le %1$s au Tweet (voir <a href=\"%2$s\">l'onglet d'options Twitter</a> sur la page de réglages %3$s). Le %1$s sera affichés et recommandé après que la page Web est été partagée."
+msgid "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</a> in the %3$s page). The %1$s will be displayed and recommended after the webpage is shared."
+msgstr "Ajouter le %1$s au Tweet (voir <a href=\"%2$s\">l'onglet d'options Twitter</a> sur la page de %3$s). Le %1$s sera affichés et recommandé après que la page Web est été partagée."
 
 #: lib/sharing.php:1215 lib/sharing.php:1218
 msgctxt "option label"
@@ -296,8 +296,8 @@ msgstr "Le @nom d'affaires Twitter"
 
 #: lib/sharing.php:1215
 msgctxt "lib file description"
-msgid "General"
-msgstr "Général"
+msgid "General Settings"
+msgstr "Réglages généraux"
 
 #: lib/sharing.php:1218
 msgid "Recommend following the author's Twitter @username after sharing a webpage. If the %1$s option (above) is also checked, the %2$s is suggested first."
@@ -332,27 +332,27 @@ msgstr "Si votre infrastructure d'hébergement fonctionne raisonnablement bien, 
 #: lib/submenu/ssb-buttons.php:58
 msgctxt "metabox title"
 msgid "Social Sharing Buttons"
-msgstr "Boutons de Partage Social"
+msgstr "Boutons de partage social"
 
 #: lib/submenu/ssb-buttons.php:110
 msgctxt "metabox tab"
 msgid "Include Buttons"
-msgstr "Ajout de Boutons"
+msgstr "Ajout de boutons"
 
 #: lib/submenu/ssb-buttons.php:111
 msgctxt "metabox tab"
 msgid "Buttons Position"
-msgstr "Position des Boutons"
+msgstr "Position des boutons"
 
 #: lib/submenu/ssb-buttons.php:112
 msgctxt "metabox tab"
 msgid "Buttons Presets"
-msgstr "Préréglages des Boutons"
+msgstr "Préréglages des boutons"
 
 #: lib/submenu/ssb-buttons.php:113
 msgctxt "metabox tab"
 msgid "Advanced Settings"
-msgstr "Réglages Avancés"
+msgstr "Réglages avancés"
 
 #: lib/submenu/ssb-buttons.php:148
 msgctxt "option label"
@@ -377,12 +377,12 @@ msgstr "Position dans le texte d'extrait"
 #: lib/submenu/ssb-styles.php:39
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
-msgstr "Styles de Partage Social"
+msgstr "Styles de partage social"
 
 #: lib/submenu/ssb-styles.php:44
 msgctxt "submit button"
 msgid "Reload Default Styles"
-msgstr "Recharger Styles par Défaut"
+msgstr "Recharger styles par défaut"
 
 #: lib/submenu/ssb-styles.php:58
 msgctxt "option label"
@@ -493,7 +493,7 @@ msgstr "noms d'étiquettes"
 #: lib/website/facebook.php:28
 msgctxt "metabox tab"
 msgid "All Buttons"
-msgstr "Tous les Boutons"
+msgstr "Tous les boutons"
 
 #: lib/website/facebook.php:29
 msgctxt "metabox tab"
