@@ -141,7 +141,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = Changelog / Release Notes =
 
-**Version 2.4.6-dev.1 (2017/09/05)**
+**Version 2.4.6-dev.2 (2017/09/06)**
 
 * *New Features*
 	* None
@@ -320,9 +320,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.4.6-dev.1 =
+= 2.4.6-dev.2 =
 
-(2017/09/05) Code refactoring to renamed filters for WPSSO v3.45.10.
+(2017/09/06) Code refactoring to renamed filters for WPSSO v3.45.10.
 
 = 2.4.5 =
 
