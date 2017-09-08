@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.4.6-dev.3',		// plugin version
+					'version' => '2.4.6-b.1',		// plugin version
 					'opt_version' => '16',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short' => 'WPSSO',
 						'name' => 'WPSSO',
-						'min_version' => '3.45.10-dev.3',
+						'min_version' => '3.45.10-b.1',
 					),
 					'img' => array(
 						'icons' => array(
@@ -208,11 +208,16 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		}
 
 		public static function set_constants( $plugin_filepath ) { 
+			if ( defined( 'WPSSOSSB_VERSION' ) ) {			// execute and define constants only once
+				return;
+			}
+			define( 'WPSSOSSB_VERSION', self::$cf['plugin']['wpssossb']['version'] );						
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
 			define( 'WPSSOSSB_PLUGINSLUG', self::$cf['plugin']['wpssossb']['slug'] );	// wpsso-ssb
 			define( 'WPSSOSSB_PLUGINBASE', self::$cf['plugin']['wpssossb']['base'] );	// wpsso-ssb/wpsso-ssb.php
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
+
 			self::set_variable_constants();
 		}
 
