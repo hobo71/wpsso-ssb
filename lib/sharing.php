@@ -1166,14 +1166,14 @@ $buttons_array[$buttons_index].
 			return $max_len;
 		}
 
-		public function get_social_file_cache_url( $url, $url_ext = '' ) {
+		public function get_social_file_cache_url( $url, $file_ext = '' ) {
 
 			$lca = $this->p->cf['lca'];
 			$cache_exp = (int) apply_filters( $lca.'_cache_expire_social_file', 
 				$this->p->options['plugin_social_file_cache_exp'] );
 
 			if ( $cache_exp > 0 && isset( $this->p->cache->base_dir ) ) {
-				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, false, $url_ext );
+				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp, $file_ext );
 			}
 
 			return apply_filters( $lca.'_rewrite_cache_url', $url );
