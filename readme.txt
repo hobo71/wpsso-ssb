@@ -28,10 +28,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 <blockquote>
 <p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons is an extension for the WPSSO (Core Plugin), which <em>automatically</em> generates complete and accurate meta tags and Schema markup from your content for Social Media Optimization (SMO) and Search Engine Optimization (SEO).</p>
 
-<ul>
-<li>The WPSSO SSB Free extension works with either the Free or Pro versions of WPSSO (Core Plugin).</li>
-<li>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Pro core plugin features and requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Pro core plugin</a>.</li>
-</ul>
+<p>The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO (Core Plugin).</p>
+
+<p>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Pro core plugin features and requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Pro core plugin</a>.</p>
 </blockquote>
 
 = Quick List of Features =
@@ -81,7 +80,7 @@ WPSSO and WPSSO SSB are *fast and coded for performance*, making full use of all
 
 = Extends the WPSSO Plugin =
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO SSB Free extension works with either the WPSSO (Core Plugin) Free or Pro version.
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO (Core Plugin).
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> uses many WPSSO Pro (Core Plugin) features and requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-extends">WPSSO Pro (Core Plugin)</a>.
 
