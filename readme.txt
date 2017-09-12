@@ -77,6 +77,8 @@ The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_so
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
 
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; Download the Free version from [GitHub](https://surniaulula.github.io/wpsso-ssb/) or [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/).
+
 = Quick List of Features (Continued) =
 
 **WPSSO SSB Pro / Additional Features**

@@ -77,6 +77,8 @@
 
 <p><span style="color:#33cc33">&#x0229b;</span> &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).</p>
 
+<p><span style="color:#33cc33">&#x0229b;</span> &nbsp; Download the Free version from <a href="https://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p>
+
 <h4>Quick List of Features (Continued)</h4>
 
 <p><strong>WPSSO SSB Pro / Additional Features</strong></p>
