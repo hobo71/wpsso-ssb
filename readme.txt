@@ -27,6 +27,12 @@ Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB inc
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
+**Fast and coded for performance:**
+
+WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching). They load only the PHP library files and object classes needed, keeping the code small, fast, light, and able to support a wide range of 3rd party integration features.
+
+Fully tested and compatible with PHP v7.x (requires PHP v5.3 or better).
+
 <blockquote>
 <p><strong>Prerequisite</strong> &mdash; WPSSO Social Sharing Buttons is an extension for the WPSSO (Core Plugin), which <em>automatically</em> generates complete and accurate meta tags and Schema markup from your content for Social Media Optimization (SMO) and Search Engine Optimization (SEO).</p>
 
@@ -70,12 +76,6 @@ WPSSO SSB sources JavaScript provided by social websites asynchronously and &mda
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; Automatically exclude buttons from [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin pages.
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
-
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; *Fast and coded for performance*, WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching).
-
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; WPSSO and its extensions load only the PHP library files and object classes needed, keeping the code small, fast, light, and able to support a wide range of 3rd party integration features.
-
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; Fully tested and compatible with PHP v7.x (requires PHP v5.3 or better).
 
 = Quick List of Features (Continued) =
 
