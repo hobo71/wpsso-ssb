@@ -21,7 +21,9 @@ WPSSO extension to add Social Sharing Buttons with support for hashtags, short U
 
 Add traditional social sharing buttons to posts / pages, custom post types, [bbPress](https://wordpress.org/plugins/bbpress/), [BuddyPress](https://wordpress.org/plugins/buddypress/), [WooCommerce](https://wordpress.org/plugins/woocommerce/) product pages, and much more.
 
-Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editing pages* &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!
+Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editing pages* &mdash; share your posts and pages directly from the editor!
+
+Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
@@ -69,9 +71,9 @@ WPSSO SSB sources JavaScript provided by social websites asynchronously and &mda
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; *Fast and coded for performance*, WPSSO SSB makes full use of all available caching techniques (persistent / non-persistent object and disk caching).
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; *Fast and coded for performance*, WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching).
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; Loads only the PHP library files and object classes it needs, keeping it small, fast, light, and still able to support a wide range of 3rd party integration features.
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; Loads only the PHP library files and object classes it needs, keeping the core small, fast, light, and still able to support a wide range of 3rd party integration features.
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; Fully tested and compatible with PHP v7.x (requires PHP v5.3 or better).
 

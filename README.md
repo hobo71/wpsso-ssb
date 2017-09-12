@@ -17,7 +17,9 @@
 
 <p>Add traditional social sharing buttons to posts / pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
 
-<p>Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editing pages</em> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!</p>
+<p>Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editing pages</em> &mdash; share your posts and pages directly from the editor!</p>
+
+<p>Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!</p>
 
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.</p>
 
@@ -69,9 +71,9 @@
 
 <p><span style="color:#33cc33">&#x0229b;</span> &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).</p>
 
-<p><span style="color:#33cc33">&#x0229b;</span> &nbsp; <em>Fast and coded for performance</em>, WPSSO SSB makes full use of all available caching techniques (persistent / non-persistent object and disk caching).</p>
+<p><span style="color:#33cc33">&#x0229b;</span> &nbsp; <em>Fast and coded for performance</em>, WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching).</p>
 
-<p><span style="color:#33cc33">&#x0229b;</span> &nbsp; Loads only the PHP library files and object classes it needs, keeping it small, fast, light, and still able to support a wide range of 3rd party integration features.</p>
+<p><span style="color:#33cc33">&#x0229b;</span> &nbsp; Loads only the PHP library files and object classes it needs, keeping the core small, fast, light, and still able to support a wide range of 3rd party integration features.</p>
 
 <p><span style="color:#33cc33">&#x0229b;</span> &nbsp; Fully tested and compatible with PHP v7.x (requires PHP v5.3 or better).</p>
 
