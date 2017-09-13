@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons 2.4.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2017-09-08 20:39-0400\n"
-"PO-Revision-Date: 2017-09-08 20:39-0400\n"
+"PO-Revision-Date: 2017-09-13 12:38-0400\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -283,7 +283,7 @@ msgstr "Demander a WordPress de mettre la feuille de style en queue au lieu d'aj
 
 #: lib/sharing.php:1212
 msgid "JavaScript added to webpages for the social sharing sidebar."
-msgstr "JavaScript ajouté au pages Web pour la barre latérale de partage sociale."
+msgstr "JavaScript ajouté au pages Web pour la barre latérale de partage social."
 
 #: lib/sharing.php:1215
 msgid "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</a> in the %3$s page). The %1$s will be displayed and recommended after the webpage is shared."
