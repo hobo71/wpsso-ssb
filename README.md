@@ -23,7 +23,7 @@
 
 <p>WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.</p>
 
-<p><strong>WPSSO SSB is <em>fast</em> and coded for performance:</strong></p>
+<p><strong>WPSSO SSB is <em>super fast</em> and coded for performance:</strong></p>
 
 <p>WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.</p>
 

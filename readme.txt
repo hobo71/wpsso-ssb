@@ -27,7 +27,7 @@ Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB inc
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
-**WPSSO SSB is *fast* and coded for performance:**
+**WPSSO SSB is *super fast* and coded for performance:**
 
 WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.
 
