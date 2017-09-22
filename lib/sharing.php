@@ -15,7 +15,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 		protected $p;
 		protected $website = array();
-		protected $plugin_filepath = '';
 		protected $buttons_for_type = array();		// cache for have_buttons_for_type()
 		protected $post_buttons_disabled = array();	// cache for is_post_buttons_disabled()
 
@@ -86,14 +85,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			),
 		);
 
-		public function __construct( &$plugin, $plugin_filepath = WPSSOSSB_FILEPATH ) {
+		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark( 'ssb sharing action / filter setup' );
 			}
-
-			$this->plugin_filepath = $plugin_filepath;
 
 			self::$sharing_css_name = 'ssb-styles-id-'.get_current_blog_id().'.min.css';
 			self::$sharing_css_file = WPSSO_CACHEDIR.self::$sharing_css_name;
@@ -167,14 +164,14 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_get_defaults( $def_opts ) {
 
+			$lca = $this->p->cf['lca'];
 			$def_opts = array_merge( $def_opts, self::$cf['opt']['defaults'] );
 			$def_opts = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
-			$plugin_dir = trailingslashit( realpath( dirname( $this->plugin_filepath ) ) );
-			$url_path = parse_url( trailingslashit( plugins_url( '', $this->plugin_filepath ) ), PHP_URL_PATH );	// relative URL
-			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
+			$rel_url_path = parse_url( WPSSOSSB_URLPATH, PHP_URL_PATH );	// returns a relative URL
+			$tabs = apply_filters( $lca.'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $tabs as $id => $name ) {
-				$buttons_css_file = $plugin_dir.'css/'.$id.'.css';
+				$buttons_css_file = WPSSOSSB_PLUGINDIR.'css/'.$id.'.css';
 
 				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
 				if ( empty( $def_opts['buttons_css_'.$id] ) ) {
@@ -194,7 +191,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						if ( $this->p->debug->enabled ) {
 							$this->p->debug->log( 'read css file '.$buttons_css_file );
 						}
-						foreach ( array( 'plugin_url_path' => $url_path ) as $macro => $value ) {
+						foreach ( array( 'plugin_url_path' => $rel_url_path ) as $macro => $value ) {
 							$buttons_css_data = preg_replace( '/%%'.$macro.'%%/', $value, $buttons_css_data );
 						}
 						$def_opts['buttons_css_'.$id] = $buttons_css_data;
