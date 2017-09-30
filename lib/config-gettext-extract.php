@@ -1,5 +1,5 @@
 <?php die( 'These aren\'t the droids you\'re looking for...' );
-// extract of translatable text strings from static config array(s)
+// extract of translatable text strings from static config array
 _x( 'Admin Edit', 'option value', 'wpsso-ssb' );
 _x( 'All Buttons', 'option value', 'wpsso-ssb' );
 _x( 'Any Platform', 'option value', 'wpsso-ssb' );
