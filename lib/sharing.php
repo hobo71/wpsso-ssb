@@ -554,8 +554,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
 				$added = add_filter( $filter_name, array( &$this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'buttons filter '.$filter_name.
-						' added ('.( $added  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter '.$filter_name.' added ('.( $added  ? 'true' : 'false' ).')' );
 				}
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'get_buttons_'.$filter_name.' method is missing' );
@@ -568,8 +567,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
 				$removed = remove_filter( $filter_name, array( &$this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'buttons filter '.$filter_name.
-						' removed ('.( $removed  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter '.$filter_name.' removed ('.( $removed  ? 'true' : 'false' ).')' );
 			}
 			return $removed;
 		}
