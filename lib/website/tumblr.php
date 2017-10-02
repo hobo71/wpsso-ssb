@@ -15,6 +15,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$this->p->util->add_plugin_filters( $this, array( 
 				'image_dimensions_general_rows' => 2,	// $table_rows, $form
 				'ssb_website_tumblr_rows' => 3,		// $table_rows, $form, $submenu
@@ -136,9 +141,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$this->p->util->add_plugin_filters( $this, array( 
-				'plugin_image_sizes' => 1,
 				'get_defaults' => 1,
+				'plugin_image_sizes' => 1,
 			) );
 		}
 

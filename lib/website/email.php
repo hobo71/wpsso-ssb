@@ -15,6 +15,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteEmail' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$this->p->util->add_plugin_filters( $this, array( 
 				'ssb_website_email_rows' => 3,		// $table_rows, $form, $submenu
 			) );
@@ -91,6 +96,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 
 		public function __construct( &$plugin ) {
 			$this->p =& $plugin;
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
 			$this->p->util->add_plugin_filters( $this, array(
 				'get_defaults' => 1,
 			) );
