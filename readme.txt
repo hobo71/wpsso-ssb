@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.4.7-dev.2 (2017/10/04)**
+**Version 2.4.7-b.1 (2017/10/04)**
 
 * *New Features*
 	* None
@@ -170,7 +170,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 * *Developer Notes*
 	* Added a shortcode_exists() call to the WpssoSsbShortcodeSharing add_shortcode() and remove_shortcode() methods for more complete debug info.
-	* Added 'wpsso_text_filter_begin' and 'wpsso_text_filter_end' hooks in the WpssoSsbShortcodeSharing class to remove / add the shortcode as required.
+	* Added 'wpsso_text_filter_before' and 'wpsso_text_filter_after' action hooks WpssoSsbShortcodeSharing to dynamically remove / add the sharing shortcode as required.
 
 **Version 2.4.6 (2017/09/10)**
 
@@ -351,7 +351,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.4.7-dev.2 =
+= 2.4.7-b.1 =
 
 (2017/10/04) Refactored the WpssoSsbShortcodeSharing add / remove shortcode methods.
 
