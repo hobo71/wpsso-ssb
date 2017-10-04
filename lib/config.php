@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.4.6',		// plugin version
+					'version' => '2.4.7-dev.1',		// plugin version
 					'opt_version' => '16',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short' => 'WPSSO',
 						'name' => 'WPSSO',
-						'min_version' => '3.46.0',
+						'min_version' => '3.47.0-rc.2',
 					),
 					'img' => array(
 						'icons' => array(
