@@ -115,8 +115,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				'get_defaults' => 1,
 				'get_site_defaults' => 1,
 				'get_md_defaults' => 1,
-				'text_filter_begin' => 2,
-				'text_filter_end' => 2,
+			) );
+
+			$this->p->util->add_plugin_actions( $this, array( 
+				'text_filter_before' => 1,
+				'text_filter_after' => 1,
 			) );
 
 			if ( is_admin() ) {
@@ -473,24 +476,22 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 		}
 
-		public function filter_text_filter_begin( $bool, $filter_name ) {
+		public function action_text_filter_before( $filter_name ) {
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
-					'bool' => $bool,
 					'filter_name' => $filter_name,
 				) );
 			}
-			return $this->remove_buttons_filter( $filter_name ) ? true : $bool;
+			$this->remove_buttons_filter( $filter_name );
 		}
 
-		public function filter_text_filter_end( $bool, $filter_name ) {
+		public function action_text_filter_after( $filter_name ) {
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
-					'bool' => $bool,
 					'filter_name' => $filter_name,
 				) );
 			}
-			return $this->add_buttons_filter( $filter_name ) ? true : $bool;
+			$this->add_buttons_filter( $filter_name );
 		}
 
 		public function show_head() {
