@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.4.7-rc.5 (2017/10/07)**
+**Version 2.4.7-rc.5 (2017/10/08)**
 
 * *New Features*
 	* None
@@ -353,7 +353,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.7-rc.5 =
 
-(2017/10/07) Refactored the WpssoSsbShortcodeSharing add / remove shortcode methods.
+(2017/10/08) Refactored the WpssoSsbShortcodeSharing add / remove shortcode methods.
 
 = 2.4.6 =
 
