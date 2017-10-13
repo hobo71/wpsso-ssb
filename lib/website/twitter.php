@@ -156,17 +156,18 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
 				if ( ! empty( $opts['twitter_via'] ) ) {
-					$atts['via'] = preg_replace( '/^@/', '', 
-						SucomUtil::get_locale_opt( 'tc_site', $opts ) );
-				} else $atts['via'] = '';
+					$atts['via'] = preg_replace( '/^@/', '', SucomUtil::get_key_value( 'tc_site', $opts ) );
+				} else {
+					$atts['via'] = '';
+				}
 			}
 
 			if ( ! array_key_exists( 'related', $atts ) ) {
-				if ( ! empty( $opts['twitter_rel_author'] ) && 
-					! empty( $mod['post_author'] ) && $atts['use_post'] )
-						$atts['related'] = preg_replace( '/^@/', '', 
-							get_the_author_meta( $opts['plugin_cm_twitter_name'], $mod['post_author'] ) );
-				else $atts['related'] = '';
+				if ( ! empty( $opts['twitter_rel_author'] ) && ! empty( $mod['post_author'] ) && $atts['use_post'] ) {
+					$atts['related'] = preg_replace( '/^@/', '', get_the_author_meta( $opts['plugin_cm_twitter_name'], $mod['post_author'] ) );
+				} else {
+					$atts['related'] = '';
+				}
 			}
 
 			// hashtags are included in the caption instead

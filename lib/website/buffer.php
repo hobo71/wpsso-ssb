@@ -185,14 +185,16 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 			if ( ! array_key_exists( 'via', $atts ) ) {
 				if ( ! empty( $opts['buffer_via'] ) ) {
-					$atts['via'] = preg_replace( '/^@/', '', 
-						SucomUtil::get_locale_opt( 'tc_site', $opts ) );
-				} else $atts['via'] = '';
+					$atts['via'] = preg_replace( '/^@/', '', SucomUtil::get_key_value( 'tc_site', $opts ) );
+				} else {
+					$atts['via'] = '';
+				}
 			}
 
 			// hashtags are included in the caption instead
-			if ( ! array_key_exists( 'hashtags', $atts ) )
+			if ( ! array_key_exists( 'hashtags', $atts ) ) {
 				$atts['hashtags'] = '';
+			}
 
 			$html = '<!-- Buffer Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'buffer' ).'>'.
