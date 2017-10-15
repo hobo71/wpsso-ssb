@@ -289,7 +289,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Minor revision to move URLs in the extension config to the main WPSSO core plugin config.
+	* Minor revision to move URLs in the extension config to the main WPSSO Core plugin config.
 	* Dropped the package number from the production version string.
 
 **Version 2.3.14-1 (2017/04/05)**
@@ -393,7 +393,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.3.15 =
 
-(2017/04/08) Minor revision to move URLs in the extension config to the main WPSSO core plugin config.
+(2017/04/08) Minor revision to move URLs in the extension config to the main WPSSO Core plugin config.
 
 = 2.3.14-1 =
 
