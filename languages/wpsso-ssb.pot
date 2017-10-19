@@ -100,8 +100,8 @@ msgstr ""
 #: lib/config-gettext-extract.php:20
 msgctxt "plugin description"
 msgid ""
-"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
-"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO Core extension to add Social Sharing Buttons with support for "
+"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:114
@@ -758,8 +758,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"WPSSO extension to add Social Sharing Buttons with support for hashtags, "
-"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO Core extension to add Social Sharing Buttons with support for "
+"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #. Author of the plugin/theme
