@@ -13,7 +13,7 @@ Tested Up To: 4.8.2
 Requires PHP: 5.3
 Stable Tag: 2.4.7
 
-WPSSO extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
+WPSSO Core extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
 == Description ==
 
@@ -27,11 +27,11 @@ Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB inc
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
-**WPSSO SSB is *super fast* and coded for performance:**
+**WPSSO SSB is *incredibly fast* and coded for performance:**
 
-WPSSO and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.
+WPSSO Core and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.
 
-WPSSO and its extensions are fully tested and compatible with PHP v7.x (PHP v5.3 or better required).
+WPSSO Core and its extensions are fully tested and compatible with PHP v7.x (PHP v5.3 or better required).
 
 <h3>WPSSO Core Plugin Prerequisite</h3>
 
