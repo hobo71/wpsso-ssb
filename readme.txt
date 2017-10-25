@@ -160,6 +160,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.4.8-dev.1 (2017/10/25)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Fix possible Google error for amp pages by removing HTML comments from amp post/page content.
+* *Developer Notes*
+	* None
+
 **Version 2.4.7 (2017/10/15)**
 
 * *New Features*
