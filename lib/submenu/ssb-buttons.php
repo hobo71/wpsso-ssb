@@ -179,14 +179,16 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$html = '<table>';
 			$lca = $this->p->cf['lca'];
 			$aop = $this->p->check->aop( 'wpssossb', true, $this->p->avail['*']['p_dir'] );
-			$show_on = apply_filters( $lca.'_ssb_buttons_show_on', 
-				$this->p->cf['sharing']['show_on'], $opt_prefix );
+			$show_on = apply_filters( $lca.'_ssb_buttons_show_on', $this->p->cf['sharing']['show_on'], $opt_prefix );
 
 			foreach ( $show_on as $opt_suffix => $short_desc ) {
+
 				$css_class = isset( $this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] ) &&
 					$this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] === 'disabled' &&
 						! $aop ? 'show_on blank' : 'show_on';
+
 				$col++;
+
 				if ( $col === 1 ) {
 					$html .= '<tr><td class="'.$css_class.'">';
 				} else {

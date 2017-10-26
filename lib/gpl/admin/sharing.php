@@ -81,21 +81,24 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			}
 
 			$presets = array( 'shortcode' => 'Shortcode', 'widget' => 'Widget' );
-			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', 
-				$this->p->cf['sharing']['show_on'], '' );
-			foreach ( $show_on as $type => $label )
+			$show_on = apply_filters( $this->p->cf['lca'].'_ssb_buttons_show_on', $this->p->cf['sharing']['show_on'], '' );
+
+			foreach ( $show_on as $type => $label ) {
 				$presets[$type] = $label;
+			}
+
 			asort( $presets );
 
 			$table_rows[] = '<td colspan="2" align="center">'.
 				$this->p->msgs->get( 'pro-feature-msg', 
 					array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			foreach( $presets as $filter_id => $filter_name )
+			foreach( $presets as $filter_id => $filter_name ) {
 				$table_rows[] = $form->get_th_html( sprintf( _x( '%s Preset',
 					'option label', 'wpsso-ssb' ), $filter_name ), '', 'buttons_preset' ).
 				'<td class="blank">'.$form->get_no_select( 'buttons_preset_ssb-'.$filter_id, 
 					array_merge( array( '' ), array_keys( $this->p->cf['opt']['preset'] ) ) ).'</td>';
+			}
 
 			return $table_rows;
 		}
