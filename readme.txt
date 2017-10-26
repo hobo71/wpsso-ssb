@@ -39,7 +39,7 @@ WPSSO Social Sharing Buttons is an extension for the WPSSO Core plugin &mdash; w
 
 The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core.
 
-The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq) uses many WPSSO Core Pro plugin features and requires the [WPSSO Core Pro](https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq) plugin.
+The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq) uses many WPSSO Core Pro plugin features and requires the [WPSSO Core Pro plugin](https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq).
 
 <h3>Quick List of Features</h3>
 

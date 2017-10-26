@@ -35,7 +35,7 @@
 
 <p>The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core.</p>
 
-<p>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro plugin features and requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Core Pro</a> plugin.</p>
+<p>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro plugin features and requires the <a href="https://wpsso.com/extend/plugins/wpsso/?utm_source=wpssossb-readme-prereq">WPSSO Core Pro plugin</a>.</p>
 
 <h3>Quick List of Features</h3>
 
