@@ -39,7 +39,7 @@ WPSSO Social Sharing Buttons is an extension for the WPSSO Core plugin &mdash; w
 
 The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core.
 
-The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq) uses many WPSSO Core Pro plugin features and requires the [WPSSO Core Pro plugin](https://wpsso.com/?utm_source=wpssossb-readme-prereq).
+The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq) uses many WPSSO Core Pro (Main Plugin) features, which requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/?utm_source=wpssossb-readme-prereq).
 
 <h3>Quick List of Features</h3>
 
@@ -103,7 +103,7 @@ The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_so
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core.
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro plugin features and requires the <a href="https://wpsso.com/?utm_source=wpssossb-readme-extends">WPSSO Core Pro plugin</a>.
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro (Main Plugin) features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme-extends">WPSSO Core Pro plugin</a>.
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase">Purchase the WPSSO Social Sharing Buttons Pro extension here</a> (all purchases include a <em>No Risk 30 Day Refund Policy</em>).
 
