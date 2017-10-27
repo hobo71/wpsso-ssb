@@ -23,7 +23,7 @@ Add traditional social sharing buttons to posts / pages, custom post types, [bbP
 
 Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editing pages* &mdash; share your posts and pages directly from the editor!
 
-Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!
+**Do you use bbPress, BuddyPress, or WooCommerce?** The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
