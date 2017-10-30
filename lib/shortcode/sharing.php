@@ -128,18 +128,19 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ? 'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
 
-			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'required call to get_page_mod()' );
 			}
 			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
+
+			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
 			$atts['url'] = empty( $atts['url'] ) ? $this->p->util->get_sharing_url( $mod ) : $atts['url'];
 			$buttons_array = array();
 			$buttons_index = $this->p->ssb_sharing->get_buttons_cache_index( $type, $atts );
+
+			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', $this->p->options['plugin_sharing_buttons_cache_exp'] );
 			$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $atts['url'] ).')';
 			$cache_id = $lca.'_'.md5( $cache_salt );
-			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', 
-				$this->p->options['plugin_sharing_buttons_cache_exp'] );
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'sharing url = '.$atts['url'] );

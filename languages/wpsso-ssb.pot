@@ -720,12 +720,12 @@ msgstr ""
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:137
+#: lib/widget/sharing.php:138
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:140
+#: lib/widget/sharing.php:141
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""
