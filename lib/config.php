@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(
-					'version' => '2.4.7',		// plugin version
+					'version' => '2.4.8-dev.3',		// plugin version
 					'opt_version' => '16',		// increment when changing default options
 					'short' => 'WPSSO SSB',		// short plugin name
 					'name' => 'WPSSO Social Sharing Buttons',
@@ -171,7 +171,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 				),
 			),
 			'wp' => array(				// wordpress
-				'transients' => array(
+				'transient' => array(
 					'wpsso_b_' => array(
 						'label' => 'Sharing Buttons HTML',
 						'opt_key' => 'plugin_sharing_buttons_cache_exp',

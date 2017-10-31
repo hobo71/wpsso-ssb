@@ -135,7 +135,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'save_options' => 3,			// update the sharing css file
 					'option_type' => 2,			// identify option type for sanitation
 					'post_custom_meta_tabs' => 3,		// $tabs, $mod, $metabox_id
-					'post_cache_transients' => 3,		// clear transients on post save
+					'post_cache_transient_array' => 3,	// clear transients on post save
 					'messages_info' => 2,
 					'messages_tooltip' => 2,
 					'messages_tooltip_plugin' => 2,
@@ -296,12 +296,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $tabs;
 		}
 
-		public function filter_post_cache_transients( $transients, $mod, $sharing_url ) {
+		public function filter_post_cache_transient_array( $transient_array, $mod, $sharing_url ) {
 			$cache_salt = SucomUtil::get_mod_salt( $mod, $sharing_url );
-			$transients['WpssoSsbSharing::get_buttons'][] = $cache_salt;
-			$transients['WpssoSsbShortcodeSharing::shortcode'][] = $cache_salt;
-			$transients['WpssoSsbWidgetSharing::widget'][] = $cache_salt;
-			return $transients;
+			$transient_array['WpssoSsbSharing::get_buttons'][] = $cache_salt;
+			$transient_array['WpssoSsbShortcodeSharing::do_shortcode'][] = $cache_salt;
+			$transient_array['WpssoSsbWidgetSharing::widget'][] = $cache_salt;
+			return $transient_array;
 		}
 
 		// hooked to 'wpssossb_status_gpl_features'
