@@ -225,8 +225,8 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Improvements*
 	* Added a note in the StumbleUpon settings metabox to inform users that StumbleUpon does not currently offer an HTTPS compatible share button.
 	* Added the following options to the Sharing Buttons settings page, under the Advanced Settings tab:
-		* Sharing Buttons Cache Expiry
-		* Social File Cache Expiry
+		* Sharing Buttons HTML Cache Expiry
+		* Get Social JS File Cache Expiry
 * *Bugfixes*
 	* None
 * *Developer Notes*
