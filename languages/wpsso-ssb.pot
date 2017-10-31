@@ -107,7 +107,7 @@ msgstr ""
 #: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:117
 #: lib/pro/admin/sharing.php:46 lib/pro/admin/sharing.php:117
 msgctxt "option label"
-msgid "Sharing Buttons Cache Expiry"
+msgid "Sharing Buttons HTML Cache Expiry"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:42 lib/gpl/admin/sharing.php:48
@@ -121,7 +121,7 @@ msgstr ""
 #: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:122
 #: lib/pro/admin/sharing.php:52 lib/pro/admin/sharing.php:122
 msgctxt "option label"
-msgid "Social File Cache Expiry"
+msgid "Get Social JS File Cache Expiry"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:70 lib/pro/admin/sharing.php:74

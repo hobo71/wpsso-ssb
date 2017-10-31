@@ -29,8 +29,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					 * Advanced Settings
 					 */
 					// Cache Settings Tab
-					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons Cache Expiry (7 days)
-					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
+					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
+					'plugin_social_file_cache_exp' => 0,			// Get Social JS File Cache Expiry
 					/*
 					 * Sharing Buttons
 					 */
@@ -77,9 +77,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
 				),	// end of defaults
 				'site_defaults' => array(
-					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons Cache Expiry (7 days)
+					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
 					'plugin_sharing_buttons_cache_exp:use' => 'default',
-					'plugin_social_file_cache_exp' => 0,		// Social File Cache Expiry
+					'plugin_social_file_cache_exp' => 0,			// Get Social JS File Cache Expiry
 					'plugin_social_file_cache_exp:use' => 'default',
 				),	// end of site defaults
 			),
@@ -127,6 +127,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					add_action( 'add_meta_boxes', array( &$this, 'add_post_buttons_metabox' ) );
 				}
 
+				$this->p->util->add_plugin_actions( $this, array( 
+					'load_setting_page_reload_default_sharing_ssb_styles' => 4,
+				) );
+
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options' => 3,			// update the sharing css file
 					'option_type' => 2,			// identify option type for sanitation
@@ -142,10 +146,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'status_gpl_features' => 4,		// include sharing, shortcode, and widget status
 					'status_pro_features' => 4,		// include social file cache status
 				), 10, 'wpssossb' );				// hook into the extension name instead
-
-				$this->p->util->add_plugin_actions( $this, array( 
-					'load_setting_page_reload_default_sharing_ssb_styles' => 4,
-				) );
 			}
 
 			if ( $this->p->debug->enabled ) {
@@ -699,7 +699,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', $this->p->options['plugin_sharing_buttons_cache_exp'] );
 			$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
-			$cache_id = $lca.'_'.md5( $cache_salt );
+			$cache_id = $lca.'_b_'.md5( $cache_salt );
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'sharing url = '.$sharing_url );
