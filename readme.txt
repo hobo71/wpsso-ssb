@@ -160,6 +160,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.4.8-dev.3 (2017/10/31)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.4.7 (2017/10/15)**
 
 * *New Features*
@@ -350,6 +361,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None
 
 == Upgrade Notice ==
+
+= 2.4.8-dev.3 =
+
+(2017/10/31) None.
 
 = 2.4.7 =
 
