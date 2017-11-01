@@ -168,7 +168,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Improvements*
 	* None
 * *Bugfixes*
-	* None
+	* Fixed clearing of the social sharing shortcode cache transient on post/page update.
 * *Developer Notes*
 	* Refactored the post cache clearing filter for WPSSO v3.48.0.
 
@@ -365,7 +365,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.8-b.1 =
 
-(2017/11/01) Refactored the post cache clearing filter for WPSSO v3.48.0.
+(2017/11/01) Fixed clearing of the social sharing shortcode cache transient on post/page update. Refactored the post cache clearing filter for WPSSO v3.48.0.
 
 = 2.4.7 =
 
