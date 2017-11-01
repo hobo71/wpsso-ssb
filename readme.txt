@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.4.8-dev.4 (2017/10/31)**
+**Version 2.4.8-dev.4 (2017/11/01)**
 
 * *New Features*
 	* None
@@ -365,7 +365,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.8-dev.4 =
 
-(2017/10/31) Refactored the post cache clearing filter for WPSSO v3.48.0.
+(2017/11/01) Refactored the post cache clearing filter for WPSSO v3.48.0.
 
 = 2.4.7 =
 
