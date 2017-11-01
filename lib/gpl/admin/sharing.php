@@ -42,7 +42,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>'.
 				WpssoAdmin::get_option_site_use( 'plugin_sharing_buttons_cache_exp', $form, $network ),
 
-				'plugin_social_file_cache_exp' => $form->get_th_html( _x( 'Get Social JS File Cache Expiry',
+				'plugin_social_file_cache_exp' => $form->get_th_html( _x( 'Get Social JS Files Cache Expiry',
 					'option label', 'wpsso-ssb' ), null, 'plugin_social_file_cache_exp' ).
 				'<td nowrap class="blank">'.$this->p->options['plugin_social_file_cache_exp'].' '.
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>'.
@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			'<td nowrap class="blank">'.$this->p->options['plugin_sharing_buttons_cache_exp'].' '.
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows['plugin_social_file_cache_exp'] = $form->get_th_html( _x( 'Get Social JS File Cache Expiry',
+			$table_rows['plugin_social_file_cache_exp'] = $form->get_th_html( _x( 'Get Social JS Files Cache Expiry',
 				'option label', 'wpsso-ssb' ), null, 'plugin_social_file_cache_exp' ).
 			'<td nowrap class="blank">'.$this->p->options['plugin_social_file_cache_exp'].' '.
 				_x( 'seconds (0 to disable)', 'option comment', 'wpsso-ssb' ).'</td>';

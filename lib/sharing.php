@@ -30,7 +30,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					 */
 					// Cache Settings Tab
 					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
-					'plugin_social_file_cache_exp' => 0,			// Get Social JS File Cache Expiry
+					'plugin_social_file_cache_exp' => 0,			// Get Social JS Files Cache Expiry
 					/*
 					 * Sharing Buttons
 					 */
@@ -79,7 +79,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				'site_defaults' => array(
 					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
 					'plugin_sharing_buttons_cache_exp:use' => 'default',
-					'plugin_social_file_cache_exp' => 0,			// Get Social JS File Cache Expiry
+					'plugin_social_file_cache_exp' => 0,			// Get Social JS Files Cache Expiry
 					'plugin_social_file_cache_exp:use' => 'default',
 				),	// end of site defaults
 			),

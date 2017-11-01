@@ -33,71 +33,76 @@ msgid "Bottom"
 msgstr ""
 
 #: lib/config-gettext-extract.php:7
-msgctxt "option value"
-msgid "Content"
+msgctxt "option label"
+msgid "Buttons HTML"
 msgstr ""
 
 #: lib/config-gettext-extract.php:8
 msgctxt "option value"
-msgid "CSS Sidebar"
+msgid "Content"
 msgstr ""
 
 #: lib/config-gettext-extract.php:9
 msgctxt "option value"
-msgid "Desktop Only"
+msgid "CSS Sidebar"
 msgstr ""
 
 #: lib/config-gettext-extract.php:10
 msgctxt "option value"
-msgid "Excerpt"
+msgid "Desktop Only"
 msgstr ""
 
 #: lib/config-gettext-extract.php:11
 msgctxt "option value"
-msgid "HTTP"
+msgid "Excerpt"
 msgstr ""
 
 #: lib/config-gettext-extract.php:12
 msgctxt "option value"
-msgid "HTTPS"
+msgid "HTTP"
 msgstr ""
 
 #: lib/config-gettext-extract.php:13
 msgctxt "option value"
-msgid "Mobile Only"
+msgid "HTTPS"
 msgstr ""
 
 #: lib/config-gettext-extract.php:14
+msgctxt "option value"
+msgid "Mobile Only"
+msgstr ""
+
+#: lib/config-gettext-extract.php:15
 msgctxt "lib file description"
 msgid "Sharing Buttons"
 msgstr ""
 
-#: lib/config-gettext-extract.php:15 lib/sharing.php:1225
+#: lib/config-gettext-extract.php:16 lib/sharing.php:1225
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
 
-#: lib/config-gettext-extract.php:16
+#: lib/config-gettext-extract.php:17
 msgctxt "option value"
 msgid "Shortcode"
 msgstr ""
 
-#: lib/config-gettext-extract.php:17
+#: lib/config-gettext-extract.php:18
 msgctxt "option value"
 msgid "Top and Bottom"
 msgstr ""
 
-#: lib/config-gettext-extract.php:18
+#: lib/config-gettext-extract.php:19
 msgctxt "option value"
 msgid "Top"
 msgstr ""
 
-#: lib/config-gettext-extract.php:19
+#: lib/config-gettext-extract.php:20
 msgctxt "option value"
 msgid "Widget"
 msgstr ""
 
-#: lib/config-gettext-extract.php:20
+#: lib/config-gettext-extract.php:21
 msgctxt "plugin description"
 msgid ""
 "WPSSO Core extension to add Social Sharing Buttons with support for "
@@ -121,7 +126,7 @@ msgstr ""
 #: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:122
 #: lib/pro/admin/sharing.php:52 lib/pro/admin/sharing.php:122
 msgctxt "option label"
-msgid "Get Social JS File Cache Expiry"
+msgid "Get Social JS Files Cache Expiry"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:70 lib/pro/admin/sharing.php:74
