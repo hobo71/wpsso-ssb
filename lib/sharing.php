@@ -801,8 +801,10 @@ $buttons_array[$buttons_index].
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
 		public function get_html( array $ids, array $atts, $mod = false ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$lca = $this->p->cf['lca'];
 			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;	// maintain backwards compat
@@ -824,9 +826,11 @@ $buttons_array[$buttons_index].
 				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-'.$atts['preset_id'].' -->'."\n" );
 
 			// possibly dereference the opts variable to prevent passing on changes
-			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) )
+			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) ) {
 				$custom_opts =& $this->p->options;
-			else $custom_opts = $this->p->options;
+			} else {
+				$custom_opts = $this->p->options;
+			}
 
 			// apply the presets to $custom_opts
 			if ( ! empty( $atts['preset_id'] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
@@ -895,8 +899,8 @@ $buttons_array[$buttons_index].
 			}
 
 			$buttons_html = trim( $buttons_html );
-			return empty( $buttons_html ) ? '' :
-				$buttons_begin.$buttons_html.$buttons_end;
+
+			return empty( $buttons_html ) ? '' : $buttons_begin.$buttons_html.$buttons_end;
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
