@@ -480,7 +480,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 		}
 
-		public function action_text_filter_before( $filter_name ) {
+		public function action_pre_apply_filters_text( $filter_name ) {
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
@@ -489,7 +489,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$this->remove_buttons_filter( $filter_name );
 		}
 
-		public function action_text_filter_after( $filter_name ) {
+		public function action_after_apply_filters_text( $filter_name ) {
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
