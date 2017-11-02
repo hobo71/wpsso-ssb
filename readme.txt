@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.4.8-rc.2 (2017/11/02)**
+**Version 2.4.8 (2017/11/02)**
 
 * *New Features*
 	* None
@@ -364,7 +364,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.4.8-rc.2 =
+= 2.4.8 =
 
 (2017/11/02) Fixed clearing of the social sharing shortcode cache transient on post/page update. Refactored the post cache clearing filter for WPSSO v3.48.0.
 
