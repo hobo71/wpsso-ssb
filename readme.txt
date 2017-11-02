@@ -168,8 +168,8 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Improvements*
 	* None
 * *Bugfixes*
-	* Fixed clearing of the social sharing shortcode cache transient on post/page update.
 	* Fixed order of add/remove shortcode when applying the content filter to prevent a circular loop. 
+	* Fixed clearing of the social sharing shortcode cache transient on post/page update.
 * *Developer Notes*
 	* Refactored the post cache clearing filter for WPSSO v3.48.0.
 
@@ -366,7 +366,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.4.8 =
 
-(2017/11/02) Fixed clearing of the social sharing shortcode cache transient on post/page update. Refactored the post cache clearing filter for WPSSO v3.48.0.
+(2017/11/02) Fixed order of add/remove shortcode when applying the content filter to prevent a circular loop.  Fixed clearing of the social sharing shortcode cache transient on post/page update.
 
 = 2.4.7 =
 
