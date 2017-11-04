@@ -153,20 +153,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 		}
 
-		public static function get_buttons_cache_exp() {
-			static $cache_exp = null;	// filter the cache expiration value only once
-			if ( ! isset( $cache_exp ) ) {
-				$wpsso =& Wpsso::get_instance();
-				$lca = $wpsso->cf['lca'];
-				$cache_pre = $lca.'_b_';
-				$cache_filter = $wpsso->cf['wp']['transient'][$cache_pre]['filter'];
-				$cache_opt_key = $wpsso->cf['wp']['transient'][$cache_pre]['opt_key'];
-				$cache_exp = isset( $wpsso->options[$cache_opt_key] ) ? $wpsso->options[$cache_opt_key] : WEEK_IN_SECONDS;
-				$cache_exp = (int) apply_filters( $cache_filter, $cache_exp );
-			}
-			return $cache_exp;
-		}
-
 		private function set_objects() {
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbwebsite'.$id );
@@ -714,7 +700,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$buttons_index = $this->get_buttons_cache_index( $type );
 
 			$cache_pre = $lca.'_b_';
-			$cache_exp = self::get_buttons_cache_exp();
+			$cache_exp = $this->get_buttons_cache_exp();
 			$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
 			$cache_id = $cache_pre.md5( $cache_salt );
 
@@ -800,6 +786,19 @@ $buttons_array[$buttons_index].
 			}
 
 			return $text;
+		}
+
+		public function get_buttons_cache_exp() {
+			static $cache_exp = null;	// filter the cache expiration value only once
+			if ( ! isset( $cache_exp ) ) {
+				$lca = $this->p->cf['lca'];
+				$cache_pre = $lca.'_b_';
+				$cache_filter = $this->p->cf['wp']['transient'][$cache_pre]['filter'];
+				$cache_opt_key = $this->p->cf['wp']['transient'][$cache_pre]['opt_key'];
+				$cache_exp = isset( $this->p->options[$cache_opt_key] ) ? $this->p->options[$cache_opt_key] : WEEK_IN_SECONDS;
+				$cache_exp = (int) apply_filters( $cache_filter, $cache_exp );
+			}
+			return $cache_exp;
 		}
 
 		public function get_buttons_cache_index( $type, $atts = false, $ids = false ) {

@@ -54,7 +54,7 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 		$buttons_index = $wpsso->ssb_sharing->get_buttons_cache_index( $type, $atts, $ids );
 
 		$cache_pre = $lca.'_b_';
-		$cache_exp = $cache_exp === false ? WpssoSsbSharing::get_buttons_cache_exp() : $cache_exp;
+		$cache_exp = $cache_exp === false ? $wpsso->ssb_sharing->get_buttons_cache_exp() : $cache_exp;
 		$cache_salt = __FUNCTION__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
 		$cache_id = $cache_pre.md5( $cache_salt );
 
