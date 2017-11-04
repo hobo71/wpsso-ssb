@@ -135,12 +135,14 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
 			$atts['url'] = empty( $atts['url'] ) ? $this->p->util->get_sharing_url( $mod ) : $atts['url'];
+
 			$buttons_array = array();
 			$buttons_index = $this->p->ssb_sharing->get_buttons_cache_index( $type, $atts );
 
-			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', $this->p->options['plugin_sharing_buttons_cache_exp'] );
+			$cache_pre = $lca.'_b_';
+			$cache_exp = WpssoSsbSharing::get_buttons_cache_exp();
 			$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $atts['url'] ).')';
-			$cache_id = $lca.'_b_'.md5( $cache_salt );
+			$cache_id = $cache_pre.md5( $cache_salt );
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'sharing url = '.$atts['url'] );
@@ -185,8 +187,7 @@ $this->p->ssb_sharing->get_script( 'shortcode-footer', $ids ).
 						// update the transient array and keep the original expiration time
 						$cache_exp = SucomUtil::update_transient_array( $cache_id, $buttons_array, $cache_exp );
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( $type.' buttons html saved to transient '.
-								$cache_id.' ('.$cache_exp.' seconds)' );
+							$this->p->debug->log( $type.' buttons html saved to transient cache for '.$cache_exp.' seconds' );
 						}
 					}
 				}

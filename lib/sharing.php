@@ -153,6 +153,25 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 		}
 
+		public static function get_buttons_cache_exp() {
+
+			static $cache_exp = null;
+
+			if ( isset( $cache_exp ) ) {
+				return $cache_exp;
+			}
+
+			$wpsso =& Wpsso::get_instance();
+			$lca = $wpsso->cf['lca'];
+			$cache_pre = $lca.'_b_';
+			$cache_filter = $wpsso->cf['wp']['transient'][$cache_pre]['filter'];
+			$cache_opt_key = $wpsso->cf['wp']['transient'][$cache_pre]['opt_key'];
+			$cache_exp = isset( $wpsso->options[$cache_opt_key] ) ? $wpsso->options[$cache_opt_key] : WEEK_IN_SECONDS;
+			$cache_exp = (int) apply_filters( $cache_filter, $cache_exp );
+
+			return $cache_exp;
+		}
+
 		private function set_objects() {
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbwebsite'.$id );
@@ -297,11 +316,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_post_cache_transient_keys( $transient_keys, $mod, $sharing_url, $mod_salt ) {
-			$md5_pre = $this->p->cf['lca'].'_b_';
-			$class_pre = 'WpssoSsb';
-			$transient_keys[] = $md5_pre.md5( $class_pre.'Sharing::get_buttons('.$mod_salt.')' );
-			$transient_keys[] = $md5_pre.md5( $class_pre.'ShortcodeSharing::do_shortcode('.$mod_salt.')' );
-			$transient_keys[] = $md5_pre.md5( $class_pre.'WidgetSharing::widget('.$mod_salt.')' );
+			$lca = $ngfb->cf['lca'];
+			$cache_pre = $lca.'_b_';
+			$classname_pre = 'WpssoSsb';
+			$transient_keys[] = $cache_pre.md5( $classname_pre.'Sharing::get_buttons('.$mod_salt.')' );
+			$transient_keys[] = $cache_pre.md5( $classname_pre.'ShortcodeSharing::do_shortcode('.$mod_salt.')' );
+			$transient_keys[] = $cache_pre.md5( $classname_pre.'WidgetSharing::widget('.$mod_salt.')' );
 			return $transient_keys;
 		}
 
@@ -683,8 +703,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 			}
 
-			$lca = $this->p->cf['lca'];
-
 			// $mod is preferred but not required
 			// $mod = true | false | post_id | $mod array
 			if ( ! is_array( $mod ) ) {
@@ -694,13 +712,16 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$mod = $this->p->util->get_page_mod( $mod );
 			}
 
+			$lca = $this->p->cf['lca'];
 			$sharing_url = $this->p->util->get_sharing_url( $mod );
+
 			$buttons_array = array();
 			$buttons_index = $this->get_buttons_cache_index( $type );
 
-			$cache_exp = (int) apply_filters( $lca.'_cache_expire_sharing_buttons', $this->p->options['plugin_sharing_buttons_cache_exp'] );
+			$cache_pre = $lca.'_b_';
+			$cache_exp = self::get_buttons_cache_exp();
 			$cache_salt = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
-			$cache_id = $lca.'_b_'.md5( $cache_salt );
+			$cache_id = $cache_pre.md5( $cache_salt );
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'sharing url = '.$sharing_url );
@@ -761,8 +782,7 @@ $buttons_array[$buttons_index].
 						// update the transient array and keep the original expiration time
 						$cache_exp = SucomUtil::update_transient_array( $cache_id, $buttons_array, $cache_exp );
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( $type.' buttons html saved to transient '.
-								$cache_id.' ('.$cache_exp.' seconds)' );
+							$this->p->debug->log( $type.' buttons html saved to transient cache for '.$cache_exp.' seconds' );
 						}
 					}
 				}
@@ -1247,16 +1267,23 @@ $buttons_array[$buttons_index].
 		public function filter_messages_tooltip_plugin( $text, $idx ) {
 			switch ( $idx ) {
 				case 'tooltip-plugin_sharing_buttons_cache_exp':
+
 					$cache_exp = WpssoSsbSharing::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];	// use original un-filtered value
 					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
+
 					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.',
 						'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).',
 							'wpsso-ssb' ), $cache_exp, $cache_diff );
+
 					break;
+
 				case 'tooltip-plugin_social_file_cache_exp':
+
 					$cache_exp = WpssoSsbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];	// use original un-filtered value
 					$cache_diff = $cache_exp ? human_time_diff( 0, $cache_exp ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
+
 					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp, $cache_diff );
+
 					break;
 			}
 			return $text;
