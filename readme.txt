@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.0-dev.1 (2017/11/04)**
+**Version 2.5.0-dev.2 (2017/11/04)**
 
 * *New Features*
 	* None
@@ -170,7 +170,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Added a new WpssoSsbSharing get_buttons_cache_exp() static method to apply the buttons expiration filter once (and cache the result in a static variable).
+	* Added a new WpssoSsbSharing get_buttons_cache_exp() method to apply the buttons expiration filter once (and cache the result in a static variable).
 	* Updated the WpssoSsbShortcodeSharing and WpssoSsbWidgetSharing class methods to use the new WpssoSsbSharing get_buttons_cache_exp() method.
 
 **Version 2.4.8 (2017/11/02)**
@@ -376,7 +376,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.0-dev.1 =
+= 2.5.0-dev.2 =
 
 (2017/11/04) Optimized setting of the buttons cache expiration value by using a single static cache variable. 
 
