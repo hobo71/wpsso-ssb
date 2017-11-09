@@ -135,7 +135,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			}
 
 			$lca = $this->p->cf['lca'];
-			$short_url = apply_filters( $lca.'_get_short_url', $atts['url'], $opts['plugin_shortener'] );
+
+			if ( $mod['is_post'] ) {
+				$short_url = wp_get_shortlink( $mod['id'], 'post' );	// $context = post
+			} else {
+				$service_key = $this->p->options['plugin_shortener'];
+				$short_url = apply_filters( $lca.'_get_short_url',
+					$atts['url'], $service_key, $mod['name'] );
+			}
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
