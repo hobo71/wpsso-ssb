@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.0-rc.3 (2017/11/13)**
+**Version 2.5.0 (2017/11/14)**
 
 * *New Features*
 	* None
@@ -376,9 +376,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.0-rc.3 =
+= 2.5.0 =
 
-(2017/11/13) Optimized setting of the buttons cache expiration value by using a single method and static cache variable. 
+(2017/11/14) Optimized setting of the buttons cache expiration value by using a single method and static cache variable. 
 
 = 2.4.8 =
 
