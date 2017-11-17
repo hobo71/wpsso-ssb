@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 					'buffer_img_crop_x' => 'center',
 					'buffer_img_crop_y' => 'center',
 					'buffer_caption' => 'title',
-					'buffer_cap_len' => 140,
+					'buffer_cap_len' => 280,	// changed from 140 to 280 on 2017/11/17
 					'buffer_via' => 1,
 				),
 			),

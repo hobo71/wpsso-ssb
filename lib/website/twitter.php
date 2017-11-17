@@ -101,7 +101,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
 					'twitter_caption' => 'title',
-					'twitter_cap_len' => 140,
+					'twitter_cap_len' => 280,	// changed from 140 to 280 on 2017/11/17
 					'twitter_size' => 'medium',
 					'twitter_via' => 1,
 					'twitter_rel_author' => 1,
