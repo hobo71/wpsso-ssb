@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9
-WC Tested Up To: 3.2.3
+WC Tested Up To: 3.2.4
 Stable Tag: 2.5.0
 
 WPSSO Core extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
@@ -161,6 +161,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.5.1-dev.4 (2017/11/17)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* Changed the maximum tweet and buffer text length from 140 to 280 characters.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.5.0 (2017/11/14)**
 
 * *New Features*
@@ -173,278 +184,13 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Added a new WpssoSsbSharing get_buttons_cache_exp() method to apply the buttons expiration filter once (and cache the result in a static variable).
 	* Updated the WpssoSsbShortcodeSharing and WpssoSsbWidgetSharing class methods to use the new WpssoSsbSharing get_buttons_cache_exp() method.
 
-**Version 2.4.8 (2017/11/02)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed order of add/remove shortcode when applying the content filter to prevent a circular loop. 
-	* Fixed clearing of the social sharing shortcode cache transient on post/page update.
-* *Developer Notes*
-	* Refactored the post cache clearing filter for WPSSO v3.48.0.
-
-**Version 2.4.7 (2017/10/15)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added a shortcode_exists() call to the WpssoSsbShortcodeSharing add_shortcode() and remove_shortcode() methods for more complete debug info.
-	* Added 'wpsso_pre_apply_filters_text' and 'wpsso_after_apply_filters_text' action hooks in the WpssoSsbShortcodeSharing class to dynamically remove / add the sharing shortcode as required.
-
-**Version 2.4.6 (2017/09/10)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed the following filters for WPSSO v3.46.0 and added a 3rd argument for the metabox id:
-		* 'wpsso_post_social_settings_tabs' to 'wpsso_post_custom_meta_tabs'.
-
-**Version 2.4.5 (2017/09/03)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'.
-	* Renamed the SucomForm get_image_dimensions_input() method to get_input_image_dimensions().
-
-**Version 2.4.4 (2017/08/08)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added a new 'wpsso_ssb_buttons_shared_url' filter.
-
-**Version 2.4.3 (2017/07/23)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added more debug messages to the WpssoSsbSharing::get_buttons() method.
-
-**Version 2.4.2 (2017/05/25)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added a note in the StumbleUpon settings metabox to inform users that StumbleUpon does not currently offer an HTTPS compatible share button.
-	* Added the following options to the Sharing Buttons settings page, under the Advanced Settings tab:
-		* Sharing Buttons HTML Cache Expiry
-		* Get Social JS Files Cache Expiry
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.4.1 (2017/05/19)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* The Pinterest custom image has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.4.0 (2017/04/30)**
-
-* *New Features*
-	* Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version).
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Code refactoring to rename the $is_avail array to $avail for WPSSO v3.42.0.
-	* Replaced WPSSO_VARY_USER_AGENT_DISABLE constant checks by $avail array checks.
-	* Added a new filter: 'wpsso_ssb_sharing_buttons_html' ( $type, $mod, $location, $atts ).
-
-**Version 2.3.17 (2017/04/22)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed the moving/re-ordering feature of Sharing Buttons metaboxes (CSS identifiers must use underscores and not hyphens).
-* *Developer Notes*
-	* Updated all Pinterest option key prefixes from 'rp' to 'p' for WPSSO v3.41.0.
-	* Added support for the new WPSSO_VARY_USER_AGENT_DISABLE constant in WPSSO v3.41.0.
-
-**Version 2.3.16 (2017/04/16)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Added a missing 'fb_lang' default options value for the Facebook button.
-	* Fixed the widget buttons layout when using the default CSS and small button preset.
-* *Developer Notes*
-	* Refactored the plugin init filters and moved/renamed the registration boolean from `is_avail[$name]` to `is_avail['p_ext'][$name]`.
-
-**Version 2.3.15 (2017/04/08)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Minor revision to move URLs in the extension config to the main WPSSO Core plugin config.
-	* Dropped the package number from the production version string.
-
-**Version 2.3.14-1 (2017/04/05)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Updated the plugin icon images and the documentation URLs.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed WpssoAdmin get_site_use() to get_option_site_use() for WPSSO v3.40.11-1.
-	* Renamed the 'table.sucom-setting' CSS class to 'table.sucom-settings' for WPSSO v3.40.11-1.
-
-**Version 2.3.13-1 (2017/03/31)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed calls to the WpssoOpenGraph get_the_media_info() method to get_media_info() for WPSSO v3.40.7-1.
-
-**Version 2.3.12-1 (2017/03/21)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* Fixed an incorrect filter hook name for the Facebook metabox contents.
-* *Developer Notes*
-	* None
-
-**Version 2.3.11-1 (2017/03/06)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added support for SucomUtil::is_amp() in WPSSO v3.40.2-1.
-
-**Version 2.3.10-1 (2017/02/04)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added a distinct / separate div container for the buttons preset ID.
-	* Added CSS for the large_share_vertical preset ID in the default widget buttons stylesheet.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
 == Upgrade Notice ==
+
+= 2.5.1-dev.4 =
+
+(2017/11/17) Changed the maximum tweet and buffer text length from 140 to 280 characters.
 
 = 2.5.0 =
 
 (2017/11/14) Optimized setting of the buttons cache expiration value by using a single method and static cache variable. 
-
-= 2.4.8 =
-
-(2017/11/02) Fixed order of add/remove shortcode when applying the content filter to prevent a circular loop.  Fixed clearing of the social sharing shortcode cache transient on post/page update.
-
-= 2.4.7 =
-
-(2017/10/15) Refactored the WpssoSsbShortcodeSharing add / remove shortcode methods.
-
-= 2.4.6 =
-
-(2017/09/10) Code refactoring to renamed filters for WPSSO v3.46.0.
-
-= 2.4.5 =
-
-(2017/09/03) Renamed the 'wpsso_shorten_url' filter to 'wpsso_get_short_url'. Renamed some SucomForm methods for WPSSO v3.45.8.
-
-= 2.4.4 =
-
-(2017/08/08) Added a new 'wpsso_ssb_buttons_shared_url' filter.
-
-= 2.4.3 =
-
-(2017/07/23) Added more debug messages to the WpssoSsbSharing::get_buttons() method.
-
-= 2.4.2 =
-
-(2017/05/25) Added a note in the StumbleUpon settings metabox to inform users that StumbleUpon does not currently offer an HTTPS compatible share button.
-
-= 2.4.1 =
-
-(2017/05/19) The Pinterest custom image has been moved to the Structured Data / Schema Markup / Pinterest custom image for WPSSO v3.44.0.
-
-= 2.4.0 =
-
-(2017/04/30) Added a new "Force Protocol for Shared URLs" option in the Sharing Buttons settings page (Pro version). Code refactoring to rename the $is_avail array to $avail, and replace the WPSSO_VARY_USER_AGENT_DISABLE constant checks by $avail array checks.
-
-= 2.3.17 =
-
-(2017/04/22) Fixed the moving/re-ordering feature of Sharing Buttons metaboxes. Updated all Pinterest option key prefixes and added support for a new constant in WPSSO v3.41.0.
-
-= 2.3.16 =
-
-(2017/04/16) Refactored the plugin init filters and moved/renamed the registration boolean.
-
-= 2.3.15 =
-
-(2017/04/08) Minor revision to move URLs in the extension config to the main WPSSO Core plugin config.
-
-= 2.3.14-1 =
-
-(2017/04/05) Updated the plugin icon images and the documentation URLs. Renamed a WpssoAdmin class method and renamed the 'table.sucom-setting' CSS class for WPSSO v3.40.11-1.
-
-= 2.3.13-1 =
-
-(2017/03/31) Renamed calls to the WpssoOpenGraph get_the_media_info() method to get_media_info() for WPSSO v3.40.7-1.
-
-= 2.3.12-1 =
-
-(2017/03/21) Fixed an incorrect filter hook name for the Facebook metabox contents.
-
-= 2.3.11-1 =
-
-(2017/03/06) Added support for SucomUtil::is_amp() in WPSSO v3.40.2-1.
-
-= 2.3.10-1 =
-
-(2017/02/04) Added a distinct / separate div container for the buttons preset ID. Added CSS for the large_share_vertical preset ID in the default widget buttons stylesheet.
 
