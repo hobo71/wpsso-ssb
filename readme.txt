@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.1-rc.1 (2017/11/18)**
+**Version 2.5.1-rc.2 (2017/11/18)**
 
 * *New Features*
 	* None
@@ -186,7 +186,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.1-rc.1 =
+= 2.5.1-rc.2 =
 
 (2017/11/18) Changed the maximum tweet and buffer text length from 140 to 280 characters.
 
