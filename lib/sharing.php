@@ -1343,7 +1343,7 @@ $buttons_array[$cache_index].
 					$this->get_info_css_example( 'bbp_single' );
 					break;
 				case 'info-styles-ssb-bp_activity':
-					$text = '<p>Social sharing buttons added on BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
+					$text = '<p>Social sharing buttons added to BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
 					$this->get_info_css_example( 'bp_activity' );
 					break;
 			}
