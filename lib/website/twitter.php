@@ -137,11 +137,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			$lca = $this->p->cf['lca'];
 
 			if ( $mod['is_post'] ) {
-				$short_url = wp_get_shortlink( $mod['id'], 'post' );	// $context = post
+				$short_url = SucomUtilWP::wp_get_shortlink( $mod['id'], 'post' );	// $context = post
 			} else {
 				$service_key = $this->p->options['plugin_shortener'];
-				$short_url = apply_filters( $lca.'_get_short_url',
-					$atts['url'], $service_key, $mod['name'] );
+				$short_url = apply_filters( $lca.'_get_short_url', $atts['url'], $service_key, $mod['name'] );
 			}
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
