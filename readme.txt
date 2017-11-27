@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.2-dev.3 (2017/11/26)**
+**Version 2.5.2-dev.4 (2017/11/27)**
 
 * *New Features*
 	* None
@@ -170,7 +170,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* None
+	* Replaced all calls to wp_get_shortlink() by SucomUtilWP::wp_get_shortlink().
 
 **Version 2.5.1 (2017/11/20)**
 
@@ -197,9 +197,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.2-dev.3 =
+= 2.5.2-dev.4 =
 
-(2017/11/26) Optimized the definition of cache ids when the transient cache is disabled.
+(2017/11/27) Optimized the definition of cache ids when the transient cache is disabled.
 
 = 2.5.1 =
 
