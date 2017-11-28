@@ -161,14 +161,14 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.2-b.1 (2017/11/28)**
+**Version 2.5.2-rc.1 (2017/11/28)**
 
 * *New Features*
 	* None
 * *Improvements*
 	* Optimized the definition of cache ids when the transient cache is disabled.
 * *Bugfixes*
-	* None
+	* Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
 * *Developer Notes*
 	* Replaced all calls to wp_get_shortlink() by SucomUtilWP::wp_get_shortlink().
 
@@ -197,9 +197,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.2-b.1 =
+= 2.5.2-rc.1 =
 
-(2017/11/28) Optimized the definition of cache ids when the transient cache is disabled.
+(2017/11/28) Optimized the definition of cache ids when the transient cache is disabled. Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
 
 = 2.5.1 =
 
