@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.2-dev.4 (2017/11/27)**
+**Version 2.5.2-b.1 (2017/11/28)**
 
 * *New Features*
 	* None
@@ -197,9 +197,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.2-dev.4 =
+= 2.5.2-b.1 =
 
-(2017/11/27) Optimized the definition of cache ids when the transient cache is disabled.
+(2017/11/28) Optimized the definition of cache ids when the transient cache is disabled.
 
 = 2.5.1 =
 
