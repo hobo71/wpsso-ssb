@@ -134,18 +134,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$lca = $this->p->cf['lca'];
-
-			if ( $mod['is_post'] ) {
-				$short_url = SucomUtilWP::wp_get_shortlink( $mod['id'], 'post' );	// $context = post
-			} else {
-				$service_key = $this->p->options['plugin_shortener'];
-				$short_url = apply_filters( $lca.'_get_short_url', $atts['url'], $service_key, $mod['name'] );
-			}
+			$service_key = $this->p->options['plugin_shortener'];
+			$short_url = apply_filters( $this->p->lca.'_get_short_url', $atts['url'], $service_key, $mod['name'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
-				$atts['lang'] = apply_filters( $lca.'_pub_lang', $atts['lang'], 'twitter', 'current' );
+				$atts['lang'] = apply_filters( $this->p->lca.'_pub_lang', $atts['lang'], 'twitter', 'current' );
 			}
 
 			if ( array_key_exists( 'tweet', $atts ) ) {
@@ -203,13 +197,16 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 		}
 		
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_twitter',
+			}
+
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_twitter',
 				SucomUtil::get_prot().'://platform.twitter.com/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="twitter-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>';
+				$this->p->lca.'_insert_js( "twitter-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }
