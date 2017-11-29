@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.2-rc.1 (2017/11/28)**
+**Version 2.5.2 (2017/11/29)**
 
 * *New Features*
 	* None
@@ -197,9 +197,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.2-rc.1 =
+= 2.5.2 =
 
-(2017/11/28) Optimized the definition of cache ids when the transient cache is disabled. Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
+(2017/11/29) Optimized the definition of cache ids when the transient cache is disabled. Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
 
 = 2.5.1 =
 
