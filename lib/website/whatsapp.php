@@ -112,4 +112,3 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 	}
 }
 
-?>

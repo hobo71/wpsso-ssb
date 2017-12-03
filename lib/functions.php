@@ -120,4 +120,3 @@ $wpsso->ssb_sharing->get_script( 'sharing-buttons-footer', $ids ).
 	}
 }
 
-?>

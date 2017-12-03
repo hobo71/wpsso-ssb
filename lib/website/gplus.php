@@ -163,4 +163,3 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 	}
 }
 
-?>

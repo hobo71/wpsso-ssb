@@ -250,4 +250,3 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 	}
 }
 
-?>

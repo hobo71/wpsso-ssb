@@ -1437,4 +1437,3 @@ $buttons_array[$cache_index].
 	}
 }
 
-?>

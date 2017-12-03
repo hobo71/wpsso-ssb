@@ -220,4 +220,3 @@ $this->p->ssb_sharing->get_script( 'shortcode-footer', $ids ).
 	}
 }
 
-?>

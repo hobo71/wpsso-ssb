@@ -267,4 +267,3 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 	}
 }
 
-?>

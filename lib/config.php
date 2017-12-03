@@ -277,4 +277,3 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 	}
 }
 
-?>
