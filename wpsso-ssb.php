@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Plugin Name: WPSSO Social Sharing Buttons
  * Plugin Slug: wpsso-ssb
  * Text Domain: wpsso-ssb
