@@ -98,9 +98,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					// ids must use underscores instead of hyphens to order metaboxes
 					echo '<div id="ssb_website_col_'.$col.'" class="max_cols_'.$this->max_cols.' ssb_website_col">';
 					do_meta_boxes( $pagehook, 'ssb_website_col_'.$col, null );
-					echo '</div><!-- #ssb_website_col_'.$col.' -->'."\n";
+					echo '</div><!-- #ssb_website_col_'.$col.' -->' . "\n";
 				}
-				echo '<div style="clear:both;"></div>'."\n";
+				echo '<div style="clear:both;"></div>' . "\n";
 			}
 		}
 

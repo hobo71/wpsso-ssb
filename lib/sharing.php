@@ -679,7 +679,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$this->p->debug->mark( 'getting buttons for '.$type );	// end timer
 				}
 				if ( $add_comment ) {
-					return $text."\n".'<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_text.' -->'."\n";
+					return $text . "\n" . '<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_text.' -->' . "\n";
 				} else {
 					return $text;
 				}
@@ -768,10 +768,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$buttons_array[$cache_index] = apply_filters( $lca.'_ssb_buttons_html', '
 <!-- '.$lca.' '.$css_type_name.' begin -->
 <!-- generated on '.date( 'c' ).' -->
-<div class="'.$lca.'-ssb'.( $mod['use_post'] ? ' '.$lca.'-'.$css_type_name.'"' : '" id="'.$lca.'-'.$css_type_name.'"' ).'>'."\n".
+<div class="'.$lca.'-ssb'.( $mod['use_post'] ? ' '.$lca.'-'.$css_type_name.'"' : '" id="'.$lca.'-'.$css_type_name.'"' ).'>' . "\n" . 
 $buttons_array[$cache_index].
 '</div><!-- .'.$lca.'-ssb '.( $mod['use_post'] ? '.' : '#' ).$lca.'-'.$css_type_name.' -->
-<!-- '.$lca.' '.$css_type_name.' end -->'."\n\n", $type, $mod, $location, $atts );
+<!-- '.$lca.' '.$css_type_name.' end -->' . "\n\n", $type, $mod, $location, $atts );
 
 					if ( $cache_exp_secs > 0 ) {
 						// update the cached array and maintain the existing transient expiration time
@@ -848,10 +848,10 @@ $buttons_array[$cache_index].
 			}
 
 			$buttons_html = '';
-			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-'.$atts['preset_id'].'">'."\n" ).
-				'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">'."\n";
-			$buttons_end = '</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->'."\n".
-				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-'.$atts['preset_id'].' -->'."\n" );
+			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-'.$atts['preset_id'].'">' . "\n" ).
+				'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">' . "\n";
+			$buttons_end = '</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->' . "\n" . 
+				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-'.$atts['preset_id'].' -->' . "\n" );
 
 			// possibly dereference the opts variable to prevent passing on changes
 			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) ) {
@@ -911,7 +911,7 @@ $buttons_array[$cache_index].
 								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot.'://', $atts['url'] );
 							}
 
-							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod )."\n";
+							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod ) . "\n";
 
 							$atts = $saved_atts;	// restore the common $atts array
 
@@ -986,53 +986,63 @@ $buttons_array[$cache_index].
 
 			if ( $exit_message ) {
 				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: '.$exit_message  );
-					return '<!-- wpssossb '.$pos.': '.$exit_message.' -->'."\n";
-				} elseif ( $this->p->debug->enabled )
+					}
+					return '<!-- wpssossb '.$pos.': '.$exit_message.' -->' . "\n";
+				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
+				}
 			} elseif ( is_admin() ) {
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
-						if ( ! empty( $val ) )
+						if ( ! empty( $val ) ) {
 							$enabled_ids[] = $id;
+						}
 					}
 				}
 			} else {
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_/', $this->p->options ) as $key => $val ) {
 						// exclude buttons enabled for admin editing pages
-						if ( strpos( $key, $opt_pre.'_on_admin_' ) === false && ! empty( $val ) )
+						if ( strpos( $key, $opt_pre.'_on_admin_' ) === false && ! empty( $val ) ) {
 							$enabled_ids[] = $id;
+						}
 					}
 				}
 			}
 
 			if ( empty( $request_ids ) ) {
 				if ( empty( $enabled_ids ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: no buttons enabled or requested' );
-					return '<!-- wpssossb '.$pos.': no buttons enabled or requested -->'."\n";
-				} else $include_ids = $enabled_ids;
+					}
+					return '<!-- wpssossb '.$pos.': no buttons enabled or requested -->' . "\n";
+				} else {
+					$include_ids = $enabled_ids;
+				}
 			} else {
 				$include_ids = array_diff( $request_ids, $enabled_ids );
 				if ( empty( $include_ids ) ) {
-					if ( $this->p->debug->enabled )
+					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: no scripts after removing enabled buttons' );
-					return '<!-- wpssossb '.$pos.': no scripts after removing enabled buttons -->'."\n";
+					}
+					return '<!-- wpssossb '.$pos.': no scripts after removing enabled buttons -->' . "\n";
 				}
 			}
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$script_html = '<!-- wpssossb '.$pos.' javascript begin -->'."\n".
-				'<!-- generated on '.date( 'c' ).' -->'."\n";
+			$script_html = '<!-- wpssossb '.$pos.' javascript begin -->' . "\n" . 
+				'<!-- generated on '.date( 'c' ).' -->' . "\n";
 
-			if ( strpos( $pos, '-header' ) ) 
+			if ( strpos( $pos, '-header' ) )  {
 				$script_loc = 'header';
-			elseif ( strpos( $pos, '-footer' ) ) 
+			} elseif ( strpos( $pos, '-footer' ) )  {
 				$script_loc = 'footer';
-			else $script_loc = $pos;
+			} else {
+				$script_loc = $pos;
+			}
 
 			if ( ! empty( $include_ids ) ) {
 				foreach ( $include_ids as $id ) {
@@ -1044,13 +1054,13 @@ $buttons_array[$cache_index].
 
 						if ( isset( $this->p->options[$opt_name] ) && 
 							$this->p->options[$opt_name] === $script_loc )
-								$script_html .= $this->website[$id]->get_script( $pos )."\n";
-						else $script_html .= '<!-- wpssossb '.$pos.': '.$id.' script location is '.$this->p->options[$opt_name].' -->'."\n";
+								$script_html .= $this->website[$id]->get_script( $pos ) . "\n";
+						else $script_html .= '<!-- wpssossb '.$pos.': '.$id.' script location is '.$this->p->options[$opt_name].' -->' . "\n";
 					}
 				}
 			}
 
-			$script_html .= '<!-- wpssossb '.$pos.' javascript end -->'."\n";
+			$script_html .= '<!-- wpssossb '.$pos.' javascript end -->' . "\n";
 
 			return $script_html;
 		}
@@ -1074,7 +1084,7 @@ $buttons_array[$cache_index].
 		js.src = url;
 		script_pos.parentNode.insertBefore( js, script_pos );
 	};
-</script>'."\n";
+</script>' . "\n";
 		}
 
 		public function have_buttons_for_type( $type ) {
