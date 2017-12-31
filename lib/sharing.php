@@ -1,5 +1,4 @@
 <?php
-
 /**
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
@@ -26,13 +25,13 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		public static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					/*
+					/**
 					 * Advanced Settings
 					 */
 					// Cache Settings Tab
 					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
 					'plugin_social_file_cache_exp' => 0,			// Get Social JS Files Cache Expiry
-					/*
+					/**
 					 * Sharing Buttons
 					 */
 					// Include Buttons Tab
@@ -53,7 +52,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_preset_ssb-widget' => 'small_share_count',
 					// Buttons Advanced
 					'buttons_force_prot' => '',
-					/*
+					/**
 					 * Sharing Styles
 					 */
 					'buttons_use_social_style' => 1,
@@ -170,7 +169,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$lca = $this->p->cf['lca'];
 			$def_opts = array_merge( $def_opts, self::$cf['opt']['defaults'] );
-			/*
+			/**
 			 * Add options using a key prefix array and post type names.
 			 */
 			$def_opts = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
@@ -226,7 +225,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_save_options( $opts, $options_name, $network ) {
 			// update the combined and minimized social stylesheet
-			if ( $network === false ) {
+			if ( false === $network ) {
 				$this->update_sharing_css( $opts );
 			}
 			return $opts;
@@ -669,7 +668,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 			}
 
-			if ( $error_text === false && ! $this->have_buttons_for_type( $type ) ) {
+			if ( false === $error_text && ! $this->have_buttons_for_type( $type ) ) {
 				$error_text = 'no sharing buttons enabled';
 			}
 

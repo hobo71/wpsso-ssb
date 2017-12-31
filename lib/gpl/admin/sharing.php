@@ -1,5 +1,4 @@
 <?php
-
 /**
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
@@ -142,7 +141,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$this->p->msgs->get( 'pro-feature-msg', 
 					array( 'lca' => 'wpssossb' ) ).'</td>';
 
-			/*
+			/**
 			 * Email
 			 */
 			$caption_len = $this->p->options['email_cap_len'];
@@ -160,7 +159,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ),
 			);
 
-			/*
+			/**
 			 * Twitter
 			 */
 			$caption_len = $this->p->ssb_sharing->get_tweet_max_len();
@@ -173,7 +172,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'content' => $form->get_no_textarea_value( $caption_text, '', '', $caption_len ),
 			);
 
-			/*
+			/**
 			 * Pinterest
 			 */
 			$caption_len = $this->p->options['pin_cap_len'];
@@ -200,7 +199,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					'<img src="'.$media['img_url'].'" style="max-width:'.$size_info['width'].'px;">' ),
 			);
 
-			/*
+			/**
 			 * Tumblr
 			 */
 			$caption_len = $this->p->options['tumblr_cap_len'];
@@ -237,7 +236,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 					'wpsso-ssb' ), 'Tumblr' ).'</em>',
 			);
 
-			/*
+			/**
 			 * Disable Buttons Checkbox
 			 */
 			$form_rows['buttons_disabled'] = array(
