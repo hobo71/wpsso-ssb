@@ -148,7 +148,7 @@ The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_so
 <h3>Free / Basic Version Repositories</h3>
 
 * [GitHub](https://surniaulula.github.io/wpsso-ssb/)
-* [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/developers/)
+* [WordPress.org](https://plugins.trac.wordpress.org/browser/wpsso-ssb/)
 
 <h3>Version Numbering</h3>
 
