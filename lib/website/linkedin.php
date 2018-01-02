@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'ssb_website_linkedin_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_linkedin_rows' => 3,
 			) );
 		}
 

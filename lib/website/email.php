@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteEmail' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'ssb_website_email_rows' => 3,		// $table_rows, $form, $submenu
+				'ssb_website_email_rows' => 3,
 			) );
 		}
 

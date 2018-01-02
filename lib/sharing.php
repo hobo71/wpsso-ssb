@@ -132,10 +132,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
-					'save_options' => 3,			// update the sharing css file
-					'option_type' => 2,			// identify option type for sanitation
-					'post_custom_meta_tabs' => 3,		// $tabs, $mod, $metabox_id
-					'post_cache_transient_keys' => 4,	// clear transients on post save
+					'save_options' => 3,
+					'option_type' => 2,
+					'post_custom_meta_tabs' => 3,
+					'post_cache_transient_keys' => 4,
 					'messages_info' => 2,
 					'messages_tooltip' => 2,
 					'messages_tooltip_plugin' => 2,
@@ -143,9 +143,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				) );
 
 				$this->p->util->add_plugin_filters( $this, array( 
-					'status_gpl_features' => 4,		// include sharing, shortcode, and widget status
-					'status_pro_features' => 4,		// include social file cache status
-				), 10, 'wpssossb' );				// hook into the extension name instead
+					'status_gpl_features' => 4,
+					'status_pro_features' => 4,
+				), 10, 'wpssossb' ); // hook into the extension name instead
 			}
 
 			if ( $this->p->debug->enabled ) {

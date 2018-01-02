@@ -21,10 +21,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'ssb_website_facebook_tabs' => 1,	// $tabs
-				'ssb_website_facebook_all_rows' => 3,	// $table_rows, $form, $submenu
-				'ssb_website_facebook_like_rows' => 3,	// $table_rows, $form, $submenu
-				'ssb_website_facebook_share_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_facebook_tabs' => 1,
+				'ssb_website_facebook_all_rows' => 3,
+				'ssb_website_facebook_like_rows' => 3,
+				'ssb_website_facebook_share_rows' => 3,
 			) );
 		}
 

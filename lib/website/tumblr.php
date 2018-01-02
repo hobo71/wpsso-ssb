@@ -21,8 +21,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'image_dimensions_general_rows' => 2,	// $table_rows, $form
-				'ssb_website_tumblr_rows' => 3,		// $table_rows, $form, $submenu
+				'image_dimensions_general_rows' => 2,
+				'ssb_website_tumblr_rows' => 3,
 			) );
 		}
 

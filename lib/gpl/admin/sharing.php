@@ -21,11 +21,11 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'plugin_cache_rows' => 3,		// $table_rows, $form, $network
-				'ssb_buttons_include_rows' => 2,	// $table_rows, $form
-				'ssb_buttons_preset_rows' => 2,		// $table_rows, $form
-				'ssb_buttons_advanced_rows' => 2,	// $table_rows, $form
-				'post_buttons_rows' => 4,		// $table_rows, $form, $head, $mod
+				'plugin_cache_rows' => 3,
+				'ssb_buttons_include_rows' => 2,
+				'ssb_buttons_preset_rows' => 2,
+				'ssb_buttons_advanced_rows' => 2,
+				'post_buttons_rows' => 4,
 			), 30 );
 		}
 

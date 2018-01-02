@@ -21,7 +21,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'ssb_website_stumbleupon_rows' => 3,	// $table_rows, $form, $submenu
+				'ssb_website_stumbleupon_rows' => 3,
 			) );
 		}
 
