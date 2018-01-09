@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					'buttons_preset_ssb-admin_edit' => 'small_share_count',
 					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
 					'buttons_preset_ssb-shortcode' => '',
-					'buttons_preset_ssb-widget' => 'small_share_count',
+					'buttons_preset_ssb-widget' => '',
 					// Buttons Advanced
 					'buttons_force_prot' => '',
 					/**

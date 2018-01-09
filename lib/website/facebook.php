@@ -64,10 +64,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Type',
 				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_button', array(
-				'like' => 'Like and Send',
-				'share' => 'Share'
-			) ).'</td>';
+			'<td>'.$form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
 
 			return $table_rows;
 		}
