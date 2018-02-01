@@ -145,11 +145,6 @@ The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_so
 
 == Changelog ==
 
-<h3>Free / Basic Version Repositories</h3>
-
-* [GitHub](https://surniaulula.github.io/wpsso-ssb/)
-* [WordPress.org](https://plugins.trac.wordpress.org/browser/wpsso-ssb/)
-
 <h3>Version Numbering</h3>
 
 Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
@@ -158,6 +153,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * {minor} = New functionality was added or improved in a backwards-compatible manner.
 * {bugfix} = Backwards-compatible bug fixes or small improvements.
 * {stage}.{level} = Pre-production release: dev < a (alpha) < b (beta) < rc (release candidate).
+
+<h3>Free / Basic Version Repositories</h3>
+
+* [GitHub](https://surniaulula.github.io/wpsso-ssb/)
+* [WordPress.org](https://plugins.trac.wordpress.org/browser/wpsso-ssb/)
 
 <h3>Changelog / Release Notes</h3>
 
