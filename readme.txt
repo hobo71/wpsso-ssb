@@ -161,51 +161,20 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.2 (2017/11/29)**
+**Version 2.5.3 (2018/02/04)**
 
 * *New Features*
 	* None
 * *Improvements*
-	* Optimized the definition of cache ids when the transient cache is disabled.
-* *Bugfixes*
-	* Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
-* *Developer Notes*
-	* Replaced all calls to wp_get_shortlink() by SucomUtilWP::wp_get_shortlink().
-
-**Version 2.5.1 (2017/11/20)**
-
-* *New Features*
 	* None
-* *Improvements*
-	* Changed the default maximum tweet and buffer text length from 140 to 280 characters.
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* None
-
-**Version 2.5.0 (2017/11/14)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Optimized setting of the buttons cache expiration value by using a single method and static cache variable.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Added a new WpssoSsbSharing get_buttons_cache_exp() method to apply the buttons expiration filter once (and cache the result in a static variable).
-	* Updated the WpssoSsbShortcodeSharing and WpssoSsbWidgetSharing class methods to use the new WpssoSsbSharing get_buttons_cache_exp() method.
+	* Maintenance release.
 
 == Upgrade Notice ==
 
-= 2.5.2 =
+= 2.5.3 =
 
-(2017/11/29) Optimized the definition of cache ids when the transient cache is disabled. Fix to use the full sharing URL in tweets, instead of the post shortlink, if no shortener is selected.
-
-= 2.5.1 =
-
-(2017/11/20) Changed the default maximum tweet and buffer text length from 140 to 280 characters.
-
-= 2.5.0 =
-
-(2017/11/14) Optimized setting of the buttons cache expiration value by using a single method and static cache variable. 
+(2018/02/04) Maintenance release.
 
