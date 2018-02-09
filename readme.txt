@@ -24,19 +24,19 @@ Add traditional social sharing buttons to posts / pages, custom post types, [bbP
 
 Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editing pages* &mdash; share your posts and pages directly from the editor!
 
-**Do you use bbPress, BuddyPress, or WooCommerce?** The Pro version of WPSSO SSB includes special integration modules to add social sharing buttons to even more locations!
+**Do you use bbPress, BuddyPress, or WooCommerce?** The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!
 
 WPSSO SSB sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
 
-**WPSSO SSB is *incredibly fast* and coded for performance:**
+**WPSSO Social Sharing Buttons is *incredibly fast* and coded for performance:**
 
 WPSSO Core and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.
 
-WPSSO Core and its extensions are fully tested and compatible with PHP v7.x (PHP v5.3 or better required).
+WPSSO Core and its extensions are fully tested and compatible with PHP v7.x (PHP v5.4 or better required).
 
 <h3>WPSSO Core Plugin Prerequisite</h3>
 
-WPSSO Social Sharing Buttons is an extension for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc.
+WPSSO Social Sharing Buttons (aka WPSSO SSB) is an extension for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc.
 
 The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core (Main Plugin).
 
@@ -102,7 +102,7 @@ The [WPSSO SSB Pro extension](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_so
 
 <h3>Extends the WPSSO Core Plugin</h3>
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core (Main Plugin).
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO Social Sharing Buttons (aka WPSSO SSB) Free extension works with either the Free or Pro version of WPSSO Core (Main Plugin).
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme-extends">WPSSO Core Pro plugin</a>.
 
