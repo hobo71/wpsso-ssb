@@ -165,13 +165,16 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$lca = $this->p->cf['lca'];
 
-			if ( empty( $atts['size'] ) ) 
+			if ( empty( $atts['size'] ) ) {
 				$atts['size'] = $this->p->cf['lca'].'-tumblr-button';
+			}
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['tumblr_lang'] ) ? 'en_US' : $opts['tumblr_lang'];
@@ -189,41 +192,46 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 					$atts['pid']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false, $force_regen );
 
-				if ( $this->p->debug->enabled )
+				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
+				}
 			}
 
 			if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) ) {
 				$media_info = $this->p->og->get_media_info( $atts['size'], array( 'img_url', 'vid_url' ), $mod, 'og' );
-				if ( empty( $atts['photo'] ) )
+				if ( empty( $atts['photo'] ) ) {
 					$atts['photo'] = $media_info['img_url'];
-				if ( empty( $atts['embed'] ) )
+				}
+				if ( empty( $atts['embed'] ) ) {
 					$atts['embed'] = $media_info['vid_url'];
+				}
 			}
 
 			if ( $mod['name'] === 'post' && $mod['id'] > 0 ) {
 				// if no image or video, then check for a 'quote'
-				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) )
-					if ( get_post_format( $mod['id'] ) === 'quote' ) 
+				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) ) {
+					if ( get_post_format( $mod['id'] ) === 'quote' ) {
 						$atts['quote'] = $this->p->page->get_quote( $mod );
+					}
+				}
 				$atts['tags'] = implode( ', ', $this->p->page->get_tags( $mod['id'] ) );
 			}
 
 			// we only need the caption, title, or description for some types of shares
 			if ( ! empty( $atts['photo'] ) || ! empty( $atts['embed'] ) ) {
 				// html encode param is false to use url encoding instead
-				if ( empty( $atts['caption'] ) ) 
+				if ( empty( $atts['caption'] ) ) {
 					$atts['caption'] = $this->p->page->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
 						$mod, true, false, true, ( ! empty( $atts['photo'] ) ? 'tumblr_img_desc' : 'tumblr_vid_desc' ) );
-
+				}
 			} else {
-				if ( empty( $atts['title'] ) ) 
-					$atts['title'] = $this->p->page->get_title( null, 
-						null, $mod, true, false );	// $add_hashtags = false
+				if ( empty( $atts['title'] ) ) {
+					$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false );	// $add_hashtags = false
+				}
 
-				if ( empty( $atts['description'] ) ) 
-					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_len'],
-						'...', $mod, true, false, false );
+				if ( empty( $atts['description'] ) ) {
+					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_len'], '...', $mod, true, false, false );
+				}
 			}
 
 			// define the button, based on what we have
@@ -261,20 +269,21 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			}
 
 			$html = '<!-- Tumblr Button -->'.
-			'<div '.SucomUtil::get_atts_css_attr( $atts, 'tumblr' ).'>'.
-			'<a href="'.SucomUtil::get_prot().'://www.tumblr.com/share" class="tumblr-share-button"'.
-			' data-posttype="'.$atts['posttype'].'"'.
-			' data-content="'.$atts['content'].'"'.
-			( isset( $atts['title'] ) ? ' data-title="'.$atts['title'].'"' : '' ).
-			( isset( $atts['caption'] ) ? ' data-caption="'.$atts['caption'].'"' : '' ).
-			( isset( $atts['tags'] ) ? ' data-tags="'.$atts['tags'].'"' : '' ).
-			' data-locale="'.$opts['tumblr_lang'].'"'.
-			' data-color="'.$opts['tumblr_color'].'"'.
-			' data-notes="'.$opts['tumblr_counter'].'"'.
-			' data-show-via="'.$opts['tumblr_show_via'].'"></a></div>';
+				'<div '.SucomUtil::get_atts_css_attr( $atts, 'tumblr' ).'>'.
+				'<a href="'.SucomUtil::get_prot().'://www.tumblr.com/share" class="tumblr-share-button"'.
+				' data-posttype="'.$atts['posttype'].'"'.
+				' data-content="'.$atts['content'].'"'.
+				( isset( $atts['title'] ) ? ' data-title="'.$atts['title'].'"' : '' ).
+				( isset( $atts['caption'] ) ? ' data-caption="'.$atts['caption'].'"' : '' ).
+				( isset( $atts['tags'] ) ? ' data-tags="'.$atts['tags'].'"' : '' ).
+				' data-locale="'.$opts['tumblr_lang'].'"'.
+				' data-color="'.$opts['tumblr_color'].'"'.
+				' data-notes="'.$opts['tumblr_counter'].'"'.
+				' data-show-via="'.$opts['tumblr_show_via'].'"></a></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}

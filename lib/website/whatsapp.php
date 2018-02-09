@@ -96,8 +96,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$wa_button_html = $this->p->options['wa_ssb_html'];
 			$wa_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $wa_button_html );	// just in case

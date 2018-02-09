@@ -91,22 +91,26 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
 
-			if ( empty( $atts['title'] ) )
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
+			if ( empty( $atts['title'] ) ) {
 				$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false, true, null );
+			}
 
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button -->'.
-			'<div '.SucomUtil::get_atts_css_attr( $atts, 'managewp' ).'>'.
-			'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"'.
-			( empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"' ).'></script></div>';
+				'<div '.SucomUtil::get_atts_css_attr( $atts, 'managewp' ).'>'.
+				'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"'.
+				( empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"' ).'></script></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}

@@ -92,11 +92,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
-				$this->p->debug->mark();
 
-			if ( empty( $atts['title'] ) ) 
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
+			if ( empty( $atts['title'] ) ) {
 				$atts['title'] = $this->p->page->get_title( 0, '', $mod, true, false, false, null );	// $encode = false
+			}
 
 			switch ( $opts['reddit_type'] ) {
 				case 'static-tall-text':
@@ -110,15 +113,17 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 					$js_url = SucomUtil::get_prot().'://www.reddit.com/static/button/button1.js';
 					break;
 			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->'.
-			'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts['url'] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.
-			'<div '.SucomUtil::get_atts_css_attr( $atts, 'reddit' ).'>'.
-			'<script type="text/javascript" src="'.$js_url.'"></script></div>';
+				'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts['url'] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.
+				'<div '.SucomUtil::get_atts_css_attr( $atts, 'reddit' ).'>'.
+				'<script type="text/javascript" src="'.$js_url.'"></script></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
