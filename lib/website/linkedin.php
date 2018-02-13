@@ -27,37 +27,31 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 
 		public function filter_ssb_website_linkedin_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'linkedin' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'linkedin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Counter Mode',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Counter Mode', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_counter', array( 
 				'none' => 'none',
 				'right' => 'Horizontal',
 				'top' => 'Vertical',
 			) ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Zero in Counter',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_showzero' ).
+			$form->get_th_html( _x( 'Zero in Counter', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_checkbox( 'linkedin_showzero' ).'</td>';
 
 			return $table_rows;
@@ -104,8 +98,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$html = '<!-- LinkedIn Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'linkedin' ).'>'.
@@ -114,15 +110,19 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 			( empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"' ).'>'.
 			'</script></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_linkedin',
 				SucomUtil::get_prot().'://platform.linkedin.com/in.js', $pos ) );
 

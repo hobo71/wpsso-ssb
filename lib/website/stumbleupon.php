@@ -75,28 +75,23 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 				__( 'Please note that StumbleUpon does not currently provide<br/>an HTTPS compatible share button.',
 					'wpsso-ssb' ).'</center></strong></td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'stumble' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'stumble_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'stumble_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'stumble_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'stumble_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'stumble_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Style',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Style', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$badge_html.'</td>';
 
 			return $table_rows;

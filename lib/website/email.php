@@ -27,35 +27,29 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteEmail' ) ) {
 
 		public function filter_ssb_website_email_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'email' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'email_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'email_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'email_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-                        $form->get_th_html( _x( 'Email Message Length',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'email_cap_len' ).
+                        $form->get_th_html( _x( 'Email Message Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'email_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Add Hashtags',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'email_cap_hashtags',
-				range( 0, $this->p->cf['form']['max_hashtags'] ), 'short', '', true ).' '.
-					_x( 'tag names', 'option comment', 'wpsso-ssb' ).'</td>';
+			$table_rows[] = $form->get_tr_hide( 'basic', 'email_cap_hashtags' ).
+			$form->get_th_html( _x( 'Add Hashtags', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'email_cap_hashtags', range( 0, $this->p->cf['form']['max_hashtags'] ), 'short', '', true ).' '.
+				_x( 'tag names', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
+			$table_rows[] = $form->get_tr_hide( 'basic', 'email_ssb_html' ).
 			'<td colspan="2">'.$form->get_textarea( 'email_ssb_html', 'average code' ).'</td>';
 
 			return $table_rows;
@@ -111,8 +105,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$atts['add_hashtags'] = empty( $this->p->options['email_cap_hashtags'] ) ?
 				false : $this->p->options['email_cap_hashtags'];

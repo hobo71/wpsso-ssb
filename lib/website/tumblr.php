@@ -41,64 +41,52 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 		public function filter_ssb_website_tumblr_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short', null ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'tumblr' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'tumblr_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_lang', SucomUtil::get_pub_lang( 'tumblr' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Color',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Color', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_color', array( 'blue' => 'Blue', 'black' => 'Black', 'white' => 'White' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Counter',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Counter', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_counter', array( 
 				'none' => 'Not Shown',
 				'top' => 'Above the Button',
 				'right' => 'Right of the Button',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Add Attribution',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Add Attribution', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_checkbox( 'tumblr_show_via' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input_image_dimensions( 'tumblr_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Media Caption',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_caption' ).
+			$form->get_th_html( _x( 'Media Caption', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'tumblr_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Caption Length',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_cap_len' ).
+			$form->get_th_html( _x( 'Caption Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'tumblr_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 	
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Link Description',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_desc_len' ).
+			$form->get_th_html( _x( 'Link Description', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'tumblr_desc_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
@@ -289,8 +277,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		}
 
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_tumblr',
 				SucomUtil::get_prot().'://assets.tumblr.com/share-button.js', $pos ) );
 

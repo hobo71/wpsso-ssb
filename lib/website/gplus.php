@@ -27,36 +27,29 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 
 		public function filter_ssb_website_gplus_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'gp' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'gp_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'gp_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'gp_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_lang', SucomUtil::get_pub_lang( 'gplus' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Type',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_action', array( 'plusone' => 'G +1', 'share' => 'G+ Share' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Size',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_size', array( 
 				'small' => 'Small [ 15px ]',
 				'medium' => 'Medium [ 20px ]',
@@ -64,8 +57,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 				'tall' => 'Tall [ 60px ]',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Annotation',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Annotation', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_annotation', array( 
 				'none' => 'none',
 				'inline' => 'Inline',
@@ -73,9 +65,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 				'vertical-bubble' => 'Vertical Bubble',
 			) ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Expand to',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'gp_expandto' ).
+			$form->get_th_html( _x( 'Expand to', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_expandto', array( 
 				'none' => 'none',
 				'top' => 'Top',
@@ -135,8 +126,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$html = '<!-- GooglePlus Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, ( $opts['gp_action'] == 'share' ? 'gplus' : 'gplusone' ) ).'>'.
@@ -145,15 +138,19 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 			( empty( $opts['gp_expandto'] ) || $opts['gp_expandto'] == 'none' ? '' : ' data-expandTo="'.$opts['gp_expandto'].'"' ).'>'.
 			'</span></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
 				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 

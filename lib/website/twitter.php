@@ -27,57 +27,46 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 
 		public function filter_ssb_website_twitter_rows( $table_rows, $form, $submenu ) {
 			
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'twitter' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'twitter_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Size',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Tweet Text Source',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_caption' ).
+			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Tweet Text Length',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_cap_len' ).
+			$form->get_th_html( _x( 'Tweet Text Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'twitter_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Do Not Track',
-				'option label (short)', 'wpsso-ssb' ), 'short', null,
-			__( 'Disable tracking for Twitter\'s tailored suggestions and ads feature.', 'wpsso-ssb' ) ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_dnt' ).
+			$form->get_th_html( _x( 'Do Not Track', 'option label (short)', 'wpsso-ssb' ), 'short', '',
+				__( 'Disable tracking for Twitter\'s tailored suggestions and ads feature.', 'wpsso-ssb' ) ).
 			'<td>'.$form->get_checkbox( 'twitter_dnt' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Add via @username',
-				'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
+			$table_rows[] = $form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
 			'<td>'.$form->get_checkbox( 'twitter_via' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Recommend Author',
-				'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_rec_author'  ).
+			$table_rows[] = $form->get_th_html( _x( 'Recommend Author', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_rec_author'  ).
 			'<td>'.$form->get_checkbox( 'twitter_rel_author' ).'</td>';
 
 			return $table_rows;
@@ -171,11 +160,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			}
 
 			// hashtags are included in the caption instead
-			if ( ! array_key_exists( 'hashtags', $atts ) )
+			if ( ! array_key_exists( 'hashtags', $atts ) ) {
 				$atts['hashtags'] = '';
+			}
 
-			if ( ! array_key_exists( 'dnt', $atts ) ) 
+			if ( ! array_key_exists( 'dnt', $atts ) ) {
 				$atts['dnt'] = $opts['twitter_dnt'] ? 'true' : 'false';
+			}
 
 			$html = '<!-- Twitter Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'twitter' ).'>'.
@@ -190,8 +181,9 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			' data-size="'.$opts['twitter_size'].'"'.
 			' data-dnt="'.$atts['dnt'].'"></a></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}

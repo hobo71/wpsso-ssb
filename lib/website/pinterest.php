@@ -41,62 +41,50 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 		public function filter_ssb_website_pinterest_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short', null ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short', null ).
 			'<td>'.$submenu->show_on_checkboxes( 'pin' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'pin_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'pin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'pin_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Height',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Height', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_button_height', array( 'small' => 'Small', 'large' => 'Large' ) );
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Shape',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Shape', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_button_shape', array( 'rect' => 'Rectangular', 'round' => 'Circular' ) );
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Color',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Color', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_button_color', array( 'gray' => 'Gray', 'red' => 'Red', 'white' => 'White' ) );
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_button_lang', SucomUtil::get_pub_lang( 'pinterest' ) );
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Pin Count',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Pin Count', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_count_layout', array( 
 				'none' => 'Not Shown',
 				'beside' => 'Beside the Button',
 				'above' => 'Above the Button',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input_image_dimensions( 'pin_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Caption Text',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'pin_caption' ).
+			$form->get_th_html( _x( 'Caption Text', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Caption Length',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'pin_cap_len' ).
+			$form->get_th_html( _x( 'Caption Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'pin_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
@@ -234,6 +222,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					return $html;
 					break;
 			}
+
 			$pin_img_url = $this->p->ssb_sharing->get_social_file_cache_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button -->'.
@@ -256,8 +245,11 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 		}
 
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_pinterest', 
 				SucomUtil::get_prot().'://assets.pinterest.com/js/pinit.js', $pos ) );
 

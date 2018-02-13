@@ -84,9 +84,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 			switch ( $key ) {
 				case 'ssb-sidebar':
-					$table_rows[] = '<tr class="hide_in_basic">'.
-					$this->form->get_th_html( _x( 'Sidebar Javascript',
-						'option label', 'wpsso-ssb' ), null, 'buttons_js_ssb-sidebar' ).
+					$table_rows[] = $this->form->get_tr_hide( 'basic', 'buttons_js_ssb-sidebar' ).
+					$this->form->get_th_html( _x( 'Sidebar Javascript', 'option label', 'wpsso-ssb' ), '', 'buttons_js_ssb-sidebar' ).
 					'<td>'.$this->form->get_textarea( 'buttons_js_ssb-sidebar', 'average code' ).'</td>';
 					break;
 			}

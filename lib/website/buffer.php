@@ -41,47 +41,38 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
 		public function filter_ssb_website_buffer_rows( $table_rows, $form, $submenu ) {
 			
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'buffer' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
-				$table_rows[] = '<tr class="hide_in_basic">'.
-				$form->get_th_html( _x( 'Allow for Platform',
-					'option label (short)', 'wpsso-ssb' ), 'short' ).
+				$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_platform' ).
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'buffer_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'JavaScript in',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_script_loc' ).
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Count Position',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Count Position', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_count', array( 'none' => 'none', 'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input_image_dimensions( 'buffer_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Tweet Text Source',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_caption' ).
+			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = '<tr class="hide_in_basic">'.
-			$form->get_th_html( _x( 'Tweet Text Length',
-				'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_cap_len' ).
+			$form->get_th_html( _x( 'Tweet Text Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input( 'buffer_cap_len', 'short' ).' '.
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Add via @username',
-				'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
+			$table_rows[] = $form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
 			'<td>'.$form->get_checkbox( 'buffer_via' ).'</td>';
 
 			return $table_rows;
@@ -144,8 +135,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 		}
 
 		public function get_html( array $atts, array $opts, array $mod ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$lca = $this->p->cf['lca'];
 
@@ -205,15 +198,19 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 			( empty( $atts['caption'] ) ? '' : ' data-text="'.$atts['caption'].'"' ).
 			( empty( $atts['via'] ) ? '' : ' data-via="'.$atts['via'].'"' ).'></a></div>';
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
 		
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
+
 			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
 				SucomUtil::get_prot().'://d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
