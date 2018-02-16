@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.4-rc.3 (2018/02/15)**
+**Version 2.5.4-rc.4 (2018/02/16)**
 
 * *New Features*
 	* None
@@ -186,9 +186,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.5.4-rc.3 =
+= 2.5.4-rc.4 =
 
-(2018/02/15) Options hidden in the "Basic Options" view that have a different value than their default will no longer be hidden.
+(2018/02/16) Options hidden in the "Basic Options" view that have a different value than their default will no longer be hidden.
 
 = 2.5.3 =
 
