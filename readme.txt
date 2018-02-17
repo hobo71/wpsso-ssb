@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.5.4-rc.4 (2018/02/16)**
+**Version 2.5.4 (2018/02/17)**
 
 * *New Features*
 	* None
@@ -173,24 +173,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* Refactored the 'wpsso_post_buttons_rows' filter (aka "Sharing Buttons" tab in the Social and Search Optimization metabox).
 
-**Version 2.5.3 (2018/02/04)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Maintenance release.
-
 == Upgrade Notice ==
 
-= 2.5.4-rc.4 =
+= 2.5.4 =
 
-(2018/02/16) Options hidden in the "Basic Options" view that have a different value than their default will no longer be hidden.
-
-= 2.5.3 =
-
-(2018/02/04) Maintenance release.
+(2018/02/17) Options hidden in the "Basic Options" view that have a different value than their default will no longer be hidden.
 
