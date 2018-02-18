@@ -169,7 +169,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					),
 				),
 			),
-			'wp' => array(				// wordpress
+			'wp' => array(				// WordPress
 				'transient' => array(
 					'wpsso_b_' => array(
 						'label' => 'Buttons HTML',
