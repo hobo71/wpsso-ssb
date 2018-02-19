@@ -161,6 +161,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.6.0-dev.2 (2018/02/19)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Refactored the WpssoSsb `min_version_notice()` method to use PHP's `trigger_error()` and include a notice to refresh plugin update information.
+
 **Version 2.5.4 (2018/02/17)**
 
 * *New Features*
@@ -174,6 +185,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Refactored the 'wpsso_post_buttons_rows' filter (aka "Sharing Buttons" tab in the Social and Search Optimization metabox).
 
 == Upgrade Notice ==
+
+= 2.6.0-dev.2 =
+
+(2018/02/19) Refactored the WpssoSsb min_version_notice() method to use PHP's trigger_error() and include a notice to refresh plugin update information.
 
 = 2.5.4 =
 
