@@ -172,6 +172,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* Refactored the WpssoSsb `min_version_notice()` method to use PHP's `trigger_error()` and include a notice to refresh plugin update information.
 
+**Version 2.5.5 (2018/02/21)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* Minor fix for an incorrectly named variable.
+* *Developer Notes*
+	* None
+
 **Version 2.5.4 (2018/02/17)**
 
 * *New Features*
@@ -189,6 +200,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.6.0-dev.3 =
 
 (2018/02/20) Refactored the WpssoSsb min_version_notice() method to use PHP's trigger_error() and include a notice to refresh plugin update information.
+
+= 2.5.5 =
+
+(2018/02/21) Minor fix for an incorrectly named variable.
 
 = 2.5.4 =
 
