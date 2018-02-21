@@ -205,7 +205,3 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 (2018/02/21) Minor fix for an incorrectly named variable.
 
-= 2.5.4 =
-
-(2018/02/17) Options hidden in the "Basic Options" view that have a different value than their default will no longer be hidden.
-
