@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.5.4\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2018-02-13 14:28-0600\n"
-"PO-Revision-Date: 2018-02-13 14:28-0600\n"
+"POT-Creation-Date: 2018-02-19 18:14-0600\n"
+"PO-Revision-Date: 2018-02-19 18:14-0600\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -110,21 +110,21 @@ msgctxt "plugin description"
 msgid "WPSSO Core extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr "Extension WPSSO Core pour ajouter des boutons de partage social avec support pour hashtags, URLs raccourcis, bbPress, BuddyPress, WooCommerce et bien plus."
 
-#: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:111
+#: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:110
 #: lib/pro/admin/sharing.php:46 lib/pro/admin/sharing.php:111
 msgctxt "option label"
 msgid "Sharing Buttons HTML Cache Expiry"
 msgstr "Expiration cache HTML des boutons"
 
 #: lib/gpl/admin/sharing.php:42 lib/gpl/admin/sharing.php:48
-#: lib/gpl/admin/sharing.php:114 lib/gpl/admin/sharing.php:119
+#: lib/gpl/admin/sharing.php:113 lib/gpl/admin/sharing.php:118
 #: lib/pro/admin/sharing.php:49 lib/pro/admin/sharing.php:55
 #: lib/pro/admin/sharing.php:114 lib/pro/admin/sharing.php:119
 msgctxt "option comment"
 msgid "seconds (0 to disable)"
 msgstr "secondes (0 pour désactiver)"
 
-#: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:116
+#: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:115
 #: lib/pro/admin/sharing.php:52 lib/pro/admin/sharing.php:116
 msgctxt "option label"
 msgid "Get Social JS Files Cache Expiry"
@@ -135,63 +135,63 @@ msgctxt "option label"
 msgid "Include on Post Types"
 msgstr "Inclure sur les articles de type"
 
-#: lib/gpl/admin/sharing.php:91 lib/pro/admin/sharing.php:91
+#: lib/gpl/admin/sharing.php:90 lib/pro/admin/sharing.php:91
 msgctxt "option label"
 msgid "%s Preset"
 msgstr "Préréglage '%s'"
 
-#: lib/gpl/admin/sharing.php:106 lib/pro/admin/sharing.php:106
+#: lib/gpl/admin/sharing.php:105 lib/pro/admin/sharing.php:106
 msgctxt "option label"
 msgid "Force Protocol for Shared URLs"
 msgstr "Forcer protocole pour URLs partagées"
 
 # Ignore the post type to avoid gender issues in the French translation.
-#: lib/gpl/admin/sharing.php:132 lib/pro/admin/sharing.php:132
+#: lib/gpl/admin/sharing.php:131 lib/pro/admin/sharing.php:132
 msgid "Save a draft version or publish the %s to display these options."
 msgstr "Enregistrer un brouillon ou publier pour activer ces options."
 
-#: lib/gpl/admin/sharing.php:152 lib/pro/admin/sharing.php:148
+#: lib/gpl/admin/sharing.php:146 lib/pro/admin/sharing.php:144
+msgctxt "option label"
+msgid "Disable Sharing Buttons"
+msgstr "Désactiver les boutons"
+
+#: lib/gpl/admin/sharing.php:159 lib/pro/admin/sharing.php:157
 msgctxt "option label"
 msgid "Email Subject"
 msgstr "Sujet du couriel"
 
-#: lib/gpl/admin/sharing.php:157 lib/pro/admin/sharing.php:154
+#: lib/gpl/admin/sharing.php:165 lib/pro/admin/sharing.php:163
 msgctxt "option label"
 msgid "Email Message"
 msgstr "Message du courriel"
 
-#: lib/gpl/admin/sharing.php:170 lib/pro/admin/sharing.php:168
+#: lib/gpl/admin/sharing.php:177 lib/pro/admin/sharing.php:175
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr "Texte du Tweet"
 
-#: lib/gpl/admin/sharing.php:195 lib/pro/admin/sharing.php:194
+#: lib/gpl/admin/sharing.php:201 lib/pro/admin/sharing.php:199
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr "Texte légende Pinterest"
 
-#: lib/gpl/admin/sharing.php:222 lib/pro/admin/sharing.php:222
+#: lib/gpl/admin/sharing.php:227 lib/pro/admin/sharing.php:225
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr "Légende d'image Tumblr"
 
-#: lib/gpl/admin/sharing.php:225 lib/pro/admin/sharing.php:226
+#: lib/gpl/admin/sharing.php:229 lib/pro/admin/sharing.php:228
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %s"
 
-#: lib/gpl/admin/sharing.php:233 lib/pro/admin/sharing.php:234
+#: lib/gpl/admin/sharing.php:235 lib/pro/admin/sharing.php:234
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr "Légende vidéo Tumblr"
 
-#: lib/gpl/admin/sharing.php:235 lib/pro/admin/sharing.php:238
+#: lib/gpl/admin/sharing.php:237 lib/pro/admin/sharing.php:237
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %s"
-
-#: lib/gpl/admin/sharing.php:243 lib/pro/admin/sharing.php:249
-msgctxt "option label"
-msgid "Disable Sharing Buttons"
-msgstr "Désactiver les boutons"
 
 #: lib/gpl/ecom/woocommerce.php:88 lib/pro/ecom/woocommerce.php:94
 msgctxt "option label"
@@ -705,8 +705,12 @@ msgid "The %1$s extension requires the %2$s plugin &mdash; install and activate 
 msgstr "L'extension %1$s requiert %2$s &mdash; installer et activer %3$s ou <a href=\"%4$s\">désactiver l'extension %5$s</a>."
 
 #: wpsso-ssb.php:185
-msgid "The %1$s extension v%2$s requires %3$s v%4$s or newer (v%5$s currently installed)."
-msgstr "L'extension %1$s v%2$s requiert l'utilisation de %3$s v%4$s ou plus récente (v%5$s est actuellement installée)."
+msgid "The %1$s version %2$s extension requires %3$s version %4$s or newer (version %5$s is currently installed)."
+msgstr "L'extension %1$s version %2$s requiert %3$s version %4$s ou plus récente (version %5$s est actuellement installée)."
+
+#: wpsso-ssb.php:188
+msgid "%s warning:"
+msgstr "Alerte %s:"
 
 #. Plugin Name of the plugin/theme
 msgid "WPSSO Social Sharing Buttons"
