@@ -170,7 +170,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/**
 			 * Twitter
 			 */
-			$twitter_cap_len  = $this->p->rrssb_sharing->get_tweet_max_len();
+			$twitter_cap_len  = $this->p->ssb_sharing->get_tweet_max_len();
 			$twitter_cap_text = $this->p->page->get_caption( 'title', $twitter_cap_len, $mod, true, true );
 
 			$form_rows['twitter_desc'] = array(
