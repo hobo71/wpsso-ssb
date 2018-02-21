@@ -161,7 +161,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.6.0-dev.3 (2018/02/20)**
+**Version 2.6.0-b.1 (2018/02/20)**
 
 * *New Features*
 	* None
@@ -197,7 +197,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.6.0-dev.3 =
+= 2.6.0-b.1 =
 
 (2018/02/20) Refactored the WpssoSsb min_version_notice() method to use PHP's trigger_error() and include a notice to refresh plugin update information.
 
