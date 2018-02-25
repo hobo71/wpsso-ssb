@@ -34,25 +34,25 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 		// called by the extended WpssoAdmin class
 		protected function add_meta_boxes() {
-			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 			add_meta_box( $this->pagehook.'_styles',
 				_x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' ),
 					array( &$this, 'show_metabox_styles' ), $this->pagehook, 'normal' );
 		}
 
 		public function filter_action_buttons( $action_buttons ) {
-			$action_buttons[0]['reload_default_sharing_ssb_styles'] = _x( 'Reload Default Styles',
-				'submit button', 'wpsso-ssb' );
+			$action_buttons[0]['reload_default_sharing_ssb_styles'] = _x( 'Reload Default Styles', 'submit button', 'wpsso-ssb' );
 			return $action_buttons;
 		}
 
 		public function show_metabox_styles() {
+
 			$metabox_id = 'styles';
 
-			if ( file_exists( WpssoSsbSharing::$sharing_css_file ) &&
-				( $fsize = filesize( WpssoSsbSharing::$sharing_css_file ) ) !== false )
-					$css_min_msg = ' <a href="'.WpssoSsbSharing::$sharing_css_url.'">minimized css is '.$fsize.' bytes</a>';
-			else $css_min_msg = '';
+			if ( file_exists( WpssoSsbSharing::$sharing_css_file ) && ( $fsize = filesize( WpssoSsbSharing::$sharing_css_file ) ) !== false ) {
+				$css_min_msg = ' <a href="'.WpssoSsbSharing::$sharing_css_url.'">minimized css is '.$fsize.' bytes</a>';
+			} else {
+				$css_min_msg = '';
+			}
 
 			$this->p->util->do_table_rows( array( 
 				$this->form->get_th_html( _x( 'Use the Social Stylesheet',
@@ -72,6 +72,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 				$table_rows[$key] = array_merge( $this->get_table_rows( $metabox_id, $key ), 
 					apply_filters( $this->p->cf['lca'].'_'.$metabox_id.'_'.$key.'_rows', array(), $this->form ) );
 			}
+
 			$this->p->util->do_metabox_tabs( $metabox_id, $tabs, $table_rows );
 		}
 

@@ -345,15 +345,15 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$def_opts = $this->p->opt->get_defaults();
 			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 
-			foreach ( $tabs as $id => $name )
-				if ( isset( $opts['buttons_css_'.$id] ) &&
-					isset( $def_opts['buttons_css_'.$id] ) )
-						$opts['buttons_css_'.$id] = $def_opts['buttons_css_'.$id];
+			foreach ( $tabs as $id => $name ) {
+				if ( isset( $opts['buttons_css_'.$id] ) && isset( $def_opts['buttons_css_'.$id] ) ) {
+					$opts['buttons_css_'.$id] = $def_opts['buttons_css_'.$id];
+				}
+			}
 
 			$this->update_sharing_css( $opts );
 			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $opts, false );
-			$this->p->notice->upd( __( 'All sharing styles have been reloaded with their default value and saved.',
-				'wpsso-ssb' ) );
+			$this->p->notice->upd( __( 'All sharing styles have been reloaded with their default value and saved.', 'wpsso-ssb' ) );
 		}
 
 		public function wp_enqueue_styles() {
@@ -461,6 +461,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function add_post_buttons_metabox() {
+
 			if ( ! is_admin() ) {
 				return;
 			}
@@ -474,7 +475,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			if ( ! empty( $this->p->options['buttons_add_to_'.$post_obj->post_type] ) ) {
-				// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 				add_meta_box( '_'.$this->p->cf['lca'].'_ssb_share',
 					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
 						array( &$this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );

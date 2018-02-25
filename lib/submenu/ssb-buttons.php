@@ -56,8 +56,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 			add_meta_box( $this->pagehook.'_ssb_buttons',
 				_x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
-					array( &$this, 'show_metabox_ssb_buttons' ),
-						$this->pagehook, 'normal' );
+					array( &$this, 'show_metabox_ssb_buttons' ), $this->pagehook, 'normal' );
 
 			$col = 0;
 			$ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
@@ -70,8 +69,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$args = array( 'id' => $id, 'name' => $name );
 
 				add_meta_box( $this->pagehook.'_'.$id, $name, 
-					array( &$this, 'show_metabox_ssb_website' ),
-						$this->pagehook, $pos_id, $prio, $args );
+					array( &$this, 'show_metabox_ssb_website' ), $this->pagehook, $pos_id, $prio, $args );
 
 				add_filter( 'postbox_classes_'.$this->pagehook.'_'.$this->pagehook.'_'.$id, 
 					array( &$this, 'add_class_postbox_ssb_website' ) );
