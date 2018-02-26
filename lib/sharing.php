@@ -964,6 +964,7 @@ $buttons_array[$cache_index].
 			}
 
 			$exit_message = false;
+
 			if ( is_admin() ) {
 				if ( ( $post_obj = SucomUtil::get_post_object() ) === false ||
 					( get_post_status( $post_obj->ID ) !== 'publish' && $post_obj->post_type !== 'attachment' ) ) {
