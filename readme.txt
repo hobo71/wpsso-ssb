@@ -170,7 +170,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Added the $wp_query->query array elements to the buttons cache index.
+	* Refactored transient cache index values to include WP query variables for extra uniqueness.
 
 **Version 2.6.0 (2018/02/24)**
 
@@ -187,7 +187,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.6.1-b.2 =
 
-(2018/03/01) Added the $wp_query->query array elements to the buttons cache index.
+(2018/03/01) Refactored transient cache index values to include WP query variables for extra uniqueness.
 
 = 2.6.0 =
 
