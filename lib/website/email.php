@@ -110,22 +110,20 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$atts['add_hashtags'] = empty( $this->p->options['email_cap_hashtags'] ) ?
-				false : $this->p->options['email_cap_hashtags'];
+			$atts['add_hashtags'] = empty( $this->p->options['email_cap_hashtags'] ) ? false : $this->p->options['email_cap_hashtags'];
 
 			$email_button_html = $this->p->options['email_ssb_html'];
-			$email_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/',	// just in case
-				'${1}9${3}', $email_button_html );
+			$email_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $email_button_html );
+
+		 	$email_title = $this->p->page->get_caption( 'title', 0, $mod, true, false, false, 'og_title' );
+			$email_excerpt = $this->p->page->get_caption( 'excerpt', $opts['email_cap_len'], $mod, true, $atts['add_hashtags'], false, 'og_desc' );
 
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
 				$email_button_html, $mod, $atts, array(
-				 	'email_title' => rawurlencode( $this->p->page->get_title( 0, '',
-						$mod, true, false, false, 'og_title', 'email' ) ),
-					'email_excerpt' => rawurlencode( $this->p->page->get_caption( 'excerpt', $opts['email_cap_len'],
-						$mod, true, $atts['add_hashtags'], false, 'og_desc', 'email' ) ),
+				 	'email_title' => rawurlencode( $email_title ),
+					'email_excerpt' => rawurlencode( $email_excerpt ),
 				)
 			);
 		}
 	}
 }
-

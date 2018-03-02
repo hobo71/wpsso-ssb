@@ -163,6 +163,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			}
 
 			if ( ! empty( $atts['pid'] ) ) {
+
 				$force_regen = $this->p->util->is_force_regen( $mod, 'schema' );	// false by default
 
 				list(
@@ -179,8 +180,8 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			}
 
 			if ( empty( $atts['photo'] ) ) {
-				$media_info = $this->p->og->get_media_info( $atts['size'], 
-					array( 'img_url' ), $mod, 'schema' );	// $md_pre = 'schema'
+
+				$media_info = $this->p->og->get_media_info( $atts['size'], array( 'img_url' ), $mod, 'schema' );	// $md_pre = 'schema'
 					
 				$atts['photo'] = $media_info['img_url'];
 
@@ -195,8 +196,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			$href_query .= '&amp;media='.rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
-				$atts['caption'] = $this->p->page->get_caption( $opts['pin_caption'], $opts['pin_cap_len'],
-					$mod, true, true, false, 'pin_desc' );
+				$atts['caption'] = $this->p->page->get_caption( $opts['pin_caption'], $opts['pin_cap_len'], $mod, true, true, false, 'pin_desc' );
 			}
 
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
@@ -258,4 +258,3 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 		}
 	}
 }
-

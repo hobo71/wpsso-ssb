@@ -232,23 +232,27 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 					break;
 			}
 
-			if ( $this->p->debug->enabled )
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+			}
 
 			return $html;
 		}
 
 		public function get_script( $pos = 'id' ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
-			$app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
-			$lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
-			$lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $lang, 'facebook', 'current' );
+			}
+
+			$fb_app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
+			$fb_lang = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
+			$fb_lang = apply_filters( $this->p->cf['lca'].'_pub_lang', $fb_lang, 'facebook', 'current' );
 
 			// do not use get_social_file_cache_url() since the facebook javascript does not work when hosted locally
 			$js_url = apply_filters( $this->p->cf['lca'].'_js_url_facebook', 
-				SucomUtil::get_prot().'://connect.facebook.net/'.$lang.'/sdk.js#xfbml=1&version='.
-					$this->sdk_version.'&appId='.$app_id, $pos );
+				SucomUtil::get_prot().'://connect.facebook.net/'.$fb_lang.'/sdk.js#xfbml=1&version='.
+					$this->sdk_version.'&appId='.$fb_app_id, $pos );
 
 			$html = '<script type="text/javascript" id="fb-script-'.$pos.'">'.
 				$this->p->cf['lca'].'_insert_js( "fb-script-'.$pos.'", "'.$js_url.'" );</script>';
@@ -257,4 +261,3 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 		}
 	}
 }
-

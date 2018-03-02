@@ -170,6 +170,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			}
 
 			if ( ! empty( $atts['pid'] ) ) {
+
 				$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 
 				list( 
@@ -290,4 +291,3 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		}
 	}
 }
-

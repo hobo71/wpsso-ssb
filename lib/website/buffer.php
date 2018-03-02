@@ -142,10 +142,10 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 			$lca = $this->p->cf['lca'];
 
-			$atts['size'] = isset( $atts['size'] ) ?
-				$atts['size'] : $lca.'-buffer-button';
+			$atts['size'] = isset( $atts['size'] ) ? $atts['size'] : $lca.'-buffer-button';
 
 			if ( ! empty( $atts['pid'] ) ) {
+
 				$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 
 				list(
@@ -156,8 +156,9 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 					$atts['pid']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false, $force_regen );
 
-				if ( $this->p->debug->enabled )
+				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'returned image '.$atts['photo'].' ('.$atts['width'].'x'.$atts['height'].')' );
+				}
 			}
 
 			if ( empty( $atts['photo'] ) ) {
@@ -165,14 +166,14 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				$atts['photo'] = $media_info['img_url'];
 			}
 
-			if ( array_key_exists( 'tweet', $atts ) )
+			if ( array_key_exists( 'tweet', $atts ) ) {
 				$atts['caption'] = $atts['tweet'];
+			}
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
 				if ( empty( $atts['caption'] ) ) {
 					$caption_len = $this->p->ssb_sharing->get_tweet_max_len( 'buffer' );
-					$atts['caption'] = $this->p->page->get_caption( $opts['buffer_caption'], $caption_len,
-						$mod, true, true, true, 'twitter_desc' );
+					$atts['caption'] = $this->p->page->get_caption( $opts['buffer_caption'], $caption_len, $mod, true, true, true, 'twitter_desc' );
 				}
 			}
 
@@ -219,4 +220,3 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 		}
 	}
 }
-

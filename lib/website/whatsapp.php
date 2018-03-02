@@ -101,13 +101,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 			$wa_button_html = $this->p->options['wa_ssb_html'];
 			$wa_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $wa_button_html );	// just in case
 
+			$wa_title = $this->p->page->get_caption( 'title', 0, $mod, true, false, false, 'og_title' );
+
 			return $this->p->util->replace_inline_vars( '<!-- WhatsApp Button -->'.
 				$wa_button_html, $mod, $atts, array(
-			 		'title' => rawurlencode( $this->p->page->get_title( 0, '',
-						$mod, true, false, false, 'og_title', 'whatsapp' ) ),
+				 	'title' => rawurlencode( $wa_title ),
 				)
 			);
 		}
 	}
 }
-

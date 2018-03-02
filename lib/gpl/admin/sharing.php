@@ -152,8 +152,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 * Email
 			 */
 			$email_cap_len  = $this->p->options['email_cap_len'];
-			$email_cap_hash = $this->p->options['email_cap_hashtags'];
-			$email_cap_text = $this->p->page->get_caption( 'excerpt', $email_cap_len, $mod, true, $email_cap_hash, true, 'none' );
+			$email_cap_htags = $this->p->options['email_cap_hashtags'];
+			$email_cap_text = $this->p->page->get_caption( 'excerpt', $email_cap_len, $mod, true, $email_cap_htags, true, 'none' );
 
 			$form_rows['email_title'] = array(
 				'label' => _x( 'Email Subject', 'option label', 'wpsso-ssb' ),
