@@ -747,14 +747,14 @@ msgid ""
 "%3$s plugin or <a href=\"%4$s\">deactivate the %5$s extension</a>."
 msgstr ""
 
-#: wpsso-ssb.php:185
+#: wpsso-ssb.php:184
 msgid ""
 "The %1$s version %2$s extension requires %3$s version %4$s or newer (version "
 "%5$s is currently installed)."
 msgstr ""
 
 #. translators: %s is the short plugin name
-#: wpsso-ssb.php:198
+#: wpsso-ssb.php:196
 msgid "%s warning:"
 msgstr ""
 
