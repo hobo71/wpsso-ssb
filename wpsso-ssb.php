@@ -202,4 +202,3 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
         global $wpssossb;
 	$wpssossb =& WpssoSsb::get_instance();
 }
-
