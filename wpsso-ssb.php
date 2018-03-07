@@ -180,7 +180,7 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 		private function min_version_notice() {
 
 			$info = WpssoSsbConfig::$cf['plugin']['wpssossb'];
-
+			$have_version = $this->p->cf['plugin']['wpsso']['version'];
 			$error_msg = sprintf( __( 'The %1$s version %2$s extension requires %3$s version %4$s or newer (version %5$s is currently installed).',
 				'wpsso-ssb' ), $info['name'], $info['version'], $info['req']['short'], $info['req']['min_version'], $have_version );
 
