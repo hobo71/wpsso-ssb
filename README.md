@@ -1,4 +1,4 @@
-<h1>WPSSO Social Sharing Buttons</h1><h3>Facebook G+ LinkedIn Pinterest Twitter WhatsApp &amp; More</h3>
+<h1>WPSSO Social Sharing Buttons (Facebook G+ LinkedIn Pinterest Twitter WhatsApp &amp; More)</h1>
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Social Sharing Buttons</td></tr>
@@ -17,25 +17,15 @@
 
 <p><strong>WPSSO Core extension to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</strong></p>
 
-<p>Add traditional social sharing buttons to posts / pages, custom post types, <a href="https://wordpress.org/plugins/bbpress/">bbPress</a>, <a href="https://wordpress.org/plugins/buddypress/">BuddyPress</a>, <a href="https://wordpress.org/plugins/woocommerce/">WooCommerce</a> product pages, and much more.</p>
-
-<p>Include social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editing pages</em> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!</p>
+<p>Include traditional social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editing pages</em> &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!</p>
 
 <p>WPSSO Social Sharing Buttons (aka WPSSO SSB) sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.</p>
 
-<p><strong>WPSSO Social Sharing Buttons is <em>incredibly fast</em> and coded for performance:</strong></p>
-
-<p>WPSSO Core and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light.</p>
-
-<p>WPSSO Core and its extensions are fully tested and compatible with PHP v7.x (PHP v5.4 or better required).</p>
+<p>WPSSO Social Sharing Buttons is <em>incredibly fast</em> and coded for performance &mdash; WPSSO Core and its extensions make full use of all available caching techniques (persistent / non-persistent object and disk caching), and load only the PHP library files and object classes they need, keeping their code small, fast, and light. WPSSO Core and its extensions are also fully tested and compatible with PHP v7.x (PHP v5.4 or better required).</p>
 
 <h3>WPSSO Core Plugin Prerequisite</h3>
 
-<p>WPSSO Social Sharing Buttons (aka WPSSO SSB) is an extension for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc.</p>
-
-<p>The WPSSO SSB Free extension works with either the Free or Pro version of WPSSO Core (Main Plugin).</p>
-
-<p>The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme-prereq">WPSSO Core Pro plugin</a>.</p>
+<p>WPSSO Social Sharing Buttons (aka WPSSO SSB) is an extension for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc. The Free extension works with either the Free or Pro version of WPSSO Core (Main Plugin). The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq">WPSSO SSB Pro extension</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme-prereq">WPSSO Core Pro plugin</a>.</p>
 
 <h3>Quick List of Features</h3>
 
