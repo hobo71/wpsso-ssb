@@ -1,4 +1,4 @@
-=== WPSSO Social Sharing Buttons (Facebook G+ LinkedIn Pinterest Twitter WhatsApp & More) ===
+=== WPSSO Social Sharing Buttons (Buffer Email Facebook G+ LinkedIn Pinterest Twitter WhatsApp & More) ===
 Plugin Name: WPSSO Social Sharing Buttons
 Plugin Slug: wpsso-ssb
 Text Domain: wpsso-ssb
