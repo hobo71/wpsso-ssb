@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.6.2-rc.1 (2018/03/09)**
+**Version 2.6.2-rc.2 (2018/03/09)**
 
 * *New Features*
 	* None
@@ -187,7 +187,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.6.2-rc.1 =
+= 2.6.2-rc.2 =
 
 (2018/03/09) Added a list of human-readable checked IDs when the "Show Cache Purge Count on Update" option is checked *and* the WP_DEBUG contant is true.
 
