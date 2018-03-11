@@ -700,8 +700,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 			}
 
-			// $mod is preferred but not required
-			// $mod = true | false | post_id | $mod array
+			/**
+			 * The $mod array argument is preferred but not required.
+			 * $mod = true | false | post_id | $mod array
+			 */
 			if ( ! is_array( $mod ) ) {
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'optional call to get_page_mod()' );
