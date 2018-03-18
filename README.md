@@ -107,7 +107,7 @@
 <h3>Install and Uninstall</h3>
 
 <ul>
-<li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/">Install the WPSSO SSB Extension (Free and Pro version)</a></li>
+<li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/">Install the WPSSO SSB Extension</a></li>
 <li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/installation/uninstall-the-plugin/">Uninstall the WPSSO SSB Extension</a></li>
 </ul>
 
