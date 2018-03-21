@@ -145,7 +145,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$this->p->util->add_plugin_filters( $this, array( 
 					'status_gpl_features' => 4,
 					'status_pro_features' => 4,
-				), 10, 'wpssossb' ); // hook into the extension name instead
+				), 10, 'wpssossb' );
 			}
 
 			if ( $this->p->debug->enabled ) {
