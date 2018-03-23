@@ -16,11 +16,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(			// Plugin acronym.
-					'version' => '2.6.3-b.1',		// Plugin version.
+					'version' => '2.6.3-rc.1',		// Plugin version.
 					'opt_version' => '16',		// Increment when changing default option values.
 					'short' => 'WPSSO SSB',		// Short plugin name.
 					'name' => 'WPSSO Social Sharing Buttons',
-					'desc' => 'WPSSO Core add-on to add Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
+					'desc' => 'WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
 					'slug' => 'wpsso-ssb',
 					'base' => 'wpsso-ssb/wpsso-ssb.php',
 					'update_auth' => 'tid',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short' => 'WPSSO Core',
 						'name' => 'WPSSO Core',
-						'min_version' => '3.56.2-b.1',
+						'min_version' => '3.56.2-rc.1',
 					),
 					'img' => array(
 						'icons' => array(
