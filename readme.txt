@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9.4
 WC Tested Up To: 3.3.4
-Stable Tag: 2.6.2
+Stable Tag: 2.6.3
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -203,8 +203,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.6.3 =
 
 (2018/03/24) Renamed plugin "Extensions" to "Add-ons" to avoid confusion and improve / simplify translations.
-
-= 2.6.2 =
-
-(2018/03/10) Added a list of human-readable checked IDs when the "Show Cache Purge Count on Update" option is checked *and* the WP_DEBUG contant is true.
 
