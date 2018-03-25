@@ -191,7 +191,7 @@
 .ssb-buttons div.email-button a:hover {
 	background-color:#006ed6;
 }
-.ssb-buttons div.email-button a .ssb-text:before {
+.ssb-buttons div.email-button a .ssb-text::before {
 	content:" E-Mail";
 }
 
@@ -220,7 +220,7 @@
 .ssb-buttons div.whatsapp-button a:hover {
 	background-color:#49bd2c;
 }
-.ssb-buttons div.whatsapp-button a .ssb-text:before {
+.ssb-buttons div.whatsapp-button a .ssb-text::before {
 	content:" WhatsApp";
 }
 

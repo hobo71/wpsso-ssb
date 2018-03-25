@@ -56,7 +56,7 @@
 .wpsso-ssb-admin_edit .ssb-buttons div.email-button a:hover {
 	background-color:#006ed6;
 }
-.wpsso-ssb-admin_edit .ssb-buttons div.email-button a .ssb-text:before {
+.wpsso-ssb-admin_edit .ssb-buttons div.email-button a .ssb-text::before {
 	content:" E-Mail";
 }
 
@@ -69,7 +69,7 @@
 .wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a:hover {
 	background-color:#49bd2c;
 }
-.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a .ssb-text:before {
+.wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a .ssb-text::before {
 	content:" WhatsApp";
 }
 
