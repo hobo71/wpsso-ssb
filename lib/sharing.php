@@ -231,14 +231,16 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $opts;
 		}
 
-		public function filter_option_type( $type, $key ) {
+		public function filter_option_type( $type, $base_key ) {
+
 			if ( ! empty( $type ) ) {
 				return $type;
 			}
-			switch ( $key ) {
+
+			switch ( $base_key ) {
 				// integer options that must be 1 or more (not zero)
 				case 'stumble_badge':
-				case ( preg_match( '/_order$/', $key ) ? true : false ):
+				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
 					return 'pos_int';
 					break;
 				// text strings that can be blank
@@ -280,11 +282,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				case 'pin_caption':
 				case 'tumblr_button_style':
 				case 'tumblr_caption':
-				case ( strpos( $key, 'buttons_pos_' ) === 0 ? true : false ):
-				case ( preg_match( '/^[a-z]+_script_loc$/', $key ) ? true : false ):
+				case ( strpos( $base_key, 'buttons_pos_' ) === 0 ? true : false ):
+				case ( preg_match( '/^[a-z]+_script_loc$/', $base_key ) ? true : false ):
 					return 'not_blank';
 					break;
 			}
+
 			return $type;
 		}
 
