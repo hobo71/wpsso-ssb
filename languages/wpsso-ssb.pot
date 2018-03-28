@@ -376,22 +376,22 @@ msgctxt "metabox title"
 msgid "Social Sharing Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:108
+#: lib/submenu/ssb-buttons.php:107
 msgctxt "metabox tab"
 msgid "Include Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:109
+#: lib/submenu/ssb-buttons.php:108
 msgctxt "metabox tab"
 msgid "Buttons Position"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:110
+#: lib/submenu/ssb-buttons.php:109
 msgctxt "metabox tab"
 msgid "Buttons Presets"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:111
+#: lib/submenu/ssb-buttons.php:110
 msgctxt "metabox tab"
 msgid "Advanced Settings"
 msgstr ""
@@ -436,7 +436,7 @@ msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:89
+#: lib/submenu/ssb-styles.php:91
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr ""

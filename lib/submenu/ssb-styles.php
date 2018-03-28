@@ -65,29 +65,32 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 			) );
 
 			$table_rows = array();
-			$tabs = apply_filters( $this->p->cf['lca'].'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
+			$tabs = apply_filters( $this->p->lca.'_ssb_styles_tabs', $this->p->cf['sharing']['ssb_styles'] );
 
-			foreach ( $tabs as $key => $title ) {
-				$tabs[$key] = _x( $title, 'metabox tab', 'wpsso-ssb' );	// translate the tab title
-				$table_rows[$key] = array_merge( $this->get_table_rows( $metabox_id, $key ), 
-					apply_filters( $this->p->cf['lca'].'_'.$metabox_id.'_'.$key.'_rows', array(), $this->form ) );
+			foreach ( $tabs as $tab_key => $title ) {
+				$tabs[$tab_key] = _x( $title, 'metabox tab', 'wpsso-ssb' );	// translate the tab title
+				$table_rows[$tab_key] = array_merge( $this->get_table_rows( $metabox_id, $tab_key ), 
+					apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$tab_key.'_rows', array(), $this->form ) );
 			}
 
 			$this->p->util->do_metabox_tabs( $metabox_id, $tabs, $table_rows );
 		}
 
-		protected function get_table_rows( $metabox_id, $key ) {
+		protected function get_table_rows( $metabox_id, $tab_key ) {
 
-			$table_rows['buttons_css_'.$key] = '<th class="textinfo">'.$this->p->msgs->get( 'info-styles-'.$key ).'</th>'.
-			'<td'.( isset( $this->p->options['buttons_css_'.$key.':is'] ) &&
-				$this->p->options['buttons_css_'.$key.':is'] === 'disabled' ? ' class="blank"' : '' ).'>'.
-			$this->form->get_textarea( 'buttons_css_'.$key, 'tall code' ).'</td>';
+			$table_rows['buttons_css_'.$tab_key] = '<th class="textinfo">'.$this->p->msgs->get( 'info-styles-'.$tab_key ).'</th>'.
+			'<td'.( isset( $this->p->options['buttons_css_'.$tab_key.':is'] ) &&
+				$this->p->options['buttons_css_'.$tab_key.':is'] === 'disabled' ? ' class="blank"' : '' ).'>'.
+			$this->form->get_textarea( 'buttons_css_'.$tab_key, 'tall code' ).'</td>';
 
-			switch ( $key ) {
+			switch ( $tab_key ) {
+
 				case 'ssb-sidebar':
+
 					$table_rows[] = $this->form->get_tr_hide( 'basic', 'buttons_js_ssb-sidebar' ).
 					$this->form->get_th_html( _x( 'Sidebar Javascript', 'option label', 'wpsso-ssb' ), '', 'buttons_js_ssb-sidebar' ).
 					'<td>'.$this->form->get_textarea( 'buttons_js_ssb-sidebar', 'average code' ).'</td>';
+
 					break;
 			}
 
@@ -95,4 +98,3 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 		}
 	}
 }
-
