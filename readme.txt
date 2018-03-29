@@ -32,7 +32,7 @@ WPSSO Social Sharing Buttons is *incredibly fast* and coded for performance &mda
 
 WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc.
 
-The Free add-on works with either the Free or Pro version of WPSSO Core. The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-prereq) uses many WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/?utm_source=wpssossb-readme-prereq).
+The Free add-on works with either the Free or Pro version of WPSSO Core. The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme) uses many WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/?utm_source=wpssossb-readme).
 
 <h3>Quick List of Features</h3>
 
@@ -96,9 +96,9 @@ The Free add-on works with either the Free or Pro version of WPSSO Core. The [WP
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; The WPSSO Social Sharing Buttons (aka WPSSO SSB) Free add-on works with either the Free or Pro version of WPSSO Core.
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-extends">WPSSO SSB Pro add-on</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme-extends">WPSSO Core Pro plugin</a>.
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme">WPSSO SSB Pro add-on</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme">WPSSO Core Pro plugin</a>.
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme-purchase">Purchase the WPSSO Social Sharing Buttons Pro add-on here</a> (all plugin purchases include a <em>No Risk 30 Day Refund Policy</em>).
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme">Purchase the WPSSO Social Sharing Buttons Pro add-on here</a> (all plugin purchases include a <em>No Risk 30 Day Refund Policy</em>).
 
 == Installation ==
 
