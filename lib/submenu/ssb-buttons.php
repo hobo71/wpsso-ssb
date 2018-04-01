@@ -102,19 +102,24 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		}
 
 		public function show_metabox_ssb_buttons() {
+
 			$metabox_id = 'ssb_buttons';
+
 			$tabs = apply_filters( $this->p->lca.'_ssb_buttons_tabs', array(
 				'include' => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset' => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
 				'advanced' => _x( 'Advanced Settings', 'metabox tab', 'wpsso-ssb' ),
 			) );
+
 			$table_rows = array();
+
 			foreach ( $tabs as $tab_key => $title ) {
 				$table_rows[$tab_key] = array_merge( $this->get_table_rows( $metabox_id, $tab_key ), 
 					apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$tab_key.'_rows', array(), $this->form ) );
 			}
-			$this->p->util->do_metabox_tabs( $metabox_id, $tabs, $table_rows );
+
+			$this->p->util->do_metabox_tabbed( $metabox_id, $tabs, $table_rows );
 		}
 
 		public function show_metabox_ssb_website( $post, $callback ) {
@@ -131,7 +136,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					$table_rows[$tab] = apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$args['id'].'_'.$tab.'_rows',
 						array(), $this->form, $this );
 				}
-				$this->p->util->do_metabox_tabs( $metabox_id.'_'.$args['id'], $tabs, $table_rows );
+				$this->p->util->do_metabox_tabbed( $metabox_id.'_'.$args['id'], $tabs, $table_rows );
 			}
 		}
 
