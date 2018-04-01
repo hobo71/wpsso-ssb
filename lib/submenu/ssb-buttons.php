@@ -124,7 +124,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$tabs = apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$args['id'].'_tabs', array() );
 
 			if ( empty( $tabs ) ) {
-				$this->p->util->do_table_rows( apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$args['id'].'_rows',
+				$this->p->util->do_metabox_table( apply_filters( $this->p->lca.'_'.$metabox_id.'_'.$args['id'].'_rows',
 					array(), $this->form, $this ), 'metabox-'.$metabox_id.'-'.$args['id'], 'metabox-'.$metabox_id );
 			} else {
 				foreach ( $tabs as $tab => $title ) {

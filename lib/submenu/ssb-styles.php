@@ -54,7 +54,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 				$css_min_msg = '';
 			}
 
-			$this->p->util->do_table_rows( array( 
+			$this->p->util->do_metabox_table( array( 
 				$this->form->get_th_html( _x( 'Use the Social Stylesheet',
 					'option label', 'wpsso-ssb' ), 'highlight', 'buttons_use_social_style' ).
 				'<td>'.$this->form->get_checkbox( 'buttons_use_social_style' ).$css_min_msg.'</td>',
