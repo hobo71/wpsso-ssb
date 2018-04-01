@@ -219,9 +219,11 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		}
 
 		public static function set_constants( $plugin_filepath ) { 
+
 			if ( defined( 'WPSSOSSB_VERSION' ) ) {			// execute and define constants only once
 				return;
 			}
+
 			define( 'WPSSOSSB_VERSION', self::$cf['plugin']['wpssossb']['version'] );						
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
@@ -232,14 +234,23 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			self::set_variable_constants();
 		}
 
-		public static function set_variable_constants() { 
-			foreach ( self::get_variable_constants() as $name => $value )
-				if ( ! defined( $name ) )
+		public static function set_variable_constants( $var_const = null ) {
+
+			if ( null === $var_const ) {
+				$var_const = self::get_variable_constants();
+			}
+
+			foreach ( $var_const as $name => $value ) {
+				if ( ! defined( $name ) ) {
 					define( $name, $value );
+				}
+			}
 		}
 
 		public static function get_variable_constants() { 
+
 			$var_const = array();
+
 			$var_const['WPSSOSSB_SHARING_SHORTCODE_NAME'] = 'ssb';
 
 			/**
@@ -249,13 +260,17 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 			$var_const['WPSSOSSB_SOCIAL_PRIORITY'] = 100;
 			$var_const['WPSSOSSB_FOOTER_PRIORITY'] = 100;
 
-			foreach ( $var_const as $name => $value )
-				if ( defined( $name ) )
+			foreach ( $var_const as $name => $value ) {
+				if ( defined( $name ) ) {
 					$var_const[$name] = constant( $name );	// inherit existing values
+				}
+			}
+
 			return $var_const;
 		}
 
 		public static function require_libs( $plugin_filepath ) {
+
 			require_once WPSSOSSB_PLUGINDIR.'lib/register.php';
 			require_once WPSSOSSB_PLUGINDIR.'lib/functions.php';
 			require_once WPSSOSSB_PLUGINDIR.'lib/sharing.php';
@@ -279,4 +294,3 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		}
 	}
 }
-
