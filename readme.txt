@@ -38,7 +38,7 @@ The Free add-on works with either the Free or Pro version of WPSSO Core. The [WP
 
 <h4>WPSSO SSB Free / Standard Features</h4>
 
-<span style="color:#33cc33">&#x0229b;</span> &nbsp; Extends the features of WPSSO Core Free or Pro.
+<span style="color:#33cc33">&#x0229b;</span> &nbsp; Extends the features of the WPSSO Core Free or Pro plugin.
 
 <span style="color:#33cc33">&#x0229b;</span> &nbsp; Allows you to include a selection of traditional social sharing buttons in multiple locations:
 
