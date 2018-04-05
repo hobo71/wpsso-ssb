@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9.5
 WC Tested Up To: 3.3.4
-Stable Tag: 2.6.3
+Stable Tag: 2.6.4
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -214,8 +214,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.6.4 =
 
 (2018/04/05) Renamed some WpssoUtil methods for Gutenberg changes in WPSSO v3.57.0.
-
-= 2.6.3 =
-
-(2018/03/24) Renamed plugin "Extensions" to "Add-ons" to avoid confusion and improve / simplify translations.
 
