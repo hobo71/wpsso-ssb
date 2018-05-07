@@ -301,25 +301,25 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_post_cache_transient_keys( $transient_keys, $mod, $sharing_url, $mod_salt ) {
 
-			$cache_md5_pre = $this->p->lca.'_b_';
+			$cache_md5_pre = $this->p->lca . '_b_';
 			$classname_pre = 'WpssoSsb';
 
 			$transient_keys[] = array(
-				'id' => $cache_md5_pre.md5( $classname_pre.'Sharing::get_buttons('.$mod_salt.')' ),
-				'pre' => $cache_md5_pre,
-				'salt' => $classname_pre.'Sharing::get_buttons('.$mod_salt.')',
+				'id'   => $cache_md5_pre . md5( $classname_pre . 'Sharing::get_buttons(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => $classname_pre . 'Sharing::get_buttons(' . $mod_salt . ')',
 			);
 
 			$transient_keys[] = array(
-				'id' => $cache_md5_pre.md5( $classname_pre.'ShortcodeSharing::do_shortcode('.$mod_salt.')' ),
-				'pre' => $cache_md5_pre,
-				'salt' => $classname_pre.'ShortcodeSharing::do_shortcode('.$mod_salt.')',
+				'id'   => $cache_md5_pre . md5( $classname_pre . 'ShortcodeSharing::do_shortcode(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => $classname_pre . 'ShortcodeSharing::do_shortcode(' . $mod_salt . ')',
 			);
 
 			$transient_keys[] = array(
-				'id' => $cache_md5_pre.md5( $classname_pre.'WidgetSharing::widget('.$mod_salt.')' ),
-				'pre' => $cache_md5_pre,
-				'salt' => $classname_pre.'WidgetSharing::widget('.$mod_salt.')',
+				'id'   => $cache_md5_pre . md5( $classname_pre . 'WidgetSharing::widget(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => $classname_pre . 'WidgetSharing::widget(' . $mod_salt . ')',
 			);
 
 			return $transient_keys;
@@ -329,7 +329,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) )
 				$features['(sharing) Sharing Buttons'] = array(
-					'classname' => $ext.'Sharing',
+					'classname' => $ext . 'Sharing',
 				);
 			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) )
 				$features['(sharing) Sharing Stylesheet'] = array(
@@ -337,11 +337,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				);
 			if ( ! empty( $info['lib']['shortcode']['sharing'] ) )
 				$features['(sharing) Sharing Shortcode'] = array(
-					'classname' => $ext.'ShortcodeSharing',
+					'classname' => $ext . 'ShortcodeSharing',
 				);
 			if ( ! empty( $info['lib']['widget']['sharing'] ) )
 				$features['(sharing) Sharing Widget'] = array(
-					'classname' => $ext.'WidgetSharing'
+					'classname' => $ext . 'WidgetSharing'
 				);
 			return $features;
 		}

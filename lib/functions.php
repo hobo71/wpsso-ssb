@@ -50,19 +50,19 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 		$type = __FUNCTION__;
 		$sharing_url = $wpsso->util->get_sharing_url( $mod );
 
-		$cache_md5_pre  = $lca.'_b_';
+		$cache_md5_pre  = $lca . '_b_';
 		$cache_exp_secs = false === $cache_exp_secs ? $wpsso->ssb_sharing->get_buttons_cache_exp() : $cache_exp_secs;
-		$cache_salt     = __FUNCTION__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
-		$cache_id       = $cache_md5_pre.md5( $cache_salt );
+		$cache_salt     = __FUNCTION__ . '(' . SucomUtil::get_mod_salt( $mod, $sharing_url ) . ')';
+		$cache_id       = $cache_md5_pre . md5( $cache_salt );
 		$cache_index    = $wpsso->ssb_sharing->get_buttons_cache_index( $type, $atts, $ids );	// returns salt with locale, mobile, wp_query, etc.
 		$cache_array    = array();
 
 		if ( $wpsso->debug->enabled ) {
-			$wpsso->debug->log( 'sharing url = '.$sharing_url );
-			$wpsso->debug->log( 'cache expire = '.$cache_exp_secs );
-			$wpsso->debug->log( 'cache salt = '.$cache_salt );
-			$wpsso->debug->log( 'cache id = '.$cache_id );
-			$wpsso->debug->log( 'cache index = '.$cache_index );
+			$wpsso->debug->log( 'sharing url = ' . $sharing_url );
+			$wpsso->debug->log( 'cache expire = ' . $cache_exp_secs );
+			$wpsso->debug->log( 'cache salt = ' . $cache_salt );
+			$wpsso->debug->log( 'cache id = ' . $cache_id );
+			$wpsso->debug->log( 'cache index = ' . $cache_index );
 		}
 
 		if ( $cache_exp_secs > 0 ) {
@@ -71,19 +71,19 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 
 			if ( isset( $cache_array[$cache_index] ) ) {
 				if ( $wpsso->debug->enabled ) {
-					$wpsso->debug->log( 'exiting early: '.$type.' cache index found in transient cache' );
+					$wpsso->debug->log( 'exiting early: ' . $type . ' cache index found in transient cache' );
 				}
 				return $cache_array[$cache_index];	// stop here
 			} else {
 				if ( $wpsso->debug->enabled ) {
-					$wpsso->debug->log( $type.' cache index not in transient cache' );
+					$wpsso->debug->log( $type . ' cache index not in transient cache' );
 				}
 				if ( ! is_array( $cache_array ) ) {	// just in case
 					$cache_array = array();
 				}
 			}
 		} elseif ( $wpsso->debug->enabled ) {
-			$wpsso->debug->log( $type.' buttons array transient cache is disabled' );
+			$wpsso->debug->log( $type . ' buttons array transient cache is disabled' );
 		}
 
 		// returns html or an empty string
