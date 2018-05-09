@@ -26,7 +26,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 			) );
 		}
 
-		// add an option to the WordPress -> Settings -> Image Dimensions page
+		/**
+		 * Add an option to the WordPress > Settings > Image Dimensions settings page.
+		 */
 		public function filter_image_dimensions_general_rows( $table_rows, $form ) {
 
 			$def_dimensions = $this->p->opt->get_defaults( 'buffer_img_width' ).'x'.
