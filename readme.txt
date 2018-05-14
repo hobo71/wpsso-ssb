@@ -34,8 +34,6 @@ Includes JavaScript provided by social websites asynchronously and &mdash; using
 
 The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!
 
-<div style="clear:both"></div>
-
 <h3>WPSSO SSB Free / Standard Features</h3>
 
 * Extends the features of the WPSSO Core Free or Pro plugin.
@@ -156,56 +154,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None
 * *Developer Notes*
-	* Renamed some WpssoUtil methods for Gutenberg changes in WPSSO v3.57.0.
-
-**Version 2.6.3 (2018/03/24)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Renamed plugin "Extensions" to "Add-ons" to avoid confusion and improve / simplify translations.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.6.2 (2018/03/10)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* Added a list of human-readable checked IDs when the "Show Cache Purge Count on Update" option is checked *and* the WP_DEBUG contant is true.
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* None
-
-**Version 2.6.1 (2018/03/04)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Refactored transient cache index values to include WP query variables for extra uniqueness.
-	* Refactored the WpssoSsbSharing get_tweet_text() method to make the code more readable.
-
-**Version 2.6.0 (2018/02/24)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Refactored the WpssoSsb `min_version_notice()` method to use PHP's `trigger_error()` and include a notice to refresh plugin update information.
+	* Renamed some WpssoUtil methods for Gutenberg related changes in WPSSO v3.57.0.
 
 == Upgrade Notice ==
 
 = 2.6.4 =
 
-(2018/04/05) Renamed some WpssoUtil methods for Gutenberg changes in WPSSO v3.57.0.
+(2018/04/05) Renamed some WpssoUtil methods for Gutenberg related changes in WPSSO v3.57.0.
 
