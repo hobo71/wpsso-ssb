@@ -15,13 +15,11 @@
 
 <p><img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png"></p>
 
-<p><strong>Provides traditional Social Sharing Buttons:</strong></p>
-
-<p>Including support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</p>
-
-<p><strong>Add traditional Social Sharing Buttons in:</strong></p>
+<p><strong>Provides traditional Social Sharing Buttons for:</strong></p>
 
 <p>The content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editor page</em> &mdash; so you can share directly from the admin editor page!</p>
+
+<p>Includes support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</p>
 
 <p><strong>Uses non-blocking, asynchronous JavaScript:</strong></p>
 

@@ -20,13 +20,11 @@ WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, s
 
 <img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png">
 
-**Provides traditional Social Sharing Buttons:**
-
-Including support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
-
-**Add traditional Social Sharing Buttons in:**
+**Provides traditional Social Sharing Buttons for:**
 
 The content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editor page* &mdash; so you can share directly from the admin editor page!
+
+Includes support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
 **Uses non-blocking, asynchronous JavaScript:**
 
