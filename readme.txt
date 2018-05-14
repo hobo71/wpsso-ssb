@@ -20,83 +20,81 @@ WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, s
 
 <img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png">
 
-**A WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.**
+**Provides traditional Social Sharing Buttons:**
 
-Include traditional social sharing buttons in the content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editing pages* &mdash; share your posts and pages directly from the editor! Do you use bbPress, BuddyPress, or WooCommerce? The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!
+Including support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
-WPSSO Social Sharing Buttons (aka WPSSO SSB) sources JavaScript provided by social websites asynchronously and &mdash; using WPSSO as its framework &mdash; provides accurate and customized information to each social website.
+**Add traditional Social Sharing Buttons in:**
 
-<h3>WPSSO Core Plugin Prerequisite</h3>
+The content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editor page* &mdash; so you can share directly from the admin editor page!
 
-WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plugin &mdash; which creates complete &amp; accurate meta tags and Schema markup from your existing content for social sharing, Social Media Optimization (SMO), Search Engine Optimization (SEO), Google Rich Cards, Pinterest Rich Pins, etc.
+**Uses non-blocking, asynchronous JavaScript:**
 
-The Free add-on works with either the Free or Pro version of WPSSO Core. The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme) uses many WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/?utm_source=wpssossb-readme).
+Includes JavaScript provided by social websites asynchronously and &mdash; using WPSSO Core as its framework &mdash; offers accurate and customized information to each social website.
+
+**Do you use bbPress, BuddyPress, or WooCommerce?**
+
+The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!
+
+<div style="clear:both"></div>
 
 <h3>WPSSO SSB Free / Standard Features</h3>
 
-&#x0229b; &nbsp; Extends the features of the WPSSO Core Free or Pro plugin.
+* Extends the features of the WPSSO Core Free or Pro plugin.
 
-&#x0229b; &nbsp; Allows you to include a selection of traditional social sharing buttons in multiple locations:
+* Allows you to include a selection of traditional social sharing buttons in multiple locations:
 
-* Above and/or below your post / page content and/or excerpt text.
-* Admin editing pages &ndash; including media, product pages, and custom post types.
-* In a WordPress sharing widget.
-* In a CSS / javascript sidebar.
-* A shortcode within your content and/or excerpt.
-* A function in your theme's template(s).
+	* Above or below your Post / Page content or excerpt text.
+	* In admin editing pages &ndash; including media, product pages, and custom post types.
+	* In a CSS / javascript sidebar.
+	* In a WordPress sharing widget.
+	* A shortcode in your content or excerpt.
+	* A function in your theme's template(s).
 
-&#x0229b; &nbsp; Social sharing buttons for the content, excerpt, in a widget, as a shortcode, floating sidebar, and/or PHP function:
+* Configure and add any combination of traditional sharing buttons:
 
-* Buffer
-* Email
-* Facebook
-* Google+
-* LinkedIn
-* ManageWP
-* Pinterest
-* Reddit
-* StumbleUpon
-* Tumblr
-* Twitter
-* WhatsApp (for Mobile Devices)
+	* Buffer
+	* Email
+	* Facebook
+	* Google+
+	* LinkedIn
+	* ManageWP
+	* Pinterest
+	* Reddit
+	* StumbleUpon
+	* Tumblr
+	* Twitter
+	* WhatsApp (for mobile devices)
 
-&#x0229b; &nbsp; Include / exclude individual social sharing buttons based on the viewing device (desktop and/or mobile).
+* Include or exclude individual social sharing buttons based on the viewing device (desktop and/or mobile).
 
-&#x0229b; &nbsp; Automatically exclude buttons from [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin pages.
+* Automatically exclude buttons from [Accelerated Mobile Pages (AMP)](https://wordpress.org/plugins/amp/) plugin pages.
 
-&#x0229b; &nbsp; A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
+* A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
 
-&#x0229b; &nbsp; Download the Free version from [GitHub](https://surniaulula.github.io/wpsso-ssb/) or [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/).
+* Download the Free version from [GitHub](https://surniaulula.github.io/wpsso-ssb/) or [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/).
 
 <h3>WPSSO SSB Pro / Additional Features</h3>
 
-&#x0229b; &nbsp; Extends the features of WPSSO Core Pro (requires an active and licensed <a href="https://wpsso.com/">WPSSO Core Pro plugin</a>).
+* Extends the features of WPSSO Core Pro (requires an active and licensed <a href="https://wpsso.com/">WPSSO Core Pro plugin</a>).
 
-&#x0229b; &nbsp; Dynamic button language switching based on the current WordPress locale.
+* Dynamic button language switching based on the current WordPress locale.
 
-&#x0229b; &nbsp; Caching of sharing button images and JavaScript to maximizing performance on VPS and dedicated hardware hosting platforms.
+* Caching of sharing button images and JavaScript to maximizing performance on VPS and dedicated hardware hosting platforms.
 
-&#x0229b; &nbsp; A selection of preset button options by location in the webpage (content, excerpt, shortcode, widget, etc.).
+* A selection of preset button options by location in the webpage (content, excerpt, shortcode, widget, etc.).
 
-&#x0229b; &nbsp; Ability to include / exclude social sharing buttons by post type.
+* Ability to include / exclude social sharing buttons by post type.
 
-&#x0229b; &nbsp; Additional sharing button locations and CSS styles for:
+* Additional sharing button locations and stylesheets for:
 
-* [bbPress](https://wordpress.org/plugins/bbpress/)
-* [BuddyPress](https://wordpress.org/plugins/buddypress/)
-* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
+	* [bbPress](https://wordpress.org/plugins/bbpress/)
+	* [BuddyPress](https://wordpress.org/plugins/buddypress/)
+	* [WooCommerce](https://wordpress.org/plugins/woocommerce/)
 
-<h3>Extends the WPSSO Core Plugin</h3>
+<h3>WPSSO Core Plugin Prerequisite</h3>
 
-&#x0229b; &nbsp; The WPSSO Social Sharing Buttons (aka WPSSO SSB) Free add-on works with either the Free or Pro version of WPSSO Core.
-
-&#x0229b; &nbsp; The <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme">WPSSO SSB Pro add-on</a> uses many WPSSO Core Pro features, which requires an active and licensed <a href="https://wpsso.com/?utm_source=wpssossb-readme">WPSSO Core Pro plugin</a>.
-
-<!--smp-ignore-->
-
-&#x0229b; &nbsp; <a href="https://wpsso.com/extend/plugins/wpsso-ssb/?utm_source=wpssossb-readme">Purchase the WPSSO Social Sharing Buttons Pro add-on here</a> (all purchases include a <em>No Risk 30 Day Refund Policy</em>).
-
-<!--/smp-ignore-->
+WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plugin. The Free add-on works with either the Free or Pro versions of WPSSO Core. The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/) uses many WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/).
 
 == Installation ==
 
