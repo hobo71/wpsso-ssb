@@ -122,8 +122,8 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plu
 
 == Screenshots ==
 
-01. WPSSO SSB example showing the **Social Sharing Buttons** enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
-02. WPSSO SSB Sharing Buttons tab in the Social and Search Optimization metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
+01. WPSSO SSB example showing the Social Sharing Buttons enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
+02. WPSSO SSB Sharing Buttons tab in the SSO metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
 03. WPSSO SSB Sharing Buttons settings page.
 04. WPSSO SSB Sharing Styles settings page.
 
