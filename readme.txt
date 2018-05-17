@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9.6
 WC Tested Up To: 3.3.5
-Stable Tag: 2.6.4
+Stable Tag: 2.6.5
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -33,6 +33,14 @@ Includes JavaScript provided by social websites asynchronously and &mdash; using
 **Do you use bbPress, BuddyPress, or WooCommerce?**
 
 The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!
+
+<h3>Users Love the WPSSO SSB Add-on</h3>
+
+&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Love it - It lets me get my social media shares looking like and saying exactly what I want. It’s great." - [sharonlipinski](https://wordpress.org/support/topic/love-it-1875/)
+
+&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Completely configurable for user needs, like insert sdk code or not, and where (head, footer), etc. It stays very light and without any conflict with other plugins or themes." - [felizubi](https://wordpress.org/support/topic/highly-configurable-4/)
+
+&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Excellent plugin, excllent support - Pro version works well with BuddyPress activity stream!" - [tbuys](https://wordpress.org/support/topic/excellent-plugin-excllent-support/)
 
 <h3>WPSSO SSB Free / Standard Features</h3>
 
@@ -145,6 +153,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.6.5 (2018/05/17)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* Added section headings in the SSO Sharing Buttons tab.
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* None
+
 **Version 2.6.4 (2018/04/05)**
 
 * *New Features*
@@ -158,7 +177,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.6.4 =
+= 2.6.5 =
 
-(2018/04/05) Renamed some WpssoUtil methods for Gutenberg related changes in WPSSO v3.57.0.
+(2018/05/17) Added section headings in the SSO Sharing Buttons tab.
 

@@ -3,7 +3,7 @@
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Social Sharing Buttons</td></tr>
 <tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
-<tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.6.4</td></tr>
+<tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.6.5</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.8</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 4.9.6</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
@@ -28,6 +28,14 @@
 <p><strong>Do you use bbPress, BuddyPress, or WooCommerce?</strong></p>
 
 <p>The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special integration modules to add social sharing buttons to even more locations!</p>
+
+<h3>Users Love the WPSSO SSB Add-on</h3>
+
+<p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Love it - It lets me get my social media shares looking like and saying exactly what I want. It’s great." - <a href="https://wordpress.org/support/topic/love-it-1875/">sharonlipinski</a></p>
+
+<p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Completely configurable for user needs, like insert sdk code or not, and where (head, footer), etc. It stays very light and without any conflict with other plugins or themes." - <a href="https://wordpress.org/support/topic/highly-configurable-4/">felizubi</a></p>
+
+<p>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Excellent plugin, excllent support - Pro version works well with BuddyPress activity stream!" - <a href="https://wordpress.org/support/topic/excellent-plugin-excllent-support/">tbuys</a></p>
 
 <h3>WPSSO SSB Free / Standard Features</h3>
 
