@@ -5,25 +5,39 @@
  * necessary to customize the layout for your website.
  */
 
-/* align the buttons vertically in two 116px wide columns */
+#_wpsso_ssb_share .inside {
+	margin:0;
+	padding:6px 8px;
+}
+
+#_wpsso_ssb_share .inside table.sucom-settings {
+	border-spacing:0;
+}
+
+/**
+ * Align the buttons vertically in two 128px wide columns.
+ */
 .wpsso-ssb-admin_edit {
 	text-align:left;
 }
+
 .wpsso-ssb-admin_edit .ssb-buttons {
 	margin:0;
 }
-.wpsso-ssb-admin_edit .ssb-buttons > div,	/* default uses small buttons */
+
+.wpsso-ssb-admin_edit .ssb-buttons > div,
 .wpsso-ssb-admin_edit .wpsso-ssb-preset-small_share_count .ssb-buttons > div {
 	display:inline-block;
 	vertical-align:top;
 	padding:0;
 	margin:5px 0;
-	width:116px;
+	width:128px;
 	height:20px;
 }
 
-/* Non-JavaScript Buttons */
-
+/**
+ * Non-JavaScript Buttons
+ */
 .wpsso-ssb-admin_edit .ssb-buttons div.css-button a {
 	display:inline-block;
 	line-height:20px;
@@ -47,8 +61,9 @@
 	font-weight:bold;
 }
 
-/* E-Mail Button */
-
+/**
+ * E-Mail Button
+ */
 .wpsso-ssb-admin_edit .ssb-buttons div.email-button a {
 	width:60px;
 	background-color:#0a88ff;
@@ -60,8 +75,9 @@
 	content:" E-Mail";
 }
 
-/* WhatsApp Button */
-
+/**
+ * WhatsApp Button
+ */
 .wpsso-ssb-admin_edit .ssb-buttons div.whatsapp-button a {
 	width:80px;
 	background-color:#64d448;

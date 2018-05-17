@@ -151,9 +151,13 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/**
 			 * Email
 			 */
-			$email_cap_len  = $this->p->options['email_cap_len'];
+			$email_cap_len   = $this->p->options['email_cap_len'];
 			$email_cap_htags = $this->p->options['email_cap_hashtags'];
-			$email_cap_text = $this->p->page->get_caption( 'excerpt', $email_cap_len, $mod, true, $email_cap_htags, true, 'none' );
+			$email_cap_text  = $this->p->page->get_caption( 'excerpt', $email_cap_len, $mod, true, $email_cap_htags, true, 'none' );
+
+			$form_rows['subsection_email'] = array(
+				'td_class' => 'subsection', 'header' => 'h5', 'label' => 'Email',
+			);
 
 			$form_rows['email_title'] = array(
 				'label' => _x( 'Email Subject', 'option label', 'wpsso-ssb' ),
@@ -172,6 +176,10 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$twitter_cap_len  = $this->p->ssb_sharing->get_tweet_max_len();
 			$twitter_cap_text = $this->p->page->get_caption( 'title', $twitter_cap_len, $mod, true, true );
+
+			$form_rows['subsection_twitter'] = array(
+				'td_class' => 'subsection', 'header' => 'h5', 'label' => 'Twitter',
+			);
 
 			$form_rows['twitter_desc'] = array(
 				'label' => _x( 'Tweet Text', 'option label', 'wpsso-ssb' ),
@@ -197,6 +205,10 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				) = $this->p->media->get_attachment_image_src( $pin_media['pid'], 'thumbnail', false, $force_regen ); 
 			}
 			
+			$form_rows['subsection_pinterest'] = array(
+				'td_class' => 'subsection', 'header' => 'h5', 'label' => 'Pinterest',
+			);
+
 			$form_rows['pin_desc'] = array(
 				'label' => _x( 'Pinterest Caption Text', 'option label', 'wpsso-ssb' ),
 				'th_class' => 'medium', 'tooltip' => 'post-pin_desc', 'td_class' => 'blank top',
@@ -223,6 +235,10 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				) = $this->p->media->get_attachment_image_src( $tumblr_media['pid'], 'thumbnail', false, $force_regen ); 
 			}
 
+			$form_rows['subsection_tumblr'] = array(
+				'td_class' => 'subsection', 'header' => 'h5', 'label' => 'Tumblr',
+			);
+
 			$form_rows['tumblr_img_desc'] = array(
 				'label' => _x( 'Tumblr Image Caption', 'option label', 'wpsso-ssb' ),
 				'th_class' => 'medium', 'tooltip' => 'post-tumblr_img_desc', 'td_class' => 'blank top',
@@ -242,4 +258,3 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 		}
 	}
 }
-
