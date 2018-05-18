@@ -144,50 +144,50 @@ msgctxt "option label"
 msgid "Force Protocol for Shared URLs"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:131 lib/pro/admin/sharing.php:132
+#: lib/gpl/admin/sharing.php:132 lib/pro/admin/sharing.php:132
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:146 lib/pro/admin/sharing.php:144
+#: lib/gpl/admin/sharing.php:148 lib/pro/admin/sharing.php:144
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:163 lib/pro/admin/sharing.php:161
+#: lib/gpl/admin/sharing.php:165 lib/pro/admin/sharing.php:161
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:169 lib/pro/admin/sharing.php:167
+#: lib/gpl/admin/sharing.php:171 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:185 lib/pro/admin/sharing.php:183
+#: lib/gpl/admin/sharing.php:187 lib/pro/admin/sharing.php:183
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:213 lib/pro/admin/sharing.php:211
+#: lib/gpl/admin/sharing.php:215 lib/pro/admin/sharing.php:211
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:243 lib/pro/admin/sharing.php:241
+#: lib/gpl/admin/sharing.php:245 lib/pro/admin/sharing.php:241
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:245 lib/pro/admin/sharing.php:244
+#: lib/gpl/admin/sharing.php:247 lib/pro/admin/sharing.php:244
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:251 lib/pro/admin/sharing.php:250
+#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:250
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:253
+#: lib/gpl/admin/sharing.php:255 lib/pro/admin/sharing.php:253
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 

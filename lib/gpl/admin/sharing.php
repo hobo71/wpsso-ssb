@@ -127,9 +127,11 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			}
 
 			if ( empty( $mod['post_status'] ) || $mod['post_status'] === 'auto-draft' ) {
+
 				$table_rows['save_a_draft'] = '<td><blockquote class="status-info"><p class="centered">'.
 					sprintf( __( 'Save a draft version or publish the %s to display these options.',
 						'wpsso-ssb' ), SucomUtil::titleize( $mod['post_type'] ) ).'</p></td>';
+
 				return $table_rows;	// abort
 			}
 
@@ -192,7 +194,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$pin_cap_len  = $this->p->options['pin_cap_len'];
 			$pin_cap_text = $this->p->page->get_caption( $this->p->options['pin_caption'], $pin_cap_len, $mod );
-			$pin_media    = $this->p->og->get_media_info( $this->p->lca.'-pinterest-button', array( 'pid', 'img_url' ), $mod, 'schema' );	// $md_pre = 'schema'
+			$pin_media    = $this->p->og->get_media_info( $this->p->lca . '-pinterest-button', array( 'pid', 'img_url' ), $mod, 'schema' );
 			$force_regen  = $this->p->util->is_force_regen( $mod, 'schema' );	// false by default
 
 			if ( ! empty( $pin_media['pid'] ) ) {
@@ -222,7 +224,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$tumblr_cap_len  = $this->p->options['tumblr_cap_len'];
 			$tumblr_cap_text = $this->p->page->get_caption( $this->p->options['tumblr_caption'], $tumblr_cap_len, $mod );
-			$tumblr_media = $this->p->og->get_media_info( $this->p->cf['lca'].'-tumblr-button', array( 'pid', 'img_url' ), $mod, 'og' );
+			$tumblr_media = $this->p->og->get_media_info( $this->p->lca . '-tumblr-button', array( 'pid', 'img_url' ), $mod, 'og' );
 			$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 
 			if ( ! empty( $tumblr_media['pid'] ) ) {
