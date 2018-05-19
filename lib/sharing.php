@@ -224,10 +224,14 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function filter_save_options( $opts, $options_name, $network ) {
-			// update the combined and minimized social stylesheet
+
+			/**
+			 * Update the combined and minimized social stylesheet.
+			 */
 			if ( false === $network ) {
 				$this->update_sharing_css( $opts );
 			}
+
 			return $opts;
 		}
 
@@ -371,7 +375,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			$this->update_sharing_css( $opts );
-			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $opts, false );
+			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $opts, false );	// $network is false.
 			$this->p->notice->upd( __( 'All sharing styles have been reloaded with their default value and saved.', 'wpsso-ssb' ) );
 		}
 
