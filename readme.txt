@@ -18,7 +18,7 @@ WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, s
 
 == Description ==
 
-<img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png">
+<p style="margin:0;"><img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png"></p>
 
 **Provides traditional Social Sharing Buttons for:**
 
