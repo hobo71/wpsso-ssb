@@ -36,7 +36,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 		protected function add_meta_boxes() {
 			add_meta_box( $this->pagehook.'_styles',
 				_x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' ),
-					array( &$this, 'show_metabox_styles' ), $this->pagehook, 'normal' );
+					array( $this, 'show_metabox_styles' ), $this->pagehook, 'normal' );
 		}
 
 		public function filter_action_buttons( $action_buttons ) {

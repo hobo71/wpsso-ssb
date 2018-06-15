@@ -98,9 +98,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$this->set_objects();
 
-			add_action( 'wp_enqueue_scripts', array( &$this, 'wp_enqueue_styles' ) );
-			add_action( 'wp_head', array( &$this, 'show_head' ), WPSSOSSB_HEAD_PRIORITY );
-			add_action( 'wp_footer', array( &$this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
+			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_styles' ) );
+			add_action( 'wp_head', array( $this, 'show_head' ), WPSSOSSB_HEAD_PRIORITY );
+			add_action( 'wp_footer', array( $this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
 
 			if ( $this->have_buttons_for_type( 'content' ) ) {
 				$this->add_buttons_filter( 'the_content' );
@@ -124,7 +124,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			if ( is_admin() ) {
 				if ( $this->have_buttons_for_type( 'admin_edit' ) ) {
-					add_action( 'add_meta_boxes', array( &$this, 'add_post_buttons_metabox' ) );
+					add_action( 'add_meta_boxes', array( $this, 'add_post_buttons_metabox' ) );
 				}
 
 				$this->p->util->add_plugin_actions( $this, array( 
@@ -500,7 +500,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( ! empty( $this->p->options['buttons_add_to_'.$post_obj->post_type] ) ) {
 				add_meta_box( '_'.$this->p->cf['lca'].'_ssb_share',
 					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
-						array( &$this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );
+						array( $this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );
 			}
 		}
 
@@ -593,7 +593,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$this->p->debug->log( 'filter_name argument is empty' );
 				}
 			} elseif ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
-				$added = add_filter( $filter_name, array( &$this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+				$added = add_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'buttons filter '.$filter_name.' added ('.( $added  ? 'true' : 'false' ).')' );
 				}
@@ -607,7 +607,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function remove_buttons_filter( $filter_name = 'the_content' ) {
 			$removed = false;
 			if ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
-				$removed = remove_filter( $filter_name, array( &$this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+				$removed = remove_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'buttons filter '.$filter_name.' removed ('.( $removed  ? 'true' : 'false' ).')' );
 				}
