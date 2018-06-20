@@ -109,85 +109,85 @@ msgid ""
 "hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:110
+#: lib/gpl/admin/sharing.php:39 lib/gpl/admin/sharing.php:108
 #: lib/pro/admin/sharing.php:46 lib/pro/admin/sharing.php:111
 msgctxt "option label"
 msgid "Sharing Buttons HTML Cache Expiry"
 msgstr ""
 
 #: lib/gpl/admin/sharing.php:42 lib/gpl/admin/sharing.php:48
-#: lib/gpl/admin/sharing.php:113 lib/gpl/admin/sharing.php:118
+#: lib/gpl/admin/sharing.php:111 lib/gpl/admin/sharing.php:116
 #: lib/pro/admin/sharing.php:49 lib/pro/admin/sharing.php:55
 #: lib/pro/admin/sharing.php:114 lib/pro/admin/sharing.php:119
 msgctxt "option comment"
 msgid "seconds (0 to disable)"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:115
+#: lib/gpl/admin/sharing.php:45 lib/gpl/admin/sharing.php:113
 #: lib/pro/admin/sharing.php:52 lib/pro/admin/sharing.php:116
 msgctxt "option label"
 msgid "Get Social JS Files Cache Expiry"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:64 lib/pro/admin/sharing.php:68
+#: lib/gpl/admin/sharing.php:63 lib/pro/admin/sharing.php:68
 msgctxt "option label"
 msgid "Include on Post Types"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:90 lib/pro/admin/sharing.php:91
+#: lib/gpl/admin/sharing.php:88 lib/pro/admin/sharing.php:91
 msgctxt "option label"
 msgid "%s Preset"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:105 lib/pro/admin/sharing.php:106
+#: lib/gpl/admin/sharing.php:103 lib/pro/admin/sharing.php:106
 msgctxt "option label"
 msgid "Force Protocol for Shared URLs"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:132 lib/pro/admin/sharing.php:132
+#: lib/gpl/admin/sharing.php:130 lib/pro/admin/sharing.php:132
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:148 lib/pro/admin/sharing.php:144
+#: lib/gpl/admin/sharing.php:145 lib/pro/admin/sharing.php:144
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:165 lib/pro/admin/sharing.php:161
+#: lib/gpl/admin/sharing.php:162 lib/pro/admin/sharing.php:161
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:171 lib/pro/admin/sharing.php:167
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:187 lib/pro/admin/sharing.php:183
+#: lib/gpl/admin/sharing.php:184 lib/pro/admin/sharing.php:183
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:215 lib/pro/admin/sharing.php:211
+#: lib/gpl/admin/sharing.php:212 lib/pro/admin/sharing.php:211
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:245 lib/pro/admin/sharing.php:241
+#: lib/gpl/admin/sharing.php:242 lib/pro/admin/sharing.php:241
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:247 lib/pro/admin/sharing.php:244
+#: lib/gpl/admin/sharing.php:244 lib/pro/admin/sharing.php:244
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:250
+#: lib/gpl/admin/sharing.php:250 lib/pro/admin/sharing.php:250
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:255 lib/pro/admin/sharing.php:253
+#: lib/gpl/admin/sharing.php:252 lib/pro/admin/sharing.php:253
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 

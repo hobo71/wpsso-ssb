@@ -58,8 +58,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$table_rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', 
-				array( 'lca' => 'wpssossb' ) ).'</td>';
+			$table_rows[] = '<td colspan="2">' . $this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ) . '</td>'; 
 
 			$table_rows['buttons_add_to'] = $form->get_th_html( _x( 'Include on Post Types',
 				'option label', 'wpsso-ssb' ), '', 'buttons_add_to' ).
@@ -83,8 +82,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			asort( $presets );
 
-			$table_rows[] = '<td colspan="2" align="center">'.$this->p->msgs->get( 'pro-feature-msg', 
-				array( 'lca' => 'wpssossb' ) ).'</td>';
+			$table_rows[] = '<td colspan="2">' . $this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ) . '</td>';
 
 			foreach( $presets as $filter_id => $filter_name ) {
 				$table_rows[] = $form->get_th_html( sprintf( _x( '%s Preset',
@@ -138,8 +136,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$thumb_size_info = SucomUtil::get_size_info( 'thumbnail' );
 			$def_cap_title = $this->p->page->get_caption( 'title', 0, $mod, true, false );
 
-			$table_rows[] = '<td colspan="3" align="center">'.$this->p->msgs->get( 'pro-feature-msg', 
-				array( 'lca' => 'wpssossb' ) ).'</td>';
+			$table_rows[] = '<td colspan="3">' . $this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ) . '</td>';
 
 			/**
 			 * Disable Buttons Checkbox
