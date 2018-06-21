@@ -102,14 +102,14 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plu
 
 == Installation ==
 
-<h3>Install and Uninstall</h3>
+<h3 class="top">Install and Uninstall</h3>
 
 * [Install the WPSSO SSB Add-on](https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/)
 * [Uninstall the WPSSO SSB Add-on](https://wpsso.com/docs/plugins/wpsso-ssb/installation/uninstall-the-plugin/)
 
 == Frequently Asked Questions ==
 
-<h3>Frequently Asked Questions</h3>
+<h3 class="top">Frequently Asked Questions</h3>
 
 * [Can I share a single image on a webpage?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/)
 * [Can I use other social sharing buttons?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-use-other-social-sharing-buttons/)
@@ -121,7 +121,7 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plu
 
 == Other Notes ==
 
-<h3>Additional Documentation</h3>
+<h3 class="top">Additional Documentation</h3>
 
 * [Developer Resources](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/)
 	* [Sharing Buttons Function](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
@@ -137,7 +137,7 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plu
 
 == Changelog ==
 
-<h3>Version Numbering</h3>
+<h3 class="top">Version Numbering</h3>
 
 Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 

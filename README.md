@@ -97,7 +97,7 @@
 
 <h2>Installation</h2>
 
-<h3>Install and Uninstall</h3>
+<h3 class="top">Install and Uninstall</h3>
 
 <ul>
 <li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/installation/install-the-plugin/">Install the WPSSO SSB Add-on</a></li>
@@ -107,7 +107,7 @@
 
 <h2>Frequently Asked Questions</h2>
 
-<h3>Frequently Asked Questions</h3>
+<h3 class="top">Frequently Asked Questions</h3>
 
 <ul>
 <li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/">Can I share a single image on a webpage?</a></li>
@@ -123,7 +123,7 @@
 <h2>Other Notes</h2>
 
 <h3>Other Notes</h3>
-<h3>Additional Documentation</h3>
+<h3 class="top">Additional Documentation</h3>
 
 <ul>
 <li><a href="https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/">Developer Resources</a>
