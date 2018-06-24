@@ -220,7 +220,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 
 		public static function set_constants( $plugin_filepath ) { 
 
-			if ( defined( 'WPSSOSSB_VERSION' ) ) {			// execute and define constants only once
+			if ( defined( 'WPSSOSSB_VERSION' ) ) {	// Define constants only once.
 				return;
 			}
 
