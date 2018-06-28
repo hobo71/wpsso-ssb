@@ -49,7 +49,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_caption' ).
+			$table_rows[] = ''.
 			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
@@ -89,7 +89,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 					'twitter_platform' => 'any',
 					'twitter_script_loc' => 'header',
 					'twitter_lang' => 'en',
-					'twitter_caption' => 'title',
+					'twitter_caption' => 'excerpt',
 					'twitter_cap_len' => 280,	// changed from 140 to 280 on 2017/11/17
 					'twitter_size' => 'medium',
 					'twitter_via' => 1,
