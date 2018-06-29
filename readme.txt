@@ -153,6 +153,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.6.6-dev.1 (TBD)**
+
+* *New Features*
+	* None
+* *Improvements*
+	* None
+* *Bugfixes*
+	* None
+* *Developer Notes*
+	* Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
+
 **Version 2.6.5 (2018/05/17)**
 
 * *New Features*
@@ -164,18 +175,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* None
 
-**Version 2.6.4 (2018/04/05)**
-
-* *New Features*
-	* None
-* *Improvements*
-	* None
-* *Bugfixes*
-	* None
-* *Developer Notes*
-	* Renamed some WpssoUtil methods for Gutenberg related changes in WPSSO v3.57.0.
-
 == Upgrade Notice ==
+
+= 2.6.6-dev.1 =
+
+(TBD) Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
 = 2.6.5 =
 
