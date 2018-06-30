@@ -98,7 +98,7 @@ The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special
 
 <h3>WPSSO Core Plugin Prerequisite</h3>
 
-WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the WPSSO Core plugin. The WPSSO SSB Free add-on works with either the Free or Pro versions of WPSSO Core. The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/) uses WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/).
+WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the [WPSSO Core Plugin](https://wordpress.org/plugins/wpsso/) (Free or Pro version). The [WPSSO SSB Pro add-on](https://wpsso.com/extend/plugins/wpsso-ssb/) uses WPSSO Core Pro features and requires an active and licensed [WPSSO Core Pro plugin](https://wpsso.com/).
 
 == Installation ==
 
