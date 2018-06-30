@@ -36,69 +36,97 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			}
 		}
 
+		/**
+		 * Make sure wpautop() does not have a higher priority than 10, otherwise it will 
+		 * format the shortcode output (shortcode filters are run at priority 11).
+		 */
 		public function check_wpautop() {
-			// make sure wpautop() does not have a higher priority than 10, otherwise it will 
-			// format the shortcode output (shortcode filters are run at priority 11).
-			if ( ! empty( $this->p->options['plugin_shortcodes'] ) ) {
-				$default_priority = 10;
-				foreach ( array( 'get_the_excerpt', 'the_excerpt', 'the_content' ) as $filter_name ) {
-					$filter_priority = has_filter( $filter_name, 'wpautop' );
-					if ( $filter_priority !== false && $filter_priority > $default_priority ) {
-						remove_filter( $filter_name, 'wpautop' );
-						add_filter( $filter_name, 'wpautop' , $default_priority );
-						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( 'wpautop() priority changed from '.$filter_priority.' to '.$default_priority );
-						}
+
+			$default_priority = 10;
+
+			foreach ( array( 'get_the_excerpt', 'the_excerpt', 'the_content' ) as $filter_name ) {
+
+				$filter_priority = has_filter( $filter_name, 'wpautop' );
+
+				if ( $filter_priority !== false && $filter_priority > $default_priority ) {
+
+					remove_filter( $filter_name, 'wpautop' );
+
+					add_filter( $filter_name, 'wpautop' , $default_priority );
+
+					if ( $this->p->debug->enabled ) {
+						$this->p->debug->log( 'wpautop() priority changed from '.$filter_priority.' to '.$default_priority );
 					}
 				}
 			}
 		}
 
+		/**
+		 * Remove our shortcode before applying a text filter.
+		 */
 		public function action_pre_apply_filters_text( $filter_name ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
 				) );
 			}
-			$this->remove_shortcode();	// remove before applying a text filter
+
+			$this->remove_shortcode();
 		}
 
+		/**
+		 * Re-add our shortcode after applying a text filter.
+		 */
 		public function action_after_apply_filters_text( $filter_name ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
 				) );
 			}
-			$this->add_shortcode();		// re-add after applying a text filter
+
+			$this->add_shortcode();
 		}
 
 		public function add_shortcode() {
-			if ( ! empty( $this->p->options['plugin_shortcodes'] ) ) {
-				if ( ! shortcode_exists( WPSSOSSB_SHARING_SHORTCODE_NAME ) ) {
-        				add_shortcode( WPSSOSSB_SHARING_SHORTCODE_NAME, array( $this, 'do_shortcode' ) );
-					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( '['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode added' );
-					}
-					return true;
-				} elseif ( $this->p->debug->enabled ) {
+
+			if ( shortcode_exists( WPSSOSSB_SHARING_SHORTCODE_NAME ) ) {
+
+				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'cannot add ['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode - shortcode already exists' );
 				}
+
+				return false;
 			}
-			return false;
+
+        		add_shortcode( WPSSOSSB_SHARING_SHORTCODE_NAME, array( $this, 'do_shortcode' ) );
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->log( '['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode added' );
+			}
+
+			return true;
 		}
 
 		public function remove_shortcode() {
-			if ( ! empty( $this->p->options['plugin_shortcodes'] ) ) {
-				if ( shortcode_exists( WPSSOSSB_SHARING_SHORTCODE_NAME ) ) {
-					remove_shortcode( WPSSOSSB_SHARING_SHORTCODE_NAME );
-					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( '['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode removed' );
-					}
-					return true;
-				} elseif ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'cannot remove ['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode - shortcode does not exist' );
+
+			if ( shortcode_exists( WPSSOSSB_SHARING_SHORTCODE_NAME ) ) {
+
+				remove_shortcode( WPSSOSSB_SHARING_SHORTCODE_NAME );
+
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( '['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode removed' );
 				}
+
+				return true;
+
 			}
+			
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->log( 'cannot remove ['.WPSSOSSB_SHARING_SHORTCODE_NAME.'] sharing shortcode - shortcode does not exist' );
+			}
+
 			return false;
 		}
 
