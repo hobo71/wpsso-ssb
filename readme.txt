@@ -119,14 +119,12 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the [WPSSO Core Pl
 * [Why doesn't the Pinterest button show?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-doesnt-the-pinterest-button-show/)
 * [Why doesn't the Twitter count increase?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-doesnt-the-twitter-count-increase/)
 
-== Other Notes ==
-
-<h3 class="top">Additional Documentation</h3>
+<h3>Documentation and Notes</h3>
 
 * [Developer Resources](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/)
 	* [Sharing Buttons Function](https://wpsso.com/docs/plugins/wpsso-ssb/notes/developer/sharing-buttons-function/)
 * [SSB Shortcode for Sharing Buttons](https://wpsso.com/docs/plugins/wpsso-ssb/notes/ssb-shortcode/)
-* [Styling Social Buttons](https://wpsso.com/docs/plugins/wpsso-ssb/notes/styling-social-buttons/)
+* [Styling the Social Buttons](https://wpsso.com/docs/plugins/wpsso-ssb/notes/styling-social-buttons/)
 
 == Screenshots ==
 
