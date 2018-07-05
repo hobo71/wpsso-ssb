@@ -5,7 +5,7 @@
 <tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.6.6</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.8</td></tr>
-<tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 4.9.6</td></tr>
+<tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 4.9.7</td></tr>
 <tr><th align="right" valign="top" nowrap>Contributors</th><td>jsmoriss</td></tr>
 <tr><th align="right" valign="top" nowrap>License</th><td><a href="https://www.gnu.org/licenses/gpl.txt">GPLv3</a></td></tr>
 <tr><th align="right" valign="top" nowrap>Tags / Keywords</th><td>social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr, stumbleupon</td></tr>
