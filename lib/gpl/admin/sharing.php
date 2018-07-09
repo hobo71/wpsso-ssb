@@ -133,7 +133,6 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				return $table_rows;	// abort
 			}
 
-			$thumb_size_info = SucomUtil::get_size_info( 'thumbnail' );
 			$def_cap_title   = $this->p->page->get_caption( 'title', 0, $mod, true, false );
 
 			$table_rows[] = '<td colspan="3">' . $this->p->msgs->get( 'pro-feature-msg', array( 'lca' => 'wpssossb' ) ) . '</td>';
@@ -213,7 +212,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'th_class' => 'medium', 'tooltip' => 'post-pin_desc', 'td_class' => 'blank top',
 				'content' => $form->get_no_textarea_value( $pin_cap_text, '', '', $pin_cap_len ) . 
 					( empty( $pin_media['img_url'] ) ? '' : '</td><td class="top thumb_preview">' . 
-						'<img src="' . $pin_media['img_url'] . '" style="max-width:' . $thumb_size_info['width'] . 'px;">' ),
+						'<img src="' . $pin_media['img_url'] . '">' ),
 			);
 
 			/**
@@ -221,8 +220,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			 */
 			$tumblr_cap_len  = $this->p->options['tumblr_cap_len'];
 			$tumblr_cap_text = $this->p->page->get_caption( $this->p->options['tumblr_caption'], $tumblr_cap_len, $mod );
-			$tumblr_media = $this->p->og->get_media_info( $this->p->lca . '-tumblr-button', array( 'pid', 'img_url' ), $mod, 'og' );
-			$force_regen = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
+			$tumblr_media    = $this->p->og->get_media_info( $this->p->lca . '-tumblr-button', array( 'pid', 'img_url' ), $mod, 'og' );
+			$force_regen     = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 
 			if ( ! empty( $tumblr_media['pid'] ) ) {
 				list( 
@@ -243,9 +242,8 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 				'th_class' => 'medium', 'tooltip' => 'post-tumblr_img_desc', 'td_class' => 'blank top',
 				'content' => ( empty( $tumblr_media['img_url'] ) ?
 					'<em>' . sprintf( __( 'Caption disabled - no suitable image found for the %s button', 'wpsso-ssb' ), 'Tumblr' ) . '</em>' :
-					$form->get_no_textarea_value( $tumblr_cap_text, '', '', $tumblr_cap_len ) . 
-					'</td><td class="top thumb_preview"><img src="' . $tumblr_media['img_url'] . '" ' .
-						'style="max-width:' . $thumb_size_info['width'] . 'px;">' ),
+					$form->get_no_textarea_value( $tumblr_cap_text, '', '', $tumblr_cap_len ) . '</td><td class="top thumb_preview">' .
+						'<img src="' . $tumblr_media['img_url'] . '">' ),
 			);
 
 			$form_rows['tumblr_vid_desc'] = array(

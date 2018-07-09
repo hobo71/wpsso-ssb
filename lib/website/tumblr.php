@@ -143,10 +143,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		}
 
 		public function filter_plugin_image_sizes( $sizes ) {
+
 			$sizes['tumblr_img'] = array(
-				'name' => 'tumblr-button',
+				'name'  => 'tumblr-button',
 				'label' => _x( 'Tumblr Sharing Button', 'image size label', 'wpsso-ssb' ),
 			);
+
 			return $sizes;
 		}
 

@@ -148,46 +148,46 @@ msgstr ""
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:145 lib/pro/admin/sharing.php:146
+#: lib/gpl/admin/sharing.php:144 lib/pro/admin/sharing.php:145
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:162 lib/pro/admin/sharing.php:163
+#: lib/gpl/admin/sharing.php:161 lib/pro/admin/sharing.php:162
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:169
+#: lib/gpl/admin/sharing.php:167 lib/pro/admin/sharing.php:168
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:184 lib/pro/admin/sharing.php:185
+#: lib/gpl/admin/sharing.php:183 lib/pro/admin/sharing.php:184
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:212 lib/pro/admin/sharing.php:213
+#: lib/gpl/admin/sharing.php:211 lib/pro/admin/sharing.php:212
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:242 lib/pro/admin/sharing.php:243
+#: lib/gpl/admin/sharing.php:241 lib/pro/admin/sharing.php:242
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:245 lib/pro/admin/sharing.php:247
+#: lib/gpl/admin/sharing.php:244 lib/pro/admin/sharing.php:246
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:252 lib/pro/admin/sharing.php:254
+#: lib/gpl/admin/sharing.php:250 lib/pro/admin/sharing.php:252
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:254 lib/pro/admin/sharing.php:258
+#: lib/gpl/admin/sharing.php:252 lib/pro/admin/sharing.php:256
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
@@ -512,7 +512,7 @@ msgctxt "option comment"
 msgid "characters or less"
 msgstr ""
 
-#: lib/website/buffer.php:130
+#: lib/website/buffer.php:131
 msgctxt "image size label"
 msgid "Buffer Sharing Button"
 msgstr ""
@@ -661,7 +661,7 @@ msgctxt "option label (short)"
 msgid "Caption Length"
 msgstr ""
 
-#: lib/website/pinterest.php:146
+#: lib/website/pinterest.php:147
 msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr ""
@@ -702,7 +702,7 @@ msgctxt "option label (short)"
 msgid "Link Description"
 msgstr ""
 
-#: lib/website/tumblr.php:148
+#: lib/website/tumblr.php:149
 msgctxt "image size label"
 msgid "Tumblr Sharing Button"
 msgstr ""
