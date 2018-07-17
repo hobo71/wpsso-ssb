@@ -154,24 +154,24 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 **Version 2.6.6 (2018/07/02)**
 
 * *New Features*
-	* None
+	* None.
 * *Improvements*
-	* None
+	* None.
 * *Bugfixes*
-	* None
+	* None.
 * *Developer Notes*
 	* Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
 **Version 2.6.5 (2018/05/17)**
 
 * *New Features*
-	* None
+	* None.
 * *Improvements*
 	* Added section headings in the SSO Sharing Buttons tab.
 * *Bugfixes*
-	* None
+	* None.
 * *Developer Notes*
-	* None
+	* None.
 
 == Upgrade Notice ==
 
