@@ -175,7 +175,8 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 					$atts['width'],
 					$atts['height'],
 					$atts['cropped'],
-					$atts['pid']
+					$atts['pid'],
+					$atts['alt']
 				) = $this->p->media->get_attachment_image_src( $atts['pid'], $atts['size'], false, $force_regen );
 
 				if ( $this->p->debug->enabled ) {
