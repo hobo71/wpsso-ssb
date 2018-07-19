@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.7.0 (2018/07/19)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.6.6 (2018/07/02)**
 
 * *New Features*
@@ -175,11 +186,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
+= 2.7.0-b.1 =
+
+(2018/07/19) None.
+
 = 2.6.6 =
 
 (2018/07/02) Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
-
-= 2.6.5 =
-
-(2018/05/17) Added section headings in the SSO Sharing Buttons tab.
 
