@@ -151,11 +151,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteGplus' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_gplus',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_gplus',
 				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 
 			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>';
+				$this->p->lca.'_insert_js( "gplus-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

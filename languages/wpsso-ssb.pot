@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.7.0-b.1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.7.0-b.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2018-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -168,26 +168,26 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:212 lib/pro/admin/sharing.php:213
+#: lib/gpl/admin/sharing.php:205 lib/pro/admin/sharing.php:206
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:242 lib/pro/admin/sharing.php:243
+#: lib/gpl/admin/sharing.php:229 lib/pro/admin/sharing.php:230
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:245 lib/pro/admin/sharing.php:247
+#: lib/gpl/admin/sharing.php:232 lib/pro/admin/sharing.php:234
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:251 lib/pro/admin/sharing.php:253
+#: lib/gpl/admin/sharing.php:238 lib/pro/admin/sharing.php:240
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:257
+#: lib/gpl/admin/sharing.php:240 lib/pro/admin/sharing.php:244
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
@@ -450,7 +450,7 @@ msgstr ""
 #: lib/website/facebook.php:41 lib/website/gplus.php:30
 #: lib/website/linkedin.php:30 lib/website/managewp.php:30
 #: lib/website/pinterest.php:46 lib/website/reddit.php:30
-#: lib/website/stumbleupon.php:78 lib/website/tumblr.php:46
+#: lib/website/stumbleupon.php:83 lib/website/tumblr.php:46
 #: lib/website/twitter.php:30 lib/website/whatsapp.php:30
 msgctxt "option label (short)"
 msgid "Show Button in"
@@ -460,7 +460,7 @@ msgstr ""
 #: lib/website/facebook.php:44 lib/website/gplus.php:33
 #: lib/website/linkedin.php:33 lib/website/managewp.php:33
 #: lib/website/pinterest.php:49 lib/website/reddit.php:33
-#: lib/website/stumbleupon.php:81 lib/website/tumblr.php:49
+#: lib/website/stumbleupon.php:86 lib/website/tumblr.php:49
 #: lib/website/twitter.php:33 lib/website/whatsapp.php:33
 msgctxt "option label (short)"
 msgid "Preferred Order"
@@ -470,7 +470,7 @@ msgstr ""
 #: lib/website/facebook.php:49 lib/website/gplus.php:38
 #: lib/website/linkedin.php:38 lib/website/managewp.php:38
 #: lib/website/pinterest.php:54 lib/website/reddit.php:38
-#: lib/website/stumbleupon.php:86 lib/website/tumblr.php:54
+#: lib/website/stumbleupon.php:91 lib/website/tumblr.php:54
 #: lib/website/twitter.php:38 lib/website/whatsapp.php:38
 msgctxt "option label (short)"
 msgid "Allow for Platform"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: lib/website/buffer.php:59 lib/website/facebook.php:54
 #: lib/website/gplus.php:43 lib/website/linkedin.php:43
-#: lib/website/pinterest.php:59 lib/website/stumbleupon.php:91
+#: lib/website/pinterest.php:59 lib/website/stumbleupon.php:96
 #: lib/website/tumblr.php:59 lib/website/twitter.php:43
 msgctxt "option label (short)"
 msgid "JavaScript in"
@@ -666,13 +666,13 @@ msgctxt "image size label"
 msgid "Pinterest Sharing Button"
 msgstr ""
 
-#: lib/website/stumbleupon.php:75
+#: lib/website/stumbleupon.php:80
 msgid ""
 "Please note that StumbleUpon does not currently provide<br/>an HTTPS "
 "compatible share button."
 msgstr ""
 
-#: lib/website/stumbleupon.php:94
+#: lib/website/stumbleupon.php:99
 msgctxt "option label (short)"
 msgid "Button Style"
 msgstr ""

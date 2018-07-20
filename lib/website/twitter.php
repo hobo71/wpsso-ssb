@@ -124,7 +124,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 			}
 
 			$service_key = $this->p->options['plugin_shortener'];
-			$short_url = apply_filters( $this->p->lca.'_get_short_url', $atts['url'], $service_key, $mod['name'] );
+			$short_url   = apply_filters( $this->p->lca.'_get_short_url', $atts['url'], $service_key, $mod['name'] );
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];

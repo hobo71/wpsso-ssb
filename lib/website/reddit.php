@@ -110,7 +110,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 					break;
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_reddit', $js_url, '' ) );
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->'.
 				'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts['url'] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.

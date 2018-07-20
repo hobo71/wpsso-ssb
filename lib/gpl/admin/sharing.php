@@ -194,14 +194,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$force_regen  = $this->p->util->is_force_regen( $mod, 'schema' );	// false by default
 
 			if ( ! empty( $pin_media['pid'] ) ) {
-				list( 
-					$pin_media['img_url'], 
-					$img_width, 
-					$img_height,
-					$img_cropped,
-					$img_pid,
-					$img_alt
-				) = $this->p->media->get_attachment_image_src( $pin_media['pid'], 'thumbnail', false, $force_regen ); 
+				$pin_media['img_url'] = $this->p->media->get_attachment_image_url( $pin_media['pid'], 'thumbnail', false, $force_regen );
 			}
 			
 			$form_rows['subsection_pinterest'] = array(
@@ -225,13 +218,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			$force_regen     = $this->p->util->is_force_regen( $mod, 'og' );	// false by default
 
 			if ( ! empty( $tumblr_media['pid'] ) ) {
-				list( 
-					$tumblr_media['img_url'],
-					$img_width,
-					$img_height,
-					$img_cropped,
-					$img_pid
-				) = $this->p->media->get_attachment_image_src( $tumblr_media['pid'], 'thumbnail', false, $force_regen ); 
+				$tumblr_media['img_url'] = $this->p->media->get_attachment_image_url( $tumblr_media['pid'], 'thumbnail', false, $force_regen );
 			}
 
 			$form_rows['subsection_tumblr'] = array(

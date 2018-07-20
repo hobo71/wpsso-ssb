@@ -55,20 +55,25 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 			';
 
 			$badge_html .= '<div class="badge-col-left">';
+
 			$badge_number = empty( $this->p->options['stumble_badge'] ) ? 1 : $this->p->options['stumble_badge'];
+
 			foreach ( array( 1, 2, 3, 6 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
 				$badge_html .= '<input type="radio" name="'.$form->get_options_name().'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
+
 			$badge_html .= '</div><div class="badge-col-right">';
+
 			foreach ( array( 4, 5 ) as $i ) {
 				$badge_html .= '<div class="badge" id="badge-'.$i.'">';
 				$badge_html .= '<input type="radio" name="'.$form->get_options_name().'[stumble_badge]" 
 					value="'.$i.'" '.checked( $i, $badge_number, false ).'/>';
 				$badge_html .= '</div>';
 			}
+
 			$badge_html .= '</div>';
 
 			$table_rows[] = '<td colspan="2"><strong><center>'.
@@ -159,11 +164,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_stumbleupon',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_stumbleupon',
 				SucomUtil::get_prot().'://platform.stumbleupon.com/1/widgets.js', $pos ) );
 
 			return '<script type="text/javascript" id="stumbleupon-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>';
+				$this->p->lca.'_insert_js( "stumbleupon-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

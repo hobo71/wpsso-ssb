@@ -144,9 +144,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$lca = $this->p->cf['lca'];
-
-			$atts['size'] = isset( $atts['size'] ) ? $atts['size'] : $lca.'-buffer-button';
+			$atts['size'] = isset( $atts['size'] ) ?
+				$atts['size'] : $this->p->lca.'-buffer-button';
 
 			if ( ! empty( $atts['pid'] ) ) {
 
@@ -217,11 +216,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_buffer',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_buffer',
 				SucomUtil::get_prot().'://d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
 			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>';
+				$this->p->lca.'_insert_js( "buffer-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }

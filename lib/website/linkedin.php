@@ -123,11 +123,11 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->cf['lca'].'_js_url_linkedin',
+			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_linkedin',
 				SucomUtil::get_prot().'://platform.linkedin.com/in.js', $pos ) );
 
 			return  '<script type="text/javascript" id="linkedin-script-'.$pos.'">'.
-				$this->p->cf['lca'].'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>';
+				$this->p->lca.'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>';
 		}
 	}
 }
