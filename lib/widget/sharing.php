@@ -22,13 +22,12 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 				return;
 			}
 
-			$lca = $this->p->cf['lca'];
-			$short = $this->p->cf['plugin']['wpssossb']['short'];
-			$name = $this->p->cf['plugin']['wpssossb']['name'];
-			$widget_name = $short;
-			$widget_class = $lca.'-ssb-widget';
-			$widget_ops = array( 
-				'classname' => $widget_class,
+			$short        = $this->p->cf['plugin']['wpssossb']['short'];
+			$name         = $this->p->cf['plugin']['wpssossb']['name'];
+			$widget_name  = $short;
+			$widget_class = $this->p->lca . '-ssb-widget';
+			$widget_ops   = array( 
+				'classname'   => $widget_class,
 				'description' => sprintf( __( 'The %s widget.', 'wpsso-ssb' ), $name ),
 			);
 
@@ -59,11 +58,10 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			}
 			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 
-			$lca = $this->p->lca;
-			$type = 'sharing_widget_'.$this->id;
+			$type = 'sharing_widget_' . $this->id;
 			$sharing_url = $this->p->util->get_sharing_url( $mod );
 
-			$cache_md5_pre  = $lca . '_b_';
+			$cache_md5_pre  = $this->p->lca . '_b_';
 			$cache_exp_secs = $this->p->ssb_sharing->get_buttons_cache_exp();
 			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $sharing_url ) . ')';
 			$cache_id       = $cache_md5_pre . md5( $cache_salt );
@@ -104,7 +102,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			$sorted_ids = array();
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				if ( array_key_exists( $id, $instance ) && (int) $instance[$id] ) {
-					$sorted_ids[ zeroise( $this->p->options[$opt_pre.'_order'], 3 ).'-'.$id] = $id;
+					$sorted_ids[ zeroise( $this->p->options[$opt_pre . '_order'], 3 ) . '-' . $id] = $id;
 				}
 			}
 			ksort( $sorted_ids );
@@ -114,20 +112,20 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 
 			if ( ! empty( $cache_array[$cache_index] ) ) {
 				$cache_array[$cache_index] = '
-<!-- '.$lca.' sharing widget '.$args['widget_id'].' begin -->
-<!-- generated on '.date( 'c' ).' -->'.
-$before_widget.
-( empty( $title ) ? '' : $before_title.$title.$after_title ).
+<!-- ' . $this->p->lca . ' sharing widget ' . $args['widget_id'] . ' begin -->
+<!-- generated on ' . date( 'c' ) . ' -->' . 
+$before_widget . 
+( empty( $title ) ? '' : $before_title . $title . $after_title ) . 
 $cache_array[$cache_index] . "\n" . 	// buttons html is trimmed, so add newline
-$after_widget.
-'<!-- '.$lca.' sharing widget '.$args['widget_id'].' end -->' . "\n\n";
+$after_widget . 
+'<!-- ' . $this->p->lca . ' sharing widget ' . $args['widget_id'] . ' end -->' . "\n\n";
 			}
 
 			if ( $cache_exp_secs > 0 ) {
 				// update the cached array and maintain the existing transient expiration time
 				$expires_in_secs = SucomUtil::update_transient_array( $cache_id, $cache_array, $cache_exp_secs );
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( $type.' buttons html saved to transient cache (expires in '.$expires_in_secs.' secs)' );
+					$this->p->debug->log( $type . ' buttons html saved to transient cache (expires in ' . $expires_in_secs . ' secs)' );
 				}
 			}
 
@@ -149,10 +147,10 @@ $after_widget.
 
 			$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : _x( 'Share It', 'option value', 'wpsso-ssb' );
 	
-			echo "\n" . '<p><label for="'.$this->get_field_id( 'title' ).'">'.
-				_x( 'Widget Title (leave blank for no title)', 'option label', 'wpsso-ssb' ).':</label>'.
-				'<input class="widefat" id="'.$this->get_field_id( 'title' ).'" name="'.
-					$this->get_field_name( 'title' ).'" type="text" value="'.$title.'"/></p>' . "\n";
+			echo "\n" . '<p><label for="' . $this->get_field_id( 'title' ) . '">' . 
+				_x( 'Widget Title (leave blank for no title)', 'option label', 'wpsso-ssb' ) . ':</label>' . 
+				'<input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . 
+					$this->get_field_name( 'title' ) . '" type="text" value="' . $title . '"/></p>' . "\n";
 
 			if ( isset( $this->p->ssb_sharing ) ) {
 
@@ -160,16 +158,16 @@ $after_widget.
 
 					$name = $name == 'GooglePlus' ? 'Google+' : $name;
 
-					echo '<p><label for="'.$this->get_field_id( $id ).'">'.
-						'<input id="'.$this->get_field_id( $id ).
-						'" name="'.$this->get_field_name( $id ).
+					echo '<p><label for="' . $this->get_field_id( $id ) . '">' . 
+						'<input id="' . $this->get_field_id( $id ) . 
+						'" name="' . $this->get_field_name( $id ) . 
 						'" value="1" type="checkbox" ';
 
 					if ( ! empty( $instance[$id] ) ) {
 						echo checked( 1, $instance[$id] );
 					}
 
-					echo '/> '.$name.'</label></p>', "\n";
+					echo '/> ' . $name . '</label></p>', "\n";
 				}
 			}
 		}
