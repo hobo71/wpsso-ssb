@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9.7
 WC Tested Up To: 3.4.3
-Stable Tag: 2.6.6
+Stable Tag: 2.7.0
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -173,24 +173,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
-**Version 2.6.5 (2018/05/17)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* Added section headings in the SSO Sharing Buttons tab.
-* *Bugfixes*
-	* None.
-* *Developer Notes*
-	* None.
-
 == Upgrade Notice ==
 
 = 2.7.0 =
 
 (2018/07/22) Replaced some calls to WpssoMedia `get_attachment_image_src()` with `get_attachment_image_url()` (available in WPSSO v4.9.0).
-
-= 2.6.6 =
-
-(2018/07/02) Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
