@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.7.0-rc.2 (2018/07/22)**
+**Version 2.7.0 (2018/07/22)**
 
 * *New Features*
 	* None.
@@ -186,7 +186,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.7.0-rc.2 =
+= 2.7.0 =
 
 (2018/07/22) Replaced some calls to WpssoMedia `get_attachment_image_src()` with `get_attachment_image_url()` (available in WPSSO v4.9.0).
 
