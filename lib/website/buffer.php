@@ -22,7 +22,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'image_dimensions_general_rows' => 2,
-				'ssb_website_buffer_rows' => 3,
+				'ssb_website_buffer_rows'       => 3,
 			) );
 		}
 
