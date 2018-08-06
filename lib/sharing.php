@@ -213,12 +213,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_get_md_defaults( $md_defs ) {
 			return array_merge( $md_defs, array(
-				'email_title' => '',		// Email Subject
-				'email_desc' => '',		// Email Message
-				'twitter_desc' => '',		// Tweet Text
-				'pin_desc' => '',		// Pinterest Caption Text
-				'tumblr_img_desc' => '',	// Tumblr Image Caption
-				'tumblr_vid_desc' => '',	// Tumblr Video Caption
+				'email_title'      => '',	// Email Subject
+				'email_desc'       => '',	// Email Message
+				'twitter_desc'     => '',	// Tweet Text
+				'pin_desc'         => '',	// Pinterest Caption Text
+				'tumblr_img_desc'  => '',	// Tumblr Image Caption
+				'tumblr_vid_desc'  => '',	// Tumblr Video Caption
 				'buttons_disabled' => 0,	// Disable Sharing Buttons
 			) );
 		}
@@ -1249,7 +1249,9 @@ $cache_array[$cache_index].
 			}
 		}
 
-		// $opt_pre can be twitter, buffer, etc.
+		/**
+		 * $opt_pre can be twitter, buffer, etc.
+		 */
 		public function get_tweet_max_len( $opt_pre = 'twitter' ) {
 
 			$short_len = 23;	// twitter counts 23 characters for any url
