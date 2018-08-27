@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.7.1-dev.2 (2018/08/27)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* Minor update for code style and changes in WPSSO v4.11.2.
+
 **Version 2.7.0 (2018/07/22)**
 
 * *New Features*
@@ -174,6 +185,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
 == Upgrade Notice ==
+
+= 2.7.1-dev.2 =
+
+(2018/08/27) Minor update for code style and changes in WPSSO v4.11.2.
 
 = 2.7.0 =
 
