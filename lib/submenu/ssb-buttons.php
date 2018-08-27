@@ -178,17 +178,17 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 		public function show_on_checkboxes( $opt_prefix ) {
 
-			$col = 0;
-			$max = 2;
-			$html = '<table>';
-			$aop = $this->p->check->aop( 'wpssossb', true, $this->p->avail['*']['p_dir'] );
+			$col     = 0;
+			$max     = 2;
+			$html    = '<table>';
+			$has_pp  = $this->p->check->pp( 'wpssossb', true, $this->p->avail['*']['p_dir'] );
 			$show_on = apply_filters( $this->p->lca.'_ssb_buttons_show_on', $this->p->cf['sharing']['show_on'], $opt_prefix );
 
 			foreach ( $show_on as $opt_suffix => $short_desc ) {
 
 				$css_class = isset( $this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] ) &&
 					$this->p->options[$opt_prefix.'_on_'.$opt_suffix.':is'] === 'disabled' &&
-						! $aop ? 'show_on blank' : 'show_on';
+						! $has_pp ? 'show_on blank' : 'show_on';
 
 				$col++;
 

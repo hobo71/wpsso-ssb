@@ -354,9 +354,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$features['(tool) Sharing Styles Editor'] = array( 
-					'td_class' => $pkg['aop'] ? '' : 'blank',
+					'td_class' => $pkg['pp'] ? '' : 'blank',
 					'purchase' => $pkg['purchase'],
-					'status' => $pkg['aop'] ? 'on' : 'rec',
+					'status'   => $pkg['pp'] ? 'on' : 'rec',
 				);
 			}
 			return $features;
