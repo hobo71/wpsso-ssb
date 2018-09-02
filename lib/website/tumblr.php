@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 	class WpssoSsbSubmenuWebsiteTumblr {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -101,6 +104,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 
 	class WpssoSsbWebsiteTumblr {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -127,9 +131,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

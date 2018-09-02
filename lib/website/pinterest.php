@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 
 	class WpssoSsbSubmenuWebsitePinterest {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -99,6 +102,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 
 	class WpssoSsbWebsitePinterest {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -125,9 +129,8 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

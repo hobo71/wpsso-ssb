@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteManagewp' ) ) {
 
 	class WpssoSsbSubmenuWebsiteManagewp {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -51,6 +54,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 
 	class WpssoSsbWebsiteManagewp {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -65,9 +69,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

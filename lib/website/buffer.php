@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 
 	class WpssoSsbSubmenuWebsiteBuffer {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -86,6 +89,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 
 	class WpssoSsbWebsiteBuffer {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -109,9 +113,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 	class WpssoSsbSubmenuWebsiteFacebook {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -135,6 +138,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 
 	class WpssoSsbWebsiteFacebook {
 
+		private $p;
+		private $sdk_version = 'v2.6';
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -162,10 +167,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 			),
 		);
 
-		protected $p;
-		protected $sdk_version = 'v2.6';
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

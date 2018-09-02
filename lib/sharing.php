@@ -86,6 +86,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		);
 
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

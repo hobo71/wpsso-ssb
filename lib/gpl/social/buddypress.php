@@ -17,6 +17,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypress' ) ) {
 		private $sharing;
 
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -42,6 +43,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 		private $p;
 
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

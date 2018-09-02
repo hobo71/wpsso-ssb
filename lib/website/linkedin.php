@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 
 	class WpssoSsbSubmenuWebsiteLinkedin {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -63,6 +66,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 
 	class WpssoSsbWebsiteLinkedin {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -79,9 +83,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

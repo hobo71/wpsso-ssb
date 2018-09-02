@@ -13,7 +13,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteStumbleupon' ) ) {
 
 	class WpssoSsbSubmenuWebsiteStumbleupon {
 
+		private $p;
+
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -108,6 +111,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 
 	class WpssoSsbWebsiteStumbleupon {
 
+		private $p;
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
@@ -123,9 +127,8 @@ if ( ! class_exists( 'WpssoSsbWebsiteStumbleupon' ) ) {
 			),
 		);
 
-		protected $p;
-
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {

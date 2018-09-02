@@ -17,6 +17,7 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpress' ) ) {
 		private $sharing;
 
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
 
 			if ( $this->p->debug->enabled ) {
@@ -42,9 +43,12 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 		private $p;
 
 		public function __construct( &$plugin ) {
+
 			$this->p =& $plugin;
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
