@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.7.1-rc.3 (2018/09/07)**
+**Version 2.7.1-rc.3 (2018/09/09)**
 
 * *New Features*
 	* None.
@@ -188,7 +188,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.7.1-rc.3 =
 
-(2018/09/07) Minor update for code style and changes in WPSSO v4.12.0.
+(2018/09/09) Minor update for code style and changes in WPSSO v4.12.0.
 
 = 2.7.0 =
 
