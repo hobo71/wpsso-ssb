@@ -30,8 +30,8 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 					$this->add_shortcode();
 
 					$this->p->util->add_plugin_actions( $this, array( 
-						'text_filter_before' => 1,
-						'text_filter_after'  => 1,
+						'pre_apply_filters_text'   => 1,
+						'after_apply_filters_text' => 1,
 					) );
 				}
 			}

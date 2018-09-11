@@ -119,8 +119,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			) );
 
 			$this->p->util->add_plugin_actions( $this, array( 
-				'text_filter_before' => 1,
-				'text_filter_after'  => 1,
+				'pre_apply_filters_text'   => 1,
+				'after_apply_filters_text' => 1,
 			) );
 
 			if ( is_admin() ) {
@@ -590,14 +590,19 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$added = false;
 
 			if ( empty( $filter_name ) ) {
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'filter_name argument is empty' );
 				}
+
 			} elseif ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
+
 				$added = add_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'buttons filter '.$filter_name.' added ('.( $added  ? 'true' : 'false' ).')' );
 				}
+
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'get_buttons_'.$filter_name.' method is missing' );
 			}
@@ -606,25 +611,35 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function remove_buttons_filter( $filter_name = 'the_content' ) {
+
 			$removed = false;
+
 			if ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
+
 				$removed = remove_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'buttons filter '.$filter_name.' removed ('.( $removed  ? 'true' : 'false' ).')' );
 				}
 			}
+
 			return $removed;
 		}
 
 		public function get_buttons_the_excerpt( $text ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
+
 			$lca = $this->p->cf['lca'];
+
 			$css_type_name = 'ssb-excerpt';
+
 			$text = preg_replace_callback( '/(<!-- '.$lca.' '.$css_type_name.' begin -->'.
 				'.*<!-- '.$lca.' '.$css_type_name.' end -->)(<\/p>)?/Usi', 
 					array( __CLASS__, 'remove_paragraph_tags' ), $text );
+
 			return $text;
 		}
 
