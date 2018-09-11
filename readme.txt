@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.7.2-dev.2 (2018/09/11)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* Corrected the pre/after text filter action hook names.
+* *Developer Notes*
+	* None.
+
 **Version 2.7.1 (2018/09/09)**
 
 * *New Features*
@@ -185,6 +196,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Removed a check for the deprecated "Enable Plugin Shortcode(s)" option.
 
 == Upgrade Notice ==
+
+= 2.7.2-dev.2 =
+
+(2018/09/11) Corrected the pre/after text filter action hook names.
 
 = 2.7.1 =
 
