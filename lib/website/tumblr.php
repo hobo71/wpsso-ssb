@@ -224,7 +224,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 				}
 			} else {
 				if ( empty( $atts['title'] ) ) {
-					$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false );	// $add_ht = false
+					$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false );	// $add_hashtags = false
 				}
 
 				if ( empty( $atts['description'] ) ) {
