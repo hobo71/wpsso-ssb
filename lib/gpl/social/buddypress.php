@@ -24,9 +24,16 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypress' ) ) {
 				$this->p->debug->mark();
 			}
 
+			/**
+			 * Note that the latest BuddyPress templates use AJAX calls, so is_admin(),
+			 * bp_current_component(), and DOING_AJAX will all be true in those cases.
+			 */
 			if ( is_admin() || bp_current_component() ) {
+
 				if ( ! empty( $this->p->avail['p_ext']['ssb'] ) ) {
+
 					$classname = __CLASS__.'Sharing';
+
 					if ( class_exists( $classname ) ) {
 						$this->sharing = new $classname( $this->p );
 					}
@@ -52,9 +59,11 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
+				'ssb_styles'   => 1,
 			) );
 
 			if ( is_admin() && empty( $this->p->options['plugin_hide_pro'] ) ) {
+
 				$this->p->util->add_plugin_filters( $this, array( 
 					'ssb_buttons_show_on' => 2,
 					'ssb_styles_tabs'     => 1,
@@ -63,29 +72,46 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 		}
 
 		public function filter_get_defaults( $opts_def ) {
+
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				$opts_def[$opt_pre.'_on_bp_activity'] = 0;
 			}
+
 			return $opts_def;
 		}
 
 		public function filter_ssb_buttons_show_on( $show_on = array(), $opt_pre = '' ) {
+
 			switch ( $opt_pre ) {
+
 				case 'pin':
+
 					break;
+
 				default:
+
 					$show_on['bp_activity'] = 'BP Activity';
+
 					$this->p->options[$opt_pre.'_on_bp_activity:is'] = 'disabled';
+
 					break;
 			}
+
 			return $show_on;
 		}
 
-		public function filter_ssb_styles_tabs( $tabs ) {
-			$tabs['ssb-bp_activity'] = 'BP Activity';
+		public function filter_ssb_styles( $styles ) {
+
+			return $this->filter_ssb_styles_tabs( $styles );
+		}
+
+		public function filter_ssb_styles_tabs( $styles ) {
+
+			$styles['ssb-bp_activity'] = 'BP Activity';
+
 			$this->p->options['buttons_css_ssb-bp_activity:is'] = 'disabled';
-			return $tabs;
+
+			return $styles;
 		}
 	}
 }
-

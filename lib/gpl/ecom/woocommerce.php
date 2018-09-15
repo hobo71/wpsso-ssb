@@ -50,6 +50,7 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
+				'ssb_styles'   => 1,
 			) );
 
 			if ( is_admin() && empty( $this->p->options['plugin_hide_pro'] ) ) {
@@ -62,9 +63,11 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 		}
 
 		public function filter_get_defaults( $opts_def ) {
+
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				$opts_def[$opt_pre.'_on_woo_short'] = 0;
 			}
+
 			$opts_def['buttons_pos_woo_short'] = 'bottom';
 			$opts_def['buttons_preset_ssb-woo_short'] = '';
 
@@ -72,15 +75,26 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 		}
 
 		public function filter_ssb_buttons_show_on( $show_on = array(), $opt_pre ) {
+
 			$show_on['woo_short'] = 'Woo Short';
+
 			$this->p->options[$opt_pre.'_on_woo_short:is'] = 'disabled';
+
 			return $show_on;
 		}
 
-		public function filter_ssb_styles_tabs( $tabs ) {
-			$tabs['ssb-woo_short'] = 'Woo Short';
+		public function filter_ssb_styles( $styles ) {
+
+			return $this->filter_ssb_styles_tabs( $styles );
+		}
+
+		public function filter_ssb_styles_tabs( $styles ) {
+
+			$styles['ssb-woo_short'] = 'Woo Short';
+
 			$this->p->options['buttons_css_ssb-woo_short:is'] = 'disabled';
-			return $tabs;
+
+			return $styles;
 		}
 
 		public function filter_ssb_buttons_position_rows( $table_rows, $form ) {
@@ -95,4 +109,3 @@ if ( ! class_exists( 'WpssoSsbGplEcomWoocommerceSharing' ) ) {
 		}
 	}
 }
-

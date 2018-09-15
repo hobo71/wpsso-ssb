@@ -52,6 +52,7 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults' => 1,
+				'ssb_styles'   => 1,
 			) );
 
 			if ( is_admin() && empty( $this->p->options['plugin_hide_pro'] ) ) {
@@ -64,9 +65,11 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 		}
 
 		public function filter_get_defaults( $opts_def ) {
+
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				$opts_def[$opt_pre.'_on_bbp_single'] = 0;
 			}
+
 			$opts_def['buttons_pos_bbp_single'] = 'top';
 
 			return $opts_def;
@@ -84,10 +87,18 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 			return $show_on;
 		}
 
-		public function filter_ssb_styles_tabs( $tabs ) {
-			$tabs['ssb-bbp_single'] = 'bbPress Single';
+		public function filter_ssb_styles( $styles ) {
+
+			return $this->filter_ssb_styles_tabs( $styles );
+		}
+
+		public function filter_ssb_styles_tabs( $styles ) {
+
+			$styles['ssb-bbp_single'] = 'bbPress Single';
+
 			$this->p->options['buttons_css_ssb-bbp_single:is'] = 'disabled';
-			return $tabs;
+
+			return $styles;
 		}
 
 		public function filter_ssb_buttons_position_rows( $table_rows, $form ) {
@@ -97,8 +108,8 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 			$table_rows['buttons_pos_bbp_single'] = $form->get_th_html( _x( 'Position in bbPress Single',
 				'option label', 'wpsso-ssb' ), null, 'buttons_pos_bbp_single' ).
 			'<td class="blank">'.$this->p->cf['sharing']['position'][$this->p->options['buttons_pos_bbp_single']].'</td>';
+
 			return $table_rows;
 		}
 	}
 }
-
