@@ -118,12 +118,12 @@ if ( ! class_exists( 'WpssoSsbWebsiteEmail' ) ) {
 			$email_button_html = $this->p->options['email_ssb_html'];
 			$email_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $email_button_html );
 
-		 	$email_title = $this->p->page->get_caption( 'title', 0, $mod, true, false, false, 'og_title' );
-			$email_excerpt = $this->p->page->get_caption( 'excerpt', $opts['email_cap_len'], $mod, true, $atts['add_hashtags'], false, 'og_desc' );
+		 	$email_title   = $this->p->page->get_caption( 'title', 0, $mod, true, false, false, 'og_title' );
+			$email_excerpt = $this->p->page->get_caption( 'both', $opts['email_cap_len'], $mod, true, $atts['add_hashtags'], false, 'og_desc' );
 
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
 				$email_button_html, $mod, $atts, array(
-				 	'email_title' => rawurlencode( $email_title ),
+				 	'email_title'   => rawurlencode( $email_title ),
 					'email_excerpt' => rawurlencode( $email_excerpt ),
 				)
 			);

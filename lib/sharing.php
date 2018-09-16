@@ -168,7 +168,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			 * Add options using a key prefix array and post type names.
 			 */
 			$def_opts     = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
-			$rel_url_path = parse_url( WPSSOSSB_URLPATH, PHP_URL_PATH );	// returns a relative URL
+			$rel_url_path = parse_url( WPSSOSSB_URLPATH, PHP_URL_PATH );	// Returns a relative URL.
 			$styles       = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $styles as $id => $name ) {
@@ -234,7 +234,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function filter_save_options( $opts, $options_name, $network ) {
 
 			/**
-			 * Update the combined and minimized social stylesheet.
+			 * Update the combined and minified social stylesheet.
 			 */
 			if ( false === $network ) {
 				$this->update_sharing_css( $opts );
@@ -451,11 +451,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 			}
 
-			$tabs = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			$sharing_css_data = '';
 
-			foreach ( $tabs as $id => $name ) {
+			foreach ( $styles as $id => $name ) {
 				if ( isset( $opts['buttons_css_'.$id] ) ) {
 					$sharing_css_data .= $opts['buttons_css_'.$id];
 				}
@@ -521,7 +521,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ! @unlink( self::$sharing_css_file ) ) {
 
 					if ( is_admin() ) {
-						$this->p->notice->err( __( 'Error removing the minimized stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ) );
+						$this->p->notice->err( __( 'Error removing the minified stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ) );
 					}
 				}
 			}
@@ -549,20 +549,24 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function action_pre_apply_filters_text( $filter_name ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
 				) );
 			}
+
 			$this->remove_buttons_filter( $filter_name );
 		}
 
 		public function action_after_apply_filters_text( $filter_name ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log_args( array( 
 					'filter_name' => $filter_name,
 				) );
 			}
+
 			$this->add_buttons_filter( $filter_name );
 		}
 
@@ -688,29 +692,35 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function get_buttons_get_the_excerpt( $text ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
+
 			return $this->get_buttons( $text, 'excerpt' );
 		}
 
 		public function get_buttons_the_content( $text ) {
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
+
 			return $this->get_buttons( $text, 'content' );
 		}
 
-		// $mod = true | false | post_id | $mod array
+		/**
+		 * $mod = true | false | post_id | $mod array
+		 */
 		public function get_buttons( $text, $type = 'content', $mod = true, $location = '', $atts = array() ) {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark( 'getting buttons for '.$type );	// start timer
 			}
 
-			$doing_ajax    = defined( 'DOING_AJAX' ) && DOING_AJAX ? true : false;
 			$error_message = '';
 			$append_error  = true;
+			$doing_ajax    = defined( 'DOING_AJAX' ) && DOING_AJAX ? true : false;
 
 			if ( $doing_ajax ) {
 
@@ -826,18 +836,26 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$cache_array = get_transient( $cache_id );
 
 				if ( isset( $cache_array[$cache_index] ) ) {	// can be an empty string
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $type.' cache index found in transient cache' );
 					}
-					// continue and add buttons relative to the content (top, bottom, or both)
+
+					/**
+					 * Continue and add buttons relative to the content (top, bottom, or both).
+					 */
+
 				} else {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $type.' cache index not in transient cache' );
 					}
+
 					if ( ! is_array( $cache_array ) ) {
 						$cache_array = array();
 					}
 				}
+
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( $type.' buttons array transient cache is disabled' );
 			}
@@ -869,15 +887,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$cache_array[$cache_index] = $this->get_html( $sorted_ids, $atts, $mod );
 
 				if ( ! empty( $cache_array[$cache_index] ) ) {
-					$cache_array[$cache_index] = apply_filters( $this->p->lca.'_ssb_buttons_html', '
+
+					$cache_array[$cache_index] = '
 <!-- '.$this->p->lca.' '.$css_type_name.' begin -->
 <!-- generated on '.date( 'c' ).' -->
-<div class="'.$this->p->lca.'-ssb'.( $mod['use_post'] ?
-	' '.$this->p->lca.'-'.$css_type_name.'"' :
-	'" id="'.$this->p->lca.'-'.$css_type_name.'"' ).'>' . "\n" . 
+<div class="'.$this->p->lca.'-ssb
+	'.( $mod['use_post'] ? ' '.$this->p->lca.'-'.$css_type_name.'"' : '" id="'.$this->p->lca.'-'.$css_type_name.'"' ).'>' . "\n" . 
 $cache_array[$cache_index].
 '</div><!-- .'.$this->p->lca.'-ssb '.( $mod['use_post'] ? '.' : '#' ).$this->p->lca.'-'.$css_type_name.' -->
-<!-- '.$this->p->lca.' '.$css_type_name.' end -->' . "\n\n", $type, $mod, $location, $atts );
+<!-- '.$this->p->lca.' '.$css_type_name.' end -->' . "\n\n";
+
+					$cache_array[$cache_index] = apply_filters( $this->p->lca . '_ssb_buttons_html',
+						$cache_array[$cache_index], $type, $mod, $location, $atts );
 				}
 
 				if ( $cache_exp_secs > 0 ) {
@@ -909,7 +930,9 @@ $cache_array[$cache_index].
 		}
 
 		public function get_buttons_cache_exp() {
+
 			static $cache_exp_secs = null;	// filter the cache expiration value only once
+
 			if ( ! isset( $cache_exp_secs ) ) {
 				$cache_md5_pre    = $this->p->lca.'_b_';
 				$cache_exp_filter = $this->p->cf['wp']['transient'][$cache_md5_pre]['filter'];
@@ -917,6 +940,7 @@ $cache_array[$cache_index].
 				$cache_exp_secs   = isset( $this->p->options[$cache_opt_key] ) ? $this->p->options[$cache_opt_key] : WEEK_IN_SECONDS;
 				$cache_exp_secs   = (int) apply_filters( $cache_exp_filter, $cache_exp_secs );
 			}
+
 			return $cache_exp_secs;
 		}
 
@@ -938,7 +962,11 @@ $cache_array[$cache_index].
 
 			$cache_index .= $ids !== false ? '_ids:'.http_build_query( $ids, '', '_' ) : '';
 
-			return SucomUtil::get_query_salt( $cache_index );	// add $wp_query args
+			$cache_index = SucomUtil::get_query_salt( $cache_index );	// Add $wp_query args.
+
+			$cache_index = apply_filters( $this->p->lca . '_ssb_buttons_cache_index', $cache_index );
+
+			return $cache_index;
 		}
 
 		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
@@ -990,19 +1018,26 @@ $cache_array[$cache_index].
 				$filter_name = $this->p->lca.'_sharing_html_'.$atts['filter_id'].'_options';
 
 				if ( has_filter( $filter_name ) ) {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'applying filter_id '.$atts['filter_id'].' to options ('.$filter_name.')' );
 					}
+
 					$custom_opts = apply_filters( $filter_name, $custom_opts );
+
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
 				}
 			}
 
 			$saved_atts = $atts;
+
 			foreach ( $ids as $id ) {
+
 				if ( isset( $this->website[$id] ) ) {
+
 					if ( method_exists( $this->website[$id], 'get_html' ) ) {
+
 						if ( $this->allow_for_platform( $id ) ) {
 
 							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// uses 'css_id' and 'use_post'
@@ -1440,7 +1475,7 @@ $cache_array[$cache_index].
 
 				case 'tooltip-buttons_use_social_style':
 
-					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minimized</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minimized stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
+					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minified</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minified stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
 
 					break;
 
@@ -1570,8 +1605,8 @@ $cache_array[$cache_index].
     .ssb-buttons 
         .facebook-button {}</pre>';
 			if ( $preset ) {
-				$tabs = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
-				$text .= '<p>The '.$tabs['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
+				$styles = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+				$text .= '<p>The '.$styles['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
 						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
 							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
