@@ -5,10 +5,12 @@
  * necessary to customize the layout for your website.
  */
 
-/* make sure the Facebook flyout does not get clipped */
+/**
+ * Make sure the Facebook flyout does not get clipped.
+ */
 #page { overflow:visible; }
 
-/*
+/**
  * The .ssb-buttons class is common to all other button classes
  * (excerpt, content, shortcode, widget). Any change made to this
  * class will affect all other button layouts.
@@ -17,18 +19,22 @@
 	visibility:visible;
 	box-sizing:content-box;
 }
+
 .ssb-buttons img {
 	margin:none;
 	border:none;
 }
+
 .ssb-buttons img:hover {
 	border:none;
 }
+
 .ssb-buttons iframe {
 	margin:0 !important;
 	max-width:none;
 	vertical-align:baseline;
 }
+
 .ssb-buttons > div,		/* default uses small buttons */
 .wpsso-ssb-preset-small_share_count .ssb-buttons > div {
 	display:inline-block;
@@ -40,6 +46,7 @@
 	width:100px;
 	height:20px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div,
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons > div[class*="-button"] {
 	line-height:61px;
@@ -47,35 +54,42 @@
 	height:61px;
 }
 
-/* Facebook Button */
-
+/**
+ * Facebook button.
+ */
 .ssb-buttons div.facebook-button,		/* English (Default) */
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.facebook-button {
 	width:114px;
 }
+
 .ssb-buttons.cs_CZ div.facebook-button,		/* Czech */
 .wpsso-ssb-preset-small_share_count .ssb-buttons.cs_CZ div.facebook-button {
 	width:144px;
 }
+
 .ssb-buttons div.fb-share-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.fb-share-button {
 	width:90px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.fb-share-button {
 	height:40px;
 	line-height:40px;
 }
+
 .ssb-buttons div.fb-share-button span {
 	display:inline-block	!important;
 }
 
-/* Google+ Button */
-
+/**
+ * Google+ button.
+ */
 .ssb-buttons div.gplus-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.gplus-button {
 	width:99px;
 	vertical-align:top;
 }
+
 .ssb-buttons div.gplusone-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.gplusone-button {
 	width:75px;
@@ -83,8 +97,9 @@
 	vertical-align:top;
 }
 
-/* Twitter Button */
-
+/**
+ * Twitter button.
+ */
 .ssb-buttons div.twitter-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.twitter-button,
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.twitter-button {
@@ -94,63 +109,72 @@
 	vertical-align:top;
 }
 
-/* LinkedIn Button */
-
+/**
+ * LinkedIn button.
+ */
 .ssb-buttons div.linkedin-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.linkedin-button {
 	width:110px;
 }
 
-/* Pinterest Button */
-
+/**
+ * Pinterest button.
+ */
 .ssb-buttons div.pinterest-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.pinterest-button {
 	width:85px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.pinterest-button {
 	height:40px;
 	margin-top:35px;
 }
 
-/* Reddit Button */
-
+/**
+ * Reddit button.
+ */
 .ssb-buttons div.reddit-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.reddit-button {
 	width:130px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.reddit-button {
 	margin-bottom:10px;
 }
 
-/* StumbleUpon Button */
-
+/**
+ * StumbleUpon button.
+ */
 .ssb-buttons div.stumbleupon-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.stumbleupon-button {
 	width:84px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.stumbleupon-button {
 	height:60px;
 	line-height:60px;
 }
 
-/* Tumblr Button */
-
+/**
+ * Tumblr button.
+ */
 .ssb-buttons div.tumblr-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.tumblr-button {
 	width:85px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.tumblr-button {
 	height:40px;
 }
 
-/*
- * Non-JavaScript Buttons
+/**
+ * Non-javaScript buttons.
  */
-
 .ssb-buttons div.css-button a {
 	display:inline-block;
 	line-height:20px;
 	width:60px;
+	padding:0 !important;
 	font-size:10px;
 	border-radius:3px;
 	text-align:center;
@@ -174,52 +198,64 @@
 	font-weight:bold;
 }
 
-/* E-Mail Button */
-
+/**
+ * E-Mail button.
+ */
 .ssb-buttons div.email-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.email-button {
 	width:62px;
 }
+
 .ssb-buttons div.email-button a,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.email-button a {
 	width:62px;
 	background-color:#0a88ff;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.email-button {
 	height:20px !important;
 }
+
 .ssb-buttons div.email-button a:hover {
 	background-color:#006ed6;
 }
+
 .ssb-buttons div.email-button a .ssb-text::before {
 	content:" E-Mail";
 }
 
-/* WhatsApp Button */
-
+/**
+ * WhatsApp button.
+ */
 .ssb-buttons div.whatsapp-button,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.whatsapp-button {
 	width:80px;
 }
+
 .ssb-buttons div.whatsapp-button a,
 .wpsso-ssb-preset-small_share_count .ssb-buttons div.whatsapp-button a {
 	width:80px;
 	background-color:#64d448;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.whatsapp-button {
 	height:55px !important;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.whatsapp-button a {
 	width:60px;
 }
+
 .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.whatsapp-button a .ssb-icon svg {
 	width:auto;
 	height:22px;
 	margin:5px 0 0 0;
 }
+
 .ssb-buttons div.whatsapp-button a:hover {
 	background-color:#49bd2c;
 }
+
 .ssb-buttons div.whatsapp-button a .ssb-text::before {
 	content:" WhatsApp";
 }

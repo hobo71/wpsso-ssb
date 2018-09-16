@@ -374,19 +374,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
 
-			$opts     =& $this->p->options;
 			$def_opts = $this->p->opt->get_defaults();
 			$styles   = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $styles as $id => $name ) {
-				if ( isset( $opts['buttons_css_'.$id] ) && isset( $def_opts['buttons_css_'.$id] ) ) {
-					$opts['buttons_css_'.$id] = $def_opts['buttons_css_'.$id];
+				if ( isset( $this->p->options['buttons_css_'.$id] ) && isset( $def_opts['buttons_css_'.$id] ) ) {
+					$this->p->options['buttons_css_'.$id] = $def_opts['buttons_css_'.$id];
 				}
 			}
 
-			$this->update_sharing_css( $opts );
+			$this->update_sharing_css( $this->p->options );
 
-			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $opts, false );	// $network is false.
+			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $this->p->options, false );	// $network is false.
 
 			$this->p->notice->upd( __( 'All sharing styles have been reloaded with their default value and saved.', 'wpsso-ssb' ) );
 		}
@@ -1600,6 +1599,7 @@ $cache_array[$cache_index].
 		}
 
 		protected function get_info_css_example( $type, $preset = false ) {
+
 			$text = '<p>Example:</p><pre>
 .wpsso-ssb .wpsso-ssb-'.$type.'
     .ssb-buttons 
@@ -1611,55 +1611,71 @@ $cache_array[$cache_index].
 						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
 							$this->p->options['buttons_preset_ssb-'.$type] ).'</p>';
 			}
+
 			return $text;
 		}
 
 		public function filter_settings_page_custom_style_css( $custom_style_css ) {
+
 			$custom_style_css .= '
+
 				.ssb_website_col {
 					float:left;
 					min-height:50px;
 				}
+
 				.max_cols_1.ssb_website_col {
 					width:100%;
 					min-width:100%;
 					max-width:100%;
 				}
+
 				.max_cols_2.ssb_website_col {
 					width:50%;
 					min-width:50%;
 					max-width:50%;
 				}
+
 				.max_cols_3.ssb_website_col {
 					width:33.3333%;
 					min-width:33.3333%;
 					max-width:33.3333%;
 				}
+
 				.max_cols_4.ssb_website_col {
 					width:25%;
 					min-width:25%;
 					max-width:25%;
 				}
+
 				.ssb_website_col .postbox {
 					overflow-x:hidden;
 				}
+
 				.postbox-ssb_website {
 					min-width:452px;
 					overflow-y:auto;
 				}
+
 				.postbox-ssb_website .metabox-ssb_website {
-					min-height:565px;
+					min-height:575px;
 					overflow-y:auto;
 				}
+
+				/* Tabbed metabox */
+				.postbox-ssb_website div.sucom-metabox-tabs div.sucom-tabset.active {
+					min-height:533px;
+				}
+
 				.postbox-ssb_website.postbox-show_basic .metabox-ssb_website {
 					min-height:435px;
 				}
-				.postbox-ssb_website div.sucom-metabox-tabs div.sucom-tabset.active {
-					min-height:519px;
-				}
+
+				/* Tabbed metabox */
 				.postbox-ssb_website.postbox-show_basic div.sucom-metabox-tabs div.sucom-tabset.active {
-					min-height:389px;
+					min-height:392px;
 				}
+
 				.postbox-ssb_website.closed,
 				.postbox-ssb_website.closed .metabox-ssb_website,
 				.postbox-ssb_website.postbox-show_basic.closed .metabox-ssb_website {
@@ -1668,6 +1684,7 @@ $cache_array[$cache_index].
 					overflow:hidden;
 				}
 			';
+
 			return $custom_style_css;
 		}
 	}
