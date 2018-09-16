@@ -151,14 +151,14 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.7.2-dev.8 (2018/09/15)**
+**Version 2.8.0-b.1 (2018/09/15)**
 
 * *New Features*
 	* None.
 * *Improvements*
-	* None.
+	* Refactored the BuddyPress integration modules to support ajax queries in the new BuddyPress templates (Pro version).
 * *Bugfixes*
-	* Corrected the pre/after text filter action hook names.
+	* Fixed the pre/after text filter action hook names.
 * *Developer Notes*
 	* None.
 
@@ -197,9 +197,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.7.2-dev.8 =
+= 2.8.0-b.1 =
 
-(2018/09/15) Corrected the pre/after text filter action hook names.
+(2018/09/15) Refactored the BuddyPress integration modules to support ajax queries in the new BuddyPress templates (Pro version). Fixed the pre/after text filter action hook names.
 
 = 2.7.1 =
 
