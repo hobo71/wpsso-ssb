@@ -75,7 +75,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 				/**
 				 * Remove sharing filters on WordPress content and excerpt.
 				 */
-				add_action( $this->p->lca . '_init_plugin', array( $this, 'remove_wp_sharing_buttons' ), 100 );
+				add_action( $this->p->lca . '_init_plugin', array( $this, 'remove_wp_buttons' ), 100 );
 			}
 		}
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 			return $styles;
 		}
 
-		public function remove_wp_sharing_buttons() {
+		public function remove_wp_buttons() {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
