@@ -90,20 +90,9 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 		public function filter_ssb_buttons_show_on( $show_on = array(), $opt_pre = '' ) {
 
-			switch ( $opt_pre ) {
+			$show_on['bp_activity'] = 'BP Activity';
 
-				case 'pin':
-
-					break;
-
-				default:
-
-					$show_on['bp_activity'] = 'BP Activity';
-
-					$this->p->options[$opt_pre.'_on_bp_activity:is'] = 'disabled';
-
-					break;
-			}
+			$this->p->options[$opt_pre.'_on_bp_activity:is'] = 'disabled';
 
 			return $show_on;
 		}

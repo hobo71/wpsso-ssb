@@ -80,20 +80,9 @@ if ( ! class_exists( 'WpssoSsbGplForumBbpressSharing' ) ) {
 
 		public function filter_ssb_buttons_show_on( $show_on = array(), $opt_pre = '' ) {
 
-			switch ( $opt_pre ) {
+			$show_on['bbp_single'] = 'bbPress Single';
 
-				case 'pin':
-
-					break;
-
-				default:
-
-					$show_on['bbp_single'] = 'bbPress Single';
-
-					$this->p->options[$opt_pre.'_on_bbp_single:is'] = 'disabled';
-
-					break;
-			}
+			$this->p->options[$opt_pre.'_on_bbp_single:is'] = 'disabled';
 
 			return $show_on;
 		}

@@ -196,7 +196,7 @@ msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
 
-#: lib/gpl/forum/bbpress.php:119 lib/pro/forum/bbpress.php:173
+#: lib/gpl/forum/bbpress.php:108 lib/pro/forum/bbpress.php:162
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""
