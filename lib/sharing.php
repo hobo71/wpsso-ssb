@@ -88,9 +88,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$this->p->debug->mark( 'ssb sharing action / filter setup' );
 			}
 
-			self::$sharing_css_name = 'ssb-styles-id-'.get_current_blog_id().'.min.css';
-			self::$sharing_css_file = WPSSO_CACHEDIR.self::$sharing_css_name;
-			self::$sharing_css_url = WPSSO_CACHEURL.self::$sharing_css_name;
+			self::$sharing_css_name = 'ssb-styles-id-' . get_current_blog_id() . '.min.css';
+			self::$sharing_css_file = WPSSO_CACHEDIR . self::$sharing_css_name;
+			self::$sharing_css_url = WPSSO_CACHEURL . self::$sharing_css_name;
 
 			$this->set_objects();
 
@@ -150,12 +150,17 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		private function set_objects() {
+
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
-				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbwebsite'.$id );
+
+				$classname = WpssoSsbConfig::load_lib( false, 'website/' . $id, 'wpssossbwebsite' . $id );
+
 				if ( $classname !== false && class_exists( $classname ) ) {
+
 					$this->website[$id] = new $classname( $this->p );
+
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( $classname.' class loaded' );
+						$this->p->debug->log( $classname . ' class loaded' );
 					}
 				}
 			}
@@ -169,14 +174,14 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			 */
 			$def_opts     = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
 			$rel_url_path = parse_url( WPSSOSSB_URLPATH, PHP_URL_PATH );	// Returns a relative URL.
-			$styles       = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles       = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $styles as $id => $name ) {
 
-				$buttons_css_file = WPSSOSSB_PLUGINDIR.'css/'.$id.'.css';
+				$buttons_css_file = WPSSOSSB_PLUGINDIR . 'css/' . $id . '.css';
 
 				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
-				if ( empty( $def_opts['buttons_css_'.$id] ) ) {
+				if ( empty( $def_opts['buttons_css_' . $id] ) ) {
 
 					if ( ! file_exists( $buttons_css_file ) ) {
 
@@ -185,7 +190,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					} elseif ( ! $fh = @fopen( $buttons_css_file, 'rb' ) ) {
 
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( 'failed to open the css file '.self::$buttons_css_file.' for reading' );
+							$this->p->debug->log( 'failed to open the css file ' . self::$buttons_css_file . ' for reading' );
 						}
 
 						if ( is_admin() ) {
@@ -200,14 +205,14 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						fclose( $fh );
 
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( 'read css file '.$buttons_css_file );
+							$this->p->debug->log( 'read css file ' . $buttons_css_file );
 						}
 
 						foreach ( array( 'plugin_url_path' => $rel_url_path ) as $macro => $value ) {
-							$buttons_css_data = preg_replace( '/%%'.$macro.'%%/', $value, $buttons_css_data );
+							$buttons_css_data = preg_replace( '/%%' . $macro . '%%/', $value, $buttons_css_data );
 						}
 
-						$def_opts['buttons_css_'.$id] = $buttons_css_data;
+						$def_opts['buttons_css_' . $id] = $buttons_css_data;
 					}
 				}
 			}
@@ -339,29 +344,37 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $transient_keys;
 		}
 
-		// hooked to 'wpssossb_status_gpl_features'
 		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
-			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) )
+
+			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$features['(sharing) Sharing Buttons'] = array(
 					'classname' => $ext . 'Sharing',
 				);
-			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) )
+			}
+
+			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) ) {
 				$features['(sharing) Sharing Stylesheet'] = array(
 					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
 				);
-			if ( ! empty( $info['lib']['shortcode']['sharing'] ) )
+			}
+
+			if ( ! empty( $info['lib']['shortcode']['sharing'] ) ) {
 				$features['(sharing) Sharing Shortcode'] = array(
 					'classname' => $ext . 'ShortcodeSharing',
 				);
-			if ( ! empty( $info['lib']['widget']['sharing'] ) )
+			}
+
+			if ( ! empty( $info['lib']['widget']['sharing'] ) ) {
 				$features['(sharing) Sharing Widget'] = array(
 					'classname' => $ext . 'WidgetSharing'
 				);
+			}
+
 			return $features;
 		}
 
-		// hooked to 'wpssossb_status_pro_features'
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
+
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
 				$features['(tool) Sharing Styles Editor'] = array( 
 					'td_class' => $pkg['pp'] ? '' : 'blank',
@@ -369,17 +382,18 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					'status'   => $pkg['pp'] ? 'on' : 'rec',
 				);
 			}
+
 			return $features;
 		}
 
 		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
 
 			$def_opts = $this->p->opt->get_defaults();
-			$styles   = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles   = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $styles as $id => $name ) {
-				if ( isset( $this->p->options['buttons_css_'.$id] ) && isset( $def_opts['buttons_css_'.$id] ) ) {
-					$this->p->options['buttons_css_'.$id] = $def_opts['buttons_css_'.$id];
+				if ( isset( $this->p->options['buttons_css_' . $id] ) && isset( $def_opts['buttons_css_' . $id] ) ) {
+					$this->p->options['buttons_css_' . $id] = $def_opts['buttons_css_' . $id];
 				}
 			}
 
@@ -397,7 +411,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ! file_exists( self::$sharing_css_file ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'updating '.self::$sharing_css_file );
+						$this->p->debug->log( 'updating ' . self::$sharing_css_file );
 					}
 
 					$this->update_sharing_css( $this->p->options );
@@ -406,10 +420,10 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ! empty( $this->p->options['buttons_enqueue_social_style'] ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'wp_enqueue_style = '.$this->p->lca.'_ssb_sharing_css' );
+						$this->p->debug->log( 'wp_enqueue_style = ' . $this->p->lca . '_ssb_sharing_css' );
 					}
 
-					wp_enqueue_style( $this->p->lca.'_ssb_sharing_css', self::$sharing_css_url, 
+					wp_enqueue_style( $this->p->lca . '_ssb_sharing_css', self::$sharing_css_url, 
 						false, $this->p->cf['plugin'][$this->p->lca]['version'] );
 
 				} else {
@@ -417,7 +431,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					if ( ! is_readable( self::$sharing_css_file ) ) {
 
 						if ( $this->p->debug->enabled ) {
-							$this->p->debug->log( self::$sharing_css_file.' is not readable' );
+							$this->p->debug->log( self::$sharing_css_file . ' is not readable' );
 						}
 
 						if ( is_admin() ) {
@@ -450,13 +464,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 			}
 
-			$styles = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			$sharing_css_data = '';
 
 			foreach ( $styles as $id => $name ) {
-				if ( isset( $opts['buttons_css_'.$id] ) ) {
-					$sharing_css_data .= $opts['buttons_css_'.$id];
+				if ( isset( $opts['buttons_css_' . $id] ) ) {
+					$sharing_css_data .= $opts['buttons_css_' . $id];
 				}
 			}
 
@@ -467,7 +481,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ( $written = fwrite( $fh, $sharing_css_data ) ) === false ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'failed writing the css file '.self::$sharing_css_file );
+						$this->p->debug->log( 'failed writing the css file ' . self::$sharing_css_file );
 					}
 
 					if ( is_admin() ) {
@@ -477,12 +491,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 				} elseif ( $this->p->debug->enabled ) {
 
-					$this->p->debug->log( 'updated css file '.self::$sharing_css_file.' ('.$written.' bytes written)' );
+					$this->p->debug->log( 'updated css file ' . self::$sharing_css_file . ' (' . $written . ' bytes written)' );
 
 					if ( is_admin() ) {
 						$this->p->notice->upd( sprintf( __( 'Updated the <a href="%1$s">%2$s</a> stylesheet (%3$d bytes written).',
 							'wpsso-ssb' ), self::$sharing_css_url, self::$sharing_css_file, $written ), 
-								true, 'updated_'.self::$sharing_css_file, true );	// allow dismiss
+								true, 'updated_' . self::$sharing_css_file, true );	// allow dismiss
 					}
 				}
 
@@ -493,7 +507,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ! is_writable( WPSSO_CACHEDIR ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'cache folder '.WPSSO_CACHEDIR.' is not writable' );
+						$this->p->debug->log( 'cache folder ' . WPSSO_CACHEDIR . ' is not writable' );
 					}
 
 					if ( is_admin() ) {
@@ -503,7 +517,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'failed to open the css file '.self::$sharing_css_file.' for writing' );
+					$this->p->debug->log( 'failed to open the css file ' . self::$sharing_css_file . ' for writing' );
 				}
 
 				if ( is_admin() ) {
@@ -540,8 +554,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 			}
 
-			if ( ! empty( $this->p->options['buttons_add_to_'.$post_obj->post_type] ) ) {
-				add_meta_box( '_'.$this->p->lca.'_ssb_share',
+			if ( ! empty( $this->p->options['buttons_add_to_' . $post_obj->post_type] ) ) {
+				add_meta_box( '_' . $this->p->lca . '_ssb_share',
 					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
 						array( $this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );
 			}
@@ -593,11 +607,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$text = $this->get_buttons( '', 'sidebar', false );	// $use_post = false
 
 			if ( ! empty( $text ) ) {
-				echo '<div id="'.$this->p->lca.'-ssb-sidebar-container">';
-				echo '<div id="'.$this->p->lca.'-ssb-sidebar-header"></div>';
+				echo '<div id="' . $this->p->lca . '-ssb-sidebar-container">';
+				echo '<div id="' . $this->p->lca . '-ssb-sidebar-header"></div>';
 				echo $text;
 				echo '</div>', "\n";
-				echo '<script type="text/javascript">'.$js.'</script>', "\n";
+				echo '<script type="text/javascript">' . $js . '</script>', "\n";
 			}
 		}
 
@@ -610,8 +624,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			$sharing_css_data = $this->p->options['buttons_css_ssb-admin_edit'];
 			$sharing_css_data = SucomUtil::minify_css( $sharing_css_data, $this->p->lca );
 
-			echo '<style type="text/css">'.$sharing_css_data.'</style>', "\n";
-			echo '<table class="sucom-settings '.$this->p->lca.' post-side-metabox"><tr><td>';
+			echo '<style type="text/css">' . $sharing_css_data . '</style>', "\n";
+			echo '<table class="sucom-settings ' . $this->p->lca . ' post-side-metabox"><tr><td>';
 
 			if ( get_post_status( $post_obj->ID ) === 'publish' || $post_obj->post_type === 'attachment' ) {
 
@@ -621,8 +635,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				echo $this->get_script( 'footer' );
 
 			} else {
-				echo '<p class="centered">'.sprintf( __( '%s must be published<br/>before it can be shared.',
-					'wpsso-ssb' ), SucomUtil::titleize( $post_obj->post_type ) ).'</p>';
+				echo '<p class="centered">' . sprintf( __( '%s must be published<br/>before it can be shared.',
+					'wpsso-ssb' ), SucomUtil::titleize( $post_obj->post_type ) ) . '</p>';
 			}
 
 			echo '</td></tr></table>';
@@ -644,16 +658,16 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 					$this->p->debug->log( 'filter_name argument is empty' );
 				}
 
-			} elseif ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
+			} elseif ( method_exists( $this, 'get_buttons_' . $filter_name ) ) {
 
-				$added = add_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+				$added = add_filter( $filter_name, array( $this, 'get_buttons_' . $filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'buttons filter '.$filter_name.' added ('.( $added  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter ' . $filter_name . ' added (' . ( $added  ? 'true' : 'false' ) . ')' );
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
-				$this->p->debug->log( 'get_buttons_'.$filter_name.' method is missing' );
+				$this->p->debug->log( 'get_buttons_' . $filter_name . ' method is missing' );
 			}
 
 			return $added;
@@ -663,12 +677,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$removed = false;
 
-			if ( method_exists( $this, 'get_buttons_'.$filter_name ) ) {
+			if ( method_exists( $this, 'get_buttons_' . $filter_name ) ) {
 
-				$removed = remove_filter( $filter_name, array( $this, 'get_buttons_'.$filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
+				$removed = remove_filter( $filter_name, array( $this, 'get_buttons_' . $filter_name ), WPSSOSSB_SOCIAL_PRIORITY );
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'buttons filter '.$filter_name.' removed ('.( $removed  ? 'true' : 'false' ).')' );
+					$this->p->debug->log( 'buttons filter ' . $filter_name . ' removed (' . ( $removed  ? 'true' : 'false' ) . ')' );
 				}
 			}
 
@@ -683,8 +697,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$css_type_name = 'ssb-excerpt';
 
-			$text = preg_replace_callback( '/(<!-- '.$this->p->lca.' '.$css_type_name.' begin -->'.
-				'.*<!-- '.$this->p->lca.' '.$css_type_name.' end -->)(<\/p>)?/Usi', 
+			$text = preg_replace_callback( '/(<!-- ' . $this->p->lca . ' ' . $css_type_name . ' begin -->' . 
+				'.*<!-- ' . $this->p->lca . ' ' . $css_type_name . ' end -->)(<\/p>)?/Usi', 
 					array( __CLASS__, 'remove_paragraph_tags' ), $text );
 
 			return $text;
@@ -714,7 +728,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		public function get_buttons( $text, $type = 'content', $mod = true, $location = '', $atts = array() ) {
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->mark( 'getting buttons for '.$type );	// start timer
+				$this->p->debug->mark( 'getting buttons for ' . $type );	// start timer
 			}
 
 			$error_message = '';
@@ -734,7 +748,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 
 				if ( strpos( $type, 'admin_' ) !== 0 ) {
-					$error_message = $type.' ignored in back-end';
+					$error_message = $type . ' ignored in back-end';
 				}
 
 			} elseif ( SucomUtil::is_amp() ) {
@@ -791,12 +805,12 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			if ( ! empty( $error_message ) ) {
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( $type.' filter skipped: '.$error_message );
-					$this->p->debug->mark( 'getting buttons for '.$type );	// end timer
+					$this->p->debug->log( $type . ' filter skipped: ' . $error_message );
+					$this->p->debug->mark( 'getting buttons for ' . $type );	// end timer
 				}
 
 				if ( $append_error ) {
-					return $text . "\n" . '<!-- '.__METHOD__.' '.$type.' filter skipped: '.$error_message.' -->' . "\n";
+					return $text . "\n" . '<!-- ' . __METHOD__ . ' ' . $type . ' filter skipped: ' . $error_message . ' -->' . "\n";
 				} else {
 					return $text;
 				}
@@ -815,19 +829,19 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$sharing_url = $this->p->util->get_sharing_url( $mod );
 
-			$cache_md5_pre  = $this->p->lca.'_b_';
+			$cache_md5_pre  = $this->p->lca . '_b_';
 			$cache_exp_secs = $this->get_buttons_cache_exp();
-			$cache_salt     = __METHOD__.'('.SucomUtil::get_mod_salt( $mod, $sharing_url ).')';
-			$cache_id       = $cache_md5_pre.md5( $cache_salt );
+			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $sharing_url ) . ')';
+			$cache_id       = $cache_md5_pre . md5( $cache_salt );
 			$cache_index    = $this->get_buttons_cache_index( $type );	// returns salt with locale, mobile, wp_query, etc.
 			$cache_array    = array();
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->log( 'sharing url = '.$sharing_url );
-				$this->p->debug->log( 'cache expire = '.$cache_exp_secs );
-				$this->p->debug->log( 'cache salt = '.$cache_salt );
-				$this->p->debug->log( 'cache id = '.$cache_id );
-				$this->p->debug->log( 'cache index = '.$cache_index );
+				$this->p->debug->log( 'sharing url = ' . $sharing_url );
+				$this->p->debug->log( 'cache expire = ' . $cache_exp_secs );
+				$this->p->debug->log( 'cache salt = ' . $cache_salt );
+				$this->p->debug->log( 'cache id = ' . $cache_id );
+				$this->p->debug->log( 'cache index = ' . $cache_index );
 			}
 
 			if ( $cache_exp_secs > 0 ) {
@@ -837,7 +851,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( isset( $cache_array[$cache_index] ) ) {	// can be an empty string
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( $type.' cache index found in transient cache' );
+						$this->p->debug->log( $type . ' cache index found in transient cache' );
 					}
 
 					/**
@@ -847,7 +861,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				} else {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( $type.' cache index not in transient cache' );
+						$this->p->debug->log( $type . ' cache index not in transient cache' );
 					}
 
 					if ( ! is_array( $cache_array ) ) {
@@ -856,30 +870,31 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				}
 
 			} elseif ( $this->p->debug->enabled ) {
-				$this->p->debug->log( $type.' buttons array transient cache is disabled' );
+				$this->p->debug->log( $type . ' buttons array transient cache is disabled' );
 			}
 
 			if ( empty( $location ) ) {
-				$location = empty( $this->p->options['buttons_pos_'.$type] ) ? 
-					'bottom' : $this->p->options['buttons_pos_'.$type];
+				$location = empty( $this->p->options['buttons_pos_' . $type] ) ? 
+					'bottom' : $this->p->options['buttons_pos_' . $type];
 			}
 
 			if ( ! isset( $cache_array[$cache_index] ) ) {
 
 				// sort enabled sharing buttons by their preferred order
 				$sorted_ids = array();
+
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) ) {
-						$sorted_ids[ zeroise( $this->p->options[$opt_pre.'_order'], 3 ).'-'.$id ] = $id;
+					if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) ) {
+						$sorted_ids[ zeroise( $this->p->options[$opt_pre . '_order'], 3 ) . '-' . $id ] = $id;
 					}
 				}
 				ksort( $sorted_ids );
 
 				$atts['use_post'] = $mod['use_post'];
-				$atts['css_id'] = $css_type_name = 'ssb-'.$type;
+				$atts['css_id'] = $css_type_name = 'ssb-' . $type;
 
-				if ( ! empty( $this->p->options['buttons_preset_ssb-'.$type] ) ) {
-					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-'.$type];
+				if ( ! empty( $this->p->options['buttons_preset_ssb-' . $type] ) ) {
+					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-' . $type];
 				}
 
 				// returns html or an empty string
@@ -888,41 +903,52 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				if ( ! empty( $cache_array[$cache_index] ) ) {
 
 					$cache_array[$cache_index] = '
-<!-- '.$this->p->lca.' '.$css_type_name.' begin -->
-<!-- generated on '.date( 'c' ).' -->
-<div class="'.$this->p->lca.'-ssb
-	'.( $mod['use_post'] ? ' '.$this->p->lca.'-'.$css_type_name.'"' : '" id="'.$this->p->lca.'-'.$css_type_name.'"' ).'>' . "\n" . 
-$cache_array[$cache_index].
-'</div><!-- .'.$this->p->lca.'-ssb '.( $mod['use_post'] ? '.' : '#' ).$this->p->lca.'-'.$css_type_name.' -->
-<!-- '.$this->p->lca.' '.$css_type_name.' end -->' . "\n\n";
+<!-- ' . $this->p->lca . ' ' . $css_type_name . ' begin -->
+<!-- generated on ' . date( 'c' ) . ' -->
+<div class="' . $this->p->lca . '-ssb' . 
+	( $mod['use_post'] ? ' ' . $this->p->lca . '-' . $css_type_name . '"' : '" id="' . $this->p->lca . '-' . $css_type_name . '"' ) . '>' . "\n" . 
+$cache_array[$cache_index] . 
+'</div><!-- .' . $this->p->lca . '-ssb ' . ( $mod['use_post'] ? '.' : '#' ) . $this->p->lca . '-' . $css_type_name . ' -->
+<!-- ' . $this->p->lca . ' ' . $css_type_name . ' end -->' . "\n\n";
 
 					$cache_array[$cache_index] = apply_filters( $this->p->lca . '_ssb_buttons_html',
 						$cache_array[$cache_index], $type, $mod, $location, $atts );
 				}
 
 				if ( $cache_exp_secs > 0 ) {
+
 					// update the cached array and maintain the existing transient expiration time
 					$expires_in_secs = SucomUtil::update_transient_array( $cache_id, $cache_array, $cache_exp_secs );
+
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( $type.' buttons html saved to transient cache (expires in '.$expires_in_secs.' secs)' );
+						$this->p->debug->log( $type . ' buttons html saved to transient cache (expires in ' . $expires_in_secs . ' secs)' );
 					}
 				}
 			}
 
 			switch ( $location ) {
+
 				case 'top': 
-					$text = $cache_array[$cache_index].$text; 
+
+					$text = $cache_array[$cache_index] . $text; 
+
 					break;
+
 				case 'bottom': 
-					$text = $text.$cache_array[$cache_index]; 
+
+					$text = $text . $cache_array[$cache_index]; 
+
 					break;
+
 				case 'both': 
-					$text = $cache_array[$cache_index].$text.$cache_array[$cache_index]; 
+
+					$text = $cache_array[$cache_index] . $text . $cache_array[$cache_index]; 
+
 					break;
 			}
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->mark( 'getting buttons for '.$type );	// end timer
+				$this->p->debug->mark( 'getting buttons for ' . $type );	// end timer
 			}
 
 			return $text;
@@ -933,7 +959,7 @@ $cache_array[$cache_index].
 			static $cache_exp_secs = null;	// filter the cache expiration value only once
 
 			if ( ! isset( $cache_exp_secs ) ) {
-				$cache_md5_pre    = $this->p->lca.'_b_';
+				$cache_md5_pre    = $this->p->lca . '_b_';
 				$cache_exp_filter = $this->p->cf['wp']['transient'][$cache_md5_pre]['filter'];
 				$cache_opt_key    = $this->p->cf['wp']['transient'][$cache_md5_pre]['opt_key'];
 				$cache_exp_secs   = isset( $this->p->options[$cache_opt_key] ) ? $this->p->options[$cache_opt_key] : WEEK_IN_SECONDS;
@@ -988,10 +1014,10 @@ $cache_array[$cache_index].
 			}
 
 			$buttons_html = '';
-			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-'.$atts['preset_id'].'">' . "\n" ).
-				'<div class="ssb-buttons '.SucomUtil::get_locale( $mod ).'">' . "\n";
-			$buttons_end = '</div><!-- .ssb-buttons.'.SucomUtil::get_locale( $mod ).' -->' . "\n" . 
-				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-'.$atts['preset_id'].' -->' . "\n" );
+			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-' . $atts['preset_id'] . '">' . "\n" ) . 
+				'<div class="ssb-buttons ' . SucomUtil::get_locale( $mod ) . '">' . "\n";
+			$buttons_end = '</div><!-- .ssb-buttons.' . SucomUtil::get_locale( $mod ) . ' -->' . "\n" . 
+				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-' . $atts['preset_id'] . ' -->' . "\n" );
 
 			// possibly dereference the opts variable to prevent passing on changes
 			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) ) {
@@ -1002,30 +1028,36 @@ $cache_array[$cache_index].
 
 			// apply the presets to $custom_opts
 			if ( ! empty( $atts['preset_id'] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
+
 				if ( isset( $this->p->cf['opt']['preset'][$atts['preset_id']] ) &&
 					is_array( $this->p->cf['opt']['preset'][$atts['preset_id']] ) ) {
-					if ( $this->p->debug->enabled )
-						$this->p->debug->log( 'applying preset_id '.$atts['preset_id'].' to options' );
+
+					if ( $this->p->debug->enabled ) {
+						$this->p->debug->log( 'applying preset_id ' . $atts['preset_id'] . ' to options' );
+					}
+
 					$custom_opts = array_merge( $custom_opts, $this->p->cf['opt']['preset'][$atts['preset_id']] );
-				} elseif ( $this->p->debug->enabled )
-					$this->p->debug->log( $atts['preset_id'].' preset_id missing or not array'  );
+
+				} elseif ( $this->p->debug->enabled ) {
+					$this->p->debug->log( $atts['preset_id'] . ' preset_id missing or not array'  );
+				}
 			} 
 
 			// apply the filter_id if the filter name has hooks
 			if ( ! empty( $atts['filter_id'] ) ) {
 
-				$filter_name = $this->p->lca.'_sharing_html_'.$atts['filter_id'].'_options';
+				$filter_name = $this->p->lca . '_sharing_html_' . $atts['filter_id'] . '_options';
 
 				if ( has_filter( $filter_name ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'applying filter_id '.$atts['filter_id'].' to options ('.$filter_name.')' );
+						$this->p->debug->log( 'applying filter_id ' . $atts['filter_id'] . ' to options (' . $filter_name . ')' );
 					}
 
 					$custom_opts = apply_filters( $filter_name, $custom_opts );
 
 				} elseif ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'no filter(s) found for '.$filter_name );
+					$this->p->debug->log( 'no filter(s) found for ' . $filter_name );
 				}
 			}
 
@@ -1045,19 +1077,19 @@ $cache_array[$cache_index].
 								$atts['url'] = $this->p->util->get_sharing_url( $mod,
 									$atts['add_page'], $atts['src_id'] );
 							} else {
-								$atts['url'] = apply_filters( $this->p->lca.'_sharing_url',
+								$atts['url'] = apply_filters( $this->p->lca . '_sharing_url',
 									$atts['url'], $mod, $atts['add_page'], $atts['src_id'] );
 							}
 
 							// filter to add custom tracking arguments
-							$atts['url'] = apply_filters( $this->p->lca.'_ssb_buttons_shared_url',
+							$atts['url'] = apply_filters( $this->p->lca . '_ssb_buttons_shared_url',
 								$atts['url'], $mod, $id );
 
-							$force_prot = apply_filters( $this->p->lca.'_ssb_buttons_force_prot',
+							$force_prot = apply_filters( $this->p->lca . '_ssb_buttons_force_prot',
 								$this->p->options['buttons_force_prot'], $mod, $id, $atts['url'] );
 
 							if ( ! empty( $force_prot ) && $force_prot !== 'none' ) {
-								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot.'://', $atts['url'] );
+								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot . '://', $atts['url'] );
 							}
 
 							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod ) . "\n";
@@ -1065,30 +1097,33 @@ $cache_array[$cache_index].
 							$atts = $saved_atts;	// restore the common $atts array
 
 						} elseif ( $this->p->debug->enabled ) {
-							$this->p->debug->log( $id.' not allowed for platform' );
+							$this->p->debug->log( $id . ' not allowed for platform' );
 						}
 					} elseif ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'get_html method missing for '.$id );
+						$this->p->debug->log( 'get_html method missing for ' . $id );
 					}
 				} elseif ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'website object missing for '.$id );
+					$this->p->debug->log( 'website object missing for ' . $id );
 				}
 			}
 
 			$buttons_html = trim( $buttons_html );
 
-			return empty( $buttons_html ) ? '' : $buttons_begin.$buttons_html.$buttons_end;
+			return empty( $buttons_html ) ? '' : $buttons_begin . $buttons_html . $buttons_end;
 		}
 
 		// add javascript for enabled buttons in content, widget, shortcode, etc.
 		public function get_script( $pos = 'header', $request_ids = array() ) {
-			if ( $this->p->debug->enabled )
+
+			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
+			}
 
 			$enabled_ids = array();
 
 			// there are no widgets on the admin back-end, so don't bother checking
 			if ( ! is_admin() ) {
+
 				if ( class_exists( 'WpssoSsbWidgetSharing' ) ) {
 					$widget = new WpssoSsbWidgetSharing();
 			 		$widget_settings = $widget->get_settings();
@@ -1098,19 +1133,20 @@ $cache_array[$cache_index].
 	
 				// check for enabled buttons in ACTIVE widget(s)
 				foreach ( $widget_settings as $num => $instance ) {
-					if ( is_object( $widget ) && is_active_widget( false,
-						$widget->id_base.'-'.$num, $widget->id_base ) ) {
+
+					if ( is_object( $widget ) && is_active_widget( false, $widget->id_base . '-' . $num, $widget->id_base ) ) {
 	
 						foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-							if ( array_key_exists( $id, $instance ) && 
-								! empty( $instance[$id] ) )
-									$enabled_ids[] = $id;
+							if ( array_key_exists( $id, $instance ) && ! empty( $instance[$id] ) ) {
+								$enabled_ids[] = $id;
+							}
 						}
 					}
 				}
-				if ( $this->p->debug->enabled )
-					$this->p->debug->log( 'enabled widget ids: '.
-						SucomDebug::pretty_array( $enabled_ids, true ) );
+
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( 'enabled widget ids: ' . SucomDebug::pretty_array( $enabled_ids, true ) );
+				}
 			}
 
 			$exit_message = false;
@@ -1145,15 +1181,15 @@ $cache_array[$cache_index].
 			if ( $exit_message ) {
 				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'exiting early: '.$exit_message  );
+						$this->p->debug->log( 'exiting early: ' . $exit_message  );
 					}
-					return '<!-- wpssossb '.$pos.': '.$exit_message.' -->' . "\n";
+					return '<!-- wpssossb ' . $pos . ': ' . $exit_message . ' -->' . "\n";
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
 				}
 			} elseif ( is_admin() ) {
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_admin_/', $this->p->options ) as $key => $val ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_admin_/', $this->p->options ) as $key => $val ) {
 						if ( ! empty( $val ) ) {
 							$enabled_ids[] = $id;
 						}
@@ -1161,9 +1197,9 @@ $cache_array[$cache_index].
 				}
 			} else {
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^'.$opt_pre.'_on_/', $this->p->options ) as $key => $val ) {
+					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_/', $this->p->options ) as $key => $val ) {
 						// exclude buttons enabled for admin editing pages
-						if ( strpos( $key, $opt_pre.'_on_admin_' ) === false && ! empty( $val ) ) {
+						if ( strpos( $key, $opt_pre . '_on_admin_' ) === false && ! empty( $val ) ) {
 							$enabled_ids[] = $id;
 						}
 					}
@@ -1175,7 +1211,7 @@ $cache_array[$cache_index].
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: no buttons enabled or requested' );
 					}
-					return '<!-- wpssossb '.$pos.': no buttons enabled or requested -->' . "\n";
+					return '<!-- wpssossb ' . $pos . ': no buttons enabled or requested -->' . "\n";
 				} else {
 					$include_ids = $enabled_ids;
 				}
@@ -1185,14 +1221,14 @@ $cache_array[$cache_index].
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: no scripts after removing enabled buttons' );
 					}
-					return '<!-- wpssossb '.$pos.': no scripts after removing enabled buttons -->' . "\n";
+					return '<!-- wpssossb ' . $pos . ': no scripts after removing enabled buttons -->' . "\n";
 				}
 			}
 
 			natsort( $include_ids );
 			$include_ids = array_unique( $include_ids );
-			$script_html = '<!-- wpssossb '.$pos.' javascript begin -->' . "\n" . 
-				'<!-- generated on '.date( 'c' ).' -->' . "\n";
+			$script_html = '<!-- wpssossb ' . $pos . ' javascript begin -->' . "\n" . 
+				'<!-- generated on ' . date( 'c' ) . ' -->' . "\n";
 
 			if ( strpos( $pos, '-header' ) )  {
 				$script_loc = 'header';
@@ -1205,7 +1241,7 @@ $cache_array[$cache_index].
 			if ( ! empty( $include_ids ) ) {
 				foreach ( $include_ids as $id ) {
 					$id = preg_replace( '/[^a-z]/', '', $id );
-					$opt_name = $this->p->cf['opt']['cm_prefix'][$id].'_script_loc';
+					$opt_name = $this->p->cf['opt']['cm_prefix'][$id] . '_script_loc';
 
 					if ( isset( $this->website[$id] ) &&
 						method_exists( $this->website[$id], 'get_script' ) ) {
@@ -1213,12 +1249,12 @@ $cache_array[$cache_index].
 						if ( isset( $this->p->options[$opt_name] ) && 
 							$this->p->options[$opt_name] === $script_loc )
 								$script_html .= $this->website[$id]->get_script( $pos ) . "\n";
-						else $script_html .= '<!-- wpssossb '.$pos.': '.$id.' script location is '.$this->p->options[$opt_name].' -->' . "\n";
+						else $script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' . $this->p->options[$opt_name] . ' -->' . "\n";
 					}
 				}
 			}
 
-			$script_html .= '<!-- wpssossb '.$pos.' javascript end -->' . "\n";
+			$script_html .= '<!-- wpssossb ' . $pos . ' javascript end -->' . "\n";
 
 			return $script_html;
 		}
@@ -1226,11 +1262,11 @@ $cache_array[$cache_index].
 		public function get_script_loader( $pos = 'id' ) {
 
 			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
-			$lang = apply_filters( $this->p->lca.'_pub_lang', $lang, 'google', 'current' );
+			$lang = apply_filters( $this->p->lca . '_pub_lang', $lang, 'google', 'current' );
 
 			return '<script type="text/javascript" id="wpssossb-header-script">
-	window.___gcfg = { lang: "'.$lang.'" };
-	function '.$this->p->lca.'_insert_js( script_id, url, async ) {
+	window.___gcfg = { lang: "' . $lang . '" };
+	function ' . $this->p->lca . '_insert_js( script_id, url, async ) {
 		if ( document.getElementById( script_id + "-js" ) ) return;
 		var async = typeof async !== "undefined" ? async : true;
 		var script_pos = document.getElementById( script_id );
@@ -1250,7 +1286,7 @@ $cache_array[$cache_index].
 				return $this->buttons_for_type[$type];
 			}
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-				if ( ! empty( $this->p->options[$opt_pre.'_on_'.$type] ) &&	// check if button is enabled
+				if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) &&	// check if button is enabled
 					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
 					return $this->buttons_for_type[$type] = true;
 				}
@@ -1268,9 +1304,9 @@ $cache_array[$cache_index].
 			$opt_pre = isset( $this->p->cf['opt']['cm_prefix'][$id] ) ?
 				$this->p->cf['opt']['cm_prefix'][$id] : $id;
 
-			if ( isset( $this->p->options[$opt_pre.'_platform'] ) ) {
+			if ( isset( $this->p->options[$opt_pre . '_platform'] ) ) {
 
-				switch( $this->p->options[$opt_pre.'_platform'] ) {
+				switch( $this->p->options[$opt_pre . '_platform'] ) {
 
 					case 'any':
 
@@ -1322,21 +1358,21 @@ $cache_array[$cache_index].
 			if ( $this->p->m['util']['post']->get_options( $post_id, 'buttons_disabled' ) ) {
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'post '.$post_id.': sharing buttons disabled by meta data option' );
+					$this->p->debug->log( 'post ' . $post_id . ': sharing buttons disabled by meta data option' );
 				}
 
 				$ret = true;
 
-			} elseif ( ! empty( $post_obj->post_type ) && empty( $this->p->options['buttons_add_to_'.$post_obj->post_type] ) ) {
+			} elseif ( ! empty( $post_obj->post_type ) && empty( $this->p->options['buttons_add_to_' . $post_obj->post_type] ) ) {
 
 				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'post '.$post_id.': sharing buttons not enabled for post type '.$post_obj->post_type );
+					$this->p->debug->log( 'post ' . $post_id . ': sharing buttons not enabled for post type ' . $post_obj->post_type );
 				}
 
 				$ret = true;
 			}
 
-			return $this->post_buttons_disabled[$post_id] = apply_filters( $this->p->lca.'_post_buttons_disabled', $ret, $post_id );
+			return $this->post_buttons_disabled[$post_id] = apply_filters( $this->p->lca . '_post_buttons_disabled', $ret, $post_id );
 		}
 
 		public function remove_paragraph_tags( $match = array() ) {
@@ -1349,7 +1385,7 @@ $cache_array[$cache_index].
 			$suff = empty( $match[2] ) ? '' : $match[2];
 			$ret = preg_replace( '/(<\/*[pP]>|\n)/', '', $text );
 
-			return $suff.$ret; 
+			return $suff . $ret; 
 		}
 
 		public function get_website_object_ids( $website = array() ) {
@@ -1379,11 +1415,11 @@ $cache_array[$cache_index].
 				$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
 				$atts['add_hashtags'] = isset( $atts['add_hashtags'] ) ? $atts['add_hashtags'] : true;
 
-				$cap_type   = empty( $this->p->options[$opt_pre.'_caption'] ) ? 'title' : $this->p->options[$opt_pre.'_caption'];
+				$cap_type   = empty( $this->p->options[$opt_pre . '_caption'] ) ? 'title' : $this->p->options[$opt_pre . '_caption'];
 				$max_len    = $this->get_tweet_max_len( $opt_pre );
 				$read_cache = true;
 				$do_encode  = false;
-				$md_idx     = $md_pre.'_desc';
+				$md_idx     = $md_pre . '_desc';
 
 				return $this->p->page->get_caption( $cap_type, $max_len, $mod, $read_cache, $atts['add_hashtags'], $do_encode, $md_idx );
 
@@ -1399,18 +1435,18 @@ $cache_array[$cache_index].
 
 			$short_len = 23;	// twitter counts 23 characters for any url
 
-			if ( isset( $this->p->options['tc_site'] ) && ! empty( $this->p->options[$opt_pre.'_via'] ) ) {
+			if ( isset( $this->p->options['tc_site'] ) && ! empty( $this->p->options[$opt_pre . '_via'] ) ) {
 				$tc_site = preg_replace( '/^@/', '', $this->p->options['tc_site'] );
 				$site_len = empty( $tc_site ) ? 0 : strlen( $tc_site ) + 6;
 			} else {
 				$site_len = 0;
 			}
 
-			$max_len = $this->p->options[$opt_pre.'_cap_len'] - $site_len - $short_len;
+			$max_len = $this->p->options[$opt_pre . '_cap_len'] - $site_len - $short_len;
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->log( 'max tweet length is '.$max_len.' chars ('.$this->p->options[$opt_pre.'_cap_len'].
-					' less '.$site_len.' for site name and '.$short_len.' for url)' );
+				$this->p->debug->log( 'max tweet length is ' . $max_len . ' chars (' . $this->p->options[$opt_pre . '_cap_len'] . 
+					' less ' . $site_len . ' for site name and ' . $short_len . ' for url)' );
 			}
 
 			return $max_len;
@@ -1418,14 +1454,14 @@ $cache_array[$cache_index].
 
 		public function get_social_file_cache_url( $url, $file_ext = '' ) {
 
-			$cache_exp_secs = (int) apply_filters( $this->p->lca.'_cache_expire_social_file', 
+			$cache_exp_secs = (int) apply_filters( $this->p->lca . '_cache_expire_social_file', 
 				$this->p->options['plugin_social_file_cache_exp'] );
 
 			if ( $cache_exp_secs > 0 && isset( $this->p->cache->base_dir ) ) {
 				$url = $this->p->cache->get( $url, 'url', 'file', $cache_exp_secs, $file_ext );
 			}
 
-			return apply_filters( $this->p->lca.'_rewrite_cache_url', $url );
+			return apply_filters( $this->p->lca . '_rewrite_cache_url', $url );
 		}
 
 		public function filter_messages_tooltip( $text, $idx ) {
@@ -1507,13 +1543,13 @@ $cache_array[$cache_index].
 		}
 
 		public function filter_messages_tooltip_plugin( $text, $idx ) {
+
 			switch ( $idx ) {
+
 				case 'tooltip-plugin_sharing_buttons_cache_exp':
 
-					$cache_exp_secs = WpssoSsbSharing::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
-					$cache_exp_human = $cache_exp_secs ? 
-						human_time_diff( 0, $cache_exp_secs ) : 
-						_x( 'disabled', 'option comment', 'wpsso-ssb' );
+					$cache_exp_secs  = WpssoSsbSharing::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
+					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.',
 						'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).',
@@ -1523,10 +1559,8 @@ $cache_array[$cache_index].
 
 				case 'tooltip-plugin_social_file_cache_exp':
 
-					$cache_exp_secs = WpssoSsbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
-					$cache_exp_human = $cache_exp_secs ? 
-						human_time_diff( 0, $cache_exp_secs ) : 
-						_x( 'disabled', 'option comment', 'wpsso-ssb' );
+					$cache_exp_secs  = WpssoSsbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
+					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
 
@@ -1536,22 +1570,35 @@ $cache_array[$cache_index].
 		}
 
 		public function filter_messages_info( $text, $idx ) {
-			if ( strpos( $idx, 'info-styles-ssb-' ) !== 0 )
+
+			if ( strpos( $idx, 'info-styles-ssb-' ) !== 0 ) {
 				return $text;
+			}
+
 			$short = $this->p->cf['plugin']['wpsso']['short'];
+
 			switch ( $idx ) {
+
 				case 'info-styles-ssb-sharing':
+
 					$text = '<p>'.$short.' uses the \'wpsso-ssb\' and \'ssb-buttons\' classes to wrap all its sharing buttons, and each button has it\'s own individual class name as well. This tab can be used to edit the CSS common to all sharing button locations.</p>';
+
 					break;
+
 				case 'info-styles-ssb-content':
-					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'content', true );
+
+					$text = '<p>Social sharing buttons, enabled / added to the content text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-content\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'content', true );
+
 					break;
+
 				case 'info-styles-ssb-excerpt':
-					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'excerpt', true );
+
+					$text = '<p>Social sharing buttons, enabled / added to the excerpt text from the '.$this->p->util->get_admin_url( 'ssb-buttons', 'Sharing Buttons' ).' settings page, are assigned the \'wpsso-ssb-excerpt\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'excerpt', true );
+
 					break;
+
 				case 'info-styles-ssb-sidebar':
+
 					$text = '<p>Social sharing buttons added to the sidebar are assigned the \'#wpsso-ssb-sidebar-container\' CSS id, which itself contains \'#wpsso-ssb-sidebar-header\', \'#wpsso-ssb-sidebar\' and the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>
 					<p>Example:</p><pre>
 #wpsso-ssb-sidebar-container
@@ -1561,12 +1608,17 @@ $cache_array[$cache_index].
     #wpsso-ssb-sidebar
         .ssb-buttons
 	    .facebook-button {}</pre>';
+
 					break;
+
 				case 'info-styles-ssb-shortcode':
-					$text = '<p>Social sharing buttons added from a shortcode are assigned the \'wpsso-ssb-shortcode\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'shortcode', true );
+
+					$text = '<p>Social sharing buttons added from a shortcode are assigned the \'wpsso-ssb-shortcode\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'shortcode', true );
+
 					break;
+
 				case 'info-styles-ssb-widget':
+
 					$text = '<p>Social sharing buttons within the social sharing buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
 					<p>Example:</p><pre>
 .wpsso-ssb-widget
@@ -1577,24 +1629,34 @@ $cache_array[$cache_index].
 #wpsso-ssb-widget-buttons-2
     .ssb-buttons
         #facebook-wpsso-widget-buttons-2 { }</pre>';
+
 					break;
+
 				case 'info-styles-ssb-admin_edit':
-					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox are assigned the \'wpsso-ssb-admin_edit\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'admin_edit', true );
+
+					$text = '<p>Social sharing buttons within the Admin Post / Page Edit metabox are assigned the \'wpsso-ssb-admin_edit\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'admin_edit', true );
+
 					break;
+
 				case 'info-styles-ssb-woo_short':
-					$text = '<p>Social sharing buttons added to the WooCommerce Short Description are assigned the \'wpsso-ssb-woo_short\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'woo_short', true );
+
+					$text = '<p>Social sharing buttons added to the WooCommerce Short Description are assigned the \'wpsso-ssb-woo_short\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'woo_short', true );
+
 					break;
+
 				case 'info-styles-ssb-bbp_single':
-					$text = '<p>Social sharing buttons added at the top of bbPress Single templates are assigned the \'wpsso-ssb-bbp_single\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'bbp_single' );
+
+					$text = '<p>Social sharing buttons added at the top of bbPress Single templates are assigned the \'wpsso-ssb-bbp_single\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'bbp_single' );
+
 					break;
+
 				case 'info-styles-ssb-bp_activity':
-					$text = '<p>Social sharing buttons added to BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.
-					$this->get_info_css_example( 'bp_activity' );
+
+					$text = '<p>Social sharing buttons added to BuddyPress Activities are assigned the \'wpsso-ssb-bp_activity\' class, which itself contains the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>'.$this->get_info_css_example( 'bp_activity' );
+
 					break;
 			}
+
 			return $text;
 		}
 
