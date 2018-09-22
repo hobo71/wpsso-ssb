@@ -1600,7 +1600,7 @@ $cache_array[$cache_index] .
 				case 'info-styles-ssb-sidebar':
 
 					$text = '<p>Social sharing buttons added to the sidebar are assigned the \'#wpsso-ssb-sidebar-container\' CSS id, which itself contains \'#wpsso-ssb-sidebar-header\', \'#wpsso-ssb-sidebar\' and the \'ssb-buttons\' class -- a common class for all buttons (see the All Buttons tab).</p>
-					<p>Example:</p><pre>
+					<p>Example CSS:</p><pre>
 #wpsso-ssb-sidebar-container
     #wpsso-ssb-sidebar-header {}
 
@@ -1620,12 +1620,12 @@ $cache_array[$cache_index] .
 				case 'info-styles-ssb-widget':
 
 					$text = '<p>Social sharing buttons within the social sharing buttons widget are assigned the \'wpsso-ssb-widget\' class, which itself contains the \'ssb-buttons\' class -- a common class for all the sharing buttons (see the All Buttons tab).</p> 
-					<p>Example:</p><pre>
+					<p>Example CSS:</p><pre>
 .wpsso-ssb-widget
     .ssb-buttons
         .facebook-button { }</pre>
 					<p>The social sharing buttons widget also has an id of \'wpsso-ssb-widget-<em>#</em>\', and the buttons have an id of \'<em>name</em>-wpsso-ssb-widget-<em>#</em>\'.</p>
-					<p>Example:</p><pre>
+					<p>Example CSS:</p><pre>
 #wpsso-ssb-widget-buttons-2
     .ssb-buttons
         #facebook-wpsso-widget-buttons-2 { }</pre>';
@@ -1662,7 +1662,7 @@ $cache_array[$cache_index] .
 
 		protected function get_info_css_example( $type, $preset = false ) {
 
-			$text = '<p>Example:</p><pre>
+			$text = '<p>Example CSS:</p><pre>
 .wpsso-ssb .wpsso-ssb-'.$type.'
     .ssb-buttons 
         .facebook-button {}</pre>';
