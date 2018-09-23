@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(			// Plugin acronym.
-					'version'     => '2.8.0',	// Plugin version.
+					'version'     => '2.8.1-dev.6',	// Plugin version.
 					'opt_version' => '16',		// Increment when changing default option values.
 					'short'       => 'WPSSO SSB',	// Short plugin name.
 					'name'        => 'WPSSO Social Sharing Buttons',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short'       => 'WPSSO Core',
 						'name'        => 'WPSSO Core',
-						'min_version' => '4.13.0',
+						'min_version' => '4.13.1',
 					),
 					'img' => array(
 						'icons' => array(
@@ -96,6 +96,66 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 				),
 			),
 			'opt' => array(				// options
+				'defaults' => array(
+
+					/**
+					 * Advanced Settings
+					 */
+					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
+					'plugin_social_file_cache_exp'     => 0,		// Get Social JS Files Cache Expiry
+
+					/**
+					 * Sharing Buttons
+					 */
+					'buttons_on_index'              => 0,
+					'buttons_on_front'              => 0,
+					'buttons_add_to_post'           => 1,
+					'buttons_add_to_page'           => 1,
+					'buttons_add_to_attachment'     => 1,
+					'buttons_pos_content'           => 'bottom',
+					'buttons_pos_excerpt'           => 'bottom',
+					'buttons_preset_ssb-content'    => '',
+					'buttons_preset_ssb-excerpt'    => '',
+					'buttons_preset_ssb-admin_edit' => 'small_share_count',
+					'buttons_preset_ssb-sidebar'    => 'large_share_vertical',
+					'buttons_preset_ssb-shortcode'  => '',
+					'buttons_preset_ssb-widget'     => '',
+					'buttons_force_prot'            => '',
+
+					/**
+					 * Sharing Styles
+					 */
+					'buttons_use_social_style'     => 1,
+					'buttons_enqueue_social_style' => 1,
+					'buttons_css_ssb-admin_edit'   => '',
+					'buttons_css_ssb-content'      => '',		// post/page content
+					'buttons_css_ssb-excerpt'      => '',		// post/page excerpt
+					'buttons_css_ssb-sharing'      => '',		// all buttons
+					'buttons_css_ssb-shortcode'    => '',
+					'buttons_css_ssb-sidebar'      => '',
+					'buttons_css_ssb-widget'       => '',
+					'buttons_js_ssb-sidebar' => '/* Save an empty style text box to reload the default javascript */
+jQuery("#wpsso-ssb-sidebar-container").mouseenter( function(){ 
+	jQuery("#wpsso-ssb-sidebar").css({
+		"display":"block",
+		"width":"auto",
+		"height":"auto",
+		"overflow":"visible",
+		"border-style":"none",
+	}); } );
+jQuery("#wpsso-ssb-sidebar-header").click( function(){ 
+	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
+				),	// end of defaults
+				'site_defaults' => array(
+
+					/**
+					 * Advanced Settings
+					 */
+					'plugin_sharing_buttons_cache_exp'     => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
+					'plugin_sharing_buttons_cache_exp:use' => 'default',
+					'plugin_social_file_cache_exp'         => 0,			// Get Social JS Files Cache Expiry
+					'plugin_social_file_cache_exp:use'     => 'default',
+				),	// end of site defaults
 				'preset' => array(
 					'small_share_count' => array(
 						'twitter_size'      => 'medium',

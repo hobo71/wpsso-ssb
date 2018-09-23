@@ -22,64 +22,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		public static $sharing_css_file = '';
 		public static $sharing_css_url = '';
 
-		public static $cf = array(
-			'opt' => array(				// options
-				'defaults' => array(
-					/**
-					 * Advanced Settings
-					 */
-					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
-					'plugin_social_file_cache_exp' => 0,			// Get Social JS Files Cache Expiry
-					/**
-					 * Sharing Buttons
-					 */
-					'buttons_on_index' => 0,
-					'buttons_on_front' => 0,
-					'buttons_add_to_post' => 1,
-					'buttons_add_to_page' => 1,
-					'buttons_add_to_attachment' => 1,
-					'buttons_pos_content' => 'bottom',
-					'buttons_pos_excerpt' => 'bottom',
-					'buttons_preset_ssb-content' => '',
-					'buttons_preset_ssb-excerpt' => '',
-					'buttons_preset_ssb-admin_edit' => 'small_share_count',
-					'buttons_preset_ssb-sidebar' => 'large_share_vertical',
-					'buttons_preset_ssb-shortcode' => '',
-					'buttons_preset_ssb-widget' => '',
-					'buttons_force_prot' => '',
-					/**
-					 * Sharing Styles
-					 */
-					'buttons_use_social_style'     => 1,
-					'buttons_enqueue_social_style' => 1,
-					'buttons_css_ssb-admin_edit'   => '',
-					'buttons_css_ssb-content'      => '',		// post/page content
-					'buttons_css_ssb-excerpt'      => '',		// post/page excerpt
-					'buttons_css_ssb-sharing'      => '',		// all buttons
-					'buttons_css_ssb-shortcode'    => '',
-					'buttons_css_ssb-sidebar'      => '',
-					'buttons_css_ssb-widget'       => '',
-					'buttons_js_ssb-sidebar' => '/* Save an empty style text box to reload the default javascript */
-jQuery("#wpsso-ssb-sidebar-container").mouseenter( function(){ 
-	jQuery("#wpsso-ssb-sidebar").css({
-		"display":"block",
-		"width":"auto",
-		"height":"auto",
-		"overflow":"visible",
-		"border-style":"none",
-	}); } );
-jQuery("#wpsso-ssb-sidebar-header").click( function(){ 
-	jQuery("#wpsso-ssb-sidebar").toggle(); } );',
-				),	// end of defaults
-				'site_defaults' => array(
-					'plugin_sharing_buttons_cache_exp' => WEEK_IN_SECONDS,	// Sharing Buttons HTML Cache Expiry (7 days)
-					'plugin_sharing_buttons_cache_exp:use' => 'default',
-					'plugin_social_file_cache_exp' => 0,			// Get Social JS Files Cache Expiry
-					'plugin_social_file_cache_exp:use' => 'default',
-				),	// end of site defaults
-			),
-		);
-
 		public function __construct( &$plugin ) {
 
 			$this->p =& $plugin;
@@ -109,7 +51,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 			$this->p->util->add_plugin_filters( $this, array( 
 				'get_defaults'      => 1,
-				'get_site_defaults' => 1,
 				'get_md_defaults'   => 1,
 			) );
 
@@ -168,7 +109,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public function filter_get_defaults( $def_opts ) {
 
-			$def_opts = array_merge( $def_opts, self::$cf['opt']['defaults'] );
 			/**
 			 * Add options using a key prefix array and post type names.
 			 */
@@ -180,7 +120,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 				$buttons_css_file = WPSSOSSB_PLUGINDIR . 'css/' . $id . '.css';
 
-				// css files are only loaded once (when variable is empty) into defaults to minimize disk i/o
+				/**
+				 * CSS files are only loaded once (when variable is empty) into defaults to minimize disk I/O.
+				 */
 				if ( empty( $def_opts['buttons_css_' . $id] ) ) {
 
 					if ( ! file_exists( $buttons_css_file ) ) {
@@ -220,11 +162,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			return $def_opts;
 		}
 
-		public function filter_get_site_defaults( $site_def_opts ) {
-			return array_merge( $site_def_opts, self::$cf['opt']['site_defaults'] );
-		}
-
 		public function filter_get_md_defaults( $md_defs ) {
+
 			return array_merge( $md_defs, array(
 				'email_title'      => '',	// Email Subject
 				'email_desc'       => '',	// Email Message
@@ -255,21 +194,34 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			switch ( $base_key ) {
-				// integer options that must be 1 or more (not zero)
+
+				/**
+				 * Integer options that must be 1 or more (not zero).
+				 */
 				case 'stumble_badge':
 				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
+
 					return 'pos_int';
+
 					break;
-				// text strings that can be blank
+
+				/**
+				 * Text strings that can be blank.
+				 */
 				case 'buttons_force_prot':
 				case 'gp_expandto':
 				case 'pin_desc':
 				case 'tumblr_img_desc':
 				case 'tumblr_vid_desc':
 				case 'twitter_desc':
+
 					return 'ok_blank';
+
 					break;
-				// options that cannot be blank
+
+				/**
+				 * Options that cannot be blank.
+				 */
 				case 'fb_platform': 
 				case 'fb_script_loc': 
 				case 'fb_lang': 
@@ -301,7 +253,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				case 'tumblr_caption':
 				case ( strpos( $base_key, 'buttons_pos_' ) === 0 ? true : false ):
 				case ( preg_match( '/^[a-z]+_script_loc$/', $base_key ) ? true : false ):
+
 					return 'not_blank';
+
 					break;
 			}
 
@@ -546,7 +500,9 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				return;
 			}
 
-			// get the current object / post type
+			/**
+			 * Get the current object / post type.
+			 */
 			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'exiting early: invalid post object' );
@@ -584,16 +540,19 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 		}
 
 		public function show_head() {
+
 			echo $this->get_script_loader();
 			echo $this->get_script( 'header' );
 		}
 
 		public function show_footer() {
+
 			if ( $this->have_buttons_for_type( 'sidebar' ) ) {
 				echo $this->show_sidebar();
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'no buttons enabled for sidebar' );
 			}
+
 			echo $this->get_script( 'footer' );
 		}
 
@@ -603,8 +562,8 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 				$this->p->debug->mark();
 			}
 
-			$js = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_ssb-sidebar'] ) );
-			$text = $this->get_buttons( '', 'sidebar', false );	// $use_post = false
+			$js   = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_ssb-sidebar'] ) );
+			$text = $this->get_buttons( '', 'sidebar', false );	// $use_post is false.
 
 			if ( ! empty( $text ) ) {
 				echo '<div id="' . $this->p->lca . '-ssb-sidebar-container">';
@@ -1548,7 +1507,7 @@ $cache_array[$cache_index] .
 
 				case 'tooltip-plugin_sharing_buttons_cache_exp':
 
-					$cache_exp_secs  = WpssoSsbSharing::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
+					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.',
@@ -1559,7 +1518,7 @@ $cache_array[$cache_index] .
 
 				case 'tooltip-plugin_social_file_cache_exp':
 
-					$cache_exp_secs  = WpssoSsbSharing::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
+					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
