@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.8.1-dev.6 (2018/09/23)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* Minor refactoring of WpssoSsbSharing class methods for conformity.
+
 **Version 2.8.0 (2018/09/16)**
 
 * *New Features*
@@ -163,6 +174,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 
 == Upgrade Notice ==
+
+= 2.8.1-dev.6 =
+
+(2018/09/23) Minor refactoring of WpssoSsbSharing class methods for conformity.
 
 = 2.8.0 =
 
