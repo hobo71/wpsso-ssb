@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 4.9.8
 WC Tested Up To: 3.4.5
-Stable Tag: 2.8.0
+Stable Tag: 2.8.1
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.8.1-dev.6 (2018/09/23)**
+**Version 2.8.1 (2018/09/24)**
 
 * *New Features*
 	* None.
@@ -175,11 +175,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.8.1-dev.6 =
+= 2.8.1 =
 
-(2018/09/23) Minor refactoring of WpssoSsbSharing class methods for conformity.
-
-= 2.8.0 =
-
-(2018/09/16) Refactored the BuddyPress integration modules to support ajax queries in the new BuddyPress templates (Pro version). Fixed the pre/after text filter action hook names.
+(2018/09/24) Minor refactoring of WpssoSsbSharing class methods for conformity.
 
