@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.8.2-dev.1 (2018/09/25)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* Minor CSS update for WPSSO Core v4.14.0.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.8.1 (2018/09/24)**
 
 * *New Features*
@@ -174,6 +185,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 
 == Upgrade Notice ==
+
+= 2.8.2-dev.1 =
+
+(2018/09/25) Minor CSS update for WPSSO Core v4.14.0.
 
 = 2.8.1 =
 
