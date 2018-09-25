@@ -85,7 +85,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 			$table_rows['buttons_css_'.$tab_key] = '<th class="textinfo">'.$this->p->msgs->get( 'info-styles-'.$tab_key ).'</th>'.
 			'<td'.( isset( $this->p->options['buttons_css_'.$tab_key.':is'] ) &&
 				$this->p->options['buttons_css_'.$tab_key.':is'] === 'disabled' ? ' class="blank"' : '' ).'>'.
-			$this->form->get_textarea( 'buttons_css_'.$tab_key, 'tall code' ).'</td>';
+			$this->form->get_textarea( 'buttons_css_'.$tab_key, 'button_css code' ).'</td>';
 
 			switch ( $tab_key ) {
 
@@ -93,7 +93,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 					$table_rows[] = $this->form->get_tr_hide( 'basic', 'buttons_js_ssb-sidebar' ).
 					$this->form->get_th_html( _x( 'Sidebar Javascript', 'option label', 'wpsso-ssb' ), '', 'buttons_js_ssb-sidebar' ).
-					'<td>'.$this->form->get_textarea( 'buttons_js_ssb-sidebar', 'average code' ).'</td>';
+					'<td>'.$this->form->get_textarea( 'buttons_js_ssb-sidebar', 'button_html code' ).'</td>';
 
 					break;
 			}

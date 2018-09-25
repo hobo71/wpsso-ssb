@@ -54,31 +54,31 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteGplus' ) ) {
 
 			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_size', array( 
-				'small' => 'Small [ 15px ]',
-				'medium' => 'Medium [ 20px ]',
+				'small'    => 'Small [ 15px ]',
+				'medium'   => 'Medium [ 20px ]',
 				'standard' => 'Standard [ 24px ]',
-				'tall' => 'Tall [ 60px ]',
+				'tall'     => 'Tall [ 60px ]',
 			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Annotation', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_annotation', array( 
-				'none' => 'none',
-				'inline' => 'Inline',
-				'bubble' => 'Bubble',
+				'none'            => 'none',
+				'inline'          => 'Inline',
+				'bubble'          => 'Bubble',
 				'vertical-bubble' => 'Vertical Bubble',
 			) ).'</td>';
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'gp_expandto' ).
 			$form->get_th_html( _x( 'Expand to', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'gp_expandto', array( 
-				'none' => 'none',
-				'top' => 'Top',
-				'bottom' => 'Bottom',
-				'left' => 'Left',
-				'right' => 'Right',
-				'top,left' => 'Top Left',
-				'top,right' => 'Top Right',
-				'bottom,left' => 'Bottom Left',
+				'none'         => 'none',
+				'top'          => 'Top',
+				'bottom'       => 'Bottom',
+				'left'         => 'Left',
+				'right'        => 'Right',
+				'top,left'     => 'Top Left',
+				'top,right'    => 'Top Right',
+				'bottom,left'  => 'Bottom Left',
 				'bottom,right' => 'Bottom Right',
 			) ).'</td>';
 	
