@@ -191,7 +191,7 @@ msgstr ""
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/ecom/woocommerce.php:104 lib/pro/ecom/woocommerce.php:108
+#: lib/gpl/ecom/woocommerce.php:104 lib/pro/ecom/woocommerce.php:115
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
