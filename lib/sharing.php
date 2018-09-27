@@ -594,8 +594,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				echo $this->get_script( 'footer' );
 
 			} else {
-				echo '<p class="centered">' . sprintf( __( '%s must be published<br/>before it can be shared.',
-					'wpsso-ssb' ), SucomUtil::titleize( $post_obj->post_type ) ) . '</p>';
+				echo '<p class="centered">' . __( 'This content must be published<br/>before it can be shared.',
+					'wpsso-ssb' ) . '</p>';
 			}
 
 			echo '</td></tr></table>';

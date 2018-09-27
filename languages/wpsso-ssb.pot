@@ -247,7 +247,7 @@ msgid "Sharing Buttons"
 msgstr ""
 
 #: lib/sharing.php:597
-msgid "%s must be published<br/>before it can be shared."
+msgid "This content must be published<br/>before it can be shared."
 msgstr ""
 
 #: lib/sharing.php:1436
