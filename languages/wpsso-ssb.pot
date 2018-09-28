@@ -148,46 +148,46 @@ msgstr ""
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:145 lib/pro/admin/sharing.php:146
+#: lib/gpl/admin/sharing.php:147 lib/pro/admin/sharing.php:147
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:162 lib/pro/admin/sharing.php:163
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:169
+#: lib/gpl/admin/sharing.php:176 lib/pro/admin/sharing.php:174
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:184 lib/pro/admin/sharing.php:185
+#: lib/gpl/admin/sharing.php:196 lib/pro/admin/sharing.php:193
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:206 lib/pro/admin/sharing.php:207
+#: lib/gpl/admin/sharing.php:222 lib/pro/admin/sharing.php:219
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:230 lib/pro/admin/sharing.php:231
+#: lib/gpl/admin/sharing.php:250 lib/pro/admin/sharing.php:247
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:233 lib/pro/admin/sharing.php:235
+#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:250
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:239 lib/pro/admin/sharing.php:241
+#: lib/gpl/admin/sharing.php:261 lib/pro/admin/sharing.php:258
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:241 lib/pro/admin/sharing.php:245
+#: lib/gpl/admin/sharing.php:263 lib/pro/admin/sharing.php:261
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
