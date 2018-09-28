@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPSSO Social Sharing Buttons 2.8.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2018-09-25 14:01-0600\n"
-"PO-Revision-Date: 2018-09-25 14:02-0600\n"
+"POT-Creation-Date: 2018-09-28 06:38-0600\n"
+"PO-Revision-Date: 2018-09-28 06:39-0600\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -150,50 +150,50 @@ msgstr "Forcer protocole pour URLs partagées"
 msgid "Save a draft version or publish the %s to display these options."
 msgstr "Enregistrer un brouillon ou publier pour activer ces options."
 
-#: lib/gpl/admin/sharing.php:145 lib/pro/admin/sharing.php:146
+#: lib/gpl/admin/sharing.php:147 lib/pro/admin/sharing.php:147
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr "Désactiver les boutons"
 
-#: lib/gpl/admin/sharing.php:162 lib/pro/admin/sharing.php:163
+#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Email Subject"
 msgstr "Sujet du couriel"
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:169
+#: lib/gpl/admin/sharing.php:176 lib/pro/admin/sharing.php:174
 msgctxt "option label"
 msgid "Email Message"
 msgstr "Message du courriel"
 
-#: lib/gpl/admin/sharing.php:184 lib/pro/admin/sharing.php:185
+#: lib/gpl/admin/sharing.php:196 lib/pro/admin/sharing.php:193
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr "Texte du Tweet"
 
-#: lib/gpl/admin/sharing.php:206 lib/pro/admin/sharing.php:207
+#: lib/gpl/admin/sharing.php:222 lib/pro/admin/sharing.php:219
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr "Texte légende Pinterest"
 
-#: lib/gpl/admin/sharing.php:230 lib/pro/admin/sharing.php:231
+#: lib/gpl/admin/sharing.php:250 lib/pro/admin/sharing.php:247
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr "Légende d'image Tumblr"
 
-#: lib/gpl/admin/sharing.php:233 lib/pro/admin/sharing.php:235
+#: lib/gpl/admin/sharing.php:253 lib/pro/admin/sharing.php:250
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %s"
 
-#: lib/gpl/admin/sharing.php:239 lib/pro/admin/sharing.php:241
+#: lib/gpl/admin/sharing.php:261 lib/pro/admin/sharing.php:258
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr "Légende vidéo Tumblr"
 
-#: lib/gpl/admin/sharing.php:241 lib/pro/admin/sharing.php:245
+#: lib/gpl/admin/sharing.php:263 lib/pro/admin/sharing.php:261
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %s"
 
-#: lib/gpl/ecom/woocommerce.php:104 lib/pro/ecom/woocommerce.php:108
+#: lib/gpl/ecom/woocommerce.php:104 lib/pro/ecom/woocommerce.php:115
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr "Position dans le texte Woo Short"
@@ -246,8 +246,8 @@ msgid "Sharing Buttons"
 msgstr "Boutons de partage"
 
 #: lib/sharing.php:597
-msgid "%s must be published<br/>before it can be shared."
-msgstr "%s doit être publié<br/>avant d'être partagé."
+msgid "This content must be published<br/>before it can be shared."
+msgstr "Ce contenu doit être publié<br/>avant d'être partagé."
 
 #: lib/sharing.php:1436
 msgid "Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options)."
