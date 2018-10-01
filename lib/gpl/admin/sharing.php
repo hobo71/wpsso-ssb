@@ -158,7 +158,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$form_rows['subsection_email'] = array(
 				'td_class' => 'subsection',
-				'header'   => 'h5',
+				'header'   => 'h4',
 				'label'    => 'Email',
 			);
 
@@ -186,7 +186,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$form_rows['subsection_twitter'] = array(
 				'td_class' => 'subsection',
-				'header'   => 'h5',
+				'header'   => 'h4',
 				'label'    => 'Twitter',
 			);
 
@@ -212,7 +212,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			
 			$form_rows['subsection_pinterest'] = array(
 				'td_class' => 'subsection',
-				'header'   => 'h5',
+				'header'   => 'h4',
 				'label'    => 'Pinterest',
 			);
 
@@ -240,7 +240,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 
 			$form_rows['subsection_tumblr'] = array(
 				'td_class' => 'subsection',
-				'header'   => 'h5',
+				'header'   => 'h4',
 				'label'    => 'Tumblr',
 			);
 
