@@ -330,7 +330,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
 
 			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
-				$features['(tool) Sharing Styles Editor'] = array( 
+
+				$features['(feature) Sharing Styles Editor'] = array( 
 					'td_class' => $pkg['pp'] ? '' : 'blank',
 					'purchase' => $pkg['purchase'],
 					'status'   => $pkg['pp'] ? 'on' : 'rec',

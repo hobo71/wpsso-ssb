@@ -34,10 +34,15 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		}
 
 		private function set_objects() {
+
 			foreach ( $this->p->cf['plugin']['wpssossb']['lib']['website'] as $id => $name ) {
+
 				$classname = WpssoSsbConfig::load_lib( false, 'website/'.$id, 'wpssossbsubmenuwebsite'.$id );
+
 				if ( $classname !== false && class_exists( $classname ) ) {
+
 					$this->website[$id] = new $classname( $this->p );
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $classname.' class loaded' );
 					}
@@ -63,16 +68,17 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
 			foreach ( $ids as $id => $name ) {
-				$col = $col >= $this->max_cols ? 1 : $col + 1;
-				$name = $name == 'GooglePlus' ? 'Google+' : $name;
+
+				$col    = $col >= $this->max_cols ? 1 : $col + 1;
+				$name   = $name == 'GooglePlus' ? 'Google+' : $name;
 				$pos_id = 'ssb_website_col_'.$col;	// ids must use underscores instead of hyphens to order metaboxes
-				$prio = 'default';
-				$args = array( 'id' => $id, 'name' => $name );
+				$prio   = 'default';
+				$args   = array( 'id' => $id, 'name' => $name );
 
 				add_meta_box( $this->pagehook.'_'.$id, $name, 
 					array( $this, 'show_metabox_ssb_website' ), $this->pagehook, $pos_id, $prio, $args );
 
-				add_filter( 'postbox_classes_'.$this->pagehook.'_'.$this->pagehook.'_'.$id, 
+				add_filter( 'postbox_classes_' . $this->pagehook . '_' . $this->pagehook . '_' . $id, 
 					array( $this, 'add_class_postbox_ssb_website' ) );
 			}
 
