@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.8.3-dev.3 (2018/10/01)**
+**Version 2.8.3-dev.4 (2018/10/01)**
 
 * *New Features*
 	* None.
@@ -197,7 +197,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.8.3-dev.3 =
+= 2.8.3-dev.4 =
 
 (2018/10/01) Minor changes for code style and standardization.
 
