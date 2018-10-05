@@ -206,12 +206,16 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			}
 
 			if ( $mod['name'] === 'post' && $mod['id'] > 0 ) {
-				// if no image or video, then check for a 'quote'
+
+				/**
+				 * If no image or video, then check for a 'quote'.
+				 */
 				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) ) {
 					if ( get_post_format( $mod['id'] ) === 'quote' ) {
 						$atts['quote'] = $this->p->page->get_quote( $mod );
 					}
 				}
+
 				$atts['tags'] = implode( ', ', $this->p->page->get_tags( $mod['id'] ) );
 			}
 

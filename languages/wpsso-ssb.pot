@@ -207,7 +207,7 @@ msgstr ""
 
 #: lib/sharing.php:269
 msgctxt "metabox tab"
-msgid "Sharing Buttons"
+msgid "Share Buttons"
 msgstr ""
 
 #: lib/sharing.php:359
@@ -243,7 +243,7 @@ msgstr ""
 
 #: lib/sharing.php:516
 msgctxt "metabox title"
-msgid "Sharing Buttons"
+msgid "Share Buttons"
 msgstr ""
 
 #: lib/sharing.php:598

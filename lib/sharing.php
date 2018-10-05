@@ -266,7 +266,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 			if ( $metabox_id === $this->p->cf['meta']['id'] ) {
 				SucomUtil::add_after_key( $tabs, 'media', 'buttons',
-					_x( 'Sharing Buttons', 'metabox tab', 'wpsso-ssb' ) );
+					_x( 'Share Buttons', 'metabox tab', 'wpsso-ssb' ) );
 			}
 
 			return $tabs;
@@ -513,7 +513,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 			if ( ! empty( $this->p->options['buttons_add_to_' . $post_obj->post_type] ) ) {
 				add_meta_box( '_' . $this->p->lca . '_ssb_share',
-					_x( 'Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
+					_x( 'Share Buttons', 'metabox title', 'wpsso-ssb' ),
 						array( $this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );
 			}
 		}
@@ -1623,11 +1623,14 @@ $cache_array[$cache_index] .
 		protected function get_info_css_example( $type, $preset = false ) {
 
 			$text = '<p>Example CSS:</p><pre>
-.wpsso-ssb .wpsso-ssb-'.$type.'
+.wpsso-ssb .wpsso-ssb-' . $type . '
     .ssb-buttons 
         .facebook-button {}</pre>';
+
 			if ( $preset ) {
+
 				$styles = apply_filters( $this->p->lca.'_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+
 				$text .= '<p>The '.$styles['ssb-'.$type].' social sharing buttons are subject to preset values selected on the '.$this->p->util->get_admin_url( 'ssb-buttons#sucom-tabset_sharing-tab_preset', 'Sharing Buttons' ).' settings page.</p>
 					<p><strong>Selected preset:</strong> '.
 						( empty( $this->p->options['buttons_preset_ssb-'.$type] ) ? '[None]' :
