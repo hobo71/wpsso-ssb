@@ -354,7 +354,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 			$this->update_sharing_css( $this->p->options );
 
-			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $this->p->options, false );	// $network is false.
+			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $this->p->options, $network = false );
 
 			$this->p->notice->upd( __( 'All sharing styles have been reloaded with their default value and saved.', 'wpsso-ssb' ) );
 		}
