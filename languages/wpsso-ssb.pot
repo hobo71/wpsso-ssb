@@ -396,47 +396,47 @@ msgctxt "metabox tab"
 msgid "Advanced Settings"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:158
+#: lib/submenu/ssb-buttons.php:169
 msgctxt "option label"
 msgid "Include on Archive Webpages"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:162
+#: lib/submenu/ssb-buttons.php:173
 msgctxt "option label"
 msgid "Include on Static Front Page"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:170
+#: lib/submenu/ssb-buttons.php:181
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:175
+#: lib/submenu/ssb-buttons.php:186
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:39
+#: lib/submenu/ssb-styles.php:43
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:44
+#: lib/submenu/ssb-styles.php:49
 msgctxt "submit button"
 msgid "Reload Default Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:59
+#: lib/submenu/ssb-styles.php:66
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:63
+#: lib/submenu/ssb-styles.php:70
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:95
+#: lib/submenu/ssb-styles.php:106
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr ""
@@ -721,16 +721,16 @@ msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
 
-#: lib/widget/sharing.php:31
+#: lib/widget/sharing.php:32
 msgid "The %s widget."
 msgstr ""
 
-#: lib/widget/sharing.php:148
+#: lib/widget/sharing.php:170
 msgctxt "option value"
 msgid "Share It"
 msgstr ""
 
-#: lib/widget/sharing.php:151
+#: lib/widget/sharing.php:173
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr ""
