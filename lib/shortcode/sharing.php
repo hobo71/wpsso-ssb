@@ -217,14 +217,14 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 			if ( ! empty( $cache_array[$cache_index] ) ) {
 				$cache_array[$cache_index] = '
-<!-- '.$lca.' '.$type.' begin -->
+<!-- '.$lca . ' ' . $type.' begin -->
 <!-- generated on '.date( 'c' ).' -->' . "\n" . 
 $this->p->ssb_sharing->get_script( 'shortcode-header', $ids ).
 '<div class="'.$lca.'-ssb '.$lca.'-'.$atts['css_class'] . "\">\n" . 
 $cache_array[$cache_index] . "\n" . 	// buttons html is trimmed, so add newline
 '</div><!-- .'.$lca.'-'.$atts['css_class'].' -->' . "\n" . 
 $this->p->ssb_sharing->get_script( 'shortcode-footer', $ids ).
-'<!-- '.$lca.' '.$type.' end -->' . "\n\n";
+'<!-- '.$lca . ' ' . $type.' end -->' . "\n\n";
 			}
 
 			if ( $cache_exp_secs > 0 ) {

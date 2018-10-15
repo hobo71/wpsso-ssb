@@ -58,7 +58,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_cap_len' ).
 			$form->get_th_html( _x( 'Tweet Text Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_input( 'twitter_cap_len', 'short' ).' '.
+			'<td>'.$form->get_input( 'twitter_cap_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_dnt' ).

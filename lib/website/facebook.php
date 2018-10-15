@@ -207,7 +207,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 							break;
 						case 'html5':
 							$html .= '<!-- Facebook Like / Send Button (HTML5) -->'.
-							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).' '.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ) . ' ' . 
 							'data-href="'.$atts['url'].'" data-send="'.$atts['send'].'" '.
 							'data-layout="'.$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" '.
 							'data-font="'.$opts['fb_font'].'" data-colorscheme="'.$opts['fb_colorscheme'].'" '.
@@ -226,7 +226,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 							break;
 						case 'html5':
 							$html .= '<!-- Facebook Share Button (HTML5) -->'.
-							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).' '.
+							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ) . ' ' . 
 							'data-href="'.$atts['url'].'" data-layout="'.$opts['fb_share_layout'].'" '.
 							'data-mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
 							'data-size="'.$opts['fb_share_size'].'"></div>';

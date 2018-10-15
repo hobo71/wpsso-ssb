@@ -1511,9 +1511,9 @@ $cache_array[$cache_index] .
 					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
-					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.',
-						'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).',
-							'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
+					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.', 'wpsso-ssb' ) . ' ';
+						
+					$text .= sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
 
 					break;
 
@@ -1522,7 +1522,11 @@ $cache_array[$cache_index] .
 					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
-					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ).' '.__( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ).' '.sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
+					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ) . ' ';
+					
+					$text .= __( 'If your hosting infrastructure performs reasonably well, this option can improve page load times significantly.', 'wpsso-ssb' ) . ' ';
+					
+					$text .= sprintf( __( 'The suggested cache expiration value is %1$s seconds (%2$s).', 'wpsso-ssb' ), $cache_exp_secs, $cache_exp_human );
 
 					break;
 			}

@@ -101,12 +101,12 @@ if ( ! function_exists( 'wpssossb_get_sharing_buttons' ) ) {
 
 		if ( ! empty( $cache_array[$cache_index] ) ) {
 			$cache_array[$cache_index] = '
-<!-- '.$lca.' '.__FUNCTION__.' function begin -->
+<!-- '.$lca . ' ' . __FUNCTION__.' function begin -->
 <!-- generated on '.date( 'c' ).' -->' . "\n" . 
 $wpsso->ssb_sharing->get_script( 'sharing-buttons-header', $ids ).
 $cache_array[$cache_index] . "\n" . 	// buttons html is trimmed, so add newline
 $wpsso->ssb_sharing->get_script( 'sharing-buttons-footer', $ids ).
-'<!-- '.$lca.' '.__FUNCTION__.' function end -->' . "\n\n";
+'<!-- '.$lca . ' ' . __FUNCTION__.' function end -->' . "\n\n";
 		}
 
 		if ( $cache_exp_secs > 0 ) {
