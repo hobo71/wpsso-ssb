@@ -151,6 +151,24 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.8.4-dev.7 (2018/10/22)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* Renamed option keys for standardization with Core plugin and add-ons:
+		* 'email_cap_len'      to 'email_caption_max_len',
+		* 'twitter_cap_len'    to 'twitter_caption_max_len',
+		* 'pin_cap_len'        to 'pin_caption_max_len',
+		* 'linkedin_cap_len'   to 'linkedin_caption_max_len',
+		* 'reddit_cap_len'     to 'reddit_caption_max_len',
+		* 'tumblr_cap_len'     to 'tumblr_caption_max_len',
+		* 'email_cap_hashtags' to 'email_caption_hashtags',
+
 **Version 2.8.3 (2018/10/04)**
 
 * *New Features*
@@ -163,6 +181,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Minor changes for code style and standardization.
 
 == Upgrade Notice ==
+
+= 2.8.4-dev.7 =
+
+(2018/10/22) Renamed option keys for standardization with Core plugin and add-ons:
 
 = 2.8.3 =
 
