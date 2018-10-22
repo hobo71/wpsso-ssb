@@ -85,14 +85,14 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 			$form->get_th_html( _x( 'Media Caption', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_caption', $this->p->cf['form']['caption_types'] ) . '</td>';
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_cap_len' ) . 
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_caption_max_len' ) . 
 			$form->get_th_html( _x( 'Caption Length', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
-			'<td>' . $form->get_input( 'tumblr_cap_len', 'short' ) . ' ' . 
+			'<td>' . $form->get_input( 'tumblr_caption_max_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ) . '</td>';
 	
-			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_desc_len' ) . 
+			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_desc_max_len' ) . 
 			$form->get_th_html( _x( 'Link Description', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
-			'<td>' . $form->get_input( 'tumblr_desc_len', 'short' ) . ' ' . 
+			'<td>' . $form->get_input( 'tumblr_desc_max_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ) . '</td>';
 
 			return $table_rows;
@@ -108,25 +108,25 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'tumblr_order' => 12,
-					'tumblr_on_content' => 0,
-					'tumblr_on_excerpt' => 0,
-					'tumblr_on_sidebar' => 0,
-					'tumblr_on_admin_edit' => 1,
-					'tumblr_platform' => 'any',
-					'tumblr_script_loc' => 'header',
-					'tumblr_lang' => 'en_US',
-					'tumblr_color' => 'blue',
-					'tumblr_counter' => 'right',
-					'tumblr_show_via' => 1,
-					'tumblr_img_width' => 800,
-					'tumblr_img_height' => 1600,
-					'tumblr_img_crop' => 0,
-					'tumblr_img_crop_x' => 'center',
-					'tumblr_img_crop_y' => 'center',
-					'tumblr_caption' => 'excerpt',
-					'tumblr_cap_len' => 400,
-					'tumblr_desc_len' => 300,
+					'tumblr_order'           => 12,
+					'tumblr_on_content'      => 0,
+					'tumblr_on_excerpt'      => 0,
+					'tumblr_on_sidebar'      => 0,
+					'tumblr_on_admin_edit'   => 1,
+					'tumblr_platform'        => 'any',
+					'tumblr_script_loc'      => 'header',
+					'tumblr_lang'            => 'en_US',
+					'tumblr_color'           => 'blue',
+					'tumblr_counter'         => 'right',
+					'tumblr_show_via'        => 1,
+					'tumblr_img_width'       => 800,
+					'tumblr_img_height'      => 1600,
+					'tumblr_img_crop'        => 0,
+					'tumblr_img_crop_x'      => 'center',
+					'tumblr_img_crop_y'      => 'center',
+					'tumblr_caption'         => 'excerpt',
+					'tumblr_caption_max_len' => 400,
+					'tumblr_desc_max_len'    => 300,
 				),
 			),
 		);
@@ -223,7 +223,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			if ( ! empty( $atts['photo'] ) || ! empty( $atts['embed'] ) ) {
 				// html encode param is false to use url encoding instead
 				if ( empty( $atts['caption'] ) ) {
-					$atts['caption'] = $this->p->page->get_caption( $opts['tumblr_caption'], $opts['tumblr_cap_len'],
+					$atts['caption'] = $this->p->page->get_caption( $opts['tumblr_caption'], $opts['tumblr_caption_max_len'],
 						$mod, true, false, true, ( ! empty( $atts['photo'] ) ? 'tumblr_img_desc' : 'tumblr_vid_desc' ) );
 				}
 			} else {
@@ -232,7 +232,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 				}
 
 				if ( empty( $atts['description'] ) ) {
-					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_len'], '...', $mod, true, false, false );
+					$atts['description'] = $this->p->page->get_description( $opts['tumblr_desc_max_len'], '...', $mod, true, false, false );
 				}
 			}
 
@@ -240,33 +240,33 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 			if ( ! empty( $atts['photo'] ) ) {
 
 				$atts['posttype'] = 'photo';
-				$atts['content'] = $atts['photo'];
+				$atts['content']  = $atts['photo'];
 				// uses $atts['caption']
 
 			} elseif ( ! empty( $atts['embed'] ) ) {
 
 				$atts['posttype'] = 'video';
-				$atts['content'] = $atts['embed'];
+				$atts['content']  = $atts['embed'];
 				// uses $atts['caption']
 
 			} elseif ( ! empty( $atts['quote'] ) ) {
 
 				$atts['posttype'] = 'quote';
-				$atts['content'] = $atts['quote'];
-				$atts['caption'] = $atts['title'];
+				$atts['content']  = $atts['quote'];
+				$atts['caption']  = $atts['title'];
 
 				unset( $atts['title'] );
 
 			} elseif ( ! empty( $atts['url'] ) ) {
 
 				$atts['posttype'] = 'link';
-				$atts['content'] = $atts['url'];
-				$atts['caption'] = $atts['description'];
+				$atts['content']  = $atts['url'];
+				$atts['caption']  = $atts['description'];
 
 			} else {
 			
 				$atts['posttype'] = 'text';
-				$atts['content'] = $atts['description'];
+				$atts['content']  = $atts['description'];
 				// uses $atts['title']
 			}
 

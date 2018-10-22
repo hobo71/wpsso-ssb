@@ -72,9 +72,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_cap_len' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'buffer_caption_max_len' ).
 			$form->get_th_html( _x( 'Tweet Text Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_input( 'buffer_cap_len', 'short' ) . ' ' . 
+			'<td>'.$form->get_input( 'buffer_caption_max_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
@@ -93,22 +93,22 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'buffer_order' => 8,
-					'buffer_on_content' => 0,
-					'buffer_on_excerpt' => 0,
-					'buffer_on_sidebar' => 0,
-					'buffer_on_admin_edit' => 1,
-					'buffer_platform' => 'any',
-					'buffer_script_loc' => 'footer',
-					'buffer_count' => 'horizontal',
-					'buffer_img_width' => 600,
-					'buffer_img_height' => 600,
-					'buffer_img_crop' => 1,
-					'buffer_img_crop_x' => 'center',
-					'buffer_img_crop_y' => 'center',
-					'buffer_caption' => 'title',
-					'buffer_cap_len' => 280,	// changed from 140 to 280 on 2017/11/17
-					'buffer_via' => 1,
+					'buffer_order'           => 8,
+					'buffer_on_content'      => 0,
+					'buffer_on_excerpt'      => 0,
+					'buffer_on_sidebar'      => 0,
+					'buffer_on_admin_edit'   => 1,
+					'buffer_platform'        => 'any',
+					'buffer_script_loc'      => 'footer',
+					'buffer_count'           => 'horizontal',
+					'buffer_img_width'       => 600,
+					'buffer_img_height'      => 600,
+					'buffer_img_crop'        => 1,
+					'buffer_img_crop_x'      => 'center',
+					'buffer_img_crop_y'      => 'center',
+					'buffer_caption'         => 'title',
+					'buffer_caption_max_len' => 280,	// changed from 140 to 280 on 2017/11/17
+					'buffer_via'             => 1,
 				),
 			),
 		);

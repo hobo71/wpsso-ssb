@@ -56,9 +56,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_caption', $this->p->cf['form']['caption_types'] ).'</td>';
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_cap_len' ).
+			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_caption_max_len' ).
 			$form->get_th_html( _x( 'Tweet Text Length', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_input( 'twitter_cap_len', 'short' ) . ' ' . 
+			'<td>'.$form->get_input( 'twitter_caption_max_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ).'</td>';
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'twitter_dnt' ).
@@ -85,20 +85,20 @@ if ( ! class_exists( 'WpssoSsbWebsiteTwitter' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'twitter_order' => 3,
-					'twitter_on_content' => 1,
-					'twitter_on_excerpt' => 0,
-					'twitter_on_sidebar' => 0,
-					'twitter_on_admin_edit' => 1,
-					'twitter_platform' => 'any',
-					'twitter_script_loc' => 'header',
-					'twitter_lang' => 'en',
-					'twitter_caption' => 'excerpt',
-					'twitter_cap_len' => 280,	// changed from 140 to 280 on 2017/11/17
-					'twitter_size' => 'medium',
-					'twitter_via' => 1,
-					'twitter_rel_author' => 1,
-					'twitter_dnt' => 1,
+					'twitter_order'           => 3,
+					'twitter_on_content'      => 1,
+					'twitter_on_excerpt'      => 0,
+					'twitter_on_sidebar'      => 0,
+					'twitter_on_admin_edit'   => 1,
+					'twitter_platform'        => 'any',
+					'twitter_script_loc'      => 'header',
+					'twitter_lang'            => 'en',
+					'twitter_caption'         => 'excerpt',
+					'twitter_caption_max_len' => 280,	// changed from 140 to 280 on 2017/11/17
+					'twitter_size'            => 'medium',
+					'twitter_via'             => 1,
+					'twitter_rel_author'      => 1,
+					'twitter_dnt'             => 1,
 				),
 			),
 		);

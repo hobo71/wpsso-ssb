@@ -88,9 +88,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsitePinterest' ) ) {
 			$form->get_th_html( _x( 'Caption Text', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'pin_caption', $this->p->cf['form']['caption_types'] ) . '</td>';
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'pin_cap_len' ) . 
+			$table_rows[] = $form->get_tr_hide( 'basic', 'pin_caption_max_len' ) . 
 			$form->get_th_html( _x( 'Caption Length', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
-			'<td>' . $form->get_input( 'pin_cap_len', 'short' ) . ' ' . 
+			'<td>' . $form->get_input( 'pin_caption_max_len', 'short' ) . ' ' . 
 				_x( 'characters or less', 'option comment', 'wpsso-ssb' ) . '</td>';
 
 			return $table_rows;
@@ -106,25 +106,25 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'pin_order' => 6,
-					'pin_on_content' => 0,
-					'pin_on_excerpt' => 0,
-					'pin_on_sidebar' => 0,
-					'pin_on_admin_edit' => 1,
-					'pin_platform' => 'any',
-					'pin_script_loc' => 'footer',
-					'pin_button_lang' => 'en',
-					'pin_button_shape' => 'rect',
-					'pin_button_color' => 'gray',
-					'pin_button_height' => 'small',
-					'pin_count_layout' => 'beside',
-					'pin_img_width' => 800,
-					'pin_img_height' => 1600,
-					'pin_img_crop' => 0,
-					'pin_img_crop_x' => 'center',
-					'pin_img_crop_y' => 'center',
-					'pin_caption' => 'excerpt',
-					'pin_cap_len' => 400,
+					'pin_order'           => 6,
+					'pin_on_content'      => 0,
+					'pin_on_excerpt'      => 0,
+					'pin_on_sidebar'      => 0,
+					'pin_on_admin_edit'   => 1,
+					'pin_platform'        => 'any',
+					'pin_script_loc'      => 'footer',
+					'pin_button_lang'     => 'en',
+					'pin_button_shape'    => 'rect',
+					'pin_button_color'    => 'gray',
+					'pin_button_height'   => 'small',
+					'pin_count_layout'    => 'beside',
+					'pin_img_width'       => 800,
+					'pin_img_height'      => 1600,
+					'pin_img_crop'        => 0,
+					'pin_img_crop_x'      => 'center',
+					'pin_img_crop_y'      => 'center',
+					'pin_caption'         => 'excerpt',
+					'pin_caption_max_len' => 400,
 				),
 			),
 		);
@@ -204,7 +204,7 @@ if ( ! class_exists( 'WpssoSsbWebsitePinterest' ) ) {
 			$href_query .= '&amp;media=' . rawurlencode( $atts['photo'] );
 
 			if ( empty( $atts['caption'] ) ) {
-				$atts['caption'] = $this->p->page->get_caption( $opts['pin_caption'], $opts['pin_cap_len'], $mod, true, true, false, 'pin_desc' );
+				$atts['caption'] = $this->p->page->get_caption( $opts['pin_caption'], $opts['pin_caption_max_len'], $mod, true, true, false, 'pin_desc' );
 			}
 
 			// use rawurlencode() for mobile devices (encodes a space as '%20' instead of '+')
