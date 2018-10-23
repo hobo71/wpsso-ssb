@@ -1186,7 +1186,9 @@ $cache_array[$cache_index] .
 			}
 
 			natsort( $include_ids );
+
 			$include_ids = array_unique( $include_ids );
+
 			$script_html = '<!-- wpssossb ' . $pos . ' javascript begin -->' . "\n" . 
 				'<!-- generated on ' . date( 'c' ) . ' -->' . "\n";
 
@@ -1199,17 +1201,21 @@ $cache_array[$cache_index] .
 			}
 
 			if ( ! empty( $include_ids ) ) {
+
 				foreach ( $include_ids as $id ) {
+
 					$id = preg_replace( '/[^a-z]/', '', $id );
+
 					$opt_name = $this->p->cf['opt']['cm_prefix'][$id] . '_script_loc';
 
-					if ( isset( $this->website[$id] ) &&
-						method_exists( $this->website[$id], 'get_script' ) ) {
+					if ( isset( $this->website[$id] ) && method_exists( $this->website[$id], 'get_script' ) ) {
 
-						if ( isset( $this->p->options[$opt_name] ) && 
-							$this->p->options[$opt_name] === $script_loc )
-								$script_html .= $this->website[$id]->get_script( $pos ) . "\n";
-						else $script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' . $this->p->options[$opt_name] . ' -->' . "\n";
+						if ( isset( $this->p->options[$opt_name] ) && $this->p->options[$opt_name] === $script_loc ) {
+							$script_html .= $this->website[$id]->get_script( $pos ) . "\n";
+						} else {
+							$script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' .
+								$this->p->options[$opt_name] . ' -->' . "\n";
+						}
 					}
 				}
 			}
@@ -1222,6 +1228,7 @@ $cache_array[$cache_index] .
 		public function get_script_loader( $pos = 'id' ) {
 
 			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
+
 			$lang = apply_filters( $this->p->lca . '_pub_lang', $lang, 'google', 'current' );
 
 			return '<script type="text/javascript" id="wpssossb-header-script">
@@ -1242,9 +1249,11 @@ $cache_array[$cache_index] .
 		}
 
 		public function have_buttons_for_type( $type ) {
+
 			if ( isset( $this->buttons_for_type[$type] ) ) {
 				return $this->buttons_for_type[$type];
 			}
+
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
 				if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) &&	// check if button is enabled
 					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
