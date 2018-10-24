@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.8.4-b.1 (2018/10/23)**
+**Version 2.8.4 (2018/10/24)**
 
 * *New Features*
 	* None.
@@ -169,24 +169,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 		* 'tumblr_cap_len'     to 'tumblr_caption_max_len',
 		* 'email_cap_hashtags' to 'email_caption_hashtags',
 
-**Version 2.8.3 (2018/10/04)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* None.
-* *Bugfixes*
-	* None.
-* *Developer Notes*
-	* Minor changes for code style and standardization.
-
 == Upgrade Notice ==
 
-= 2.8.4-b.1 =
+= 2.8.4 =
 
-(2018/10/23) Renamed option keys for standardization with the Core plugin and other add-ons.
-
-= 2.8.3 =
-
-(2018/10/04) Minor changes for code style and standardization.
+(2018/10/24) Renamed option keys for standardization with the Core plugin and other add-ons.
 
