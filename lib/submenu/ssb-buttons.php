@@ -61,30 +61,40 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		 */
 		protected function add_meta_boxes() {
 
-			add_meta_box( $this->pagehook . '_ssb_buttons',
-				_x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
-					array( $this, 'show_metabox_ssb_buttons' ), $this->pagehook, 'normal' );
+			$metabox_id      = 'ssb_buttons';
+			$metabox_title   = _x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' );
+			$metabox_screen  = $this->pagehook;
+			$metabox_context = 'normal';
+			$metabox_prio    = 'default';
 
-			$col = 0;
-			$ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
+			add_meta_box( $this->pagehook . '_' . $metabox_id, $metabox_title,
+				array( $this, 'show_metabox_ssb_buttons' ), $metabox_screen,
+					$metabox_context, $metabox_prio );
 
-			foreach ( $ids as $id => $name ) {
+			$website_col = 0;
+			$website_ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
 
-				$col    = $col >= $this->max_cols ? 1 : $col + 1;
-				$name   = $name == 'GooglePlus' ? 'Google+' : $name;
-				$pos_id = 'ssb_website_col_' . $col;	// ids must use underscores instead of hyphens to order metaboxes
-				$prio   = 'default';
-				$args   = array( 'id' => $id, 'name' => $name );
+			foreach ( $website_ids as $website_id => $website_title ) {
 
-				add_meta_box( $this->pagehook . '_' . $id, $name, 
-					array( $this, 'show_metabox_ssb_website' ), $this->pagehook, $pos_id, $prio, $args );
+				$website_col     = $website_col >= $this->max_cols ? 1 : $website_col + 1;
+				$website_title   = $website_title == 'GooglePlus' ? 'Google+' : $website_title;
+				$metabox_screen  = $this->pagehook;
+				$metabox_context = 'ssb_website_col_' . $website_col;	// ids must use underscores instead of hyphens to order metaboxes
+				$metabox_prio    = 'default';
+				$callback_args   = array( 'website_id' => $website_id, 'website_title' => $website_title );
 
-				add_filter( 'postbox_classes_' . $this->pagehook . '_' . $this->pagehook . '_' . $id, 
+				add_meta_box( $this->pagehook . '_' . $website_id, $website_title, 
+					array( $this, 'show_metabox_ssb_website' ), $metabox_screen,
+						$metabox_context, $metabox_prio, $callback_args );
+
+				add_filter( 'postbox_classes_' . $this->pagehook . '_' . $this->pagehook . '_' . $website_id, 
 					array( $this, 'add_class_postbox_ssb_website' ) );
 			}
 
-			// close all website metaboxes by default
-			WpssoUser::reset_metabox_prefs( $this->pagehook, array_keys( $ids ), 'closed' );
+			/**
+			 * Close all website metaboxes by default.
+			 */
+			WpssoUser::reset_metabox_prefs( $this->pagehook, array_keys( $website_ids ), 'closed' );
 		}
 
 		public function add_class_postbox_ssb_website( $classes ) {
@@ -96,15 +106,21 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			return $classes;
 		}
 
-		// show two-column metaboxes for sharing buttons
+		/**
+		 * Show two-column metaboxes for sharing buttons.
+		 */
 		public function action_form_content_metaboxes_ssb_buttons( $pagehook ) {
+
 			if ( ! empty( $this->website ) ) {
-				foreach ( range( 1, $this->max_cols ) as $col ) {
+
+				foreach ( range( 1, $this->max_cols ) as $website_col ) {
+
 					// ids must use underscores instead of hyphens to order metaboxes
-					echo '<div id="ssb_website_col_' . $col . '" class="max_cols_' . $this->max_cols . ' ssb_website_col">';
-					do_meta_boxes( $pagehook, 'ssb_website_col_' . $col, null );
-					echo '</div><!-- #ssb_website_col_' . $col . ' -->' . "\n";
+					echo '<div id="ssb_website_col_' . $website_col . '" class="max_cols_' . $this->max_cols . ' ssb_website_col">';
+					do_meta_boxes( $pagehook, 'ssb_website_col_' . $website_col, null );
+					echo '</div><!-- #ssb_website_col_' . $website_col . ' -->' . "\n";
 				}
+
 				echo '<div style="clear:both;"></div>' . "\n";
 			}
 		}
@@ -113,7 +129,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 			$metabox_id = 'ssb_buttons';
 
-			$tabs = apply_filters( $this->p->lca . '_' . $metabox_id . '_tabs', array(
+			$metabox_tabs = apply_filters( $this->p->lca . '_' . $metabox_id . '_tabs', array(
 				'include'  => _x( 'Include Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'position' => _x( 'Buttons Position', 'metabox tab', 'wpsso-ssb' ),
 				'preset'   => _x( 'Buttons Presets', 'metabox tab', 'wpsso-ssb' ),
@@ -122,7 +138,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 			$table_rows = array();
 
-			foreach ( $tabs as $tab_key => $title ) {
+			foreach ( $metabox_tabs as $tab_key => $title ) {
 
 				$filter_name = $this->p->lca . '_' . $metabox_id . '_' . $tab_key . '_rows';
 
@@ -132,30 +148,30 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				);
 			}
 
-			$this->p->util->do_metabox_tabbed( $metabox_id, $tabs, $table_rows );
+			$this->p->util->do_metabox_tabbed( $metabox_id, $metabox_tabs, $table_rows );
 		}
 
 		public function show_metabox_ssb_website( $post, $callback ) {
 
-			$args       = $callback['args'];
-			$metabox_id = 'ssb_website';
-			$tabs       = apply_filters( $this->p->lca . '_' . $metabox_id . '_' . $args['id'] . '_tabs', array() );
+			$callback_args = $callback[ 'args' ];
+			$metabox_id    = 'ssb_website';
+			$metabox_tabs  = apply_filters( $this->p->lca . '_' . $metabox_id . '_' . $callback_args[ 'website_id' ] . '_tabs', array() );
 
-			if ( empty( $tabs ) ) {
+			if ( empty( $metabox_tabs ) ) {
 
-				$filter_name = $this->p->lca . '_' . $metabox_id . '_' . $args['id'] . '_rows';
+				$filter_name = $this->p->lca . '_' . $metabox_id . '_' . $callback_args[ 'website_id' ] . '_rows';
 
 				$this->p->util->do_metabox_table( apply_filters( $filter_name, array(), $this->form, $this ),
-					'metabox-' . $metabox_id . '-' . $args['id'], 'metabox-' . $metabox_id );
+					'metabox-' . $metabox_id . '-' . $callback_args[ 'website_id' ], 'metabox-' . $metabox_id );
 
 			} else {
 
-				foreach ( $tabs as $tab => $title ) {
-					$table_rows[$tab] = apply_filters( $this->p->lca . '_' . $metabox_id . '_' . $args['id'] . '_' . $tab . '_rows',
+				foreach ( $metabox_tabs as $tab => $title ) {
+					$table_rows[$tab] = apply_filters( $this->p->lca . '_' . $metabox_id . '_' . $callback_args[ 'website_id' ] . '_' . $tab . '_rows',
 						array(), $this->form, $this );
 				}
 
-				$this->p->util->do_metabox_tabbed( $metabox_id . '_' . $args['id'], $tabs, $table_rows );
+				$this->p->util->do_metabox_tabbed( $metabox_id . '_' . $callback_args[ 'website_id' ], $metabox_tabs, $table_rows );
 			}
 		}
 

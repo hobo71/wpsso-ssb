@@ -1369,7 +1369,7 @@ $cache_array[$cache_index] .
 			$website_lib = $this->p->cf['plugin']['wpssossb']['lib']['website'];
 
 			foreach ( $keys as $id ) {
-				$website_ids[$id] = isset( $website_lib[$id] ) ? $website_lib[$id] : ucfirst( $id );
+				$website_ids[ $id ] = isset( $website_lib[ $id ] ) ? $website_lib[ $id ] : ucfirst( $id );
 			}
 
 			return $website_ids;
