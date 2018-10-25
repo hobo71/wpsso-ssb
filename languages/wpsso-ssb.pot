@@ -371,47 +371,47 @@ msgid ""
 "improve page load times significantly."
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:64
+#: lib/submenu/ssb-buttons.php:65
 msgctxt "metabox title"
 msgid "Social Sharing Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:116
+#: lib/submenu/ssb-buttons.php:117
 msgctxt "metabox tab"
 msgid "Include Buttons"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:117
+#: lib/submenu/ssb-buttons.php:118
 msgctxt "metabox tab"
 msgid "Buttons Position"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:118
+#: lib/submenu/ssb-buttons.php:119
 msgctxt "metabox tab"
 msgid "Buttons Presets"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:119
+#: lib/submenu/ssb-buttons.php:120
 msgctxt "metabox tab"
 msgid "Advanced Settings"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:169
+#: lib/submenu/ssb-buttons.php:170
 msgctxt "option label"
 msgid "Include on Archive Webpages"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:173
+#: lib/submenu/ssb-buttons.php:174
 msgctxt "option label"
 msgid "Include on Static Front Page"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:181
+#: lib/submenu/ssb-buttons.php:182
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr ""
 
-#: lib/submenu/ssb-buttons.php:186
+#: lib/submenu/ssb-buttons.php:187
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""

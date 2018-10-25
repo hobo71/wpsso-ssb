@@ -56,10 +56,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			) );
 		}
 
-		// called by the extended WpssoAdmin class
+		/**
+		 * Called by the extended WpssoAdmin class.
+		 */
 		protected function add_meta_boxes() {
 
-			// add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args );
 			add_meta_box( $this->pagehook . '_ssb_buttons',
 				_x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' ),
 					array( $this, 'show_metabox_ssb_buttons' ), $this->pagehook, 'normal' );
