@@ -66,10 +66,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$metabox_screen  = $this->pagehook;
 			$metabox_context = 'normal';
 			$metabox_prio    = 'default';
+			$callback_args   = array(	// Second argument passed to the callback function / method.
+			);
 
 			add_meta_box( $this->pagehook . '_' . $metabox_id, $metabox_title,
 				array( $this, 'show_metabox_ssb_buttons' ), $metabox_screen,
-					$metabox_context, $metabox_prio );
+					$metabox_context, $metabox_prio, $callback_args );
 
 			$website_col = 0;
 			$website_ids = $this->p->ssb_sharing->get_website_object_ids( $this->website );
@@ -79,9 +81,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 				$website_col     = $website_col >= $this->max_cols ? 1 : $website_col + 1;
 				$website_title   = $website_title == 'GooglePlus' ? 'Google+' : $website_title;
 				$metabox_screen  = $this->pagehook;
-				$metabox_context = 'ssb_website_col_' . $website_col;	// ids must use underscores instead of hyphens to order metaboxes
+				$metabox_context = 'ssb_website_col_' . $website_col;	// IDs must use underscores to order metaboxes.
 				$metabox_prio    = 'default';
-				$callback_args   = array( 'website_id' => $website_id, 'website_title' => $website_title );
+				$callback_args   = array(	// Second argument passed to the callback function / method.
+					'website_id'    => $website_id,
+					'website_title' => $website_title,
+				);
 
 				add_meta_box( $this->pagehook . '_' . $website_id, $website_title, 
 					array( $this, 'show_metabox_ssb_website' ), $metabox_screen,

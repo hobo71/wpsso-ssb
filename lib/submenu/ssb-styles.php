@@ -39,9 +39,17 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 		 */
 		protected function add_meta_boxes() {
 
-			add_meta_box( $this->pagehook . '_styles',
-				_x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' ),
-					array( $this, 'show_metabox_styles' ), $this->pagehook, 'normal' );
+			$metabox_id      = 'sharing_styles';
+			$metabox_title   = _x( 'Social Sharing Styles', 'metabox title', 'wpsso-ssb' );
+			$metabox_screen  = $this->pagehook;
+			$metabox_context = 'normal';
+			$metabox_prio    = 'default';
+			$callback_args   = array(	// Second argument passed to the callback function / method.
+			);
+
+			add_meta_box( $this->pagehook . '_' . $metabox_id, $metabox_title,
+				array( $this, 'show_metabox_sharing_styles' ), $metabox_screen,
+					$metabox_context, $metabox_prio, $callback_args );
 		}
 
 		public function filter_action_buttons( $action_buttons ) {
@@ -51,7 +59,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 			return $action_buttons;
 		}
 
-		public function show_metabox_styles() {
+		public function show_metabox_sharing_styles() {
 
 			$metabox_id = 'ssb_styles';
 
@@ -63,12 +71,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 			$this->p->util->do_metabox_table( array( 
 
-				$this->form->get_th_html( _x( 'Use the Social Stylesheet',
-					'option label', 'wpsso-ssb' ), '', 'buttons_use_social_style' ) . 
+				$this->form->get_th_html( _x( 'Use the Social Stylesheet', 'option label', 'wpsso-ssb' ), '', 'buttons_use_social_style' ) . 
 				'<td>' . $this->form->get_checkbox( 'buttons_use_social_style' ) . $css_min_msg . '</td>',
 
-				$this->form->get_th_html( _x( 'Enqueue the Stylesheet',
-					'option label', 'wpsso-ssb' ), '', 'buttons_enqueue_social_style' ) . 
+				$this->form->get_th_html( _x( 'Enqueue the Stylesheet', 'option label', 'wpsso-ssb' ), '', 'buttons_enqueue_social_style' ) . 
 				'<td>' . $this->form->get_checkbox( 'buttons_enqueue_social_style' ) . '</td>',
 			) );
 

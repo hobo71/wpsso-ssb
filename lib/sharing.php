@@ -511,10 +511,20 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				return;
 			}
 
-			if ( ! empty( $this->p->options['buttons_add_to_' . $post_obj->post_type] ) ) {
-				add_meta_box( '_' . $this->p->lca . '_ssb_share',
-					_x( 'Share Buttons', 'metabox title', 'wpsso-ssb' ),
-						array( $this, 'show_admin_sharing' ), $post_obj->post_type, 'side', 'high' );
+			if ( ! empty( $this->p->options[ 'buttons_add_to_' . $post_obj->post_type ] ) ) {
+
+				$metabox_id      = 'ssb_share';
+				$metabox_title   = _x( 'Share Buttons', 'metabox title', 'wpsso-ssb' );
+				$metabox_screen  = $post_obj->post_type;
+				$metabox_context = 'side';
+				$metabox_prio    = 'high';
+				$callback_args   = array(	// Second argument passed to the callback function / method.
+					'__block_editor_compatible_meta_box' => true,
+				);
+
+				add_meta_box( '_' . $this->p->lca . '_' . $metabox_id, $metabox_title,
+					array( $this, 'show_metabox_ssb_share' ), $metabox_screen,
+						$metabox_context, $metabox_prio, $callback_args );
 			}
 		}
 
@@ -575,7 +585,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			}
 		}
 
-		public function show_admin_sharing( $post_obj ) {
+		public function show_metabox_ssb_share( $post_obj ) {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
