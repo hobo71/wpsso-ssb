@@ -1149,27 +1149,39 @@ $cache_array[$cache_index] .
 			}
 
 			if ( $exit_message ) {
+
 				if ( empty( $request_ids ) && empty( $enabled_ids ) ) {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'exiting early: ' . $exit_message  );
 					}
+
 					return '<!-- wpssossb ' . $pos . ': ' . $exit_message . ' -->' . "\n";
+
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'ignoring exit message: have requested or enabled ids' );
 				}
+
 			} elseif ( is_admin() ) {
+
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_admin_/', $this->p->options ) as $key => $val ) {
-						if ( ! empty( $val ) ) {
+
+					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_admin_/', $this->p->options ) as $opt_key => $opt_val ) {
+
+						if ( ! empty( $opt_val ) ) {
 							$enabled_ids[] = $id;
 						}
 					}
 				}
+
 			} else {
+
 				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_/', $this->p->options ) as $key => $val ) {
+
+					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_/', $this->p->options ) as $opt_key => $opt_val ) {
+
 						// exclude buttons enabled for admin editing pages
-						if ( strpos( $key, $opt_pre . '_on_admin_' ) === false && ! empty( $val ) ) {
+						if ( strpos( $opt_key, $opt_pre . '_on_admin_' ) === false && ! empty( $opt_val ) ) {
 							$enabled_ids[] = $id;
 						}
 					}
@@ -1371,14 +1383,14 @@ $cache_array[$cache_index] .
 			$website_ids = array();
 
 			if ( empty( $website ) ) {
-				$keys = array_keys( $this->website );
+				$website_keys = array_keys( $this->website );
 			} else {
-				$keys = array_keys( $website );
+				$website_keys = array_keys( $website );
 			}
 
 			$website_lib = $this->p->cf['plugin']['wpssossb']['lib']['website'];
 
-			foreach ( $keys as $id ) {
+			foreach ( $website_keys as $id ) {
 				$website_ids[ $id ] = isset( $website_lib[ $id ] ) ? $website_lib[ $id ] : ucfirst( $id );
 			}
 
@@ -1397,7 +1409,7 @@ $cache_array[$cache_index] .
 				$caption_max_len = $this->get_tweet_max_len( $opt_pre );
 
 				return $this->p->page->get_caption( $caption_type, $caption_max_len, $mod, $read_cache = true,
-					$atts['add_hashtags'], $do_encode = false, $md_idx = $md_pre . '_desc' );
+					$atts['add_hashtags'], $do_encode = false, $md_key = $md_pre . '_desc' );
 
 			} else {
 				return $atts['tweet'];
@@ -1440,15 +1452,15 @@ $cache_array[$cache_index] .
 			return apply_filters( $this->p->lca . '_rewrite_cache_url', $url );
 		}
 
-		public function filter_messages_tooltip( $text, $idx ) {
+		public function filter_messages_tooltip( $text, $msg_key ) {
 
-			if ( strpos( $idx, 'tooltip-buttons_' ) !== 0 ) {
+			if ( strpos( $msg_key, 'tooltip-buttons_' ) !== 0 ) {
 				return $text;
 			}
 
-			switch ( $idx ) {
+			switch ( $msg_key ) {
 
-				case ( strpos( $idx, 'tooltip-buttons_pos_' ) === false ? false : true ):
+				case ( strpos( $msg_key, 'tooltip-buttons_pos_' ) === false ? false : true ):
 
 					$text = sprintf( __( 'Social sharing buttons can be added to the top, bottom, or both. Each sharing button must also be enabled below (see the <em>%s</em> options).', 'wpsso-ssb' ), _x( 'Show Button in', 'option label', 'wpsso-ssb' ) );
 
@@ -1518,9 +1530,9 @@ $cache_array[$cache_index] .
 			return $text;
 		}
 
-		public function filter_messages_tooltip_plugin( $text, $idx ) {
+		public function filter_messages_tooltip_plugin( $text, $msg_key ) {
 
-			switch ( $idx ) {
+			switch ( $msg_key ) {
 
 				case 'tooltip-plugin_sharing_buttons_cache_exp':
 
@@ -1549,15 +1561,15 @@ $cache_array[$cache_index] .
 			return $text;
 		}
 
-		public function filter_messages_info( $text, $idx ) {
+		public function filter_messages_info( $text, $msg_key ) {
 
-			if ( strpos( $idx, 'info-styles-ssb-' ) !== 0 ) {
+			if ( strpos( $msg_key, 'info-styles-ssb-' ) !== 0 ) {
 				return $text;
 			}
 
 			$short = $this->p->cf['plugin']['wpsso']['short'];
 
-			switch ( $idx ) {
+			switch ( $msg_key ) {
 
 				case 'info-styles-ssb-sharing':
 
