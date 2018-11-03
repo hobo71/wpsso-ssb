@@ -27,6 +27,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				if ( $this->p->avail['p_ext']['ssb'] ) {
 
 					$this->check_wpautop();
+
 					$this->add_shortcode();
 
 					$this->p->util->add_plugin_actions( $this, array( 
@@ -160,7 +161,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				return '<!-- '.$lca.' sharing shortcode: no buttons defined -->' . "\n\n";
 			}
 
-			$atts['use_post'] = SucomUtil::sanitize_use_post( $atts, true );	// $default = true
+			$atts['use_post']  = SucomUtil::sanitize_use_post( $atts, true );	// $default = true
 			$atts['css_class'] = empty( $atts['css_class'] ) ? 'ssb-shortcode' : $atts['css_class'];
 			$atts['filter_id'] = empty( $atts['filter_id'] ) ? 'shortcode' : $atts['filter_id'];
 			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
@@ -168,9 +169,11 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'required call to get_page_mod()' );
 			}
+
 			$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 
 			$type = 'sharing_shortcode_'.WPSSOSSB_SHARING_SHORTCODE_NAME;
+
 			$atts['url'] = empty( $atts['url'] ) ? $this->p->util->get_sharing_url( $mod ) : $atts['url'];
 
 			$cache_md5_pre  = $lca . '_b_';
@@ -193,23 +196,30 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				$cache_array = get_transient( $cache_id );
 
 				if ( isset( $cache_array[$cache_index] ) ) {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $type . ' cache index found in transient cache' );
 					}
+
 					return $cache_array[$cache_index];	// stop here
+
 				} else {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $type . ' cache index not in transient cache' );
 					}
+
 					if ( ! is_array( $cache_array ) ) {
 						$cache_array = array();
 					}
 				}
+
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( $type . ' buttons array transient cache is disabled' );
 			}
 
 			$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
+
 			unset ( $atts['buttons'] );
 
 			// returns html or an empty string
