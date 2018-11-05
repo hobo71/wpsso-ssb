@@ -6,7 +6,7 @@ Domain Path: /languages
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
-Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr, stumbleupon
+Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr
 Contributors: jsmoriss
 Requires PHP: 5.4
 Requires At Least: 3.8
@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.9.0-dev.1 (TBD)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.8.4 (2018/10/24)**
 
 * *New Features*
@@ -170,6 +181,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 		* 'email_cap_hashtags' to 'email_caption_hashtags',
 
 == Upgrade Notice ==
+
+= 2.9.0-dev.1 =
+
+(TBD) None.
 
 = 2.8.4 =
 
