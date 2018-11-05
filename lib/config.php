@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(			// Plugin acronym.
-					'version'     => '2.8.4',	// Plugin version.
+					'version'     => '2.9.0-dev.1',	// Plugin version.
 					'opt_version' => '17',		// Increment when changing default option values.
 					'short'       => 'WPSSO SSB',	// Short plugin name.
 					'name'        => 'WPSSO Social Sharing Buttons',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short'       => 'WPSSO Core',
 						'name'        => 'WPSSO Core',
-						'min_version' => '4.16.3',
+						'min_version' => '4.16.4',
 					),
 					'img' => array(
 						'icons' => array(
@@ -58,7 +58,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'buffer'      => 'Buffer',
 							'reddit'      => 'Reddit',
 							'managewp'    => 'ManageWP',
-							'stumbleupon' => 'StumbleUpon',
 							'tumblr'      => 'Tumblr',
 							'youtube'     => 'YouTube',
 							'skype'       => 'Skype',
@@ -179,7 +178,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'buffer_count'      => 'horizontal',
 						'reddit_type'       => 'static-wide',
 						'managewp_type'     => 'small',
-						'stumble_badge'     => 1,
 						'tumblr_counter'    => 'right',
 					),
 					'large_share_vertical' => array(
@@ -204,7 +202,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'buffer_count'      => 'vertical',
 						'reddit_type'       => 'static-tall-text',
 						'managewp_type'     => 'big',
-						'stumble_badge'     => 5,
 						'tumblr_counter'    => 'top',
 					),
 				),

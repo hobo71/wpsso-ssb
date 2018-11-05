@@ -30,10 +30,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 
 		public function filter_ssb_website_linkedin_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'linkedin' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -46,11 +48,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteLinkedin' ) ) {
 			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Counter Mode', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Counter Mode', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_counter', array( 
-				'none' => 'none',
+				'none'  => 'none',
 				'right' => 'Horizontal',
-				'top' => 'Vertical',
+				'top'   => 'Vertical',
 			) ).'</td>';
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_showzero' ).
@@ -70,15 +73,15 @@ if ( ! class_exists( 'WpssoSsbWebsiteLinkedin' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'linkedin_order' => 7,
-					'linkedin_on_content' => 0,
-					'linkedin_on_excerpt' => 0,
-					'linkedin_on_sidebar' => 0,
+					'linkedin_order'         => 7,
+					'linkedin_on_content'    => 0,
+					'linkedin_on_excerpt'    => 0,
+					'linkedin_on_sidebar'    => 0,
 					'linkedin_on_admin_edit' => 1,
-					'linkedin_platform' => 'any',
-					'linkedin_script_loc' => 'header',
-					'linkedin_counter' => 'right',
-					'linkedin_showzero' => 1,
+					'linkedin_platform'      => 'any',
+					'linkedin_script_loc'    => 'header',
+					'linkedin_counter'       => 'right',
+					'linkedin_showzero'      => 1,
 				),
 			),
 		);

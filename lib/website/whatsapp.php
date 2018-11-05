@@ -30,10 +30,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteWhatsApp' ) ) {
 
 		public function filter_ssb_website_whatsapp_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'wa' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'wa_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -58,13 +60,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteWhatsApp' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'wa_order' => 2,
-					'wa_on_content' => 1,
-					'wa_on_excerpt' => 0,
-					'wa_on_sidebar' => 0,
+					'wa_order'         => 2,
+					'wa_on_content'    => 1,
+					'wa_on_excerpt'    => 0,
+					'wa_on_sidebar'    => 0,
 					'wa_on_admin_edit' => 0,
-					'wa_platform' => 'mobile',
-					'wa_ssb_html' => '<div class="css-button whatsapp-button">
+					'wa_platform'      => 'mobile',
+					'wa_ssb_html'      => '<div class="css-button whatsapp-button">
   <a href="whatsapp://send?text=%%title%%%20%%short_url%%" data-action="share/whatsapp/share">
     <span class="ssb-icon">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9" height="9" viewBox="0 0 90 90" enable-background="new 0 0 90 90;" xml:space="preserve">

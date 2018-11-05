@@ -30,10 +30,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 
 		public function filter_ssb_website_twitter_rows( $table_rows, $form, $submenu ) {
 			
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'twitter' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -46,11 +48,16 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'twitter_lang', SucomUtil::get_pub_lang( 'twitter' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'twitter_size', array( 'medium' => 'Medium', 'large' => 'Large' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'twitter_size', array(
+				'medium' => 'Medium',
+				'large'  => 'Large',
+			) ).'</td>';
 
 			$table_rows[] = ''.
 			$form->get_th_html( _x( 'Tweet Text Source', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -66,10 +73,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTwitter' ) ) {
 				__( 'Disable tracking for Twitter\'s tailored suggestions and ads feature.', 'wpsso-ssb' ) ).
 			'<td>'.$form->get_checkbox( 'twitter_dnt' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ).
 			'<td>'.$form->get_checkbox( 'twitter_via' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Recommend Author', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_rec_author'  ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Recommend Author', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_rec_author'  ).
 			'<td>'.$form->get_checkbox( 'twitter_rel_author' ).'</td>';
 
 			return $table_rows;

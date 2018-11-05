@@ -30,10 +30,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteManagewp' ) ) {
 
 		public function filter_ssb_website_managewp_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.( $submenu->show_on_checkboxes( 'managewp' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'managewp_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -42,8 +44,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteManagewp' ) ) {
 				'<td>'.$form->get_select( 'managewp_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'managewp_type', array( 'small' => 'Small', 'big' => 'Big' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'managewp_type', array(
+				'small' => 'Small',
+				'big'   => 'Big',
+			) ).'</td>';
 
 			return $table_rows;
 		}
@@ -58,13 +64,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteManagewp' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'managewp_order' => 10,
-					'managewp_on_content' => 0,
-					'managewp_on_excerpt' => 0,
-					'managewp_on_sidebar' => 0,
+					'managewp_order'         => 10,
+					'managewp_on_content'    => 0,
+					'managewp_on_excerpt'    => 0,
+					'managewp_on_sidebar'    => 0,
 					'managewp_on_admin_edit' => 1,
-					'managewp_platform' => 'any',
-					'managewp_type' => 'small',
+					'managewp_platform'      => 'any',
+					'managewp_type'          => 'small',
 				),
 			),
 		);

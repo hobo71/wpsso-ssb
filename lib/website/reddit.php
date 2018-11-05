@@ -30,10 +30,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteReddit' ) ) {
 
 		public function filter_ssb_website_reddit_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.( $submenu->show_on_checkboxes( 'reddit' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'reddit_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -42,9 +44,10 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteReddit' ) ) {
 				'<td>'.$form->get_select( 'reddit_platform', $this->p->cf['sharing']['platform'] ).'</td>';
 			}
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'reddit_type', array( 
-				'static-wide' => 'Interactive Wide',
+				'static-wide'      => 'Interactive Wide',
 				'static-tall-text' => 'Interactive Tall Text',
 				'static-tall-logo' => 'Interactive Tall Logo',
 			) ).'</td>';
@@ -62,13 +65,13 @@ if ( ! class_exists( 'WpssoSsbWebsiteReddit' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'reddit_order' => 9,
-					'reddit_on_content' => 0,
-					'reddit_on_excerpt' => 0,
-					'reddit_on_sidebar' => 0,
+					'reddit_order'         => 9,
+					'reddit_on_content'    => 0,
+					'reddit_on_excerpt'    => 0,
+					'reddit_on_sidebar'    => 0,
 					'reddit_on_admin_edit' => 1,
-					'reddit_platform' => 'any',
-					'reddit_type' => 'static-wide',
+					'reddit_platform'      => 'any',
+					'reddit_type'          => 'static-wide',
 				),
 			),
 		);

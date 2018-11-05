@@ -20,7 +20,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 		public static $sharing_css_name = '';
 		public static $sharing_css_file = '';
-		public static $sharing_css_url = '';
+		public static $sharing_css_url  = '';
 
 		public function __construct( &$plugin ) {
 
@@ -32,7 +32,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 			self::$sharing_css_name = 'ssb-styles-id-' . get_current_blog_id() . '.min.css';
 			self::$sharing_css_file = WPSSO_CACHEDIR . self::$sharing_css_name;
-			self::$sharing_css_url = WPSSO_CACHEURL . self::$sharing_css_name;
+			self::$sharing_css_url  = WPSSO_CACHEURL . self::$sharing_css_name;
 
 			$this->set_objects();
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 				if ( $classname !== false && class_exists( $classname ) ) {
 
-					$this->website[$id] = new $classname( $this->p );
+					$this->website[ $id ] = new $classname( $this->p );
 
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $classname . ' class loaded' );
@@ -123,7 +123,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				/**
 				 * CSS files are only loaded once (when variable is empty) into defaults to minimize disk I/O.
 				 */
-				if ( empty( $def_opts['buttons_css_' . $id] ) ) {
+				if ( empty( $def_opts[ 'buttons_css_' . $id ] ) ) {
 
 					if ( ! file_exists( $buttons_css_file ) ) {
 
@@ -150,11 +150,14 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 							$this->p->debug->log( 'read css file ' . $buttons_css_file );
 						}
 
-						foreach ( array( 'plugin_url_path' => $rel_url_path ) as $macro => $value ) {
+						foreach ( array(
+							'plugin_url_path' => $rel_url_path,
+						) as $macro => $value ) {
+
 							$buttons_css_data = preg_replace( '/%%' . $macro . '%%/', $value, $buttons_css_data );
 						}
 
-						$def_opts['buttons_css_' . $id] = $buttons_css_data;
+						$def_opts[ 'buttons_css_' . $id ] = $buttons_css_data;
 					}
 				}
 			}
@@ -198,7 +201,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				/**
 				 * Integer options that must be 1 or more (not zero).
 				 */
-				case 'stumble_badge':
 				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
 
 					return 'pos_int';
@@ -347,8 +349,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			$styles   = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
 
 			foreach ( $styles as $id => $name ) {
-				if ( isset( $this->p->options['buttons_css_' . $id] ) && isset( $def_opts['buttons_css_' . $id] ) ) {
-					$this->p->options['buttons_css_' . $id] = $def_opts['buttons_css_' . $id];
+				if ( isset( $this->p->options[ 'buttons_css_' . $id ] ) && isset( $def_opts[ 'buttons_css_' . $id ] ) ) {
+					$this->p->options[ 'buttons_css_' . $id ] = $def_opts[ 'buttons_css_' . $id ];
 				}
 			}
 
@@ -424,8 +426,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			$sharing_css_data = '';
 
 			foreach ( $styles as $id => $name ) {
-				if ( isset( $opts['buttons_css_' . $id] ) ) {
-					$sharing_css_data .= $opts['buttons_css_' . $id];
+				if ( isset( $opts[ 'buttons_css_' . $id ] ) ) {
+					$sharing_css_data .= $opts[ 'buttons_css_' . $id ];
 				}
 			}
 
@@ -591,7 +593,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$sharing_css_data = $this->p->options['buttons_css_ssb-admin_edit'];
+			$sharing_css_data = $this->p->options[ 'buttons_css_ssb-admin_edit' ];
 			$sharing_css_data = SucomUtil::minify_css( $sharing_css_data, $this->p->lca );
 
 			echo '<style type="text/css">' . $sharing_css_data . '</style>', "\n";
@@ -791,9 +793,11 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			 * $mod = true | false | post_id | $mod array
 			 */
 			if ( ! is_array( $mod ) ) {
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'optional call to get_page_mod()' );
 				}
+
 				$mod = $this->p->util->get_page_mod( $mod );
 			}
 
@@ -803,7 +807,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			$cache_exp_secs = $this->get_buttons_cache_exp();
 			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $sharing_url ) . ')';
 			$cache_id       = $cache_md5_pre . md5( $cache_salt );
-			$cache_index    = $this->get_buttons_cache_index( $type );	// returns salt with locale, mobile, wp_query, etc.
+			$cache_index    = $this->get_buttons_cache_index( $type );	// Returns salt with locale, mobile, wp_query, etc.
 			$cache_array    = array();
 
 			if ( $this->p->debug->enabled ) {
@@ -939,7 +943,7 @@ $cache_array[$cache_index] .
 			return $cache_exp_secs;
 		}
 
-		public function get_buttons_cache_index( $type, $atts = false, $ids = false ) {
+		public function get_buttons_cache_index( $type, $atts = false, $website_ids = false ) {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
@@ -955,7 +959,7 @@ $cache_array[$cache_index] .
 
 			$cache_index .= $atts !== false ? '_atts:'.http_build_query( $atts, '', '_' ) : '';
 
-			$cache_index .= $ids !== false ? '_ids:'.http_build_query( $ids, '', '_' ) : '';
+			$cache_index .= $website_ids !== false ? '_website_ids:'.http_build_query( $website_ids, '', ',' ) : '';
 
 			$cache_index = SucomUtil::get_query_salt( $cache_index );	// Add $wp_query args.
 
@@ -964,39 +968,51 @@ $cache_array[$cache_index] .
 			return $cache_index;
 		}
 
-		// get_html() is called by the widget, shortcode, function, and perhaps some filter hooks
-		public function get_html( array $ids, array $atts, $mod = false ) {
+		/**
+		 * get_html() can be called by a widget, shortcode, function, filter hook, etc.
+		 */
+		public function get_html( array $website_ids, array $atts, $mod = false ) {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
 
-			$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;	// maintain backwards compat
-			$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
+			$atts['use_post']  = isset( $atts['use_post'] ) ? $atts['use_post'] : true;	// Maintain backwards compat.
+			$atts['add_page']  = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// Used by get_sharing_url().
 			$atts['preset_id'] = isset( $atts['preset_id'] ) ? SucomUtil::sanitize_key( $atts['preset_id'] ) : '';
 			$atts['filter_id'] = isset( $atts['filter_id'] ) ? SucomUtil::sanitize_key( $atts['filter_id'] ) : '';
 
+			/**
+			 * The $mod array argument is preferred but not required.
+			 * $mod = true | false | post_id | $mod array
+			 */
 			if ( ! is_array( $mod ) ) {
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'optional call to get_page_mod()' );
 				}
+
 				$mod = $this->p->util->get_page_mod( $atts['use_post'] );
 			}
 
-			$buttons_html = '';
-			$buttons_begin = ( empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-' . $atts['preset_id'] . '">' . "\n" ) . 
-				'<div class="ssb-buttons ' . SucomUtil::get_locale( $mod ) . '">' . "\n";
-			$buttons_end = '</div><!-- .ssb-buttons.' . SucomUtil::get_locale( $mod ) . ' -->' . "\n" . 
-				( empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-' . $atts['preset_id'] . ' -->' . "\n" );
+			$buttons_html  = '';
+			$buttons_begin = empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-' . $atts['preset_id'] . '">' . "\n";
+			$buttons_begin .= '<div class="ssb-buttons ' . SucomUtil::get_locale( $mod ) . '">' . "\n";
+			$buttons_end   = '</div><!-- .ssb-buttons.' . SucomUtil::get_locale( $mod ) . ' -->' . "\n";
+			$buttons_end   .= empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-' . $atts['preset_id'] . ' -->' . "\n";
 
-			// possibly dereference the opts variable to prevent passing on changes
+			/**
+			 * Possibly dereference the opts variable to prevent passing on changes.
+			 */
 			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) ) {
 				$custom_opts =& $this->p->options;
 			} else {
 				$custom_opts = $this->p->options;
 			}
 
-			// apply the presets to $custom_opts
+			/**
+			 * Apply the presets to $custom_opts.
+			 */
 			if ( ! empty( $atts['preset_id'] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
 
 				if ( isset( $this->p->cf['opt']['preset'][$atts['preset_id']] ) &&
@@ -1013,7 +1029,9 @@ $cache_array[$cache_index] .
 				}
 			} 
 
-			// apply the filter_id if the filter name has hooks
+			/**
+			 * Apply the filter_id if the filter name has hooks.
+			 */
 			if ( ! empty( $atts['filter_id'] ) ) {
 
 				$filter_name = $this->p->lca . '_sharing_html_' . $atts['filter_id'] . '_options';
@@ -1033,15 +1051,15 @@ $cache_array[$cache_index] .
 
 			$saved_atts = $atts;
 
-			foreach ( $ids as $id ) {
+			foreach ( $website_ids as $id ) {
 
-				if ( isset( $this->website[$id] ) ) {
+				if ( isset( $this->website[ $id ] ) ) {
 
-					if ( method_exists( $this->website[$id], 'get_html' ) ) {
+					if ( method_exists( $this->website[ $id ], 'get_html' ) ) {
 
 						if ( $this->allow_for_platform( $id ) ) {
 
-							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// uses 'css_id' and 'use_post'
+							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// Uses 'css_id' and 'use_post'.
 
 							if ( empty( $atts['url'] ) ) {
 								$atts['url'] = $this->p->util->get_sharing_url( $mod,
@@ -1051,7 +1069,9 @@ $cache_array[$cache_index] .
 									$atts['url'], $mod, $atts['add_page'], $atts['src_id'] );
 							}
 
-							// filter to add custom tracking arguments
+							/**
+							 * Filter to add custom tracking arguments.
+							 */
 							$atts['url'] = apply_filters( $this->p->lca . '_ssb_buttons_shared_url',
 								$atts['url'], $mod, $id );
 
@@ -1062,7 +1082,7 @@ $cache_array[$cache_index] .
 								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot . '://', $atts['url'] );
 							}
 
-							$buttons_html .= $this->website[$id]->get_html( $atts, $custom_opts, $mod ) . "\n";
+							$buttons_html .= $this->website[ $id ]->get_html( $atts, $custom_opts, $mod ) . "\n";
 
 							$atts = $saved_atts;	// restore the common $atts array
 
@@ -1082,7 +1102,9 @@ $cache_array[$cache_index] .
 			return empty( $buttons_html ) ? '' : $buttons_begin . $buttons_html . $buttons_end;
 		}
 
-		// add javascript for enabled buttons in content, widget, shortcode, etc.
+		/**
+		 * Add javascript for enabled buttons in content, widget, shortcode, etc.
+		 */
 		public function get_script( $pos = 'header', $request_ids = array() ) {
 
 			if ( $this->p->debug->enabled ) {
@@ -1091,7 +1113,9 @@ $cache_array[$cache_index] .
 
 			$enabled_ids = array();
 
-			// there are no widgets on the admin back-end, so don't bother checking
+			/**
+			 * There are no widgets on the admin back-end, so don't bother checking.
+			 */
 			if ( ! is_admin() ) {
 
 				if ( class_exists( 'WpssoSsbWidgetSharing' ) ) {
@@ -1101,13 +1125,15 @@ $cache_array[$cache_index] .
 					$widget_settings = array();
 				}
 	
-				// check for enabled buttons in ACTIVE widget(s)
+				/**
+				 * Check for enabled buttons in ACTIVE widget(s).
+				 */
 				foreach ( $widget_settings as $num => $instance ) {
 
 					if ( is_object( $widget ) && is_active_widget( false, $widget->id_base . '-' . $num, $widget->id_base ) ) {
 	
 						foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-							if ( array_key_exists( $id, $instance ) && ! empty( $instance[$id] ) ) {
+							if ( array_key_exists( $id, $instance ) && ! empty( $instance[ $id ] ) ) {
 								$enabled_ids[] = $id;
 							}
 						}
@@ -1228,12 +1254,12 @@ $cache_array[$cache_index] .
 
 					$id = preg_replace( '/[^a-z]/', '', $id );
 
-					$opt_name = $this->p->cf['opt']['cm_prefix'][$id] . '_script_loc';
+					$opt_name = $this->p->cf['opt']['cm_prefix'][ $id ] . '_script_loc';
 
-					if ( isset( $this->website[$id] ) && method_exists( $this->website[$id], 'get_script' ) ) {
+					if ( isset( $this->website[ $id ] ) && method_exists( $this->website[ $id ], 'get_script' ) ) {
 
 						if ( isset( $this->p->options[$opt_name] ) && $this->p->options[$opt_name] === $script_loc ) {
-							$script_html .= $this->website[$id]->get_script( $pos ) . "\n";
+							$script_html .= $this->website[ $id ]->get_script( $pos ) . "\n";
 						} else {
 							$script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' .
 								$this->p->options[$opt_name] . ' -->' . "\n";
@@ -1277,8 +1303,10 @@ $cache_array[$cache_index] .
 			}
 
 			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+
 				if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) &&	// check if button is enabled
 					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
+
 					return $this->buttons_for_type[$type] = true;
 				}
 			}
@@ -1287,13 +1315,15 @@ $cache_array[$cache_index] .
 
 		public function allow_for_platform( $id ) {
 
-			// Always allow if the content does not vary by user agent.
+			/**
+			 * Always allow if the content does not vary by user agent.
+			 */
 			if ( ! $this->p->avail['*']['vary_ua'] ) {
 				return true;
 			}
 
-			$opt_pre = isset( $this->p->cf['opt']['cm_prefix'][$id] ) ?
-				$this->p->cf['opt']['cm_prefix'][$id] : $id;
+			$opt_pre = isset( $this->p->cf['opt']['cm_prefix'][ $id ] ) ?
+				$this->p->cf['opt']['cm_prefix'][ $id ] : $id;
 
 			if ( isset( $this->p->options[$opt_pre . '_platform'] ) ) {
 
@@ -1401,8 +1431,8 @@ $cache_array[$cache_index] .
 
 			if ( ! isset( $atts['tweet'] ) ) {	// just in case
 
-				$atts['use_post'] = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-				$atts['add_page'] = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
+				$atts['use_post']     = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
+				$atts['add_page']     = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// used by get_sharing_url()
 				$atts['add_hashtags'] = isset( $atts['add_hashtags'] ) ? $atts['add_hashtags'] : true;
 
 				$caption_type    = empty( $this->p->options[ $opt_pre . '_caption' ] ) ? 'title' : $this->p->options[ $opt_pre . '_caption' ];

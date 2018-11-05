@@ -33,18 +33,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 
 		public function filter_ssb_website_facebook_tabs( $tabs ) {
 			return array( 
-				'all' => _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' ),
-				'like' => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),
+				'all'   => _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' ),
+				'like'  => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),
 				'share' => _x( 'Share', 'metabox tab', 'wpsso-ssb' ),
 			);
 		}
 
 		public function filter_ssb_website_facebook_all_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$submenu->show_on_checkboxes( 'fb' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'fb_order', range( 1, count( $submenu->website ) ) ).'</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -57,76 +59,104 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteFacebook' ) ) {
 			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'. $form->get_select( 'fb_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_button', array( 'like' => 'Like and Send', 'share' => 'Share' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_button', array(
+				'like'  => 'Like and Send',
+				'share' => 'Share',
+			) ).'</td>';
 
 			return $table_rows;
 		}
 
 		public function filter_ssb_website_facebook_like_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Markup Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_markup', array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Markup Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_markup', array(
+				'html5' => 'HTML5',
+				'xfbml' => 'XFBML',
+			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Include Send', 'option label (short)', 'wpsso-ssb' ), 'short', '', 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Include Send', 'option label (short)', 'wpsso-ssb' ), 'short', '', 
 				'The Send button is only available in combination with the XFBML <em>Markup Language</em>.' ).
 			'<td>'.$form->get_checkbox( 'fb_send' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Layout', 'option label (short)', 'wpsso-ssb' ), 'short', '',
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Layout', 'option label (short)', 'wpsso-ssb' ), 'short', '',
 				'The Standard layout displays social text to the right of the button and friends\' profile photos below (if <em>Show Faces</em> is also checked). The Button Count layout displays the total number of likes to the right of the button, and the Box Count layout displays the total number of likes above the button. See the <a href="https://developers.facebook.com/docs/plugins/like-button#faqlayout">Facebook Layout Settings FAQ</a> for details.' ).
 			'<td>'.$form->get_select( 'fb_layout', array(
-				'standard' => 'Standard',
-				'button' => 'Button',
+				'standard'     => 'Standard',
+				'button'       => 'Button',
 				'button_count' => 'Button Count',
-				'box_count' => 'Box Count',
+				'box_count'    => 'Box Count',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Faces', 'option label (short)', 'wpsso-ssb' ), 'short', '',
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Faces', 'option label (short)', 'wpsso-ssb' ), 'short', '',
 				'Show profile photos below the Standard button (Standard <em>Button Layout</em> only).' ).
 			'<td>'.$form->get_checkbox( 'fb_show_faces' ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Font', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Font', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'fb_font', array( 
-				'arial' => 'Arial',
+				'arial'         => 'Arial',
 				'lucida grande' => 'Lucida Grande',
-				'segoe ui' => 'Segoe UI',
-				'tahoma' => 'Tahoma',
-				'trebuchet ms' => 'Trebuchet MS',
-				'verdana' => 'Verdana',
+				'segoe ui'      => 'Segoe UI',
+				'tahoma'        => 'Tahoma',
+				'trebuchet ms'  => 'Trebuchet MS',
+				'verdana'       => 'Verdana',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Color Scheme', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_colorscheme', array( 'light' => 'Light', 'dark' => 'Dark' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Color Scheme', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_colorscheme', array(
+				'light' => 'Light',
+				'dark'  => 'Dark',
+			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Action Name', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_action', array( 'like' => 'Like', 'recommend' => 'Recommend' ) ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Action Name', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_action', array(
+				'like'      => 'Like',
+				'recommend' => 'Recommend',
+			) ).'</td>';
 
 			return $table_rows;
 		}
 
 		public function filter_ssb_website_facebook_share_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Markup Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_share_markup', array( 'html5' => 'HTML5', 'xfbml' => 'XFBML' ) ).'</td>';
-
-			$table_rows[] = $form->get_th_html( _x( 'Button Layout', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_share_layout', array(
-				'button' => 'Button',
-				'button_count' => 'Button Count',
-				'box_count' => 'Box Count',
-				'icon_link' => 'Icon Link',
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Markup Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_share_markup', array(
+				'html5' => 'HTML5',
+				'xfbml' => 'XFBML',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Layout', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			'<td>'.$form->get_select( 'fb_share_layout', array(
+				'button'       => 'Button',
+				'button_count' => 'Button Count',
+				'box_count'    => 'Box Count',
+				'icon_link'    => 'Icon Link',
+			) ).'</td>';
+
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Size', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'fb_share_size', array(
 				'small' => 'Small',
 				'large' => 'Large',
 			) ).'</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Mobile iFrame', 'option label (short)', 'wpsso-ssb' ), 'short' ).
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Mobile iFrame', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_checkbox( 'fb_share_mobile_iframe' ).'</td>';
 
 			return $table_rows;
@@ -143,25 +173,25 @@ if ( ! class_exists( 'WpssoSsbWebsiteFacebook' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'fb_order' => 4,
-					'fb_on_content' => 1,
-					'fb_on_excerpt' => 0,
-					'fb_on_sidebar' => 0,
-					'fb_on_admin_edit' => 1,
-					'fb_platform' => 'any',
-					'fb_script_loc' => 'header',
-					'fb_lang' => 'en_US',
-					'fb_button' => 'like',
-					'fb_markup' => 'xfbml',
-					'fb_send' => 1,
-					'fb_layout' => 'button_count',
-					'fb_show_faces' => 0,
-					'fb_font' => 'arial',
-					'fb_colorscheme' => 'light',
-					'fb_action' => 'like',
-					'fb_share_markup' => 'xfbml',
-					'fb_share_layout' => 'button_count',
-					'fb_share_size' => 'small',
+					'fb_order'               => 4,
+					'fb_on_content'          => 1,
+					'fb_on_excerpt'          => 0,
+					'fb_on_sidebar'          => 0,
+					'fb_on_admin_edit'       => 1,
+					'fb_platform'            => 'any',
+					'fb_script_loc'          => 'header',
+					'fb_lang'                => 'en_US',
+					'fb_button'              => 'like',
+					'fb_markup'              => 'xfbml',
+					'fb_send'                => 1,
+					'fb_layout'              => 'button_count',
+					'fb_show_faces'          => 0,
+					'fb_font'                => 'arial',
+					'fb_colorscheme'         => 'light',
+					'fb_action'              => 'like',
+					'fb_share_markup'        => 'xfbml',
+					'fb_share_layout'        => 'button_count',
+					'fb_share_size'          => 'small',
 					'fb_share_mobile_iframe' => 1,
 				),
 			),

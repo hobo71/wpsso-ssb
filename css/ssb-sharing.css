@@ -143,19 +143,6 @@
 }
 
 /**
- * StumbleUpon button.
- */
-.ssb-buttons div.stumbleupon-button,
-.wpsso-ssb-preset-small_share_count .ssb-buttons div.stumbleupon-button {
-	width:84px;
-}
-
-.wpsso-ssb-preset-large_share_vertical .ssb-buttons div.stumbleupon-button {
-	height:60px;
-	line-height:60px;
-}
-
-/**
  * Tumblr button.
  */
 .ssb-buttons div.tumblr-button,

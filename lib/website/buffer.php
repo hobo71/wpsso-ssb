@@ -63,7 +63,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteBuffer' ) ) {
 			'<td>'.$form->get_select( 'buffer_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Count Position', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'buffer_count', array( 'none' => 'none', 'horizontal' => 'Horizontal', 'vertical' => 'Vertical' ) ).'</td>';
+			'<td>'.$form->get_select( 'buffer_count', array(
+				'none'       => 'none',
+				'horizontal' => 'Horizontal',
+				'vertical'   => 'Vertical',
+			) ).'</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_input_image_dimensions( 'buffer_img', false, true ).'</td>';	// $use_opts = false, $narrow = true
@@ -122,7 +126,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteBuffer' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults' => 1,
+				'get_defaults'       => 1,
 				'plugin_image_sizes' => 1,
 			) );
 		}

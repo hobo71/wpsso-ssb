@@ -38,7 +38,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 				$this->p->opt->get_defaults( 'tumblr_img_height' ) . ' ' . 
 				( $this->p->opt->get_defaults( 'tumblr_img_crop' ) == 0 ? 'uncropped' : 'cropped' );
 
-			$table_rows['tumblr_img_dimensions'] = $form->get_th_html( _x( 'Tumblr <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'tumblr_img_dimensions', 'The image dimensions that the Tumblr button will share (defaults is ' . $def_dimensions . ').' ) . 
+			$table_rows['tumblr_img_dimensions'] = '' .
+			$form->get_th_html( _x( 'Tumblr <em>Sharing Button</em>', 'option label', 'wpsso-ssb' ), null, 'tumblr_img_dimensions', 'The image dimensions that the Tumblr button will share (defaults is ' . $def_dimensions . ').' ) . 
 			'<td>' . $form->get_input_image_dimensions( 'tumblr_img' ).'</td>';	// $use_opts = false
 
 			return $table_rows;
@@ -46,10 +47,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 
 		public function filter_ssb_website_tumblr_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $submenu->show_on_checkboxes( 'tumblr' ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_order', range( 1, count( $submenu->website ) ) ) . '</td>';
 
 			if ( $this->p->avail['*']['vary_ua'] ) {
@@ -62,23 +65,32 @@ if ( ! class_exists( 'WpssoSsbSubmenuWebsiteTumblr' ) ) {
 			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_script_loc', $this->p->cf['form']['script_locations'] ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_lang', SucomUtil::get_pub_lang( 'tumblr' ) ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Button Color', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
-			'<td>' . $form->get_select( 'tumblr_color', array( 'blue' => 'Blue', 'black' => 'Black', 'white' => 'White' ) ) . '</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Button Color', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			'<td>' . $form->get_select( 'tumblr_color', array(
+				'blue'  => 'Blue',
+				'black' => 'Black',
+				'white' => 'White',
+			) ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Counter', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Counter', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_counter', array( 
-				'none' => 'Not Shown',
-				'top' => 'Above the Button',
+				'none'  => 'Not Shown',
+				'top'   => 'Above the Button',
 				'right' => 'Right of the Button',
 			) ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Add Attribution', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Add Attribution', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_checkbox( 'tumblr_show_via' ) . '</td>';
 
-			$table_rows[] = $form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Image Dimensions', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_input_image_dimensions( 'tumblr_img', false, true ) . '</td>';	// $use_opts = false, $narrow = true
 
 			$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_caption' ) . 
@@ -108,7 +120,7 @@ if ( ! class_exists( 'WpssoSsbWebsiteTumblr' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'tumblr_order'           => 12,
+					'tumblr_order'           => 11,
 					'tumblr_on_content'      => 0,
 					'tumblr_on_excerpt'      => 0,
 					'tumblr_on_sidebar'      => 0,
