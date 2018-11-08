@@ -38,31 +38,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 						),
 					),
 					'lib' => array(
-						'submenu' => array(	// Note that submenu elements must have unique keys.
-							'ssb-buttons' => 'Sharing Buttons',
-							'ssb-styles'  => 'Sharing Styles',
-						),
-						'shortcode' => array(
-							'sharing' => 'Sharing Shortcode',
-						),
-						'widget' => array(
-							'sharing' => 'Sharing Widget',
-						),
-						'website' => array(
-							'email'       => 'Email',
-							'twitter'     => 'Twitter',
-							'facebook'    => 'Facebook', 
-							'gplus'       => 'GooglePlus',
-							'pinterest'   => 'Pinterest',
-							'linkedin'    => 'LinkedIn',
-							'buffer'      => 'Buffer',
-							'reddit'      => 'Reddit',
-							'managewp'    => 'ManageWP',
-							'tumblr'      => 'Tumblr',
-							'youtube'     => 'YouTube',
-							'skype'       => 'Skype',
-							'whatsapp'    => 'WhatsApp',
-						),
 						'gpl' => array(
 							'admin' => array(
 								'sharing' => 'Extend Sharing Settings',
@@ -90,6 +65,31 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'social' => array(
 								'buddypress' => '(plugin) BuddyPress',
 							),
+						),
+						'share' => array(
+							'email'       => 'Email',
+							'twitter'     => 'Twitter',
+							'facebook'    => 'Facebook', 
+							'gplus'       => 'GooglePlus',
+							'pinterest'   => 'Pinterest',
+							'linkedin'    => 'LinkedIn',
+							'buffer'      => 'Buffer',
+							'reddit'      => 'Reddit',
+							'managewp'    => 'ManageWP',
+							'tumblr'      => 'Tumblr',
+							'youtube'     => 'YouTube',
+							'skype'       => 'Skype',
+							'whatsapp'    => 'WhatsApp',
+						),
+						'shortcode' => array(
+							'sharing' => 'Sharing Shortcode',
+						),
+						'submenu' => array(	// Note that submenu elements must have unique keys.
+							'ssb-buttons' => 'Sharing Buttons',
+							'ssb-styles'  => 'Sharing Styles',
+						),
+						'widget' => array(
+							'sharing' => 'Sharing Widget',
 						),
 					),
 				),
@@ -310,9 +310,13 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 
 		public static function require_libs( $plugin_filepath ) {
 
-			require_once WPSSOSSB_PLUGINDIR . 'lib/register.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/actions.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/filters.php';
 			require_once WPSSOSSB_PLUGINDIR . 'lib/functions.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/register.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/script.php';
 			require_once WPSSOSSB_PLUGINDIR . 'lib/sharing.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/style.php';
 
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );
 		}

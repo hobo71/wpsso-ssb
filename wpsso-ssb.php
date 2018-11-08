@@ -36,10 +36,18 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 	class WpssoSsb {
 
 		/**
-		 * Class Object Variables
+		 * Wpsso plugin class object variable.
 		 */
-		public $p;			// Wpsso
-		public $reg;			// WpssoSsbRegister
+		public $p;		// Wpsso
+
+		/**
+		 * Library class object variables.
+		 */
+		public $actions;	// WpssoSsbActions
+		public $filters;	// WpssoSsbFilters
+		public $reg;		// WpssoSsbRegister
+		public $script;		// WpssoSsbScript
+		public $style;		// WpssoSsbStyle
 
 		/**
 		 * Reference Variables (config, options, modules, etc.).
@@ -175,7 +183,12 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 				return;	// stop here
 			}
 
-			$this->p->ssb_sharing = new WpssoSsbSharing( $this->p, __FILE__ );
+			$this->actions = new WpssoSsbActions( $this->p );
+			$this->filters = new WpssoSsbFilters( $this->p );
+			$this->script  = new WpssoSsbScript( $this->p );
+			$this->style   = new WpssoSsbStyle( $this->p );
+
+			$this->p->ssb_sharing = new WpssoSsbSharing( $this->p );
 		}
 
 		public function wpsso_init_plugin() {
@@ -185,7 +198,9 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			}
 
 			if ( ! $this->have_req_min ) {
+
 				$this->min_version_notice();
+
 				return;	// stop here
 			}
 		}
