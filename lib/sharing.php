@@ -55,8 +55,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				}
 
 				$this->p->util->add_plugin_filters( $this, array( 
-					'save_options'                   => 3,
-					'option_type'                    => 2,
 					'post_custom_meta_tabs'          => 3,
 					'post_cache_transient_keys'      => 4,
 					'settings_page_custom_style_css' => 1,
@@ -88,92 +86,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					}
 				}
 			}
-		}
-
-		public function filter_save_options( $opts, $options_name, $network ) {
-
-			/**
-			 * Update the combined and minified social stylesheet.
-			 */
-			if ( false === $network ) {
-				$this->update_sharing_css( $opts );
-			}
-
-			return $opts;
-		}
-
-		public function filter_option_type( $type, $base_key ) {
-
-			if ( ! empty( $type ) ) {
-				return $type;
-			}
-
-			switch ( $base_key ) {
-
-				/**
-				 * Integer options that must be 1 or more (not zero).
-				 */
-				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
-
-					return 'pos_int';
-
-					break;
-
-				/**
-				 * Text strings that can be blank.
-				 */
-				case 'buttons_force_prot':
-				case 'gp_expandto':
-				case 'pin_desc':
-				case 'tumblr_img_desc':
-				case 'tumblr_vid_desc':
-				case 'twitter_desc':
-
-					return 'ok_blank';
-
-					break;
-
-				/**
-				 * Options that cannot be blank.
-				 */
-				case 'fb_platform': 
-				case 'fb_script_loc': 
-				case 'fb_lang': 
-				case 'fb_button': 
-				case 'fb_markup': 
-				case 'fb_layout': 
-				case 'fb_font': 
-				case 'fb_colorscheme': 
-				case 'fb_action': 
-				case 'fb_share_markup': 
-				case 'fb_share_layout': 
-				case 'fb_share_size': 
-				case 'gp_lang': 
-				case 'gp_action': 
-				case 'gp_size': 
-				case 'gp_annotation': 
-				case 'gp_expandto': 
-				case 'twitter_count': 
-				case 'twitter_size': 
-				case 'linkedin_counter':
-				case 'managewp_type':
-				case 'pin_button_lang':
-				case 'pin_button_shape':
-				case 'pin_button_color':
-				case 'pin_button_height':
-				case 'pin_count_layout':
-				case 'pin_caption':
-				case 'tumblr_button_style':
-				case 'tumblr_caption':
-				case ( strpos( $base_key, 'buttons_pos_' ) === 0 ? true : false ):
-				case ( preg_match( '/^[a-z]+_script_loc$/', $base_key ) ? true : false ):
-
-					return 'not_blank';
-
-					break;
-			}
-
-			return $type;
 		}
 
 		public function filter_post_custom_meta_tabs( $tabs, $mod, $metabox_id ) {
@@ -255,16 +167,22 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			return $features;
 		}
 
-		public function update_sharing_css( &$opts ) {
+		public static function update_sharing_css( &$opts ) {
+
+			$wpsso =& Wpsso::get_instance();
+
+			if ( $wpsso->debug->enabled ) {
+				$wpsso->debug->mark();
+			}
 
 			if ( empty( $opts['buttons_use_social_style'] ) ) {
 
-				$this->unlink_sharing_css();
+				self::unlink_sharing_css();
 
 				return;
 			}
 
-			$styles = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles = apply_filters( $wpsso->lca . '_ssb_styles', $wpsso->cf['sharing']['ssb_styles'] );
 
 			$sharing_css_data = '';
 
@@ -274,27 +192,27 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				}
 			}
 
-			$sharing_css_data = SucomUtil::minify_css( $sharing_css_data, $this->p->lca );
+			$sharing_css_data = SucomUtil::minify_css( $sharing_css_data, $wpsso->lca );
 
 			if ( $fh = @fopen( self::$sharing_css_file, 'wb' ) ) {
 
 				if ( ( $written = fwrite( $fh, $sharing_css_data ) ) === false ) {
 
-					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'failed writing the css file ' . self::$sharing_css_file );
+					if ( $wpsso->debug->enabled ) {
+						$wpsso->debug->log( 'failed writing the css file ' . self::$sharing_css_file );
 					}
 
 					if ( is_admin() ) {
-						$this->p->notice->err( sprintf( __( 'Failed writing the css file %s.',
+						$wpsso->notice->err( sprintf( __( 'Failed writing the css file %s.',
 							'wpsso-ssb' ), self::$sharing_css_file ) );
 					}
 
-				} elseif ( $this->p->debug->enabled ) {
+				} elseif ( $wpsso->debug->enabled ) {
 
-					$this->p->debug->log( 'updated css file ' . self::$sharing_css_file . ' (' . $written . ' bytes written)' );
+					$wpsso->debug->log( 'updated css file ' . self::$sharing_css_file . ' (' . $written . ' bytes written)' );
 
 					if ( is_admin() ) {
-						$this->p->notice->upd( sprintf( __( 'Updated the <a href="%1$s">%2$s</a> stylesheet (%3$d bytes written).',
+						$wpsso->notice->upd( sprintf( __( 'Updated the <a href="%1$s">%2$s</a> stylesheet (%3$d bytes written).',
 							'wpsso-ssb' ), self::$sharing_css_url, self::$sharing_css_file, $written ), 
 								true, 'updated_' . self::$sharing_css_file, true );	// allow dismiss
 					}
@@ -306,35 +224,41 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 				if ( ! is_writable( WPSSO_CACHEDIR ) ) {
 
-					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'cache folder ' . WPSSO_CACHEDIR . ' is not writable' );
+					if ( $wpsso->debug->enabled ) {
+						$wpsso->debug->log( 'cache folder ' . WPSSO_CACHEDIR . ' is not writable' );
 					}
 
 					if ( is_admin() ) {
-						$this->p->notice->err( sprintf( __( 'Cache folder %s is not writable.',
+						$wpsso->notice->err( sprintf( __( 'Cache folder %s is not writable.',
 							'wpsso-ssb' ), WPSSO_CACHEDIR ) );
 					}
 				}
 
-				if ( $this->p->debug->enabled ) {
-					$this->p->debug->log( 'failed to open the css file ' . self::$sharing_css_file . ' for writing' );
+				if ( $wpsso->debug->enabled ) {
+					$wpsso->debug->log( 'failed to open the css file ' . self::$sharing_css_file . ' for writing' );
 				}
 
 				if ( is_admin() ) {
-					$this->p->notice->err( sprintf( __( 'Failed to open the css file %s for writing.',
+					$wpsso->notice->err( sprintf( __( 'Failed to open the css file %s for writing.',
 						'wpsso-ssb' ), self::$sharing_css_file ) );
 				}
 			}
 		}
 
-		public function unlink_sharing_css() {
+		public static function unlink_sharing_css() {
+
+			$wpsso =& Wpsso::get_instance();
+
+			if ( $wpsso->debug->enabled ) {
+				$wpsso->debug->mark();
+			}
 
 			if ( file_exists( self::$sharing_css_file ) ) {
 
 				if ( ! @unlink( self::$sharing_css_file ) ) {
 
 					if ( is_admin() ) {
-						$this->p->notice->err( __( 'Error removing the minified stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ) );
+						$wpsso->notice->err( __( 'Error removing the minified stylesheet &mdash; does the web server have sufficient privileges?', 'wpsso-ssb' ) );
 					}
 				}
 			}
@@ -350,9 +274,11 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			 * Get the current object / post type.
 			 */
 			if ( ( $post_obj = SucomUtil::get_post_object() ) === false ) {
+
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'exiting early: invalid post object' );
 				}
+
 				return;
 			}
 
