@@ -156,11 +156,15 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *New Features*
 	* None.
 * *Improvements*
-	* None.
+	* Removed the deprecated StumbleUpon social sharing button.
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* None.
+	* Renamed the lib/websites/ folder to lib/share/.
+	* Moved actions from the WpssoSsbSharing class to a new WpssoSsbActions class.
+	* Moved filters from the WpssoSsbSharing class to a new WpssoSsbFilters class.
+	* Moved script enqueuing from the WpssoSsbSharing class to a new WpssoSsbScript class.
+	* Moved stylesheet enqueuing from the WpssoSsbSharing class to a new WpssoSsbStyle class.
 
 **Version 2.8.4 (2018/10/24)**
 
@@ -184,7 +188,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 2.9.0-dev.3 =
 
-(TBD) None.
+(TBD) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSharing method to new classes.
 
 = 2.8.4 =
 
