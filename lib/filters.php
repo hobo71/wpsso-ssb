@@ -29,13 +29,22 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			) );
 
 			if ( is_admin() ) {
+
 				$this->p->util->add_plugin_filters( $this, array( 
 					'save_options'                   => 3,
 					'option_type'                    => 2,
+					'post_custom_meta_tabs'          => 3,
+					'post_cache_transient_keys'      => 4,
+					'settings_page_custom_style_css' => 1,
 					'messages_info'                  => 2,
 					'messages_tooltip'               => 2,
 					'messages_tooltip_plugin'        => 2,
 				) );
+
+				$this->p->util->add_plugin_filters( $this, array( 
+					'status_gpl_features' => 4,
+					'status_pro_features' => 4,
+				), 10, 'wpssossb' );
 			}
 		}
 
@@ -108,6 +117,200 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 				'tumblr_vid_desc'  => '',	// Tumblr Video Caption
 				'buttons_disabled' => 0,	// Disable Sharing Buttons
 			) );
+		}
+
+		public function filter_save_options( $opts, $options_name, $network ) {
+
+			/**
+			 * Update the combined and minified social stylesheet.
+			 */
+			if ( false === $network ) {
+				WpssoSsbSharing::update_sharing_css( $opts );
+			}
+
+			return $opts;
+		}
+
+		public function filter_option_type( $type, $base_key ) {
+
+			if ( ! empty( $type ) ) {
+				return $type;
+			}
+
+			switch ( $base_key ) {
+
+				/**
+				 * Integer options that must be 1 or more (not zero).
+				 */
+				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
+
+					return 'pos_int';
+
+					break;
+
+				/**
+				 * Text strings that can be blank.
+				 */
+				case 'buttons_force_prot':
+				case 'gp_expandto':
+				case 'pin_desc':
+				case 'tumblr_img_desc':
+				case 'tumblr_vid_desc':
+				case 'twitter_desc':
+
+					return 'ok_blank';
+
+					break;
+
+				/**
+				 * Options that cannot be blank.
+				 */
+				case 'fb_platform': 
+				case 'fb_script_loc': 
+				case 'fb_lang': 
+				case 'fb_button': 
+				case 'fb_markup': 
+				case 'fb_layout': 
+				case 'fb_font': 
+				case 'fb_colorscheme': 
+				case 'fb_action': 
+				case 'fb_share_markup': 
+				case 'fb_share_layout': 
+				case 'fb_share_size': 
+				case 'gp_lang': 
+				case 'gp_action': 
+				case 'gp_size': 
+				case 'gp_annotation': 
+				case 'gp_expandto': 
+				case 'twitter_count': 
+				case 'twitter_size': 
+				case 'linkedin_counter':
+				case 'managewp_type':
+				case 'pin_button_lang':
+				case 'pin_button_shape':
+				case 'pin_button_color':
+				case 'pin_button_height':
+				case 'pin_count_layout':
+				case 'pin_caption':
+				case 'tumblr_button_style':
+				case 'tumblr_caption':
+				case ( strpos( $base_key, 'buttons_pos_' ) === 0 ? true : false ):
+				case ( preg_match( '/^[a-z]+_script_loc$/', $base_key ) ? true : false ):
+
+					return 'not_blank';
+
+					break;
+			}
+
+			return $type;
+		}
+
+		public function filter_post_custom_meta_tabs( $tabs, $mod, $metabox_id ) {
+
+			if ( $metabox_id === $this->p->cf[ 'meta' ][ 'id' ] ) {
+				SucomUtil::add_after_key( $tabs, 'media', 'buttons',
+					_x( 'Share Buttons', 'metabox tab', 'wpsso-ssb' ) );
+			}
+
+			return $tabs;
+		}
+
+		public function filter_post_cache_transient_keys( $transient_keys, $mod, $sharing_url, $mod_salt ) {
+
+			$cache_md5_pre = $this->p->lca . '_b_';
+
+			$transient_keys[] = array(
+				'id'   => $cache_md5_pre . md5( 'WpssoSsbSharing::get_buttons(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => 'WpssoSsbSharing::get_buttons(' . $mod_salt . ')',
+			);
+
+			$transient_keys[] = array(
+				'id'   => $cache_md5_pre . md5( 'WpssoSsbShortcodeSharing::do_shortcode(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => 'WpssoSsbShortcodeSharing::do_shortcode(' . $mod_salt . ')',
+			);
+
+			$transient_keys[] = array(
+				'id'   => $cache_md5_pre . md5( 'WpssoSsbWidgetSharing::widget(' . $mod_salt . ')' ),
+				'pre'  => $cache_md5_pre,
+				'salt' => 'WpssoSsbWidgetSharing::widget(' . $mod_salt . ')',
+			);
+
+			return $transient_keys;
+		}
+
+		public function filter_settings_page_custom_style_css( $custom_style_css ) {
+
+			$custom_style_css .= '
+
+				.ssb_share_col {
+					float:left;
+					min-height:50px;
+				}
+
+				.max_cols_1.ssb_share_col {
+					width:100%;
+					min-width:100%;
+					max-width:100%;
+				}
+
+				.max_cols_2.ssb_share_col {
+					width:50%;
+					min-width:50%;
+					max-width:50%;
+				}
+
+				.max_cols_3.ssb_share_col {
+					width:33.3333%;
+					min-width:33.3333%;
+					max-width:33.3333%;
+				}
+
+				.max_cols_4.ssb_share_col {
+					width:25%;
+					min-width:25%;
+					max-width:25%;
+				}
+
+				.ssb_share_col .postbox {
+					overflow-x:hidden;
+				}
+
+				.postbox-ssb_share {
+					min-width:452px;
+					overflow-y:auto;
+				}
+
+				.postbox-ssb_share .metabox-ssb_share {
+					min-height:575px;
+					overflow-y:auto;
+				}
+
+				/* Tabbed metabox */
+				.postbox-ssb_share div.sucom-metabox-tabs div.sucom-tabset.active {
+					min-height:533px;
+				}
+
+				.postbox-ssb_share.postbox-show_basic .metabox-ssb_share {
+					min-height:435px;
+				}
+
+				/* Tabbed metabox */
+				.postbox-ssb_share.postbox-show_basic div.sucom-metabox-tabs div.sucom-tabset.active {
+					min-height:392px;
+				}
+
+				.postbox-ssb_share.closed,
+				.postbox-ssb_share.closed .metabox-ssb_share,
+				.postbox-ssb_share.postbox-show_basic.closed .metabox-ssb_share {
+					height:auto;
+					min-height:0;
+					overflow:hidden;
+				}
+			';
+
+			return $custom_style_css;
 		}
 
 		public function filter_messages_info( $text, $msg_key ) {
@@ -235,92 +438,6 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			return $text;
 		}
 
-		public function filter_save_options( $opts, $options_name, $network ) {
-
-			/**
-			 * Update the combined and minified social stylesheet.
-			 */
-			if ( false === $network ) {
-				WpssoSsbSharing::update_sharing_css( $opts );
-			}
-
-			return $opts;
-		}
-
-		public function filter_option_type( $type, $base_key ) {
-
-			if ( ! empty( $type ) ) {
-				return $type;
-			}
-
-			switch ( $base_key ) {
-
-				/**
-				 * Integer options that must be 1 or more (not zero).
-				 */
-				case ( preg_match( '/_order$/', $base_key ) ? true : false ):
-
-					return 'pos_int';
-
-					break;
-
-				/**
-				 * Text strings that can be blank.
-				 */
-				case 'buttons_force_prot':
-				case 'gp_expandto':
-				case 'pin_desc':
-				case 'tumblr_img_desc':
-				case 'tumblr_vid_desc':
-				case 'twitter_desc':
-
-					return 'ok_blank';
-
-					break;
-
-				/**
-				 * Options that cannot be blank.
-				 */
-				case 'fb_platform': 
-				case 'fb_script_loc': 
-				case 'fb_lang': 
-				case 'fb_button': 
-				case 'fb_markup': 
-				case 'fb_layout': 
-				case 'fb_font': 
-				case 'fb_colorscheme': 
-				case 'fb_action': 
-				case 'fb_share_markup': 
-				case 'fb_share_layout': 
-				case 'fb_share_size': 
-				case 'gp_lang': 
-				case 'gp_action': 
-				case 'gp_size': 
-				case 'gp_annotation': 
-				case 'gp_expandto': 
-				case 'twitter_count': 
-				case 'twitter_size': 
-				case 'linkedin_counter':
-				case 'managewp_type':
-				case 'pin_button_lang':
-				case 'pin_button_shape':
-				case 'pin_button_color':
-				case 'pin_button_height':
-				case 'pin_count_layout':
-				case 'pin_caption':
-				case 'tumblr_button_style':
-				case 'tumblr_caption':
-				case ( strpos( $base_key, 'buttons_pos_' ) === 0 ? true : false ):
-				case ( preg_match( '/^[a-z]+_script_loc$/', $base_key ) ? true : false ):
-
-					return 'not_blank';
-
-					break;
-			}
-
-			return $type;
-		}
-
 		public function filter_messages_tooltip( $text, $msg_key ) {
 
 			if ( strpos( $msg_key, 'tooltip-buttons_' ) !== 0 ) {
@@ -429,6 +546,49 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			}
 
 			return $text;
+		}
+
+		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
+
+			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+				$features['(sharing) Sharing Buttons'] = array(
+					'classname' => $ext . 'Sharing',
+				);
+			}
+
+			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) ) {
+				$features['(sharing) Sharing Stylesheet'] = array(
+					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
+				);
+			}
+
+			if ( ! empty( $info['lib']['shortcode']['sharing'] ) ) {
+				$features['(sharing) Sharing Shortcode'] = array(
+					'classname' => $ext . 'ShortcodeSharing',
+				);
+			}
+
+			if ( ! empty( $info['lib']['widget']['sharing'] ) ) {
+				$features['(sharing) Sharing Widget'] = array(
+					'classname' => $ext . 'WidgetSharing'
+				);
+			}
+
+			return $features;
+		}
+
+		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
+
+			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+
+				$features['(feature) Sharing Styles Editor'] = array( 
+					'td_class' => $pkg['pp'] ? '' : 'blank',
+					'purchase' => $pkg['purchase'],
+					'status'   => $pkg['pp'] ? 'on' : 'rec',
+				);
+			}
+
+			return $features;
 		}
 	}
 }

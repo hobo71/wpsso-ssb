@@ -53,17 +53,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				if ( $this->have_buttons_for_type( 'admin_edit' ) ) {
 					add_action( 'add_meta_boxes', array( $this, 'add_post_buttons_metabox' ) );
 				}
-
-				$this->p->util->add_plugin_filters( $this, array( 
-					'post_custom_meta_tabs'          => 3,
-					'post_cache_transient_keys'      => 4,
-					'settings_page_custom_style_css' => 1,
-				) );
-
-				$this->p->util->add_plugin_filters( $this, array( 
-					'status_gpl_features' => 4,
-					'status_pro_features' => 4,
-				), 10, 'wpssossb' );
 			}
 
 			if ( $this->p->debug->enabled ) {
@@ -86,85 +75,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 					}
 				}
 			}
-		}
-
-		public function filter_post_custom_meta_tabs( $tabs, $mod, $metabox_id ) {
-
-			if ( $metabox_id === $this->p->cf[ 'meta' ][ 'id' ] ) {
-				SucomUtil::add_after_key( $tabs, 'media', 'buttons',
-					_x( 'Share Buttons', 'metabox tab', 'wpsso-ssb' ) );
-			}
-
-			return $tabs;
-		}
-
-		public function filter_post_cache_transient_keys( $transient_keys, $mod, $sharing_url, $mod_salt ) {
-
-			$cache_md5_pre = $this->p->lca . '_b_';
-			$classname_pre = 'WpssoSsb';
-
-			$transient_keys[] = array(
-				'id'   => $cache_md5_pre . md5( $classname_pre . 'Sharing::get_buttons(' . $mod_salt . ')' ),
-				'pre'  => $cache_md5_pre,
-				'salt' => $classname_pre . 'Sharing::get_buttons(' . $mod_salt . ')',
-			);
-
-			$transient_keys[] = array(
-				'id'   => $cache_md5_pre . md5( $classname_pre . 'ShortcodeSharing::do_shortcode(' . $mod_salt . ')' ),
-				'pre'  => $cache_md5_pre,
-				'salt' => $classname_pre . 'ShortcodeSharing::do_shortcode(' . $mod_salt . ')',
-			);
-
-			$transient_keys[] = array(
-				'id'   => $cache_md5_pre . md5( $classname_pre . 'WidgetSharing::widget(' . $mod_salt . ')' ),
-				'pre'  => $cache_md5_pre,
-				'salt' => $classname_pre . 'WidgetSharing::widget(' . $mod_salt . ')',
-			);
-
-			return $transient_keys;
-		}
-
-		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
-
-			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
-				$features['(sharing) Sharing Buttons'] = array(
-					'classname' => $ext . 'Sharing',
-				);
-			}
-
-			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) ) {
-				$features['(sharing) Sharing Stylesheet'] = array(
-					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
-				);
-			}
-
-			if ( ! empty( $info['lib']['shortcode']['sharing'] ) ) {
-				$features['(sharing) Sharing Shortcode'] = array(
-					'classname' => $ext . 'ShortcodeSharing',
-				);
-			}
-
-			if ( ! empty( $info['lib']['widget']['sharing'] ) ) {
-				$features['(sharing) Sharing Widget'] = array(
-					'classname' => $ext . 'WidgetSharing'
-				);
-			}
-
-			return $features;
-		}
-
-		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
-
-			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
-
-				$features['(feature) Sharing Styles Editor'] = array( 
-					'td_class' => $pkg['pp'] ? '' : 'blank',
-					'purchase' => $pkg['purchase'],
-					'status'   => $pkg['pp'] ? 'on' : 'rec',
-				);
-			}
-
-			return $features;
 		}
 
 		public static function update_sharing_css( &$opts ) {
@@ -1227,79 +1137,6 @@ $cache_array[$cache_index] .
 			}
 
 			return apply_filters( $this->p->lca . '_rewrite_cache_url', $url );
-		}
-
-		public function filter_settings_page_custom_style_css( $custom_style_css ) {
-
-			$custom_style_css .= '
-
-				.ssb_share_col {
-					float:left;
-					min-height:50px;
-				}
-
-				.max_cols_1.ssb_share_col {
-					width:100%;
-					min-width:100%;
-					max-width:100%;
-				}
-
-				.max_cols_2.ssb_share_col {
-					width:50%;
-					min-width:50%;
-					max-width:50%;
-				}
-
-				.max_cols_3.ssb_share_col {
-					width:33.3333%;
-					min-width:33.3333%;
-					max-width:33.3333%;
-				}
-
-				.max_cols_4.ssb_share_col {
-					width:25%;
-					min-width:25%;
-					max-width:25%;
-				}
-
-				.ssb_share_col .postbox {
-					overflow-x:hidden;
-				}
-
-				.postbox-ssb_share {
-					min-width:452px;
-					overflow-y:auto;
-				}
-
-				.postbox-ssb_share .metabox-ssb_share {
-					min-height:575px;
-					overflow-y:auto;
-				}
-
-				/* Tabbed metabox */
-				.postbox-ssb_share div.sucom-metabox-tabs div.sucom-tabset.active {
-					min-height:533px;
-				}
-
-				.postbox-ssb_share.postbox-show_basic .metabox-ssb_share {
-					min-height:435px;
-				}
-
-				/* Tabbed metabox */
-				.postbox-ssb_share.postbox-show_basic div.sucom-metabox-tabs div.sucom-tabset.active {
-					min-height:392px;
-				}
-
-				.postbox-ssb_share.closed,
-				.postbox-ssb_share.closed .metabox-ssb_share,
-				.postbox-ssb_share.postbox-show_basic.closed .metabox-ssb_share {
-					height:auto;
-					min-height:0;
-					overflow:hidden;
-				}
-			';
-
-			return $custom_style_css;
 		}
 	}
 }
