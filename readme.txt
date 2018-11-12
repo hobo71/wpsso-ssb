@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.0-dev.4 (2018/11/11)**
+**Version 2.9.0-dev.5 (2018/11/12)**
 
 * *New Features*
 	* None.
@@ -186,9 +186,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.0-dev.4 =
+= 2.9.0-dev.5 =
 
-(2018/11/11) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSharing method to new classes.
+(2018/11/12) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSharing method to new classes.
 
 = 2.8.4 =
 
