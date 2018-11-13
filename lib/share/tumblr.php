@@ -55,7 +55,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareTumblr' ) ) {
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $form->get_select( 'tumblr_order', range( 1, count( $submenu->share ) ) ) . '</td>';
 
-			if ( $this->p->avail['*']['vary_ua'] ) {
+			if ( $this->p->avail[ '*' ]['vary_ua'] ) {
 				$table_rows[] = $form->get_tr_hide( 'basic', 'tumblr_platform' ) . 
 				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 				'<td>' . $form->get_select( 'tumblr_platform', $this->p->cf['sharing']['platform'] ) . '</td>';
@@ -217,18 +217,18 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 				}
 			}
 
-			if ( $mod['name'] === 'post' && $mod['id'] > 0 ) {
+			if ( $mod[ 'name' ] === 'post' && $mod[ 'id' ] > 0 ) {
 
 				/**
 				 * If no image or video, then check for a 'quote'.
 				 */
 				if ( empty( $atts['photo'] ) && empty( $atts['embed'] ) && empty( $atts['quote'] ) ) {
-					if ( get_post_format( $mod['id'] ) === 'quote' ) {
+					if ( get_post_format( $mod[ 'id' ] ) === 'quote' ) {
 						$atts['quote'] = $this->p->page->get_quote( $mod );
 					}
 				}
 
-				$atts['tags'] = implode( ', ', $this->p->page->get_tags( $mod['id'] ) );
+				$atts['tags'] = implode( ', ', $this->p->page->get_tags( $mod[ 'id' ] ) );
 			}
 
 			// we only need the caption, title, or description for some types of shares

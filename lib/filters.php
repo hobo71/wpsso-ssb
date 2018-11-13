@@ -319,7 +319,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 				return $text;
 			}
 
-			$short = $this->p->cf['plugin']['wpsso']['short'];
+			$short = $this->p->cf[ 'plugin' ][ 'wpsso' ][ 'short' ];
 
 			switch ( $msg_key ) {
 
@@ -550,25 +550,25 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
 
-			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-buttons'] ) ) {
 				$features['(sharing) Sharing Buttons'] = array(
 					'classname' => $ext . 'Sharing',
 				);
 			}
 
-			if ( ! empty( $info['lib']['submenu']['ssb-styles'] ) ) {
+			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-styles'] ) ) {
 				$features['(sharing) Sharing Stylesheet'] = array(
 					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
 				);
 			}
 
-			if ( ! empty( $info['lib']['shortcode']['sharing'] ) ) {
+			if ( ! empty( $info[ 'lib' ]['shortcode']['sharing'] ) ) {
 				$features['(sharing) Sharing Shortcode'] = array(
 					'classname' => $ext . 'ShortcodeSharing',
 				);
 			}
 
-			if ( ! empty( $info['lib']['widget']['sharing'] ) ) {
+			if ( ! empty( $info[ 'lib' ]['widget']['sharing'] ) ) {
 				$features['(sharing) Sharing Widget'] = array(
 					'classname' => $ext . 'WidgetSharing'
 				);
@@ -579,12 +579,12 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
 
-			if ( ! empty( $info['lib']['submenu']['ssb-buttons'] ) ) {
+			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-buttons'] ) ) {
 
 				$features['(feature) Sharing Styles Editor'] = array( 
-					'td_class' => $pkg['pp'] ? '' : 'blank',
+					'td_class' => $pkg[ 'pp' ] ? '' : 'blank',
 					'purchase' => $pkg['purchase'],
-					'status'   => $pkg['pp'] ? 'on' : 'rec',
+					'status'   => $pkg[ 'pp' ] ? 'on' : 'rec',
 				);
 			}
 

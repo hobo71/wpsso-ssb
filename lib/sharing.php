@@ -15,7 +15,6 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 		private $p;
 		private $share = array();
-		private $buttons_for_type = array();		// cache for have_buttons_for_type()
 		private $post_buttons_disabled = array();	// cache for is_post_buttons_disabled()
 
 		public static $sharing_css_name = '';
@@ -39,18 +38,18 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 			add_action( 'wp_head', array( $this, 'show_head' ), WPSSOSSB_HEAD_PRIORITY );
 			add_action( 'wp_footer', array( $this, 'show_footer' ), WPSSOSSB_FOOTER_PRIORITY );
 
-			if ( $this->have_buttons_for_type( 'content' ) ) {
+			if ( self::have_buttons_for_type( 'content' ) ) {
 				$this->add_buttons_filter( 'the_content' );
 			}
 
-			if ( $this->have_buttons_for_type( 'excerpt' ) ) {
+			if ( self::have_buttons_for_type( 'excerpt' ) ) {
 				$this->add_buttons_filter( 'get_the_excerpt' );
 				$this->add_buttons_filter( 'the_excerpt' );
 			}
 
 			if ( is_admin() ) {
 
-				if ( $this->have_buttons_for_type( 'admin_edit' ) ) {
+				if ( self::have_buttons_for_type( 'admin_edit' ) ) {
 					add_action( 'add_meta_boxes', array( $this, 'add_post_buttons_metabox' ) );
 				}
 			}
@@ -211,13 +210,14 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 		public function show_head() {
 
-			echo $this->get_script_loader();
+			echo self::get_script_loader();
+
 			echo $this->get_script( 'header' );
 		}
 
 		public function show_footer() {
 
-			if ( $this->have_buttons_for_type( 'sidebar' ) ) {
+			if ( self::have_buttons_for_type( 'sidebar' ) ) {
 				echo $this->show_sidebar();
 			} elseif ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'no buttons enabled for sidebar' );
@@ -258,7 +258,8 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 
 			if ( get_post_status( $post_obj->ID ) === 'publish' || $post_obj->post_type === 'attachment' ) {
 
-				echo $this->get_script_loader();
+				echo self::get_script_loader();
+
 				echo $this->get_script( 'header' );
 				echo $this->get_buttons( '', 'admin_edit' );
 				echo $this->get_script( 'footer' );
@@ -394,7 +395,7 @@ if ( ! class_exists( 'WpssoSsbSharing' ) ) {
 				}
 			}
 
-			if ( empty( $error_message ) && ! $this->have_buttons_for_type( $type ) ) {
+			if ( empty( $error_message ) && ! self::have_buttons_for_type( $type ) ) {
 				$error_message = 'no sharing buttons enabled';
 			}
 
@@ -579,7 +580,7 @@ $cache_array[$cache_index] .
 
 			$cache_index .= '_https:'.( SucomUtil::is_https() ? 'true' : 'false' );
 
-			$cache_index .= $this->p->avail['*']['vary_ua'] ? '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) : '';
+			$cache_index .= $this->p->avail[ '*' ]['vary_ua'] ? '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) : '';
 
 			$cache_index .= $atts !== false ? '_atts:'.http_build_query( $atts, '', '_' ) : '';
 
@@ -714,7 +715,7 @@ $cache_array[$cache_index] .
 
 					if ( method_exists( $this->share[ $id ], 'get_html' ) ) {
 
-						if ( $this->allow_for_platform( $id ) ) {
+						if ( self::allow_for_platform( $id ) ) {
 
 							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// Uses 'css_id' and 'use_post'.
 
@@ -776,8 +777,11 @@ $cache_array[$cache_index] .
 			if ( ! is_admin() ) {
 
 				if ( class_exists( 'WpssoSsbWidgetSharing' ) ) {
+
 					$widget = new WpssoSsbWidgetSharing();
+
 			 		$widget_settings = $widget->get_settings();
+
 				} else {
 					$widget_settings = array();
 				}
@@ -916,7 +920,9 @@ $cache_array[$cache_index] .
 					if ( isset( $this->share[ $id ] ) && method_exists( $this->share[ $id ], 'get_script' ) ) {
 
 						if ( isset( $this->p->options[$opt_name] ) && $this->p->options[$opt_name] === $script_loc ) {
+
 							$script_html .= $this->share[ $id ]->get_script( $pos ) . "\n";
+
 						} else {
 							$script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' .
 								$this->p->options[$opt_name] . ' -->' . "\n";
@@ -930,15 +936,17 @@ $cache_array[$cache_index] .
 			return $script_html;
 		}
 
-		public function get_script_loader( $pos = 'id' ) {
+		public static function get_script_loader( $pos = 'id' ) {
 
-			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
+			$wpsso =& Wpsso::get_instance();
 
-			$lang = apply_filters( $this->p->lca . '_pub_lang', $lang, 'google', 'current' );
+			$lang = empty( $wpsso->options['gp_lang'] ) ? 'en-US' : $wpsso->options['gp_lang'];
+
+			$lang = apply_filters( $wpsso->lca . '_pub_lang', $lang, 'google', 'current' );
 
 			return '<script type="text/javascript" id="wpssossb-header-script">
 	window.___gcfg = { lang: "' . $lang . '" };
-	function ' . $this->p->lca . '_insert_js( script_id, url, async ) {
+	function ' . $wpsso->lca . '_insert_js( script_id, url, async ) {
 		if ( document.getElementById( script_id + "-js" ) ) return;
 		var async = typeof async !== "undefined" ? async : true;
 		var script_pos = document.getElementById( script_id );
@@ -953,38 +961,47 @@ $cache_array[$cache_index] .
 </script>' . "\n";
 		}
 
-		public function have_buttons_for_type( $type ) {
+		public static function have_buttons_for_type( $type ) {
 
-			if ( isset( $this->buttons_for_type[$type] ) ) {
-				return $this->buttons_for_type[$type];
+			static $local_cache = array();
+
+			if ( isset( $local_cache[ $type ] ) ) {
+				return $local_cache[ $type ];
 			}
 
-			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+			$wpsso =& Wpsso::get_instance();
 
-				if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) &&	// check if button is enabled
-					$this->allow_for_platform( $id ) ) {			// check if allowed on platform
+			foreach ( $wpsso->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
 
-					return $this->buttons_for_type[$type] = true;
+				if ( ! empty( $wpsso->options[ $opt_pre . '_on_' . $type ] ) ) {	// Check if button is enabled.
+
+					if ( self::allow_for_platform( $id ) ) {	// Check if allowed on platform.
+
+						return $local_cache[ $type ] = true;	// Stop here.
+					}
 				}
 			}
-			return $this->buttons_for_type[$type] = false;
+
+			return $local_cache[ $type ] = false;
 		}
 
-		public function allow_for_platform( $id ) {
+		public static function allow_for_platform( $id ) {
+
+			$wpsso =& Wpsso::get_instance();
 
 			/**
 			 * Always allow if the content does not vary by user agent.
 			 */
-			if ( ! $this->p->avail['*']['vary_ua'] ) {
+			if ( empty( $wpsso->avail[ '*' ][ 'vary_ua' ] ) ) {
 				return true;
 			}
 
-			$opt_pre = isset( $this->p->cf['opt']['cm_prefix'][ $id ] ) ?
-				$this->p->cf['opt']['cm_prefix'][ $id ] : $id;
+			$opt_pre = isset( $wpsso->cf[ 'opt' ][ 'cm_prefix' ][ $id ] ) ?
+				$wpsso->cf[ 'opt' ][ 'cm_prefix' ][ $id ] : $id;
 
-			if ( isset( $this->p->options[$opt_pre . '_platform'] ) ) {
+			if ( isset( $wpsso->options[ $opt_pre . '_platform' ] ) ) {
 
-				switch( $this->p->options[$opt_pre . '_platform'] ) {
+				switch( $wpsso->options[ $opt_pre . '_platform' ] ) {
 
 					case 'any':
 

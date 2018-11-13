@@ -38,7 +38,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareLinkedin' ) ) {
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'linkedin_order', range( 1, count( $submenu->share ) ) ).'</td>';
 
-			if ( $this->p->avail['*']['vary_ua'] ) {
+			if ( $this->p->avail[ '*' ]['vary_ua'] ) {
 				$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_platform' ).
 				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 				'<td>'.$form->get_select( 'linkedin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
