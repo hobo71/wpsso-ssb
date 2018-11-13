@@ -264,11 +264,11 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			}
 
 			define( 'WPSSOSSB_FILEPATH', $plugin_filepath );						
-			define( 'WPSSOSSB_PLUGINBASE', self::$cf[ 'plugin' ]['wpssossb'][ 'base' ] );	// wpsso-ssb/wpsso-ssb.php
+			define( 'WPSSOSSB_PLUGINBASE', self::$cf[ 'plugin' ][ 'wpssossb' ][ 'base' ] );	// wpsso-ssb/wpsso-ssb.php
 			define( 'WPSSOSSB_PLUGINDIR', trailingslashit( realpath( dirname( $plugin_filepath ) ) ) );
-			define( 'WPSSOSSB_PLUGINSLUG', self::$cf[ 'plugin' ]['wpssossb'][ 'slug' ] );	// wpsso-ssb
+			define( 'WPSSOSSB_PLUGINSLUG', self::$cf[ 'plugin' ][ 'wpssossb' ][ 'slug' ] );	// wpsso-ssb
 			define( 'WPSSOSSB_URLPATH', trailingslashit( plugins_url( '', $plugin_filepath ) ) );
-			define( 'WPSSOSSB_VERSION', self::$cf[ 'plugin' ]['wpssossb'][ 'version' ] );						
+			define( 'WPSSOSSB_VERSION', self::$cf[ 'plugin' ][ 'wpssossb' ][ 'version' ] );						
 
 			self::set_variable_constants();
 		}
