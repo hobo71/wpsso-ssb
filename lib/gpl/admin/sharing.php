@@ -181,7 +181,7 @@ if ( ! class_exists( 'WpssoSsbGplAdminSharing' ) ) {
 			/**
 			 * Twitter
 			 */
-			$twitter_caption_max_len = $this->p->ssb_sharing->get_tweet_max_len();
+			$twitter_caption_max_len = WpssoSsbSocial::get_tweet_max_len();
 			$twitter_caption_text    = $this->p->page->get_caption( 'title', $twitter_caption_max_len, $mod, true, true );
 
 			$form_rows['subsection_twitter'] = array(

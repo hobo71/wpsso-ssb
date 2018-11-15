@@ -61,6 +61,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		 */
 		protected function add_meta_boxes() {
 
+			$ssb =& WpssoSsb::get_instance();
+
 			$metabox_id      = 'ssb_buttons';
 			$metabox_title   = _x( 'Social Sharing Buttons', 'metabox title', 'wpsso-ssb' );
 			$metabox_screen  = $this->pagehook;
@@ -74,7 +76,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					$metabox_context, $metabox_prio, $callback_args );
 
 			$share_col = 0;
-			$share_ids = $this->p->ssb_sharing->get_share_object_ids( $this->share );
+			$share_ids = $ssb->social->get_share_ids( $this->share );
 
 			foreach ( $share_ids as $share_id => $share_title ) {
 

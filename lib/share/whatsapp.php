@@ -31,8 +31,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareWhatsApp' ) ) {
 		public function filter_ssb_share_whatsapp_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'wa' ).'</td>';
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'wa' ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).

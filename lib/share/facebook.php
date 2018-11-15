@@ -42,8 +42,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareFacebook' ) ) {
 		public function filter_ssb_share_facebook_all_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'fb' ).'</td>';
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'fb' ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -283,7 +283,7 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 			$fb_lang   = apply_filters( $this->p->lca.'_pub_lang', $fb_lang, 'facebook', 'current' );
 
 			/**
-			 * Do not use get_social_file_cache_url() since the facebook javascript does not work when hosted locally.
+			 * Do not use WpssoSsbSocial::get_file_cache_url() since the facebook javascript does not work when hosted locally.
 			 */
 			$js_url = apply_filters( $this->p->lca.'_js_url_facebook', 
 				SucomUtil::get_prot().'://connect.facebook.net/'.$fb_lang.'/sdk.js#xfbml=1&version='.

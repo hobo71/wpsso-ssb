@@ -113,8 +113,12 @@
  * LinkedIn button.
  */
 .ssb-buttons div.linkedin-button,
-.wpsso-ssb-preset-small_share_count .ssb-buttons div.linkedin-button {
-	width:110px;
+.wpsso-ssb-preset-small_share_count .ssb-buttons div.linkedin-button,
+.wpsso-ssb-preset-large_share_vertical .ssb-buttons div.linkedin-button {
+	width:63px;
+	height:20px;
+	line-height:20px;
+	vertical-align:top;
 }
 
 /**

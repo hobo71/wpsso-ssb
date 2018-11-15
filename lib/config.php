@@ -16,7 +16,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(			// Plugin acronym.
-					'version'     => '2.9.0-dev.7',	// Plugin version.
+					'version'     => '2.9.0-b.1',	// Plugin version.
 					'opt_version' => '17',		// Increment when changing default option values.
 					'short'       => 'WPSSO SSB',	// Short plugin name.
 					'name'        => 'WPSSO Social Sharing Buttons',
@@ -170,8 +170,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'gp_size'           => 'medium',
 						'gp_annotation'     => 'bubble',
 						'gp_expandto'       => '',
-						'linkedin_counter'  => 'right',
-						'linkedin_showzero' => 1,
 						'pin_button_shape'  => 'rect',
 						'pin_button_height' => 'small',
 						'pin_count_layout'  => 'beside',
@@ -194,8 +192,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'gp_size'           => 'tall',
 						'gp_annotation'     => 'vertical-bubble',
 						'gp_expandto'       => '',
-						'linkedin_counter'  => 'top',
-						'linkedin_showzero' => '1',
 						'pin_button_shape'  => 'rect',
 						'pin_button_height' => 'large',
 						'pin_count_layout'  => 'above',
@@ -315,7 +311,7 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 			require_once WPSSOSSB_PLUGINDIR . 'lib/functions.php';
 			require_once WPSSOSSB_PLUGINDIR . 'lib/register.php';
 			require_once WPSSOSSB_PLUGINDIR . 'lib/script.php';
-			require_once WPSSOSSB_PLUGINDIR . 'lib/sharing.php';
+			require_once WPSSOSSB_PLUGINDIR . 'lib/social.php';
 			require_once WPSSOSSB_PLUGINDIR . 'lib/style.php';
 
 			add_filter( 'wpssossb_load_lib', array( 'WpssoSsbConfig', 'load_lib' ), 10, 3 );

@@ -32,7 +32,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareManagewp' ) ) {
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.( $submenu->show_on_checkboxes( 'managewp' ) ).'</td>';
+			'<td>' . $submenu->show_on_checkboxes( 'managewp' ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -68,7 +68,7 @@ if ( ! class_exists( 'WpssoSsbShareManagewp' ) ) {
 					'managewp_on_content'    => 0,
 					'managewp_on_excerpt'    => 0,
 					'managewp_on_sidebar'    => 0,
-					'managewp_on_admin_edit' => 1,
+					'managewp_on_admin_edit' => 0,
 					'managewp_platform'      => 'any',
 					'managewp_type'          => 'small',
 				),
@@ -102,7 +102,7 @@ if ( ! class_exists( 'WpssoSsbShareManagewp' ) ) {
 				$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false, true, null );
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_managewp', 
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca.'_js_url_managewp', 
 				SucomUtil::get_prot().'://managewp.org/share.js#'.SucomUtil::get_prot().'://managewp.org/share', '' ) );
 
 			$html = '<!-- ManageWP Button -->'.

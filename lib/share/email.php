@@ -30,8 +30,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareEmail' ) ) {
 
 		public function filter_ssb_share_email_rows( $table_rows, $form, $submenu ) {
 
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'email' ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'email' ) . '</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'email_order', range( 1, count( $submenu->share ) ) ).'</td>';

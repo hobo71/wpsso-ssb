@@ -125,7 +125,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			 * Update the combined and minified social stylesheet.
 			 */
 			if ( false === $network ) {
-				WpssoSsbSharing::update_sharing_css( $opts );
+				WpssoSsbSocial::update_sharing_css( $opts );
 			}
 
 			return $opts;
@@ -184,7 +184,6 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 				case 'gp_expandto': 
 				case 'twitter_count': 
 				case 'twitter_size': 
-				case 'linkedin_counter':
 				case 'managewp_type':
 				case 'pin_button_lang':
 				case 'pin_button_shape':
@@ -220,9 +219,9 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			$cache_md5_pre = $this->p->lca . '_b_';
 
 			$transient_keys[] = array(
-				'id'   => $cache_md5_pre . md5( 'WpssoSsbSharing::get_buttons(' . $mod_salt . ')' ),
+				'id'   => $cache_md5_pre . md5( 'WpssoSsbSocial::get_buttons(' . $mod_salt . ')' ),
 				'pre'  => $cache_md5_pre,
-				'salt' => 'WpssoSsbSharing::get_buttons(' . $mod_salt . ')',
+				'salt' => 'WpssoSsbSocial::get_buttons(' . $mod_salt . ')',
 			);
 
 			$transient_keys[] = array(
@@ -484,7 +483,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 				case 'tooltip-buttons_use_social_style':
 
-					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minified</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minified stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSharing::$sharing_css_url, WpssoSsbSharing::$sharing_css_url );
+					$text = sprintf( __( 'Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS will be <strong>minified</strong>, and saved to a single stylesheet with a URL of <a href="%2$s">%3$s</a>. The minified stylesheet can be enqueued or added directly to the webpage HTML.', 'wpsso-ssb' ), _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' ), WpssoSsbSocial::$sharing_css_url, WpssoSsbSocial::$sharing_css_url );
 
 					break;
 

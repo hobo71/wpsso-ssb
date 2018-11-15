@@ -15,7 +15,7 @@
  * Requires At Least: 3.8
  * Tested Up To: 5.0
  * WC Tested Up To: 3.5
- * Version: 2.9.0-dev.7
+ * Version: 2.9.0-b.1
  * 
  * Version Numbering: {major}.{minor}.{bugfix}[-{stage}.{level}]
  *
@@ -186,9 +186,8 @@ if ( ! class_exists( 'WpssoSsb' ) ) {
 			$this->actions = new WpssoSsbActions( $this->p );
 			$this->filters = new WpssoSsbFilters( $this->p );
 			$this->script  = new WpssoSsbScript( $this->p );
+			$this->social  = new WpssoSsbSocial( $this->p );
 			$this->style   = new WpssoSsbStyle( $this->p );
-
-			$this->p->ssb_sharing = new WpssoSsbSharing( $this->p );
 		}
 
 		public function wpsso_init_plugin() {

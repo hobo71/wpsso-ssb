@@ -63,8 +63,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 			$metabox_id = 'ssb_styles';
 
-			if ( file_exists( WpssoSsbSharing::$sharing_css_file ) && ( $fsize = filesize( WpssoSsbSharing::$sharing_css_file ) ) !== false ) {
-				$css_min_msg = ' <a href="' . WpssoSsbSharing::$sharing_css_url . '">minified css is ' . $fsize . ' bytes</a>';
+			if ( file_exists( WpssoSsbSocial::$sharing_css_file ) && ( $fsize = filesize( WpssoSsbSocial::$sharing_css_file ) ) !== false ) {
+				$css_min_msg = ' <a href="' . WpssoSsbSocial::$sharing_css_url . '">minified css is ' . $fsize . ' bytes</a>';
 			} else {
 				$css_min_msg = '';
 			}

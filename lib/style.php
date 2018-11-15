@@ -46,7 +46,7 @@ if ( ! class_exists( 'WpssoSsbStyle' ) ) {
 						$this->p->debug->log( 'updating ' . self::$sharing_css_file );
 					}
 
-					WpssoSsbSharing::update_sharing_css( $this->p->options );
+					WpssoSsbSocial::update_sharing_css( $this->p->options );
 				}
 
 				if ( ! empty( $this->p->options['buttons_enqueue_social_style'] ) ) {

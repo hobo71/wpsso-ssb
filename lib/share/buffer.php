@@ -46,8 +46,9 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareBuffer' ) ) {
 
 		public function filter_ssb_share_buffer_rows( $table_rows, $form, $submenu ) {
 			
-			$table_rows[] = $form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'buffer' ).'</td>';
+			$table_rows[] = '' .
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'buffer' ) . '</td>';
 
 			$table_rows[] = $form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
 			'<td>'.$form->get_select( 'buffer_order', range( 1, count( $submenu->share ) ) ).'</td>';
@@ -182,8 +183,11 @@ if ( ! class_exists( 'WpssoSsbShareBuffer' ) ) {
 			}
 
 			if ( ! array_key_exists( 'caption', $atts ) ) {
+
 				if ( empty( $atts['caption'] ) ) {
-					$caption_len = $this->p->ssb_sharing->get_tweet_max_len( 'buffer' );
+
+					$caption_len = WpssoSsbSocial::get_tweet_max_len( 'buffer' );
+
 					$atts['caption'] = $this->p->page->get_caption( $opts['buffer_caption'], $caption_len, $mod, true, true, true, 'twitter_desc' );
 				}
 			}
@@ -223,7 +227,7 @@ if ( ! class_exists( 'WpssoSsbShareBuffer' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_buffer',
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca.'_js_url_buffer',
 				SucomUtil::get_prot().'://d389zggrogs7qo.cloudfront.net/js/button.js', $pos ) );
 
 			return '<script type="text/javascript" id="buffer-script-'.$pos.'">'.

@@ -113,17 +113,14 @@ if ( ! class_exists( 'WpssoSsbGplSocialBuddypressSharing' ) ) {
 
 		public function remove_wp_buttons() {
 
+			$ssb =& WpssoSsb::get_instance();
+
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
 
-			if ( isset( $this->p->ssb_sharing ) && 
-				is_object( $this->p->ssb_sharing ) && 
-					method_exists( $this->p->ssb_sharing, 'remove_buttons_filter' ) ) {
-
-				foreach ( array( 'get_the_excerpt', 'the_excerpt', 'the_content' ) as $filter_name ) {
-					$this->p->ssb_sharing->remove_buttons_filter( $filter_name );
-				}
+			foreach ( array( 'get_the_excerpt', 'the_excerpt', 'the_content' ) as $filter_name ) {
+				$ssb->social->remove_buttons_filter( $filter_name );
 			}
 		}
 	}

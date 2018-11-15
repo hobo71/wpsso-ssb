@@ -48,7 +48,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSharePinterest' ) ) {
 		public function filter_ssb_share_pinterest_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short', null ) . 
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
 			'<td>' . $submenu->show_on_checkboxes( 'pin' ) . '</td>';
 
 			$table_rows[] = '' .
@@ -250,7 +250,7 @@ if ( ! class_exists( 'WpssoSsbSharePinterest' ) ) {
 					break;
 			}
 
-			$pin_img_url = $this->p->ssb_sharing->get_social_file_cache_url( $pin_img_url );
+			$pin_img_url = WpssoSsbSocial::get_file_cache_url( $pin_img_url );
 
 			$html = '<!-- Pinterest Button -->' . 
 			'<div ' . SucomUtil::get_atts_css_attr( $atts, 'pinterest' ) . '>' . 
@@ -277,7 +277,7 @@ if ( ! class_exists( 'WpssoSsbSharePinterest' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca . '_js_url_pinterest', 
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca . '_js_url_pinterest', 
 				SucomUtil::get_prot() . '://assets.pinterest.com/js/pinit.js', $pos ) );
 
 			return '<script type="text/javascript" id="pinterest-script-' . $pos . '">' . 

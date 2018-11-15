@@ -44,7 +44,9 @@ if ( ! class_exists( 'WpssoSsbActions' ) ) {
 				) );
 			}
 
-			$this->p->ssb_sharing->remove_buttons_filter( $filter_name );
+			$ssb =& WpssoSsb::get_instance();
+
+			$ssb->social->remove_buttons_filter( $filter_name );
 		}
 
 		public function action_after_apply_filters_text( $filter_name ) {
@@ -55,7 +57,9 @@ if ( ! class_exists( 'WpssoSsbActions' ) ) {
 				) );
 			}
 
-			$this->p->ssb_sharing->add_buttons_filter( $filter_name );
+			$ssb =& WpssoSsb::get_instance();
+
+			$ssb->social->add_buttons_filter( $filter_name );
 		}
 
 		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
@@ -70,7 +74,7 @@ if ( ! class_exists( 'WpssoSsbActions' ) ) {
 				}
 			}
 
-			WpssoSsbSharing::update_sharing_css( $this->p->options );
+			WpssoSsbSocial::update_sharing_css( $this->p->options );
 
 			$this->p->opt->save_options( WPSSO_OPTIONS_NAME, $this->p->options, $network = false );
 

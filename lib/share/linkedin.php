@@ -31,34 +31,22 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareLinkedin' ) ) {
 		public function filter_ssb_share_linkedin_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'linkedin' ).'</td>';
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			'<td>' . $submenu->show_on_checkboxes( 'linkedin' ) . '</td>';
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'linkedin_order', range( 1, count( $submenu->share ) ) ).'</td>';
+			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			'<td>' . $form->get_select( 'linkedin_order', range( 1, count( $submenu->share ) ) ) . '</td>';
 
 			if ( $this->p->avail[ '*' ]['vary_ua'] ) {
-				$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_platform' ).
-				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-				'<td>'.$form->get_select( 'linkedin_platform', $this->p->cf['sharing']['platform'] ).'</td>';
+				$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_platform' ) . 
+				$form->get_th_html( _x( 'Allow for Platform', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+				'<td>' . $form->get_select( 'linkedin_platform', $this->p->cf['sharing']['platform'] ) . '</td>';
 			}
 
-			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_script_loc' ).
-			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ).'</td>';
-
-			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Counter Mode', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'linkedin_counter', array( 
-				'none'  => 'none',
-				'right' => 'Horizontal',
-				'top'   => 'Vertical',
-			) ).'</td>';
-
-			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_showzero' ).
-			$form->get_th_html( _x( 'Zero in Counter', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_checkbox( 'linkedin_showzero' ).'</td>';
+			$table_rows[] = $form->get_tr_hide( 'basic', 'linkedin_script_loc' ) . 
+			$form->get_th_html( _x( 'JavaScript in', 'option label (short)', 'wpsso-ssb' ), 'short' ) . 
+			'<td>' . $form->get_select( 'linkedin_script_loc', $this->p->cf['form']['script_locations'] ) . '</td>';
 
 			return $table_rows;
 		}
@@ -80,8 +68,6 @@ if ( ! class_exists( 'WpssoSsbShareLinkedin' ) ) {
 					'linkedin_on_admin_edit' => 1,
 					'linkedin_platform'      => 'any',
 					'linkedin_script_loc'    => 'header',
-					'linkedin_counter'       => 'right',
-					'linkedin_showzero'      => 1,
 				),
 			),
 		);
@@ -109,15 +95,13 @@ if ( ! class_exists( 'WpssoSsbShareLinkedin' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$html = '<!-- LinkedIn Button -->'.
-			'<div '.SucomUtil::get_atts_css_attr( $atts, 'linkedin' ).'>'.
-			'<script type="IN/Share" data-url="'.$atts['url'].'"'.
-			( empty( $opts['linkedin_counter'] ) ? '' : ' data-counter="'.$opts['linkedin_counter'].'"' ).
-			( empty( $opts['linkedin_showzero'] ) ? '' : ' data-showzero="true"' ).'>'.
+			$html = '<!-- LinkedIn Button -->' . 
+			'<div ' . SucomUtil::get_atts_css_attr( $atts, 'linkedin' ) . '>' . 
+			'<script type="IN/Share" data-url="' . $atts['url'] . '">' .
 			'</script></div>';
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->log( 'returning html ('.strlen( $html ).' chars)' );
+				$this->p->debug->log( 'returning html (' . strlen( $html ) . ' chars)' );
 			}
 
 			return $html;
@@ -129,11 +113,11 @@ if ( ! class_exists( 'WpssoSsbShareLinkedin' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_linkedin',
-				SucomUtil::get_prot().'://platform.linkedin.com/in.js', $pos ) );
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca . '_js_url_linkedin',
+				SucomUtil::get_prot() . '://platform.linkedin.com/in.js', $pos ) );
 
-			return  '<script type="text/javascript" id="linkedin-script-'.$pos.'">'.
-				$this->p->lca.'_insert_js( "linkedin-script-'.$pos.'", "'.$js_url.'" );</script>';
+			return  '<script type="text/javascript" id="linkedin-script-' . $pos . '">' . 
+				$this->p->lca . '_insert_js( "linkedin-script-' . $pos . '", "' . $js_url . '" );</script>';
 		}
 	}
 }

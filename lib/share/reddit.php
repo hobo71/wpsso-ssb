@@ -31,8 +31,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareReddit' ) ) {
 		public function filter_ssb_share_reddit_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.( $submenu->show_on_checkboxes( 'reddit' ) ).'</td>';
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'reddit' ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -116,7 +116,7 @@ if ( ! class_exists( 'WpssoSsbShareReddit' ) ) {
 					break;
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_reddit', $js_url, '' ) );
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca.'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->'.
 				'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts['url'] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.

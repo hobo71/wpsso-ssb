@@ -83,24 +83,45 @@
 	margin:10px;
 }
 
-#wpsso-ssb-sidebar .ssb-buttons div.twitter-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.twitter-button {
-	height:20px;
-	line-height:20px;
-}
-
+/**
+ * Facebook button.
+ */
 #wpsso-ssb-sidebar .ssb-buttons div.fb-share-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.fb-share-button {
 	height:40px;
 	line-height:40px;
 }
 
+/**
+ * Google+ button.
+ */
 #wpsso-ssb-sidebar .ssb-buttons div.gplus-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.gplus-button {
 	height:60px;
 	line-height:40px;
 }
 
+/**
+ * Twitter button.
+ */
+#wpsso-ssb-sidebar .ssb-buttons div.twitter-button,
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.twitter-button {
+	height:20px;
+	line-height:20px;
+}
+
+/**
+ * LinkedIn button.
+ */
+#wpsso-ssb-sidebar .ssb-buttons div.linkedin-button,
+#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.linkedin-button {
+	height:20px;
+	line-height:20px;
+}
+
+/**
+ * Pinterest button.
+ */
 #wpsso-ssb-sidebar .ssb-buttons div.pinterest-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.pinterest-button {
 	line-height:115px;
@@ -110,6 +131,9 @@
 	margin-top:10px;
 }
 
+/**
+ * Reddit button.
+ */
 #wpsso-ssb-sidebar .ssb-buttons div.reddit-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.reddit-button {
 	margin:10px 5px 20px 5px;
@@ -118,6 +142,9 @@
 	margin-bottom:10px;
 }
 
+/**
+ * Tumblr button.
+ */
 #wpsso-ssb-sidebar .ssb-buttons div.tumblr-button,
 #wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.tumblr-button {
 	height:40px;

@@ -31,8 +31,8 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareGplus' ) ) {
 		public function filter_ssb_share_gplus_rows( $table_rows, $form, $submenu ) {
 
 			$table_rows[] = '' .
-			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$submenu->show_on_checkboxes( 'gp' ).'</td>';
+			$form->get_th_html( _x( 'Show Button in', 'option label (short)', 'wpsso-ssb' ), 'short' ) .
+			'<td>' . $submenu->show_on_checkboxes( 'gp' ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Preferred Order', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -163,7 +163,7 @@ if ( ! class_exists( 'WpssoSsbShareGplus' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js_url = $this->p->ssb_sharing->get_social_file_cache_url( apply_filters( $this->p->lca.'_js_url_gplus',
+			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca.'_js_url_gplus',
 				SucomUtil::get_prot().'://apis.google.com/js/plusone.js', $pos ) );
 
 			return '<script type="text/javascript" id="gplus-script-'.$pos.'">'.
