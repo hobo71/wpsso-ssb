@@ -40,7 +40,7 @@ The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special
 
 &#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Completely configurable for user needs, like insert sdk code or not, and where (head, footer), etc. It stays very light and without any conflict with other plugins or themes." - [felizubi](https://wordpress.org/support/topic/highly-configurable-4/)
 
-&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Excellent plugin, excllent support - Pro version works well with BuddyPress activity stream!" - [tbuys](https://wordpress.org/support/topic/excellent-plugin-excllent-support/)
+&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Excellent plugin, excellent support - Pro version works well with BuddyPress activity stream!" - [tbuys](https://wordpress.org/support/topic/excellent-plugin-excllent-support/)
 
 <h3>WPSSO SSB Free / Standard Features</h3>
 
@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.0-b.1 (2018/11/15)**
+**Version 2.9.0-rc.1 (2018/11/16)**
 
 * *New Features*
 	* None.
@@ -187,9 +187,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.0-b.1 =
+= 2.9.0-rc.1 =
 
-(2018/11/15) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSocial method to new classes.
+(2018/11/16) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSocial method to new classes.
 
 = 2.8.4 =
 
