@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 5.0
 WC Tested Up To: 3.5
-Stable Tag: 2.8.4
+Stable Tag: 2.9.0
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.0-rc.1 (2018/11/16)**
+**Version 2.9.0 (2018/11/17)**
 
 * *New Features*
 	* None.
@@ -187,9 +187,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.0-rc.1 =
+= 2.9.0 =
 
-(2018/11/16) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSocial method to new classes.
+(2018/11/17) Removed the deprecated StumbleUpon social sharing button. Moved several methods from the WpssoSsbSocial method to new classes.
 
 = 2.8.4 =
 
