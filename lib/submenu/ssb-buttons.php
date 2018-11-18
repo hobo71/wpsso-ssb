@@ -39,7 +39,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 
 				$classname = WpssoSsbConfig::load_lib( false, 'share/' . $id, 'wpssossbsubmenushare' . $id );
 
-				if ( $classname !== false && class_exists( $classname ) ) {
+				if ( false !== $classname && class_exists( $classname ) ) {
 
 					$this->share[$id] = new $classname( $this->p );
 
