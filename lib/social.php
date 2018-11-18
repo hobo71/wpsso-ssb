@@ -173,7 +173,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 			}
 		}
 
-		public static function add_metabox_admin_edit() {
+		public function add_metabox_admin_edit() {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
