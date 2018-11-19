@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 5.0
 WC Tested Up To: 3.5
-Stable Tag: 2.9.1
+Stable Tag: 2.9.2
 
 WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -151,54 +151,20 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.1 (2018/11/18)**
+**Version 2.9.2 (2018/11/18)**
 
 * *New Features*
 	* None.
 * *Improvements*
 	* None.
 * *Bugfixes*
-	* Added the new lib/social.php library file to the Free version SVN.
+	* Fixed an object context error for the WpssoSsbSocial::add_metabox_admin_edit() method.
 * *Developer Notes*
 	* None.
-
-**Version 2.9.1 (2018/11/17)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* Removed the deprecated StumbleUpon social sharing button.
-* *Bugfixes*
-	* None.
-* *Developer Notes*
-	* Renamed the lib/websites/ folder to lib/share/.
-	* Renamed the WpssoSsbSharing class to WpssoSsbSocial.
-	* Moved actions from the WpssoSsbSocial class to a new WpssoSsbActions class.
-	* Moved filters from the WpssoSsbSocial class to a new WpssoSsbFilters class.
-	* Moved script enqueuing from the WpssoSsbSocial class to a new WpssoSsbScript class.
-	* Moved stylesheet enqueuing from the WpssoSsbSocial class to a new WpssoSsbStyle class.
-
-**Version 2.8.4 (2018/10/24)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* None.
-* *Bugfixes*
-	* None.
-* *Developer Notes*
-	* Renamed option keys for standardization with the Core plugin and other add-ons:
-		* 'email_cap_len'      to 'email_caption_max_len',
-		* 'twitter_cap_len'    to 'twitter_caption_max_len',
-		* 'pin_cap_len'        to 'pin_caption_max_len',
-		* 'linkedin_cap_len'   to 'linkedin_caption_max_len',
-		* 'reddit_cap_len'     to 'reddit_caption_max_len',
-		* 'tumblr_cap_len'     to 'tumblr_caption_max_len',
-		* 'email_cap_hashtags' to 'email_caption_hashtags',
 
 == Upgrade Notice ==
 
-= 2.9.1 =
+= 2.9.2 =
 
-(2018/11/18) Added the new lib/social.php library file to the Free version SVN.
+(2018/11/18) Fixed an object context error for the WpssoSsbSocial::add_metabox_admin_edit() method.
 
