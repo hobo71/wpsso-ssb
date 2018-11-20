@@ -73,6 +73,11 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareTwitter' ) ) {
 				__( 'Disable tracking for Twitter\'s tailored suggestions and ads feature.', 'wpsso-ssb' ) ) . 
 			'<td>' . $form->get_checkbox( 'twitter_dnt' ) . '</td>';
 
+			$table_rows[] = '' . 
+			$form->get_th_html( _x( 'Append Hashtags to Tweet', 'option label', 'wpsso-ssb' ) ) . 
+			'<td>' . $form->get_select( 'twitter_caption_hashtags', range( 0, $this->p->cf['form']['max_hashtags'] ), 'short', '', true ) . ' ' . 
+				_x( 'tag names', 'option comment', 'wpsso-ssb' ) . '</td>';
+
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Add via @username', 'option label (short)', 'wpsso-ssb' ), 'short', 'buttons_add_via'  ) . 
 			'<td>' . $form->get_checkbox( 'twitter_via' ) . '</td>';
@@ -94,20 +99,21 @@ if ( ! class_exists( 'WpssoSsbShareTwitter' ) ) {
 		private static $cf = array(
 			'opt' => array(				// options
 				'defaults' => array(
-					'twitter_order'           => 3,
-					'twitter_on_content'      => 1,
-					'twitter_on_excerpt'      => 0,
-					'twitter_on_sidebar'      => 0,
-					'twitter_on_admin_edit'   => 1,
-					'twitter_platform'        => 'any',
-					'twitter_script_loc'      => 'header',
-					'twitter_lang'            => 'en',
-					'twitter_caption'         => 'excerpt',
-					'twitter_caption_max_len' => 280,	// changed from 140 to 280 on 2017/11/17
-					'twitter_size'            => 'medium',
-					'twitter_via'             => 1,
-					'twitter_rel_author'      => 1,
-					'twitter_dnt'             => 1,
+					'twitter_order'            => 3,
+					'twitter_on_content'       => 1,
+					'twitter_on_excerpt'       => 0,
+					'twitter_on_sidebar'       => 0,
+					'twitter_on_admin_edit'    => 1,
+					'twitter_platform'         => 'any',
+					'twitter_script_loc'       => 'header',
+					'twitter_lang'             => 'en',
+					'twitter_size'             => 'medium',
+					'twitter_caption'          => 'excerpt',
+					'twitter_caption_max_len'  => 280,	// changed from 140 to 280 on 2017/11/17
+					'twitter_caption_hashtags' => 3,
+					'twitter_via'              => 1,
+					'twitter_rel_author'       => 1,
+					'twitter_dnt'              => 1,
 				),
 			),
 		);

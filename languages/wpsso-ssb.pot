@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.9.2\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.9.3-dev.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2018-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -228,7 +228,7 @@ msgid ""
 "If the %1$s option (above) is also checked, the %2$s is suggested first."
 msgstr ""
 
-#: lib/filters.php:510 lib/share/buffer.php:85 lib/share/twitter.php:77
+#: lib/filters.php:510 lib/share/buffer.php:85 lib/share/twitter.php:82
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
@@ -429,7 +429,7 @@ msgctxt "option label (short)"
 msgid "Add Hashtags"
 msgstr ""
 
-#: lib/share/email.php:54
+#: lib/share/email.php:54 lib/share/twitter.php:79
 msgctxt "option comment"
 msgid "tag names"
 msgstr ""
@@ -595,7 +595,12 @@ msgstr ""
 msgid "Disable tracking for Twitter's tailored suggestions and ads feature."
 msgstr ""
 
-#: lib/share/twitter.php:81
+#: lib/share/twitter.php:77
+msgctxt "option label"
+msgid "Append Hashtags to Tweet"
+msgstr ""
+
+#: lib/share/twitter.php:86
 msgctxt "option label (short)"
 msgid "Recommend Author"
 msgstr ""
