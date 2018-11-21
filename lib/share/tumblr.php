@@ -228,17 +228,24 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 					}
 				}
 
-				$atts['tags'] = implode( ', ', $this->p->page->get_tags( $mod[ 'id' ] ) );
+				$atts['tags'] = implode( ', ', $this->p->page->get_tag_names( $mod ) );
 			}
 
-			// we only need the caption, title, or description for some types of shares
+			/**
+			 * We only need the caption, title, or description for some types of shares.
+			 */
 			if ( ! empty( $atts['photo'] ) || ! empty( $atts['embed'] ) ) {
-				// html encode param is false to use url encoding instead
+
+				/**
+				 * HTML encode param is false to use url encoding instead.
+				 */
 				if ( empty( $atts['caption'] ) ) {
 					$atts['caption'] = $this->p->page->get_caption( $opts['tumblr_caption'], $opts['tumblr_caption_max_len'],
 						$mod, true, false, true, ( ! empty( $atts['photo'] ) ? 'tumblr_img_desc' : 'tumblr_vid_desc' ) );
 				}
+
 			} else {
+
 				if ( empty( $atts['title'] ) ) {
 					$atts['title'] = $this->p->page->get_title( null, null, $mod, true, false );	// $add_hashtags = false
 				}
@@ -248,7 +255,9 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 				}
 			}
 
-			// define the button, based on what we have
+			/**
+			 * Define the button type, based on what we have.
+			 */
 			if ( ! empty( $atts['photo'] ) ) {
 
 				$atts['posttype'] = 'photo';
