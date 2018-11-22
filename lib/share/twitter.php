@@ -146,8 +146,8 @@ if ( ! class_exists( 'WpssoSsbShareTwitter' ) ) {
 				$atts['lang'] = apply_filters( $this->p->lca . '_pub_lang', $atts['lang'], 'twitter', 'current' );
 			}
 
-			if ( ! isset( $atts['add_hashtags'] ) ) {
-				$atts['add_hashtags'] = empty( $this->p->options['twitter_caption_hashtags'] ) ?
+			if ( ! isset( $atts[ 'add_hashtags' ] ) ) {
+				$atts[ 'add_hashtags' ] = empty( $this->p->options['twitter_caption_hashtags'] ) ?
 					false : $this->p->options['twitter_caption_hashtags'];
 			}
 
@@ -168,8 +168,8 @@ if ( ! class_exists( 'WpssoSsbShareTwitter' ) ) {
 			}
 
 			if ( ! isset( $atts['related'] ) ) {
-				if ( ! empty( $opts['twitter_rel_author'] ) && ! empty( $mod['post_author'] ) && $atts['use_post'] ) {
-					$atts['related'] = preg_replace( '/^@/', '', get_the_author_meta( $opts['plugin_cm_twitter_name'], $mod['post_author'] ) );
+				if ( ! empty( $opts['twitter_rel_author'] ) && ! empty( $mod[ 'post_author' ] ) && $atts[ 'use_post' ] ) {
+					$atts['related'] = preg_replace( '/^@/', '', get_the_author_meta( $opts['plugin_cm_twitter_name'], $mod[ 'post_author' ] ) );
 				} else {
 					$atts['related'] = '';
 				}
@@ -179,14 +179,14 @@ if ( ! class_exists( 'WpssoSsbShareTwitter' ) ) {
 				$atts['dnt'] = $opts['twitter_dnt'] ? 'true' : 'false';
 			}
 
-			$short_url = apply_filters( $this->p->lca . '_get_short_url', $atts['url'], $this->p->options[ 'plugin_shortener' ], $mod );
+			$short_url = apply_filters( $this->p->lca . '_get_short_url', $atts[ 'url' ], $this->p->options[ 'plugin_shortener' ], $mod );
 
 			$html = '<!-- Twitter Button -->' . 
 				'<div ' . SucomUtil::get_atts_css_attr( $atts, 'twitter' ) . '>' . 
 				'<a href="' . SucomUtil::get_prot() . '://twitter.com/share" class="twitter-share-button"' . 
 				' data-lang="' . $atts['lang'] . '"' . 
 				' data-url="' . $short_url . '"' . 
-				' data-counturl="' . $atts['url'] . '"' . 
+				' data-counturl="' . $atts[ 'url' ] . '"' . 
 				' data-text="' . $atts['tweet'] . '"' . 
 				' data-via="' . $atts['via'] . '"' . 
 				' data-related="' . $atts['related'] . '"' . 

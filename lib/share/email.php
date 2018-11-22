@@ -114,14 +114,14 @@ if ( ! class_exists( 'WpssoSsbShareEmail' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$atts['add_hashtags'] = empty( $this->p->options['email_caption_hashtags'] ) ? false : $this->p->options['email_caption_hashtags'];
+			$atts[ 'add_hashtags' ] = empty( $this->p->options['email_caption_hashtags'] ) ? false : $this->p->options['email_caption_hashtags'];
 
 			$email_button_html = $this->p->options['email_ssb_html'];
 			$email_button_html = preg_replace( '/(<svg [^>]+ (width|height)=")auto(" )/', '${1}9${3}', $email_button_html );
 
 		 	$email_title   = $this->p->page->get_caption( 'title', 0, $mod, true, false, false, 'og_title' );
 			$email_excerpt = $this->p->page->get_caption( 'both', $opts['email_caption_max_len'], $mod, true,
-				$atts['add_hashtags'], false, 'og_desc' );
+				$atts[ 'add_hashtags' ], false, 'og_desc' );
 
 			return $this->p->util->replace_inline_vars( '<!-- Email Button -->'.
 				$email_button_html, $mod, $atts, array(

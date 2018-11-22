@@ -107,7 +107,7 @@ if ( ! class_exists( 'WpssoSsbShareManagewp' ) ) {
 
 			$html = '<!-- ManageWP Button -->'.
 				'<div '.SucomUtil::get_atts_css_attr( $atts, 'managewp' ).'>'.
-				'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts['url'].'" data-title="'.$atts['title'].'"'.
+				'<script type="text/javascript" src="'.$js_url.'" data-url="'.$atts[ 'url' ].'" data-title="'.$atts['title'].'"'.
 				( empty( $opts['managewp_type'] ) ? '' : ' data-type="'.$opts['managewp_type'].'"' ).'></script></div>';
 
 			if ( $this->p->debug->enabled ) {

@@ -278,10 +278,10 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 
 				unset( $atts['title'] );
 
-			} elseif ( ! empty( $atts['url'] ) ) {
+			} elseif ( ! empty( $atts[ 'url' ] ) ) {
 
 				$atts['posttype'] = 'link';
-				$atts['content']  = $atts['url'];
+				$atts['content']  = $atts[ 'url' ];
 				$atts['caption']  = $atts['description'];
 
 			} else {

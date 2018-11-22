@@ -230,7 +230,7 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 						case 'xfbml':
 							$html .= '<!-- Facebook Like / Send Button (XFBML) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).'>'.
-							'<fb:like href="'.$atts['url'].'" send="'.$atts['send'].'" '.
+							'<fb:like href="'.$atts[ 'url' ].'" send="'.$atts['send'].'" '.
 							'layout="'.$opts['fb_layout'].'" show_faces="'.$atts['show_faces'].'" '.
 							'font="'.$opts['fb_font'].'" colorscheme="'.$opts['fb_colorscheme'].'" '.
 							'action="'.$opts['fb_action'].'"></fb:like></div>';
@@ -238,7 +238,7 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 						case 'html5':
 							$html .= '<!-- Facebook Like / Send Button (HTML5) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ) . ' ' . 
-							'data-href="'.$atts['url'].'" data-send="'.$atts['send'].'" '.
+							'data-href="'.$atts[ 'url' ].'" data-send="'.$atts['send'].'" '.
 							'data-layout="'.$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" '.
 							'data-font="'.$opts['fb_font'].'" data-colorscheme="'.$opts['fb_colorscheme'].'" '.
 							'data-action="'.$opts['fb_action'].'"></div>';
@@ -250,14 +250,14 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 						case 'xfbml':
 							$html .= '<!-- Facebook Share Button (XFBML) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).'>'.
-							'<fb:share-button href="'.$atts['url'].'" layout="'.$opts['fb_share_layout'].'" '.
+							'<fb:share-button href="'.$atts[ 'url' ].'" layout="'.$opts['fb_share_layout'].'" '.
 							'mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
 							'size="'.$opts['fb_share_size'].'"></fb:share-button></div>';
 							break;
 						case 'html5':
 							$html .= '<!-- Facebook Share Button (HTML5) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ) . ' ' . 
-							'data-href="'.$atts['url'].'" data-layout="'.$opts['fb_share_layout'].'" '.
+							'data-href="'.$atts[ 'url' ].'" data-layout="'.$opts['fb_share_layout'].'" '.
 							'data-mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
 							'data-size="'.$opts['fb_share_size'].'"></div>';
 							break;

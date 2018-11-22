@@ -97,7 +97,7 @@ if ( ! class_exists( 'WpssoSsbShareLinkedin' ) ) {
 
 			$html = '<!-- LinkedIn Button -->' . 
 			'<div ' . SucomUtil::get_atts_css_attr( $atts, 'linkedin' ) . '>' . 
-			'<script type="IN/Share" data-url="' . $atts['url'] . '">' .
+			'<script type="IN/Share" data-url="' . $atts[ 'url' ] . '">' .
 			'</script></div>';
 
 			if ( $this->p->debug->enabled ) {

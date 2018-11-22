@@ -208,7 +208,7 @@ if ( ! class_exists( 'WpssoSsbShareBuffer' ) ) {
 			$html = '<!-- Buffer Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, 'buffer' ).'>'.
 			'<a href="'.SucomUtil::get_prot().'://bufferapp.com/add" class="buffer-add-button"'.
-			' data-url="'.$atts['url'].'"'.
+			' data-url="'.$atts[ 'url' ].'"'.
 			' data-count="'.$opts['buffer_count'].'"'.
 			( empty( $atts['photo'] ) ? '' : ' data-picture="'.$atts['photo'].'"' ).
 			( empty( $atts['caption'] ) ? '' : ' data-text="'.$atts['caption'].'"' ).

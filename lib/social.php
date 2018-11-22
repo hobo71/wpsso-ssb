@@ -503,11 +503,11 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				}
 				ksort( $sorted_ids );
 
-				$atts['use_post'] = $mod['use_post'];
-				$atts['css_id'] = $css_type_name = 'ssb-' . $type;
+				$atts[ 'use_post' ] = $mod[ 'use_post' ];
+				$atts[ 'css_id' ]   = $css_type_name = 'ssb-' . $type;
 
 				if ( ! empty( $this->p->options['buttons_preset_ssb-' . $type] ) ) {
-					$atts['preset_id'] = $this->p->options['buttons_preset_ssb-' . $type];
+					$atts[ 'preset_id' ] = $this->p->options['buttons_preset_ssb-' . $type];
 				}
 
 				/**
@@ -521,9 +521,9 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 <!-- ' . $this->p->lca . ' ' . $css_type_name . ' begin -->
 <!-- generated on ' . date( 'c' ) . ' -->
 <div class="' . $this->p->lca . '-ssb' . 
-	( $mod['use_post'] ? ' ' . $this->p->lca . '-' . $css_type_name . '"' : '" id="' . $this->p->lca . '-' . $css_type_name . '"' ) . '>' . "\n" . 
+	( $mod[ 'use_post' ] ? ' ' . $this->p->lca . '-' . $css_type_name . '"' : '" id="' . $this->p->lca . '-' . $css_type_name . '"' ) . '>' . "\n" . 
 $cache_array[ $cache_index ] . 
-'</div><!-- .' . $this->p->lca . '-ssb ' . ( $mod['use_post'] ? '.' : '#' ) . $this->p->lca . '-' . $css_type_name . ' -->
+'</div><!-- .' . $this->p->lca . '-ssb ' . ( $mod[ 'use_post' ] ? '.' : '#' ) . $this->p->lca . '-' . $css_type_name . ' -->
 <!-- ' . $this->p->lca . ' ' . $css_type_name . ' end -->' . "\n\n";
 
 					$cache_array[ $cache_index ] = apply_filters( $this->p->lca . '_ssb_buttons_html',
@@ -657,10 +657,10 @@ $cache_array[ $cache_index ] .
 				$this->p->debug->mark();
 			}
 
-			$atts['use_post']  = isset( $atts['use_post'] ) ? $atts['use_post'] : true;	// Maintain backwards compat.
-			$atts['add_page']  = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// Used by get_sharing_url().
-			$atts['preset_id'] = isset( $atts['preset_id'] ) ? SucomUtil::sanitize_key( $atts['preset_id'] ) : '';
-			$atts['filter_id'] = isset( $atts['filter_id'] ) ? SucomUtil::sanitize_key( $atts['filter_id'] ) : '';
+			$atts[ 'use_post' ]  = isset( $atts[ 'use_post' ] ) ? $atts[ 'use_post' ] : true;	// Maintain backwards compat.
+			$atts[ 'add_page' ]  = isset( $atts[ 'add_page' ] ) ? $atts[ 'add_page' ] : true;	// Used by get_sharing_url().
+			$atts[ 'preset_id' ] = isset( $atts[ 'preset_id' ] ) ? SucomUtil::sanitize_key( $atts[ 'preset_id' ] ) : '';
+			$atts[ 'filter_id' ] = isset( $atts[ 'filter_id' ] ) ? SucomUtil::sanitize_key( $atts[ 'filter_id' ] ) : '';
 
 			/**
 			 * The $mod array argument is preferred but not required.
@@ -672,19 +672,19 @@ $cache_array[ $cache_index ] .
 					$this->p->debug->log( 'optional call to get_page_mod()' );
 				}
 
-				$mod = $this->p->util->get_page_mod( $atts['use_post'] );
+				$mod = $this->p->util->get_page_mod( $atts[ 'use_post' ] );
 			}
 
 			$buttons_html  = '';
-			$buttons_begin = empty( $atts['preset_id'] ) ? '' : '<div class="wpsso-ssb-preset-' . $atts['preset_id'] . '">' . "\n";
+			$buttons_begin = empty( $atts[ 'preset_id' ] ) ? '' : '<div class="wpsso-ssb-preset-' . $atts[ 'preset_id' ] . '">' . "\n";
 			$buttons_begin .= '<div class="ssb-buttons ' . SucomUtil::get_locale( $mod ) . '">' . "\n";
 			$buttons_end   = '</div><!-- .ssb-buttons.' . SucomUtil::get_locale( $mod ) . ' -->' . "\n";
-			$buttons_end   .= empty( $atts['preset_id'] ) ? '' : '</div><!-- .wpsso-ssb-preset-' . $atts['preset_id'] . ' -->' . "\n";
+			$buttons_end   .= empty( $atts[ 'preset_id' ] ) ? '' : '</div><!-- .wpsso-ssb-preset-' . $atts[ 'preset_id' ] . ' -->' . "\n";
 
 			/**
 			 * Possibly dereference the opts variable to prevent passing on changes.
 			 */
-			if ( empty( $atts['preset_id'] ) && empty( $atts['filter_id'] ) ) {
+			if ( empty( $atts[ 'preset_id' ] ) && empty( $atts[ 'filter_id' ] ) ) {
 				$custom_opts =& $this->p->options;
 			} else {
 				$custom_opts = $this->p->options;
@@ -693,33 +693,33 @@ $cache_array[ $cache_index ] .
 			/**
 			 * Apply the presets to $custom_opts.
 			 */
-			if ( ! empty( $atts['preset_id'] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
+			if ( ! empty( $atts[ 'preset_id' ] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
 
-				if ( isset( $this->p->cf['opt']['preset'][$atts['preset_id']] ) &&
-					is_array( $this->p->cf['opt']['preset'][$atts['preset_id']] ) ) {
+				if ( isset( $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] ) &&
+					is_array( $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'applying preset_id ' . $atts['preset_id'] . ' to options' );
+						$this->p->debug->log( 'applying preset_id ' . $atts[ 'preset_id' ] . ' to options' );
 					}
 
-					$custom_opts = array_merge( $custom_opts, $this->p->cf['opt']['preset'][$atts['preset_id']] );
+					$custom_opts = array_merge( $custom_opts, $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] );
 
 				} elseif ( $this->p->debug->enabled ) {
-					$this->p->debug->log( $atts['preset_id'] . ' preset_id missing or not array'  );
+					$this->p->debug->log( $atts[ 'preset_id' ] . ' preset_id missing or not array'  );
 				}
 			} 
 
 			/**
 			 * Apply the filter_id if the filter name has hooks.
 			 */
-			if ( ! empty( $atts['filter_id'] ) ) {
+			if ( ! empty( $atts[ 'filter_id' ] ) ) {
 
-				$filter_name = $this->p->lca . '_sharing_html_' . $atts['filter_id'] . '_options';
+				$filter_name = $this->p->lca . '_sharing_html_' . $atts[ 'filter_id' ] . '_options';
 
 				if ( has_filter( $filter_name ) ) {
 
 					if ( $this->p->debug->enabled ) {
-						$this->p->debug->log( 'applying filter_id ' . $atts['filter_id'] . ' to options (' . $filter_name . ')' );
+						$this->p->debug->log( 'applying filter_id ' . $atts[ 'filter_id' ] . ' to options (' . $filter_name . ')' );
 					}
 
 					$custom_opts = apply_filters( $filter_name, $custom_opts );
@@ -741,25 +741,25 @@ $cache_array[ $cache_index ] .
 
 							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// Uses 'css_id' and 'use_post'.
 
-							if ( empty( $atts['url'] ) ) {
-								$atts['url'] = $this->p->util->get_sharing_url( $mod,
-									$atts['add_page'], $atts['src_id'] );
+							if ( empty( $atts[ 'url' ] ) ) {
+								$atts[ 'url' ] = $this->p->util->get_sharing_url( $mod,
+									$atts[ 'add_page' ], $atts['src_id'] );
 							} else {
-								$atts['url'] = apply_filters( $this->p->lca . '_sharing_url',
-									$atts['url'], $mod, $atts['add_page'], $atts['src_id'] );
+								$atts[ 'url' ] = apply_filters( $this->p->lca . '_sharing_url',
+									$atts[ 'url' ], $mod, $atts[ 'add_page' ], $atts['src_id'] );
 							}
 
 							/**
 							 * Filter to add custom tracking arguments.
 							 */
-							$atts['url'] = apply_filters( $this->p->lca . '_ssb_buttons_shared_url',
-								$atts['url'], $mod, $id );
+							$atts[ 'url' ] = apply_filters( $this->p->lca . '_ssb_buttons_shared_url',
+								$atts[ 'url' ], $mod, $id );
 
 							$force_prot = apply_filters( $this->p->lca . '_ssb_buttons_force_prot',
-								$this->p->options['buttons_force_prot'], $mod, $id, $atts['url'] );
+								$this->p->options['buttons_force_prot'], $mod, $id, $atts[ 'url' ] );
 
 							if ( ! empty( $force_prot ) && $force_prot !== 'none' ) {
-								$atts['url'] = preg_replace( '/^.*:\/\//', $force_prot . '://', $atts['url'] );
+								$atts[ 'url' ] = preg_replace( '/^.*:\/\//', $force_prot . '://', $atts[ 'url' ] );
 							}
 
 							$buttons_html .= $this->share[ $id ]->get_html( $atts, $custom_opts, $mod ) . "\n";
@@ -1146,15 +1146,15 @@ $cache_array[ $cache_index ] .
 
 			if ( ! isset( $atts['tweet'] ) ) {	// Just in case.
 
-				$atts['use_post']     = isset( $atts['use_post'] ) ? $atts['use_post'] : true;
-				$atts['add_page']     = isset( $atts['add_page'] ) ? $atts['add_page'] : true;	// Used by get_sharing_url().
-				$atts['add_hashtags'] = isset( $atts['add_hashtags'] ) ? $atts['add_hashtags'] : true;
+				$atts[ 'use_post' ]     = isset( $atts[ 'use_post' ] ) ? $atts[ 'use_post' ] : true;
+				$atts[ 'add_page' ]     = isset( $atts[ 'add_page' ] ) ? $atts[ 'add_page' ] : true;	// Used by get_sharing_url().
+				$atts[ 'add_hashtags' ] = isset( $atts[ 'add_hashtags' ] ) ? $atts[ 'add_hashtags' ] : true;
 
 				$caption_type    = empty( $wpsso->options[ $opt_pre . '_caption' ] ) ? 'title' : $wpsso->options[ $opt_pre . '_caption' ];
 				$caption_max_len = self::get_tweet_max_len( $opt_pre );
 
 				$atts['tweet'] = $wpsso->page->get_caption( $caption_type, $caption_max_len, $mod, $read_cache = true,
-					$atts['add_hashtags'], $do_encode = false, $md_key = $md_pre . '_desc' );
+					$atts[ 'add_hashtags' ], $do_encode = false, $md_key = $md_pre . '_desc' );
 			}
 
 			return $atts['tweet'];

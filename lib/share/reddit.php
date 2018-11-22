@@ -119,7 +119,7 @@ if ( ! class_exists( 'WpssoSsbShareReddit' ) ) {
 			$js_url = WpssoSsbSocial::get_file_cache_url( apply_filters( $this->p->lca.'_js_url_reddit', $js_url, '' ) );
 
 			$html = '<!-- Reddit Button -->'.
-				'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts['url'] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.
+				'<script type="text/javascript">reddit_url="'.esc_url_raw( $atts[ 'url' ] ).'"; reddit_title="'.esc_attr( $atts['title'] ).'";</script>'.
 				'<div '.SucomUtil::get_atts_css_attr( $atts, 'reddit' ).'>'.
 				'<script type="text/javascript" src="'.$js_url.'"></script></div>';
 

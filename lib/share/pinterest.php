@@ -182,7 +182,7 @@ if ( ! class_exists( 'WpssoSsbSharePinterest' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$href_query = '?url=' . urlencode( $atts['url'] );
+			$href_query = '?url=' . urlencode( $atts[ 'url' ] );
 
 			if ( empty( $atts['size'] ) ) {
 				$atts['size'] = $this->p->lca . '-pinterest-button';

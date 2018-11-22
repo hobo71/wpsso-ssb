@@ -167,28 +167,28 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 				return '<!-- ' . $this->p->lca . ' sharing shortcode: no buttons defined -->' . "\n\n";
 			}
 
-			$atts['use_post']  = SucomUtil::sanitize_use_post( $atts, true );	// $default = true
-			$atts['css_class'] = empty( $atts['css_class'] ) ? 'ssb-shortcode' : $atts['css_class'];
-			$atts['filter_id'] = empty( $atts['filter_id'] ) ? 'shortcode' : $atts['filter_id'];
-			$atts['preset_id'] = empty( $atts['preset_id'] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts['preset_id'];
+			$atts[ 'use_post' ]  = SucomUtil::sanitize_use_post( $atts, true );	// $default = true
+			$atts[ 'css_class' ] = empty( $atts[ 'css_class' ] ) ? 'ssb-shortcode' : $atts[ 'css_class' ];
+			$atts[ 'preset_id' ] = empty( $atts[ 'preset_id' ] ) ? $this->p->options['buttons_preset_ssb-shortcode'] : $atts[ 'preset_id' ];
+			$atts[ 'filter_id' ] = empty( $atts[ 'filter_id' ] ) ? 'shortcode' : $atts[ 'filter_id' ];
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'required call to get_page_mod()' );
 			}
 
-			$mod         = $this->p->util->get_page_mod( $atts['use_post'] );
+			$mod         = $this->p->util->get_page_mod( $atts[ 'use_post' ] );
 			$type        = 'sharing_shortcode_' . WPSSOSSB_SHARING_SHORTCODE_NAME;
-			$atts['url'] = empty( $atts['url'] ) ? $this->p->util->get_sharing_url( $mod ) : $atts['url'];
+			$atts[ 'url' ] = empty( $atts[ 'url' ] ) ? $this->p->util->get_sharing_url( $mod ) : $atts[ 'url' ];
 
 			$cache_md5_pre  = $this->p->lca . '_b_';
 			$cache_exp_secs = $ssb->social->get_buttons_cache_exp();
-			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $atts['url'] ) . ')';
+			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $atts[ 'url' ] ) . ')';
 			$cache_id       = $cache_md5_pre . md5( $cache_salt );
 			$cache_index    = $ssb->social->get_buttons_cache_index( $type, $atts );	// Returns salt with locale, mobile, wp_query, etc.
 			$cache_array    = array();
 
 			if ( $this->p->debug->enabled ) {
-				$this->p->debug->log( 'sharing url = ' . $atts['url'] );
+				$this->p->debug->log( 'sharing url = ' . $atts[ 'url' ] );
 				$this->p->debug->log( 'cache expire = ' . $cache_exp_secs );
 				$this->p->debug->log( 'cache salt = ' . $cache_salt );
 				$this->p->debug->log( 'cache id = ' . $cache_id );
@@ -236,9 +236,9 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 <!-- ' . $this->p->lca . ' ' . $type . ' begin -->
 <!-- generated on ' . date( 'c' ) . ' -->' . "\n" . 
 $ssb->social->get_script( 'shortcode-header', $ids ) . 
-'<div class="' . $this->p->lca . '-ssb ' . $this->p->lca . '-' . $atts['css_class'] . "\">\n" . 
+'<div class="' . $this->p->lca . '-ssb ' . $this->p->lca . '-' . $atts[ 'css_class' ] . "\">\n" . 
 $cache_array[ $cache_index ] . "\n" . 	// Buttons html is trimmed, so add newline.
-'</div><!-- .' . $this->p->lca . '-' . $atts['css_class'] . ' -->' . "\n" . 
+'</div><!-- .' . $this->p->lca . '-' . $atts[ 'css_class' ] . ' -->' . "\n" . 
 $ssb->social->get_script( 'shortcode-footer', $ids ) . 
 '<!-- ' . $this->p->lca . ' ' . $type . ' end -->' . "\n\n";
 			}

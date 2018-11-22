@@ -146,7 +146,7 @@ if ( ! class_exists( 'WpssoSsbShareGplus' ) ) {
 			$html = '<!-- GooglePlus Button -->'.
 			'<div '.SucomUtil::get_atts_css_attr( $atts, ( $opts['gp_action'] == 'share' ? 'gplus' : 'gplusone' ) ).'>'.
 			'<span '.( $opts['gp_action'] == 'share' ? 'class="g-plus" data-action="share"' : 'class="g-plusone"' ).
-			' data-size="'.$opts['gp_size'].'" data-annotation="'.$opts['gp_annotation'].'" data-href="'.$atts['url'].'"'.
+			' data-size="'.$opts['gp_size'].'" data-annotation="'.$opts['gp_annotation'].'" data-href="'.$atts[ 'url' ].'"'.
 			( empty( $opts['gp_expandto'] ) || $opts['gp_expandto'] == 'none' ? '' : ' data-expandTo="'.$opts['gp_expandto'].'"' ).'>'.
 			'</span></div>';
 
