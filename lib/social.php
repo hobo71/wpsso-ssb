@@ -266,9 +266,11 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 
 			if ( get_post_status( $post_obj->ID ) === 'publish' || $post_obj->post_type === 'attachment' ) {
 
+				$mod = $this->p->util->get_page_mod( $post_obj->ID );
+
 				echo $this->get_script_loader();
 				echo $this->get_script( 'header' );
-				echo $this->get_buttons( $text = '', 'admin_edit' );
+				echo $this->get_buttons( $text = '', 'admin_edit', $mod );
 				echo $this->get_script( 'footer' );
 
 			} else {
@@ -518,13 +520,11 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				if ( ! empty( $cache_array[ $cache_index ] ) ) {
 
 					$cache_array[ $cache_index ] = '
-<!-- ' . $this->p->lca . ' ' . $css_type_name . ' begin -->
-<!-- generated on ' . date( 'c' ) . ' -->
 <div class="' . $this->p->lca . '-ssb' . 
 	( $mod[ 'use_post' ] ? ' ' . $this->p->lca . '-' . $css_type_name . '"' : '" id="' . $this->p->lca . '-' . $css_type_name . '"' ) . '>' . "\n" . 
 $cache_array[ $cache_index ] . 
-'</div><!-- .' . $this->p->lca . '-ssb ' . ( $mod[ 'use_post' ] ? '.' : '#' ) . $this->p->lca . '-' . $css_type_name . ' -->
-<!-- ' . $this->p->lca . ' ' . $css_type_name . ' end -->' . "\n\n";
+'</div><!-- .' . $this->p->lca . '-ssb ' . ( $mod[ 'use_post' ] ? '.' : '#' ) . $this->p->lca . '-' . $css_type_name . ' -->' .
+'<!-- generated on ' . date( 'c' ) . ' -->' . "\n\n";
 
 					$cache_array[ $cache_index ] = apply_filters( $this->p->lca . '_ssb_buttons_html',
 						$cache_array[ $cache_index ], $type, $mod, $location, $atts );
@@ -1080,7 +1080,7 @@ $cache_array[ $cache_index ] .
 				return $this->post_buttons_disabled[$post_id];
 			}
 
-			if ( $this->p->m['util']['post']->get_options( $post_id, 'buttons_disabled' ) ) {	// Returns null if an index key is not found.
+			if ( $this->p->m[ 'util' ][ 'post' ]->get_options( $post_id, 'buttons_disabled' ) ) {	// Returns null if an index key is not found.
 
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'post ' . $post_id . ': sharing buttons disabled by meta data option' );
