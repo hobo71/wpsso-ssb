@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.3-rc.2 (2018/11/24)**
+**Version 2.9.3 (2018/11/25)**
 
 * *New Features*
 	* None.
@@ -162,24 +162,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* None.
 
-**Version 2.9.2 (2018/11/18)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* None.
-* *Bugfixes*
-	* Fixed an object context error for the WpssoSsbSocial::add_metabox_admin_edit() method.
-* *Developer Notes*
-	* None.
-
 == Upgrade Notice ==
 
-= 2.9.3-rc.2 =
+= 2.9.3 =
 
-(2018/11/24) Fixed the "Append Hashtags to Tweet" option select.
-
-= 2.9.2 =
-
-(2018/11/18) Fixed an object context error for the WpssoSsbSocial::add_metabox_admin_edit() method.
+(2018/11/25) Fixed the "Append Hashtags to Tweet" option select.
 
