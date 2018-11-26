@@ -7,7 +7,7 @@
 
 #_wpsso_ssb_admin_edit .inside {
 	margin:0;
-	padding:6px 8px;
+	padding:10px 12px;
 }
 
 #_wpsso_ssb_admin_edit .inside table.sucom-settings {
@@ -30,8 +30,8 @@
 	display:inline-block;
 	vertical-align:top;
 	padding:0;
-	margin:5px 0;
-	width:128px;
+	margin:4px 0;
+	width:124px;
 	height:20px;
 }
 
