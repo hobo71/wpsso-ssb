@@ -5,12 +5,12 @@
  * necessary to customize the layout for your website.
  */
 
-#_wpsso_ssb_share .inside {
+#_wpsso_ssb_admin_edit .inside {
 	margin:0;
 	padding:6px 8px;
 }
 
-#_wpsso_ssb_share .inside table.sucom-settings {
+#_wpsso_ssb_admin_edit .inside table.sucom-settings {
 	border-spacing:0;
 }
 

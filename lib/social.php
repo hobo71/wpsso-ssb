@@ -48,7 +48,6 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 			}
 
 			if ( is_admin() ) {
-
 				if ( $this->have_buttons_for_type( 'admin_edit' ) ) {
 					add_action( 'add_meta_boxes', array( $this, 'add_metabox_admin_edit' ) );
 				}
@@ -91,7 +90,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				return;
 			}
 
-			$styles = apply_filters( $wpsso->lca . '_ssb_styles', $wpsso->cf['sharing']['ssb_styles'] );
+			$styles = apply_filters( $wpsso->lca . '_ssb_styles', $wpsso->cf[ 'sharing' ][ 'ssb_styles' ] );
 
 			$sharing_css_data = '';
 
@@ -193,7 +192,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 
 			if ( ! empty( $this->p->options[ 'buttons_add_to_' . $post_obj->post_type ] ) ) {
 
-				$metabox_id      = 'ssb_share';
+				$metabox_id      = 'admin_edit';
 				$metabox_title   = _x( 'Share Buttons', 'metabox title', 'wpsso-ssb' );
 				$metabox_screen  = $post_obj->post_type;
 				$metabox_context = 'side';
@@ -202,8 +201,8 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 					'__block_editor_compatible_meta_box' => true,
 				);
 
-				add_meta_box( '_' . $this->p->lca . '_' . $metabox_id, $metabox_title,
-					array( $this, 'show_metabox_ssb_share' ), $metabox_screen,
+				add_meta_box( '_' . $this->p->lca . '_ssb_' . $metabox_id, $metabox_title,
+					array( $this, 'show_metabox_admin_edit' ), $metabox_screen,
 						$metabox_context, $metabox_prio, $callback_args );
 			}
 		}
@@ -252,16 +251,12 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 			}
 		}
 
-		public function show_metabox_ssb_share( $post_obj ) {
+		public function show_metabox_admin_edit( $post_obj ) {
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->mark();
 			}
 
-			$sharing_css_data = $this->p->options[ 'buttons_css_ssb-admin_edit' ];
-			$sharing_css_data = SucomUtil::minify_css( $sharing_css_data, $this->p->lca );
-
-			echo '<style type="text/css">' . $sharing_css_data . '</style>', "\n";
 			echo '<table class="sucom-settings ' . $this->p->lca . ' post-side-metabox"><tr><td>';
 
 			if ( get_post_status( $post_obj->ID ) === 'publish' || $post_obj->post_type === 'attachment' ) {

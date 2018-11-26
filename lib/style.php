@@ -31,7 +31,11 @@ if ( ! class_exists( 'WpssoSsbStyle' ) ) {
 			self::$sharing_css_file = WPSSO_CACHEDIR . self::$sharing_css_name;
 			self::$sharing_css_url  = WPSSO_CACHEURL . self::$sharing_css_name;
 
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			if ( is_admin() ) {
+				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			} else {
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+			}
 		}
 
 		public function enqueue_styles() {
