@@ -36,7 +36,7 @@ if ( ! class_exists( 'WpssoSsbStyle' ) ) {
 
 		public function enqueue_styles() {
 
-			$plugin_version = $this->p->cf[ 'plugin' ][ 'wpssorrssb' ][ 'version' ];
+			$plugin_version = $this->p->cf[ 'plugin' ][ 'wpssossb' ][ 'version' ];
 
 			if ( ! empty( $this->p->options['buttons_use_social_style'] ) ) {
 
