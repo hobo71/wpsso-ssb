@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.9.4-dev.1 (2018/11/26)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* Fixed an undefined index warning in the WpssoSsbStyle class.
+* *Developer Notes*
+	* None.
+
 **Version 2.9.3 (2018/11/25)**
 
 * *New Features*
@@ -163,6 +174,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 
 == Upgrade Notice ==
+
+= 2.9.4-dev.1 =
+
+(2018/11/26) Fixed an undefined index warning in the WpssoSsbStyle class.
 
 = 2.9.3 =
 
