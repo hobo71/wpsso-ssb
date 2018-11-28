@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.4-dev.5 (2018/11/27)**
+**Version 2.9.4-b.1 (2018/11/28)**
 
 * *New Features*
 	* None.
@@ -176,9 +176,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.4-dev.5 =
+= 2.9.4-b.1 =
 
-(2018/11/27) Fixed the Share Buttons metabox styling on admin editing pages for WordPress v5.0. Fixed an undefined index warning in the WpssoSsbStyle class.
+(2018/11/28) Fixed the Share Buttons metabox styling on admin editing pages for WordPress v5.0. Fixed an undefined index warning in the WpssoSsbStyle class.
 
 = 2.9.3 =
 
