@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.4-rc.1 (2018/11/28)**
+**Version 2.9.4 (2018/11/29)**
 
 * *New Features*
 	* None.
@@ -176,11 +176,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.4-rc.1 =
+= 2.9.4 =
 
-(2018/11/28) Fixed the Share Buttons metabox styling on admin editing pages for WordPress v5.0. Fixed an undefined index warning in the WpssoSsbStyle class.
-
-= 2.9.3 =
-
-(2018/11/25) Fixed the "Append Hashtags to Tweet" option select.
+(2018/11/29) Fixed the Share Buttons metabox styling on admin editing pages for WordPress v5.0. Fixed an undefined index warning in the WpssoSsbStyle class.
 
