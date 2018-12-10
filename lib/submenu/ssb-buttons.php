@@ -51,6 +51,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 		}
 
 		protected function add_plugin_hooks() {
+
 			$this->p->util->add_plugin_actions( $this, array(
 				'form_content_metaboxes_ssb_buttons' => 1,	// show two-column metaboxes
 			) );
