@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* None.
+	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_submit_button_rows' for WPSSO Core v4.18.0.
 
 **Version 2.9.4 (2018/11/29)**
 
@@ -174,22 +174,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Developer Notes*
 	* None.
 
-**Version 2.9.3 (2018/11/25)**
-
-* *New Features*
-	* None.
-* *Improvements*
-	* None.
-* *Bugfixes*
-	* Fixed the "Append Hashtags to Tweet" option select.
-* *Developer Notes*
-	* None.
-
 == Upgrade Notice ==
 
 = 2.9.5-dev.2 =
 
-(2018/12/10) None.
+(2018/12/10) Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_submit_button_rows' for WPSSO Core v4.18.0.
 
 = 2.9.4 =
 
