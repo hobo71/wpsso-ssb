@@ -680,27 +680,27 @@ msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:41
+#: lib/submenu/ssb-styles.php:48
 msgctxt "submit button"
 msgid "Reload Default Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:56
+#: lib/submenu/ssb-styles.php:61
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:80
+#: lib/submenu/ssb-styles.php:85
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:83
+#: lib/submenu/ssb-styles.php:88
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:118
+#: lib/submenu/ssb-styles.php:123
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr ""

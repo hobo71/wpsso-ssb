@@ -33,15 +33,20 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbStyles' ) && class_exists( 'WpssoAdmin' 
 
 		public function filter_form_button_rows( $form_button_rows, $menu_id ) {
 
+			$row_num = null;
+
 			switch ( $menu_id ) {
-				
 				case 'ssb-buttons':
-				case 'tools':
-
-					$form_button_rows[ 0 ][ 'reload_default_ssb_styles' ] = _x( 'Reload Default Sharing Styles',
-						'submit button', 'wpsso-ssb' );
-
+					$row_num = 0;
 					break;
+				case 'tools':
+					$row_num = 1;
+					break;
+			}
+
+			if ( null !== $row_num ) {
+				$form_button_rows[ $row_num ][ 'reload_default_ssb_styles' ] = _x( 'Reload Default Sharing Styles',
+					'submit button', 'wpsso-ssb' );
 			}
 
 			return $form_button_rows;
