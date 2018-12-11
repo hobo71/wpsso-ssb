@@ -42,7 +42,7 @@ The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special
 
 &#x2605;&#x2605;&#x2605;&#x2605;&#x2605; &mdash; "Excellent plugin, excellent support - Pro version works well with BuddyPress activity stream!" - [tbuys](https://wordpress.org/support/topic/excellent-plugin-excllent-support/)
 
-<h3>WPSSO SSB Free / Standard Features</h3>
+<h3>WPSSO SSB Standard Features</h3>
 
 * Extends the features of the WPSSO Core Free or Pro plugin.
 
@@ -78,7 +78,7 @@ The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special
 
 * Download the Free version from [GitHub](https://surniaulula.github.io/wpsso-ssb/) or [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/).
 
-<h3>WPSSO SSB Pro / Additional Features</h3>
+<h3>WPSSO SSB Additional Features (Pro version)</h3>
 
 * Extends the features of WPSSO Core Pro (requires an active and licensed <a href="https://wpsso.com/">WPSSO Core Pro plugin</a>).
 
@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.5-dev.3 (2018/12/10)**
+**Version 2.9.5-dev.4 (2018/12/10)**
 
 * *New Features*
 	* None.
@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_submit_button_rows' for WPSSO Core v4.18.0.
+	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 **Version 2.9.4 (2018/11/29)**
 
@@ -176,9 +176,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.5-dev.3 =
+= 2.9.5-dev.4 =
 
-(2018/12/10) Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_submit_button_rows' for WPSSO Core v4.18.0.
+(2018/12/10) Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 = 2.9.4 =
 
