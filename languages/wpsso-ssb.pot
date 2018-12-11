@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.9.5-dev.3\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.9.5-dev.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2018-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -680,27 +680,27 @@ msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:39
+#: lib/submenu/ssb-styles.php:41
 msgctxt "submit button"
-msgid "Reload Default Styles"
+msgid "Reload Default Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:50
+#: lib/submenu/ssb-styles.php:56
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:74
+#: lib/submenu/ssb-styles.php:80
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:77
+#: lib/submenu/ssb-styles.php:83
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr ""
 
-#: lib/submenu/ssb-styles.php:112
+#: lib/submenu/ssb-styles.php:118
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr ""

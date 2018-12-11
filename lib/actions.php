@@ -31,7 +31,7 @@ if ( ! class_exists( 'WpssoSsbActions' ) ) {
 			if ( is_admin() ) {
 
 				$this->p->util->add_plugin_actions( $this, array( 
-					'load_setting_page_reload_default_sharing_ssb_styles' => 4,
+					'load_setting_page_reload_default_ssb_styles' => 4,
 				) );
 			}
 		}
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WpssoSsbActions' ) ) {
 			$ssb->social->add_buttons_filter( $filter_name );
 		}
 
-		public function action_load_setting_page_reload_default_sharing_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
+		public function action_load_setting_page_reload_default_ssb_styles( $pagehook, $menu_id, $menu_name, $menu_lib ) {
 
 			$def_opts = $this->p->opt->get_defaults();
 
