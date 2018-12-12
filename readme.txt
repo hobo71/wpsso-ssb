@@ -129,7 +129,7 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the [WPSSO Core Pl
 == Screenshots ==
 
 01. WPSSO SSB example showing the Social Sharing Buttons enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
-02. WPSSO SSB Sharing Buttons tab in the SSO metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
+02. WPSSO SSB Sharing Buttons tab in the Document SSO metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
 03. WPSSO SSB Sharing Buttons settings page.
 04. WPSSO SSB Sharing Styles settings page.
 
@@ -151,18 +151,19 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.5-dev.5 (2018/12/11)**
+**Version 2.10.0-b.1 (2018/12/12)**
 
 * *New Features*
 	* None.
 * *Improvements*
-	* None.
+	* Added an action button in the new SSO &gt; Tools settings page for WPSSO Core v4.18.0:
+		* Reload Default Sharing Styles
 * *Bugfixes*
 	* None.
 * *Developer Notes*
 	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
-**Version 2.9.4 (2018/11/29)**
+**Version 1.12.0 (2018/11/29)**
 
 * *New Features*
 	* None.
@@ -170,15 +171,14 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* None.
 * *Bugfixes*
 	* Fixed the Share Buttons metabox styling on admin editing pages for WordPress v5.0.
-	* Fixed an undefined index warning in the WpssoSsbStyle class.
 * *Developer Notes*
 	* None.
 
 == Upgrade Notice ==
 
-= 2.9.5-dev.5 =
+= 2.10.0-b.1 =
 
-(2018/12/11) Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
+(2018/12/12) Added an action button in the new SSO &gt; Tools settings page for WPSSO Core v4.18.0.
 
 = 2.9.4 =
 
