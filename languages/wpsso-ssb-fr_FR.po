@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.9.4\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.10.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2018-11-29 08:57-0600\n"
-"PO-Revision-Date: 2018-11-29 08:57-0600\n"
+"POT-Creation-Date: 2018-12-12 08:21-0800\n"
+"PO-Revision-Date: 2018-12-12 08:22-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -123,7 +123,7 @@ msgctxt "metabox tab"
 msgid "Share Buttons"
 msgstr "Boutons de partage"
 
-#: lib/filters.php:420 lib/submenu/ssb-buttons.php:146
+#: lib/filters.php:420 lib/submenu/ssb-buttons.php:147
 msgctxt "metabox tab"
 msgid "Buttons Presets"
 msgstr "Préréglages des boutons"
@@ -601,67 +601,67 @@ msgstr "Ce contenu doit être publié<br/>avant d'être partagé."
 msgid "The %s file is not readable."
 msgstr "Le fichier %s n'est pas lisible."
 
-#: lib/submenu/ssb-buttons.php:67
+#: lib/submenu/ssb-buttons.php:68
 msgctxt "metabox title"
 msgid "Social Sharing Buttons"
 msgstr "Boutons de partage social"
 
-#: lib/submenu/ssb-buttons.php:144
+#: lib/submenu/ssb-buttons.php:145
 msgctxt "metabox tab"
 msgid "Include Buttons"
 msgstr "Ajout de boutons"
 
-#: lib/submenu/ssb-buttons.php:145
+#: lib/submenu/ssb-buttons.php:146
 msgctxt "metabox tab"
 msgid "Buttons Position"
 msgstr "Position des boutons"
 
-#: lib/submenu/ssb-buttons.php:147
+#: lib/submenu/ssb-buttons.php:148
 msgctxt "metabox tab"
 msgid "Advanced Settings"
 msgstr "Réglages avancés"
 
-#: lib/submenu/ssb-buttons.php:197
+#: lib/submenu/ssb-buttons.php:198
 msgctxt "option label"
 msgid "Include on Archive Webpages"
 msgstr "Inclure sur les pages d'archive"
 
-#: lib/submenu/ssb-buttons.php:201
+#: lib/submenu/ssb-buttons.php:202
 msgctxt "option label"
 msgid "Include on Static Front Page"
 msgstr "Inclure sur la page statique d'avant"
 
-#: lib/submenu/ssb-buttons.php:209
+#: lib/submenu/ssb-buttons.php:210
 msgctxt "option label"
 msgid "Position in Content Text"
 msgstr "Position dans le texte de contenu"
 
-#: lib/submenu/ssb-buttons.php:214
+#: lib/submenu/ssb-buttons.php:215
 msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr "Position dans le texte d'extrait"
 
-#: lib/submenu/ssb-styles.php:43
+#: lib/submenu/ssb-styles.php:48
+msgctxt "submit button"
+msgid "Reload Default Sharing Styles"
+msgstr "Recharger styles de partage par défaut"
+
+#: lib/submenu/ssb-styles.php:61
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr "Styles de partage social"
 
-#: lib/submenu/ssb-styles.php:57
-msgctxt "submit button"
-msgid "Reload Default Styles"
-msgstr "Recharger styles par défaut"
-
-#: lib/submenu/ssb-styles.php:74
+#: lib/submenu/ssb-styles.php:85
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr "Utiliser la feuille de style social"
 
-#: lib/submenu/ssb-styles.php:77
+#: lib/submenu/ssb-styles.php:88
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr "Placer la feuille de style en queue"
 
-#: lib/submenu/ssb-styles.php:112
+#: lib/submenu/ssb-styles.php:123
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr "JavaScript de la barre latérale"
