@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.9.5-dev.4 (2018/12/11)**
+**Version 2.9.5-dev.5 (2018/12/11)**
 
 * *New Features*
 	* None.
@@ -176,7 +176,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.9.5-dev.4 =
+= 2.9.5-dev.5 =
 
 (2018/12/11) Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
