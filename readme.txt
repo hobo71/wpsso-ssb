@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.10.0-b.3 (2018/12/13)**
+**Version 2.10.0-rc.1 (2018/12/14)**
 
 * *New Features*
 	* None.
@@ -176,9 +176,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.10.0-b.3 =
+= 2.10.0-rc.1 =
 
-(2018/12/13) Added an action button in the new SSO &gt; Tools settings page for WPSSO Core v4.18.0.
+(2018/12/14) Added an action button in the new SSO &gt; Tools settings page for WPSSO Core v4.18.0.
 
 = 2.9.4 =
 
