@@ -17,103 +17,6 @@ msgid ""
 "All sharing styles have been reloaded with their default value and saved."
 msgstr ""
 
-#: lib/config-gettext-extract.php:3
-msgctxt "option value"
-msgid "Admin Edit"
-msgstr ""
-
-#: lib/config-gettext-extract.php:4
-msgctxt "option value"
-msgid "All Buttons"
-msgstr ""
-
-#: lib/config-gettext-extract.php:5
-msgctxt "option value"
-msgid "Any Platform"
-msgstr ""
-
-#: lib/config-gettext-extract.php:6
-msgctxt "option value"
-msgid "Bottom"
-msgstr ""
-
-#: lib/config-gettext-extract.php:7
-msgctxt "option label"
-msgid "Buttons HTML"
-msgstr ""
-
-#: lib/config-gettext-extract.php:8
-msgctxt "option value"
-msgid "Content"
-msgstr ""
-
-#: lib/config-gettext-extract.php:9
-msgctxt "option value"
-msgid "CSS Sidebar"
-msgstr ""
-
-#: lib/config-gettext-extract.php:10
-msgctxt "option value"
-msgid "Desktop Only"
-msgstr ""
-
-#: lib/config-gettext-extract.php:11
-msgctxt "option value"
-msgid "Excerpt"
-msgstr ""
-
-#: lib/config-gettext-extract.php:12
-msgctxt "option value"
-msgid "HTTP"
-msgstr ""
-
-#: lib/config-gettext-extract.php:13
-msgctxt "option value"
-msgid "HTTPS"
-msgstr ""
-
-#: lib/config-gettext-extract.php:14
-msgctxt "option value"
-msgid "Mobile Only"
-msgstr ""
-
-#: lib/config-gettext-extract.php:15
-msgctxt "lib file description"
-msgid "Sharing Buttons"
-msgstr ""
-
-#: lib/config-gettext-extract.php:16 lib/filters.php:486
-msgctxt "lib file description"
-msgid "Sharing Styles"
-msgstr ""
-
-#: lib/config-gettext-extract.php:17
-msgctxt "option value"
-msgid "Shortcode"
-msgstr ""
-
-#: lib/config-gettext-extract.php:18
-msgctxt "option value"
-msgid "Top and Bottom"
-msgstr ""
-
-#: lib/config-gettext-extract.php:19
-msgctxt "option value"
-msgid "Top"
-msgstr ""
-
-#: lib/config-gettext-extract.php:20
-msgctxt "option value"
-msgid "Widget"
-msgstr ""
-
-#: lib/config-gettext-extract.php:21
-msgctxt "plugin description"
-msgid ""
-"WPSSO Core add-on to provide Social Sharing Buttons with support for "
-"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
-msgstr ""
-
 #: lib/filters.php:80
 msgid "Failed to open the css file %s for reading."
 msgstr ""
@@ -193,6 +96,11 @@ msgid ""
 "added directly to the webpage HTML."
 msgstr ""
 
+#: lib/filters.php:486 lib/gettext-config.php:7
+msgctxt "lib file description"
+msgid "Sharing Styles"
+msgstr ""
+
 #: lib/filters.php:492
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
@@ -260,94 +168,205 @@ msgid ""
 "improve page load times significantly."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:40 lib/gpl/admin/sharing.php:109
-#: lib/pro/admin/sharing.php:47 lib/pro/admin/sharing.php:112
+#: lib/gettext-config.php:6
+msgctxt "lib file description"
+msgid "Sharing Buttons"
+msgstr ""
+
+#: lib/gettext-config.php:8
+msgctxt "plugin description"
+msgid ""
+"WPSSO Core add-on to provide Social Sharing Buttons with support for "
+"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+msgstr ""
+
+#: lib/gettext-config.php:9
+msgctxt "option label"
+msgid "Buttons HTML"
+msgstr ""
+
+#: lib/gettext-config.php:10 lib/gettext-config.php:17
+msgctxt "option value"
+msgid "Content"
+msgstr ""
+
+#: lib/gettext-config.php:11 lib/gettext-config.php:18
+msgctxt "option value"
+msgid "Excerpt"
+msgstr ""
+
+#: lib/gettext-config.php:12 lib/gettext-config.php:19
+msgctxt "option value"
+msgid "CSS Sidebar"
+msgstr ""
+
+#: lib/gettext-config.php:13 lib/gettext-config.php:20
+msgctxt "option value"
+msgid "Admin Edit"
+msgstr ""
+
+#: lib/gettext-config.php:14
+msgctxt "option value"
+msgid "HTTP"
+msgstr ""
+
+#: lib/gettext-config.php:15
+msgctxt "option value"
+msgid "HTTPS"
+msgstr ""
+
+#: lib/gettext-config.php:16
+msgctxt "option value"
+msgid "All Buttons"
+msgstr ""
+
+#: lib/gettext-config.php:21
+msgctxt "option value"
+msgid "Shortcode"
+msgstr ""
+
+#: lib/gettext-config.php:22
+msgctxt "option value"
+msgid "Widget"
+msgstr ""
+
+#: lib/gettext-config.php:23
+msgctxt "option value"
+msgid "Top"
+msgstr ""
+
+#: lib/gettext-config.php:24
+msgctxt "option value"
+msgid "Bottom"
+msgstr ""
+
+#: lib/gettext-config.php:25
+msgctxt "option value"
+msgid "Top and Bottom"
+msgstr ""
+
+#: lib/gettext-config.php:26
+msgctxt "option value"
+msgid "Desktop Only"
+msgstr ""
+
+#: lib/gettext-config.php:27
+msgctxt "option value"
+msgid "Mobile Only"
+msgstr ""
+
+#: lib/gettext-config.php:28
+msgctxt "option value"
+msgid "Any Platform"
+msgstr ""
+
+#: lib/gettext-pro.php:6 lib/gettext-pro.php:13 lib/gpl/admin/sharing.php:40
+#: lib/gpl/admin/sharing.php:109 lib/pro/admin/sharing.php:47
+#: lib/pro/admin/sharing.php:112
 msgctxt "option label"
 msgid "Sharing Buttons HTML Cache Expiry"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:43 lib/gpl/admin/sharing.php:49
-#: lib/gpl/admin/sharing.php:112 lib/gpl/admin/sharing.php:117
-#: lib/pro/admin/sharing.php:50 lib/pro/admin/sharing.php:56
-#: lib/pro/admin/sharing.php:115 lib/pro/admin/sharing.php:120
+#: lib/gettext-pro.php:7 lib/gettext-pro.php:9 lib/gettext-pro.php:14
+#: lib/gettext-pro.php:16 lib/gpl/admin/sharing.php:43
+#: lib/gpl/admin/sharing.php:49 lib/gpl/admin/sharing.php:112
+#: lib/gpl/admin/sharing.php:117 lib/pro/admin/sharing.php:50
+#: lib/pro/admin/sharing.php:56 lib/pro/admin/sharing.php:115
+#: lib/pro/admin/sharing.php:120
 msgctxt "option comment"
 msgid "seconds (0 to disable)"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:46 lib/gpl/admin/sharing.php:114
-#: lib/pro/admin/sharing.php:53 lib/pro/admin/sharing.php:117
+#: lib/gettext-pro.php:8 lib/gettext-pro.php:15 lib/gpl/admin/sharing.php:46
+#: lib/gpl/admin/sharing.php:114 lib/pro/admin/sharing.php:53
+#: lib/pro/admin/sharing.php:117
 msgctxt "option label"
 msgid "Get Social JS Files Cache Expiry"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:64 lib/pro/admin/sharing.php:69
+#: lib/gettext-pro.php:10 lib/gpl/admin/sharing.php:64
+#: lib/pro/admin/sharing.php:69
 msgctxt "option label"
 msgid "Include on Post Types"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:89 lib/pro/admin/sharing.php:92
+#: lib/gettext-pro.php:11 lib/gpl/admin/sharing.php:89
+#: lib/pro/admin/sharing.php:92
 msgctxt "option label"
 msgid "%s Preset"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:104 lib/pro/admin/sharing.php:107
+#: lib/gettext-pro.php:12 lib/gpl/admin/sharing.php:104
+#: lib/pro/admin/sharing.php:107
 msgctxt "option label"
 msgid "Force Protocol for Shared URLs"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:131 lib/pro/admin/sharing.php:134
+#: lib/gettext-pro.php:17 lib/gpl/admin/sharing.php:131
+#: lib/pro/admin/sharing.php:134
 msgid "Save a draft version or publish the %s to display these options."
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:147 lib/pro/admin/sharing.php:147
+#: lib/gettext-pro.php:18 lib/gpl/admin/sharing.php:147
+#: lib/pro/admin/sharing.php:147
 msgctxt "option label"
 msgid "Disable Sharing Buttons"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:168 lib/pro/admin/sharing.php:167
+#: lib/gettext-pro.php:19 lib/gpl/admin/sharing.php:168
+#: lib/pro/admin/sharing.php:167
 msgctxt "option label"
 msgid "Email Subject"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:176 lib/pro/admin/sharing.php:174
+#: lib/gettext-pro.php:20 lib/gpl/admin/sharing.php:176
+#: lib/pro/admin/sharing.php:174
 msgctxt "option label"
 msgid "Email Message"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:196 lib/pro/admin/sharing.php:193
+#: lib/gettext-pro.php:21 lib/gpl/admin/sharing.php:196
+#: lib/pro/admin/sharing.php:193
 msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:224 lib/pro/admin/sharing.php:221
+#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:224
+#: lib/pro/admin/sharing.php:221
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:254 lib/pro/admin/sharing.php:251
+#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:254
+#: lib/pro/admin/sharing.php:251
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:257 lib/pro/admin/sharing.php:254
+#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:257
+#: lib/pro/admin/sharing.php:254
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:265 lib/pro/admin/sharing.php:262
+#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:265
+#: lib/pro/admin/sharing.php:262
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gpl/admin/sharing.php:267 lib/pro/admin/sharing.php:265
+#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:267
+#: lib/pro/admin/sharing.php:265
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gpl/ecom/woocommerce.php:106 lib/pro/ecom/woocommerce.php:113
+#: lib/gettext-pro.php:27 lib/gpl/ecom/woocommerce.php:106
+#: lib/pro/ecom/woocommerce.php:113
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
 
-#: lib/gpl/forum/bbpress.php:108 lib/pro/forum/bbpress.php:162
+#: lib/gettext-pro.php:28 lib/gpl/forum/bbpress.php:108
+#: lib/pro/forum/bbpress.php:162
 msgctxt "option label"
 msgid "Position in bbPress Single"
 msgstr ""
