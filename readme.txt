@@ -151,6 +151,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.10.1-dev.2 (2018/12/17)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* Removed $wp_query as a salt for the transient cache array index.
+
 **Version 2.10.0 (2018/12/14)**
 
 * *New Features*
@@ -164,6 +175,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 == Upgrade Notice ==
+
+= 2.10.1-dev.2 =
+
+(2018/12/17) Removed $wp_query as a salt for transient cache array index keys.
 
 = 2.10.0 =
 
