@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.10.1-dev.2 (2018/12/17)**
+**Version 2.10.1-rc.1 (2018/12/18)**
 
 * *New Features*
 	* None.
@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* Removed $wp_query as a salt for transient cache array index keys.
+	* Removed $wp_query as a salt for transient cache array index keys (created too much entropy).
 
 **Version 2.10.0 (2018/12/14)**
 
@@ -176,9 +176,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.10.1-dev.2 =
+= 2.10.1-rc.1 =
 
-(2018/12/17) Removed $wp_query as a salt for transient cache array index keys.
+(2018/12/18) Removed $wp_query as a salt for transient cache array index keys.
 
 = 2.10.0 =
 
