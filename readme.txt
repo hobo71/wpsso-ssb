@@ -160,7 +160,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* Removed $wp_query as a salt for the transient cache array index.
+	* Removed $wp_query as a salt for transient cache array index keys.
 
 **Version 2.10.0 (2018/12/14)**
 
