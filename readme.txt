@@ -151,7 +151,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.10.1-rc.1 (2018/12/18)**
+**Version 2.10.1 (2018/12/19)**
 
 * *New Features*
 	* None.
@@ -176,11 +176,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.10.1-rc.1 =
+= 2.10.1 =
 
-(2018/12/18) Removed $wp_query as a salt for transient cache array index keys.
-
-= 2.10.0 =
-
-(2018/12/14) Added an action button in the new SSO &gt; Tools settings page for WPSSO Core v4.18.0.
+(2018/12/19) Removed $wp_query as a salt for transient cache array index keys.
 
