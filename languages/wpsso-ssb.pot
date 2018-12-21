@@ -176,8 +176,8 @@ msgstr ""
 #: lib/gettext-config.php:8
 msgctxt "plugin description"
 msgid ""
-"WPSSO Core add-on to provide Social Sharing Buttons with support for "
-"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO Core add-on offers Social Sharing Buttons with support for hashtags, "
+"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #: lib/gettext-config.php:9
@@ -766,8 +766,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"WPSSO Core add-on to provide Social Sharing Buttons with support for "
-"hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more."
+"WPSSO Core add-on offers Social Sharing Buttons with support for hashtags, "
+"short URLs, bbPress, BuddyPress, WooCommerce, and much more."
 msgstr ""
 
 #. Author of the plugin/theme

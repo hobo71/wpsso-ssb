@@ -20,7 +20,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'opt_version' => '18',		// Increment when changing default option values.
 					'short'       => 'WPSSO SSB',	// Short plugin name.
 					'name'        => 'WPSSO Social Sharing Buttons',
-					'desc'        => 'WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
+					'desc'        => 'WPSSO Core add-on offers Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
 					'slug'        => 'wpsso-ssb',
 					'base'        => 'wpsso-ssb/wpsso-ssb.php',
 					'update_auth' => 'tid',
