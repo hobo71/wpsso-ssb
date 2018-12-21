@@ -14,13 +14,13 @@ Tested Up To: 5.0
 WC Tested Up To: 3.5
 Stable Tag: 2.10.1
 
-WPSSO Core add-on to provide Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
+WPSSO Core add-on offers social sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
 == Description ==
 
 <p style="margin:0;"><img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png"></p>
 
-**Provides traditional Social Sharing Buttons for:**
+**Provides traditional social sharing Buttons for:**
 
 The content, excerpt, widget, CSS sidebar, shortcodes, templates, and *admin editor page* &mdash; so you can share directly from the admin editor page!
 
@@ -113,7 +113,7 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the [WPSSO Core Pl
 
 * [Can I share a single image on a webpage?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-share-a-single-image-on-a-webpage/)
 * [Can I use other social sharing buttons?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/can-i-use-other-social-sharing-buttons/)
-* [How do I turn on Social Sharing Buttons for a page?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
+* [How do I turn on social sharing buttons for a page?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/how-do-i-turn-on-social-sharing-buttons-for-a-page/)
 * [Why are the buttons showing the wrong language?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-are-the-buttons-showing-the-wrong-language/)
 * [Why does the Facebook "Like" button flyout get clipped?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-does-the-facebook-like-button-flyout-get-clipped/)
 * [Why doesn't the Pinterest button show?](https://wpsso.com/docs/plugins/wpsso-ssb/faqs/why-doesnt-the-pinterest-button-show/)
@@ -128,7 +128,7 @@ WPSSO Social Sharing Buttons (aka WPSSO SSB) is an add-on for the [WPSSO Core Pl
 
 == Screenshots ==
 
-01. WPSSO SSB example showing the Social Sharing Buttons enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
+01. WPSSO SSB example showing the social sharing buttons enabled (with the default stylesheet) in the CSS sidebar, content text, and widget.
 02. WPSSO SSB Sharing Buttons tab in the Document SSO metabox allows you to fine-tune and customize the text used by several social sharing websites (Pro version).
 03. WPSSO SSB Sharing Buttons settings page.
 04. WPSSO SSB Sharing Styles settings page.
