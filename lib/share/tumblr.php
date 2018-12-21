@@ -228,7 +228,7 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 					}
 				}
 
-				$atts['tags'] = implode( ', ', $this->p->page->get_tag_names( $mod ) );
+				$atts[ 'tags' ] = implode( ', ', $this->p->page->get_tag_names( $mod ) );
 			}
 
 			/**
