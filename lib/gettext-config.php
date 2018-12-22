@@ -5,7 +5,7 @@
  */
 _x( 'Sharing Buttons', 'lib file description', 'wpsso-ssb' );
 _x( 'Sharing Styles', 'lib file description', 'wpsso-ssb' );
-_x( 'WPSSO Core add-on offers Social Sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.', 'plugin description', 'wpsso-ssb' );
+_x( 'WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.', 'plugin description', 'wpsso-ssb' );
 _x( 'Buttons HTML', 'option label', 'wpsso-ssb' );
 _x( 'Content', 'option value', 'wpsso-ssb' );
 _x( 'Excerpt', 'option value', 'wpsso-ssb' );
