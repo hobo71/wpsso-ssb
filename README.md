@@ -2,7 +2,7 @@
 
 <table>
 <tr><th align="right" valign="top" nowrap>Plugin Name</th><td>WPSSO Social Sharing Buttons</td></tr>
-<tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO Core add-on offers social sharing Buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
+<tr><th align="right" valign="top" nowrap>Summary</th><td>WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.</td></tr>
 <tr><th align="right" valign="top" nowrap>Stable Version</th><td>2.10.1</td></tr>
 <tr><th align="right" valign="top" nowrap>Requires At Least</th><td>WordPress 3.8</td></tr>
 <tr><th align="right" valign="top" nowrap>Tested Up To</th><td>WordPress 5.0</td></tr>
@@ -15,7 +15,7 @@
 
 <p style="margin:0;"><img class="readme-icon" src="https://surniaulula.github.io/wpsso-ssb/assets/icon-256x256.png"></p>
 
-<p><strong>Provides traditional social sharing Buttons for:</strong></p>
+<p><strong>Provides traditional social sharing buttons for:</strong></p>
 
 <p>The content, excerpt, widget, CSS sidebar, shortcodes, templates, and <em>admin editor page</em> &mdash; so you can share directly from the admin editor page!</p>
 
