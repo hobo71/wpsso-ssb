@@ -70,7 +70,6 @@
 <li><p>Include or exclude individual social sharing buttons based on the viewing device (desktop and/or mobile).</p></li>
 <li><p>Automatically exclude buttons from <a href="https://wordpress.org/plugins/amp/">Accelerated Mobile Pages (AMP)</a> plugin pages.</p></li>
 <li><p>A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).</p></li>
-<li><p>Download the Free version from <a href="https://surniaulula.github.io/wpsso-ssb/">GitHub</a> or <a href="https://wordpress.org/plugins/wpsso-ssb/">WordPress.org</a>.</p></li>
 </ul>
 
 <h3>WPSSO SSB Additional Features (Pro version)</h3>

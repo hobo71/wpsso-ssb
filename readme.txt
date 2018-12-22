@@ -76,8 +76,6 @@ The Pro version of WPSSO Social Sharing Buttons (aka WPSSO SSB) includes special
 
 * A built-in stylesheets editor for each social sharing button location (content, excerpt, shortcode, widget, etc.).
 
-* Download the Free version from [GitHub](https://surniaulula.github.io/wpsso-ssb/) or [WordPress.org](https://wordpress.org/plugins/wpsso-ssb/).
-
 <h3>WPSSO SSB Additional Features (Pro version)</h3>
 
 * Extends the features of WPSSO Core Pro (requires an active and licensed <a href="https://wpsso.com/">WPSSO Core Pro plugin</a>).
