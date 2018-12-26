@@ -12,7 +12,7 @@ Requires PHP: 5.4
 Requires At Least: 3.8
 Tested Up To: 5.0
 WC Tested Up To: 3.5
-Stable Tag: 2.10.1
+Stable Tag: 2.10.2
 
 WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -149,6 +149,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.10.2 (2018/12/26)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* Removed the "Sharing Buttons" status from the SSO &gt; Dashboard page.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.10.1 (2018/12/19)**
 
 * *New Features*
@@ -173,6 +184,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 == Upgrade Notice ==
+
+= 2.10.2 =
+
+(2018/12/26) Removed the "Sharing Buttons" status from the SSO &gt; Dashboard page.
 
 = 2.10.1 =
 
