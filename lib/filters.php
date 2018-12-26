@@ -549,12 +549,6 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
 
-			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-buttons'] ) ) {
-				$features['(sharing) Sharing Buttons'] = array(
-					'classname' => $ext . 'Sharing',
-				);
-			}
-
 			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-styles'] ) ) {
 				$features['(sharing) Sharing Stylesheet'] = array(
 					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
@@ -578,14 +572,11 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
 
-			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-buttons'] ) ) {
-
-				$features['(feature) Sharing Styles Editor'] = array( 
-					'td_class' => $pkg[ 'pp' ] ? '' : 'blank',
-					'purchase' => $pkg['purchase'],
-					'status'   => $pkg[ 'pp' ] ? 'on' : 'rec',
-				);
-			}
+			$features['(feature) Sharing Styles Editor'] = array( 
+				'td_class' => $pkg[ 'pp' ] ? '' : 'blank',
+				'purchase' => $pkg['purchase'],
+				'status'   => $pkg[ 'pp' ] ? 'on' : 'rec',
+			);
 
 			return $features;
 		}
