@@ -149,6 +149,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.10.3-dev.1 (2018/12/29)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* None.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* Added support for the new SucomUtil::get_transient_array() method in WPSSO Core v4.18.3-dev.1.
+
 **Version 2.10.2 (2018/12/26)**
 
 * *New Features*
@@ -185,11 +196,11 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
+= 2.10.3-dev.1 =
+
+(2018/12/29) Added support for the new SucomUtil::get_transient_array() method in WPSSO Core v4.18.3-dev.1.
+
 = 2.10.2 =
 
 (2018/12/26) Removed the "Sharing Buttons" status from the SSO &gt; Dashboard page.
-
-= 2.10.1 =
-
-(2018/12/19) Removed $wp_query as a salt for transient cache array index keys.
 
