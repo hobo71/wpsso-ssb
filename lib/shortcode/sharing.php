@@ -197,7 +197,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 
 			if ( $cache_exp_secs > 0 ) {
 
-				$cache_array = get_transient( $cache_id );
+				$cache_array = SucomUtil::get_transient_array( $cache_id );
 
 				if ( isset( $cache_array[ $cache_index ] ) ) {
 
