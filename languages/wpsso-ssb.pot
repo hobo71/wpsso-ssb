@@ -261,8 +261,8 @@ msgid "Any Platform"
 msgstr ""
 
 #: lib/gettext-pro.php:6 lib/gettext-pro.php:13 lib/gpl/admin/sharing.php:40
-#: lib/gpl/admin/sharing.php:109 lib/pro/admin/sharing.php:47
-#: lib/pro/admin/sharing.php:112
+#: lib/gpl/admin/sharing.php:110 lib/pro/admin/sharing.php:47
+#: lib/pro/admin/sharing.php:113
 msgctxt "option label"
 msgid "Sharing Buttons HTML Cache Expiry"
 msgstr ""
@@ -278,8 +278,8 @@ msgid "seconds (0 to disable)"
 msgstr ""
 
 #: lib/gettext-pro.php:8 lib/gettext-pro.php:15 lib/gpl/admin/sharing.php:46
-#: lib/gpl/admin/sharing.php:114 lib/pro/admin/sharing.php:53
-#: lib/pro/admin/sharing.php:117
+#: lib/gpl/admin/sharing.php:115 lib/pro/admin/sharing.php:53
+#: lib/pro/admin/sharing.php:118
 msgctxt "option label"
 msgid "Get Social JS Files Cache Expiry"
 msgstr ""
@@ -296,8 +296,8 @@ msgctxt "option label"
 msgid "%s Preset"
 msgstr ""
 
-#: lib/gettext-pro.php:12 lib/gpl/admin/sharing.php:104
-#: lib/pro/admin/sharing.php:107
+#: lib/gettext-pro.php:12 lib/gpl/admin/sharing.php:105
+#: lib/pro/admin/sharing.php:108
 msgctxt "option label"
 msgid "Force Protocol for Shared URLs"
 msgstr ""
@@ -331,31 +331,31 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:224
-#: lib/pro/admin/sharing.php:221
+#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:222
+#: lib/pro/admin/sharing.php:219
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:254
-#: lib/pro/admin/sharing.php:251
+#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:250
+#: lib/pro/admin/sharing.php:247
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:257
-#: lib/pro/admin/sharing.php:254
+#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:253
+#: lib/pro/admin/sharing.php:250
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:265
-#: lib/pro/admin/sharing.php:262
+#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:261
+#: lib/pro/admin/sharing.php:258
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:267
-#: lib/pro/admin/sharing.php:265
+#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:263
+#: lib/pro/admin/sharing.php:261
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
