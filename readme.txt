@@ -8,7 +8,7 @@ License URI: https://www.gnu.org/licenses/gpl.txt
 Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
 Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr
 Contributors: jsmoriss
-Requires PHP: 5.4
+Requires PHP: 5.5
 Requires At Least: 3.8
 Tested Up To: 5.0
 WC Tested Up To: 3.5
