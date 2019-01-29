@@ -11,7 +11,7 @@
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
  * Description: WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
- * Requires PHP: 5.4
+ * Requires PHP: 5.5
  * Requires At Least: 3.8
  * Tested Up To: 5.0
  * WC Tested Up To: 3.5

@@ -143,7 +143,7 @@ if ( ! class_exists( 'WpssoSsbShareTwitter' ) ) {
 
 			if ( ! isset( $atts['lang'] ) ) {
 				$atts['lang'] = empty( $opts['twitter_lang'] ) ? 'en' : $opts['twitter_lang'];
-				$atts['lang'] = apply_filters( $this->p->lca . '_pub_lang', $atts['lang'], 'twitter', 'current' );
+				$atts['lang'] = apply_filters( $this->p->lca . '_pub_lang', $atts[ 'lang' ], 'twitter', 'current' );
 			}
 
 			if ( ! isset( $atts[ 'add_hashtags' ] ) ) {

@@ -782,7 +782,6 @@ $cache_array[ $cache_index ] .
 			}
 
 			$lang = empty( $this->p->options['gp_lang'] ) ? 'en-US' : $this->p->options['gp_lang'];
-
 			$lang = apply_filters( $this->p->lca . '_pub_lang', $lang, 'google', 'current' );
 
 			return '<script type="text/javascript" id="wpssossb-header-script">

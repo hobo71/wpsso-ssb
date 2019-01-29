@@ -61,7 +61,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareFacebook' ) ) {
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Button Language', 'option label (short)', 'wpsso-ssb' ), 'short' ).
-			'<td>'.$form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ).'</td>';
+			'<td>' . $form->get_select( 'fb_lang', SucomUtil::get_pub_lang( 'facebook' ) ) . '</td>';
 
 			$table_rows[] = '' .
 			$form->get_th_html( _x( 'Button Type', 'option label (short)', 'wpsso-ssb' ), 'short' ).
@@ -224,44 +224,63 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 			$atts['show_faces'] = $opts['fb_show_faces'] ? 'true' : 'false';
 
 			$html = '';
+
 			switch ( $opts['fb_button'] ) {
+
 				case 'like':
+
 					switch ( $opts['fb_markup'] ) {
+
 						case 'xfbml':
+
 							$html .= '<!-- Facebook Like / Send Button (XFBML) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ).'>'.
 							'<fb:like href="'.$atts[ 'url' ].'" send="'.$atts['send'].'" '.
 							'layout="'.$opts['fb_layout'].'" show_faces="'.$atts['show_faces'].'" '.
 							'font="'.$opts['fb_font'].'" colorscheme="'.$opts['fb_colorscheme'].'" '.
 							'action="'.$opts['fb_action'].'"></fb:like></div>';
+
 							break;
+
 						case 'html5':
+
 							$html .= '<!-- Facebook Like / Send Button (HTML5) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'facebook', 'fb-like' ) . ' ' . 
 							'data-href="'.$atts[ 'url' ].'" data-send="'.$atts['send'].'" '.
 							'data-layout="'.$opts['fb_layout'].'" data-show-faces="'.$atts['show_faces'].'" '.
 							'data-font="'.$opts['fb_font'].'" data-colorscheme="'.$opts['fb_colorscheme'].'" '.
 							'data-action="'.$opts['fb_action'].'"></div>';
+
 							break;
 					}
+
 					break;
+
 				case 'share':
+
 					switch ( $opts['fb_markup'] ) {
+
 						case 'xfbml':
+
 							$html .= '<!-- Facebook Share Button (XFBML) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ).'>'.
 							'<fb:share-button href="'.$atts[ 'url' ].'" layout="'.$opts['fb_share_layout'].'" '.
 							'mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
 							'size="'.$opts['fb_share_size'].'"></fb:share-button></div>';
+
 							break;
+
 						case 'html5':
+
 							$html .= '<!-- Facebook Share Button (HTML5) -->'.
 							'<div '.SucomUtil::get_atts_css_attr( $atts, 'fb-share', 'fb-share' ) . ' ' . 
 							'data-href="'.$atts[ 'url' ].'" data-layout="'.$opts['fb_share_layout'].'" '.
 							'data-mobile_iframe="'.( empty( $opts['fb_share_mobile_iframe'] ) ? 'false' : 'true' ).'" '.
 							'data-size="'.$opts['fb_share_size'].'"></div>';
+
 							break;
 					}
+
 					break;
 			}
 
@@ -278,9 +297,9 @@ if ( ! class_exists( 'WpssoSsbShareFacebook' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$fb_app_id = empty( $this->p->options['fb_app_id'] ) ? '' : $this->p->options['fb_app_id'];
-			$fb_lang   = empty( $this->p->options['fb_lang'] ) ? 'en_US' : $this->p->options['fb_lang'];
-			$fb_lang   = apply_filters( $this->p->lca.'_pub_lang', $fb_lang, 'facebook', 'current' );
+			$fb_app_id = empty( $this->p->options[ 'fb_app_id' ] ) ? '' : $this->p->options['fb_app_id'];
+			$fb_lang   = empty( $this->p->options[ 'fb_lang' ] ) ? 'en_US' : $this->p->options['fb_lang'];
+			$fb_lang   = apply_filters( $this->p->lca . '_pub_lang', $fb_lang, 'facebook', 'current' );
 
 			/**
 			 * Do not use WpssoSsbSocial::get_file_cache_url() since the facebook javascript does not work when hosted locally.

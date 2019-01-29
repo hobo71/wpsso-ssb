@@ -183,7 +183,7 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 
 			if ( ! array_key_exists( 'lang', $atts ) ) {
 				$atts['lang'] = empty( $opts['tumblr_lang'] ) ? 'en_US' : $opts['tumblr_lang'];
-				$atts['lang'] = apply_filters( $this->p->lca . '_pub_lang', $atts['lang'], 'tumblr', 'current' );
+				$atts['lang'] = apply_filters( $this->p->lca . '_pub_lang', $atts[ 'lang' ], 'tumblr', 'current' );
 			}
 
 			if ( ! empty( $atts['pid'] ) ) {
