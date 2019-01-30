@@ -1,8 +1,8 @@
-# Copyright (C) 2019 WPSSO Social Sharing Buttons
-# This file is distributed under the same license as the WPSSO Social Sharing Buttons package.
+# Copyright (C) 2019 WPSSO Social Sharing Buttons [Add-on]
+# This file is distributed under the same license as the WPSSO Social Sharing Buttons [Add-on] package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.10.3\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons [Add-on] 2.10.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2019-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -757,7 +757,7 @@ msgid ""
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WPSSO Social Sharing Buttons"
+msgid "WPSSO Social Sharing Buttons [Add-on]"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

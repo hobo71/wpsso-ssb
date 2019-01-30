@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WPSSO Social Sharing Buttons
+ * Plugin Name: WPSSO Social Sharing Buttons [Add-on]
  * Plugin Slug: wpsso-ssb
  * Text Domain: wpsso-ssb
  * Domain Path: /languages
