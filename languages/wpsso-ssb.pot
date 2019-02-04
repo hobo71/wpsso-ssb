@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.10.4\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.11.0-dev.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2019-MO-DA HO:MI+ZONE\n"
 "MIME-Version: 1.0\n"
@@ -17,57 +17,57 @@ msgid ""
 "All sharing styles have been reloaded with their default value and saved."
 msgstr ""
 
-#: lib/filters.php:80
+#: lib/filters.php:82
 msgid "Failed to open the css file %s for reading."
 msgstr ""
 
-#: lib/filters.php:211
+#: lib/filters.php:272
 msgctxt "metabox tab"
 msgid "Share Buttons"
 msgstr ""
 
-#: lib/filters.php:420 lib/submenu/ssb-buttons.php:147
+#: lib/filters.php:481 lib/submenu/ssb-buttons.php:147
 msgctxt "metabox tab"
 msgid "Buttons Presets"
 msgstr ""
 
-#: lib/filters.php:424
+#: lib/filters.php:485
 msgid ""
 "The %1$s social sharing buttons are subject to preset values selected on the "
 "%2$s settings page."
 msgstr ""
 
-#: lib/filters.php:432
+#: lib/filters.php:493
 msgctxt "option value"
 msgid "[None]"
 msgstr ""
 
-#: lib/filters.php:450
+#: lib/filters.php:511
 msgid ""
 "Social sharing buttons can be added to the top, bottom, or both. Each "
 "sharing button must also be enabled below (see the <em>%s</em> options)."
 msgstr ""
 
-#: lib/filters.php:450
+#: lib/filters.php:511
 msgctxt "option label"
 msgid "Show Button in"
 msgstr ""
 
-#: lib/filters.php:456
+#: lib/filters.php:517
 msgid ""
 "Add the social sharing buttons to each entry of an index webpage (blog front "
 "page, category, archive, etc.). Social sharing buttons are not included on "
 "index webpages by default."
 msgstr ""
 
-#: lib/filters.php:462
+#: lib/filters.php:523
 msgid ""
 "If a static Post or Page has been selected for the front page, you can add "
 "the social sharing buttons to that static front page as well (default is "
 "unchecked)."
 msgstr ""
 
-#: lib/filters.php:468
+#: lib/filters.php:529
 msgid ""
 "Enabled social sharing buttons are added to the Post, Page, Media, and "
 "Product webpages by default. If your theme (or another plugin) supports "
@@ -75,20 +75,20 @@ msgid ""
 "buttons on these webpages, check the appropriate option(s) here."
 msgstr ""
 
-#: lib/filters.php:474
+#: lib/filters.php:535
 msgid ""
 "Select a pre-defined set of option values for sharing buttons in this "
 "location."
 msgstr ""
 
-#: lib/filters.php:480
+#: lib/filters.php:541
 msgid ""
 "Modify URLs shared by the sharing buttons to use a specific protocol. This "
 "option can be useful to retain the share count of HTTP URLs after moving "
 "your site to HTTPS."
 msgstr ""
 
-#: lib/filters.php:486
+#: lib/filters.php:547
 msgid ""
 "Add the CSS of all <em>%1$s</em> to webpages (default is checked). The CSS "
 "will be <strong>minified</strong>, and saved to a single stylesheet with a "
@@ -96,12 +96,12 @@ msgid ""
 "added directly to the webpage HTML."
 msgstr ""
 
-#: lib/filters.php:486 lib/gettext-config.php:7
+#: lib/filters.php:547 lib/gettext-config.php:7
 msgctxt "lib file description"
 msgid "Sharing Styles"
 msgstr ""
 
-#: lib/filters.php:492
+#: lib/filters.php:553
 msgid ""
 "Have WordPress enqueue the social stylesheet instead of adding the CSS to in "
 "the webpage HTML (default is unchecked). Enqueueing the stylesheet may be "
@@ -109,60 +109,60 @@ msgid ""
 "single stylesheet URL."
 msgstr ""
 
-#: lib/filters.php:498
+#: lib/filters.php:559
 msgid "JavaScript added to webpages for the social sharing sidebar."
 msgstr ""
 
-#: lib/filters.php:504
+#: lib/filters.php:565
 msgid ""
 "Append the %1$s to the tweet (see <a href=\"%2$s\">the Twitter options tab</"
 "a> in the %3$s settings page). The %1$s will be displayed and recommended "
 "after the webpage is shared."
 msgstr ""
 
-#: lib/filters.php:504 lib/filters.php:510
+#: lib/filters.php:565 lib/filters.php:571
 msgctxt "option label"
 msgid "Twitter Business @username"
 msgstr ""
 
-#: lib/filters.php:504
+#: lib/filters.php:565
 msgctxt "lib file description"
 msgid "General"
 msgstr ""
 
-#: lib/filters.php:510
+#: lib/filters.php:571
 msgid ""
 "Recommend following the author's Twitter @username after sharing a webpage. "
 "If the %1$s option (above) is also checked, the %2$s is suggested first."
 msgstr ""
 
-#: lib/filters.php:510 lib/share/buffer.php:85 lib/share/twitter.php:82
+#: lib/filters.php:571 lib/share/buffer.php:85 lib/share/twitter.php:82
 msgctxt "option label (short)"
 msgid "Add via @username"
 msgstr ""
 
-#: lib/filters.php:525 lib/filters.php:536
+#: lib/filters.php:586 lib/filters.php:597
 msgctxt "option comment"
 msgid "disabled"
 msgstr ""
 
-#: lib/filters.php:527
+#: lib/filters.php:588
 msgid ""
 "The rendered HTML for social sharing buttons is saved to the WordPress "
 "transient cache to optimize performance."
 msgstr ""
 
-#: lib/filters.php:529 lib/filters.php:542
+#: lib/filters.php:590 lib/filters.php:603
 msgid "The suggested cache expiration value is %1$s seconds (%2$s)."
 msgstr ""
 
-#: lib/filters.php:538
+#: lib/filters.php:599
 msgid ""
 "The JavaScript of most social sharing buttons can be saved locally to cache "
 "folder in order to provide cached URLs instead of the originals."
 msgstr ""
 
-#: lib/filters.php:540
+#: lib/filters.php:601
 msgid ""
 "If your hosting infrastructure performs reasonably well, this option can "
 "improve page load times significantly."
@@ -377,7 +377,7 @@ msgid "Buffer <em>Sharing Button</em>"
 msgstr ""
 
 #: lib/share/buffer.php:50 lib/share/email.php:34 lib/share/facebook.php:45
-#: lib/share/gplus.php:34 lib/share/linkedin.php:34 lib/share/managewp.php:34
+#: lib/share/linkedin.php:34 lib/share/managewp.php:34
 #: lib/share/pinterest.php:51 lib/share/reddit.php:34 lib/share/tumblr.php:51
 #: lib/share/twitter.php:34 lib/share/whatsapp.php:34
 msgctxt "option label (short)"
@@ -385,7 +385,7 @@ msgid "Show Button in"
 msgstr ""
 
 #: lib/share/buffer.php:53 lib/share/email.php:37 lib/share/facebook.php:49
-#: lib/share/gplus.php:38 lib/share/linkedin.php:38 lib/share/managewp.php:38
+#: lib/share/linkedin.php:38 lib/share/managewp.php:38
 #: lib/share/pinterest.php:55 lib/share/reddit.php:38 lib/share/tumblr.php:55
 #: lib/share/twitter.php:38 lib/share/whatsapp.php:38
 msgctxt "option label (short)"
@@ -393,16 +393,15 @@ msgid "Preferred Order"
 msgstr ""
 
 #: lib/share/buffer.php:58 lib/share/email.php:42 lib/share/facebook.php:54
-#: lib/share/gplus.php:43 lib/share/linkedin.php:43 lib/share/managewp.php:43
+#: lib/share/linkedin.php:43 lib/share/managewp.php:43
 #: lib/share/pinterest.php:60 lib/share/reddit.php:43 lib/share/tumblr.php:60
 #: lib/share/twitter.php:43 lib/share/whatsapp.php:43
 msgctxt "option label (short)"
 msgid "Allow for Platform"
 msgstr ""
 
-#: lib/share/buffer.php:63 lib/share/facebook.php:59 lib/share/gplus.php:48
-#: lib/share/linkedin.php:48 lib/share/pinterest.php:65 lib/share/tumblr.php:65
-#: lib/share/twitter.php:48
+#: lib/share/buffer.php:63 lib/share/facebook.php:59 lib/share/linkedin.php:48
+#: lib/share/pinterest.php:65 lib/share/tumblr.php:65 lib/share/twitter.php:48
 msgctxt "option label (short)"
 msgid "JavaScript in"
 msgstr ""
@@ -468,14 +467,13 @@ msgctxt "metabox tab"
 msgid "Share"
 msgstr ""
 
-#: lib/share/facebook.php:63 lib/share/gplus.php:52 lib/share/pinterest.php:91
-#: lib/share/tumblr.php:69 lib/share/twitter.php:52
+#: lib/share/facebook.php:63 lib/share/pinterest.php:91 lib/share/tumblr.php:69
+#: lib/share/twitter.php:52
 msgctxt "option label (short)"
 msgid "Button Language"
 msgstr ""
 
-#: lib/share/facebook.php:67 lib/share/gplus.php:56 lib/share/managewp.php:48
-#: lib/share/reddit.php:48
+#: lib/share/facebook.php:67 lib/share/managewp.php:48 lib/share/reddit.php:48
 msgctxt "option label (short)"
 msgid "Button Type"
 msgstr ""
@@ -515,7 +513,7 @@ msgctxt "option label (short)"
 msgid "Action Name"
 msgstr ""
 
-#: lib/share/facebook.php:152 lib/share/gplus.php:63 lib/share/twitter.php:56
+#: lib/share/facebook.php:152 lib/share/twitter.php:56
 msgctxt "option label (short)"
 msgid "Button Size"
 msgstr ""
@@ -523,16 +521,6 @@ msgstr ""
 #: lib/share/facebook.php:159
 msgctxt "option label (short)"
 msgid "Mobile iFrame"
-msgstr ""
-
-#: lib/share/gplus.php:72
-msgctxt "option label (short)"
-msgid "Annotation"
-msgstr ""
-
-#: lib/share/gplus.php:81
-msgctxt "option label (short)"
-msgid "Expand to"
 msgstr ""
 
 #: lib/share/pinterest.php:42

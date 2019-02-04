@@ -93,15 +93,6 @@
 }
 
 /**
- * Google+ button.
- */
-#wpsso-ssb-sidebar .ssb-buttons div.gplus-button,
-#wpsso-ssb-sidebar .wpsso-ssb-preset-large_share_vertical .ssb-buttons div.gplus-button {
-	height:60px;
-	line-height:40px;
-}
-
-/**
  * Twitter button.
  */
 #wpsso-ssb-sidebar .ssb-buttons div.twitter-button,

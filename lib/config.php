@@ -16,8 +16,8 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 		public static $cf = array(
 			'plugin' => array(
 				'wpssossb' => array(			// Plugin acronym.
-					'version'     => '2.10.4',	// Plugin version.
-					'opt_version' => '18',		// Increment when changing default option values.
+					'version'     => '2.11.0-dev.1',	// Plugin version.
+					'opt_version' => '21',		// Increment when changing default option values.
 					'short'       => 'WPSSO SSB',	// Short plugin name.
 					'name'        => 'WPSSO Social Sharing Buttons',
 					'desc'        => 'WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.',
@@ -29,7 +29,7 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 					'req' => array(
 						'short'       => 'WPSSO Core',
 						'name'        => 'WPSSO Core',
-						'min_version' => '4.22.0',
+						'min_version' => '4.23.0-dev.1',
 					),
 					'img' => array(
 						'icons' => array(
@@ -70,7 +70,6 @@ if ( ! class_exists( 'WpssoSsbConfig' ) ) {
 							'email'       => 'Email',
 							'twitter'     => 'Twitter',
 							'facebook'    => 'Facebook', 
-							'gplus'       => 'GooglePlus',
 							'pinterest'   => 'Pinterest',
 							'linkedin'    => 'LinkedIn',
 							'buffer'      => 'Buffer',
@@ -166,10 +165,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'fb_action'         => 'like',		// Like and Send: Action Name
 						'fb_share_layout'   => 'button_count',	// Share: Layout
 						'fb_share_size'     => 'small',		// Share: Button Size
-						'gp_action'         => 'share',
-						'gp_size'           => 'medium',
-						'gp_annotation'     => 'bubble',
-						'gp_expandto'       => '',
 						'pin_button_shape'  => 'rect',
 						'pin_button_height' => 'small',
 						'pin_count_layout'  => 'beside',
@@ -188,10 +183,6 @@ jQuery("#wpsso-ssb-sidebar-header").click( function(){
 						'fb_action'         => 'like',			// Like and Send: Action Name
 						'fb_share_layout'   => 'box_count',	// Share: Layout
 						'fb_share_size'     => 'small',		// Share: Button Size
-						'gp_action'         => 'share',
-						'gp_size'           => 'tall',
-						'gp_annotation'     => 'vertical-bubble',
-						'gp_expandto'       => '',
 						'pin_button_shape'  => 'rect',
 						'pin_button_height' => 'large',
 						'pin_count_layout'  => 'above',

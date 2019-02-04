@@ -24,8 +24,10 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults'      => 1,
-				'get_md_defaults'   => 1,
+				'get_defaults'           => 1,
+				'get_md_defaults'        => 1,
+				'rename_options_keys'    => 1,
+				'rename_md_options_keys' => 1,
 			) );
 
 			if ( is_admin() ) {
@@ -117,6 +119,65 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 				'tumblr_vid_desc'  => '',	// Tumblr Video Caption
 				'buttons_disabled' => 0,	// Disable Sharing Buttons
 			) );
+		}
+
+		public function filter_rename_options_keys( $options_keys ) {
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
+			$options_keys[ 'wpssossb' ] = array(
+				14 => array(
+					'buffer_js_loc'   => 'buffer_script_loc',
+					'fb_js_loc'       => 'fb_script_loc',
+					'gp_js_loc'       => 'gp_script_loc',
+					'linkedin_js_loc' => 'linkedin_script_loc',
+					'pin_js_loc'      => 'pin_script_loc',
+					'stumble_js_loc'  => '',
+					'tumblr_js_loc'   => 'tumblr_script_loc',
+					'twitter_js_loc'  => 'twitter_script_loc',
+				),
+				16 => array(
+					'email_cap_len'      => 'email_caption_max_len',
+					'twitter_cap_len'    => 'twitter_caption_max_len',
+					'pin_cap_len'        => 'pin_caption_max_len',
+					'linkedin_cap_len'   => 'linkedin_caption_max_len',
+					'reddit_cap_len'     => 'reddit_caption_max_len',
+					'tumblr_cap_len'     => 'tumblr_caption_max_len',
+					'email_cap_hashtags' => 'email_caption_hashtags',
+				),
+				20 => array(
+					'gp_order'      => '',
+					'gp_platform'   => '',
+					'gp_script_loc' => '',
+					'gp_lang'       => '',
+					'gp_action'     => '',
+					'gp_size'       => '',
+					'gp_annotation' => '',
+					'gp_expandto'   => '',
+				),
+			);
+
+			$show_on = apply_filters( $this->p->lca . '_ssb_buttons_show_on', $this->p->cf[ 'sharing' ][ 'show_on' ], 'gp' );
+
+			foreach ( $show_on as $opt_suffix => $short_desc ) {
+				$options_keys[ 'wpssossb' ][ 20 ][ 'gp_on_' . $opt_suffix ] = '';
+			}
+
+			return $options_keys;
+		}
+
+		public function filter_rename_md_options_keys( $options_keys ) {
+
+			if ( $this->p->debug->enabled ) {
+				$this->p->debug->mark();
+			}
+
+			$options_keys[ 'wpssossb' ] = array(
+			);
+
+			return $options_keys;
 		}
 
 		public function filter_save_options( $opts, $options_name, $network ) {
