@@ -149,7 +149,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.11.0-dev.4 (2019/02/06)**
+**Version 2.11.0-dev.5 (2019/02/07)**
 
 * *New Features*
 	* None.
@@ -218,9 +218,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.11.0-dev.4 =
+= 2.11.0-dev.5 =
 
-(2019/02/06) Removed the Google+ button (Google+ is shutting down its service on April 2nd 2019).
+(2019/02/07) Removed the Google+ button (Google+ is shutting down its service on April 2nd 2019).
 
 = 2.10.4 =
 
