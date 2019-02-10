@@ -639,7 +639,7 @@ msgctxt "metabox title"
 msgid "Share Buttons"
 msgstr ""
 
-#: lib/social.php:272
+#: lib/social.php:276
 msgid "This content must be published<br/>before it can be shared."
 msgstr ""
 
