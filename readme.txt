@@ -10,7 +10,7 @@ Tags: social share, social sharing, share buttons, sharing buttons, bbpress, bud
 Contributors: jsmoriss
 Requires PHP: 5.5
 Requires At Least: 3.8
-Tested Up To: 5.0
+Tested Up To: 5.1
 WC Tested Up To: 3.5
 Stable Tag: 2.11.0
 
