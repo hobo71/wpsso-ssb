@@ -134,7 +134,7 @@ if ( ! class_exists( 'WpssoSsbShareBuffer' ) ) {
 
 		public function filter_plugin_image_sizes( $sizes ) {
 
-			$sizes['buffer_img'] = array(
+			$sizes[ 'buffer_img' ] = array(	// Options prefix.
 				'name'  => 'buffer-button',
 				'label' => _x( 'Buffer Sharing Button', 'image size label', 'wpsso-ssb' ),
 			);

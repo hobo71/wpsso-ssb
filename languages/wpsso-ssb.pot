@@ -331,31 +331,31 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr ""
 
-#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:222
-#: lib/pro/admin/sharing.php:219
+#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:225
+#: lib/pro/admin/sharing.php:222
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr ""
 
-#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:250
-#: lib/pro/admin/sharing.php:247
+#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:256
+#: lib/pro/admin/sharing.php:253
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr ""
 
-#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:253
-#: lib/pro/admin/sharing.php:250
+#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:259
+#: lib/pro/admin/sharing.php:256
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr ""
 
-#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:261
-#: lib/pro/admin/sharing.php:258
+#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:267
+#: lib/pro/admin/sharing.php:264
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr ""
 
-#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:263
-#: lib/pro/admin/sharing.php:261
+#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:269
+#: lib/pro/admin/sharing.php:267
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 

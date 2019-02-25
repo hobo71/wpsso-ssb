@@ -152,14 +152,14 @@ if ( ! class_exists( 'WpssoSsbShareTumblr' ) ) {
 			}
 
 			$this->p->util->add_plugin_filters( $this, array( 
-				'get_defaults' => 1,
+				'get_defaults'       => 1,
 				'plugin_image_sizes' => 1,
 			) );
 		}
 
 		public function filter_plugin_image_sizes( $sizes ) {
 
-			$sizes['tumblr_img'] = array(
+			$sizes[ 'tumblr_img' ] = array(	// Options prefix.
 				'name'  => 'tumblr-button',
 				'label' => _x( 'Tumblr Sharing Button', 'image size label', 'wpsso-ssb' ),
 			);
