@@ -32,6 +32,7 @@ if ( ! class_exists( 'WpssoSsbSubmenuShareFacebook' ) ) {
 		}
 
 		public function filter_ssb_share_facebook_tabs( $tabs ) {
+
 			return array( 
 				'all'   => _x( 'All Buttons', 'metabox tab', 'wpsso-ssb' ),
 				'like'  => _x( 'Like and Send', 'metabox tab', 'wpsso-ssb' ),

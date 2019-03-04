@@ -210,12 +210,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 					$table_rows[] = $this->form->get_th_html( _x( 'Position in Content Text',
 						'option label', 'wpsso-ssb' ), null, 'buttons_pos_content' ) . 
 					'<td>' . $this->form->get_select( 'buttons_pos_content',
-						$this->p->cf['sharing']['position'] ) . '</td>';
+						$this->p->cf[ 'sharing' ][ 'position' ] ) . '</td>';
 
 					$table_rows[] = $this->form->get_th_html( _x( 'Position in Excerpt Text',
 						'option label', 'wpsso-ssb' ), null, 'buttons_pos_excerpt' ) . 
 					'<td>' . $this->form->get_select( 'buttons_pos_excerpt', 
-						$this->p->cf['sharing']['position'] ) . '</td>';
+						$this->p->cf[ 'sharing' ][ 'position' ] ) . '</td>';
 
 					break;
 			}
@@ -229,12 +229,12 @@ if ( ! class_exists( 'WpssoSsbSubmenuSsbButtons' ) && class_exists( 'WpssoAdmin'
 			$max     = 2;
 			$html    = '<table>';
 			$has_pp  = $this->p->check->pp( 'wpssossb', true, $this->p->avail[ '*' ][ 'p_dir' ] );
-			$show_on = apply_filters( $this->p->lca . '_ssb_buttons_show_on', $this->p->cf['sharing']['show_on'], $opt_prefix );
+			$show_on = apply_filters( $this->p->lca . '_ssb_buttons_show_on', $this->p->cf[ 'sharing' ][ 'show_on' ], $opt_prefix );
 
 			foreach ( $show_on as $opt_suffix => $short_desc ) {
 
-				$css_class = isset( $this->p->options[$opt_prefix . '_on_' . $opt_suffix . ':is'] ) &&
-					$this->p->options[$opt_prefix . '_on_' . $opt_suffix . ':is'] === 'disabled' &&
+				$css_class = isset( $this->p->options[$opt_prefix . '_on_' . $opt_suffix . ':is' ] ) &&
+					$this->p->options[ $opt_prefix . '_on_' . $opt_suffix . ':is' ] === 'disabled' &&
 						! $has_pp ? 'show_on blank' : 'show_on';
 
 				$col++;

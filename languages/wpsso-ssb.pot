@@ -376,7 +376,7 @@ msgctxt "option label"
 msgid "Buffer <em>Sharing Button</em>"
 msgstr ""
 
-#: lib/share/buffer.php:50 lib/share/email.php:34 lib/share/facebook.php:45
+#: lib/share/buffer.php:50 lib/share/email.php:34 lib/share/facebook.php:46
 #: lib/share/linkedin.php:34 lib/share/managewp.php:34
 #: lib/share/pinterest.php:51 lib/share/reddit.php:34 lib/share/tumblr.php:51
 #: lib/share/twitter.php:34 lib/share/whatsapp.php:34
@@ -384,7 +384,7 @@ msgctxt "option label (short)"
 msgid "Show Button in"
 msgstr ""
 
-#: lib/share/buffer.php:53 lib/share/email.php:37 lib/share/facebook.php:49
+#: lib/share/buffer.php:53 lib/share/email.php:37 lib/share/facebook.php:50
 #: lib/share/linkedin.php:38 lib/share/managewp.php:38
 #: lib/share/pinterest.php:55 lib/share/reddit.php:38 lib/share/tumblr.php:55
 #: lib/share/twitter.php:38 lib/share/whatsapp.php:38
@@ -392,7 +392,7 @@ msgctxt "option label (short)"
 msgid "Preferred Order"
 msgstr ""
 
-#: lib/share/buffer.php:58 lib/share/email.php:42 lib/share/facebook.php:54
+#: lib/share/buffer.php:58 lib/share/email.php:42 lib/share/facebook.php:55
 #: lib/share/linkedin.php:43 lib/share/managewp.php:43
 #: lib/share/pinterest.php:60 lib/share/reddit.php:43 lib/share/tumblr.php:60
 #: lib/share/twitter.php:43 lib/share/whatsapp.php:43
@@ -400,7 +400,7 @@ msgctxt "option label (short)"
 msgid "Allow for Platform"
 msgstr ""
 
-#: lib/share/buffer.php:63 lib/share/facebook.php:59 lib/share/linkedin.php:48
+#: lib/share/buffer.php:63 lib/share/facebook.php:60 lib/share/linkedin.php:48
 #: lib/share/pinterest.php:65 lib/share/tumblr.php:65 lib/share/twitter.php:48
 msgctxt "option label (short)"
 msgid "JavaScript in"
@@ -452,73 +452,73 @@ msgctxt "option comment"
 msgid "tag names"
 msgstr ""
 
-#: lib/share/facebook.php:36
+#: lib/share/facebook.php:37
 msgctxt "metabox tab"
 msgid "All Buttons"
 msgstr ""
 
-#: lib/share/facebook.php:37
+#: lib/share/facebook.php:38
 msgctxt "metabox tab"
 msgid "Like and Send"
 msgstr ""
 
-#: lib/share/facebook.php:38
+#: lib/share/facebook.php:39
 msgctxt "metabox tab"
 msgid "Share"
 msgstr ""
 
-#: lib/share/facebook.php:63 lib/share/pinterest.php:91 lib/share/tumblr.php:69
+#: lib/share/facebook.php:64 lib/share/pinterest.php:91 lib/share/tumblr.php:69
 #: lib/share/twitter.php:52
 msgctxt "option label (short)"
 msgid "Button Language"
 msgstr ""
 
-#: lib/share/facebook.php:67 lib/share/managewp.php:48 lib/share/reddit.php:48
+#: lib/share/facebook.php:68 lib/share/managewp.php:48 lib/share/reddit.php:48
 msgctxt "option label (short)"
 msgid "Button Type"
 msgstr ""
 
-#: lib/share/facebook.php:79 lib/share/facebook.php:136
+#: lib/share/facebook.php:80 lib/share/facebook.php:137
 msgctxt "option label (short)"
 msgid "Markup Language"
 msgstr ""
 
-#: lib/share/facebook.php:86
+#: lib/share/facebook.php:87
 msgctxt "option label (short)"
 msgid "Include Send"
 msgstr ""
 
-#: lib/share/facebook.php:91 lib/share/facebook.php:143
+#: lib/share/facebook.php:92 lib/share/facebook.php:144
 msgctxt "option label (short)"
 msgid "Button Layout"
 msgstr ""
 
-#: lib/share/facebook.php:101
+#: lib/share/facebook.php:102
 msgctxt "option label (short)"
 msgid "Show Faces"
 msgstr ""
 
-#: lib/share/facebook.php:106
+#: lib/share/facebook.php:107
 msgctxt "option label (short)"
 msgid "Font"
 msgstr ""
 
-#: lib/share/facebook.php:117
+#: lib/share/facebook.php:118
 msgctxt "option label (short)"
 msgid "Color Scheme"
 msgstr ""
 
-#: lib/share/facebook.php:124
+#: lib/share/facebook.php:125
 msgctxt "option label (short)"
 msgid "Action Name"
 msgstr ""
 
-#: lib/share/facebook.php:152 lib/share/twitter.php:56
+#: lib/share/facebook.php:153 lib/share/twitter.php:56
 msgctxt "option label (short)"
 msgid "Button Size"
 msgstr ""
 
-#: lib/share/facebook.php:159
+#: lib/share/facebook.php:160
 msgctxt "option label (short)"
 msgid "Mobile iFrame"
 msgstr ""
