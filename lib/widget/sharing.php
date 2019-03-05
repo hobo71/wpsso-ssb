@@ -47,12 +47,12 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 
 			$atts = array( 
 				'use_post'  => false,		// Don't use the post ID on indexes.
-				'css_id'    => $args['widget_id'],
-				'preset_id' => $this->p->options['buttons_preset_ssb-widget'],
+				'css_id'    => $args[ 'widget_id' ],
+				'preset_id' => $this->p->options[ 'buttons_preset_ssb-widget' ],
 				'filter_id' => 'widget',	// used by get_html() to filter atts and opts
 			);
 
-			$widget_title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+			$widget_title = apply_filters( 'widget_title', $instance[ 'title' ], $instance, $this->id_base );
 
 			if ( $this->p->debug->enabled ) {
 				$this->p->debug->log( 'required call to get_page_mod()' );
@@ -111,7 +111,7 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 			 */
 			$sorted_ids = array();
 
-			foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+			foreach ( $this->p->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
 				if ( array_key_exists( $id, $instance ) && (int) $instance[ $id ] ) {
 					$sorted_ids[ zeroise( $this->p->options[ $opt_pre . '_order' ], 3 ) . '-' . $id ] = $id;
 				}
@@ -126,13 +126,13 @@ if ( ! class_exists( 'WpssoSsbWidgetSharing' ) && class_exists( 'WP_Widget' ) ) 
 
 			if ( ! empty( $cache_array[ $cache_index ] ) ) {
 				$cache_array[ $cache_index ] = '
-<!-- ' . $this->p->lca . ' sharing widget ' . $args['widget_id'] . ' begin -->
+<!-- ' . $this->p->lca . ' sharing widget ' . $args[ 'widget_id' ] . ' begin -->
 <!-- generated on ' . date( 'c' ) . ' -->' . 
 $before_widget . 
 ( empty( $widget_title ) ? '' : $before_title . $widget_title . $after_title ) . 
 $cache_array[ $cache_index ] . "\n" . 	// Buttons html is trimmed, so add newline.
 $after_widget . 
-'<!-- ' . $this->p->lca . ' sharing widget ' . $args['widget_id'] . ' end -->' . "\n\n";
+'<!-- ' . $this->p->lca . ' sharing widget ' . $args[ 'widget_id' ] . ' end -->' . "\n\n";
 			}
 
 			if ( $cache_exp_secs > 0 ) {
