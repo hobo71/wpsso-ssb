@@ -149,6 +149,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.11.1-dev.3 (2019/03/09)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* Added a clear cache call after updating / saving the WPSSO SSB widget.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.11.0 (2019/02/11)**
 
 * *New Features*
@@ -217,6 +228,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 == Upgrade Notice ==
+
+= 2.11.1-dev.3 =
+
+(2019/03/09) Added a clear cache call after updating / saving the WPSSO SSB widget.
 
 = 2.11.0 =
 
