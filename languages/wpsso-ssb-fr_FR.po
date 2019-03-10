@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.11.0\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.11.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
 "POT-Creation-Date: 2019-02-04 13:50-0800\n"
-"PO-Revision-Date: 2019-02-04 13:50-0800\n"
+"PO-Revision-Date: 2019-03-09 17:34-0800\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
