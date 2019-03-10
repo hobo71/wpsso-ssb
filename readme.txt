@@ -149,7 +149,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.11.1-dev.3 (2019/03/09)**
+**Version 2.11.1-b.1 (2019/03/10)**
 
 * *New Features*
 	* None.
@@ -229,9 +229,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.11.1-dev.3 =
+= 2.11.1-b.1 =
 
-(2019/03/09) Added a clear cache call after updating / saving the WPSSO SSB widget.
+(2019/03/10) Added a clear cache call after updating / saving the WPSSO SSB widget.
 
 = 2.11.0 =
 
