@@ -12,7 +12,7 @@ Requires PHP: 5.5
 Requires At Least: 3.8
 Tested Up To: 5.1
 WC Tested Up To: 3.5
-Stable Tag: 2.11.0
+Stable Tag: 2.11.1
 
 WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
@@ -232,8 +232,4 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 = 2.11.1 =
 
 (2019/03/11) Added a clear cache call after updating / saving the WPSSO SSB widget.
-
-= 2.11.0 =
-
-(2019/02/11) Removed the Google+ button (Google+ is shutting down its service on April 2nd 2019).
 
