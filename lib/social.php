@@ -239,7 +239,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				$this->p->debug->mark();
 			}
 
-			$js   = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options['buttons_js_ssb-sidebar'] ) );
+			$js   = trim( preg_replace( '/\/\*.*\*\//', '', $this->p->options[ 'buttons_js_ssb-sidebar' ] ) );
 			$text = $this->get_buttons( '', 'sidebar', $use_post = false );
 
 			if ( ! empty( $text ) ) {
@@ -383,7 +383,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 					$this->p->debug->log( 'is_singular is false' );
 				}
 
-				if ( empty( $this->p->options['buttons_on_index'] ) ) {
+				if ( empty( $this->p->options[ 'buttons_on_index' ] ) ) {
 					$error_message = 'buttons_on_index not enabled';
 				}
 
@@ -393,7 +393,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 					$this->p->debug->log( 'is_front_page is true' );
 				}
 
-				if ( empty( $this->p->options['buttons_on_front'] ) ) {
+				if ( empty( $this->p->options[ 'buttons_on_front' ] ) ) {
 					$error_message = 'buttons_on_front not enabled';
 				}
 
@@ -442,7 +442,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 			$sharing_url = $this->p->util->get_sharing_url( $mod );
 
 			$cache_md5_pre  = $this->p->lca . '_b_';
-			$cache_exp_secs = $this->get_buttons_cache_exp();
+			$cache_exp_secs = $this->get_buttons_cache_exp();	// Returns 0 for 404 and search pages.
 			$cache_salt     = __METHOD__ . '(' . SucomUtil::get_mod_salt( $mod, $sharing_url ) . ')';
 			$cache_id       = $cache_md5_pre . md5( $cache_salt );
 			$cache_index    = $this->get_buttons_cache_index( $type );	// Returns salt with locale, mobile, wp_query, etc.
@@ -486,8 +486,8 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 			}
 
 			if ( empty( $location ) ) {
-				$location = empty( $this->p->options['buttons_pos_' . $type] ) ? 
-					'bottom' : $this->p->options['buttons_pos_' . $type];
+				$location = empty( $this->p->options[ 'buttons_pos_' . $type ] ) ? 
+					'bottom' : $this->p->options[ 'buttons_pos_' . $type ];
 			}
 
 			if ( ! isset( $cache_array[ $cache_index ] ) ) {
@@ -497,9 +497,9 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				 */
 				$sorted_ids = array();
 
-				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
-					if ( ! empty( $this->p->options[$opt_pre . '_on_' . $type] ) ) {
-						$sorted_ids[ zeroise( $this->p->options[$opt_pre . '_order'], 3 ) . '-' . $id ] = $id;
+				foreach ( $this->p->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
+					if ( ! empty( $this->p->options[ $opt_pre . '_on_' . $type ] ) ) {
+						$sorted_ids[ zeroise( $this->p->options[ $opt_pre . '_order' ], 3 ) . '-' . $id ] = $id;
 					}
 				}
 				ksort( $sorted_ids );
@@ -507,8 +507,8 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 				$atts[ 'use_post' ] = $mod[ 'use_post' ];
 				$atts[ 'css_id' ]   = $css_type_name = 'ssb-' . $type;
 
-				if ( ! empty( $this->p->options['buttons_preset_ssb-' . $type] ) ) {
-					$atts[ 'preset_id' ] = $this->p->options['buttons_preset_ssb-' . $type];
+				if ( ! empty( $this->p->options[ 'buttons_preset_ssb-' . $type ] ) ) {
+					$atts[ 'preset_id' ] = $this->p->options[ 'buttons_preset_ssb-' . $type ];
 				}
 
 				/**
@@ -570,6 +570,9 @@ $cache_array[ $cache_index ] .
 			return $text;
 		}
 
+		/**
+		 * Returns 0 for 404 and search pages.
+		 */
 		public function get_buttons_cache_exp() {
 
 			if ( $this->p->debug->enabled ) {
@@ -579,11 +582,20 @@ $cache_array[ $cache_index ] .
 			static $cache_exp_secs = null;	// filter the cache expiration value only once
 
 			if ( ! isset( $cache_exp_secs ) ) {
+
 				$cache_md5_pre    = $this->p->lca . '_b_';
 				$cache_exp_filter = $this->p->cf[ 'wp' ][ 'transient' ][ $cache_md5_pre ][ 'filter' ];
 				$cache_opt_key    = $this->p->cf[ 'wp' ][ 'transient' ][ $cache_md5_pre ][ 'opt_key' ];
 				$cache_exp_secs   = isset( $this->p->options[ $cache_opt_key ] ) ? $this->p->options[ $cache_opt_key ] : WEEK_IN_SECONDS;
-				$cache_exp_secs   = (int) apply_filters( $cache_exp_filter, $cache_exp_secs );
+
+				if ( is_404() || is_search() ) {
+					if ( $this->p->debug->enabled ) {
+						$this->p->debug->log( 'setting cache expiration to 0 seconds for 404 or search page' );
+					}
+					$cache_exp_secs = 0;
+				}
+
+				$cache_exp_secs = (int) apply_filters( $cache_exp_filter, $cache_exp_secs );
 			}
 
 			return $cache_exp_secs;
@@ -601,7 +613,7 @@ $cache_array[ $cache_index ] .
 
 			$cache_index .= '_https:'.( SucomUtil::is_https() ? 'true' : 'false' );
 
-			$cache_index .= $this->p->avail[ '*' ]['vary_ua'] ? '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) : '';
+			$cache_index .= $this->p->avail[ '*' ][ 'vary_ua' ] ? '_mobile:'.( SucomUtil::is_mobile() ? 'true' : 'false' ) : '';
 
 			$cache_index .= false !== $atts ? '_atts:'.http_build_query( $atts, '', '_' ) : '';
 
@@ -690,16 +702,16 @@ $cache_array[ $cache_index ] .
 			/**
 			 * Apply the presets to $custom_opts.
 			 */
-			if ( ! empty( $atts[ 'preset_id' ] ) && ! empty( $this->p->cf['opt']['preset'] ) ) {
+			if ( ! empty( $atts[ 'preset_id' ] ) && ! empty( $this->p->cf[ 'opt' ][ 'preset' ] ) ) {
 
-				if ( isset( $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] ) &&
-					is_array( $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] ) ) {
+				if ( isset( $this->p->cf[ 'opt' ][ 'preset' ][ $atts[ 'preset_id' ] ] ) &&
+					is_array( $this->p->cf[ 'opt' ][ 'preset' ][ $atts[ 'preset_id' ] ] ) ) {
 
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'applying preset_id ' . $atts[ 'preset_id' ] . ' to options' );
 					}
 
-					$custom_opts = array_merge( $custom_opts, $this->p->cf['opt']['preset'][$atts[ 'preset_id' ]] );
+					$custom_opts = array_merge( $custom_opts, $this->p->cf[ 'opt' ][ 'preset' ][ $atts[ 'preset_id' ] ] );
 
 				} elseif ( $this->p->debug->enabled ) {
 					$this->p->debug->log( $atts[ 'preset_id' ] . ' preset_id missing or not array'  );
@@ -736,14 +748,14 @@ $cache_array[ $cache_index ] .
 
 						if ( $this->allow_for_platform( $id ) ) {
 
-							$atts['src_id'] = SucomUtil::get_atts_src_id( $atts, $id );	// Uses 'css_id' and 'use_post'.
+							$atts[ 'src_id' ] = SucomUtil::get_atts_src_id( $atts, $id );	// Uses 'css_id' and 'use_post'.
 
 							if ( empty( $atts[ 'url' ] ) ) {
 								$atts[ 'url' ] = $this->p->util->get_sharing_url( $mod,
-									$atts[ 'add_page' ], $atts['src_id'] );
+									$atts[ 'add_page' ], $atts[ 'src_id' ] );
 							} else {
 								$atts[ 'url' ] = apply_filters( $this->p->lca . '_sharing_url',
-									$atts[ 'url' ], $mod, $atts[ 'add_page' ], $atts['src_id'] );
+									$atts[ 'url' ], $mod, $atts[ 'add_page' ], $atts[ 'src_id' ] );
 							}
 
 							/**
@@ -753,7 +765,7 @@ $cache_array[ $cache_index ] .
 								$atts[ 'url' ], $mod, $id );
 
 							$force_prot = apply_filters( $this->p->lca . '_ssb_buttons_force_prot',
-								$this->p->options['buttons_force_prot'], $mod, $id, $atts[ 'url' ] );
+								$this->p->options[ 'buttons_force_prot' ], $mod, $id, $atts[ 'url' ] );
 
 							if ( ! empty( $force_prot ) && $force_prot !== 'none' ) {
 								$atts[ 'url' ] = preg_replace( '/^.*:\/\//', $force_prot . '://', $atts[ 'url' ] );
@@ -837,7 +849,7 @@ $cache_array[ $cache_index ] .
 
 					if ( is_object( $widget ) && is_active_widget( false, $widget->id_base . '-' . $num, $widget->id_base ) ) {
 	
-						foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+						foreach ( $this->p->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
 							if ( array_key_exists( $id, $instance ) && ! empty( $instance[ $id ] ) ) {
 								$enabled_ids[] = $id;
 							}
@@ -862,13 +874,13 @@ $cache_array[ $cache_index ] .
 
 			} elseif ( ! is_singular() ) {
 
-				if ( empty( $this->p->options['buttons_on_index'] ) ) {
+				if ( empty( $this->p->options[ 'buttons_on_index' ] ) ) {
 					$exit_message = 'buttons_on_index not enabled';
 				}
 
 			} elseif ( is_front_page() ) {
 
-				if ( empty( $this->p->options['buttons_on_front'] ) ) {
+				if ( empty( $this->p->options[ 'buttons_on_front' ] ) ) {
 					$exit_message = 'buttons_on_front not enabled';
 				}
 
@@ -895,7 +907,7 @@ $cache_array[ $cache_index ] .
 
 			} elseif ( is_admin() ) {
 
-				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+				foreach ( $this->p->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
 
 					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_admin_/', $this->p->options ) as $opt_key => $opt_val ) {
 
@@ -907,7 +919,7 @@ $cache_array[ $cache_index ] .
 
 			} else {
 
-				foreach ( $this->p->cf['opt']['cm_prefix'] as $id => $opt_pre ) {
+				foreach ( $this->p->cf[ 'opt' ][ 'cm_prefix' ] as $id => $opt_pre ) {
 
 					foreach ( SucomUtil::preg_grep_keys( '/^' . $opt_pre . '_on_/', $this->p->options ) as $opt_key => $opt_val ) {
 
@@ -970,17 +982,17 @@ $cache_array[ $cache_index ] .
 
 					$id = preg_replace( '/[^a-z]/', '', $id );
 
-					$opt_name = $this->p->cf['opt']['cm_prefix'][ $id ] . '_script_loc';
+					$opt_name = $this->p->cf[ 'opt' ][ 'cm_prefix' ][ $id ] . '_script_loc';
 
 					if ( isset( $this->share[ $id ] ) && method_exists( $this->share[ $id ], 'get_script' ) ) {
 
-						if ( isset( $this->p->options[$opt_name] ) && $this->p->options[$opt_name] === $script_loc ) {
+						if ( isset( $this->p->options[ $opt_name ] ) && $this->p->options[ $opt_name ] === $script_loc ) {
 
 							$script_html .= $this->share[ $id ]->get_script( $pos ) . "\n";
 
 						} else {
 							$script_html .= '<!-- wpssossb ' . $pos . ': ' . $id . ' script location is ' .
-								$this->p->options[$opt_name] . ' -->' . "\n";
+								$this->p->options[ $opt_name ] . ' -->' . "\n";
 						}
 					}
 				}
@@ -1071,8 +1083,8 @@ $cache_array[ $cache_index ] .
 				return $ret;
 			}
 
-			if ( isset( $this->post_buttons_disabled[$post_id] ) ) {
-				return $this->post_buttons_disabled[$post_id];
+			if ( isset( $this->post_buttons_disabled[ $post_id ] ) ) {
+				return $this->post_buttons_disabled[ $post_id ];
 			}
 
 			if ( $this->p->m[ 'util' ][ 'post' ]->get_options( $post_id, 'buttons_disabled' ) ) {	// Returns null if an index key is not found.
@@ -1083,7 +1095,7 @@ $cache_array[ $cache_index ] .
 
 				$ret = true;
 
-			} elseif ( ! empty( $post_obj->post_type ) && empty( $this->p->options['buttons_add_to_' . $post_obj->post_type] ) ) {
+			} elseif ( ! empty( $post_obj->post_type ) && empty( $this->p->options[ 'buttons_add_to_' . $post_obj->post_type ] ) ) {
 
 				if ( $this->p->debug->enabled ) {
 					$this->p->debug->log( 'post ' . $post_id . ': sharing buttons not enabled for post type ' . $post_obj->post_type );
@@ -1092,7 +1104,7 @@ $cache_array[ $cache_index ] .
 				$ret = true;
 			}
 
-			return $this->post_buttons_disabled[$post_id] = apply_filters( $this->p->lca . '_post_buttons_disabled', $ret, $post_id );
+			return $this->post_buttons_disabled[ $post_id ] = apply_filters( $this->p->lca . '_post_buttons_disabled', $ret, $post_id );
 		}
 
 		public function remove_paragraph_tags( $match = array() ) {
@@ -1139,7 +1151,7 @@ $cache_array[ $cache_index ] .
 				$wpsso->debug->mark();
 			}
 
-			if ( ! isset( $atts['tweet'] ) ) {	// Just in case.
+			if ( ! isset( $atts[ 'tweet' ] ) ) {	// Just in case.
 
 				$atts[ 'use_post' ]     = isset( $atts[ 'use_post' ] ) ? $atts[ 'use_post' ] : true;
 				$atts[ 'add_page' ]     = isset( $atts[ 'add_page' ] ) ? $atts[ 'add_page' ] : true;	// Used by get_sharing_url().
@@ -1148,11 +1160,11 @@ $cache_array[ $cache_index ] .
 				$caption_type    = empty( $wpsso->options[ $opt_pre . '_caption' ] ) ? 'title' : $wpsso->options[ $opt_pre . '_caption' ];
 				$caption_max_len = self::get_tweet_max_len( $opt_pre );
 
-				$atts['tweet'] = $wpsso->page->get_caption( $caption_type, $caption_max_len, $mod, $read_cache = true,
+				$atts[ 'tweet' ] = $wpsso->page->get_caption( $caption_type, $caption_max_len, $mod, $read_cache = true,
 					$atts[ 'add_hashtags' ], $do_encode = false, $md_key = $md_pre . '_desc' );
 			}
 
-			return $atts['tweet'];
+			return $atts[ 'tweet' ];
 		}
 
 		/**
@@ -1197,7 +1209,7 @@ $cache_array[ $cache_index ] .
 			}
 
 			$cache_exp_secs = (int) apply_filters( $wpsso->lca . '_cache_expire_social_file', 
-				$wpsso->options['plugin_social_file_cache_exp'] );
+				$wpsso->options[ 'plugin_social_file_cache_exp' ] );
 
 			if ( $cache_exp_secs > 0 && isset( $wpsso->cache->base_dir ) ) {
 				$url = $wpsso->cache->get( $url, 'url', 'file', $cache_exp_secs, $file_ext );
