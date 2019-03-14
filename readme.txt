@@ -149,6 +149,17 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
+**Version 2.11.2-dev.1 (2019/03/14)**
+
+* *New Features*
+	* None.
+* *Improvements*
+	* Disabled sharing buttons transient cache for 404 and search pages.
+* *Bugfixes*
+	* None.
+* *Developer Notes*
+	* None.
+
 **Version 2.11.1 (2019/03/11)**
 
 * *New Features*
@@ -228,6 +239,10 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 	* Renamed the 'wpsso_action_buttons' filter hook to 'wpsso_form_button_rows' for WPSSO Core v4.18.0.
 
 == Upgrade Notice ==
+
+= 2.11.2-dev.1 =
+
+(2019/03/14) Disabled sharing buttons transient cache for 404 and search pages.
 
 = 2.11.1 =
 
