@@ -460,7 +460,7 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 
 				$cache_array = SucomUtil::get_transient_array( $cache_id );
 
-				if ( isset( $cache_array[ $cache_index ] ) ) {	// can be an empty string
+				if ( isset( $cache_array[ $cache_index ] ) ) {	// Can be an empty string.
 
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( $type . ' cache index found in transient cache' );
@@ -481,8 +481,17 @@ if ( ! class_exists( 'WpssoSsbSocial' ) ) {
 					}
 				}
 
-			} elseif ( $this->p->debug->enabled ) {
-				$this->p->debug->log( $type . ' buttons array transient cache is disabled' );
+			} else {
+			
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( $type . ' buttons transient cache is disabled' );
+				}
+
+				if ( SucomUtil::delete_transient_array( $cache_id ) ) {
+					if ( $this->p->debug->enabled ) {
+						$this->p->debug->log( 'deleted transient cache id ' . $cache_id );
+					}
+				}
 			}
 
 			if ( empty( $location ) ) {
@@ -579,7 +588,7 @@ $cache_array[ $cache_index ] .
 				$this->p->debug->mark();
 			}
 
-			static $cache_exp_secs = null;	// filter the cache expiration value only once
+			static $cache_exp_secs = null;	// Filter the cache expiration value only once.
 
 			if ( ! isset( $cache_exp_secs ) ) {
 
@@ -589,9 +598,11 @@ $cache_array[ $cache_index ] .
 				$cache_exp_secs   = isset( $this->p->options[ $cache_opt_key ] ) ? $this->p->options[ $cache_opt_key ] : WEEK_IN_SECONDS;
 
 				if ( is_404() || is_search() ) {
+
 					if ( $this->p->debug->enabled ) {
 						$this->p->debug->log( 'setting cache expiration to 0 seconds for 404 or search page' );
 					}
+
 					$cache_exp_secs = 0;
 				}
 

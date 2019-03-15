@@ -205,7 +205,7 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 						$this->p->debug->log( $type . ' cache index found in transient cache' );
 					}
 
-					return $cache_array[ $cache_index ];	// stop here
+					return $cache_array[ $cache_index ];	// Stop here.
 
 				} else {
 
@@ -218,8 +218,17 @@ if ( ! class_exists( 'WpssoSsbShortcodeSharing' ) ) {
 					}
 				}
 
-			} elseif ( $this->p->debug->enabled ) {
-				$this->p->debug->log( $type . ' buttons array transient cache is disabled' );
+			} else {
+			
+				if ( $this->p->debug->enabled ) {
+					$this->p->debug->log( $type . ' buttons transient cache is disabled' );
+				}
+
+				if ( SucomUtil::delete_transient_array( $cache_id ) ) {
+					if ( $this->p->debug->enabled ) {
+						$this->p->debug->log( 'deleted transient cache id ' . $cache_id );
+					}
+				}
 			}
 
 			$ids = array_map( 'trim', explode( ',', $atts['buttons'] ) );
