@@ -149,7 +149,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.11.2-dev.2 (2019/03/15)**
+**Version 2.11.2 (2019/03/18)**
 
 * *New Features*
 	* None.
@@ -240,9 +240,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.11.2-dev.2 =
+= 2.11.2 =
 
-(2019/03/15) Disabled sharing buttons transient cache for 404 and search pages.
+(2019/03/18) Disabled sharing buttons transient cache for 404 and search pages.
 
 = 2.11.1 =
 
