@@ -9,7 +9,7 @@ Assets URI: https://surniaulula.github.io/wpsso-ssb/assets/
 Tags: social share, social sharing, share buttons, sharing buttons, bbpress, buddypress, woocommerce, social, share, sharing, buttons, facebook, google, google plus, g+, twitter, linkedin, whatsapp, pinterest, tumblr
 Contributors: jsmoriss
 Requires At Least: 3.8
-Tested Up To: 5.1
+Tested Up To: 5.1.1
 WC Tested Up To: 3.5
 Stable Tag: 2.11.2
 
