@@ -57,7 +57,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 			 */
 			$def_opts     = $this->p->util->add_ptns_to_opts( $def_opts, 'buttons_add_to', 1 );
 			$rel_url_path = parse_url( WPSSOSSB_URLPATH, PHP_URL_PATH );	// Returns a relative URL.
-			$styles       = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf['sharing']['ssb_styles'] );
+			$styles       = apply_filters( $this->p->lca . '_ssb_styles', $this->p->cf[ 'sharing' ][ 'ssb_styles' ] );
 
 			foreach ( $styles as $id => $name ) {
 
@@ -582,7 +582,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 				case 'tooltip-plugin_sharing_buttons_cache_exp':
 
-					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_sharing_buttons_cache_exp'];
+					$cache_exp_secs  = WpssoSsbConfig::$cf[ 'opt' ][ 'defaults' ][ 'plugin_sharing_buttons_cache_exp' ];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The rendered HTML for social sharing buttons is saved to the WordPress transient cache to optimize performance.', 'wpsso-ssb' ) . ' ';
@@ -593,7 +593,7 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 				case 'tooltip-plugin_social_file_cache_exp':
 
-					$cache_exp_secs  = WpssoSsbConfig::$cf['opt']['defaults']['plugin_social_file_cache_exp'];
+					$cache_exp_secs  = WpssoSsbConfig::$cf[ 'opt' ][ 'defaults' ][ 'plugin_social_file_cache_exp' ];
 					$cache_exp_human = $cache_exp_secs ? human_time_diff( 0, $cache_exp_secs ) : _x( 'disabled', 'option comment', 'wpsso-ssb' );
 
 					$text = __( 'The JavaScript of most social sharing buttons can be saved locally to cache folder in order to provide cached URLs instead of the originals.', 'wpsso-ssb' ) . ' ';
@@ -610,20 +610,20 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_gpl_features( $features, $ext, $info, $pkg ) {
 
-			if ( ! empty( $info[ 'lib' ]['submenu']['ssb-styles'] ) ) {
-				$features['(sharing) Sharing Stylesheet'] = array(
-					'status' => empty( $this->p->options['buttons_use_social_style'] ) ? 'off' : 'on',
+			if ( ! empty( $info[ 'lib' ][ 'submenu' ][ 'ssb-styles' ] ) ) {
+				$features[ '(sharing) Sharing Stylesheet' ] = array(
+					'status' => empty( $this->p->options[ 'buttons_use_social_style' ] ) ? 'off' : 'on',
 				);
 			}
 
-			if ( ! empty( $info[ 'lib' ]['shortcode']['sharing'] ) ) {
-				$features['(sharing) Sharing Shortcode'] = array(
+			if ( ! empty( $info[ 'lib' ][ 'shortcode' ][ 'sharing' ] ) ) {
+				$features[ '(sharing) Sharing Shortcode' ] = array(
 					'classname' => $ext . 'ShortcodeSharing',
 				);
 			}
 
-			if ( ! empty( $info[ 'lib' ]['widget']['sharing'] ) ) {
-				$features['(sharing) Sharing Widget'] = array(
+			if ( ! empty( $info[ 'lib' ][ 'widget' ][ 'sharing' ] ) ) {
+				$features[ '(sharing) Sharing Widget' ] = array(
 					'classname' => $ext . 'WidgetSharing'
 				);
 			}
@@ -633,9 +633,9 @@ if ( ! class_exists( 'WpssoSsbFilters' ) ) {
 
 		public function filter_status_pro_features( $features, $ext, $info, $pkg ) {
 
-			$features['(feature) Sharing Styles Editor'] = array( 
+			$features[ '(feature) Sharing Styles Editor' ] = array( 
 				'td_class' => $pkg[ 'pp' ] ? '' : 'blank',
-				'purchase' => $pkg['purchase'],
+				'purchase' => $pkg[ 'purchase' ],
 				'status'   => $pkg[ 'pp' ] ? 'on' : 'rec',
 			);
 
