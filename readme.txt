@@ -148,7 +148,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.11.4 (2019/04/12)**
+**Version 2.11.4-rc.1 (2019/04/13)**
 
 * *New Features*
 	* None.
@@ -172,9 +172,9 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.11.4-b.1 =
+= 2.11.4-rc.1 =
 
-(2019/04/12) Added the "Reload Default Sharing Styles" action button to the WordPress Tools &gt; SSO Tools page.
+(2019/04/13) Added the "Reload Default Sharing Styles" action button to the WordPress Tools &gt; SSO Tools page.
 
 = 2.11.3 =
 
