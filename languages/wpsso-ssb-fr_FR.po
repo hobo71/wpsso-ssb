@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the WPSSO Social Sharing Buttons (WPSSO SSB) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPSSO Social Sharing Buttons 2.11.1\n"
+"Project-Id-Version: WPSSO Social Sharing Buttons 2.11.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpsso-ssb\n"
-"POT-Creation-Date: 2019-02-04 13:50-0800\n"
-"PO-Revision-Date: 2019-03-09 17:34-0800\n"
+"POT-Creation-Date: 2019-04-12 11:38-0700\n"
+"PO-Revision-Date: 2019-04-12 11:38-0700\n"
 "Last-Translator: JS Morisset <jsm@surniaulula.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -294,31 +294,31 @@ msgctxt "option label"
 msgid "Tweet Text"
 msgstr "Texte du Tweet"
 
-#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:222
-#: lib/pro/admin/sharing.php:219
+#: lib/gettext-pro.php:22 lib/gpl/admin/sharing.php:225
+#: lib/pro/admin/sharing.php:222
 msgctxt "option label"
 msgid "Pinterest Caption Text"
 msgstr "Texte légende Pinterest"
 
-#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:250
-#: lib/pro/admin/sharing.php:247
+#: lib/gettext-pro.php:23 lib/gpl/admin/sharing.php:256
+#: lib/pro/admin/sharing.php:253
 msgctxt "option label"
 msgid "Tumblr Image Caption"
 msgstr "Légende d'image Tumblr"
 
-#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:253
-#: lib/pro/admin/sharing.php:250
+#: lib/gettext-pro.php:24 lib/gpl/admin/sharing.php:259
+#: lib/pro/admin/sharing.php:256
 msgid "Caption disabled - no suitable image found for the %s button"
 msgstr "Légende désactivé - aucune image appropriée trouvé pour le bouton %s"
 
-#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:261
-#: lib/pro/admin/sharing.php:258
+#: lib/gettext-pro.php:25 lib/gpl/admin/sharing.php:267
+#: lib/pro/admin/sharing.php:264
 msgctxt "option label"
 msgid "Tumblr Video Caption"
 msgstr "Légende vidéo Tumblr"
 
-#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:263
-#: lib/pro/admin/sharing.php:261
+#: lib/gettext-pro.php:26 lib/gpl/admin/sharing.php:269
+#: lib/pro/admin/sharing.php:267
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr "Légende désactivé - aucun vidéo appropriée trouvé pour le bouton %s"
 
@@ -339,7 +339,7 @@ msgctxt "option label"
 msgid "Buffer <em>Sharing Button</em>"
 msgstr "<em>Bouton de partage</em> Buffer"
 
-#: lib/share/buffer.php:50 lib/share/email.php:34 lib/share/facebook.php:45
+#: lib/share/buffer.php:50 lib/share/email.php:34 lib/share/facebook.php:46
 #: lib/share/linkedin.php:34 lib/share/managewp.php:34
 #: lib/share/pinterest.php:51 lib/share/reddit.php:34 lib/share/tumblr.php:51
 #: lib/share/twitter.php:34 lib/share/whatsapp.php:34
@@ -347,7 +347,7 @@ msgctxt "option label (short)"
 msgid "Show Button in"
 msgstr "Afficher le bouton"
 
-#: lib/share/buffer.php:53 lib/share/email.php:37 lib/share/facebook.php:49
+#: lib/share/buffer.php:53 lib/share/email.php:37 lib/share/facebook.php:50
 #: lib/share/linkedin.php:38 lib/share/managewp.php:38
 #: lib/share/pinterest.php:55 lib/share/reddit.php:38 lib/share/tumblr.php:55
 #: lib/share/twitter.php:38 lib/share/whatsapp.php:38
@@ -355,7 +355,7 @@ msgctxt "option label (short)"
 msgid "Preferred Order"
 msgstr "Ordre de préférence"
 
-#: lib/share/buffer.php:58 lib/share/email.php:42 lib/share/facebook.php:54
+#: lib/share/buffer.php:58 lib/share/email.php:42 lib/share/facebook.php:55
 #: lib/share/linkedin.php:43 lib/share/managewp.php:43
 #: lib/share/pinterest.php:60 lib/share/reddit.php:43 lib/share/tumblr.php:60
 #: lib/share/twitter.php:43 lib/share/whatsapp.php:43
@@ -363,7 +363,7 @@ msgctxt "option label (short)"
 msgid "Allow for Platform"
 msgstr "Pour Plateforme"
 
-#: lib/share/buffer.php:63 lib/share/facebook.php:59 lib/share/linkedin.php:48
+#: lib/share/buffer.php:63 lib/share/facebook.php:60 lib/share/linkedin.php:48
 #: lib/share/pinterest.php:65 lib/share/tumblr.php:65 lib/share/twitter.php:48
 msgctxt "option label (short)"
 msgid "JavaScript in"
@@ -415,73 +415,73 @@ msgctxt "option comment"
 msgid "tag names"
 msgstr "noms d'étiquettes"
 
-#: lib/share/facebook.php:36
+#: lib/share/facebook.php:37
 msgctxt "metabox tab"
 msgid "All Buttons"
 msgstr "Tous les boutons"
 
-#: lib/share/facebook.php:37
+#: lib/share/facebook.php:38
 msgctxt "metabox tab"
 msgid "Like and Send"
 msgstr "J'aime et Envoie"
 
-#: lib/share/facebook.php:38
+#: lib/share/facebook.php:39
 msgctxt "metabox tab"
 msgid "Share"
 msgstr "Partager"
 
-#: lib/share/facebook.php:63 lib/share/pinterest.php:91 lib/share/tumblr.php:69
+#: lib/share/facebook.php:64 lib/share/pinterest.php:91 lib/share/tumblr.php:69
 #: lib/share/twitter.php:52
 msgctxt "option label (short)"
 msgid "Button Language"
 msgstr "Langue du bouton"
 
-#: lib/share/facebook.php:67 lib/share/managewp.php:48 lib/share/reddit.php:48
+#: lib/share/facebook.php:68 lib/share/managewp.php:48 lib/share/reddit.php:48
 msgctxt "option label (short)"
 msgid "Button Type"
 msgstr "Type de bouton"
 
-#: lib/share/facebook.php:79 lib/share/facebook.php:136
+#: lib/share/facebook.php:80 lib/share/facebook.php:137
 msgctxt "option label (short)"
 msgid "Markup Language"
 msgstr "Type de balisage"
 
-#: lib/share/facebook.php:86
+#: lib/share/facebook.php:87
 msgctxt "option label (short)"
 msgid "Include Send"
 msgstr "Ajout bouton Envoi"
 
-#: lib/share/facebook.php:91 lib/share/facebook.php:143
+#: lib/share/facebook.php:92 lib/share/facebook.php:144
 msgctxt "option label (short)"
 msgid "Button Layout"
 msgstr "Disposition du bouton"
 
-#: lib/share/facebook.php:101
+#: lib/share/facebook.php:102
 msgctxt "option label (short)"
 msgid "Show Faces"
 msgstr "Montrer les faces"
 
-#: lib/share/facebook.php:106
+#: lib/share/facebook.php:107
 msgctxt "option label (short)"
 msgid "Font"
 msgstr "Police de caractère"
 
-#: lib/share/facebook.php:117
+#: lib/share/facebook.php:118
 msgctxt "option label (short)"
 msgid "Color Scheme"
 msgstr "Jeu de couleurs"
 
-#: lib/share/facebook.php:124
+#: lib/share/facebook.php:125
 msgctxt "option label (short)"
 msgid "Action Name"
 msgstr "Nom de l'action"
 
-#: lib/share/facebook.php:152 lib/share/twitter.php:56
+#: lib/share/facebook.php:153 lib/share/twitter.php:56
 msgctxt "option label (short)"
 msgid "Button Size"
 msgstr "Taille du bouton"
 
-#: lib/share/facebook.php:159
+#: lib/share/facebook.php:160
 msgctxt "option label (short)"
 msgid "Mobile iFrame"
 msgstr "iFrame mobile"
@@ -600,7 +600,7 @@ msgctxt "metabox title"
 msgid "Share Buttons"
 msgstr "Boutons de partage"
 
-#: lib/social.php:272
+#: lib/social.php:276
 msgid "This content must be published<br/>before it can be shared."
 msgstr "Ce contenu doit être publié<br/>avant d'être partagé."
 
@@ -648,27 +648,27 @@ msgctxt "option label"
 msgid "Position in Excerpt Text"
 msgstr "Position dans le texte d'extrait"
 
-#: lib/submenu/ssb-styles.php:48
+#: lib/submenu/ssb-styles.php:55
 msgctxt "submit button"
 msgid "Reload Default Sharing Styles"
 msgstr "Recharger styles de partage par défaut"
 
-#: lib/submenu/ssb-styles.php:61
+#: lib/submenu/ssb-styles.php:68
 msgctxt "metabox title"
 msgid "Social Sharing Styles"
 msgstr "Styles de partage social"
 
-#: lib/submenu/ssb-styles.php:85
+#: lib/submenu/ssb-styles.php:92
 msgctxt "option label"
 msgid "Use the Social Stylesheet"
 msgstr "Utiliser la feuille de style social"
 
-#: lib/submenu/ssb-styles.php:88
+#: lib/submenu/ssb-styles.php:95
 msgctxt "option label"
 msgid "Enqueue the Stylesheet"
 msgstr "Placer la feuille de style en queue"
 
-#: lib/submenu/ssb-styles.php:123
+#: lib/submenu/ssb-styles.php:130
 msgctxt "option label"
 msgid "Sidebar Javascript"
 msgstr "JavaScript de la barre latérale"
@@ -677,25 +677,25 @@ msgstr "JavaScript de la barre latérale"
 msgid "The %s widget."
 msgstr "Le widget %s."
 
-#: lib/widget/sharing.php:174
+#: lib/widget/sharing.php:188
 msgctxt "option value"
 msgid "Share It"
 msgstr "Partager"
 
-#: lib/widget/sharing.php:177
+#: lib/widget/sharing.php:191
 msgctxt "option label"
 msgid "Widget Title (leave blank for no title)"
 msgstr "Titre du Widget (laisser vide pour aucun titre)"
 
-#: wpsso-ssb.php:104
+#: wpsso-ssb.php:103
 msgid "%1$s is an add-on for the %2$s plugin &mdash; please install and activate the %3$s plugin before activating %4$s."
 msgstr "%1$s est un ajout pour l'extension %2$s &mdash; SVP installer et activer l'extension %3$s avant d'activer %4$s."
 
-#: wpsso-ssb.php:106
+#: wpsso-ssb.php:105
 msgid "The %1$s add-on requires the %2$s plugin &mdash; install and activate the %3$s plugin or <a href=\"%4$s\">deactivate the %5$s add-on</a>."
 msgstr "L'ajout %1$s requiert l'extension %2$s &mdash; installer et activer l'extension %3$s ou <a href=\"%4$s\">désactiver l'ajout %5$s</a>."
 
-#: wpsso-ssb.php:211
+#: wpsso-ssb.php:210
 msgid "The %1$s version %2$s add-on requires %3$s version %4$s or newer (version %5$s is currently installed)."
 msgstr "L'ajout %1$s version %2$s requiert %3$s version %4$s ou plus récente (version %5$s est actuellement installée)."
 
