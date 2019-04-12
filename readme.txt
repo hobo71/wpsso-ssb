@@ -11,7 +11,7 @@ Contributors: jsmoriss
 Requires At Least: 3.8
 Tested Up To: 5.1.1
 WC Tested Up To: 3.5
-Stable Tag: 2.11.3
+Stable Tag: 2.11.4
 
 WPSSO Core add-on offers social sharing buttons with support for hashtags, short URLs, bbPress, BuddyPress, WooCommerce, and much more.
 
