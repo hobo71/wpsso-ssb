@@ -148,7 +148,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.11.4-rc.1 (2019/04/13)**
+**Version 2.11.4 (2019/04/13)**
 
 * *New Features*
 	* None.
@@ -172,11 +172,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.11.4-rc.1 =
+= 2.11.4 =
 
 (2019/04/13) Added the "Reload Default Sharing Styles" action button to the WordPress Tools &gt; SSO Tools page.
-
-= 2.11.3 =
-
-(2019/04/09) Maintenance release for WPSSO Core v4.27.2 config array updates.
 
