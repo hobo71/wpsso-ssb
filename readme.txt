@@ -159,7 +159,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 * *Bugfixes*
 	* None.
 * *Developer Notes*
-	* None.
+	* Update for code changes in WPSSO Core v5.0.0.
 
 **Version 2.11.4 (2019/04/13)**
 
@@ -187,7 +187,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 = 5.0.0-dev.1 =
 
-(TBD) None.
+(TBD) Update for code changes in WPSSO Core v5.0.0.
 
 = 2.11.4 =
 
