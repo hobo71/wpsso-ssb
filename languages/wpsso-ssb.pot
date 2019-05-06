@@ -359,13 +359,13 @@ msgstr ""
 msgid "Caption disabled - no suitable video found for the %s button"
 msgstr ""
 
-#: lib/gettext-pro.php:27 lib/gpl/ecom/woocommerce.php:106
+#: lib/gettext-pro.php:27 lib/gpl/ecom/woocommerce.php:107
 #: lib/pro/ecom/woocommerce.php:113
 msgctxt "option label"
 msgid "Position in Woo Short Text"
 msgstr ""
 
-#: lib/gettext-pro.php:28 lib/gpl/forum/bbpress.php:108
+#: lib/gettext-pro.php:28 lib/gpl/forum/bbpress.php:109
 #: lib/pro/forum/bbpress.php:162
 msgctxt "option label"
 msgid "Position in bbPress Single"
