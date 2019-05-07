@@ -185,7 +185,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 5.0.0-dev.1 =
+= 3.0.0-dev.1 =
 
 (TBD) Update for code changes in WPSSO Core v5.0.0.
 
