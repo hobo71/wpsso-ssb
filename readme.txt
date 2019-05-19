@@ -150,7 +150,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 <h3>Changelog / Release Notes</h3>
 
-**Version 2.12.0-b.3 (2019/05/17)**
+**Version 2.12.0-rc.1 (2019/05/17)**
 
 * *New Features*
 	* None.
@@ -185,7 +185,7 @@ Version components: `{major}.{minor}.{bugfix}[-{stage}.{level}]`
 
 == Upgrade Notice ==
 
-= 2.12.0-b.3 =
+= 2.12.0-rc.1 =
 
 (2019/05/17) Update for code changes in WPSSO Core v4.31.0.
 
